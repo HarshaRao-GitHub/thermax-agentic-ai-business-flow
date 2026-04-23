@@ -61,6 +61,8 @@ export default function Header() {
             <NavSep />
             <NavLink href="/doc-intelligence">Doc Intelligence</NavLink>
             <NavSep />
+            <NavLink href="/agentic-experience">Agentic Experience</NavLink>
+            <NavSep />
             <Link
               href="/custom-agents"
               className="px-3 py-1.5 rounded-md text-thermax-saffron hover:text-white hover:bg-thermax-saffron/20 transition font-semibold text-[13px]"
