@@ -42,6 +42,7 @@ export default function AgentChat({
   const [loadingSampleFiles, setLoadingSampleFiles] = useState<Set<string>>(new Set());
   const [dataViewer, setDataViewer] = useState<DataViewerState>({ open: false, title: '', content: '', loading: false });
   const [userPrompt, setUserPrompt] = useState<UserPromptState>({ text: '', saved: false, validating: false, error: null });
+  const [expandedTool, setExpandedTool] = useState<string | null>(null);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const startTimeRef = useRef<number>(0);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -226,10 +227,35 @@ export default function AgentChat({
     if (timerRef.current) { clearInterval(timerRef.current); timerRef.current = null; }
   }
 
+  const MAX_UPLOAD_FILES = 2;
+  const MAX_UPLOAD_SIZE_MB = 30;
+
   async function handleUpload(e: React.ChangeEvent<HTMLInputElement>) {
     const files = e.target.files;
     if (!files || files.length === 0) return;
     setUploadError(null);
+
+    const currentCount = uploadedFiles.length;
+    if (currentCount >= MAX_UPLOAD_FILES) {
+      setUploadError(`Maximum ${MAX_UPLOAD_FILES} uploaded files allowed. Remove existing files first.`);
+      if (fileInputRef.current) fileInputRef.current.value = '';
+      return;
+    }
+    const allowed = MAX_UPLOAD_FILES - currentCount;
+    if (files.length > allowed) {
+      setUploadError(`You can upload ${allowed} more file${allowed > 1 ? 's' : ''} (limit: ${MAX_UPLOAD_FILES} total). You selected ${files.length}.`);
+      if (fileInputRef.current) fileInputRef.current.value = '';
+      return;
+    }
+
+    for (let i = 0; i < files.length; i++) {
+      if (files[i].size > MAX_UPLOAD_SIZE_MB * 1024 * 1024) {
+        setUploadError(`"${files[i].name}" exceeds the ${MAX_UPLOAD_SIZE_MB} MB size limit (${(files[i].size / 1024 / 1024).toFixed(1)} MB).`);
+        if (fileInputRef.current) fileInputRef.current.value = '';
+        return;
+      }
+    }
+
     const fd = new FormData();
     for (let i = 0; i < files.length; i++) {
       fd.append('files', files[i]);
@@ -316,7 +342,27 @@ export default function AgentChat({
       const res = await fetch(sf.path);
       if (!res.ok) throw new Error('Failed to fetch');
       const text = await res.text();
-      setDataViewer({ open: true, title: `${sf.label} (${sf.filename})`, content: text, loading: false });
+      const lines = text.split(/\r?\n/).filter(l => l.trim());
+      if (lines.length > 0 && sf.filename.endsWith('.csv')) {
+        const parseLine = (line: string) => {
+          const fields: string[] = []; let cur = ''; let inQ = false;
+          for (let i = 0; i < line.length; i++) {
+            const ch = line[i];
+            if (ch === '"') { if (inQ && line[i+1] === '"') { cur += '"'; i++; } else inQ = !inQ; }
+            else if (ch === ',' && !inQ) { fields.push(cur.trim()); cur = ''; }
+            else cur += ch;
+          }
+          fields.push(cur.trim()); return fields;
+        };
+        const headers = parseLine(lines[0]);
+        const dataRows = lines.slice(1).map(l => parseLine(l));
+        const header = headers.join(' | ');
+        const sep = headers.map(() => '---').join(' | ');
+        const rowLines = dataRows.map(r => headers.map((_, i) => (r[i] ?? '').replace(/\n/g, ' ')).join(' | '));
+        setDataViewer({ open: true, title: `${sf.label} (${sf.filename}) — ${dataRows.length} rows`, content: `| ${header} |\n| ${sep} |\n${rowLines.map(r => `| ${r} |`).join('\n')}`, loading: false });
+      } else {
+        setDataViewer({ open: true, title: `${sf.label} (${sf.filename})`, content: text, loading: false });
+      }
     } catch {
       setDataViewer(prev => ({ ...prev, content: 'Error: Could not load this file.', loading: false }));
     }
@@ -352,16 +398,16 @@ export default function AgentChat({
   return (
     <>
     {dataViewer.open && (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4" onClick={() => setDataViewer({ open: false, title: '', content: '', loading: false })}>
-        <div className="bg-white rounded-xl shadow-2xl w-full max-w-5xl max-h-[85vh] flex flex-col" onClick={e => e.stopPropagation()}>
-          <div className="flex items-center justify-between px-5 py-3 border-b border-thermax-line bg-thermax-mist rounded-t-xl">
-            <div className="flex items-center gap-2">
-              <span className="text-lg">📊</span>
-              <h3 className="font-bold text-thermax-navy text-[14px]">{dataViewer.title}</h3>
-              <span className="text-[10px] font-mono text-thermax-slate bg-white px-2 py-0.5 rounded border border-thermax-line">VIEW ONLY</span>
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-2 sm:p-4" onClick={() => setDataViewer({ open: false, title: '', content: '', loading: false })}>
+        <div className="bg-white rounded-xl shadow-2xl w-[98vw] max-w-[98vw] lg:w-[95vw] max-h-[92vh] flex flex-col" onClick={e => e.stopPropagation()}>
+          <div className="flex items-center justify-between px-5 py-3 border-b border-thermax-line bg-thermax-mist rounded-t-xl shrink-0">
+            <div className="flex items-center gap-2 min-w-0">
+              <span className="text-lg shrink-0">📊</span>
+              <h3 className="font-bold text-thermax-navy text-[14px] truncate">{dataViewer.title}</h3>
+              <span className="text-[10px] font-mono text-thermax-slate bg-white px-2 py-0.5 rounded border border-thermax-line shrink-0">VIEW ONLY</span>
             </div>
             <button onClick={() => setDataViewer({ open: false, title: '', content: '', loading: false })}
-              className="text-thermax-slate hover:text-thermax-navy text-xl font-bold px-2">✕</button>
+              className="text-thermax-slate hover:text-thermax-navy text-xl font-bold px-2 shrink-0">✕</button>
           </div>
           <div className="flex-1 overflow-auto p-5">
             {dataViewer.loading ? (
@@ -369,14 +415,35 @@ export default function AgentChat({
                 <span className="animate-spin mr-2">⏳</span> Loading data...
               </div>
             ) : dataViewer.content.startsWith('|') ? (
-              <div className="prose prose-sm max-w-none overflow-x-auto">
-                <Markdown>{dataViewer.content}</Markdown>
+              <div className="overflow-x-auto">
+                <table className="min-w-max border-collapse text-[12px]">
+                  {(() => {
+                    const rows = dataViewer.content.split('\n').filter(r => r.trim() && !r.match(/^\|\s*-+/));
+                    const cells = rows.map(r => r.split('|').filter(c => c !== '').map(c => c.trim()));
+                    return (
+                      <>
+                        {cells.length > 0 && (
+                          <thead className="bg-thermax-navy text-white sticky top-0">
+                            <tr>{cells[0].map((h, i) => <th key={i} className="px-3 py-2 text-left font-semibold whitespace-nowrap border border-thermax-navy/30">{h}</th>)}</tr>
+                          </thead>
+                        )}
+                        <tbody>
+                          {cells.slice(1).map((row, ri) => (
+                            <tr key={ri} className={ri % 2 === 0 ? 'bg-white' : 'bg-thermax-mist/50'}>
+                              {row.map((cell, ci) => <td key={ci} className="px-3 py-1.5 border border-thermax-line whitespace-nowrap max-w-[400px] truncate" title={cell}>{cell}</td>)}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </>
+                    );
+                  })()}
+                </table>
               </div>
             ) : (
               <pre className="text-[12px] font-mono text-thermax-navy bg-thermax-mist rounded-lg p-4 overflow-x-auto whitespace-pre-wrap leading-relaxed">{dataViewer.content}</pre>
             )}
           </div>
-          <div className="px-5 py-3 border-t border-thermax-line bg-thermax-mist rounded-b-xl flex justify-end">
+          <div className="px-5 py-3 border-t border-thermax-line bg-thermax-mist rounded-b-xl flex justify-end shrink-0">
             <button onClick={() => navigator.clipboard.writeText(dataViewer.content)}
               className="text-[11px] font-semibold text-thermax-navy hover:text-thermax-saffronDeep px-3 py-1.5 border border-thermax-line rounded-md hover:bg-white mr-2">
               📋 Copy
@@ -410,12 +477,23 @@ export default function AgentChat({
           </h3>
           <div className="space-y-1.5">
             {stage.tools.map((t) => (
-              <div key={t.name} className="p-2 rounded-lg bg-thermax-mist border border-thermax-line">
-                <div className="flex items-center gap-1.5 mb-0.5">
-                  <span className="text-sm">{t.icon}</span>
-                  <span className="font-mono text-thermax-navy font-semibold text-[11px]">{t.name}</span>
+              <div key={t.name} className="rounded-lg bg-thermax-mist border border-thermax-line overflow-hidden">
+                <div className="p-2">
+                  <div className="flex items-center justify-between mb-0.5">
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-sm">{t.icon}</span>
+                      <span className="font-mono text-thermax-navy font-semibold text-[11px]">{t.name}</span>
+                    </div>
+                    <button
+                      onClick={() => setExpandedTool(expandedTool === t.name ? null : t.name)}
+                      className="text-[9px] font-bold text-blue-600 bg-blue-50 hover:bg-blue-100 border border-blue-200 px-2 py-0.5 rounded transition"
+                    >👁 {expandedTool === t.name ? 'Hide' : 'View'}</button>
+                  </div>
+                  <div className="text-thermax-slate text-[10px] leading-snug">{t.description}</div>
                 </div>
-                <div className="text-thermax-slate text-[10px] leading-snug">{t.description}</div>
+                {expandedTool === t.name && (
+                  <ToolDetailView tool={t} agentName={stage.agent.name} />
+                )}
               </div>
             ))}
           </div>
@@ -522,9 +600,17 @@ export default function AgentChat({
             <div className="text-[10px] font-bold uppercase tracking-wider text-thermax-navy mb-1.5">
               Or Upload Your Own Files
             </div>
-            <input ref={fileInputRef} type="file" multiple accept=".txt,.md,.csv,.tsv,.log" onChange={handleUpload}
-              className="text-[11px] file:mr-2 file:py-1.5 file:px-3 file:rounded file:border-0 file:bg-thermax-navy file:text-white file:font-semibold hover:file:bg-thermax-navyDeep file:cursor-pointer w-full" />
-            <p className="text-[10px] text-thermax-slate mt-1">Select multiple files at once or upload in batches</p>
+            <input ref={fileInputRef} type="file" multiple accept=".txt,.md,.csv,.tsv,.log,.pdf,.doc,.docx,.xls,.xlsx,.json,.xml" onChange={handleUpload}
+              disabled={uploadedFiles.length >= MAX_UPLOAD_FILES}
+              className="text-[11px] file:mr-2 file:py-1.5 file:px-3 file:rounded file:border-0 file:bg-thermax-navy file:text-white file:font-semibold hover:file:bg-thermax-navyDeep file:cursor-pointer w-full disabled:opacity-40" />
+            <div className="mt-1.5 p-2 bg-amber-50 border border-amber-200 rounded-lg">
+              <div className="text-[10px] text-amber-800 leading-snug space-y-0.5">
+                <div className="font-semibold">Upload Limits:</div>
+                <div>• Max <strong>{MAX_UPLOAD_FILES} files</strong> per session ({uploadedFiles.length}/{MAX_UPLOAD_FILES} used)</div>
+                <div>• Max <strong>{MAX_UPLOAD_SIZE_MB} MB</strong> per file</div>
+                <div>• Formats: PDF, DOC/DOCX, CSV, TXT, MD, TSV, XLS/XLSX, JSON, XML</div>
+              </div>
+            </div>
           </div>
 
           {uploadedFiles.length > 0 && (
@@ -1003,6 +1089,72 @@ function ProgressBar({ percent, label }: { percent: number; label: string }) {
         </div>
         <div className="mt-0.5 text-[10px] text-thermax-slate font-mono truncate">{label}</div>
       </div>
+    </div>
+  );
+}
+
+function ToolDetailView({ tool, agentName }: { tool: StageTool; agentName: string }) {
+  const explanations: Record<string, { what: string; when: string; output: string }> = {
+    scan_market_signals: { what: 'Scans 70+ market signals from industry conferences, analyst reports, regulatory changes, and competitor moves. It identifies new business opportunities for Thermax across all target sectors.', when: 'The agent calls this tool first to build a real-time picture of the market landscape — what companies are expanding, what regulations are changing, and where Thermax can win.', output: 'A ranked list of market opportunities with urgency scores, industry tags, and estimated deal values.' },
+    generate_account_brief: { what: 'Takes the top market signals and enriches them with customer data — who the company is, what tier they belong to, past dealings with Thermax, and key contacts.', when: 'After scanning signals, the agent needs customer context. This tool provides the full background on each opportunity.', output: 'Detailed account briefs with company profiles, relationship history, and recommended approach.' },
+    assess_signal_urgency: { what: 'Scores each market signal on urgency — how quickly Thermax needs to act. It considers deal timelines, competitive threats, and regulatory deadlines.', when: 'Used to prioritize which opportunities to pursue first. High-urgency signals go to the sales team immediately.', output: 'Urgency scores (1-10) for each signal, with reasons and recommended response timelines.' },
+    qualify_opportunity: { what: 'Evaluates each sales opportunity using BANT (Budget, Authority, Need, Timeline) and MEDDIC scoring. It determines whether an opportunity is worth pursuing.', when: 'When the sales team needs to decide GO/NO-GO on an opportunity. Saves weeks of manual qualification.', output: 'Qualification verdict (GO, CONDITIONAL, NO-GO) with detailed scoring breakdowns.' },
+    map_stakeholders: { what: 'Maps out all the decision-makers and influencers at the customer organization — who has authority, who can champion the deal, and who might be a blocker.', when: 'Before engaging a customer, the sales team needs to know the people involved. This tool creates a stakeholder map.', output: 'A map of stakeholders with roles, influence levels, attitudes, and engagement strategies.' },
+    analyze_pipeline: { what: 'Analyzes the entire sales pipeline — total value, stage distribution, win probabilities, and which deals need attention.', when: 'For pipeline reviews and sales forecasting. Gives management a clear picture of the revenue funnel.', output: 'Pipeline summary with weighted values, stage breakdowns, and risk flags.' },
+    draft_proposal: { what: 'Creates a technical-commercial proposal for a customer, including scope, specifications, pricing structure, and delivery terms.', when: 'When the team needs to respond to a customer inquiry or RFP. The agent drafts the proposal framework.', output: 'A structured proposal document with technical scope, commercial terms, and delivery schedule.' },
+    generate_bom: { what: 'Generates a Bill of Materials (BOM) by mapping proposal requirements to Thermax\'s product catalog. Identifies the exact equipment and quantities needed.', when: 'After the proposal scope is defined, the agent creates a detailed equipment list for costing.', output: 'Line-by-line BOM with product codes, descriptions, quantities, and catalog references.' },
+    analyze_margins: { what: 'Calculates profit margins for each proposal and flags any that fall below the company threshold (usually 15%).', when: 'Before submitting a proposal, management needs to know if the deal is commercially viable.', output: 'Margin analysis showing gross margin %, flagged low-margin deals, and improvement recommendations.' },
+    validate_engineering: { what: 'Validates the technical feasibility of a proposal — checks if the solution is engineering-sound, meets codes, and can actually be built.', when: 'Engineering review before finalizing a proposal. Catches technical issues before they become costly problems.', output: 'Engineering verdict (Approved/Conditional/Rejected) with technical notes and compliance checks.' },
+    simulate_performance: { what: 'Simulates the expected performance of the proposed equipment against guaranteed parameters — efficiency, output, emissions.', when: 'To verify that performance guarantees can be met before committing them to the customer.', output: 'Simulation results showing expected vs guaranteed values, with confidence intervals.' },
+    assess_hazop: { what: 'Conducts a Hazard and Operability (HAZOP) assessment to identify safety risks in the proposed design — what could go wrong and how to prevent it.', when: 'For safety-critical projects. HAZOP is mandatory before detailed engineering can proceed.', output: 'HAZOP findings with risk levels, recommended safeguards, and required design changes.' },
+    assess_commercial_risk: { what: 'Evaluates the commercial risks of a deal — customer creditworthiness, payment terms, currency exposure, and contract penalties.', when: 'Before signing a contract, the finance team needs to understand what could go wrong financially.', output: 'Risk assessment with ratings (Low/Medium/High/Critical) and mitigation recommendations.' },
+    review_contract: { what: 'Reviews contract terms and conditions, flagging problematic clauses, missing protections, and unfavorable terms.', when: 'Legal review before contract signature. The agent highlights red flags that need negotiation.', output: 'Clause-by-clause review with redline suggestions and risk ratings.' },
+    evaluate_payment_terms: { what: 'Analyzes proposed payment milestones and terms to ensure healthy cash flow and minimize payment risk.', when: 'When structuring the payment schedule for a project. Ensures Thermax is not cash-negative.', output: 'Cash flow projection, milestone analysis, and recommended payment structure.' },
+    charter_project: { what: 'Creates a project charter — defining scope, objectives, success criteria, budget, timeline, and governance for a new project.', when: 'When a deal is won and moves into execution. The charter is the foundation for project management.', output: 'Project charter with scope statement, WBS, budget allocation, and milestone plan.' },
+    match_resources: { what: 'Matches available engineers, managers, and specialists to project requirements based on skills, certifications, and availability.', when: 'During mobilization, when the project needs to be staffed. The agent finds the best-fit people.', output: 'Resource matching report with fit scores, availability dates, and gap analysis.' },
+    plan_mobilisation: { what: 'Plans the mobilization of resources, equipment, and materials to the project site — logistics, timelines, and dependencies.', when: 'Before project kickoff. Ensures everything is in place for a smooth start.', output: 'Mobilization plan with task list, responsible parties, and critical path.' },
+    analyze_progress: { what: 'Analyzes project progress against plan — schedule adherence, cost performance, and milestone completion.', when: 'During weekly/monthly project reviews. Identifies slippages early before they become crises.', output: 'Progress dashboard showing RAG status, earned value analysis, and forecast.' },
+    detect_safety_risks: { what: 'Scans safety data to detect risks — near misses, unsafe conditions, incident trends, and compliance gaps.', when: 'Continuously during project execution. Safety is always the top priority at Thermax sites.', output: 'Safety risk report with incident trends, risk heat map, and recommended actions.' },
+    disposition_ncr: { what: 'Reviews Non-Conformance Reports (NCRs) and recommends dispositions — rework, accept as-is, scrap, or return to vendor.', when: 'When quality issues are found during manufacturing or site work. The agent recommends how to handle each one.', output: 'NCR disposition recommendations with rationale, cost impact, and approval requirements.' },
+    analyze_test_results: { what: 'Analyzes commissioning test results — comparing actual measurements against design specs and performance guarantees.', when: 'During commissioning, to verify the plant is performing as designed before handing it over.', output: 'Test analysis showing pass/fail status, deviations, and recommendations.' },
+    verify_performance: { what: 'Verifies performance guarantee parameters against test data — confirms the equipment meets contractual obligations.', when: 'Before issuing Performance Acceptance Certificate (PAC). This is the final technical check.', output: 'PG verification report showing guaranteed vs actual values and compliance status.' },
+    generate_punchlist: { what: 'Generates a list of outstanding items that need to be resolved before the plant can be accepted — safety issues, incomplete work, defects.', when: 'At the end of commissioning. The punchlist drives final completion before handover.', output: 'Prioritized punchlist with severity ratings, responsible parties, and target dates.' },
+    lookup_sop: { what: 'Searches through Thermax\'s library of Standard Operating Procedures to find the right procedure for a given equipment type and situation. Returns step-by-step instructions, safety precautions, and required tools.', when: 'When a field engineer encounters an issue on site and needs guidance on the correct procedure to follow.', output: 'Relevant SOPs with numbered steps, safety warnings, and tool requirements.' },
+    diagnose_service_case: { what: 'Performs a structured root cause analysis on a service case using the Why-Why (5-Why) method. It traces the symptom back through 5 levels to find the true root cause, then recommends both an immediate fix and a preventive action.', when: 'When a customer reports an issue and the service team needs to understand why it happened and how to fix it permanently.', output: 'A complete why-why analysis ladder: Symptom → Mechanism → Condition → Process Gap → Root Cause, plus corrective and preventive actions.' },
+    check_spare_parts: { what: 'Checks the spare parts inventory for availability, stock levels, pricing, and lead times. Identifies which parts are needed for a given service case and flags any critical parts running low.', when: 'When a service case requires replacement parts, or during periodic inventory reviews to prevent stockouts.', output: 'Parts availability report with stock status, lead times, costs, and reorder recommendations.' },
+    analyze_approval_gates: { what: 'Reviews the status of Human-in-the-Loop approval gates across all 9 stages — who approved what, how fast, and whether SLAs are being met.', when: 'For governance reviews. Ensures the approval process is working efficiently and no bottlenecks exist.', output: 'Approval gate analysis with SLA compliance, decision patterns, and bottleneck identification.' },
+    audit_agent_actions: { what: 'Analyzes the complete audit trail of all AI agent actions — what each agent did, how confident it was, and how often humans intervened.', when: 'For periodic governance reviews and to identify agents that may need retraining or recalibration.', output: 'Agent health dashboard with confidence metrics, intervention rates, and performance trends.' },
+    review_overrides: { what: 'Analyzes cases where humans overrode AI decisions — why the AI was wrong, what the human changed, and what lessons can be learned.', when: 'For continuous improvement. Every override teaches the system something about where it needs to get better.', output: 'Override analysis with patterns, root causes of AI errors, and retraining recommendations.' },
+    manage_escalations: { what: 'Reviews confidence-based escalations — cases where an agent wasn\'t sure enough and sent the task to a human for review.', when: 'To evaluate whether the confidence threshold is set correctly and escalations are being resolved promptly.', output: 'Escalation report with resolution times, outcomes, and threshold effectiveness.' },
+  };
+
+  const detail = explanations[tool.name];
+  return (
+    <div className="bg-blue-50 border-t border-blue-200 px-3 py-2.5 space-y-2 text-[11px]">
+      <div className="font-bold text-blue-900 flex items-center gap-1.5">
+        <span>{tool.icon}</span> {tool.label}
+        <span className="text-[9px] font-mono text-blue-600 bg-blue-100 px-1.5 py-0.5 rounded ml-1">{tool.name}</span>
+      </div>
+      {detail ? (
+        <>
+          <div>
+            <span className="font-semibold text-blue-800">What it does: </span>
+            <span className="text-blue-700 leading-snug">{detail.what}</span>
+          </div>
+          <div>
+            <span className="font-semibold text-blue-800">When the agent uses it: </span>
+            <span className="text-blue-700 leading-snug">{detail.when}</span>
+          </div>
+          <div>
+            <span className="font-semibold text-blue-800">What it produces: </span>
+            <span className="text-blue-700 leading-snug">{detail.output}</span>
+          </div>
+        </>
+      ) : (
+        <div className="text-blue-700 leading-snug">
+          {tool.description} This tool is used by the <strong>{agentName}</strong> during its analysis workflow.
+        </div>
+      )}
     </div>
   );
 }

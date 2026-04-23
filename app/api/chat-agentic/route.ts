@@ -135,72 +135,107 @@ If SOME files are relevant and others are not, process the relevant ones and dis
   }
 
   if (isMockMode()) {
-    const seq = slugTools.map((t) => ({
-      tool: t.name,
-      input: buildMockInput(t.name, body.slug)
-    }));
+    const isFollowUp = body.messages.length > 1;
 
     const readable = new ReadableStream({
       async start(controller) {
         const pause = (ms: number) => new Promise((r) => setTimeout(r, ms));
         const mockStart = Date.now();
 
-        for (const step of seq) {
-          controller.enqueue(sse('tool_start', { tool: step.tool, input: step.input }));
-          await pause(800);
-          const result = executeToolLocally(step.tool as ToolName, step.input);
-          controller.enqueue(sse('tool_result', { tool: step.tool, result }));
-          await pause(400);
-        }
+        if (isFollowUp) {
+          const userQuestion = body.messages[body.messages.length - 1]?.content ?? '';
+          const previousContext = body.messages.filter(m => m.role === 'assistant').map(m => m.content).join('\n');
 
-        const mockText = buildMockFinalOutput(body.slug);
-        const tokens = mockText.split(/(\s+)/);
-        for (let i = 0; i < tokens.length; i += 4) {
-          const chunk = tokens.slice(i, i + 4).join('');
-          controller.enqueue(sse('text_delta', chunk));
-          await pause(8);
-        }
+          const toolDataParts: string[] = [];
+          for (const t of slugTools) {
+            const input = buildMockInput(t.name, body.slug);
+            const result = executeToolLocally(t.name as ToolName, input);
+            try {
+              const parsed = JSON.parse(result);
+              toolDataParts.push(`[${t.name}]: ${parsed.summary || JSON.stringify(parsed).slice(0, 500)}`);
+            } catch {
+              toolDataParts.push(`[${t.name}]: ${result.slice(0, 500)}`);
+            }
+          }
+          const toolContext = toolDataParts.join('\n');
 
-        const elapsed = ((Date.now() - mockStart) / 1000).toFixed(1);
-        const inputTokens = Math.round(systemPrompt.length / 4);
-        const outputTokens = Math.round(mockText.length / 4);
-        const cost = inputTokens * 15 / 1_000_000 + outputTokens * 75 / 1_000_000;
+          const mockReply = buildMockFollowUpReply(body.slug, userQuestion, previousContext, toolContext, config.agent.name);
+          const tokens = mockReply.split(/(\s+)/);
+          for (let i = 0; i < tokens.length; i += 4) {
+            const chunk = tokens.slice(i, i + 4).join('');
+            controller.enqueue(sse('text_delta', chunk));
+            await pause(6);
+          }
 
-        controller.enqueue(sse('usage', {
-          input_tokens: inputTokens,
-          output_tokens: outputTokens,
-          total_tokens: inputTokens + outputTokens,
-          tool_calls: seq.length,
-          api_turns: 1,
-          model: 'enterprise-llm (mock)',
-          response_time_s: parseFloat(elapsed),
-          estimated_cost_usd: parseFloat(cost.toFixed(4))
-        }));
+          const elapsed = ((Date.now() - mockStart) / 1000).toFixed(1);
+          const inputTokens = Math.round((systemPrompt.length + userQuestion.length) / 4);
+          const outputTokens = Math.round(mockReply.length / 4);
+          const cost = inputTokens * 15 / 1_000_000 + outputTokens * 75 / 1_000_000;
+          controller.enqueue(sse('usage', {
+            input_tokens: inputTokens, output_tokens: outputTokens,
+            total_tokens: inputTokens + outputTokens, tool_calls: 0, api_turns: 1,
+            model: 'enterprise-llm (mock)', response_time_s: parseFloat(elapsed),
+            estimated_cost_usd: parseFloat(cost.toFixed(4))
+          }));
+        } else {
+          const seq = slugTools.map((t) => ({
+            tool: t.name,
+            input: buildMockInput(t.name, body.slug)
+          }));
 
-        if (!isGovernance && stage) {
-          const mockConfidence = parseFloat((0.72 + Math.random() * 0.22).toFixed(2));
-          const isConfidenceTriggered = mockConfidence < CONFIDENCE_THRESHOLD;
-          const approvalId = `APR-${Date.now().toString(36).toUpperCase()}`;
-          const reason = isConfidenceTriggered
-            ? `Agent confidence ${(mockConfidence * 100).toFixed(0)}% is below ${(CONFIDENCE_THRESHOLD * 100).toFixed(0)}% threshold — escalation triggered. Mandatory HITL gate.`
-            : `Mandatory HITL gate — ${stage.hitlApprover} sign-off required per Delegation of Authority.`;
+          for (const step of seq) {
+            controller.enqueue(sse('tool_start', { tool: step.tool, input: step.input }));
+            await pause(800);
+            const result = executeToolLocally(step.tool as ToolName, step.input);
+            controller.enqueue(sse('tool_result', { tool: step.tool, result }));
+            await pause(400);
+          }
 
-          controller.enqueue(
-            sse('hitl_required', {
-              approvalId,
-              workflowId: `WF-${Date.now()}`,
-              stageNumber: stage.number,
-              stageTitle: stage.title,
-              agentName: stage.agent.name,
-              approverRole: stage.hitlApprover,
-              confidence: mockConfidence,
-              confidenceThreshold: CONFIDENCE_THRESHOLD,
-              isMandatory: true,
-              isConfidenceTriggered,
-              reason,
-              summary: `${stage.agent.name} completed analysis for Stage ${stage.number}: ${stage.title}. ${seq.length} tools executed.`
-            })
-          );
+          const mockText = buildMockFinalOutput(body.slug);
+          const tokens = mockText.split(/(\s+)/);
+          for (let i = 0; i < tokens.length; i += 4) {
+            const chunk = tokens.slice(i, i + 4).join('');
+            controller.enqueue(sse('text_delta', chunk));
+            await pause(8);
+          }
+
+          const elapsed = ((Date.now() - mockStart) / 1000).toFixed(1);
+          const inputTokens = Math.round(systemPrompt.length / 4);
+          const outputTokens = Math.round(mockText.length / 4);
+          const cost = inputTokens * 15 / 1_000_000 + outputTokens * 75 / 1_000_000;
+
+          controller.enqueue(sse('usage', {
+            input_tokens: inputTokens, output_tokens: outputTokens,
+            total_tokens: inputTokens + outputTokens, tool_calls: seq.length, api_turns: 1,
+            model: 'enterprise-llm (mock)', response_time_s: parseFloat(elapsed),
+            estimated_cost_usd: parseFloat(cost.toFixed(4))
+          }));
+
+          if (!isGovernance && stage) {
+            const mockConfidence = parseFloat((0.72 + Math.random() * 0.22).toFixed(2));
+            const isConfidenceTriggered = mockConfidence < CONFIDENCE_THRESHOLD;
+            const approvalId = `APR-${Date.now().toString(36).toUpperCase()}`;
+            const reason = isConfidenceTriggered
+              ? `Agent confidence ${(mockConfidence * 100).toFixed(0)}% is below ${(CONFIDENCE_THRESHOLD * 100).toFixed(0)}% threshold — escalation triggered. Mandatory HITL gate.`
+              : `Mandatory HITL gate — ${stage.hitlApprover} sign-off required per Delegation of Authority.`;
+
+            controller.enqueue(
+              sse('hitl_required', {
+                approvalId,
+                workflowId: `WF-${Date.now()}`,
+                stageNumber: stage.number,
+                stageTitle: stage.title,
+                agentName: stage.agent.name,
+                approverRole: stage.hitlApprover,
+                confidence: mockConfidence,
+                confidenceThreshold: CONFIDENCE_THRESHOLD,
+                isMandatory: true,
+                isConfidenceTriggered,
+                reason,
+                summary: `${stage.agent.name} completed analysis for Stage ${stage.number}: ${stage.title}. ${seq.length} tools executed.`
+              })
+            );
+          }
         }
 
         controller.enqueue(sse('done', {}));
@@ -378,9 +413,9 @@ function buildMockInput(toolName: string, slug: string): Record<string, unknown>
     analyze_test_results: { project_id: 'all' },
     verify_performance: { project_id: 'PRJ-2026-0001' },
     generate_punchlist: { project_id: 'PRJ-2026-0001' },
-    analyze_telemetry: { project_id: 'all' },
-    predict_maintenance: { project_id: 'all' },
-    diagnose_ticket: { ticket_id: 'all' },
+    lookup_sop: { equipment_type: 'all' },
+    diagnose_service_case: { case_id: 'all' },
+    check_spare_parts: { equipment_type: 'all' },
     analyze_approval_gates: { stage_filter: 'all' },
     audit_agent_actions: { agent_id: 'all' },
     review_overrides: { agent_id: 'all' },
@@ -412,4 +447,36 @@ function buildMockFinalOutput(slug: string): string {
     governance: `## AgentGuard Governance Report\n\n### System Health Dashboard\n\n#### Approval Gates\n**70 approval gates** across 9 stages. SLA breach rate: **8.6%**.\n- Approved: 45 (64%)\n- Rejected: 12 (17%)\n- Deferred: 13 (19%)\n\n#### Agent Audit Trail\n**450 agent actions** logged. Average confidence: **0.871**.\nHuman intervention rate: **14.2%**.\n\n#### Human Overrides\n**60 overrides** recorded. Top overridden: Qualification Agent (12), Commercial Risk Agent (10).\nLessons learned captured for model retraining.\n\n#### Confidence Escalations\n**55 escalations** processed. Average resolution: 142 minutes.\nThreshold effectiveness: 0.8 captures 92% of quality issues.\n\n### Recommendations\n1. Qualification Agent needs retraining on MEDDIC scoring\n2. Approval gate SLA for contracts needs extension from 48h to 72h\n3. Commercial Risk Agent confidence improving — override rate down 15% MoM\n\n*Agent completed 4 tool calls, analyzed 70 gates, 450 audit entries, 60 overrides, 55 escalations.*`
   };
   return outputs[slug] ?? `## Analysis Complete\n\nThe ${slug} agent has completed its analysis across all data sources. Review the tool results above for detailed findings.`;
+}
+
+function buildMockFollowUpReply(slug: string, question: string, _previousContext: string, toolContext: string, agentName: string): string {
+  const q = question.toLowerCase();
+
+  const dataSnippets = toolContext.split('\n').filter(l => l.trim()).slice(0, 5);
+  const contextSummary = dataSnippets.map(s => {
+    const match = s.match(/\[(.+?)\]:\s*(.+)/);
+    return match ? `- **${match[1]}**: ${match[2].slice(0, 200)}` : '';
+  }).filter(Boolean).join('\n');
+
+  if (q.includes('risk') || q.includes('critical') || q.includes('high')) {
+    return `## Risk & Critical Items Analysis\n\nBased on the data I have access to, here are the critical and high-risk items relevant to your query:\n\n${contextSummary}\n\n### Key Risk Factors\n- Items flagged as **Critical** or **High** severity require immediate attention\n- Any items breaching SLA thresholds have been escalated per governance rules\n- Low-confidence outputs (below 0.8) have been automatically routed for human review\n\n### Recommended Actions\n1. Prioritize critical items for immediate resolution\n2. Assign senior resources to high-severity cases\n3. Schedule review meeting with relevant stakeholders within 48 hours\n\n*${agentName} — follow-up analysis based on your question.*`;
+  }
+
+  if (q.includes('summary') || q.includes('summarize') || q.includes('overview')) {
+    return `## Summary Overview\n\nHere is a concise summary based on the data I have analyzed:\n\n${contextSummary}\n\n### Key Takeaways\n- All data sources have been cross-referenced and validated\n- Actionable insights have been extracted and prioritized\n- Items requiring human approval have been flagged per AgentGuard governance\n\n*${agentName} — summary generated from available data backbone.*`;
+  }
+
+  if (q.includes('recommend') || q.includes('suggest') || q.includes('what should') || q.includes('next step')) {
+    return `## Recommendations\n\nBased on my analysis of the available data, here are my recommendations:\n\n### Immediate Actions\n1. Address any critical or high-priority items first\n2. Ensure all pending approvals are processed within SLA\n3. Review flagged items with the relevant domain experts\n\n### Medium-Term Actions\n1. Update processes based on patterns identified in the data\n2. Close any open items from previous cycles\n3. Schedule periodic review cadence\n\n### Data Context\n${contextSummary}\n\n*${agentName} — recommendations based on data analysis. [AI INFERENCE] These are suggested actions and should be validated by the relevant human approvers.*`;
+  }
+
+  if (q.includes('data') || q.includes('how many') || q.includes('count') || q.includes('total') || q.includes('number')) {
+    return `## Data Analysis\n\nHere is the quantitative breakdown from my data sources:\n\n${contextSummary}\n\n### Notes\n- All figures are from the current data backbone\n- Data is refreshed with each analysis cycle\n- For the most current figures, run the full agent analysis\n\n*${agentName} — data query response.*`;
+  }
+
+  if (q.includes('explain') || q.includes('why') || q.includes('how') || q.includes('what is') || q.includes('what does')) {
+    return `## Explanation\n\nGreat question. Let me explain based on my domain knowledge and the data I have access to.\n\n### Context\nAs the **${agentName}**, I operate within a specific domain of Thermax's enterprise workflow. My analysis is based on structured data sources that are part of the data backbone.\n\n### Available Data\n${contextSummary}\n\n### How This Works\n- I use specialized tools to analyze data across multiple dimensions\n- Each analysis includes confidence scoring — outputs below 0.8 confidence are escalated\n- All actions are logged in the agent audit trail for governance compliance\n- Human-in-the-loop approval gates ensure accountability at every critical decision point\n\nIf you need more specific details, please refine your question and I'll provide a focused analysis.\n\n*${agentName} — explanatory response.*`;
+  }
+
+  return `## Follow-Up Analysis\n\nThank you for your question. Based on my analysis and the data available to me as the **${agentName}**, here is my response:\n\n### Your Question\n> ${question}\n\n### Analysis\n${contextSummary}\n\n### Response\nBased on the data patterns I've analyzed, the key points relevant to your question are:\n\n1. The data shows consistent patterns across the analyzed records\n2. Items flagged for attention have been highlighted with appropriate severity levels\n3. All findings are backed by data from the data backbone and tool analysis\n\n### Additional Context\n- Confidence level for this response: **0.85** (above threshold)\n- All source data is from the current analysis cycle\n- For deeper analysis, you can run the full agent workflow or ask more specific questions\n\n*${agentName} — follow-up response. [AI INFERENCE] This analysis is based on available data. Verify critical decisions with domain experts.*`;
 }
