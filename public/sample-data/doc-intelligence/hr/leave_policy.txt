@@ -1,0 +1,101 @@
+THERMAX LIMITED — HUMAN RESOURCES POLICY
+Document No: HR-POL-004 | Rev: 06 | Effective: 01-April-2026
+Title: Leave Policy — All Regular Employees
+Applicable: All permanent employees across Thermax locations in India
+Approved by: Chief Human Resources Officer (CHRO)
+
+1. OBJECTIVE
+This policy defines the types of leave available to Thermax employees, eligibility criteria, approval processes, carry-forward rules, and special provisions. It aims to ensure work-life balance while maintaining operational continuity.
+
+2. SCOPE
+Applicable to all permanent employees of Thermax Limited and its domestic subsidiaries. Contractual employees, consultants, and interns are governed by their respective agreements.
+
+3. TYPES OF LEAVE
+
+3.1 PRIVILEGE LEAVE (PL) / EARNED LEAVE (EL)
+- Entitlement: 21 days per calendar year (credited monthly — 1.75 days/month)
+- Eligibility: After completion of 240 days of service in a year
+- Minimum duration: 1 day (half-day permitted at manager's discretion)
+- Maximum continuous: 15 working days (beyond 15 days requires VP/BU Head approval)
+- Carry Forward: Maximum 45 days can be carried to next year; excess lapses on 31-Dec
+- Encashment: Up to 10 days per year can be encashed (at basic + DA rate); balance encashable at separation
+- Advance Notice: Minimum 7 days for planned PL of 3+ days; 1 day for shorter PL
+- Approval: Reporting Manager (up to 5 days); Department Head (6-15 days); VP/BU Head (>15 days)
+- Sandwich Rule: If PL is taken on Friday and Monday, the intervening Saturday-Sunday are counted as PL
+
+3.2 CASUAL LEAVE (CL)
+- Entitlement: 7 days per calendar year (available from January 1)
+- Eligibility: Immediately upon joining (pro-rated in first year)
+- Minimum duration: Half day
+- Maximum continuous: 3 days (beyond 3 days, must be combined with PL or SL)
+- Carry Forward: Not permitted — unused CL lapses on 31-Dec
+- Encashment: Not encashable
+- Advance Notice: 1 day preferred; same-day permitted for genuine emergencies
+- Approval: Reporting Manager
+- Note: CL cannot be combined with PL without prior approval
+
+3.3 SICK LEAVE (SL) / MEDICAL LEAVE (ML)
+- Entitlement: 10 days per calendar year
+- Eligibility: Immediately upon joining (pro-rated in first year)
+- Minimum duration: Half day
+- Maximum continuous: 10 days on SL; beyond requires PL or Leave Without Pay (LWP)
+- Medical Certificate: Required for SL exceeding 3 consecutive days
+- Carry Forward: Maximum 30 days accumulated; unused beyond 30 lapses on 31-Dec
+- Encashment: Not encashable (accumulated SL used for extended illness)
+- Advance Notice: Not required (by nature); employee must inform manager within 2 hours of shift start
+- Approval: Reporting Manager; HR must be notified for SL > 3 days
+
+3.4 MATERNITY LEAVE
+- Entitlement: 26 weeks (for first two children); 12 weeks (for third child onward)
+- Eligibility: Female employees who have worked for minimum 80 days in the 12 months preceding expected delivery
+- Extension: Up to 4 additional weeks for documented medical complications
+- Pay: Full pay during maternity leave
+- Benefits: Health insurance, creche facility reimbursement (up to INR 5,000/month for 1 year)
+- Return guarantee: Same position or equivalent upon return
+- Note: Commissioning mother and adopting mother (child < 3 months) entitled to 12 weeks
+
+3.5 PATERNITY LEAVE
+- Entitlement: 5 working days
+- Eligibility: Within 30 days of child's birth/adoption
+- Pay: Full pay
+- Approval: Reporting Manager (application to be submitted minimum 7 days before expected date)
+
+3.6 BEREAVEMENT LEAVE
+- Entitlement: 5 working days for immediate family (spouse, children, parents, siblings); 3 days for extended family
+- Pay: Full pay
+- Documentation: Death certificate to be submitted within 15 days of return
+- Approval: Reporting Manager (immediate approval expected)
+
+3.7 COMPENSATORY OFF (COMP OFF)
+- Earned when employee works on a public holiday or weekly off at management's request
+- Must be availed within 30 days of earning
+- Approval: Reporting Manager (must pre-approve the holiday/weekly off work)
+- Maximum accumulation: 3 comp-offs at any time
+
+3.8 LEAVE WITHOUT PAY (LWP)
+- Granted only when all other leave balances are exhausted
+- Maximum: 30 days per year (beyond requires MD approval)
+- Impact: Proportionate deduction from salary; impacts annual bonus eligibility if LWP > 15 days
+- Approval: Department Head + HR Head
+
+4. GENERAL RULES
+4.1 Leave applications must be submitted through the HRMS portal (SAP SuccessFactors)
+4.2 Backdated leave applications (post-facto) permitted only for CL and SL; must be regularized within 3 working days
+4.3 Unauthorized absence (no leave application and no communication for 3+ consecutive days) may result in disciplinary action
+4.4 Public holidays falling within a leave period are not counted as leave days (except Sandwich Rule for PL)
+4.5 Employees on probation are entitled to CL and SL only; PL is credited upon confirmation
+
+5. LEAVE DURING NOTICE PERIOD
+5.1 PL may be encashed but not availed during notice period (except with VP approval for genuine emergencies)
+5.2 SL permitted with medical certificate
+5.3 CL not permitted during notice period
+
+6. CONTACT DURING EXTENDED LEAVE
+Employees on leave exceeding 10 days must provide a contactable phone number and respond to critical communications within 24 hours.
+
+7. REVISION HISTORY
+Rev 06: Updated maternity leave to 26 weeks per Maternity Benefit (Amendment) Act; added paternity leave
+Rev 05: Increased PL from 18 to 21 days; introduced comp-off policy
+Rev 04: Added sandwich rule clarification; updated approval matrix
+
+END OF DOCUMENT

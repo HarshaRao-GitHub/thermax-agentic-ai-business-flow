@@ -1,0 +1,10 @@
+po_number,vendor_name,item_description,promised_delivery_date,actual_delivery_date,delay_days,delay_reason,quality_status,grn_remarks,penalty_applicable,penalty_amount_inr,vendor_rating
+PO-2026-1201,KSB Pumps Ltd,Boiler Feed Pump (Unit 1 of 2),2026-04-15,2026-04-10,-5,Delivered early,Accepted — passed all QC tests,Good packing condition; test certificates included,No,0,A
+PO-2026-1201,KSB Pumps Ltd,Boiler Feed Pump (Unit 2 of 2),2026-04-15,Pending,N/A,Motor winding issue — vendor replacing; revised date 2026-04-25,Pending,Pending,TBD based on final date,TBD,TBD
+PO-2026-1202,ABB India,VFD 250kW (3 units),2026-03-20,2026-03-18,-2,Delivered early,Accepted — FAT completed at ABB Bengaluru,All panels in good condition; software loaded,No,0,A+
+PO-2026-1203,Thermax Babcock Wilcox,SH Tube Bundle (120 nos),2026-04-01,2026-03-28,-3,Delivered early,Accepted — UT and dimensional checks passed,Internal supply; excellent quality,No,0,A+
+PO-2026-1204,Larsen & Toubro,Structural Steel 85MT,2026-05-10,Pending,N/A,In progress — 60% fabrication complete per vendor update,Pending,Stage inspection on 2026-04-05 — satisfactory,TBD,TBD,B+ (historical)
+PO-2026-1205,Indo German Wire Screen,Fluidizing Nozzles (500 nos),2026-03-30,2026-03-25,-5,Delivered early,Accepted with deviation — 8 nozzles had minor burr; accepted after deburring,Vendor agreed to deburr at their cost on next batch,No,0,B+
+PO-2026-1206,Control & Switchgear Co,MCC Panel 415V (2 sets),2026-05-20,Pending,N/A,Manufacturing — vendor reports 45% complete; may delay by 1 week,Pending,FAT scheduled for 2026-05-10,Possible — LD clause 0.5%/week up to 5%,TBD,B (prior late delivery on PO-2025-0892)
+PO-2026-1207,Saint-Gobain Ceramics,Refractory Dense Castable 25MT,2026-04-15,Pending,N/A,Dispatched 2026-04-08; in transit via road — ETA 2026-04-13,Pending,Tracking active,No (likely early),0,A
+PO-2026-1208,Honeywell India,DCS Boiler Control Package,2026-06-05,Pending,N/A,Engineering phase — detailed design review on 2026-03-25; on track,Pending,Design review comments shared,TBD,TBD,A (historical)

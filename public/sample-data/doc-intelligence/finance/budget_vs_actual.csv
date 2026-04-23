@@ -1,0 +1,18 @@
+department,cost_center,budget_head,annual_budget_lakhs,q1_budget_lakhs,q1_actual_lakhs,q1_variance_lakhs,q1_variance_pct,ytd_utilization_pct,forecast_annual_lakhs,remarks
+Operations,CC-OPS-01,Raw Materials — Coal,2400,600,645,-45,-7.5%,26.9%,2580,Coal price increase of 8% in Feb; hedging recommended for Q2
+Operations,CC-OPS-01,Raw Materials — Chemicals,180,45,42,3,6.7%,23.3%,168,Slightly under due to optimized chemical dosing program
+Operations,CC-OPS-01,Power & Fuel,960,240,255,-15,-6.3%,26.6%,1020,Higher grid power cost due to new tariff effective Feb 2026
+Operations,CC-OPS-01,Maintenance — Spares,350,88,95,-7,-8.0%,27.1%,380,BD-005 turbine repair (3.5L) was unplanned; forecast adjusted
+Operations,CC-OPS-01,Maintenance — Services,280,70,62,8,11.4%,22.1%,248,PM contract renegotiation saved 12% vs last year
+Procurement,CC-PROC-01,Staff Cost,120,30,30,0,0.0%,25.0%,120,On track
+Procurement,CC-PROC-01,Travel & Conveyance,35,9,11,-2,-22.2%,31.4%,44,Increased vendor visits for critical equipment expediting
+Finance,CC-FIN-01,Staff Cost,95,24,24,0,0.0%,25.3%,95,On track
+Finance,CC-FIN-01,Professional Fees (Audit/Tax),45,15,14,1,6.7%,31.1%,43,Statutory audit fees renegotiated downward
+HR,CC-HR-01,Staff Cost,85,21,22,-1,-4.8%,25.9%,88,One additional hire in recruitment team
+HR,CC-HR-01,Training & Development,60,15,8,7,46.7%,13.3%,48,Q1 training programs delayed; accelerated plan for Q2-Q4
+EHS,CC-EHS-01,Safety Equipment & PPE,40,10,12,-2,-20.0%,30.0%,48,Additional PPE procurement for new site mobilization
+EHS,CC-EHS-01,Compliance & Certification,25,6,5,1,16.7%,20.0%,22,ISO audit fees lower than estimated
+Projects,CC-PROJ-01,Project Execution — DC,4500,1125,1180,-55,-4.9%,26.2%,4720,Material cost overrun due to steel price increase; partially offset by design optimization
+Projects,CC-PROJ-03,Project Execution — BH,2800,700,680,20,2.9%,24.3%,2720,Slight underspend in Q1; on track overall
+IT,CC-IT-01,Software Licenses,65,16,18,-2,-12.5%,27.7%,72,Additional SAP licenses for new modules; unplanned
+IT,CC-IT-01,Infrastructure,45,11,10,1,9.1%,22.2%,40,Cloud migration reducing on-prem costs as planned

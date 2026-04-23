@@ -1,0 +1,111 @@
+THERMAX LIMITED — STANDARD OPERATING PROCEDURE
+Document No: SOP-OPS-BLR-001 | Rev: 03 | Effective: 01-Jan-2026
+Title: AFBC Boiler Preventive Maintenance and Inspection Procedure
+Applicable Equipment: All AFBC Boilers (20 TPH to 100 TPH)
+Department: Operations / Plant Maintenance
+Prepared by: Dr. Anand Rao, Chief Design Engineer
+Approved by: VP Operations
+
+1. PURPOSE
+This SOP defines the preventive maintenance schedule, inspection procedures, and acceptance criteria for Thermax AFBC (Atmospheric Fluidised Bed Combustion) boilers installed at customer sites and Thermax facilities. It ensures equipment reliability, safety compliance, and optimal performance.
+
+2. SCOPE
+Applies to all AFBC boilers manufactured by Thermax across all customer installations and internal plants. Covers daily, weekly, monthly, quarterly, and annual maintenance activities.
+
+3. REFERENCES
+- IS 2825:2019 — Code for Unfired Pressure Vessels
+- IBR (Indian Boiler Regulations) 1950, as amended
+- ASME PTC 4 — Steam Generators Performance Test Code
+- Thermax Engineering Standard TES-BLR-200
+- CPCB Emission Norms Phase III
+
+4. DEFINITIONS
+- MCR: Maximum Continuous Rating
+- PM: Preventive Maintenance
+- NDE: Non-Destructive Examination
+- UT: Ultrasonic Testing
+- RT: Radiographic Testing
+- HAZOP: Hazard and Operability Study
+
+5. DAILY MAINTENANCE ACTIVITIES (Shift Engineer)
+5.1 Check and record drum level, steam pressure, steam temperature
+5.2 Verify feedwater quality — pH (8.5-9.5), TDS (<10 ppm for HP boilers), conductivity
+5.3 Inspect flame pattern through sight glass — uniform bed combustion, no clinker formation
+5.4 Check all pressure gauges and temperature indicators for correct reading
+5.5 Verify continuous blowdown is operational and TDS within limits
+5.6 Inspect safety valve vent pipes — no leakage, no blockage
+5.7 Check air preheater differential pressure — flag if >15% above design
+5.8 Record flue gas O2 percentage — target 3.5-4.5%
+5.9 Inspect ash handling system — conveyor operation, hopper levels
+5.10 Complete Daily Boiler Log Sheet (Form BLR-DL-001)
+
+6. WEEKLY MAINTENANCE ACTIVITIES (Maintenance Technician)
+6.1 Inspect all soot blower operation — verify retract and extend sequence
+6.2 Check boiler feed pump vibration — acceptable <4.5 mm/s RMS
+6.3 Inspect FD, ID, and PA fan bearing temperatures — max 85°C
+6.4 Verify all safety interlocks by simulation test (low drum level, high pressure, flame failure)
+6.5 Inspect refractory through inspection doors — check for cracks, spalling, erosion
+6.6 Clean air preheater baskets if differential pressure exceeds 20 mbar
+6.7 Inspect economizer for tube leaks — check for water drips in gas path
+6.8 Verify chemical dosing pumps — phosphate and oxygen scavenger levels correct
+6.9 Test emergency stop button and verify boiler trip response
+
+7. MONTHLY MAINTENANCE ACTIVITIES (Shift Supervisor + Maintenance)
+7.1 Internal inspection of steam drum through manhole (during planned shutdown)
+7.2 Ultrasonic thickness measurement of drum shell — minimum 4 points
+7.3 Check all safety valve set pressures using hydraulic test rig
+7.4 Inspect bed nozzles for blockage or erosion — replace if >20% wear
+7.5 Clean all burner nozzles and verify fuel oil atomization
+7.6 Calibrate all critical instruments — pressure transmitters, level transmitters, flow meters
+7.7 Inspect expansion joints for cracks or deformation
+7.8 Check all flange bolts for tightness — retorque to specification
+7.9 Inspect ESP or bag filter performance — outlet dust <50 mg/Nm3
+7.10 Review and update maintenance log with all findings
+
+8. QUARTERLY MAINTENANCE ACTIVITIES (Maintenance Manager)
+8.1 Complete boiler tube UT survey — minimum 20 points per pass
+8.2 Waterside inspection — check for scale, corrosion, pitting
+8.3 Fireside inspection — check for erosion, fouling, slag deposits
+8.4 Inspect all valves (isolation, control, safety) — check packing, trim condition
+8.5 Performance test — measure efficiency using indirect method (ASME PTC 4)
+8.6 Check refractory thickness — minimum 75% of original design thickness
+8.7 Inspect steel structure for corrosion — apply protective coating if needed
+8.8 Review spare parts inventory — reorder critical items with >3 month lead time
+
+9. ANNUAL MAINTENANCE ACTIVITIES (Maintenance Manager + IBR Inspector)
+9.1 Full internal inspection with IBR Competent Person present
+9.2 Hydrostatic test at 1.5x design pressure — hold for 30 minutes
+9.3 Complete NDE survey — UT on all high-stress zones, RT on critical welds
+9.4 Safety valve testing with certified test rig — all safety valves
+9.5 Comprehensive refractory inspection and repair
+9.6 Air preheater replacement or refurbishment if leakage >5%
+9.7 Update maintenance history records and IBR registration renewal
+9.8 Performance guarantee re-verification if requested by customer
+9.9 Prepare annual maintenance report with trend analysis
+
+10. ACCEPTANCE CRITERIA
+10.1 Tube wall thickness: No tube below minimum design thickness per ASME code
+10.2 Drum shell thickness: No reading below calculated minimum (includes corrosion allowance)
+10.3 Safety valve: Must pop within ±3% of set pressure
+10.4 Boiler efficiency: Must be within ±1% of design guarantee
+10.5 Emissions: NOx <100 mg/Nm3, SO2 <200 mg/Nm3, PM <50 mg/Nm3 (CPCB Phase III)
+10.6 Vibration: All rotating equipment <4.5 mm/s RMS
+10.7 Refractory: No through-cracks; thickness >75% of original design
+
+11. SAFETY PRECAUTIONS
+11.1 Lockout/Tagout (LOTO) must be applied before any internal inspection
+11.2 Confined space entry permit required for drum/header entry
+11.3 Hot work permit required for any welding or cutting near boiler
+11.4 Minimum 2-person rule for all elevated work above 2 meters
+11.5 Full PPE: Hard hat, safety shoes, safety glasses, hearing protection, heat-resistant gloves
+11.6 Gas testing before confined space entry — O2 >19.5%, combustible gas <10% LEL
+
+12. RECORDS
+- Daily Boiler Log Sheet (Form BLR-DL-001)
+- Weekly Maintenance Checklist (Form BLR-WM-001)
+- Monthly Inspection Report (Form BLR-MI-001)
+- Quarterly Performance Report (Form BLR-QP-001)
+- Annual Inspection Report (Form BLR-AI-001)
+- Maintenance History Database (SAP PM Module)
+
+END OF DOCUMENT

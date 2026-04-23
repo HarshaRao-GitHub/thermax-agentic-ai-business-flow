@@ -1,0 +1,103 @@
+THERMAX LIMITED — MUTUAL NON-DISCLOSURE AGREEMENT
+
+Agreement No: NDA-TMX-2026-___
+Date: _______________
+
+This Mutual Non-Disclosure Agreement ("Agreement") is entered into by and between:
+
+PARTY A: THERMAX LIMITED, a company incorporated under the Companies Act, 2013, having its registered office at D-13, MIDC Industrial Area, Chinchwad, Pune — 411019, Maharashtra, India (hereinafter referred to as "Thermax")
+
+AND
+
+PARTY B: _________________________________, a company incorporated under _____________, having its registered office at _________________________________ (hereinafter referred to as the "Counterparty")
+
+(Thermax and Counterparty individually a "Party" and collectively the "Parties")
+
+RECITALS
+
+WHEREAS, the Parties desire to explore a potential business relationship relating to _________________________________ (the "Purpose"), and in connection therewith, each Party may disclose certain confidential and proprietary information to the other Party.
+
+NOW, THEREFORE, in consideration of the mutual covenants contained herein, the Parties agree as follows:
+
+1. DEFINITION OF CONFIDENTIAL INFORMATION
+
+1.1 "Confidential Information" means any and all information, whether in written, oral, electronic, visual, or any other form, disclosed by either Party (the "Disclosing Party") to the other Party (the "Receiving Party"), including but not limited to:
+   (a) Technical information: designs, drawings, specifications, formulas, processes, patents, inventions, research, engineering data, manufacturing processes, test data
+   (b) Business information: financial data, pricing, customer lists, supplier lists, business plans, marketing strategies, forecasts, proposals, contracts
+   (c) Commercial information: bid details, cost structures, profit margins, project-specific data, tender information
+   (d) Software and IT: source code, algorithms, databases, system architecture, cybersecurity measures
+   (e) Personnel information: employee data, organizational charts, compensation structures
+
+1.2 Confidential Information shall NOT include information that:
+   (a) Is or becomes publicly available through no fault of the Receiving Party
+   (b) Was already known to the Receiving Party prior to disclosure (with documented evidence)
+   (c) Is independently developed by the Receiving Party without reference to the Confidential Information
+   (d) Is received from a third party without restriction and without breach of this Agreement
+   (e) Is required to be disclosed by law, regulation, or court order (subject to Section 4)
+
+2. OBLIGATIONS OF RECEIVING PARTY
+
+2.1 The Receiving Party shall:
+   (a) Use the Confidential Information solely for the Purpose stated in this Agreement
+   (b) Protect the Confidential Information with at least the same degree of care it uses for its own confidential information, but in no event less than reasonable care
+   (c) Limit access to Confidential Information to its employees, directors, advisors, and contractors who have a need to know and who are bound by confidentiality obligations at least as protective as this Agreement
+   (d) Not disclose, publish, or disseminate the Confidential Information to any third party without prior written consent of the Disclosing Party
+   (e) Not copy or reproduce the Confidential Information except as reasonably necessary for the Purpose
+
+2.2 The Receiving Party shall promptly notify the Disclosing Party upon becoming aware of any unauthorized use, disclosure, or loss of Confidential Information.
+
+3. SCOPE AND EXCLUSIONS
+
+3.1 This Agreement covers all Confidential Information exchanged between the Parties from the date of this Agreement through the term specified in Section 7.
+3.2 No license, intellectual property rights, or any other rights are granted by either Party under this Agreement.
+3.3 Nothing in this Agreement obligates either Party to disclose any Confidential Information or to enter into any further agreement.
+
+4. COMPELLED DISCLOSURE
+
+4.1 If the Receiving Party is compelled by law, regulation, legal process, or governmental authority to disclose Confidential Information, the Receiving Party shall:
+   (a) Provide prompt written notice to the Disclosing Party (to the extent legally permitted)
+   (b) Cooperate with the Disclosing Party's efforts to obtain a protective order or other appropriate remedy
+   (c) Disclose only the minimum portion of Confidential Information required by law
+
+5. RETURN OR DESTRUCTION OF INFORMATION
+
+5.1 Upon written request by the Disclosing Party, or upon termination of this Agreement, the Receiving Party shall:
+   (a) Promptly return or destroy all Confidential Information, including all copies, summaries, and derivatives
+   (b) Provide written certification of destruction within 30 days
+   (c) Notwithstanding the above, the Receiving Party may retain one archival copy solely for legal/compliance purposes, subject to continued confidentiality obligations
+
+6. REMEDIES
+
+6.1 The Parties acknowledge that unauthorized disclosure of Confidential Information may cause irreparable harm for which monetary damages may be inadequate.
+6.2 The Disclosing Party shall be entitled to seek injunctive relief, specific performance, and any other equitable remedies available under applicable law, in addition to all other remedies.
+6.3 The Receiving Party shall indemnify the Disclosing Party against all losses, damages, costs, and expenses (including reasonable attorney fees) arising from breach of this Agreement.
+
+7. TERM AND SURVIVAL
+
+7.1 This Agreement shall remain in effect for a period of _____ years from the date of execution (the "Term").
+7.2 The confidentiality obligations under this Agreement shall survive termination for a period of 5 (five) years after the expiration or termination of this Agreement.
+7.3 Either Party may terminate this Agreement with 30 days' written notice to the other Party.
+
+8. GENERAL PROVISIONS
+
+8.1 Governing Law: This Agreement shall be governed by and construed in accordance with the laws of India.
+8.2 Jurisdiction: The courts of Pune, Maharashtra, India shall have exclusive jurisdiction over any disputes arising from this Agreement.
+8.3 Entire Agreement: This Agreement constitutes the entire agreement between the Parties regarding the subject matter herein and supersedes all prior agreements and understandings.
+8.4 Amendment: This Agreement may only be modified by a written instrument signed by both Parties.
+8.5 Severability: If any provision is found invalid or unenforceable, the remaining provisions shall remain in full force and effect.
+8.6 Assignment: Neither Party may assign this Agreement without the prior written consent of the other Party.
+8.7 No Waiver: Failure to enforce any right under this Agreement shall not constitute a waiver of that right.
+
+IN WITNESS WHEREOF, the Parties have executed this Agreement as of the date first written above.
+
+FOR THERMAX LIMITED                         FOR ____________________________
+
+Signature: _______________________          Signature: _______________________
+Name:                                       Name:
+Title:                                      Title:
+Date:                                       Date:
+
+Witness 1: ________________________         Witness 1: ________________________
+Witness 2: ________________________         Witness 2: ________________________
+
+END OF DOCUMENT

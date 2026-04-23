@@ -1,0 +1,9 @@
+po_number,po_date,vendor_name,vendor_code,item_description,quantity,uom,unit_price_inr,total_value_inr,gst_amount,grand_total_inr,delivery_date,payment_terms,warranty_months,project_ref,buyer,status,grn_date,grn_qty,pending_qty
+PO-2026-1201,2026-01-15,KSB Pumps Ltd,V-KSB-203,Boiler Feed Pump 45m3/hr 180m Head SS316,2,Nos,2120000,4240000,763200,5003200,2026-04-15,30% Adv / 60% Disp / 10% Comm,24,PRJ-DC-2026-001,Priya Kulkarni,Partially Delivered,2026-04-10,1,1
+PO-2026-1202,2026-01-20,ABB India,V-ABB-012,VFD 250kW ID Fan with HMI Panel,3,Nos,780000,2340000,421200,2761200,2026-03-20,50% Adv / 50% Del,24,PRJ-DC-2026-001,Priya Kulkarni,Delivered,2026-03-18,3,0
+PO-2026-1203,2026-02-01,Thermax Babcock Wilcox,V-TBW-001,Superheater Tube Bundle SA213 T11 OD50.8x5.6,120,Nos,8500,1020000,183600,1203600,2026-04-01,100% Del,12,PRJ-BH-2026-003,Rohit Sharma,Delivered,2026-03-28,120,0
+PO-2026-1204,2026-02-10,Larsen & Toubro,V-LNT-055,Structural Steel Fabrication — Boiler Support,85,MT,62000,5270000,948600,6218600,2026-05-10,20% Adv / 70% Prog / 10% Del,12,PRJ-DC-2026-001,Priya Kulkarni,In Progress,,,85
+PO-2026-1205,2026-02-15,Indo German Wire Screen,V-IGW-019,Fluidizing Nozzles — AFBC Boiler Bed,500,Nos,2800,1400000,252000,1652000,2026-03-30,100% Del,6,PRJ-TC-2026-002,Amitabh Das,Delivered,2026-03-25,500,0
+PO-2026-1206,2026-02-20,Control & Switchgear Co,V-CSC-088,MCC Panel — Boiler Auxiliaries 415V,2,Sets,1250000,2500000,450000,2950000,2026-05-20,30% Adv / 60% Disp / 10% Comm,18,PRJ-DC-2026-001,Rohit Sharma,Manufacturing,,, 
+PO-2026-1207,2026-03-01,Saint-Gobain Ceramics,V-SGC-023,Refractory Bricks — Dense Castable,25,MT,45000,1125000,202500,1327500,2026-04-15,100% Del,12,PRJ-BH-2026-003,Amitabh Das,In Transit,,,25
+PO-2026-1208,2026-03-05,Honeywell India,V-HON-067,DCS System — Boiler Control Package,1,Lot,4800000,4800000,864000,5664000,2026-06-05,20% Adv / 30% FAT / 40% Del / 10% Comm,24,PRJ-DC-2026-001,Priya Kulkarni,Order Confirmed,,,1
