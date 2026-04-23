@@ -323,7 +323,7 @@ export default function AgentChat({
           {stage.acceptedFileHint && (
             <div className="mb-2 p-2 bg-blue-50 border border-blue-200 rounded-lg">
               <div className="flex items-start gap-1.5">
-                <span className="text-blue-600 text-[11px] mt-px shrink-0">ℹ️</span>
+                <span className="text-blue-600 text-[11px] mt-px shrink-0">ℹ</span>
                 <div>
                   <div className="text-[10px] font-semibold text-blue-800 mb-0.5">This agent accepts:</div>
                   <div className="text-[10px] text-blue-700 leading-snug">{stage.acceptedFileHint}</div>
@@ -331,83 +331,97 @@ export default function AgentChat({
               </div>
             </div>
           )}
-          <input ref={fileInputRef} type="file" multiple accept=".txt,.md,.csv,.tsv,.log" onChange={handleUpload}
-            className="text-[11px] file:mr-2 file:py-1.5 file:px-3 file:rounded file:border-0 file:bg-thermax-navy file:text-white file:font-semibold hover:file:bg-thermax-navyDeep file:cursor-pointer w-full" />
-          <p className="text-[10px] text-thermax-slate mt-1">Select multiple files at once or upload in batches</p>
-          {uploadedFiles.length > 0 && (
-            <div className="mt-2 space-y-1.5">
-              {uploadedFiles.map((f, idx) => (
-                <div key={`${f.filename}-${idx}`} className="flex items-start justify-between gap-2 p-2 bg-thermax-mist rounded text-[11px]">
-                  <div className="min-w-0 flex-1">
-                    <div className="font-semibold text-thermax-navy truncate" title={f.filename}>{f.filename}</div>
-                    <div className="text-thermax-slate">{(f.text.length / 1024).toFixed(1)} KB{f.truncated && ' (truncated)'}</div>
-                  </div>
-                  <button
-                    onClick={() => setUploadedFiles(prev => prev.filter((_, i) => i !== idx))}
-                    className="text-red-500 hover:text-red-700 font-bold text-sm shrink-0 leading-none mt-0.5"
-                    title="Remove file"
-                  >×</button>
+
+          {sampleFiles.length > 0 && (
+            <div className="mb-3">
+              <div className="flex items-center justify-between mb-1.5">
+                <div className="text-[10px] font-bold uppercase tracking-wider text-thermax-navy">
+                  Available Data Files ({sampleFiles.length})
                 </div>
-              ))}
-              <button
-                onClick={() => setUploadedFiles([])}
-                className="text-[10px] text-thermax-saffronDeep font-semibold hover:underline"
-              >Remove all</button>
+                {sampleFiles.some(sf => !uploadedFiles.some(f => f.filename === sf.filename)) && (
+                  <button
+                    onClick={loadAllSampleFiles}
+                    disabled={streaming}
+                    className="text-[10px] font-semibold text-thermax-saffronDeep hover:underline disabled:opacity-40"
+                  >
+                    Select All
+                  </button>
+                )}
+              </div>
+              <p className="text-[9px] text-thermax-slate mb-1.5">Click to select files for this agent</p>
+              <div className="space-y-1">
+                {sampleFiles.map((sf) => {
+                  const isLoaded = uploadedFiles.some(f => f.filename === sf.filename);
+                  const isLoading = loadingSampleFiles.has(sf.filename);
+                  return (
+                    <button
+                      key={sf.filename}
+                      onClick={() => loadSampleFile(sf)}
+                      disabled={isLoaded || isLoading || streaming}
+                      className={`w-full text-left px-2.5 py-2 rounded-lg border transition-all ${
+                        isLoaded
+                          ? 'bg-emerald-50 border-emerald-200 cursor-default'
+                          : isLoading
+                          ? 'bg-blue-50 border-blue-200 animate-pulse'
+                          : 'bg-thermax-mist border-thermax-line hover:border-thermax-saffron hover:bg-amber-50 cursor-pointer'
+                      }`}
+                    >
+                      <div className="flex items-center gap-2">
+                        <span className="text-[12px] shrink-0">{isLoaded ? '✅' : isLoading ? '⏳' : '📄'}</span>
+                        <div className="min-w-0 flex-1">
+                          <div className={`text-[11px] font-semibold truncate ${isLoaded ? 'text-emerald-700' : 'text-thermax-navy'}`}>
+                            {sf.label}
+                          </div>
+                          <div className="text-[9px] text-thermax-slate leading-snug truncate">{sf.description}</div>
+                        </div>
+                        {isLoaded && <span className="text-[8px] font-bold text-emerald-600 bg-emerald-100 px-1.5 py-0.5 rounded shrink-0">LOADED</span>}
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          <div className="border-t border-thermax-line pt-2.5">
+            <div className="text-[10px] font-bold uppercase tracking-wider text-thermax-navy mb-1.5">
+              Or Upload Your Own Files
+            </div>
+            <input ref={fileInputRef} type="file" multiple accept=".txt,.md,.csv,.tsv,.log" onChange={handleUpload}
+              className="text-[11px] file:mr-2 file:py-1.5 file:px-3 file:rounded file:border-0 file:bg-thermax-navy file:text-white file:font-semibold hover:file:bg-thermax-navyDeep file:cursor-pointer w-full" />
+            <p className="text-[10px] text-thermax-slate mt-1">Select multiple files at once or upload in batches</p>
+          </div>
+
+          {uploadedFiles.length > 0 && (
+            <div className="mt-3 border-t border-thermax-line pt-2.5">
+              <div className="flex items-center justify-between mb-1.5">
+                <div className="text-[10px] font-bold uppercase tracking-wider text-emerald-700">
+                  Selected Files ({uploadedFiles.length})
+                </div>
+                <button
+                  onClick={() => setUploadedFiles([])}
+                  className="text-[10px] text-red-500 font-semibold hover:underline"
+                >Remove all</button>
+              </div>
+              <div className="space-y-1">
+                {uploadedFiles.map((f, idx) => (
+                  <div key={`${f.filename}-${idx}`} className="flex items-start justify-between gap-2 p-2 bg-emerald-50 border border-emerald-200 rounded-lg text-[11px]">
+                    <div className="min-w-0 flex-1">
+                      <div className="font-semibold text-emerald-800 truncate" title={f.filename}>{f.filename}</div>
+                      <div className="text-emerald-600 text-[10px]">{(f.text.length / 1024).toFixed(1)} KB{f.truncated && ' (truncated)'}</div>
+                    </div>
+                    <button
+                      onClick={() => setUploadedFiles(prev => prev.filter((_, i) => i !== idx))}
+                      className="text-red-400 hover:text-red-600 font-bold text-sm shrink-0 leading-none mt-0.5"
+                      title="Remove file"
+                    >×</button>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
           {uploadError && <div className="mt-2 text-[11px] text-red-600">{uploadError}</div>}
         </section>
-
-        {sampleFiles.length > 0 && (
-          <section className="bg-white border border-thermax-line rounded-xl shadow-card p-4">
-            <div className="flex items-center justify-between mb-2">
-              <h3 className="text-[11px] font-bold uppercase tracking-wider text-thermax-slate">
-                Sample Data Files ({sampleFiles.length})
-              </h3>
-              {sampleFiles.some(sf => !uploadedFiles.some(f => f.filename === sf.filename)) && (
-                <button
-                  onClick={loadAllSampleFiles}
-                  disabled={streaming}
-                  className="text-[10px] font-semibold text-thermax-saffronDeep hover:underline disabled:opacity-40"
-                >
-                  Load All
-                </button>
-              )}
-            </div>
-            <p className="text-[10px] text-thermax-slate mb-2 leading-snug">
-              Pre-built Thermax data files for this agent. Click any file to load it.
-            </p>
-            <div className="space-y-1.5">
-              {sampleFiles.map((sf) => {
-                const isLoaded = uploadedFiles.some(f => f.filename === sf.filename);
-                const isLoading = loadingSampleFiles.has(sf.filename);
-                return (
-                  <button
-                    key={sf.filename}
-                    onClick={() => loadSampleFile(sf)}
-                    disabled={isLoaded || isLoading || streaming}
-                    className={`w-full text-left p-2 rounded-lg border transition-all ${
-                      isLoaded
-                        ? 'bg-emerald-50 border-emerald-200 cursor-default'
-                        : isLoading
-                        ? 'bg-blue-50 border-blue-200 animate-pulse'
-                        : 'bg-thermax-mist border-thermax-line hover:border-thermax-saffron hover:bg-amber-50 cursor-pointer'
-                    }`}
-                  >
-                    <div className="flex items-center gap-2 mb-0.5">
-                      <span className="text-[11px]">{isLoaded ? '✅' : isLoading ? '⏳' : '📄'}</span>
-                      <span className={`text-[11px] font-semibold truncate ${isLoaded ? 'text-emerald-700' : 'text-thermax-navy'}`}>
-                        {sf.label}
-                      </span>
-                      {isLoaded && <span className="ml-auto text-[9px] font-bold text-emerald-600 bg-emerald-100 px-1.5 py-0.5 rounded">LOADED</span>}
-                    </div>
-                    <div className="text-[10px] text-thermax-slate leading-snug pl-5">{sf.description}</div>
-                  </button>
-                );
-              })}
-            </div>
-          </section>
-        )}
       </aside>
 
       <section className="flex flex-col bg-white border border-thermax-line rounded-xl shadow-card min-h-[640px]">
