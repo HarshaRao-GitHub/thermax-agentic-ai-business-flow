@@ -645,105 +645,219 @@ export default function AgentChat({
         </section>
       </aside>
 
-      <section className="flex flex-col bg-white border border-thermax-line rounded-xl shadow-card min-h-[640px]">
-        <SystemPromptViewer prompt={stage.systemPrompt} agentName={stage.agent.name} />
-        <UserPromptEditor
-          userPrompt={userPrompt}
-          onChange={(text) => setUserPrompt({ text, saved: false, validating: false, error: null })}
-          onSave={validateAndSavePrompt}
-          onClear={() => setUserPrompt({ text: '', saved: false, validating: false, error: null })}
-          agentName={stage.agent.name}
-        />
-        <div className="flex items-center justify-between px-5 py-3 border-b border-thermax-line">
-          {streaming ? (
-            <ProgressBar percent={progress.percent} label={progress.label} />
-          ) : (
-            <div className="flex items-center gap-2 text-[12px]">
-              <span className={`inline-block w-2 h-2 rounded-full ${mode === 'live' ? 'bg-emerald-500' : mode === 'mock' ? 'bg-amber-500' : 'bg-thermax-slate/40'}`} />
-              <span className="font-mono text-thermax-slate">
-                {mode === 'live' ? `Live · Enterprise LLM · Agentic · ${stage.tools.length} tools` : mode === 'mock' ? 'Mock mode (set API key for live)' : 'Ready'}
-              </span>
+      <section ref={streamRef} className="space-y-4 overflow-y-auto">
+
+        {/* ── SECTION 0: System Prompt + Custom Prompt + Run Agent ── */}
+        <div className="bg-white border border-thermax-line rounded-xl shadow-card overflow-hidden">
+          <SystemPromptViewer prompt={stage.systemPrompt} agentName={stage.agent.name} />
+          <UserPromptEditor
+            userPrompt={userPrompt}
+            onChange={(text) => setUserPrompt({ text, saved: false, validating: false, error: null })}
+            onSave={validateAndSavePrompt}
+            onClear={() => setUserPrompt({ text: '', saved: false, validating: false, error: null })}
+            agentName={stage.agent.name}
+          />
+          <div className="flex items-center justify-between px-5 py-3 border-t border-thermax-line">
+            <div className="flex items-center gap-3">
+              <button onClick={() => send(stage.starterPrompt)} disabled={streaming}
+                className="text-[12px] font-semibold bg-thermax-navy text-white px-4 py-2 rounded-md hover:bg-thermax-navyDeep disabled:opacity-40 transition">
+                ▶ Run {stage.title} Agent
+              </button>
+              <div className="flex items-center gap-2 text-[12px]">
+                <span className={`inline-block w-2 h-2 rounded-full ${mode === 'live' ? 'bg-emerald-500' : mode === 'mock' ? 'bg-amber-500' : 'bg-thermax-slate/40'}`} />
+                <span className="font-mono text-thermax-slate">
+                  {mode === 'live' ? `Live · Enterprise LLM · ${stage.tools.length} tools` : mode === 'mock' ? 'Mock mode' : 'Ready'}
+                </span>
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              {messages.length > 0 && !streaming && (
+                <button onClick={() => navigator.clipboard.writeText(messages.filter(m => m.role === 'assistant')[0]?.content ?? '')}
+                  className="text-[11px] font-semibold text-thermax-navy hover:text-thermax-saffronDeep px-2 py-1">Copy Result</button>
+              )}
+              <button onClick={reset} disabled={streaming}
+                className="text-[11px] font-semibold text-thermax-slate hover:text-thermax-navy px-2 py-1 disabled:opacity-40">Reset</button>
+            </div>
+          </div>
+          {streaming && (
+            <div className="px-5 pb-3">
+              <ProgressBar percent={progress.percent} label={progress.label} />
             </div>
           )}
-          <div className="flex items-center gap-2">
-            {messages.length > 0 && !streaming && (
-              <button onClick={() => navigator.clipboard.writeText(messages[messages.length - 1].content)}
-                className="text-[11px] font-semibold text-thermax-navy hover:text-thermax-saffronDeep px-2 py-1">Copy</button>
-            )}
-            <button onClick={reset} disabled={streaming}
-              className="text-[11px] font-semibold text-thermax-slate hover:text-thermax-navy px-2 py-1 disabled:opacity-40">Reset</button>
-          </div>
-        </div>
-
-        {(usageStats || streaming) && (transcript.length > 0 || toolEvents.length > 0) && (
-          <div className="px-4 pt-3 pb-2 border-b border-thermax-line bg-white">
-            <UsageCard stats={usageStats} elapsed={elapsedTimer} streaming={streaming} toolCount={stage.tools.length} />
-          </div>
-        )}
-
-        <div ref={streamRef} className="flex-1 overflow-y-auto p-5 space-y-4 max-h-[68vh]">
-          {transcript.length === 0 && toolEvents.length === 0 ? (
-            <EmptyState stage={stage} />
-          ) : (
-            <>
-              {transcript.filter((m) => m.role === 'user').map((m, i) => (
-                <MessageBubble key={`u-${i}`} role="user" content={m.content} />
-              ))}
-              {toolEvents.length > 0 && (
-                <div className="space-y-2">
-                  {buildToolPairs(toolEvents).map((pair, i) => (
-                    <ToolCard key={i} pair={pair} tools={stage.tools} />
-                  ))}
-                </div>
-              )}
-              {transcript.filter((m) => m.role === 'assistant').map((m, i) => (
-                <MessageBubble key={`a-${i}`} role="assistant" content={m.content}
-                  streaming={streaming && i === transcript.filter((x) => x.role === 'assistant').length - 1} />
-              ))}
-              {hitlEvent && !streaming && (
-                <ApprovalPanel
-                  hitl={hitlEvent}
-                  onDecision={(decision, detail) => {
-                    setHitlDecision(`${decision}: ${detail}`);
-                    setTimeout(() => {
-                      persistResult();
-                      refreshWorkflow();
-                    }, 1000);
-                  }}
-                />
-              )}
-              {hitlDecision && !hitlEvent?.approvalId && (
-                <div className="text-[12px] text-emerald-700 bg-emerald-50 rounded-lg p-3">
-                  {hitlDecision}
-                </div>
-              )}
-            </>
-          )}
-        </div>
-
-        <div className="border-t border-thermax-line p-4">
-          <div className="flex flex-wrap gap-2 mb-2">
-            <button onClick={() => send(stage.starterPrompt)} disabled={streaming}
-              className="text-[11px] font-semibold bg-thermax-navy text-white px-3 py-1.5 rounded-md hover:bg-thermax-navyDeep disabled:opacity-40">
-              Run {stage.title} Agent
-            </button>
-          </div>
-          <div className="flex gap-2">
-            <textarea value={input} onChange={(e) => setInput(e.target.value)}
-              onKeyDown={(e) => { if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) { e.preventDefault(); send(); } }}
-              placeholder={`Ask the ${stage.agent.name}... (Ctrl/Cmd+Enter to send)`}
-              rows={3} disabled={streaming}
-              className="flex-1 border border-thermax-line rounded-md px-3 py-2 text-[13px] resize-y focus:outline-none focus:border-thermax-saffron focus:ring-2 focus:ring-thermax-saffron/20 disabled:bg-thermax-mist" />
-            <button onClick={() => send()} disabled={streaming || !input.trim()}
-              className="bg-thermax-saffron text-white font-semibold px-5 rounded-md hover:bg-thermax-saffronDeep disabled:opacity-40 disabled:cursor-not-allowed">
-              Send
-            </button>
-          </div>
-          <div className="mt-2 text-[11px] text-thermax-slate font-mono">
+          <div className="px-5 pb-2 text-[11px] text-thermax-slate font-mono">
             {stage.dataSources.length} data source(s) · {stage.tools.length} tools · agentic mode
             {uploadedFiles.length > 0 && ` · ${uploadedFiles.length} uploaded document${uploadedFiles.length > 1 ? 's' : ''}`}
           </div>
         </div>
+
+        {/* ── SECTION 1: Agentic Session Metrics ── */}
+        {(usageStats || streaming) && (transcript.length > 0 || toolEvents.length > 0) && (
+          <div className="bg-white border border-thermax-line rounded-xl shadow-card overflow-hidden">
+            <div className="px-5 py-3 border-b border-thermax-line bg-thermax-mist">
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] font-bold bg-thermax-navy text-white px-2 py-0.5 rounded">1</span>
+                <h3 className="text-[13px] font-bold text-thermax-navy">Agentic Session Metrics</h3>
+              </div>
+            </div>
+            <div className="p-4">
+              <UsageCard stats={usageStats} elapsed={elapsedTimer} streaming={streaming} toolCount={stage.tools.length} />
+            </div>
+          </div>
+        )}
+
+        {/* ── SECTION 2: Agent Processing Steps ── */}
+        {toolEvents.length > 0 && (
+          <div className="bg-white border border-thermax-line rounded-xl shadow-card overflow-hidden">
+            <div className="px-5 py-3 border-b border-thermax-line bg-thermax-mist">
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] font-bold bg-thermax-navy text-white px-2 py-0.5 rounded">2</span>
+                <h3 className="text-[13px] font-bold text-thermax-navy">Agent Processing Steps</h3>
+                <span className="text-[10px] font-mono text-thermax-slate">
+                  {buildToolPairs(toolEvents).filter(p => p.completed).length}/{buildToolPairs(toolEvents).length} completed
+                </span>
+                {streaming && <span className="inline-block w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse" />}
+              </div>
+            </div>
+            <div className="p-4 max-h-[300px] overflow-y-auto space-y-2">
+              {buildToolPairs(toolEvents).map((pair, i) => (
+                <ToolCard key={i} pair={pair} tools={stage.tools} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* ── SECTION 3: Agent Results ── */}
+        {(() => {
+          const firstAssistant = transcript.find(m => m.role === 'assistant');
+          const firstUserPrompt = transcript.find(m => m.role === 'user');
+          if (!firstAssistant && !streaming) return null;
+          if (!firstAssistant && streaming && !streamBuffer) return null;
+          return (
+            <div className="bg-white border border-thermax-line rounded-xl shadow-card overflow-hidden">
+              <div className="px-5 py-3 border-b border-thermax-line bg-thermax-mist">
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-bold bg-thermax-navy text-white px-2 py-0.5 rounded">3</span>
+                  <h3 className="text-[13px] font-bold text-thermax-navy">Agent Results</h3>
+                  {streaming && firstUserPrompt && !firstAssistant && (
+                    <span className="text-[10px] font-mono text-blue-600">Generating...</span>
+                  )}
+                </div>
+              </div>
+              <div className="max-h-[500px] overflow-y-auto">
+                {firstUserPrompt && (
+                  <div className="px-5 pt-3">
+                    <MessageBubble role="user" content={firstUserPrompt.content} />
+                  </div>
+                )}
+                {firstAssistant && (
+                  <div className="px-5 py-3">
+                    <MessageBubble role="assistant" content={firstAssistant.content}
+                      streaming={streaming && transcript.filter(m => m.role === 'assistant').length === 1} />
+                  </div>
+                )}
+                {!firstAssistant && streaming && streamBuffer && (
+                  <div className="px-5 py-3">
+                    <MessageBubble role="assistant" content={streamBuffer} streaming={true} />
+                  </div>
+                )}
+              </div>
+            </div>
+          );
+        })()}
+
+        {/* ── SECTION 4: HITL Approval Gate ── */}
+        {hitlEvent && !streaming && (
+          <div className="bg-white border border-thermax-line rounded-xl shadow-card overflow-hidden">
+            <div className="px-5 py-3 border-b border-thermax-line bg-gradient-to-r from-amber-50 to-orange-50">
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] font-bold bg-amber-600 text-white px-2 py-0.5 rounded">4</span>
+                <h3 className="text-[13px] font-bold text-thermax-navy">HITL Approval Gate</h3>
+                <span className="text-[10px] font-semibold text-amber-700 bg-amber-100 px-2 py-0.5 rounded">REQUIRES HUMAN DECISION</span>
+              </div>
+            </div>
+            <div className="p-4">
+              <ApprovalPanel
+                hitl={hitlEvent}
+                onDecision={(decision, detail) => {
+                  setHitlDecision(`${decision}: ${detail}`);
+                  setTimeout(() => {
+                    persistResult();
+                    refreshWorkflow();
+                  }, 1000);
+                }}
+              />
+            </div>
+          </div>
+        )}
+        {hitlDecision && (
+          <div className="bg-emerald-50 border border-emerald-200 rounded-xl shadow-card p-4">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="text-emerald-600">✅</span>
+              <span className="text-[12px] font-bold text-emerald-800">Approval Decision Recorded</span>
+            </div>
+            <div className="text-[12px] text-emerald-700">{hitlDecision}</div>
+          </div>
+        )}
+
+        {/* ── SECTION 5: Chat / Q&A with Agent ── */}
+        {messages.length > 0 && !streaming && (
+          <div className="bg-white border border-thermax-line rounded-xl shadow-card overflow-hidden">
+            <div className="px-5 py-3 border-b border-thermax-line bg-gradient-to-r from-violet-50 to-blue-50">
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] font-bold bg-violet-600 text-white px-2 py-0.5 rounded">5</span>
+                <h3 className="text-[13px] font-bold text-thermax-navy">Chat / Q&A with {stage.agent.name}</h3>
+                <span className="text-[10px] text-violet-600 font-mono">Ask follow-up questions about the results, data, or process</span>
+              </div>
+            </div>
+            <div className="p-4">
+              <div className="flex gap-2">
+                <textarea value={input} onChange={(e) => setInput(e.target.value)}
+                  onKeyDown={(e) => { if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) { e.preventDefault(); send(); } }}
+                  placeholder={`Ask the ${stage.agent.name} a follow-up question... (Ctrl/Cmd+Enter to send)`}
+                  rows={3} disabled={streaming}
+                  className="flex-1 border border-violet-200 rounded-md px-3 py-2 text-[13px] resize-y focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-200 disabled:bg-thermax-mist placeholder:text-violet-300" />
+                <button onClick={() => send()} disabled={streaming || !input.trim()}
+                  className="bg-violet-600 text-white font-semibold px-5 rounded-md hover:bg-violet-700 disabled:opacity-40 disabled:cursor-not-allowed transition">
+                  Send
+                </button>
+              </div>
+              <p className="mt-1.5 text-[10px] text-violet-500">
+                Examples: &quot;What are the top risks?&quot; · &quot;Summarize the key findings&quot; · &quot;Explain the recommendations&quot; · &quot;Show me the data breakdown&quot;
+              </p>
+            </div>
+          </div>
+        )}
+
+        {/* ── SECTION 6: Q&A Conversation History ── */}
+        {(() => {
+          const followUpMessages = transcript.slice(2);
+          if (followUpMessages.length === 0) return null;
+          return (
+            <div className="bg-white border border-thermax-line rounded-xl shadow-card overflow-hidden">
+              <div className="px-5 py-3 border-b border-thermax-line bg-gradient-to-r from-violet-50 to-blue-50">
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-bold bg-violet-600 text-white px-2 py-0.5 rounded">6</span>
+                  <h3 className="text-[13px] font-bold text-thermax-navy">Q&A Results</h3>
+                  <span className="text-[10px] font-mono text-violet-600">{Math.floor(followUpMessages.length / 2)} conversation(s)</span>
+                </div>
+              </div>
+              <div className="max-h-[500px] overflow-y-auto p-4 space-y-3">
+                {followUpMessages.map((m, i) => (
+                  <MessageBubble key={`qa-${i}`} role={m.role} content={m.content}
+                    streaming={streaming && m.role === 'assistant' && i === followUpMessages.length - 1} />
+                ))}
+              </div>
+            </div>
+          );
+        })()}
+
+        {/* ── Empty state when nothing has run yet ── */}
+        {transcript.length === 0 && toolEvents.length === 0 && !streaming && (
+          <div className="bg-white border border-thermax-line rounded-xl shadow-card">
+            <EmptyState stage={stage} />
+          </div>
+        )}
+
       </section>
     </div>
     </>
