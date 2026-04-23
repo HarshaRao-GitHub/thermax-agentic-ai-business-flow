@@ -1,0 +1,56 @@
+validation_id,proposal_id,validation_type,ai_verdict,ai_confidence,risk_flags,hazop_required,reviewed_by_engineer,review_date,final_verdict,modifications_required,status
+ENV-2026-0001,PRP-2026-0001,Code Compliance,Feasible,0.935,Emission limit,False,Vikram Ghosh,2026-02-25,Approved,Design revision,Open
+ENV-2026-0002,PRP-2026-0002,Feasibility Check,Feasible,0.864,Redundancy gap,True,Manish Tiwari,2026-02-15,Approved,Capacity re-rating,Open
+ENV-2026-0003,PRP-2026-0003,Design Review,Feasible,0.825,Safety clearance,False,Prakash Desai,2026-03-27,Approved,Material upgrade,Open
+ENV-2026-0004,PRP-2026-0004,Design Review,Not feasible as scoped,0.857,Space constraint,True,Kunal Mehta,2026-03-13,Approved with conditions,Material upgrade,Closed
+ENV-2026-0005,PRP-2026-0005,HAZOP Pre-screen,Not feasible as scoped,0.761,None,True,Nikhil Iyer,2026-03-15,Approved,Material upgrade,Closed
+ENV-2026-0006,PRP-2026-0006,HAZOP Pre-screen,Feasible with modifications,0.93,Safety clearance,True,Deepak Sharma,2026-01-26,Approved with conditions,Design revision,Closed
+ENV-2026-0007,PRP-2026-0007,HAZOP Pre-screen,Feasible,0.798,Safety clearance,True,Sneha Bansal,2026-04-12,Approved,Design revision,Closed
+ENV-2026-0008,PRP-2026-0008,Performance Simulation,Feasible,0.773,Safety clearance,True,Tarun Saxena,2026-04-06,Sent back for revision,Minor scope change,Closed
+ENV-2026-0009,PRP-2026-0009,HAZOP Pre-screen,Not feasible as scoped,0.929,Space constraint,True,Neha Saxena,2026-01-29,Sent back for revision,Safety barrier addition,Open
+ENV-2026-0010,PRP-2026-0010,HAZOP Pre-screen,Feasible,0.827,None,False,Smita Nair,2026-02-20,Approved,Capacity re-rating,Open
+ENV-2026-0011,PRP-2026-0011,HAZOP Pre-screen,Not feasible as scoped,0.765,None,False,Vivek Menon,2026-03-28,Sent back for revision,Design revision,Open
+ENV-2026-0012,PRP-2026-0012,HAZOP Pre-screen,Feasible,0.737,Redundancy gap,True,Ritu Gupta,2026-01-17,Approved,Safety barrier addition,Closed
+ENV-2026-0013,PRP-2026-0013,Feasibility Check,Feasible,0.865,None,False,Dinesh Kumar,2026-04-03,Approved,Safety barrier addition,Closed
+ENV-2026-0014,PRP-2026-0014,Feasibility Check,Not feasible as scoped,0.784,Redundancy gap,True,Anjali Pillai,2026-04-02,Sent back for revision,None,In Progress
+ENV-2026-0015,PRP-2026-0015,Design Review,Feasible with modifications,0.916,Material fatigue,True,Sunita Pillai,2026-01-21,Approved with conditions,Capacity re-rating,Closed
+ENV-2026-0016,PRP-2026-0016,Safety Review,Not feasible as scoped,0.725,None,True,Yogesh Yadav,2026-04-01,Approved,None,Open
+ENV-2026-0017,PRP-2026-0017,HAZOP Pre-screen,Not feasible as scoped,0.726,Redundancy gap,False,Sneha Mehta,2026-01-22,Sent back for revision,Safety barrier addition,Closed
+ENV-2026-0018,PRP-2026-0018,Feasibility Check,Not feasible as scoped,0.838,Space constraint,True,Vikram Vaidya,2026-03-08,Approved,Minor scope change,Closed
+ENV-2026-0019,PRP-2026-0019,Safety Review,Feasible with modifications,0.942,Material fatigue,True,Divya Chatterjee,2026-03-08,Approved,None,In Progress
+ENV-2026-0020,PRP-2026-0020,Performance Simulation,Not feasible as scoped,0.756,None,True,Prakash Banerjee,2026-01-25,Approved with conditions,Material upgrade,Closed
+ENV-2026-0021,PRP-2026-0021,HAZOP Pre-screen,Feasible with modifications,0.915,Space constraint,True,Suresh Mishra,2026-02-21,Sent back for revision,None,Closed
+ENV-2026-0022,PRP-2026-0022,Performance Simulation,Feasible with modifications,0.747,None,False,Anil Rao,2026-03-27,Sent back for revision,Design revision,Closed
+ENV-2026-0023,PRP-2026-0023,Code Compliance,Feasible,0.797,Safety clearance,False,Ajay Joshi,2026-04-02,Approved,Safety barrier addition,In Progress
+ENV-2026-0024,PRP-2026-0024,Safety Review,Feasible,0.82,Safety clearance,False,Girish Mehta,2026-03-01,Approved,Material upgrade,In Progress
+ENV-2026-0025,PRP-2026-0025,Feasibility Check,Feasible with modifications,0.846,Space constraint,True,Rajesh Desai,2026-04-17,Approved with conditions,Design revision,In Progress
+ENV-2026-0026,PRP-2026-0026,Performance Simulation,Not feasible as scoped,0.95,Material fatigue,True,Sneha Dutta,2026-04-01,Sent back for revision,None,Open
+ENV-2026-0027,PRP-2026-0027,Code Compliance,Feasible with modifications,0.771,None,True,Shashi Iyer,2026-03-02,Approved,None,In Progress
+ENV-2026-0028,PRP-2026-0028,Safety Review,Feasible,0.809,Emission limit,True,Rekha Srivastava,2026-03-30,Approved,Design revision,Open
+ENV-2026-0029,PRP-2026-0029,Feasibility Check,Feasible,0.808,Safety clearance,True,Rekha Yadav,2026-03-31,Approved,Minor scope change,In Progress
+ENV-2026-0030,PRP-2026-0030,Design Review,Not feasible as scoped,0.898,Emission limit,True,Ajay Sharma,2026-03-14,Approved,Safety barrier addition,Open
+ENV-2026-0031,PRP-2026-0031,HAZOP Pre-screen,Feasible with modifications,0.734,None,True,Ritu Bhatia,2026-01-22,Sent back for revision,Material upgrade,Closed
+ENV-2026-0032,PRP-2026-0032,HAZOP Pre-screen,Feasible,0.941,Material fatigue,True,Prakash Shah,2026-02-12,Sent back for revision,Design revision,Open
+ENV-2026-0033,PRP-2026-0033,Feasibility Check,Feasible with modifications,0.898,Emission limit,False,Kavita Naidu,2026-02-01,Approved,Material upgrade,In Progress
+ENV-2026-0034,PRP-2026-0034,HAZOP Pre-screen,Feasible,0.835,Space constraint,False,Preeti Bhatia,2026-03-26,Approved with conditions,Safety barrier addition,Closed
+ENV-2026-0035,PRP-2026-0035,Performance Simulation,Feasible,0.745,Material fatigue,True,Sneha Menon,2026-02-09,Approved,Material upgrade,Closed
+ENV-2026-0036,PRP-2026-0036,HAZOP Pre-screen,Feasible with modifications,0.771,Redundancy gap,True,Vinod Kumar,2026-03-20,Approved with conditions,Capacity re-rating,Closed
+ENV-2026-0037,PRP-2026-0037,Design Review,Feasible,0.954,None,True,Anil Shah,2026-03-11,Approved,Material upgrade,Closed
+ENV-2026-0038,PRP-2026-0038,HAZOP Pre-screen,Not feasible as scoped,0.9,Emission limit,False,Jitendra Trivedi,2026-04-03,Approved,Material upgrade,Closed
+ENV-2026-0039,PRP-2026-0039,HAZOP Pre-screen,Feasible,0.818,Safety clearance,True,Ajay Mishra,2026-02-17,Approved,Material upgrade,Closed
+ENV-2026-0040,PRP-2026-0040,Code Compliance,Feasible,0.759,Redundancy gap,False,Sanjay Desai,2026-01-22,Approved,None,Open
+ENV-2026-0041,PRP-2026-0041,HAZOP Pre-screen,Not feasible as scoped,0.958,Space constraint,True,Sarika Vaidya,2026-02-23,Approved,Safety barrier addition,In Progress
+ENV-2026-0042,PRP-2026-0042,Safety Review,Feasible,0.777,None,True,Anita Sharma,2026-04-01,Approved with conditions,Minor scope change,Closed
+ENV-2026-0043,PRP-2026-0043,HAZOP Pre-screen,Not feasible as scoped,0.84,Material fatigue,False,Vikram Chopra,2026-02-05,Approved with conditions,Capacity re-rating,Closed
+ENV-2026-0044,PRP-2026-0044,Design Review,Not feasible as scoped,0.741,Emission limit,True,Aarti Bose,2026-01-26,Approved,Design revision,Closed
+ENV-2026-0045,PRP-2026-0045,Performance Simulation,Not feasible as scoped,0.953,Emission limit,False,Mukesh Vaidya,2026-01-22,Approved,None,In Progress
+ENV-2026-0046,PRP-2026-0046,Feasibility Check,Feasible,0.808,Safety clearance,True,Harish Khanna,2026-01-22,Approved,Capacity re-rating,Closed
+ENV-2026-0047,PRP-2026-0047,Safety Review,Feasible,0.898,Material fatigue,True,Kunal Gupta,2026-03-13,Sent back for revision,Design revision,Open
+ENV-2026-0048,PRP-2026-0048,Design Review,Feasible,0.857,Redundancy gap,True,Anjali Trivedi,2026-02-19,Sent back for revision,Minor scope change,In Progress
+ENV-2026-0049,PRP-2026-0049,Feasibility Check,Feasible,0.746,Emission limit,True,Manish Tiwari,2026-03-08,Approved,Design revision,Closed
+ENV-2026-0050,PRP-2026-0050,Code Compliance,Feasible,0.802,None,False,Prakash Dutta,2026-04-15,Approved,Minor scope change,In Progress
+ENV-2026-0051,PRP-2026-0051,Safety Review,Feasible,0.755,Safety clearance,True,Vandana Mishra,2026-04-12,Approved with conditions,Capacity re-rating,In Progress
+ENV-2026-0052,PRP-2026-0052,HAZOP Pre-screen,Feasible,0.955,Redundancy gap,True,Divya Chopra,2026-03-18,Approved,None,Closed
+ENV-2026-0053,PRP-2026-0053,Feasibility Check,Not feasible as scoped,0.754,Redundancy gap,True,Harish Yadav,2026-02-11,Approved,Safety barrier addition,Closed
+ENV-2026-0054,PRP-2026-0054,Design Review,Not feasible as scoped,0.764,Space constraint,True,Arun Pillai,2026-03-06,Sent back for revision,None,In Progress
+ENV-2026-0055,PRP-2026-0055,Design Review,Not feasible as scoped,0.834,Redundancy gap,True,Bharat Mishra,2026-04-18,Approved,Design revision,Closed

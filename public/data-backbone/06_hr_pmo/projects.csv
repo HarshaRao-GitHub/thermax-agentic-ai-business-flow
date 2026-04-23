@@ -1,0 +1,56 @@
+project_id,proposal_id,customer_id,project_name,site_location,contract_value_inr_cr,start_date,planned_end_date,project_manager,project_status,agent_charter_status,pmo_approver
+PRJ-2026-0001,PRP-2026-0010,CUST-0038,ITC Limited (Paperboards) - Utilities Revamp,"Kolkata, West Bengal",6,2025-11-10,2026-09-12,Naveen Vaidya,Execution,Under Review,Preeti Iyer
+PRJ-2026-0002,PRP-2026-0016,CUST-0038,ITC Limited (Paperboards) - Utilities Revamp,"Kolkata, West Bengal",85,2025-06-28,2026-05-05,Shobha Banerjee,Execution,Approved,Shobha Chatterjee
+PRJ-2026-0003,PRP-2026-0051,CUST-0031,Bajaj Auto - CPP,"Pune, Maharashtra",20,2025-07-18,2026-05-28,Tarun Patel,Commissioning,Approved,Vivek Desai
+PRJ-2026-0004,PRP-2026-0031,CUST-0015,Dr Reddys Laboratories - Boiler Island,"Hyderabad, Telangana",20,2025-10-31,2027-01-05,Preeti Pillai,Commissioning,Approved,Shweta Chowdhury
+PRJ-2026-0005,PRP-2026-0014,CUST-0041,Nestle India - ZLD Plant,"Gurugram, Haryana",6,2025-06-27,2026-02-18,Sarika Kumar,Closed,Drafted,Pooja Mukherjee
+PRJ-2026-0006,PRP-2026-0017,CUST-0005,Ambuja Cements - Boiler Island,"Mumbai, Maharashtra",50,2025-06-12,2026-07-10,Anita Singh,Closed,Approved,Kiran Kapoor
+PRJ-2026-0007,PRP-2026-0007,CUST-0016,Cipla - ZLD Plant,"Mumbai, Maharashtra",50,2025-12-19,2027-04-06,Sanjay Dutta,Execution,Drafted,Raghav Chopra
+PRJ-2026-0008,PRP-2026-0022,CUST-0036,SRF Limited - ZLD Plant,"Gurugram, Haryana",50,2026-02-04,2027-06-19,Jitendra Patel,Execution,Approved,Vivek Singh
+PRJ-2026-0009,PRP-2026-0042,CUST-0014,Sun Pharmaceutical - Cogen Expansion,"Mumbai, Maharashtra",32,2025-11-18,2027-01-11,Shweta Gupta,On Hold,Drafted,Anil Patel
+PRJ-2026-0010,PRP-2026-0045,CUST-0013,Mangalore Refinery - Boiler Island,"Mangalore, Karnataka",220,2026-01-22,2027-01-03,Naveen Pillai,Planning,Approved,Nandita Desai
+PRJ-2026-0011,PRP-2026-0005,CUST-0039,JK Paper - CPP,"New Delhi, Delhi",220,2025-10-20,2026-12-05,Nandita Bhatia,Execution,Drafted,Jitendra Bose
+PRJ-2026-0012,PRP-2026-0030,CUST-0050,NTPC Limited - Cogen Expansion,"New Delhi, Delhi",32,2025-05-25,2026-11-08,Rajesh Khanna,Execution,Approved,Raghav Chopra
+PRJ-2026-0013,PRP-2026-0032,CUST-0032,Hero MotoCorp - Cogen Expansion,"New Delhi, Delhi",20,2025-10-05,2026-10-19,Yogesh Malhotra,Execution,Under Review,Aarti Pillai
+PRJ-2026-0014,PRP-2026-0054,CUST-0016,Cipla - FGD Retrofit,"Mumbai, Maharashtra",85,2025-11-02,2027-02-12,Nikhil Bose,Planning,Approved,Smita Sharma
+PRJ-2026-0015,PRP-2026-0050,CUST-0021,Tata Steel - WHRB,"Jamshedpur, Jharkhand",220,2025-07-12,2026-01-31,Vikram Bhatia,Execution,Under Review,Ravi Bose
+PRJ-2026-0016,PRP-2026-0048,CUST-0022,JSW Steel - Boiler Island,"Mumbai, Maharashtra",20,2025-12-13,2027-05-15,Dinesh Mehta,Execution,Under Review,Yogesh Agarwal
+PRJ-2026-0017,PRP-2026-0019,CUST-0021,Tata Steel - FGD Retrofit,"Jamshedpur, Jharkhand",220,2026-01-29,2027-05-14,Vinod Vaidya,Execution,Approved,Archana Iyer
+PRJ-2026-0018,PRP-2026-0029,CUST-0021,Tata Steel - Utilities Revamp,"Jamshedpur, Jharkhand",20,2025-12-14,2027-05-10,Ajay Menon,Execution,Approved,Sujata Menon
+PRJ-2026-0019,PRP-2026-0040,CUST-0021,Tata Steel - Utilities Revamp,"Jamshedpur, Jharkhand",220,2025-04-22,2026-06-20,Vandana Chopra,Execution,Under Review,Naveen Agarwal
+PRJ-2026-0020,PRP-2026-0038,CUST-0024,Jindal Steel and Power - ESP Upgrade,"New Delhi, Delhi",20,2025-10-17,2026-08-03,Rekha Bansal,Closed,Under Review,Divya Chowdhury
+PRJ-2026-0021,PRP-2026-0041,CUST-0026,Hindalco Industries - Utilities Revamp,"Mumbai, Maharashtra",140,2026-03-20,2027-08-12,Sunita Yadav,Commissioning,Approved,Shweta Chopra
+PRJ-2026-0022,PRP-2026-0018,CUST-0002,ACC Limited - FGD Retrofit,"Mumbai, Maharashtra",32,2025-12-06,2027-03-09,Sneha Pandey,Planning,Under Review,Divya Mishra
+PRJ-2026-0023,PRP-2026-0003,CUST-0021,Tata Steel - Cogen Expansion,"Jamshedpur, Jharkhand",32,2025-12-02,2027-02-11,Kunal Chopra,Planning,Drafted,Rohit Menon
+PRJ-2026-0024,PRP-2026-0009,CUST-0021,Tata Steel - CPP,"Jamshedpur, Jharkhand",220,2025-05-23,2026-05-18,Vandana Mishra,Execution,Approved,Rohit Chopra
+PRJ-2026-0025,PRP-2026-0046,CUST-0039,JK Paper - CPP,"New Delhi, Delhi",140,2026-02-20,2026-08-10,Nikhil Joshi,Commissioning,Approved,Sarika Bose
+PRJ-2026-0026,PRP-2026-0035,CUST-0019,Cadila Healthcare - Boiler Island,"Ahmedabad, Gujarat",12,2025-07-24,2026-01-28,Anil Yadav,Execution,Approved,Shobha Iyer
+PRJ-2026-0027,PRP-2026-0055,CUST-0038,ITC Limited (Paperboards) - Boiler Island,"Kolkata, West Bengal",50,2025-06-02,2026-01-10,Harish Kapoor,Commissioning,Approved,Girish Khanna
+PRJ-2026-0028,PRP-2026-0001,CUST-0036,SRF Limited - Boiler Island,"Gurugram, Haryana",50,2026-03-11,2026-09-18,Shobha Bansal,Execution,Under Review,Usha Bose
+PRJ-2026-0029,PRP-2026-0008,CUST-0048,Balrampur Chini Mills - Cogen Expansion,"Kolkata, West Bengal",32,2025-12-18,2026-09-28,Sanjay Dutta,Commissioning,Under Review,Manish Khanna
+PRJ-2026-0030,PRP-2026-0012,CUST-0017,Lupin Limited - Utilities Revamp,"Mumbai, Maharashtra",6,2026-01-10,2026-07-10,Divya Tiwari,Execution,Approved,Anita Singh
+PRJ-2026-0031,PRP-2026-0039,CUST-0034,PI Industries - CPP,"Udaipur, Rajasthan",6,2025-07-03,2026-05-10,Bharat Bhatia,Planning,Approved,Shobha Bansal
+PRJ-2026-0032,PRP-2026-0026,CUST-0051,Tata Power - ESP Upgrade,"Mumbai, Maharashtra",220,2025-10-29,2026-12-17,Nikhil Patel,Execution,Drafted,Bharat Shah
+PRJ-2026-0033,PRP-2026-0023,CUST-0036,SRF Limited - Boiler Island,"Gurugram, Haryana",12,2025-06-23,2026-01-10,Bharat Dutta,On Hold,Approved,Dinesh Patel
+PRJ-2026-0034,PRP-2026-0036,CUST-0050,NTPC Limited - Cogen Expansion,"New Delhi, Delhi",140,2025-11-01,2026-10-25,Gopal Iyer,Execution,Under Review,Vikram Nair
+PRJ-2026-0035,PRP-2026-0037,CUST-0042,Britannia Industries - Utilities Revamp,"Bengaluru, Karnataka",85,2025-08-02,2026-08-27,Gopal Verma,Closed,Approved,Sneha Sharma
+PRJ-2026-0036,PRP-2026-0006,CUST-0040,West Coast Paper - ZLD Plant,"Dandeli, Karnataka",140,2026-03-13,2026-07-15,Anil Bhatia,Execution,Under Review,Kunal Mehta
+PRJ-2026-0037,PRP-2026-0025,CUST-0038,ITC Limited (Paperboards) - ZLD Plant,"Kolkata, West Bengal",85,2025-06-23,2026-06-12,Vandana Chowdhury,Commissioning,Approved,Suresh Pillai
+PRJ-2026-0038,PRP-2026-0021,CUST-0050,NTPC Limited - WHRB,"New Delhi, Delhi",20,2025-12-07,2026-09-10,Ravi Verma,On Hold,Approved,Kunal Kumar
+PRJ-2026-0039,PRP-2026-0047,CUST-0050,NTPC Limited - Boiler Island,"New Delhi, Delhi",20,2025-06-19,2026-04-13,Anil Bansal,Execution,Approved,Manish Agarwal
+PRJ-2026-0040,PRP-2026-0015,CUST-0011,Reliance Industries - ZLD Plant,"Jamnagar, Gujarat",140,2025-11-04,2026-07-01,Vandana Trivedi,Planning,Approved,Gopal Bose
+PRJ-2026-0041,PRP-2026-0011,CUST-0008,Indian Oil Corporation - ZLD Plant,"Panipat, Haryana",140,2026-03-09,2027-02-19,Ashok Singh,Closed,Approved,Ritu Pillai
+PRJ-2026-0042,PRP-2026-0052,CUST-0014,Sun Pharmaceutical - Boiler Island,"Mumbai, Maharashtra",140,2025-05-24,2026-11-12,Anjali Nair,On Hold,Approved,Jitendra Chatterjee
+PRJ-2026-0043,PRP-2026-0033,CUST-0008,Indian Oil Corporation - Cogen Expansion,"Panipat, Haryana",20,2025-12-05,2026-06-04,Shalini Srivastava,Commissioning,Under Review,Mukesh Pillai
+PRJ-2026-0044,PRP-2026-0024,CUST-0014,Sun Pharmaceutical - Cogen Expansion,"Mumbai, Maharashtra",12,2025-07-06,2026-05-06,Aarti Mukherjee,Planning,Approved,Amit Sharma
+PRJ-2026-0045,PRP-2026-0013,CUST-0025,Vedanta Limited - ESP Upgrade,"Mumbai, Maharashtra",140,2025-08-30,2026-02-17,Sarika Agarwal,Execution,Drafted,Divya Agarwal
+PRJ-2026-0046,PRP-2026-0044,CUST-0015,Dr Reddys Laboratories - Utilities Revamp,"Hyderabad, Telangana",12,2025-04-23,2026-07-16,Gopal Ghosh,Planning,Under Review,Jitendra Bansal
+PRJ-2026-0047,PRP-2026-0053,CUST-0003,Shree Cement - CPP,"Beawar, Rajasthan",20,2025-11-15,2026-06-13,Meera Chatterjee,Execution,Approved,Shashi Ghosh
+PRJ-2026-0048,PRP-2026-0049,CUST-0049,Triveni Engineering - ZLD Plant,"Noida, Uttar Pradesh",6,2026-02-19,2027-04-20,Shobha Malhotra,Commissioning,Approved,Mukesh Menon
+PRJ-2026-0049,PRP-2026-0034,CUST-0027,Tata Motors - WHRB,"Pune, Maharashtra",20,2025-12-23,2027-01-12,Shalini Nair,Commissioning,Drafted,Ajay Menon
+PRJ-2026-0050,PRP-2026-0020,CUST-0002,ACC Limited - Utilities Revamp,"Mumbai, Maharashtra",220,2025-12-08,2026-09-10,Nikhil Pandey,Execution,Under Review,Sujata Bansal
+PRJ-2026-0051,PRP-2026-0002,CUST-0002,ACC Limited - Cogen Expansion,"Mumbai, Maharashtra",6,2025-10-04,2026-02-15,Priya Iyer,Closed,Drafted,Girish Mishra
+PRJ-2026-0052,PRP-2026-0028,CUST-0049,Triveni Engineering - CPP,"Noida, Uttar Pradesh",20,2026-01-01,2026-06-21,Rakesh Mehta,Planning,Approved,Vikram Reddy
+PRJ-2026-0053,PRP-2026-0004,CUST-0031,Bajaj Auto - Cogen Expansion,"Pune, Maharashtra",220,2025-08-22,2026-09-20,Meera Srivastava,Execution,Drafted,Vivek Ghosh
+PRJ-2026-0054,PRP-2026-0043,CUST-0031,Bajaj Auto - ESP Upgrade,"Pune, Maharashtra",50,2026-01-16,2026-10-28,Sujata Gupta,Closed,Approved,Shalini Chowdhury
+PRJ-2026-0055,PRP-2026-0027,CUST-0013,Mangalore Refinery - WHRB,"Mangalore, Karnataka",20,2025-11-30,2026-12-18,Anita Iyer,Execution,Drafted,Shalini Gupta

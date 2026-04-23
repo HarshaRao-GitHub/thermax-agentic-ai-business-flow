@@ -274,21 +274,33 @@ export default function AgentChat({
   async function viewDataBackbone(ds: { file: string; label: string; folder: string }) {
     setDataViewer({ open: true, title: ds.label, content: '', loading: true });
     try {
-      const res = await fetch(`/api/view-data?folder=${encodeURIComponent(ds.folder)}&file=${encodeURIComponent(ds.file)}`);
-      if (!res.ok) throw new Error('Failed to load file');
-      const data = await res.json();
-      if (data.headers && data.rows) {
-        const header = data.headers.join(' | ');
-        const sep = data.headers.map(() => '---').join(' | ');
-        const rows = data.rows.map((row: Record<string, string>) =>
-          data.headers.map((h: string) => (row[h] ?? '').replace(/\n/g, ' ')).join(' | ')
-        );
-        setDataViewer({ open: true, title: `${ds.label} (${ds.file}) — ${data.rowCount} rows`, content: `| ${header} |\n| ${sep} |\n${rows.map((r: string) => `| ${r} |`).join('\n')}`, loading: false });
+      const publicUrl = `/data-backbone/${ds.folder}/${ds.file}`;
+      const res = await fetch(publicUrl);
+      if (!res.ok) throw new Error('Failed to fetch');
+      const text = await res.text();
+      const lines = text.split(/\r?\n/).filter(l => l.trim());
+      if (lines.length > 0 && ds.file.endsWith('.csv')) {
+        const parseLine = (line: string) => {
+          const fields: string[] = []; let cur = ''; let inQ = false;
+          for (let i = 0; i < line.length; i++) {
+            const ch = line[i];
+            if (ch === '"') { if (inQ && line[i+1] === '"') { cur += '"'; i++; } else inQ = !inQ; }
+            else if (ch === ',' && !inQ) { fields.push(cur.trim()); cur = ''; }
+            else cur += ch;
+          }
+          fields.push(cur.trim()); return fields;
+        };
+        const headers = parseLine(lines[0]);
+        const dataRows = lines.slice(1).map(l => parseLine(l));
+        const header = headers.join(' | ');
+        const sep = headers.map(() => '---').join(' | ');
+        const rowLines = dataRows.map(r => headers.map((_, i) => (r[i] ?? '').replace(/\n/g, ' ')).join(' | '));
+        setDataViewer({ open: true, title: `${ds.label} (${ds.file}) — ${dataRows.length} rows`, content: `| ${header} |\n| ${sep} |\n${rowLines.map(r => `| ${r} |`).join('\n')}`, loading: false });
       } else {
-        setDataViewer(prev => ({ ...prev, content: JSON.stringify(data, null, 2), loading: false }));
+        setDataViewer({ open: true, title: `${ds.label} (${ds.file})`, content: text, loading: false });
       }
     } catch {
-      setDataViewer(prev => ({ ...prev, content: 'Error: Could not load this file. It may not be available on the server.', loading: false }));
+      setDataViewer(prev => ({ ...prev, content: 'Error: Could not load this file.', loading: false }));
     }
   }
 

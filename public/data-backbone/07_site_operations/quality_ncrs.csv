@@ -1,0 +1,56 @@
+ncr_id,project_id,raised_date,component,defect_description,severity,ai_disposition,human_disposition,rework_required,closed_date,status
+NCR-2026-0001,PRJ-2026-0053,2026-02-09,Insulation,Material mismatch,Medium,Concession,Repair,Yes,2026-02-09,Closed
+NCR-2026-0002,PRJ-2026-0021,2026-02-09,Boiler Drum,Weld defect,Medium,Rework,Reject,Yes,2026-02-14,Closed
+NCR-2026-0003,PRJ-2026-0012,2026-02-13,Insulation,Surface finish,Medium,Rework,Repair,Yes,2026-02-27,Closed
+NCR-2026-0004,PRJ-2026-0025,2026-01-16,Boiler Drum,Documentation gap,Low,Rework,Rework,No,2026-01-11,Open
+NCR-2026-0005,PRJ-2026-0036,2026-04-06,Pressure Parts,Dimension deviation,Medium,Concession,Use-as-is,Yes,2026-04-21,Closed
+NCR-2026-0006,PRJ-2026-0012,2026-03-25,Pressure Parts,Leak test failure,High,Repair,Reject,Yes,2026-04-11,Closed
+NCR-2026-0007,PRJ-2026-0048,2026-02-22,Insulation,Weld defect,Medium,Concession,Repair,Yes,2026-03-27,Closed
+NCR-2026-0008,PRJ-2026-0003,2026-04-03,Structural,Leak test failure,High,Rework,Rework,Yes,2026-02-19,Open
+NCR-2026-0009,PRJ-2026-0045,2026-03-30,Refractory,Coating thickness,Medium,Concession,Rework with conditions,Yes,2026-03-11,Open
+NCR-2026-0010,PRJ-2026-0015,2026-03-16,Control System,Documentation gap,Medium,Reject,Concession,Yes,2026-02-09,Closed
+NCR-2026-0011,PRJ-2026-0014,2026-01-23,Ducting,Coating thickness,High,Use-as-is,Reject,Yes,2026-01-13,Closed
+NCR-2026-0012,PRJ-2026-0027,2026-03-30,Control System,Material mismatch,Medium,Reject,Repair,Yes,2026-03-13,Closed
+NCR-2026-0013,PRJ-2026-0006,2026-04-03,Boiler Drum,Coating thickness,Medium,Use-as-is,Rework,Yes,2026-04-02,Open
+NCR-2026-0014,PRJ-2026-0050,2026-01-08,Piping,Material mismatch,Low,Rework,Reject,No,2026-03-15,Closed
+NCR-2026-0015,PRJ-2026-0051,2026-01-19,Insulation,Coating thickness,Medium,Concession,Repair,Yes,2026-03-09,Closed
+NCR-2026-0016,PRJ-2026-0027,2026-04-06,Structural,Coating thickness,Low,Concession,Reject,No,2026-04-17,Pending Approval
+NCR-2026-0017,PRJ-2026-0029,2026-02-24,Electrical Panel,Coating thickness,Medium,Concession,Concession,Yes,2026-03-28,Closed
+NCR-2026-0018,PRJ-2026-0020,2026-01-30,Piping,Hydrostatic failure,Medium,Use-as-is,Reject,Yes,2026-04-04,Closed
+NCR-2026-0019,PRJ-2026-0004,2026-01-26,Boiler Drum,Documentation gap,Medium,Reject,Use-as-is,Yes,2026-01-21,Closed
+NCR-2026-0020,PRJ-2026-0026,2025-12-28,Control System,Leak test failure,Medium,Use-as-is,Rework,Yes,2026-03-06,Pending Approval
+NCR-2026-0021,PRJ-2026-0011,2026-03-06,Boiler Drum,Weld defect,Medium,Concession,Use-as-is,Yes,2026-01-13,Open
+NCR-2026-0022,PRJ-2026-0007,2025-12-16,Electrical Panel,Weld defect,Low,Concession,Rework,No,2026-03-23,Closed
+NCR-2026-0023,PRJ-2026-0006,2025-12-24,Refractory,Hydrostatic failure,Low,Rework,Concession,No,2026-01-24,Closed
+NCR-2026-0024,PRJ-2026-0010,2026-02-05,Insulation,Hydrostatic failure,Medium,Rework,Rework with conditions,Yes,2026-01-22,Closed
+NCR-2026-0025,PRJ-2026-0011,2026-04-15,Structural,Leak test failure,Medium,Repair,Use-as-is,Yes,2026-03-18,Closed
+NCR-2026-0026,PRJ-2026-0044,2026-04-21,Pressure Parts,Material mismatch,Medium,Repair,Reject,Yes,2026-03-12,Closed
+NCR-2026-0027,PRJ-2026-0023,2026-04-19,Ducting,Hydrostatic failure,Low,Rework,Rework,No,2026-03-12,Closed
+NCR-2026-0028,PRJ-2026-0022,2026-03-06,Instrumentation,Coating thickness,Medium,Reject,Rework with conditions,Yes,2026-02-01,Open
+NCR-2026-0029,PRJ-2026-0003,2026-02-08,Boiler Drum,Documentation gap,High,Rework,Reject,Yes,2026-01-21,Closed
+NCR-2026-0030,PRJ-2026-0055,2025-12-24,Control System,Weld defect,Medium,Use-as-is,Rework with conditions,Yes,2026-01-16,Closed
+NCR-2026-0031,PRJ-2026-0044,2026-04-14,Piping,Dimension deviation,Medium,Rework,Rework,Yes,2026-03-02,Open
+NCR-2026-0032,PRJ-2026-0044,2026-02-25,Electrical Panel,Weld defect,Low,Repair,Rework with conditions,No,2026-02-06,Closed
+NCR-2026-0033,PRJ-2026-0001,2026-01-22,Ducting,Weld defect,Medium,Repair,Reject,Yes,2026-04-16,Closed
+NCR-2026-0034,PRJ-2026-0040,2026-02-08,Pressure Parts,Dimension deviation,Medium,Concession,Use-as-is,Yes,2026-01-31,Closed
+NCR-2026-0035,PRJ-2026-0007,2026-01-25,Control System,Material mismatch,Medium,Concession,Use-as-is,Yes,2026-03-08,Closed
+NCR-2026-0036,PRJ-2026-0024,2026-01-24,Ducting,Weld defect,Medium,Use-as-is,Reject,Yes,2026-04-12,Closed
+NCR-2026-0037,PRJ-2026-0004,2025-12-18,Control System,Weld defect,High,Rework,Reject,Yes,2026-02-07,Pending Approval
+NCR-2026-0038,PRJ-2026-0053,2026-04-06,Pressure Parts,Hydrostatic failure,Low,Reject,Reject,No,2026-03-19,Closed
+NCR-2026-0039,PRJ-2026-0050,2026-02-19,Insulation,Coating thickness,Medium,Repair,Rework with conditions,Yes,2026-03-25,Closed
+NCR-2026-0040,PRJ-2026-0037,2026-02-02,Control System,Leak test failure,Medium,Repair,Rework,Yes,2026-04-21,Pending Approval
+NCR-2026-0041,PRJ-2026-0032,2026-01-15,Ducting,Leak test failure,High,Use-as-is,Rework,Yes,2026-03-25,Closed
+NCR-2026-0042,PRJ-2026-0041,2026-04-19,Pressure Parts,Documentation gap,Medium,Repair,Reject,Yes,2026-03-12,Open
+NCR-2026-0043,PRJ-2026-0009,2026-03-05,Electrical Panel,Dimension deviation,High,Reject,Concession,Yes,2026-03-20,Closed
+NCR-2026-0044,PRJ-2026-0038,2026-03-05,Control System,Material mismatch,Low,Repair,Repair,No,2026-03-13,Open
+NCR-2026-0045,PRJ-2026-0055,2026-04-04,Boiler Drum,Weld defect,Low,Concession,Rework,No,2026-01-29,Pending Approval
+NCR-2026-0046,PRJ-2026-0054,2026-04-10,Instrumentation,Surface finish,Medium,Rework,Rework with conditions,Yes,2026-01-14,Closed
+NCR-2026-0047,PRJ-2026-0036,2025-12-12,Electrical Panel,Surface finish,High,Rework,Repair,Yes,2026-04-07,Closed
+NCR-2026-0048,PRJ-2026-0025,2025-12-29,Piping,Material mismatch,High,Concession,Rework,Yes,2026-03-16,Open
+NCR-2026-0049,PRJ-2026-0030,2025-12-27,Instrumentation,Material mismatch,Medium,Rework,Repair,Yes,2026-02-05,Closed
+NCR-2026-0050,PRJ-2026-0050,2026-02-01,Ducting,Hydrostatic failure,High,Rework,Repair,Yes,2026-03-22,Pending Approval
+NCR-2026-0051,PRJ-2026-0043,2026-04-19,Ducting,Documentation gap,Medium,Use-as-is,Use-as-is,Yes,2026-02-14,Closed
+NCR-2026-0052,PRJ-2026-0005,2025-12-24,Insulation,Weld defect,Medium,Concession,Repair,Yes,2026-04-21,Pending Approval
+NCR-2026-0053,PRJ-2026-0008,2026-01-23,Ducting,Surface finish,Low,Concession,Rework,No,2026-03-29,Closed
+NCR-2026-0054,PRJ-2026-0028,2026-03-09,Pressure Parts,Material mismatch,Medium,Rework,Use-as-is,Yes,2026-02-13,Closed
+NCR-2026-0055,PRJ-2026-0034,2025-12-17,Boiler Drum,Leak test failure,Low,Concession,Rework,No,2026-02-25,Closed

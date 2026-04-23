@@ -1,0 +1,451 @@
+log_id,timestamp,agent_id,agent_name,action_type,entity_type,entity_id,input_summary,output_summary,confidence_score,human_intervention_required,latency_ms
+LOG-000001,2026-03-17 02:16:00,AGT-PRS-01,Solution Agent,Monitor,Brief,ENT-2185,Flagged risk,Pattern detected,0.983,No,7291
+LOG-000002,2025-11-30 16:03:00,AGT-SIT-01,Execution Monitoring Agent,Monitor,Signal,ENT-2536,Predicted failure,No issues found,0.811,No,7531
+LOG-000003,2026-04-02 13:51:00,AGT-ORC-01,Workflow Orchestrator,Classify,Proposal,ENT-5494,Validated scope,Output produced,0.877,No,2810
+LOG-000004,2026-02-17 12:56:00,AGT-ENG-01,Engineering Validation Agent,Extract,Test,ENT-6032,Drafted section,No issues found,0.822,Yes,6295
+LOG-000005,2026-03-23 06:36:00,AGT-MKT-01,Market Intelligence Agent,Draft,NCR,ENT-4574,Scored opportunity,Alert issued,0.756,Yes,5964
+LOG-000006,2025-11-15 03:39:00,AGT-SIT-01,Execution Monitoring Agent,Draft,Validation,ENT-8962,Predicted failure,Escalation raised,0.79,Yes,4424
+LOG-000007,2026-02-03 04:58:00,AGT-SAL-01,Qualification Agent,Alert,Progress,ENT-1040,Drafted section,Pattern detected,0.688,Yes,5600
+LOG-000008,2026-04-04 00:14:00,AGT-HR-01,Mobilisation Agent,Score,Contract,ENT-7542,Predicted failure,Report generated,0.983,No,3078
+LOG-000009,2025-12-04 16:24:00,AGT-SRV-01,Performance and Service Agent,Recommend,Assessment,ENT-4824,Scored opportunity,Draft sent for review,0.68,Yes,6037
+LOG-000010,2026-01-14 00:13:00,AGT-FIN-01,Commercial Risk Agent,Summarize,Ticket,ENT-5790,Flagged risk,Report generated,0.896,No,5978
+LOG-000011,2026-03-22 15:16:00,AGT-SAL-01,Qualification Agent,Alert,Alert,ENT-6190,Flagged risk,Output produced,0.922,Yes,2315
+LOG-000012,2026-02-05 23:23:00,AGT-MKT-01,Market Intelligence Agent,Simulate,Alert,ENT-9119,Monitored telemetry,Escalation raised,0.78,Yes,1672
+LOG-000013,2026-03-02 22:16:00,AGT-SRV-01,Performance and Service Agent,Alert,Brief,ENT-1979,Scored opportunity,Pattern detected,0.844,No,7991
+LOG-000014,2026-03-30 14:47:00,AGT-ENG-01,Engineering Validation Agent,Analyze,Opportunity,ENT-5098,Flagged risk,Escalation raised,0.861,No,8006
+LOG-000015,2026-01-05 18:20:00,AGT-SRV-01,Performance and Service Agent,Search,Ticket,ENT-9986,Scored opportunity,Alert issued,0.712,Yes,7592
+LOG-000016,2026-04-09 04:18:00,AGT-SAL-01,Qualification Agent,Classify,Project,ENT-3111,Generated recommendation,No issues found,0.806,No,7560
+LOG-000017,2026-01-06 03:25:00,AGT-MKT-01,Market Intelligence Agent,Draft,Test,ENT-4242,Flagged risk,No issues found,0.882,No,1301
+LOG-000018,2026-02-12 18:15:00,AGT-HR-01,Mobilisation Agent,Classify,Brief,ENT-1864,Drafted section,Report generated,0.91,No,1008
+LOG-000019,2025-12-13 10:05:00,AGT-PRS-01,Solution Agent,Summarize,Progress,ENT-1309,Generated recommendation,No issues found,0.784,Yes,2382
+LOG-000020,2026-02-06 00:54:00,AGT-PRS-01,Solution Agent,Draft,Signal,ENT-7614,Monitored telemetry,Escalation raised,0.71,Yes,720
+LOG-000021,2026-01-30 21:44:00,AGT-SAL-01,Qualification Agent,Monitor,BOM,ENT-1312,Scored opportunity,No issues found,0.779,Yes,6703
+LOG-000022,2026-02-16 17:06:00,AGT-SIT-01,Execution Monitoring Agent,Draft,BOM,ENT-3238,Validated scope,Output produced,0.909,No,636
+LOG-000023,2026-02-20 05:52:00,AGT-HR-01,Mobilisation Agent,Draft,Brief,ENT-7102,Monitored telemetry,Report generated,0.737,Yes,571
+LOG-000024,2025-11-02 00:21:00,AGT-SAL-01,Qualification Agent,Analyze,Guarantee,ENT-5194,Benchmarked vs past,Draft sent for review,0.915,No,3545
+LOG-000025,2025-11-24 20:48:00,AGT-ENG-01,Engineering Validation Agent,Draft,Incident,ENT-3974,Benchmarked vs past,Escalation raised,0.751,Yes,2032
+LOG-000026,2026-03-11 16:14:00,AGT-ENG-01,Engineering Validation Agent,Classify,Project,ENT-6460,Drafted section,Report generated,0.865,No,5105
+LOG-000027,2025-12-13 11:41:00,AGT-PRS-01,Solution Agent,Monitor,Alert,ENT-8015,Extracted key fields,Report generated,0.919,No,4440
+LOG-000028,2025-12-10 10:33:00,AGT-ORC-01,Workflow Orchestrator,Draft,Brief,ENT-6842,Flagged risk,Escalation raised,0.74,Yes,7555
+LOG-000029,2025-11-11 16:43:00,AGT-CMS-01,Commissioning Agent,Draft,Ticket,ENT-4801,Generated recommendation,Escalation raised,0.885,No,1629
+LOG-000030,2025-10-26 18:36:00,AGT-HR-01,Mobilisation Agent,Extract,Progress,ENT-2086,Validated scope,Escalation raised,0.984,Yes,6511
+LOG-000031,2026-01-16 16:05:00,AGT-PRS-01,Solution Agent,Monitor,Test,ENT-7823,Validated scope,Output produced,0.878,No,4487
+LOG-000032,2026-01-16 16:45:00,AGT-CMS-01,Commissioning Agent,Draft,Project,ENT-8234,Validated scope,No issues found,0.805,No,6572
+LOG-000033,2026-01-29 02:46:00,AGT-SIT-01,Execution Monitoring Agent,Alert,Test,ENT-3085,Benchmarked vs past,Draft sent for review,0.785,Yes,4213
+LOG-000034,2026-02-05 17:04:00,AGT-PRS-01,Solution Agent,Recommend,BOM,ENT-5879,Scored opportunity,Draft sent for review,0.962,Yes,7899
+LOG-000035,2026-03-11 03:31:00,AGT-SAL-01,Qualification Agent,Simulate,Assessment,ENT-6308,Validated scope,Report generated,0.948,Yes,4815
+LOG-000036,2025-12-01 13:28:00,AGT-SIT-01,Execution Monitoring Agent,Summarize,Signal,ENT-7765,Scored opportunity,Escalation raised,0.912,No,2530
+LOG-000037,2025-11-27 08:23:00,AGT-FIN-01,Commercial Risk Agent,Classify,Proposal,ENT-6807,Flagged risk,Pattern detected,0.878,No,8313
+LOG-000038,2026-03-26 11:03:00,AGT-SAL-01,Qualification Agent,Predict,Alert,ENT-2448,Extracted key fields,Report generated,0.922,No,498
+LOG-000039,2026-02-26 08:52:00,AGT-CMS-01,Commissioning Agent,Recommend,Validation,ENT-1066,Scored opportunity,Draft sent for review,0.798,Yes,7060
+LOG-000040,2025-11-30 01:59:00,AGT-CMS-01,Commissioning Agent,Classify,Contract,ENT-4407,Scored opportunity,Report generated,0.852,No,2126
+LOG-000041,2026-01-09 17:23:00,AGT-FIN-01,Commercial Risk Agent,Classify,Validation,ENT-6297,Validated scope,No issues found,0.918,Yes,2481
+LOG-000042,2025-11-09 18:36:00,AGT-ORC-01,Workflow Orchestrator,Extract,NCR,ENT-4360,Flagged risk,Alert issued,0.941,No,1903
+LOG-000043,2026-03-16 00:01:00,AGT-CMS-01,Commissioning Agent,Search,Guarantee,ENT-7478,Validated scope,Alert issued,0.861,No,1429
+LOG-000044,2026-03-05 03:34:00,AGT-SAL-01,Qualification Agent,Predict,Project,ENT-8539,Scored opportunity,Alert issued,0.898,Yes,6837
+LOG-000045,2025-10-30 23:34:00,AGT-CMS-01,Commissioning Agent,Simulate,Progress,ENT-4615,Scored opportunity,Output produced,0.891,No,1838
+LOG-000046,2026-03-24 18:38:00,AGT-SIT-01,Execution Monitoring Agent,Analyze,NCR,ENT-5045,Validated scope,Pattern detected,0.923,No,675
+LOG-000047,2026-03-02 16:46:00,AGT-SAL-01,Qualification Agent,Score,Guarantee,ENT-8802,Monitored telemetry,No issues found,0.764,Yes,8017
+LOG-000048,2025-10-27 15:26:00,AGT-ENG-01,Engineering Validation Agent,Search,Contract,ENT-2451,Extracted key fields,Output produced,0.926,No,7233
+LOG-000049,2025-11-18 17:58:00,AGT-CMS-01,Commissioning Agent,Score,Opportunity,ENT-2699,Monitored telemetry,Output produced,0.703,Yes,4755
+LOG-000050,2025-11-04 01:23:00,AGT-ORC-01,Workflow Orchestrator,Search,Brief,ENT-6104,Drafted section,Output produced,0.886,No,2586
+LOG-000051,2025-11-28 10:06:00,AGT-SRV-01,Performance and Service Agent,Classify,Brief,ENT-2185,Extracted key fields,Report generated,0.809,No,4903
+LOG-000052,2026-03-20 17:44:00,AGT-PRS-01,Solution Agent,Score,Contract,ENT-3554,Extracted key fields,Report generated,0.836,No,5350
+LOG-000053,2026-04-01 10:57:00,AGT-ENG-01,Engineering Validation Agent,Recommend,Proposal,ENT-4365,Benchmarked vs past,Escalation raised,0.896,No,1082
+LOG-000054,2026-01-28 08:54:00,AGT-SAL-01,Qualification Agent,Recommend,Proposal,ENT-4330,Drafted section,No issues found,0.945,No,1721
+LOG-000055,2025-10-28 14:01:00,AGT-ORC-01,Workflow Orchestrator,Draft,Project,ENT-8601,Extracted key fields,Report generated,0.943,No,1566
+LOG-000056,2026-03-28 20:52:00,AGT-FIN-01,Commercial Risk Agent,Summarize,Project,ENT-6195,Drafted section,Escalation raised,0.941,Yes,1350
+LOG-000057,2026-02-25 10:30:00,AGT-ORC-01,Workflow Orchestrator,Recommend,NCR,ENT-5826,Monitored telemetry,Report generated,0.943,No,1295
+LOG-000058,2025-11-30 21:58:00,AGT-ENG-01,Engineering Validation Agent,Score,Proposal,ENT-7208,Scored opportunity,No issues found,0.965,Yes,4810
+LOG-000059,2026-02-16 03:51:00,AGT-PRS-01,Solution Agent,Score,Brief,ENT-2247,Flagged risk,Output produced,0.717,Yes,5617
+LOG-000060,2026-01-26 22:34:00,AGT-ENG-01,Engineering Validation Agent,Summarize,Validation,ENT-7365,Scored opportunity,Escalation raised,0.865,Yes,4269
+LOG-000061,2026-01-24 18:40:00,AGT-HR-01,Mobilisation Agent,Summarize,Ticket,ENT-6109,Scored opportunity,Output produced,0.734,Yes,2396
+LOG-000062,2026-02-07 08:14:00,AGT-HR-01,Mobilisation Agent,Monitor,Contract,ENT-9529,Benchmarked vs past,Draft sent for review,0.931,Yes,7098
+LOG-000063,2025-11-17 14:28:00,AGT-SIT-01,Execution Monitoring Agent,Search,Signal,ENT-7049,Scored opportunity,Alert issued,0.857,No,5702
+LOG-000064,2025-12-26 12:18:00,AGT-SIT-01,Execution Monitoring Agent,Extract,Incident,ENT-9271,Validated scope,Report generated,0.964,No,3138
+LOG-000065,2025-11-08 00:55:00,AGT-CMS-01,Commissioning Agent,Classify,BOM,ENT-6924,Monitored telemetry,Draft sent for review,0.821,Yes,544
+LOG-000066,2026-01-13 23:30:00,AGT-FIN-01,Commercial Risk Agent,Search,Opportunity,ENT-5817,Validated scope,Output produced,0.687,Yes,3765
+LOG-000067,2026-01-14 07:19:00,AGT-MKT-01,Market Intelligence Agent,Draft,Contract,ENT-1663,Benchmarked vs past,Escalation raised,0.976,Yes,1801
+LOG-000068,2026-04-20 03:08:00,AGT-MKT-01,Market Intelligence Agent,Summarize,Contract,ENT-2643,Predicted failure,Report generated,0.808,No,2425
+LOG-000069,2025-12-21 10:50:00,AGT-MKT-01,Market Intelligence Agent,Predict,Proposal,ENT-2994,Generated recommendation,No issues found,0.74,Yes,2763
+LOG-000070,2026-02-21 19:25:00,AGT-PRS-01,Solution Agent,Draft,BOM,ENT-5651,Extracted key fields,Alert issued,0.726,Yes,4670
+LOG-000071,2026-01-27 19:27:00,AGT-CMS-01,Commissioning Agent,Monitor,Project,ENT-1523,Extracted key fields,Draft sent for review,0.74,Yes,1631
+LOG-000072,2025-11-30 15:32:00,AGT-MKT-01,Market Intelligence Agent,Simulate,Incident,ENT-2667,Scored opportunity,Report generated,0.868,No,5805
+LOG-000073,2026-01-30 17:40:00,AGT-MKT-01,Market Intelligence Agent,Draft,Validation,ENT-9693,Drafted section,No issues found,0.98,Yes,245
+LOG-000074,2026-02-05 20:20:00,AGT-SIT-01,Execution Monitoring Agent,Recommend,Brief,ENT-8608,Benchmarked vs past,Report generated,0.897,No,598
+LOG-000075,2025-12-03 23:06:00,AGT-PRS-01,Solution Agent,Score,Proposal,ENT-5713,Generated recommendation,Report generated,0.703,Yes,5056
+LOG-000076,2025-11-15 13:05:00,AGT-SAL-01,Qualification Agent,Summarize,Contract,ENT-5717,Predicted failure,Alert issued,0.915,No,6837
+LOG-000077,2026-02-06 00:04:00,AGT-CMS-01,Commissioning Agent,Draft,Opportunity,ENT-9354,Benchmarked vs past,Alert issued,0.875,No,3778
+LOG-000078,2026-01-12 16:12:00,AGT-MKT-01,Market Intelligence Agent,Alert,Signal,ENT-4724,Predicted failure,Alert issued,0.787,Yes,2010
+LOG-000079,2026-03-27 16:08:00,AGT-PRS-01,Solution Agent,Score,Assessment,ENT-7594,Extracted key fields,Draft sent for review,0.885,Yes,5558
+LOG-000080,2026-01-28 12:02:00,AGT-SRV-01,Performance and Service Agent,Monitor,Project,ENT-1341,Benchmarked vs past,No issues found,0.833,No,4678
+LOG-000081,2025-11-24 01:00:00,AGT-PRS-01,Solution Agent,Monitor,Brief,ENT-5883,Generated recommendation,Report generated,0.939,Yes,7151
+LOG-000082,2026-01-14 21:14:00,AGT-MKT-01,Market Intelligence Agent,Extract,Test,ENT-8531,Flagged risk,Report generated,0.695,Yes,7531
+LOG-000083,2026-01-15 09:03:00,AGT-FIN-01,Commercial Risk Agent,Classify,Progress,ENT-3357,Predicted failure,Escalation raised,0.693,Yes,1647
+LOG-000084,2026-01-03 02:25:00,AGT-ENG-01,Engineering Validation Agent,Monitor,Brief,ENT-3293,Generated recommendation,Report generated,0.701,Yes,455
+LOG-000085,2026-02-08 17:30:00,AGT-SRV-01,Performance and Service Agent,Summarize,NCR,ENT-5845,Validated scope,Draft sent for review,0.904,No,7653
+LOG-000086,2026-03-05 13:09:00,AGT-CMS-01,Commissioning Agent,Alert,Project,ENT-4017,Flagged risk,Pattern detected,0.952,No,2427
+LOG-000087,2026-03-07 17:41:00,AGT-FIN-01,Commercial Risk Agent,Score,Opportunity,ENT-8444,Drafted section,Draft sent for review,0.839,No,1932
+LOG-000088,2026-01-23 16:05:00,AGT-HR-01,Mobilisation Agent,Extract,Progress,ENT-6166,Predicted failure,Draft sent for review,0.803,No,591
+LOG-000089,2026-03-07 08:24:00,AGT-SIT-01,Execution Monitoring Agent,Draft,Contract,ENT-3695,Generated recommendation,Escalation raised,0.931,No,1126
+LOG-000090,2026-02-25 16:18:00,AGT-ENG-01,Engineering Validation Agent,Extract,Project,ENT-6879,Drafted section,Report generated,0.725,Yes,1472
+LOG-000091,2025-11-08 06:02:00,AGT-HR-01,Mobilisation Agent,Simulate,Brief,ENT-5579,Extracted key fields,No issues found,0.931,Yes,2410
+LOG-000092,2025-12-30 11:49:00,AGT-ORC-01,Workflow Orchestrator,Recommend,Validation,ENT-2625,Predicted failure,Draft sent for review,0.96,No,2691
+LOG-000093,2026-03-16 19:59:00,AGT-ORC-01,Workflow Orchestrator,Classify,Alert,ENT-9873,Drafted section,Output produced,0.774,Yes,6004
+LOG-000094,2025-11-20 18:03:00,AGT-ENG-01,Engineering Validation Agent,Recommend,Signal,ENT-7491,Flagged risk,Report generated,0.806,No,5935
+LOG-000095,2026-02-24 20:07:00,AGT-MKT-01,Market Intelligence Agent,Draft,Brief,ENT-5949,Benchmarked vs past,No issues found,0.751,Yes,5990
+LOG-000096,2026-03-04 19:58:00,AGT-MKT-01,Market Intelligence Agent,Analyze,Assessment,ENT-4989,Flagged risk,Draft sent for review,0.81,No,3817
+LOG-000097,2025-11-17 08:55:00,AGT-CMS-01,Commissioning Agent,Search,Signal,ENT-4011,Generated recommendation,Escalation raised,0.867,No,1749
+LOG-000098,2026-03-14 18:07:00,AGT-SIT-01,Execution Monitoring Agent,Predict,Contract,ENT-9064,Scored opportunity,Alert issued,0.786,Yes,6156
+LOG-000099,2025-11-18 15:00:00,AGT-HR-01,Mobilisation Agent,Simulate,Signal,ENT-5680,Generated recommendation,Pattern detected,0.905,No,3678
+LOG-000100,2026-02-20 21:36:00,AGT-PRS-01,Solution Agent,Recommend,Opportunity,ENT-5667,Generated recommendation,Escalation raised,0.882,Yes,4865
+LOG-000101,2026-02-06 16:32:00,AGT-CMS-01,Commissioning Agent,Predict,Proposal,ENT-5844,Generated recommendation,Report generated,0.684,Yes,1830
+LOG-000102,2025-10-31 09:29:00,AGT-SAL-01,Qualification Agent,Predict,Test,ENT-6570,Extracted key fields,Draft sent for review,0.813,Yes,3016
+LOG-000103,2025-11-06 10:56:00,AGT-CMS-01,Commissioning Agent,Monitor,Validation,ENT-2417,Generated recommendation,Escalation raised,0.719,Yes,1020
+LOG-000104,2025-11-02 21:09:00,AGT-SIT-01,Execution Monitoring Agent,Draft,BOM,ENT-5028,Scored opportunity,Pattern detected,0.904,No,1985
+LOG-000105,2025-12-19 03:25:00,AGT-SIT-01,Execution Monitoring Agent,Search,NCR,ENT-8828,Monitored telemetry,Report generated,0.891,Yes,5613
+LOG-000106,2026-03-17 19:48:00,AGT-ENG-01,Engineering Validation Agent,Alert,Incident,ENT-3544,Scored opportunity,No issues found,0.892,No,2381
+LOG-000107,2025-11-09 07:14:00,AGT-SIT-01,Execution Monitoring Agent,Alert,Incident,ENT-7784,Flagged risk,Escalation raised,0.768,Yes,1492
+LOG-000108,2026-02-06 19:22:00,AGT-SAL-01,Qualification Agent,Search,Brief,ENT-1473,Flagged risk,Escalation raised,0.777,Yes,5635
+LOG-000109,2025-11-26 06:24:00,AGT-ENG-01,Engineering Validation Agent,Simulate,Opportunity,ENT-4394,Drafted section,Draft sent for review,0.961,No,7285
+LOG-000110,2025-11-18 02:20:00,AGT-HR-01,Mobilisation Agent,Classify,Guarantee,ENT-3077,Predicted failure,No issues found,0.836,Yes,4344
+LOG-000111,2025-12-16 02:25:00,AGT-SAL-01,Qualification Agent,Summarize,Ticket,ENT-7762,Generated recommendation,Alert issued,0.743,Yes,1292
+LOG-000112,2026-02-26 07:52:00,AGT-HR-01,Mobilisation Agent,Analyze,Contract,ENT-1496,Monitored telemetry,No issues found,0.693,Yes,5905
+LOG-000113,2025-10-23 10:35:00,AGT-PRS-01,Solution Agent,Classify,Alert,ENT-4609,Generated recommendation,Output produced,0.771,Yes,2487
+LOG-000114,2026-03-05 15:40:00,AGT-CMS-01,Commissioning Agent,Simulate,Ticket,ENT-6987,Monitored telemetry,Draft sent for review,0.972,No,6442
+LOG-000115,2025-12-21 10:44:00,AGT-ORC-01,Workflow Orchestrator,Monitor,Test,ENT-3617,Drafted section,Draft sent for review,0.844,No,4838
+LOG-000116,2026-03-21 23:41:00,AGT-HR-01,Mobilisation Agent,Extract,Signal,ENT-7771,Drafted section,Alert issued,0.806,No,6981
+LOG-000117,2026-01-12 06:01:00,AGT-HR-01,Mobilisation Agent,Analyze,BOM,ENT-1888,Monitored telemetry,No issues found,0.783,Yes,2190
+LOG-000118,2026-01-04 01:29:00,AGT-CMS-01,Commissioning Agent,Simulate,Progress,ENT-1356,Predicted failure,Alert issued,0.736,Yes,3650
+LOG-000119,2025-10-27 15:05:00,AGT-FIN-01,Commercial Risk Agent,Draft,Proposal,ENT-5934,Monitored telemetry,No issues found,0.723,Yes,6202
+LOG-000120,2026-03-04 19:10:00,AGT-MKT-01,Market Intelligence Agent,Recommend,Alert,ENT-1102,Validated scope,Draft sent for review,0.741,Yes,8193
+LOG-000121,2025-12-23 19:37:00,AGT-ORC-01,Workflow Orchestrator,Alert,Project,ENT-1850,Predicted failure,Output produced,0.716,Yes,3455
+LOG-000122,2025-11-05 04:27:00,AGT-ENG-01,Engineering Validation Agent,Score,Alert,ENT-3359,Flagged risk,Report generated,0.722,Yes,7406
+LOG-000123,2025-10-25 22:01:00,AGT-PRS-01,Solution Agent,Extract,Opportunity,ENT-7466,Predicted failure,Escalation raised,0.856,No,7415
+LOG-000124,2026-01-09 17:34:00,AGT-MKT-01,Market Intelligence Agent,Alert,Test,ENT-4284,Extracted key fields,Output produced,0.875,No,1223
+LOG-000125,2026-03-13 23:08:00,AGT-PRS-01,Solution Agent,Predict,Project,ENT-9247,Validated scope,Report generated,0.974,No,6472
+LOG-000126,2025-12-02 17:47:00,AGT-FIN-01,Commercial Risk Agent,Classify,Alert,ENT-7242,Extracted key fields,No issues found,0.988,No,8467
+LOG-000127,2025-10-26 06:22:00,AGT-PRS-01,Solution Agent,Predict,Guarantee,ENT-7245,Extracted key fields,No issues found,0.806,No,5617
+LOG-000128,2025-11-16 14:03:00,AGT-FIN-01,Commercial Risk Agent,Search,Incident,ENT-7869,Validated scope,Alert issued,0.815,No,971
+LOG-000129,2026-03-03 19:44:00,AGT-SAL-01,Qualification Agent,Monitor,Guarantee,ENT-7130,Extracted key fields,No issues found,0.873,No,134
+LOG-000130,2026-03-24 13:42:00,AGT-SAL-01,Qualification Agent,Extract,Brief,ENT-9861,Extracted key fields,Report generated,0.801,Yes,8468
+LOG-000131,2025-11-08 00:13:00,AGT-ORC-01,Workflow Orchestrator,Score,Opportunity,ENT-2003,Validated scope,Output produced,0.691,Yes,4575
+LOG-000132,2026-04-04 12:35:00,AGT-ENG-01,Engineering Validation Agent,Alert,Progress,ENT-2242,Flagged risk,No issues found,0.799,Yes,5529
+LOG-000133,2025-12-08 03:19:00,AGT-ENG-01,Engineering Validation Agent,Alert,Guarantee,ENT-8820,Validated scope,Escalation raised,0.712,Yes,5358
+LOG-000134,2025-12-12 22:48:00,AGT-HR-01,Mobilisation Agent,Summarize,Signal,ENT-2689,Monitored telemetry,Alert issued,0.693,Yes,5326
+LOG-000135,2026-02-07 09:53:00,AGT-SIT-01,Execution Monitoring Agent,Alert,Contract,ENT-1591,Scored opportunity,Alert issued,0.831,Yes,729
+LOG-000136,2025-12-23 02:54:00,AGT-PRS-01,Solution Agent,Recommend,Proposal,ENT-8142,Scored opportunity,Output produced,0.805,No,6113
+LOG-000137,2026-01-11 10:09:00,AGT-SRV-01,Performance and Service Agent,Analyze,Opportunity,ENT-8700,Monitored telemetry,Escalation raised,0.84,Yes,5956
+LOG-000138,2025-12-08 17:18:00,AGT-ORC-01,Workflow Orchestrator,Classify,Opportunity,ENT-8806,Extracted key fields,Pattern detected,0.742,Yes,5376
+LOG-000139,2026-01-25 06:47:00,AGT-MKT-01,Market Intelligence Agent,Score,Incident,ENT-9832,Scored opportunity,Alert issued,0.796,Yes,5817
+LOG-000140,2026-01-27 09:15:00,AGT-SIT-01,Execution Monitoring Agent,Extract,Assessment,ENT-6975,Flagged risk,Report generated,0.726,Yes,8462
+LOG-000141,2026-02-07 18:36:00,AGT-PRS-01,Solution Agent,Analyze,Alert,ENT-8896,Generated recommendation,Alert issued,0.804,No,829
+LOG-000142,2025-10-28 13:26:00,AGT-SAL-01,Qualification Agent,Classify,Ticket,ENT-4408,Extracted key fields,No issues found,0.932,Yes,3436
+LOG-000143,2026-03-13 07:39:00,AGT-MKT-01,Market Intelligence Agent,Recommend,Validation,ENT-8847,Monitored telemetry,Escalation raised,0.743,Yes,3756
+LOG-000144,2026-01-29 21:20:00,AGT-FIN-01,Commercial Risk Agent,Predict,Brief,ENT-3696,Generated recommendation,Report generated,0.795,Yes,6192
+LOG-000145,2026-01-01 20:45:00,AGT-FIN-01,Commercial Risk Agent,Alert,Alert,ENT-4120,Extracted key fields,Alert issued,0.681,Yes,7851
+LOG-000146,2026-04-18 03:31:00,AGT-PRS-01,Solution Agent,Alert,Validation,ENT-8926,Predicted failure,Escalation raised,0.917,No,7589
+LOG-000147,2026-03-21 07:42:00,AGT-SAL-01,Qualification Agent,Draft,Ticket,ENT-9256,Monitored telemetry,Report generated,0.723,Yes,137
+LOG-000148,2026-04-05 23:32:00,AGT-ORC-01,Workflow Orchestrator,Analyze,Brief,ENT-3319,Validated scope,Report generated,0.961,No,3289
+LOG-000149,2025-10-30 14:29:00,AGT-FIN-01,Commercial Risk Agent,Summarize,Brief,ENT-6714,Predicted failure,No issues found,0.747,Yes,7444
+LOG-000150,2026-03-27 04:07:00,AGT-CMS-01,Commissioning Agent,Analyze,Ticket,ENT-2774,Monitored telemetry,Draft sent for review,0.968,Yes,7238
+LOG-000151,2026-01-08 11:11:00,AGT-HR-01,Mobilisation Agent,Search,NCR,ENT-9585,Flagged risk,Report generated,0.821,No,4831
+LOG-000152,2026-04-16 23:21:00,AGT-FIN-01,Commercial Risk Agent,Draft,Project,ENT-3267,Monitored telemetry,Pattern detected,0.901,No,6092
+LOG-000153,2025-12-24 04:48:00,AGT-ENG-01,Engineering Validation Agent,Draft,Opportunity,ENT-2244,Validated scope,Report generated,0.977,No,337
+LOG-000154,2026-04-15 12:16:00,AGT-CMS-01,Commissioning Agent,Summarize,Assessment,ENT-7903,Extracted key fields,No issues found,0.768,Yes,1988
+LOG-000155,2025-12-15 03:23:00,AGT-HR-01,Mobilisation Agent,Extract,Brief,ENT-2575,Extracted key fields,Output produced,0.715,Yes,6623
+LOG-000156,2026-01-03 23:59:00,AGT-PRS-01,Solution Agent,Classify,Incident,ENT-4423,Validated scope,No issues found,0.836,No,7799
+LOG-000157,2025-11-18 09:05:00,AGT-HR-01,Mobilisation Agent,Simulate,Progress,ENT-5735,Benchmarked vs past,Alert issued,0.852,No,3511
+LOG-000158,2025-12-16 21:22:00,AGT-HR-01,Mobilisation Agent,Score,NCR,ENT-8733,Scored opportunity,No issues found,0.738,Yes,4251
+LOG-000159,2026-02-17 01:28:00,AGT-SIT-01,Execution Monitoring Agent,Score,Assessment,ENT-3552,Extracted key fields,Report generated,0.966,Yes,1621
+LOG-000160,2025-10-25 19:08:00,AGT-CMS-01,Commissioning Agent,Extract,BOM,ENT-9494,Drafted section,Draft sent for review,0.884,Yes,6556
+LOG-000161,2026-01-25 15:06:00,AGT-SRV-01,Performance and Service Agent,Predict,Ticket,ENT-3105,Validated scope,Output produced,0.956,No,765
+LOG-000162,2025-10-26 00:17:00,AGT-MKT-01,Market Intelligence Agent,Alert,NCR,ENT-1813,Scored opportunity,Draft sent for review,0.884,No,6296
+LOG-000163,2026-01-29 21:23:00,AGT-MKT-01,Market Intelligence Agent,Extract,Contract,ENT-4415,Drafted section,Escalation raised,0.687,Yes,1996
+LOG-000164,2025-11-05 17:14:00,AGT-SIT-01,Execution Monitoring Agent,Summarize,Guarantee,ENT-4841,Generated recommendation,Escalation raised,0.698,Yes,3676
+LOG-000165,2025-11-18 01:12:00,AGT-SIT-01,Execution Monitoring Agent,Search,Opportunity,ENT-1953,Extracted key fields,Pattern detected,0.938,No,737
+LOG-000166,2026-04-07 07:08:00,AGT-ORC-01,Workflow Orchestrator,Analyze,Alert,ENT-9536,Scored opportunity,Pattern detected,0.865,No,178
+LOG-000167,2025-12-05 22:49:00,AGT-FIN-01,Commercial Risk Agent,Extract,Contract,ENT-2056,Generated recommendation,Alert issued,0.843,No,3064
+LOG-000168,2025-10-28 22:21:00,AGT-ORC-01,Workflow Orchestrator,Score,Assessment,ENT-8266,Monitored telemetry,Escalation raised,0.909,No,1570
+LOG-000169,2026-01-04 11:50:00,AGT-ENG-01,Engineering Validation Agent,Alert,Opportunity,ENT-3299,Drafted section,Pattern detected,0.845,No,7150
+LOG-000170,2026-04-03 12:06:00,AGT-SRV-01,Performance and Service Agent,Recommend,Contract,ENT-8503,Extracted key fields,No issues found,0.985,No,5813
+LOG-000171,2026-04-02 21:58:00,AGT-ENG-01,Engineering Validation Agent,Summarize,Assessment,ENT-1137,Monitored telemetry,Escalation raised,0.984,No,3442
+LOG-000172,2025-12-27 04:28:00,AGT-ORC-01,Workflow Orchestrator,Draft,Proposal,ENT-3044,Validated scope,Report generated,0.77,Yes,7037
+LOG-000173,2026-02-20 08:34:00,AGT-ORC-01,Workflow Orchestrator,Summarize,Signal,ENT-2701,Monitored telemetry,No issues found,0.907,No,8079
+LOG-000174,2025-12-19 01:05:00,AGT-SIT-01,Execution Monitoring Agent,Recommend,Ticket,ENT-7522,Drafted section,Pattern detected,0.71,Yes,3671
+LOG-000175,2026-02-19 10:26:00,AGT-SIT-01,Execution Monitoring Agent,Search,Opportunity,ENT-7496,Drafted section,Escalation raised,0.843,No,6698
+LOG-000176,2025-11-20 18:49:00,AGT-PRS-01,Solution Agent,Recommend,Signal,ENT-4190,Predicted failure,Pattern detected,0.812,Yes,6625
+LOG-000177,2026-01-09 13:50:00,AGT-SAL-01,Qualification Agent,Summarize,Signal,ENT-8598,Validated scope,Alert issued,0.738,Yes,4082
+LOG-000178,2025-11-27 06:54:00,AGT-HR-01,Mobilisation Agent,Extract,Ticket,ENT-8868,Predicted failure,Report generated,0.722,Yes,7227
+LOG-000179,2025-11-17 08:36:00,AGT-HR-01,Mobilisation Agent,Alert,Guarantee,ENT-7051,Benchmarked vs past,Output produced,0.772,Yes,5315
+LOG-000180,2026-04-02 01:01:00,AGT-MKT-01,Market Intelligence Agent,Recommend,Proposal,ENT-7349,Generated recommendation,Escalation raised,0.77,Yes,3207
+LOG-000181,2026-04-03 19:23:00,AGT-ORC-01,Workflow Orchestrator,Classify,Incident,ENT-2520,Benchmarked vs past,Alert issued,0.977,No,7351
+LOG-000182,2025-11-06 20:07:00,AGT-SAL-01,Qualification Agent,Search,Brief,ENT-6915,Extracted key fields,Output produced,0.983,Yes,3128
+LOG-000183,2026-02-10 04:15:00,AGT-FIN-01,Commercial Risk Agent,Alert,Ticket,ENT-6727,Predicted failure,Output produced,0.878,Yes,3936
+LOG-000184,2026-03-15 05:48:00,AGT-MKT-01,Market Intelligence Agent,Analyze,BOM,ENT-6568,Extracted key fields,Output produced,0.686,Yes,8429
+LOG-000185,2025-11-11 22:29:00,AGT-SIT-01,Execution Monitoring Agent,Monitor,Signal,ENT-7578,Generated recommendation,Report generated,0.765,Yes,3088
+LOG-000186,2026-02-21 17:34:00,AGT-PRS-01,Solution Agent,Summarize,Signal,ENT-7298,Drafted section,Output produced,0.867,No,343
+LOG-000187,2025-11-08 17:59:00,AGT-CMS-01,Commissioning Agent,Draft,NCR,ENT-7938,Drafted section,Draft sent for review,0.972,No,7512
+LOG-000188,2026-02-18 08:10:00,AGT-HR-01,Mobilisation Agent,Search,Progress,ENT-9107,Scored opportunity,No issues found,0.908,No,4659
+LOG-000189,2026-01-10 02:22:00,AGT-FIN-01,Commercial Risk Agent,Classify,Ticket,ENT-5189,Extracted key fields,Pattern detected,0.794,Yes,6352
+LOG-000190,2025-12-15 17:37:00,AGT-SRV-01,Performance and Service Agent,Extract,Assessment,ENT-5167,Generated recommendation,Pattern detected,0.88,No,1194
+LOG-000191,2026-01-13 03:33:00,AGT-FIN-01,Commercial Risk Agent,Extract,Guarantee,ENT-5385,Benchmarked vs past,Report generated,0.958,Yes,4980
+LOG-000192,2026-02-21 02:01:00,AGT-SRV-01,Performance and Service Agent,Alert,Test,ENT-3621,Monitored telemetry,No issues found,0.789,Yes,8222
+LOG-000193,2025-12-30 11:07:00,AGT-ENG-01,Engineering Validation Agent,Extract,Assessment,ENT-3527,Extracted key fields,No issues found,0.773,Yes,7668
+LOG-000194,2026-01-17 07:30:00,AGT-CMS-01,Commissioning Agent,Alert,Project,ENT-4992,Drafted section,No issues found,0.681,Yes,6813
+LOG-000195,2025-11-28 17:18:00,AGT-ORC-01,Workflow Orchestrator,Score,Assessment,ENT-8055,Generated recommendation,No issues found,0.937,No,638
+LOG-000196,2026-04-14 00:10:00,AGT-HR-01,Mobilisation Agent,Search,Incident,ENT-1522,Drafted section,Alert issued,0.775,Yes,4529
+LOG-000197,2025-12-23 18:14:00,AGT-SIT-01,Execution Monitoring Agent,Recommend,Guarantee,ENT-5593,Drafted section,No issues found,0.935,No,3333
+LOG-000198,2026-04-09 01:31:00,AGT-ORC-01,Workflow Orchestrator,Draft,Progress,ENT-5417,Generated recommendation,Pattern detected,0.819,Yes,198
+LOG-000199,2025-11-28 23:56:00,AGT-ENG-01,Engineering Validation Agent,Alert,Incident,ENT-2801,Generated recommendation,Output produced,0.811,No,2293
+LOG-000200,2026-02-03 13:59:00,AGT-MKT-01,Market Intelligence Agent,Score,Guarantee,ENT-6626,Flagged risk,Output produced,0.884,No,2401
+LOG-000201,2025-11-19 15:11:00,AGT-CMS-01,Commissioning Agent,Simulate,Ticket,ENT-6416,Flagged risk,Output produced,0.892,No,1767
+LOG-000202,2026-03-15 16:18:00,AGT-SAL-01,Qualification Agent,Search,Contract,ENT-3733,Monitored telemetry,Draft sent for review,0.789,Yes,3145
+LOG-000203,2026-02-12 19:25:00,AGT-CMS-01,Commissioning Agent,Draft,Incident,ENT-2818,Extracted key fields,Alert issued,0.815,Yes,6075
+LOG-000204,2026-02-22 07:48:00,AGT-CMS-01,Commissioning Agent,Extract,Project,ENT-6606,Scored opportunity,Draft sent for review,0.852,No,7187
+LOG-000205,2025-11-17 03:55:00,AGT-MKT-01,Market Intelligence Agent,Analyze,Opportunity,ENT-8809,Validated scope,Draft sent for review,0.861,No,5976
+LOG-000206,2025-10-27 16:16:00,AGT-HR-01,Mobilisation Agent,Classify,BOM,ENT-8764,Drafted section,Alert issued,0.821,No,1883
+LOG-000207,2025-12-25 17:45:00,AGT-SIT-01,Execution Monitoring Agent,Analyze,BOM,ENT-2423,Generated recommendation,No issues found,0.817,Yes,7912
+LOG-000208,2026-01-02 00:14:00,AGT-HR-01,Mobilisation Agent,Classify,Contract,ENT-2663,Drafted section,No issues found,0.916,No,7071
+LOG-000209,2025-12-10 15:27:00,AGT-MKT-01,Market Intelligence Agent,Summarize,Alert,ENT-7426,Drafted section,Output produced,0.717,Yes,1090
+LOG-000210,2025-11-25 16:55:00,AGT-SIT-01,Execution Monitoring Agent,Simulate,Signal,ENT-4848,Generated recommendation,Output produced,0.867,Yes,7260
+LOG-000211,2026-04-05 14:39:00,AGT-CMS-01,Commissioning Agent,Extract,BOM,ENT-3048,Monitored telemetry,Escalation raised,0.69,Yes,3848
+LOG-000212,2026-03-07 17:43:00,AGT-SAL-01,Qualification Agent,Score,Incident,ENT-2481,Validated scope,Pattern detected,0.922,No,2614
+LOG-000213,2026-03-14 12:22:00,AGT-MKT-01,Market Intelligence Agent,Score,Incident,ENT-1756,Drafted section,Alert issued,0.933,Yes,2998
+LOG-000214,2026-03-24 16:44:00,AGT-ENG-01,Engineering Validation Agent,Extract,Incident,ENT-8234,Monitored telemetry,Escalation raised,0.721,Yes,3147
+LOG-000215,2025-11-15 21:53:00,AGT-ORC-01,Workflow Orchestrator,Monitor,Signal,ENT-5673,Validated scope,Report generated,0.903,No,1513
+LOG-000216,2026-02-28 03:41:00,AGT-SRV-01,Performance and Service Agent,Monitor,Incident,ENT-4686,Scored opportunity,Output produced,0.757,Yes,2688
+LOG-000217,2025-12-18 08:53:00,AGT-ORC-01,Workflow Orchestrator,Extract,Signal,ENT-7684,Drafted section,Pattern detected,0.89,No,1999
+LOG-000218,2025-11-17 19:36:00,AGT-CMS-01,Commissioning Agent,Analyze,Alert,ENT-4500,Drafted section,Alert issued,0.96,No,1947
+LOG-000219,2026-03-15 02:21:00,AGT-SIT-01,Execution Monitoring Agent,Search,Ticket,ENT-4745,Drafted section,Report generated,0.706,Yes,1724
+LOG-000220,2025-12-01 16:35:00,AGT-ORC-01,Workflow Orchestrator,Extract,Alert,ENT-4568,Predicted failure,Escalation raised,0.856,No,8050
+LOG-000221,2026-04-14 12:52:00,AGT-SAL-01,Qualification Agent,Recommend,Signal,ENT-8242,Validated scope,Draft sent for review,0.855,Yes,1446
+LOG-000222,2026-03-01 22:44:00,AGT-HR-01,Mobilisation Agent,Search,Signal,ENT-3909,Extracted key fields,Report generated,0.765,Yes,6301
+LOG-000223,2026-02-17 06:29:00,AGT-SRV-01,Performance and Service Agent,Simulate,Project,ENT-6672,Extracted key fields,Report generated,0.852,No,5300
+LOG-000224,2026-01-08 09:12:00,AGT-SRV-01,Performance and Service Agent,Summarize,Brief,ENT-5459,Extracted key fields,Alert issued,0.803,No,3490
+LOG-000225,2026-01-06 02:16:00,AGT-FIN-01,Commercial Risk Agent,Score,Opportunity,ENT-9789,Drafted section,Report generated,0.822,No,7066
+LOG-000226,2025-12-12 20:58:00,AGT-SRV-01,Performance and Service Agent,Simulate,BOM,ENT-8313,Drafted section,Output produced,0.703,Yes,914
+LOG-000227,2026-03-26 16:45:00,AGT-HR-01,Mobilisation Agent,Search,Proposal,ENT-9937,Validated scope,Report generated,0.767,Yes,2559
+LOG-000228,2026-03-26 16:26:00,AGT-MKT-01,Market Intelligence Agent,Extract,Assessment,ENT-3847,Extracted key fields,No issues found,0.884,No,3347
+LOG-000229,2025-10-30 11:27:00,AGT-SAL-01,Qualification Agent,Summarize,Test,ENT-4641,Monitored telemetry,No issues found,0.718,Yes,268
+LOG-000230,2025-12-04 05:17:00,AGT-ENG-01,Engineering Validation Agent,Summarize,Ticket,ENT-5022,Monitored telemetry,Alert issued,0.887,No,326
+LOG-000231,2025-12-11 05:15:00,AGT-CMS-01,Commissioning Agent,Recommend,Test,ENT-8899,Drafted section,Output produced,0.775,Yes,820
+LOG-000232,2026-01-20 19:55:00,AGT-MKT-01,Market Intelligence Agent,Predict,Proposal,ENT-1825,Predicted failure,Output produced,0.76,Yes,7603
+LOG-000233,2025-12-30 16:43:00,AGT-SAL-01,Qualification Agent,Summarize,Progress,ENT-2707,Drafted section,Report generated,0.854,No,7636
+LOG-000234,2025-12-06 12:55:00,AGT-MKT-01,Market Intelligence Agent,Monitor,Contract,ENT-5979,Generated recommendation,Draft sent for review,0.917,No,6073
+LOG-000235,2025-11-16 08:51:00,AGT-SIT-01,Execution Monitoring Agent,Extract,NCR,ENT-2882,Drafted section,Escalation raised,0.871,No,7128
+LOG-000236,2026-03-31 16:32:00,AGT-CMS-01,Commissioning Agent,Predict,Test,ENT-3316,Monitored telemetry,Report generated,0.818,No,5926
+LOG-000237,2026-03-24 19:13:00,AGT-SIT-01,Execution Monitoring Agent,Recommend,Assessment,ENT-1413,Generated recommendation,Draft sent for review,0.805,Yes,8220
+LOG-000238,2025-12-24 20:48:00,AGT-ENG-01,Engineering Validation Agent,Predict,Project,ENT-1762,Drafted section,Pattern detected,0.849,Yes,2410
+LOG-000239,2025-10-27 03:01:00,AGT-ENG-01,Engineering Validation Agent,Summarize,NCR,ENT-2127,Validated scope,Draft sent for review,0.902,No,6525
+LOG-000240,2026-03-06 08:33:00,AGT-SIT-01,Execution Monitoring Agent,Simulate,Signal,ENT-5863,Scored opportunity,Output produced,0.743,Yes,7608
+LOG-000241,2026-03-27 02:41:00,AGT-SIT-01,Execution Monitoring Agent,Summarize,Proposal,ENT-7137,Drafted section,Draft sent for review,0.734,Yes,8498
+LOG-000242,2026-03-23 04:35:00,AGT-ENG-01,Engineering Validation Agent,Simulate,Test,ENT-5291,Predicted failure,Output produced,0.987,Yes,4220
+LOG-000243,2026-01-30 11:26:00,AGT-SIT-01,Execution Monitoring Agent,Monitor,Ticket,ENT-1357,Flagged risk,Escalation raised,0.983,Yes,3910
+LOG-000244,2026-04-13 15:26:00,AGT-MKT-01,Market Intelligence Agent,Summarize,Assessment,ENT-7579,Flagged risk,Pattern detected,0.748,Yes,1410
+LOG-000245,2025-11-24 18:13:00,AGT-HR-01,Mobilisation Agent,Summarize,Validation,ENT-8906,Extracted key fields,Escalation raised,0.975,No,5523
+LOG-000246,2026-02-22 15:56:00,AGT-ORC-01,Workflow Orchestrator,Score,Brief,ENT-7178,Drafted section,Alert issued,0.694,Yes,1663
+LOG-000247,2025-12-02 09:50:00,AGT-SAL-01,Qualification Agent,Draft,Contract,ENT-8861,Scored opportunity,Alert issued,0.72,Yes,3275
+LOG-000248,2026-03-29 06:53:00,AGT-MKT-01,Market Intelligence Agent,Summarize,Brief,ENT-8871,Generated recommendation,Pattern detected,0.818,Yes,7463
+LOG-000249,2025-11-15 00:10:00,AGT-SRV-01,Performance and Service Agent,Monitor,Ticket,ENT-5667,Predicted failure,Alert issued,0.939,No,1051
+LOG-000250,2026-03-10 19:54:00,AGT-HR-01,Mobilisation Agent,Score,Test,ENT-6500,Monitored telemetry,Draft sent for review,0.832,No,1675
+LOG-000251,2025-11-13 06:18:00,AGT-SRV-01,Performance and Service Agent,Search,Test,ENT-2261,Predicted failure,Report generated,0.712,Yes,5254
+LOG-000252,2026-02-17 20:34:00,AGT-SIT-01,Execution Monitoring Agent,Analyze,Validation,ENT-8552,Generated recommendation,No issues found,0.742,Yes,5893
+LOG-000253,2026-03-06 00:05:00,AGT-CMS-01,Commissioning Agent,Classify,Project,ENT-7725,Flagged risk,Escalation raised,0.914,No,8428
+LOG-000254,2026-03-29 05:07:00,AGT-SAL-01,Qualification Agent,Classify,Validation,ENT-1775,Scored opportunity,No issues found,0.956,No,3514
+LOG-000255,2025-12-14 21:33:00,AGT-MKT-01,Market Intelligence Agent,Simulate,Validation,ENT-2882,Monitored telemetry,Report generated,0.987,No,3306
+LOG-000256,2026-03-21 16:56:00,AGT-SIT-01,Execution Monitoring Agent,Score,Brief,ENT-1743,Validated scope,Pattern detected,0.826,No,1042
+LOG-000257,2025-12-20 02:50:00,AGT-ENG-01,Engineering Validation Agent,Extract,Progress,ENT-9249,Flagged risk,Draft sent for review,0.866,No,7019
+LOG-000258,2025-10-28 04:02:00,AGT-ENG-01,Engineering Validation Agent,Draft,Ticket,ENT-5562,Flagged risk,Alert issued,0.862,No,2645
+LOG-000259,2026-01-28 13:54:00,AGT-PRS-01,Solution Agent,Analyze,Validation,ENT-6286,Benchmarked vs past,Output produced,0.816,No,4282
+LOG-000260,2026-01-03 18:03:00,AGT-CMS-01,Commissioning Agent,Predict,Guarantee,ENT-7648,Extracted key fields,Output produced,0.97,No,6594
+LOG-000261,2025-11-25 04:44:00,AGT-ENG-01,Engineering Validation Agent,Analyze,Guarantee,ENT-5123,Generated recommendation,Report generated,0.791,Yes,1657
+LOG-000262,2026-01-11 17:11:00,AGT-HR-01,Mobilisation Agent,Simulate,Signal,ENT-8705,Monitored telemetry,Alert issued,0.696,Yes,5652
+LOG-000263,2026-04-09 03:23:00,AGT-ORC-01,Workflow Orchestrator,Extract,Alert,ENT-3221,Validated scope,Pattern detected,0.813,No,646
+LOG-000264,2025-11-15 04:05:00,AGT-SRV-01,Performance and Service Agent,Analyze,Alert,ENT-8920,Flagged risk,Draft sent for review,0.735,Yes,1642
+LOG-000265,2026-01-08 07:56:00,AGT-SIT-01,Execution Monitoring Agent,Simulate,Guarantee,ENT-8708,Flagged risk,Escalation raised,0.701,Yes,7539
+LOG-000266,2025-12-19 01:52:00,AGT-MKT-01,Market Intelligence Agent,Summarize,Assessment,ENT-5812,Extracted key fields,Pattern detected,0.718,Yes,3073
+LOG-000267,2026-03-18 03:50:00,AGT-FIN-01,Commercial Risk Agent,Analyze,Assessment,ENT-2004,Monitored telemetry,Pattern detected,0.88,No,4144
+LOG-000268,2026-02-19 10:40:00,AGT-PRS-01,Solution Agent,Search,Proposal,ENT-9917,Scored opportunity,Pattern detected,0.776,Yes,5199
+LOG-000269,2026-02-11 18:42:00,AGT-FIN-01,Commercial Risk Agent,Draft,Signal,ENT-3577,Validated scope,Report generated,0.916,No,6146
+LOG-000270,2025-10-24 04:41:00,AGT-MKT-01,Market Intelligence Agent,Predict,Opportunity,ENT-2933,Benchmarked vs past,Escalation raised,0.816,No,1187
+LOG-000271,2026-01-04 16:00:00,AGT-HR-01,Mobilisation Agent,Analyze,Project,ENT-9109,Generated recommendation,Report generated,0.87,No,1184
+LOG-000272,2025-12-22 22:40:00,AGT-ENG-01,Engineering Validation Agent,Summarize,BOM,ENT-5916,Generated recommendation,Output produced,0.776,Yes,1034
+LOG-000273,2026-03-06 11:05:00,AGT-SRV-01,Performance and Service Agent,Analyze,Signal,ENT-4270,Generated recommendation,Escalation raised,0.704,Yes,5355
+LOG-000274,2026-02-11 18:13:00,AGT-ORC-01,Workflow Orchestrator,Search,Validation,ENT-4962,Predicted failure,Escalation raised,0.859,No,6372
+LOG-000275,2025-11-22 02:01:00,AGT-SIT-01,Execution Monitoring Agent,Draft,Incident,ENT-4829,Flagged risk,Alert issued,0.99,No,6406
+LOG-000276,2025-11-26 15:55:00,AGT-SAL-01,Qualification Agent,Monitor,Signal,ENT-4776,Validated scope,Report generated,0.939,No,4714
+LOG-000277,2026-02-04 23:36:00,AGT-PRS-01,Solution Agent,Alert,Guarantee,ENT-5426,Monitored telemetry,Report generated,0.812,No,3422
+LOG-000278,2025-10-30 07:26:00,AGT-FIN-01,Commercial Risk Agent,Score,Guarantee,ENT-8743,Generated recommendation,Output produced,0.867,No,6366
+LOG-000279,2025-11-15 15:14:00,AGT-SIT-01,Execution Monitoring Agent,Classify,Incident,ENT-5718,Drafted section,Draft sent for review,0.692,Yes,4201
+LOG-000280,2026-03-06 11:21:00,AGT-SRV-01,Performance and Service Agent,Extract,Signal,ENT-8368,Validated scope,Report generated,0.973,No,5690
+LOG-000281,2025-11-24 12:50:00,AGT-MKT-01,Market Intelligence Agent,Monitor,Contract,ENT-8857,Extracted key fields,Report generated,0.982,No,7114
+LOG-000282,2026-01-02 14:40:00,AGT-ORC-01,Workflow Orchestrator,Monitor,Proposal,ENT-8705,Monitored telemetry,Draft sent for review,0.745,Yes,854
+LOG-000283,2025-12-24 20:09:00,AGT-FIN-01,Commercial Risk Agent,Search,Brief,ENT-6574,Validated scope,Report generated,0.85,No,8453
+LOG-000284,2026-02-25 15:42:00,AGT-CMS-01,Commissioning Agent,Summarize,NCR,ENT-9459,Monitored telemetry,Escalation raised,0.909,Yes,7492
+LOG-000285,2025-12-04 04:23:00,AGT-ORC-01,Workflow Orchestrator,Search,Test,ENT-2744,Predicted failure,Pattern detected,0.76,Yes,484
+LOG-000286,2025-11-22 22:55:00,AGT-SIT-01,Execution Monitoring Agent,Analyze,Opportunity,ENT-1431,Flagged risk,No issues found,0.942,Yes,4391
+LOG-000287,2026-03-25 13:35:00,AGT-CMS-01,Commissioning Agent,Classify,Test,ENT-6337,Extracted key fields,Pattern detected,0.829,No,5669
+LOG-000288,2025-12-03 00:28:00,AGT-SAL-01,Qualification Agent,Summarize,Proposal,ENT-7297,Predicted failure,Pattern detected,0.811,No,4912
+LOG-000289,2025-11-27 00:17:00,AGT-FIN-01,Commercial Risk Agent,Score,Guarantee,ENT-7028,Monitored telemetry,Alert issued,0.736,Yes,5488
+LOG-000290,2026-02-08 13:12:00,AGT-MKT-01,Market Intelligence Agent,Classify,Test,ENT-4757,Predicted failure,Draft sent for review,0.962,No,5213
+LOG-000291,2026-03-17 01:13:00,AGT-MKT-01,Market Intelligence Agent,Alert,Test,ENT-2181,Predicted failure,No issues found,0.959,No,2869
+LOG-000292,2025-12-27 20:41:00,AGT-HR-01,Mobilisation Agent,Extract,Brief,ENT-4943,Benchmarked vs past,Draft sent for review,0.977,No,8156
+LOG-000293,2026-03-07 11:05:00,AGT-SIT-01,Execution Monitoring Agent,Summarize,Test,ENT-5085,Benchmarked vs past,Pattern detected,0.938,No,4830
+LOG-000294,2026-02-17 00:34:00,AGT-ORC-01,Workflow Orchestrator,Summarize,NCR,ENT-4209,Generated recommendation,Alert issued,0.946,No,5867
+LOG-000295,2026-04-16 00:07:00,AGT-ENG-01,Engineering Validation Agent,Analyze,BOM,ENT-8197,Benchmarked vs past,Alert issued,0.706,Yes,6302
+LOG-000296,2026-01-25 21:09:00,AGT-ORC-01,Workflow Orchestrator,Search,Project,ENT-9252,Generated recommendation,Report generated,0.869,No,8143
+LOG-000297,2026-01-21 07:36:00,AGT-CMS-01,Commissioning Agent,Simulate,NCR,ENT-6366,Monitored telemetry,Report generated,0.915,No,965
+LOG-000298,2026-01-02 17:44:00,AGT-ENG-01,Engineering Validation Agent,Score,Guarantee,ENT-5229,Monitored telemetry,Alert issued,0.774,Yes,6305
+LOG-000299,2026-02-20 20:26:00,AGT-ENG-01,Engineering Validation Agent,Draft,Guarantee,ENT-4642,Generated recommendation,Escalation raised,0.702,Yes,7028
+LOG-000300,2025-12-19 01:07:00,AGT-SAL-01,Qualification Agent,Recommend,Assessment,ENT-3032,Predicted failure,Draft sent for review,0.91,No,4706
+LOG-000301,2025-12-23 09:04:00,AGT-HR-01,Mobilisation Agent,Draft,NCR,ENT-5014,Monitored telemetry,Escalation raised,0.813,Yes,5250
+LOG-000302,2025-12-11 04:03:00,AGT-MKT-01,Market Intelligence Agent,Recommend,Contract,ENT-9123,Generated recommendation,Alert issued,0.962,Yes,4586
+LOG-000303,2025-11-05 16:42:00,AGT-FIN-01,Commercial Risk Agent,Draft,Incident,ENT-4117,Predicted failure,Pattern detected,0.94,No,7651
+LOG-000304,2026-04-13 16:30:00,AGT-FIN-01,Commercial Risk Agent,Alert,Ticket,ENT-5610,Extracted key fields,Draft sent for review,0.801,Yes,2582
+LOG-000305,2025-12-19 10:31:00,AGT-MKT-01,Market Intelligence Agent,Score,Alert,ENT-6746,Flagged risk,Draft sent for review,0.79,Yes,1566
+LOG-000306,2026-01-29 08:11:00,AGT-SAL-01,Qualification Agent,Simulate,Brief,ENT-1953,Extracted key fields,Pattern detected,0.744,Yes,882
+LOG-000307,2026-02-08 00:58:00,AGT-ORC-01,Workflow Orchestrator,Classify,Incident,ENT-9294,Drafted section,Report generated,0.927,No,4879
+LOG-000308,2026-01-23 16:27:00,AGT-FIN-01,Commercial Risk Agent,Summarize,Test,ENT-6987,Flagged risk,Draft sent for review,0.985,No,3073
+LOG-000309,2025-10-29 19:34:00,AGT-ENG-01,Engineering Validation Agent,Summarize,Signal,ENT-1603,Validated scope,Escalation raised,0.813,No,593
+LOG-000310,2026-03-31 21:57:00,AGT-ORC-01,Workflow Orchestrator,Monitor,Incident,ENT-7904,Scored opportunity,Output produced,0.908,No,8342
+LOG-000311,2025-11-20 00:35:00,AGT-ORC-01,Workflow Orchestrator,Analyze,Proposal,ENT-6214,Benchmarked vs past,Report generated,0.938,No,7457
+LOG-000312,2026-01-08 10:56:00,AGT-FIN-01,Commercial Risk Agent,Score,Ticket,ENT-8351,Monitored telemetry,Output produced,0.777,Yes,8487
+LOG-000313,2025-12-11 08:18:00,AGT-SIT-01,Execution Monitoring Agent,Predict,Alert,ENT-7743,Monitored telemetry,Pattern detected,0.68,Yes,6401
+LOG-000314,2026-03-14 01:21:00,AGT-SRV-01,Performance and Service Agent,Extract,BOM,ENT-7043,Monitored telemetry,Draft sent for review,0.685,Yes,6262
+LOG-000315,2025-12-07 03:21:00,AGT-MKT-01,Market Intelligence Agent,Predict,Validation,ENT-4812,Flagged risk,Output produced,0.701,Yes,3076
+LOG-000316,2025-10-22 18:29:00,AGT-ORC-01,Workflow Orchestrator,Search,Progress,ENT-5558,Predicted failure,Pattern detected,0.811,No,4084
+LOG-000317,2025-12-05 10:49:00,AGT-ORC-01,Workflow Orchestrator,Score,Brief,ENT-6809,Scored opportunity,Report generated,0.964,No,1565
+LOG-000318,2026-01-11 11:58:00,AGT-SRV-01,Performance and Service Agent,Score,Alert,ENT-4991,Flagged risk,Alert issued,0.776,Yes,1599
+LOG-000319,2025-12-25 00:13:00,AGT-FIN-01,Commercial Risk Agent,Score,Alert,ENT-5902,Validated scope,No issues found,0.835,No,2220
+LOG-000320,2026-03-03 13:22:00,AGT-MKT-01,Market Intelligence Agent,Analyze,Signal,ENT-3727,Flagged risk,No issues found,0.761,Yes,8386
+LOG-000321,2025-11-06 16:07:00,AGT-CMS-01,Commissioning Agent,Analyze,Test,ENT-7776,Validated scope,No issues found,0.791,Yes,8261
+LOG-000322,2026-02-02 20:47:00,AGT-CMS-01,Commissioning Agent,Simulate,Incident,ENT-2250,Benchmarked vs past,Pattern detected,0.708,Yes,3198
+LOG-000323,2026-03-15 12:28:00,AGT-MKT-01,Market Intelligence Agent,Score,Test,ENT-6214,Benchmarked vs past,No issues found,0.796,Yes,1406
+LOG-000324,2026-02-26 04:01:00,AGT-HR-01,Mobilisation Agent,Summarize,Validation,ENT-2948,Predicted failure,Alert issued,0.843,No,5491
+LOG-000325,2025-11-12 04:57:00,AGT-HR-01,Mobilisation Agent,Predict,Opportunity,ENT-3798,Benchmarked vs past,Escalation raised,0.931,No,5531
+LOG-000326,2025-12-09 20:36:00,AGT-HR-01,Mobilisation Agent,Simulate,Guarantee,ENT-2590,Flagged risk,Draft sent for review,0.823,No,1622
+LOG-000327,2026-04-10 00:57:00,AGT-SRV-01,Performance and Service Agent,Score,NCR,ENT-4097,Validated scope,Report generated,0.988,No,2955
+LOG-000328,2026-03-11 20:16:00,AGT-FIN-01,Commercial Risk Agent,Monitor,Alert,ENT-4967,Extracted key fields,No issues found,0.869,No,1784
+LOG-000329,2026-04-04 07:40:00,AGT-PRS-01,Solution Agent,Simulate,Project,ENT-2485,Scored opportunity,Draft sent for review,0.728,Yes,6699
+LOG-000330,2026-03-01 16:55:00,AGT-SAL-01,Qualification Agent,Summarize,Incident,ENT-6938,Flagged risk,No issues found,0.783,Yes,1004
+LOG-000331,2026-01-28 16:58:00,AGT-SAL-01,Qualification Agent,Score,Project,ENT-1168,Predicted failure,Escalation raised,0.739,Yes,1560
+LOG-000332,2026-04-08 04:04:00,AGT-SAL-01,Qualification Agent,Monitor,Project,ENT-6125,Generated recommendation,Escalation raised,0.91,No,6784
+LOG-000333,2026-02-19 00:09:00,AGT-SIT-01,Execution Monitoring Agent,Score,Proposal,ENT-4010,Scored opportunity,Report generated,0.775,Yes,6781
+LOG-000334,2025-11-18 15:39:00,AGT-ORC-01,Workflow Orchestrator,Classify,Project,ENT-2344,Scored opportunity,Output produced,0.727,Yes,6990
+LOG-000335,2025-10-25 00:36:00,AGT-SAL-01,Qualification Agent,Predict,Opportunity,ENT-1282,Extracted key fields,No issues found,0.984,Yes,2289
+LOG-000336,2025-11-01 15:52:00,AGT-PRS-01,Solution Agent,Classify,BOM,ENT-7838,Benchmarked vs past,Report generated,0.928,No,2609
+LOG-000337,2025-11-09 08:38:00,AGT-SAL-01,Qualification Agent,Draft,NCR,ENT-7249,Drafted section,Output produced,0.968,Yes,3291
+LOG-000338,2025-12-14 05:09:00,AGT-FIN-01,Commercial Risk Agent,Predict,Signal,ENT-1182,Generated recommendation,Alert issued,0.969,No,3894
+LOG-000339,2025-11-02 03:20:00,AGT-PRS-01,Solution Agent,Recommend,BOM,ENT-3173,Benchmarked vs past,Pattern detected,0.966,No,7588
+LOG-000340,2025-10-22 17:50:00,AGT-MKT-01,Market Intelligence Agent,Search,Alert,ENT-5379,Benchmarked vs past,Draft sent for review,0.725,Yes,8202
+LOG-000341,2026-02-14 17:25:00,AGT-PRS-01,Solution Agent,Draft,Incident,ENT-2447,Validated scope,Draft sent for review,0.824,No,3171
+LOG-000342,2026-01-26 02:28:00,AGT-MKT-01,Market Intelligence Agent,Predict,BOM,ENT-9454,Monitored telemetry,Output produced,0.954,No,6347
+LOG-000343,2026-02-06 06:59:00,AGT-MKT-01,Market Intelligence Agent,Draft,Contract,ENT-1209,Monitored telemetry,No issues found,0.734,Yes,5995
+LOG-000344,2025-12-19 15:32:00,AGT-FIN-01,Commercial Risk Agent,Predict,Progress,ENT-1682,Extracted key fields,Draft sent for review,0.976,Yes,1486
+LOG-000345,2025-11-22 07:39:00,AGT-SRV-01,Performance and Service Agent,Simulate,Brief,ENT-2536,Monitored telemetry,Draft sent for review,0.815,No,5926
+LOG-000346,2026-03-17 16:28:00,AGT-SIT-01,Execution Monitoring Agent,Predict,NCR,ENT-6694,Monitored telemetry,Pattern detected,0.853,Yes,4013
+LOG-000347,2026-02-27 11:18:00,AGT-SAL-01,Qualification Agent,Summarize,BOM,ENT-3261,Extracted key fields,Output produced,0.977,Yes,1720
+LOG-000348,2025-11-29 12:00:00,AGT-ENG-01,Engineering Validation Agent,Monitor,Contract,ENT-8327,Scored opportunity,No issues found,0.966,Yes,372
+LOG-000349,2025-12-11 23:47:00,AGT-ENG-01,Engineering Validation Agent,Predict,Contract,ENT-9536,Generated recommendation,Pattern detected,0.782,Yes,4148
+LOG-000350,2026-03-08 01:24:00,AGT-SRV-01,Performance and Service Agent,Analyze,Proposal,ENT-5253,Predicted failure,No issues found,0.77,Yes,902
+LOG-000351,2026-02-20 14:32:00,AGT-HR-01,Mobilisation Agent,Simulate,Incident,ENT-2523,Monitored telemetry,Escalation raised,0.72,Yes,3643
+LOG-000352,2025-11-27 13:14:00,AGT-MKT-01,Market Intelligence Agent,Summarize,NCR,ENT-9084,Extracted key fields,No issues found,0.749,Yes,4311
+LOG-000353,2025-12-09 11:08:00,AGT-SRV-01,Performance and Service Agent,Extract,NCR,ENT-3445,Drafted section,Draft sent for review,0.874,Yes,3160
+LOG-000354,2025-12-07 18:15:00,AGT-PRS-01,Solution Agent,Analyze,Guarantee,ENT-3527,Flagged risk,Draft sent for review,0.846,No,3555
+LOG-000355,2025-12-30 07:28:00,AGT-MKT-01,Market Intelligence Agent,Alert,Project,ENT-7920,Predicted failure,Escalation raised,0.786,Yes,8233
+LOG-000356,2026-04-16 04:35:00,AGT-SRV-01,Performance and Service Agent,Alert,Assessment,ENT-8858,Validated scope,Pattern detected,0.766,Yes,4719
+LOG-000357,2026-01-27 05:30:00,AGT-ORC-01,Workflow Orchestrator,Analyze,Assessment,ENT-6855,Flagged risk,Output produced,0.784,Yes,7944
+LOG-000358,2026-01-22 02:10:00,AGT-HR-01,Mobilisation Agent,Alert,Ticket,ENT-5498,Benchmarked vs past,Pattern detected,0.9,No,7613
+LOG-000359,2026-03-29 02:56:00,AGT-FIN-01,Commercial Risk Agent,Alert,NCR,ENT-3563,Monitored telemetry,Escalation raised,0.899,No,5415
+LOG-000360,2025-11-05 20:10:00,AGT-SAL-01,Qualification Agent,Classify,Contract,ENT-6482,Flagged risk,Draft sent for review,0.871,Yes,6776
+LOG-000361,2026-01-29 21:11:00,AGT-HR-01,Mobilisation Agent,Summarize,Test,ENT-6090,Scored opportunity,Alert issued,0.791,Yes,6727
+LOG-000362,2025-12-06 04:33:00,AGT-CMS-01,Commissioning Agent,Predict,Signal,ENT-1816,Flagged risk,Draft sent for review,0.754,Yes,8382
+LOG-000363,2026-04-05 20:35:00,AGT-PRS-01,Solution Agent,Analyze,Progress,ENT-8788,Drafted section,Report generated,0.923,No,4720
+LOG-000364,2026-03-19 07:43:00,AGT-PRS-01,Solution Agent,Score,Validation,ENT-8857,Monitored telemetry,Escalation raised,0.915,No,919
+LOG-000365,2025-11-11 07:11:00,AGT-ORC-01,Workflow Orchestrator,Summarize,Brief,ENT-2356,Benchmarked vs past,Output produced,0.759,Yes,4618
+LOG-000366,2026-02-27 17:02:00,AGT-MKT-01,Market Intelligence Agent,Search,Opportunity,ENT-6466,Flagged risk,Escalation raised,0.773,Yes,4085
+LOG-000367,2025-12-07 11:35:00,AGT-HR-01,Mobilisation Agent,Analyze,Incident,ENT-6346,Validated scope,Draft sent for review,0.986,Yes,6949
+LOG-000368,2026-01-22 16:23:00,AGT-MKT-01,Market Intelligence Agent,Classify,Brief,ENT-8166,Predicted failure,No issues found,0.728,Yes,4499
+LOG-000369,2025-11-09 01:52:00,AGT-SIT-01,Execution Monitoring Agent,Summarize,Progress,ENT-4378,Monitored telemetry,Pattern detected,0.834,No,5017
+LOG-000370,2025-11-25 21:54:00,AGT-ORC-01,Workflow Orchestrator,Predict,Incident,ENT-7697,Predicted failure,Pattern detected,0.866,No,2635
+LOG-000371,2026-01-17 00:58:00,AGT-SRV-01,Performance and Service Agent,Analyze,Incident,ENT-6258,Flagged risk,Alert issued,0.733,Yes,4148
+LOG-000372,2025-10-30 08:31:00,AGT-MKT-01,Market Intelligence Agent,Extract,BOM,ENT-2463,Drafted section,Escalation raised,0.785,Yes,3108
+LOG-000373,2026-02-13 17:22:00,AGT-SIT-01,Execution Monitoring Agent,Recommend,Contract,ENT-5727,Monitored telemetry,Output produced,0.795,Yes,7424
+LOG-000374,2025-11-15 23:07:00,AGT-SRV-01,Performance and Service Agent,Analyze,Proposal,ENT-9271,Scored opportunity,Escalation raised,0.829,No,8037
+LOG-000375,2026-01-16 21:51:00,AGT-HR-01,Mobilisation Agent,Score,Proposal,ENT-6026,Drafted section,Draft sent for review,0.858,No,3495
+LOG-000376,2026-01-01 15:21:00,AGT-SAL-01,Qualification Agent,Alert,Progress,ENT-8796,Validated scope,Escalation raised,0.848,No,7409
+LOG-000377,2026-01-21 11:11:00,AGT-SIT-01,Execution Monitoring Agent,Search,Ticket,ENT-1307,Generated recommendation,Draft sent for review,0.779,Yes,5084
+LOG-000378,2026-02-12 03:10:00,AGT-ORC-01,Workflow Orchestrator,Simulate,Test,ENT-9798,Predicted failure,Pattern detected,0.9,No,8191
+LOG-000379,2026-01-24 10:09:00,AGT-SAL-01,Qualification Agent,Predict,Signal,ENT-5352,Extracted key fields,Escalation raised,0.855,No,6754
+LOG-000380,2026-02-03 20:38:00,AGT-ENG-01,Engineering Validation Agent,Monitor,Alert,ENT-8645,Scored opportunity,Output produced,0.745,Yes,902
+LOG-000381,2026-03-20 13:19:00,AGT-SAL-01,Qualification Agent,Recommend,Assessment,ENT-5714,Validated scope,Report generated,0.758,Yes,1295
+LOG-000382,2025-10-25 06:30:00,AGT-FIN-01,Commercial Risk Agent,Extract,Incident,ENT-8672,Benchmarked vs past,Draft sent for review,0.721,Yes,6694
+LOG-000383,2026-03-25 16:39:00,AGT-FIN-01,Commercial Risk Agent,Predict,Ticket,ENT-6062,Scored opportunity,Escalation raised,0.764,Yes,5507
+LOG-000384,2025-12-22 17:21:00,AGT-HR-01,Mobilisation Agent,Simulate,BOM,ENT-9788,Generated recommendation,Draft sent for review,0.886,No,5846
+LOG-000385,2026-04-16 02:13:00,AGT-SRV-01,Performance and Service Agent,Recommend,Project,ENT-8992,Generated recommendation,Alert issued,0.86,No,1721
+LOG-000386,2026-01-07 22:51:00,AGT-SIT-01,Execution Monitoring Agent,Summarize,Proposal,ENT-4168,Monitored telemetry,Report generated,0.924,No,4024
+LOG-000387,2025-11-04 03:41:00,AGT-ENG-01,Engineering Validation Agent,Search,Alert,ENT-2667,Validated scope,Escalation raised,0.818,No,7404
+LOG-000388,2026-02-14 00:29:00,AGT-SAL-01,Qualification Agent,Predict,Assessment,ENT-5765,Scored opportunity,Alert issued,0.888,Yes,5842
+LOG-000389,2025-11-25 13:58:00,AGT-HR-01,Mobilisation Agent,Recommend,Project,ENT-7108,Monitored telemetry,Output produced,0.841,No,2129
+LOG-000390,2026-04-14 17:22:00,AGT-CMS-01,Commissioning Agent,Search,Opportunity,ENT-8538,Generated recommendation,Alert issued,0.936,No,631
+LOG-000391,2026-03-25 09:13:00,AGT-MKT-01,Market Intelligence Agent,Classify,Alert,ENT-5418,Extracted key fields,Escalation raised,0.691,Yes,7205
+LOG-000392,2026-03-06 07:40:00,AGT-ORC-01,Workflow Orchestrator,Analyze,NCR,ENT-3557,Scored opportunity,Pattern detected,0.777,Yes,6102
+LOG-000393,2026-02-19 02:25:00,AGT-ORC-01,Workflow Orchestrator,Recommend,NCR,ENT-5095,Generated recommendation,Report generated,0.919,Yes,7139
+LOG-000394,2026-02-18 12:04:00,AGT-CMS-01,Commissioning Agent,Predict,Test,ENT-1745,Predicted failure,Output produced,0.889,No,7565
+LOG-000395,2026-03-17 06:26:00,AGT-PRS-01,Solution Agent,Analyze,Guarantee,ENT-4776,Generated recommendation,No issues found,0.746,Yes,1864
+LOG-000396,2025-11-15 23:56:00,AGT-ENG-01,Engineering Validation Agent,Search,Alert,ENT-6077,Drafted section,Escalation raised,0.764,Yes,5195
+LOG-000397,2026-02-21 10:35:00,AGT-ORC-01,Workflow Orchestrator,Extract,Ticket,ENT-7783,Predicted failure,No issues found,0.944,No,1144
+LOG-000398,2025-12-08 23:48:00,AGT-FIN-01,Commercial Risk Agent,Summarize,Brief,ENT-8475,Flagged risk,No issues found,0.898,No,6087
+LOG-000399,2026-01-17 06:08:00,AGT-SIT-01,Execution Monitoring Agent,Search,Validation,ENT-6614,Drafted section,Pattern detected,0.728,Yes,6920
+LOG-000400,2025-12-21 05:44:00,AGT-ENG-01,Engineering Validation Agent,Draft,NCR,ENT-8031,Scored opportunity,Output produced,0.899,No,2188
+LOG-000401,2026-03-01 18:56:00,AGT-PRS-01,Solution Agent,Summarize,Validation,ENT-6280,Drafted section,No issues found,0.762,Yes,6306
+LOG-000402,2026-03-24 05:29:00,AGT-SAL-01,Qualification Agent,Extract,Project,ENT-7460,Generated recommendation,Escalation raised,0.925,No,4447
+LOG-000403,2026-01-14 12:16:00,AGT-FIN-01,Commercial Risk Agent,Extract,Progress,ENT-5590,Validated scope,Output produced,0.747,Yes,1912
+LOG-000404,2026-03-27 01:26:00,AGT-SRV-01,Performance and Service Agent,Analyze,Guarantee,ENT-7259,Predicted failure,Report generated,0.886,No,8495
+LOG-000405,2025-10-27 13:51:00,AGT-MKT-01,Market Intelligence Agent,Alert,Proposal,ENT-4545,Predicted failure,No issues found,0.698,Yes,7146
+LOG-000406,2026-02-02 20:26:00,AGT-SRV-01,Performance and Service Agent,Recommend,Opportunity,ENT-5262,Monitored telemetry,Pattern detected,0.921,No,2324
+LOG-000407,2026-04-13 21:44:00,AGT-PRS-01,Solution Agent,Simulate,Assessment,ENT-6302,Validated scope,Output produced,0.885,No,1716
+LOG-000408,2026-03-04 09:50:00,AGT-SAL-01,Qualification Agent,Search,Guarantee,ENT-1026,Benchmarked vs past,Escalation raised,0.848,Yes,6589
+LOG-000409,2025-12-22 08:58:00,AGT-FIN-01,Commercial Risk Agent,Classify,Ticket,ENT-8135,Scored opportunity,Alert issued,0.907,No,4006
+LOG-000410,2026-01-14 19:13:00,AGT-CMS-01,Commissioning Agent,Recommend,Test,ENT-8909,Scored opportunity,Pattern detected,0.867,No,6936
+LOG-000411,2026-03-27 08:51:00,AGT-PRS-01,Solution Agent,Alert,NCR,ENT-1808,Validated scope,Output produced,0.693,Yes,8328
+LOG-000412,2025-11-24 16:58:00,AGT-SIT-01,Execution Monitoring Agent,Summarize,Validation,ENT-7342,Validated scope,Pattern detected,0.75,Yes,5502
+LOG-000413,2026-02-14 04:33:00,AGT-SIT-01,Execution Monitoring Agent,Monitor,Opportunity,ENT-7574,Extracted key fields,Draft sent for review,0.825,No,3899
+LOG-000414,2025-10-28 23:36:00,AGT-ORC-01,Workflow Orchestrator,Monitor,Brief,ENT-8971,Extracted key fields,Report generated,0.923,No,5008
+LOG-000415,2026-01-24 02:53:00,AGT-PRS-01,Solution Agent,Summarize,Brief,ENT-3021,Benchmarked vs past,Output produced,0.899,Yes,6243
+LOG-000416,2025-11-25 20:48:00,AGT-SRV-01,Performance and Service Agent,Monitor,NCR,ENT-8611,Extracted key fields,Escalation raised,0.803,No,4662
+LOG-000417,2026-03-21 13:01:00,AGT-PRS-01,Solution Agent,Monitor,Assessment,ENT-7520,Drafted section,No issues found,0.756,Yes,5705
+LOG-000418,2026-01-08 23:52:00,AGT-PRS-01,Solution Agent,Classify,Signal,ENT-9356,Predicted failure,Draft sent for review,0.734,Yes,4647
+LOG-000419,2026-04-18 19:05:00,AGT-SRV-01,Performance and Service Agent,Simulate,Incident,ENT-9933,Flagged risk,No issues found,0.941,No,8369
+LOG-000420,2026-03-02 02:07:00,AGT-FIN-01,Commercial Risk Agent,Search,Test,ENT-6932,Predicted failure,Report generated,0.873,No,5465
+LOG-000421,2025-12-19 14:39:00,AGT-SAL-01,Qualification Agent,Monitor,Guarantee,ENT-6655,Scored opportunity,Output produced,0.965,Yes,2789
+LOG-000422,2026-02-02 22:02:00,AGT-SAL-01,Qualification Agent,Draft,Assessment,ENT-4103,Scored opportunity,Alert issued,0.93,No,5533
+LOG-000423,2025-12-10 03:23:00,AGT-HR-01,Mobilisation Agent,Simulate,Progress,ENT-8434,Scored opportunity,Escalation raised,0.899,No,8196
+LOG-000424,2025-12-17 01:59:00,AGT-SAL-01,Qualification Agent,Extract,Test,ENT-9197,Predicted failure,Output produced,0.74,Yes,5091
+LOG-000425,2026-03-18 15:02:00,AGT-SAL-01,Qualification Agent,Search,Progress,ENT-2527,Monitored telemetry,Draft sent for review,0.969,Yes,3918
+LOG-000426,2025-11-20 13:47:00,AGT-SRV-01,Performance and Service Agent,Classify,Contract,ENT-2889,Benchmarked vs past,Escalation raised,0.754,Yes,6734
+LOG-000427,2025-12-23 02:33:00,AGT-CMS-01,Commissioning Agent,Classify,Contract,ENT-4677,Validated scope,Draft sent for review,0.946,No,7575
+LOG-000428,2026-03-31 03:12:00,AGT-ENG-01,Engineering Validation Agent,Search,Assessment,ENT-4699,Drafted section,Draft sent for review,0.826,No,7004
+LOG-000429,2026-01-25 08:03:00,AGT-CMS-01,Commissioning Agent,Analyze,Signal,ENT-5951,Benchmarked vs past,Draft sent for review,0.984,No,827
+LOG-000430,2026-02-02 01:05:00,AGT-ORC-01,Workflow Orchestrator,Analyze,Opportunity,ENT-6643,Monitored telemetry,Output produced,0.985,No,5705
+LOG-000431,2026-03-10 08:57:00,AGT-FIN-01,Commercial Risk Agent,Monitor,Project,ENT-8820,Monitored telemetry,No issues found,0.821,No,2042
+LOG-000432,2026-03-24 22:30:00,AGT-SAL-01,Qualification Agent,Classify,Project,ENT-8365,Generated recommendation,Draft sent for review,0.976,Yes,5872
+LOG-000433,2026-01-23 09:51:00,AGT-SIT-01,Execution Monitoring Agent,Draft,Validation,ENT-7347,Flagged risk,Draft sent for review,0.839,Yes,8425
+LOG-000434,2026-02-11 02:59:00,AGT-HR-01,Mobilisation Agent,Monitor,Contract,ENT-7229,Benchmarked vs past,No issues found,0.915,No,5835
+LOG-000435,2026-04-18 10:36:00,AGT-SIT-01,Execution Monitoring Agent,Summarize,Test,ENT-2108,Flagged risk,Alert issued,0.904,No,2286
+LOG-000436,2025-12-01 08:58:00,AGT-SIT-01,Execution Monitoring Agent,Recommend,Alert,ENT-8193,Generated recommendation,Escalation raised,0.874,Yes,789
+LOG-000437,2025-11-26 05:03:00,AGT-ENG-01,Engineering Validation Agent,Classify,Assessment,ENT-9142,Predicted failure,Alert issued,0.936,No,3130
+LOG-000438,2026-04-03 02:10:00,AGT-CMS-01,Commissioning Agent,Recommend,Assessment,ENT-6858,Scored opportunity,Report generated,0.706,Yes,6992
+LOG-000439,2026-03-04 02:10:00,AGT-PRS-01,Solution Agent,Alert,Validation,ENT-5709,Flagged risk,Report generated,0.69,Yes,3918
+LOG-000440,2025-10-27 16:57:00,AGT-ENG-01,Engineering Validation Agent,Monitor,Assessment,ENT-5132,Validated scope,Escalation raised,0.924,No,489
+LOG-000441,2026-04-13 11:24:00,AGT-SIT-01,Execution Monitoring Agent,Predict,Assessment,ENT-1037,Monitored telemetry,Alert issued,0.985,No,5752
+LOG-000442,2026-03-03 13:32:00,AGT-PRS-01,Solution Agent,Extract,BOM,ENT-6005,Scored opportunity,Report generated,0.847,Yes,8407
+LOG-000443,2026-02-17 08:15:00,AGT-HR-01,Mobilisation Agent,Classify,Contract,ENT-5158,Benchmarked vs past,No issues found,0.939,No,5630
+LOG-000444,2025-12-05 08:11:00,AGT-FIN-01,Commercial Risk Agent,Analyze,Proposal,ENT-9524,Extracted key fields,Draft sent for review,0.974,No,2851
+LOG-000445,2026-01-21 14:03:00,AGT-HR-01,Mobilisation Agent,Search,Progress,ENT-5056,Predicted failure,Escalation raised,0.724,Yes,5079
+LOG-000446,2026-01-17 13:09:00,AGT-PRS-01,Solution Agent,Alert,Test,ENT-9684,Predicted failure,Alert issued,0.689,Yes,6622
+LOG-000447,2025-10-29 18:58:00,AGT-MKT-01,Market Intelligence Agent,Monitor,BOM,ENT-3765,Scored opportunity,Report generated,0.751,Yes,1351
+LOG-000448,2026-04-12 21:21:00,AGT-CMS-01,Commissioning Agent,Alert,NCR,ENT-7794,Flagged risk,Alert issued,0.98,No,2278
+LOG-000449,2025-12-21 05:27:00,AGT-SRV-01,Performance and Service Agent,Alert,Ticket,ENT-4325,Scored opportunity,Draft sent for review,0.921,No,2700
+LOG-000450,2025-11-26 12:09:00,AGT-FIN-01,Commercial Risk Agent,Recommend,NCR,ENT-6074,Validated scope,Output produced,0.807,No,7117

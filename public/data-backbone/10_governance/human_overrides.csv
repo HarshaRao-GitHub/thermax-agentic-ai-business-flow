@@ -1,0 +1,61 @@
+override_id,timestamp,agent_id,agent_name,entity_id,ai_recommendation,human_decision,override_reason,overrider_name,lesson_learned
+OVR-2026-0001,2026-02-20,AGT-MKT-01,Market Intelligence Agent,ENT-4189,Reject,No-go,Regulatory interpretation differs,Rajesh Verma,Updated political risk weights
+OVR-2026-0002,2026-04-11,AGT-SAL-01,Qualification Agent,ENT-3929,Feasible,Re-price,Raw material cost forecast changed,Archana Shah,Incorporated competitive pricing database
+OVR-2026-0003,2026-03-15,AGT-MKT-01,Market Intelligence Agent,ENT-3608,Go,Reject,Regulatory interpretation differs,Sarika Agarwal,Updated political risk weights
+OVR-2026-0004,2026-04-04,AGT-FIN-01,Commercial Risk Agent,ENT-7526,Low margin,Not feasible,Political sensitivity at customer site,Tarun Patel,Added customer sentiment feature
+OVR-2026-0005,2026-01-08,AGT-FIN-01,Commercial Risk Agent,ENT-7800,Reject,Not feasible,Raw material cost forecast changed,Preeti Verma,Retrained on latest executive turnover
+OVR-2026-0006,2026-01-20,AGT-SAL-01,Qualification Agent,ENT-3803,Modify scope,Not feasible,CEO directive to pursue strategic account,Prakash Menon,Retrained on latest executive turnover
+OVR-2026-0007,2026-02-22,AGT-MKT-01,Market Intelligence Agent,ENT-7524,Go,Not feasible,Customer-specific commercial terms,Hari Joshi,Updated political risk weights
+OVR-2026-0008,2026-03-04,AGT-SRV-01,Performance and Service Agent,ENT-4304,Go,Not suitable,Customer-specific commercial terms,Smita Iyer,Incorporated competitive pricing database
+OVR-2026-0009,2026-02-25,AGT-SRV-01,Performance and Service Agent,ENT-7519,Go,Keep as-is,Customer relationship risk not captured by model,Ajay Shah,Retrained on latest executive turnover
+OVR-2026-0010,2026-01-26,AGT-FIN-01,Commercial Risk Agent,ENT-8297,Reject,Low risk,Political sensitivity at customer site,Ritu Banerjee,Added customer sentiment feature
+OVR-2026-0011,2025-12-06,AGT-FIN-01,Commercial Risk Agent,ENT-6607,Approve,Not feasible,Customer relationship risk not captured by model,Ravi Pandey,Added customer sentiment feature
+OVR-2026-0012,2025-11-28,AGT-SAL-01,Qualification Agent,ENT-8082,Feasible,Not feasible,Political sensitivity at customer site,Amit Vaidya,Incorporated competitive pricing database
+OVR-2026-0013,2026-04-03,AGT-HR-01,Mobilisation Agent,ENT-3141,Go,Reject,Customer-specific commercial terms,Suresh Naidu,Added customer credit risk input
+OVR-2026-0014,2026-03-20,AGT-HR-01,Mobilisation Agent,ENT-4903,High risk,Approve,Regulatory interpretation differs,Rekha Sharma,Retrained on latest executive turnover
+OVR-2026-0015,2025-11-25,AGT-FIN-01,Commercial Risk Agent,ENT-4239,Feasible,Not suitable,Customer-specific commercial terms,Arun Saxena,Added customer sentiment feature
+OVR-2026-0016,2025-12-05,AGT-HR-01,Mobilisation Agent,ENT-7094,Suitable,Reject,Competitor intel contradicts AI assessment,Divya Desai,Retrained on latest executive turnover
+OVR-2026-0017,2025-12-29,AGT-ORC-01,Workflow Orchestrator,ENT-2364,Low margin,Approve,Customer relationship risk not captured by model,Usha Dutta,Updated political risk weights
+OVR-2026-0018,2026-02-03,AGT-CMS-01,Commissioning Agent,ENT-2813,Low margin,Approve,CEO directive to pursue strategic account,Lakshmi Dutta,Retrained on latest executive turnover
+OVR-2026-0019,2025-11-23,AGT-ENG-01,Engineering Validation Agent,ENT-7750,Reject,Keep as-is,Political sensitivity at customer site,Rakesh Srivastava,Added customer sentiment feature
+OVR-2026-0020,2025-12-03,AGT-SRV-01,Performance and Service Agent,ENT-4895,Approve,Approve,CEO directive to pursue strategic account,Preeti Chowdhury,Retrained on latest executive turnover
+OVR-2026-0021,2025-12-27,AGT-CMS-01,Commissioning Agent,ENT-4860,Modify scope,Not feasible,Regulatory interpretation differs,Arun Khanna,Updated political risk weights
+OVR-2026-0022,2026-02-02,AGT-ENG-01,Engineering Validation Agent,ENT-4236,Suitable,Re-price,Regulatory interpretation differs,Kiran Banerjee,Incorporated competitive pricing database
+OVR-2026-0023,2026-01-15,AGT-ORC-01,Workflow Orchestrator,ENT-6929,Feasible,Reject,Raw material cost forecast changed,Usha Tiwari,Retrained on latest executive turnover
+OVR-2026-0024,2026-02-23,AGT-FIN-01,Commercial Risk Agent,ENT-9495,Go,Approve,Customer relationship risk not captured by model,Dinesh Mehta,Updated political risk weights
+OVR-2026-0025,2026-04-17,AGT-SRV-01,Performance and Service Agent,ENT-5863,Reject,Re-price,Regulatory interpretation differs,Nandita Yadav,Added customer sentiment feature
+OVR-2026-0026,2026-04-09,AGT-MKT-01,Market Intelligence Agent,ENT-5703,Go,Reject,Site conditions different from data,Shashi Trivedi,Added historical cost escalation data
+OVR-2026-0027,2025-12-20,AGT-ENG-01,Engineering Validation Agent,ENT-7802,Reject,Re-price,Political sensitivity at customer site,Ritu Mishra,Added customer credit risk input
+OVR-2026-0028,2026-03-20,AGT-PRS-01,Solution Agent,ENT-6996,Low margin,Approve,Customer relationship risk not captured by model,Sanjay Yadav,Retrained on latest executive turnover
+OVR-2026-0029,2026-02-21,AGT-ORC-01,Workflow Orchestrator,ENT-1869,Approve,Re-price,Customer relationship risk not captured by model,Hari Gupta,Added customer credit risk input
+OVR-2026-0030,2026-03-15,AGT-HR-01,Mobilisation Agent,ENT-8647,High risk,Reject,Competitor intel contradicts AI assessment,Dinesh Dutta,Incorporated competitive pricing database
+OVR-2026-0031,2026-01-10,AGT-PRS-01,Solution Agent,ENT-6091,Approve,Re-price,Regulatory interpretation differs,Shobha Joshi,Added historical cost escalation data
+OVR-2026-0032,2026-04-18,AGT-ORC-01,Workflow Orchestrator,ENT-1188,Approve,Re-price,Political sensitivity at customer site,Hari Vaidya,Retrained on latest executive turnover
+OVR-2026-0033,2026-02-25,AGT-ENG-01,Engineering Validation Agent,ENT-6406,Low margin,Not feasible,CEO directive to pursue strategic account,Arun Menon,Integrated regulatory change feed
+OVR-2026-0034,2026-02-18,AGT-SRV-01,Performance and Service Agent,ENT-6292,Modify scope,Keep as-is,Regulatory interpretation differs,Ajay Ghosh,Retrained on latest executive turnover
+OVR-2026-0035,2026-01-21,AGT-SAL-01,Qualification Agent,ENT-5082,Go,Approve,Political sensitivity at customer site,Divya Menon,Added customer credit risk input
+OVR-2026-0036,2025-12-23,AGT-FIN-01,Commercial Risk Agent,ENT-4871,Modify scope,Not suitable,Customer relationship risk not captured by model,Priya Pillai,Incorporated competitive pricing database
+OVR-2026-0037,2025-11-28,AGT-ORC-01,Workflow Orchestrator,ENT-1260,Go,No-go,Site conditions different from data,Vivek Dutta,Added historical cost escalation data
+OVR-2026-0038,2026-02-01,AGT-SAL-01,Qualification Agent,ENT-5933,Reject,Not feasible,Customer-specific commercial terms,Smita Kapoor,Retrained on latest executive turnover
+OVR-2026-0039,2026-01-30,AGT-HR-01,Mobilisation Agent,ENT-5256,Go,Re-price,Political sensitivity at customer site,Preeti Kapoor,Added customer sentiment feature
+OVR-2026-0040,2025-12-16,AGT-SIT-01,Execution Monitoring Agent,ENT-3352,Go,Keep as-is,Regulatory interpretation differs,Sarika Chopra,Integrated regulatory change feed
+OVR-2026-0041,2026-03-02,AGT-ENG-01,Engineering Validation Agent,ENT-6009,High risk,Keep as-is,Customer relationship risk not captured by model,Prakash Bansal,Retrained on latest executive turnover
+OVR-2026-0042,2026-03-06,AGT-ENG-01,Engineering Validation Agent,ENT-6681,Reject,Not feasible,Customer-specific commercial terms,Shashi Mehta,Updated political risk weights
+OVR-2026-0043,2026-03-02,AGT-CMS-01,Commissioning Agent,ENT-5065,Approve,Low risk,Recent bad experience at similar site,Amit Ghosh,Incorporated competitive pricing database
+OVR-2026-0044,2026-01-24,AGT-FIN-01,Commercial Risk Agent,ENT-5072,High risk,No-go,Political sensitivity at customer site,Sanjay Bhatia,Updated political risk weights
+OVR-2026-0045,2026-03-07,AGT-SAL-01,Qualification Agent,ENT-3499,Low margin,Not feasible,CEO directive to pursue strategic account,Amit Chowdhury,Integrated regulatory change feed
+OVR-2026-0046,2026-03-04,AGT-HR-01,Mobilisation Agent,ENT-8514,Reject,No-go,Recent bad experience at similar site,Sanjay Trivedi,Added customer sentiment feature
+OVR-2026-0047,2026-04-03,AGT-HR-01,Mobilisation Agent,ENT-7549,Go,Approve,Recent bad experience at similar site,Sachin Rao,Updated political risk weights
+OVR-2026-0048,2026-04-14,AGT-SAL-01,Qualification Agent,ENT-8986,Approve,Not suitable,Raw material cost forecast changed,Anil Pillai,Retrained on latest executive turnover
+OVR-2026-0049,2026-04-08,AGT-CMS-01,Commissioning Agent,ENT-5370,Go,Re-price,Political sensitivity at customer site,Suresh Agarwal,Updated political risk weights
+OVR-2026-0050,2026-02-02,AGT-SIT-01,Execution Monitoring Agent,ENT-2166,Approve,Approve,Raw material cost forecast changed,Sachin Pandey,Retrained on latest executive turnover
+OVR-2026-0051,2026-03-19,AGT-SAL-01,Qualification Agent,ENT-6255,High risk,No-go,Regulatory interpretation differs,Vandana Chatterjee,Added customer sentiment feature
+OVR-2026-0052,2026-03-29,AGT-ORC-01,Workflow Orchestrator,ENT-5087,Suitable,No-go,Raw material cost forecast changed,Madhuri Mehta,Added customer credit risk input
+OVR-2026-0053,2026-02-15,AGT-FIN-01,Commercial Risk Agent,ENT-2120,Feasible,Reject,Raw material cost forecast changed,Shashi Banerjee,Retrained on latest executive turnover
+OVR-2026-0054,2026-01-20,AGT-HR-01,Mobilisation Agent,ENT-9129,Approve,Keep as-is,Site conditions different from data,Anita Mehta,Incorporated competitive pricing database
+OVR-2026-0055,2026-03-19,AGT-SRV-01,Performance and Service Agent,ENT-5549,Modify scope,Low risk,Customer relationship risk not captured by model,Rekha Bhatia,Added customer sentiment feature
+OVR-2026-0056,2026-03-18,AGT-SIT-01,Execution Monitoring Agent,ENT-2219,Suitable,Keep as-is,Recent bad experience at similar site,Anil Rao,Added customer sentiment feature
+OVR-2026-0057,2025-12-25,AGT-MKT-01,Market Intelligence Agent,ENT-8140,Approve,Not suitable,Customer relationship risk not captured by model,Sneha Iyer,Added customer sentiment feature
+OVR-2026-0058,2025-11-29,AGT-HR-01,Mobilisation Agent,ENT-7314,Suitable,Keep as-is,Regulatory interpretation differs,Shweta Patel,Updated political risk weights
+OVR-2026-0059,2026-02-25,AGT-ENG-01,Engineering Validation Agent,ENT-7921,Go,No-go,Customer relationship risk not captured by model,Ravi Kumar,Added customer sentiment feature
+OVR-2026-0060,2026-01-05,AGT-FIN-01,Commercial Risk Agent,ENT-2573,Go,Low risk,Political sensitivity at customer site,Smita Mukherjee,Integrated regulatory change feed

@@ -1,0 +1,191 @@
+test_id,project_id,test_type,test_date,parameter_tested,target_value,actual_value,deviation_pct,ai_analysis,result,witnessed_by
+CT-00001,PRJ-2026-0001,PG Test,2026-03-10,Power Consumption,89.56,86.6,-3.31,Within tolerance,Fail,Jitendra Saxena
+CT-00002,PRJ-2026-0001,Load Test,2026-01-23,Availability,96.73,96.3,-0.45,Marginal deviation,Pass,Madhuri Gupta
+CT-00003,PRJ-2026-0002,Cold Commissioning,2026-03-09,Output,90.56,86.35,-4.64,Within tolerance,Fail,Girish Srivastava
+CT-00004,PRJ-2026-0002,Load Test,2026-02-03,Output,96.3,92.0,-4.46,Within tolerance,Fail,Usha Nair
+CT-00005,PRJ-2026-0002,PG Test,2026-04-15,Water Recovery,95.27,92.61,-2.79,Within tolerance,Pass,Yogesh Rao
+CT-00006,PRJ-2026-0002,Hot Commissioning,2026-04-21,Efficiency,83.19,84.05,1.03,Marginal deviation,Pass,Lakshmi Desai
+CT-00007,PRJ-2026-0002,Control Loop Test,2026-03-23,Output,91.69,91.04,-0.71,Marginal deviation,Pass,Sunita Khanna
+CT-00008,PRJ-2026-0003,PG Test,2026-01-28,Output,85.27,84.33,-1.1,Marginal deviation,Pass,Vinod Chatterjee
+CT-00009,PRJ-2026-0003,PG Test,2026-02-07,Power Consumption,94.21,90.0,-4.47,Marginal deviation,Fail,Shashi Sharma
+CT-00010,PRJ-2026-0004,Hot Commissioning,2026-04-17,Water Recovery,93.98,94.81,0.88,Marginal deviation,Pass,Sunita Chopra
+CT-00011,PRJ-2026-0004,Hot Commissioning,2026-04-05,Output,97.8,98.35,0.57,Within tolerance,Pass,Smita Trivedi
+CT-00012,PRJ-2026-0004,Cold Commissioning,2026-03-21,Emissions,96.16,92.33,-3.98,Marginal deviation,Fail,Priya Rao
+CT-00013,PRJ-2026-0005,Load Test,2026-03-20,Availability,87.94,89.78,2.09,Marginal deviation,Pass,Rajesh Singh
+CT-00014,PRJ-2026-0005,Hot Commissioning,2026-02-24,Availability,86.54,87.7,1.34,Within tolerance,Pass,Rakesh Tiwari
+CT-00015,PRJ-2026-0006,Trial Run,2026-04-12,Water Recovery,91.61,88.67,-3.21,Within tolerance,Fail,Preeti Menon
+CT-00016,PRJ-2026-0006,Control Loop Test,2026-01-24,Water Recovery,98.82,94.59,-4.28,Within tolerance,Fail,Naveen Agarwal
+CT-00017,PRJ-2026-0007,Hot Commissioning,2026-02-06,Water Recovery,96.44,91.93,-4.67,Marginal deviation,Fail,Deepak Verma
+CT-00018,PRJ-2026-0007,Control Loop Test,2026-02-11,Steam Quality,85.01,86.49,1.74,Significant deviation,Pass,Vikram Vaidya
+CT-00019,PRJ-2026-0007,Safety Interlock Test,2026-04-11,Steam Quality,87.35,84.12,-3.7,Marginal deviation,Fail,Deepak Yadav
+CT-00020,PRJ-2026-0007,PG Test,2026-03-01,Power Consumption,89.25,88.37,-0.99,Significant deviation,Pass,Rekha Yadav
+CT-00021,PRJ-2026-0007,Load Test,2026-04-16,Availability,95.99,98.16,2.26,Marginal deviation,Pass,Shashi Tiwari
+CT-00022,PRJ-2026-0008,Load Test,2026-03-06,Emissions,81.6,80.86,-0.9,Within tolerance,Pass,Vivek Saxena
+CT-00023,PRJ-2026-0008,PG Test,2026-03-14,Water Recovery,85.45,86.39,1.1,Within tolerance,Pass,Harish Bhatia
+CT-00024,PRJ-2026-0008,PG Test,2026-02-03,Steam Quality,87.44,84.44,-3.43,Marginal deviation,Fail,Madhuri Mehta
+CT-00025,PRJ-2026-0009,Safety Interlock Test,2026-03-04,Output,86.53,84.3,-2.58,Within tolerance,Pass,Manish Rao
+CT-00026,PRJ-2026-0009,Load Test,2026-04-06,Efficiency,96.08,94.24,-1.92,Significant deviation,Pass,Suresh Khanna
+CT-00027,PRJ-2026-0009,Hot Commissioning,2026-03-09,Water Recovery,84.11,82.67,-1.71,Significant deviation,Pass,Prakash Iyer
+CT-00028,PRJ-2026-0009,Safety Interlock Test,2026-01-30,Efficiency,81.93,81.21,-0.88,Within tolerance,Pass,Raghav Vaidya
+CT-00029,PRJ-2026-0009,Load Test,2026-04-03,Water Recovery,81.86,81.85,-0.02,Marginal deviation,Pass,Jitendra Agarwal
+CT-00030,PRJ-2026-0010,Load Test,2026-03-19,Output,92.5,92.1,-0.43,Marginal deviation,Pass,Lakshmi Joshi
+CT-00031,PRJ-2026-0010,Control Loop Test,2026-03-16,Availability,95.29,97.29,2.1,Marginal deviation,Pass,Gopal Pandey
+CT-00032,PRJ-2026-0011,Hot Commissioning,2026-03-19,Output,86.93,84.22,-3.11,Within tolerance,Fail,Anita Kapoor
+CT-00033,PRJ-2026-0011,PG Test,2026-01-26,Power Consumption,81.47,82.0,0.65,Within tolerance,Pass,Ritu Verma
+CT-00034,PRJ-2026-0012,Trial Run,2026-02-21,Steam Quality,98.62,95.8,-2.86,Within tolerance,Pass,Hari Chowdhury
+CT-00035,PRJ-2026-0012,Trial Run,2026-02-22,Availability,92.83,91.9,-1.0,Significant deviation,Pass,Jitendra Joshi
+CT-00036,PRJ-2026-0012,Hot Commissioning,2026-02-25,Emissions,97.99,95.92,-2.12,Within tolerance,Pass,Kunal Chopra
+CT-00037,PRJ-2026-0012,Safety Interlock Test,2026-02-16,Availability,87.47,89.61,2.45,Within tolerance,Pass,Divya Desai
+CT-00038,PRJ-2026-0013,PG Test,2026-03-05,Efficiency,82.4,79.45,-3.58,Within tolerance,Fail,Bharat Joshi
+CT-00039,PRJ-2026-0013,PG Test,2026-02-15,Efficiency,97.58,100.01,2.49,Significant deviation,Pass,Kavita Tiwari
+CT-00040,PRJ-2026-0013,PG Test,2026-02-07,Availability,91.32,89.11,-2.42,Within tolerance,Pass,Vivek Bose
+CT-00041,PRJ-2026-0013,Hot Commissioning,2026-04-20,Availability,83.45,84.98,1.83,Significant deviation,Pass,Meera Kapoor
+CT-00042,PRJ-2026-0014,Cold Commissioning,2026-03-18,Output,94.76,94.48,-0.29,Within tolerance,Pass,Deepak Malhotra
+CT-00043,PRJ-2026-0014,PG Test,2026-01-28,Power Consumption,81.0,81.28,0.34,Marginal deviation,Pass,Rohit Menon
+CT-00044,PRJ-2026-0014,PG Test,2026-03-12,Emissions,97.88,99.38,1.53,Marginal deviation,Pass,Madhuri Singh
+CT-00045,PRJ-2026-0014,Control Loop Test,2026-02-22,Output,88.6,87.09,-1.7,Within tolerance,Pass,Hari Verma
+CT-00046,PRJ-2026-0015,Cold Commissioning,2026-02-17,Power Consumption,90.15,90.59,0.49,Significant deviation,Pass,Hari Menon
+CT-00047,PRJ-2026-0015,PG Test,2026-02-10,Availability,82.7,79.36,-4.04,Within tolerance,Fail,Hari Naidu
+CT-00048,PRJ-2026-0016,Trial Run,2026-01-27,Emissions,86.05,83.19,-3.33,Marginal deviation,Fail,Divya Mukherjee
+CT-00049,PRJ-2026-0016,Trial Run,2026-01-24,Water Recovery,95.15,92.37,-2.92,Within tolerance,Pass,Sunita Reddy
+CT-00050,PRJ-2026-0016,Hot Commissioning,2026-01-29,Steam Quality,89.45,89.58,0.14,Within tolerance,Pass,Shashi Chatterjee
+CT-00051,PRJ-2026-0016,Control Loop Test,2026-04-03,Output,87.81,85.82,-2.27,Within tolerance,Pass,Shweta Bose
+CT-00052,PRJ-2026-0017,PG Test,2026-02-28,Output,90.97,89.33,-1.8,Marginal deviation,Pass,Shweta Sharma
+CT-00053,PRJ-2026-0017,Control Loop Test,2026-04-16,Steam Quality,82.12,84.0,2.29,Significant deviation,Pass,Sachin Iyer
+CT-00054,PRJ-2026-0017,Cold Commissioning,2026-04-18,Emissions,95.46,97.81,2.46,Significant deviation,Pass,Preeti Chatterjee
+CT-00055,PRJ-2026-0018,Load Test,2026-01-24,Output,80.69,82.6,2.37,Marginal deviation,Pass,Vikram Agarwal
+CT-00056,PRJ-2026-0018,Trial Run,2026-03-28,Efficiency,83.54,82.46,-1.3,Within tolerance,Pass,Amit Srivastava
+CT-00057,PRJ-2026-0019,Trial Run,2026-04-06,Steam Quality,84.31,83.96,-0.41,Marginal deviation,Pass,Dinesh Tiwari
+CT-00058,PRJ-2026-0019,Cold Commissioning,2026-02-17,Output,90.05,90.07,0.02,Within tolerance,Pass,Manish Reddy
+CT-00059,PRJ-2026-0019,PG Test,2026-01-21,Output,83.76,83.74,-0.02,Within tolerance,Pass,Kavita Verma
+CT-00060,PRJ-2026-0019,Control Loop Test,2026-01-31,Steam Quality,91.42,88.21,-3.51,Within tolerance,Fail,Ajay Kapoor
+CT-00061,PRJ-2026-0020,Safety Interlock Test,2026-03-07,Steam Quality,82.43,80.77,-2.01,Marginal deviation,Pass,Hari Kapoor
+CT-00062,PRJ-2026-0020,Control Loop Test,2026-02-24,Output,82.82,79.68,-3.79,Marginal deviation,Fail,Usha Chatterjee
+CT-00063,PRJ-2026-0020,PG Test,2026-03-06,Steam Quality,91.46,88.16,-3.61,Within tolerance,Fail,Shashi Mehta
+CT-00064,PRJ-2026-0020,Hot Commissioning,2026-02-26,Availability,94.86,91.83,-3.2,Within tolerance,Fail,Yogesh Trivedi
+CT-00065,PRJ-2026-0021,Cold Commissioning,2026-02-10,Availability,88.92,85.13,-4.27,Within tolerance,Fail,Yogesh Nair
+CT-00066,PRJ-2026-0021,Cold Commissioning,2026-02-16,Steam Quality,87.39,86.5,-1.02,Marginal deviation,Pass,Rekha Pillai
+CT-00067,PRJ-2026-0022,Cold Commissioning,2026-04-02,Availability,80.73,76.78,-4.89,Within tolerance,Fail,Rakesh Naidu
+CT-00068,PRJ-2026-0022,Control Loop Test,2026-02-09,Water Recovery,84.22,86.5,2.7,Marginal deviation,Pass,Madhuri Shah
+CT-00069,PRJ-2026-0022,Trial Run,2026-01-31,Availability,98.31,97.27,-1.06,Significant deviation,Pass,Girish Khanna
+CT-00070,PRJ-2026-0022,PG Test,2026-02-24,Steam Quality,94.81,93.7,-1.17,Significant deviation,Pass,Meera Iyer
+CT-00071,PRJ-2026-0022,Hot Commissioning,2026-01-23,Output,83.99,86.31,2.76,Marginal deviation,Pass,Arun Mukherjee
+CT-00072,PRJ-2026-0023,PG Test,2026-03-20,Output,92.06,93.01,1.04,Significant deviation,Pass,Lakshmi Chowdhury
+CT-00073,PRJ-2026-0023,Control Loop Test,2026-01-31,Steam Quality,82.93,84.2,1.53,Marginal deviation,Pass,Kavita Trivedi
+CT-00074,PRJ-2026-0024,Safety Interlock Test,2026-03-09,Output,81.09,78.22,-3.54,Significant deviation,Fail,Preeti Singh
+CT-00075,PRJ-2026-0024,Control Loop Test,2026-02-19,Steam Quality,97.1,94.13,-3.06,Marginal deviation,Fail,Vikram Reddy
+CT-00076,PRJ-2026-0024,Control Loop Test,2026-02-18,Emissions,90.1,87.55,-2.83,Within tolerance,Pass,Sachin Kapoor
+CT-00077,PRJ-2026-0024,Hot Commissioning,2026-02-09,Emissions,80.12,80.4,0.35,Within tolerance,Pass,Preeti Naidu
+CT-00078,PRJ-2026-0024,Control Loop Test,2026-04-12,Output,86.16,81.95,-4.89,Within tolerance,Fail,Kavita Tiwari
+CT-00079,PRJ-2026-0025,Load Test,2026-03-23,Power Consumption,89.67,87.24,-2.71,Within tolerance,Pass,Tarun Pandey
+CT-00080,PRJ-2026-0025,PG Test,2026-02-20,Efficiency,87.34,85.17,-2.49,Significant deviation,Pass,Anil Khanna
+CT-00081,PRJ-2026-0026,Control Loop Test,2026-04-13,Emissions,95.19,97.56,2.49,Within tolerance,Pass,Divya Chopra
+CT-00082,PRJ-2026-0026,Control Loop Test,2026-03-09,Emissions,81.37,80.99,-0.47,Within tolerance,Pass,Prakash Verma
+CT-00083,PRJ-2026-0027,Hot Commissioning,2026-02-05,Emissions,90.95,89.14,-1.99,Within tolerance,Pass,Lakshmi Banerjee
+CT-00084,PRJ-2026-0027,Load Test,2026-04-21,Steam Quality,86.8,83.74,-3.52,Marginal deviation,Fail,Amit Khanna
+CT-00085,PRJ-2026-0028,Cold Commissioning,2026-04-12,Power Consumption,88.26,84.96,-3.73,Within tolerance,Fail,Ravi Rao
+CT-00086,PRJ-2026-0028,PG Test,2026-04-12,Output,93.85,89.83,-4.28,Marginal deviation,Fail,Dinesh Bhatia
+CT-00087,PRJ-2026-0028,Load Test,2026-02-12,Power Consumption,97.21,97.17,-0.04,Within tolerance,Pass,Ritu Kumar
+CT-00088,PRJ-2026-0029,Load Test,2026-02-19,Output,84.1,81.0,-3.68,Within tolerance,Fail,Anita Srivastava
+CT-00089,PRJ-2026-0029,Load Test,2026-01-28,Availability,98.72,95.25,-3.52,Within tolerance,Fail,Shweta Joshi
+CT-00090,PRJ-2026-0029,Safety Interlock Test,2026-02-01,Availability,93.21,95.74,2.71,Within tolerance,Pass,Rakesh Kapoor
+CT-00091,PRJ-2026-0029,Control Loop Test,2026-01-24,Power Consumption,95.97,98.36,2.49,Significant deviation,Pass,Manish Reddy
+CT-00092,PRJ-2026-0029,Load Test,2026-03-10,Emissions,91.45,91.49,0.04,Marginal deviation,Pass,Amit Mukherjee
+CT-00093,PRJ-2026-0030,Cold Commissioning,2026-04-01,Efficiency,83.45,80.11,-4.0,Within tolerance,Fail,Rakesh Verma
+CT-00094,PRJ-2026-0030,Load Test,2026-03-18,Emissions,94.72,93.67,-1.11,Within tolerance,Pass,Anita Malhotra
+CT-00095,PRJ-2026-0030,Cold Commissioning,2026-04-04,Availability,89.12,89.73,0.69,Within tolerance,Pass,Ritu Agarwal
+CT-00096,PRJ-2026-0030,Load Test,2026-02-17,Availability,85.87,86.15,0.32,Significant deviation,Pass,Bharat Bose
+CT-00097,PRJ-2026-0031,Cold Commissioning,2026-02-27,Steam Quality,97.54,99.57,2.08,Marginal deviation,Pass,Ashok Trivedi
+CT-00098,PRJ-2026-0031,PG Test,2026-03-10,Efficiency,88.11,90.69,2.92,Within tolerance,Pass,Mukesh Kapoor
+CT-00099,PRJ-2026-0031,Load Test,2026-03-27,Efficiency,86.71,87.22,0.59,Within tolerance,Pass,Prakash Chowdhury
+CT-00100,PRJ-2026-0031,Load Test,2026-02-24,Efficiency,88.11,85.02,-3.51,Within tolerance,Fail,Gopal Chowdhury
+CT-00101,PRJ-2026-0031,Control Loop Test,2026-03-04,Output,92.35,88.75,-3.9,Significant deviation,Fail,Neha Singh
+CT-00102,PRJ-2026-0032,Hot Commissioning,2026-03-05,Emissions,91.28,91.97,0.75,Within tolerance,Pass,Arun Chatterjee
+CT-00103,PRJ-2026-0032,Hot Commissioning,2026-02-26,Emissions,83.06,81.65,-1.69,Marginal deviation,Pass,Anjali Bansal
+CT-00104,PRJ-2026-0032,Safety Interlock Test,2026-02-09,Steam Quality,91.67,93.81,2.33,Significant deviation,Pass,Sujata Tiwari
+CT-00105,PRJ-2026-0032,Control Loop Test,2026-02-25,Output,86.62,84.24,-2.75,Significant deviation,Pass,Pooja Khanna
+CT-00106,PRJ-2026-0033,PG Test,2026-04-12,Steam Quality,94.16,91.77,-2.54,Significant deviation,Pass,Sujata Reddy
+CT-00107,PRJ-2026-0033,Safety Interlock Test,2026-03-21,Steam Quality,87.51,89.63,2.42,Marginal deviation,Pass,Rekha Khanna
+CT-00108,PRJ-2026-0033,Hot Commissioning,2026-02-07,Emissions,85.24,84.05,-1.39,Within tolerance,Pass,Aarti Verma
+CT-00109,PRJ-2026-0033,Control Loop Test,2026-01-22,Power Consumption,89.99,90.36,0.41,Marginal deviation,Pass,Suresh Mehta
+CT-00110,PRJ-2026-0034,Hot Commissioning,2026-02-03,Water Recovery,91.27,90.36,-1.0,Within tolerance,Pass,Jitendra Desai
+CT-00111,PRJ-2026-0034,Safety Interlock Test,2026-01-29,Steam Quality,98.78,99.13,0.35,Significant deviation,Pass,Ravi Kapoor
+CT-00112,PRJ-2026-0035,Trial Run,2026-02-07,Availability,81.97,77.92,-4.94,Marginal deviation,Fail,Sunita Nair
+CT-00113,PRJ-2026-0035,Cold Commissioning,2026-02-19,Emissions,82.19,81.23,-1.17,Significant deviation,Pass,Usha Chatterjee
+CT-00114,PRJ-2026-0035,Control Loop Test,2026-02-28,Emissions,86.61,84.27,-2.7,Significant deviation,Pass,Naveen Saxena
+CT-00115,PRJ-2026-0036,Hot Commissioning,2026-04-20,Efficiency,96.32,92.47,-3.99,Significant deviation,Fail,Prakash Chowdhury
+CT-00116,PRJ-2026-0036,Cold Commissioning,2026-04-03,Water Recovery,88.22,85.96,-2.56,Marginal deviation,Pass,Bharat Singh
+CT-00117,PRJ-2026-0036,Control Loop Test,2026-03-07,Efficiency,95.64,91.94,-3.87,Marginal deviation,Fail,Vandana Reddy
+CT-00118,PRJ-2026-0037,Trial Run,2026-03-02,Steam Quality,93.94,92.71,-1.31,Significant deviation,Pass,Kiran Srivastava
+CT-00119,PRJ-2026-0037,PG Test,2026-01-31,Water Recovery,87.44,85.38,-2.35,Within tolerance,Pass,Rajesh Naidu
+CT-00120,PRJ-2026-0037,Cold Commissioning,2026-02-07,Power Consumption,97.86,100.57,2.77,Marginal deviation,Pass,Vikram Khanna
+CT-00121,PRJ-2026-0038,Control Loop Test,2026-03-11,Availability,90.5,87.34,-3.49,Within tolerance,Fail,Sanjay Shah
+CT-00122,PRJ-2026-0038,Safety Interlock Test,2026-03-05,Efficiency,81.38,83.4,2.48,Marginal deviation,Pass,Sneha Nair
+CT-00123,PRJ-2026-0038,Control Loop Test,2026-04-04,Efficiency,83.62,82.16,-1.74,Marginal deviation,Pass,Manish Agarwal
+CT-00124,PRJ-2026-0038,Load Test,2026-03-26,Water Recovery,88.69,85.55,-3.54,Within tolerance,Fail,Amit Agarwal
+CT-00125,PRJ-2026-0039,Load Test,2026-02-16,Water Recovery,92.6,93.26,0.71,Within tolerance,Pass,Ajay Pillai
+CT-00126,PRJ-2026-0039,Trial Run,2026-01-28,Emissions,95.79,91.25,-4.74,Marginal deviation,Fail,Bharat Chopra
+CT-00127,PRJ-2026-0039,Cold Commissioning,2026-04-02,Steam Quality,87.25,86.95,-0.34,Within tolerance,Pass,Preeti Banerjee
+CT-00128,PRJ-2026-0040,PG Test,2026-03-28,Efficiency,96.9,92.55,-4.48,Significant deviation,Fail,Neha Bansal
+CT-00129,PRJ-2026-0040,Trial Run,2026-03-06,Efficiency,81.11,78.54,-3.17,Marginal deviation,Fail,Arun Naidu
+CT-00130,PRJ-2026-0040,Load Test,2026-03-09,Output,91.58,89.05,-2.76,Within tolerance,Pass,Dinesh Joshi
+CT-00131,PRJ-2026-0040,Trial Run,2026-04-01,Output,93.87,94.84,1.03,Marginal deviation,Pass,Meera Chatterjee
+CT-00132,PRJ-2026-0040,Hot Commissioning,2026-04-20,Output,98.89,98.88,-0.01,Within tolerance,Pass,Meera Joshi
+CT-00133,PRJ-2026-0041,Hot Commissioning,2026-04-20,Output,90.9,87.14,-4.14,Within tolerance,Fail,Sanjay Pillai
+CT-00134,PRJ-2026-0041,Cold Commissioning,2026-01-23,Efficiency,84.82,83.76,-1.25,Within tolerance,Pass,Ajay Dutta
+CT-00135,PRJ-2026-0041,Load Test,2026-02-26,Output,86.94,88.27,1.53,Within tolerance,Pass,Sujata Vaidya
+CT-00136,PRJ-2026-0041,Hot Commissioning,2026-04-14,Output,86.6,87.91,1.51,Significant deviation,Pass,Preeti Pandey
+CT-00137,PRJ-2026-0041,Hot Commissioning,2026-03-23,Water Recovery,84.0,80.33,-4.37,Significant deviation,Fail,Sachin Banerjee
+CT-00138,PRJ-2026-0042,Control Loop Test,2026-04-05,Efficiency,84.46,81.7,-3.27,Marginal deviation,Fail,Girish Malhotra
+CT-00139,PRJ-2026-0042,Trial Run,2026-02-06,Steam Quality,88.71,90.99,2.57,Within tolerance,Pass,Anjali Dutta
+CT-00140,PRJ-2026-0042,Control Loop Test,2026-04-05,Emissions,93.64,96.13,2.66,Within tolerance,Pass,Gopal Pandey
+CT-00141,PRJ-2026-0043,Load Test,2026-03-19,Water Recovery,88.35,90.14,2.03,Within tolerance,Pass,Jitendra Gupta
+CT-00142,PRJ-2026-0043,Control Loop Test,2026-01-23,Availability,95.8,94.66,-1.19,Significant deviation,Pass,Sachin Khanna
+CT-00143,PRJ-2026-0044,Safety Interlock Test,2026-03-29,Emissions,82.01,83.07,1.29,Within tolerance,Pass,Ashok Pandey
+CT-00144,PRJ-2026-0044,Trial Run,2026-02-24,Output,92.16,89.23,-3.18,Within tolerance,Fail,Nikhil Iyer
+CT-00145,PRJ-2026-0044,Cold Commissioning,2026-03-29,Output,86.45,88.16,1.98,Significant deviation,Pass,Raghav Kumar
+CT-00146,PRJ-2026-0044,Control Loop Test,2026-03-09,Availability,95.25,94.94,-0.32,Within tolerance,Pass,Dinesh Pillai
+CT-00147,PRJ-2026-0044,Safety Interlock Test,2026-04-03,Output,85.35,82.82,-2.96,Within tolerance,Pass,Rohit Pillai
+CT-00148,PRJ-2026-0045,Trial Run,2026-03-29,Efficiency,90.89,93.18,2.52,Marginal deviation,Pass,Anjali Shah
+CT-00149,PRJ-2026-0045,Load Test,2026-02-15,Efficiency,98.61,94.62,-4.05,Marginal deviation,Fail,Shashi Trivedi
+CT-00150,PRJ-2026-0045,Trial Run,2026-02-02,Efficiency,98.67,98.1,-0.58,Within tolerance,Pass,Shweta Singh
+CT-00151,PRJ-2026-0045,Control Loop Test,2026-04-17,Steam Quality,96.4,95.32,-1.12,Marginal deviation,Pass,Raghav Iyer
+CT-00152,PRJ-2026-0045,Safety Interlock Test,2026-02-01,Emissions,86.7,86.44,-0.3,Significant deviation,Pass,Kavita Srivastava
+CT-00153,PRJ-2026-0046,Cold Commissioning,2026-02-17,Efficiency,93.97,96.02,2.18,Marginal deviation,Pass,Kavita Iyer
+CT-00154,PRJ-2026-0046,Control Loop Test,2026-03-20,Output,97.2,99.69,2.56,Marginal deviation,Pass,Lakshmi Dutta
+CT-00155,PRJ-2026-0046,Trial Run,2026-03-15,Output,83.45,79.42,-4.83,Marginal deviation,Fail,Deepak Mishra
+CT-00156,PRJ-2026-0046,Control Loop Test,2026-03-19,Power Consumption,83.35,83.71,0.43,Within tolerance,Pass,Kunal Pillai
+CT-00157,PRJ-2026-0047,Safety Interlock Test,2026-03-27,Output,94.06,89.37,-4.99,Significant deviation,Fail,Sneha Agarwal
+CT-00158,PRJ-2026-0047,Cold Commissioning,2026-03-13,Power Consumption,88.41,90.39,2.24,Within tolerance,Pass,Yogesh Srivastava
+CT-00159,PRJ-2026-0047,PG Test,2026-02-21,Efficiency,91.02,88.88,-2.36,Marginal deviation,Pass,Rajesh Pandey
+CT-00160,PRJ-2026-0048,Cold Commissioning,2026-02-02,Steam Quality,94.55,95.0,0.47,Significant deviation,Pass,Manish Bose
+CT-00161,PRJ-2026-0048,Hot Commissioning,2026-03-02,Availability,89.44,89.43,-0.01,Marginal deviation,Pass,Arun Srivastava
+CT-00162,PRJ-2026-0048,PG Test,2026-03-29,Availability,94.08,92.49,-1.69,Within tolerance,Pass,Naveen Bansal
+CT-00163,PRJ-2026-0048,PG Test,2026-02-08,Output,95.1,91.56,-3.72,Within tolerance,Fail,Mukesh Shah
+CT-00164,PRJ-2026-0048,Cold Commissioning,2026-04-03,Steam Quality,96.83,94.69,-2.21,Marginal deviation,Pass,Amit Pandey
+CT-00165,PRJ-2026-0049,Cold Commissioning,2026-03-11,Steam Quality,82.87,80.62,-2.71,Within tolerance,Pass,Neha Kumar
+CT-00166,PRJ-2026-0049,Trial Run,2026-01-26,Water Recovery,82.88,80.84,-2.46,Within tolerance,Pass,Sanjay Bhatia
+CT-00167,PRJ-2026-0049,Trial Run,2026-04-02,Water Recovery,84.64,84.93,0.35,Within tolerance,Pass,Kavita Vaidya
+CT-00168,PRJ-2026-0050,Cold Commissioning,2026-02-25,Availability,92.62,95.06,2.63,Within tolerance,Pass,Pooja Khanna
+CT-00169,PRJ-2026-0050,Control Loop Test,2026-02-10,Emissions,91.85,87.46,-4.78,Within tolerance,Fail,Manish Desai
+CT-00170,PRJ-2026-0050,Safety Interlock Test,2026-04-16,Efficiency,93.75,90.74,-3.22,Significant deviation,Fail,Bharat Pillai
+CT-00171,PRJ-2026-0050,Trial Run,2026-04-01,Efficiency,96.18,93.1,-3.2,Within tolerance,Fail,Kavita Iyer
+CT-00172,PRJ-2026-0051,Cold Commissioning,2026-03-05,Water Recovery,98.05,94.5,-3.62,Significant deviation,Fail,Yogesh Reddy
+CT-00173,PRJ-2026-0051,Trial Run,2026-02-25,Power Consumption,93.51,92.86,-0.69,Within tolerance,Pass,Girish Banerjee
+CT-00174,PRJ-2026-0052,Trial Run,2026-02-06,Efficiency,85.66,81.43,-4.93,Significant deviation,Fail,Aarti Naidu
+CT-00175,PRJ-2026-0052,PG Test,2026-04-04,Steam Quality,90.21,88.51,-1.88,Within tolerance,Pass,Priya Mishra
+CT-00176,PRJ-2026-0052,Load Test,2026-02-24,Water Recovery,83.38,85.4,2.42,Within tolerance,Pass,Rohit Bansal
+CT-00177,PRJ-2026-0052,Load Test,2026-01-30,Availability,89.89,90.98,1.21,Significant deviation,Pass,Shobha Tiwari
+CT-00178,PRJ-2026-0052,Cold Commissioning,2026-02-04,Availability,94.23,95.36,1.2,Marginal deviation,Pass,Neha Malhotra
+CT-00179,PRJ-2026-0053,Load Test,2026-04-03,Output,82.12,78.94,-3.87,Within tolerance,Fail,Manish Nair
+CT-00180,PRJ-2026-0053,Cold Commissioning,2026-03-16,Output,80.33,80.75,0.52,Significant deviation,Pass,Girish Desai
+CT-00181,PRJ-2026-0053,Control Loop Test,2026-02-18,Power Consumption,95.12,91.22,-4.1,Within tolerance,Fail,Anjali Ghosh
+CT-00182,PRJ-2026-0054,Safety Interlock Test,2026-02-02,Power Consumption,82.92,83.82,1.08,Significant deviation,Pass,Bharat Chatterjee
+CT-00183,PRJ-2026-0054,Control Loop Test,2026-03-27,Efficiency,81.83,78.79,-3.71,Within tolerance,Fail,Sunita Mehta
+CT-00184,PRJ-2026-0054,Cold Commissioning,2026-01-23,Water Recovery,96.63,95.06,-1.62,Marginal deviation,Pass,Madhuri Sharma
+CT-00185,PRJ-2026-0054,Hot Commissioning,2026-04-01,Power Consumption,81.19,79.39,-2.22,Significant deviation,Pass,Manish Pillai
+CT-00186,PRJ-2026-0054,Cold Commissioning,2026-03-11,Water Recovery,87.52,89.26,1.98,Within tolerance,Pass,Anil Nair
+CT-00187,PRJ-2026-0055,Hot Commissioning,2026-02-10,Water Recovery,84.64,83.99,-0.76,Within tolerance,Pass,Vinod Trivedi
+CT-00188,PRJ-2026-0055,Load Test,2026-02-02,Output,90.51,87.16,-3.71,Within tolerance,Fail,Sunita Bose
+CT-00189,PRJ-2026-0055,Hot Commissioning,2026-02-22,Steam Quality,87.56,88.07,0.58,Within tolerance,Pass,Vinod Kapoor
+CT-00190,PRJ-2026-0055,Safety Interlock Test,2026-03-26,Steam Quality,96.3,92.85,-3.58,Within tolerance,Fail,Archana Desai

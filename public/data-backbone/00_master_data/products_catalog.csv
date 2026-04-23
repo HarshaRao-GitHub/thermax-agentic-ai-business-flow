@@ -1,0 +1,56 @@
+product_id,product_name,product_category,business_segment,description,typical_capacity,typical_price_inr_lakh,lead_time_weeks,primary_industry
+TP-SB-001,Shellmax Oil and Gas Boiler,Boilers,Heating,1-35 TPH capacity shell boiler,8 TPH,185,16,Sugar
+TP-SB-002,Combloc Solid Fuel Boiler,Boilers,Heating,Biomass and coal-fired composite boiler,12 TPH,245,27,Food
+TP-SB-003,Thermopac Thermic Fluid Heater,Boilers,Heating,Thermic fluid heater up to 60 lakh kcal/hr,40 lakh kcal,135,14,Sugar
+TP-SB-004,EPC Boiler 100 TPH,Boilers,Heating,Engineered high-capacity utility boiler,100 TPH,2800,32,Steel
+TP-SB-005,Waste Heat Recovery Boiler,Boilers,Heating,Heat recovery from process exhaust gases,25 TPH,680,30,Chemicals
+TP-CH-001,ProChill Absorption Chiller,Chillers,Cooling,Vapour absorption chiller for process cooling,500 TR,285,20,All
+TP-CH-002,ProChill Lithium Bromide Chiller,Chillers,Cooling,Double-effect LiBr chiller,1500 TR,620,28,Paper
+TP-CH-003,Triple Effect Absorption Chiller,Chillers,Cooling,High-COP triple-effect unit,800 TR,480,22,Sugar
+TP-WT-001,Demineralisation Plant,Water,Water Solutions,DM plant for boiler feed water,50 m3/hr,145,22,Refinery
+TP-WT-002,Reverse Osmosis Plant,Water,Water Solutions,Industrial RO plant,100 m3/hr,125,15,Steel
+TP-WT-003,Zero Liquid Discharge System,Water,Water Solutions,Complete ZLD for industrial effluent,200 m3/day,1450,10,Paper
+TP-WT-004,MBR Sewage Treatment Plant,Water,Water Solutions,Membrane bioreactor STP,500 KLD,220,8,Power
+TP-WT-005,MEE Evaporator System,Water,Water Solutions,Multiple-effect evaporator,10 m3/hr,385,25,Steel
+TP-AP-001,Electrostatic Precipitator,APC,Air Pollution Control,Dry ESP for flue gas cleaning,500000 Nm3/hr,485,26,Steel
+TP-AP-002,Bag Filter System,APC,Air Pollution Control,Pulse-jet bag filter,200000 Nm3/hr,195,8,Refinery
+TP-AP-003,Flue Gas Desulphurisation,APC,Air Pollution Control,Wet FGD for SOx removal,1000000 Nm3/hr,2200,30,All
+TP-AP-004,Selective Catalytic Reduction,APC,Air Pollution Control,SCR system for NOx reduction,500000 Nm3/hr,780,9,Steel
+TP-AP-005,Scrubber System,APC,Air Pollution Control,Wet scrubber for acid gases,150000 Nm3/hr,165,10,Cement
+TP-CT-001,Counterflow Cooling Tower,Cooling Tower,Cooling,Induced draft counterflow CT,5000 m3/hr,115,18,Refinery
+TP-CT-002,Crossflow Cooling Tower,Cooling Tower,Cooling,Induced draft crossflow CT,3000 m3/hr,95,24,Steel
+TP-PW-001,Captive Power Plant 25 MW,Power,Power Solutions,Bagasse-fired cogen CPP,25 MW,11500,16,All
+TP-PW-002,Captive Power Plant 50 MW,Power,Power Solutions,Coal-fired CPP,50 MW,24500,23,Steel
+TP-PW-003,Back Pressure Steam Turbine,Power,Power Solutions,BPT for process integration,10 MW,2850,25,Pharma
+TP-PW-004,Extraction Condensing Turbine,Power,Power Solutions,Extraction-cum-condensing ST,30 MW,7800,31,Power
+TP-SR-001,Annual Maintenance Contract Basic,Service,Service,Preventive maintenance annual,Per plant,85,26,Textile
+TP-SR-002,Annual Maintenance Contract Premium,Service,Service,PM plus predictive analytics,Per plant,165,15,Textile
+TP-SR-003,Performance Enhancement Retrofit,Service,Service,Efficiency upgrade retrofit,Per boiler,245,21,Steel
+TP-SR-004,Digital Monitoring Platform,Service,Service,Edelise remote monitoring,Per plant,125,11,Refinery
+TP-SR-005,Spare Parts Contract,Service,Service,OEM spares supply agreement,Per plant,45,29,Food
+TP-RN-001,Biomass Gasifier,Renewables,Clean Energy,Biomass to syngas system,2 MW,385,19,Food
+TP-RN-002,Solar Thermal System,Renewables,Clean Energy,Parabolic trough solar thermal,1 MW,680,21,Textile
+TP-RN-003,Green Hydrogen Electrolyser,Renewables,Clean Energy,PEM electrolyser system,1 MW,2400,31,Cement
+TP-CP-001,Process Chemicals Package,Chemicals,Chemicals,Boiler water treatment chemicals annual,Per plant,35,29,All
+TP-CP-002,Cooling Tower Chemicals Package,Chemicals,Chemicals,CT water treatment chemicals,Per plant,28,28,Refinery
+TP-CP-003,RO Membrane Antiscalants,Chemicals,Chemicals,RO plant chemicals annual,Per plant,22,9,Food
+TP-SB-006,Shellmax Mini Boiler,Boilers,Heating,Compact package boiler under 1 TPH,0.8 TPH,78,10,Pharma
+TP-SB-007,Fluidised Bed Combustion Boiler,Boilers,Heating,CFBC boiler for varied fuels,75 TPH,2150,36,Power
+TP-SB-008,Oil-fired Packaged Boiler,Boilers,Heating,Heavy oil packaged boiler,20 TPH,425,18,Refinery
+TP-SB-009,Hot Air Generator,Boilers,Heating,Direct-fired hot air generator,5 lakh kcal,65,12,Food
+TP-CH-004,Steam Driven Chiller,Chillers,Cooling,Single-effect steam absorption,300 TR,165,20,Chemicals
+TP-CH-005,Direct Fired Chiller,Chillers,Cooling,Gas-fired absorption chiller,600 TR,295,22,All
+TP-WT-006,Sea Water RO Plant,Water,Water Solutions,Desalination RO system,500 m3/hr,685,28,Refinery
+TP-WT-007,Ultrafiltration System,Water,Water Solutions,UF pre-treatment for RO,200 m3/hr,98,14,All
+TP-WT-008,Condensate Polishing Unit,Water,Water Solutions,Mixed bed condensate polisher,150 m3/hr,185,18,Power
+TP-AP-006,Dry Sorbent Injection,APC,Air Pollution Control,DSI system for acid gas removal,300000 Nm3/hr,385,24,Cement
+TP-AP-007,Activated Carbon Injection,APC,Air Pollution Control,ACI for mercury control,200000 Nm3/hr,215,18,Power
+TP-AP-008,Regenerative Thermal Oxidiser,APC,Air Pollution Control,RTO for VOC destruction,50000 Nm3/hr,445,22,Chemicals
+TP-CT-003,Hyperbolic Cooling Tower,Cooling Tower,Cooling,Natural draft hyperbolic CT,25000 m3/hr,485,32,Power
+TP-CT-004,Fluid Cooler,Cooling Tower,Cooling,Closed circuit fluid cooler,1000 m3/hr,85,14,All
+TP-PW-005,Heat Recovery Steam Generator,Power,Power Solutions,HRSG for combined cycle,80 TPH,4800,36,Power
+TP-SR-006,Condition Monitoring Service,Service,Service,Vibration and thermal monitoring,Per plant,55,4,All
+TP-SR-007,Operator Training Programme,Service,Service,Structured O&M certification,Per batch,18,6,All
+TP-SR-008,Energy Audit and Optimisation,Service,Service,ISO 50001 compliant audit,Per site,32,8,All
+TP-RN-004,Biomass Briquette Plant,Renewables,Clean Energy,Agri-residue briquetting,2 TPH,125,18,Sugar
+TP-CP-004,Emulsion Breaker Chemicals,Chemicals,Chemicals,Refinery process chemicals,Per plant,38,6,Refinery

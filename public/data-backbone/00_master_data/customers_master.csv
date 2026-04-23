@@ -1,0 +1,54 @@
+customer_id,customer_name,industry,sub_industry,country,state,city,annual_revenue_inr_cr,employee_count,relationship_start_date,account_tier,primary_contact,created_date
+CUST-0001,UltraTech Cement,Cement,Large Enterprise,India,Maharashtra,Mumbai,62000,23000,2022-03-24,Tier 2,Deepak Verma,2020-11-04
+CUST-0002,ACC Limited,Cement,Mid Enterprise,India,Maharashtra,Mumbai,18500,9200,2024-04-08,Tier 3,Rohit Mehta,2021-01-20
+CUST-0003,Shree Cement,Cement,Mid Enterprise,India,Rajasthan,Beawar,19200,6500,2021-09-06,Tier 3,Ravi Pillai,2021-01-26
+CUST-0004,Dalmia Bharat Cement,Cement,Mid Enterprise,India,Delhi,New Delhi,14500,5800,2022-07-02,Tier 3,Divya Kumar,2021-02-03
+CUST-0005,Ambuja Cements,Cement,Mid Enterprise,India,Maharashtra,Mumbai,17000,6200,2025-04-15,Tier 3,Neha Mehta,2020-12-04
+CUST-0006,Ramco Cements,Cement,Mid Enterprise,India,Tamil Nadu,Chennai,8900,3100,2022-06-09,Tier 3,Amit Naidu,2021-01-12
+CUST-0007,JK Cement,Cement,Mid Enterprise,India,Uttar Pradesh,Kanpur,10200,3400,2021-10-18,Tier 3,Preeti Pillai,2020-12-15
+CUST-0008,Indian Oil Corporation,Refinery,Large Enterprise,India,Haryana,Panipat,950000,33000,2024-07-29,Tier 1,Harish Saxena,2021-01-02
+CUST-0009,Bharat Petroleum,Refinery,Large Enterprise,India,Maharashtra,Mumbai,470000,12500,2025-10-10,Tier 1,Dinesh Menon,2020-11-09
+CUST-0010,Hindustan Petroleum,Refinery,Large Enterprise,India,Andhra Pradesh,Visakhapatnam,430000,10800,2023-06-11,Tier 1,Pooja Chopra,2021-01-18
+CUST-0011,Reliance Industries,Refinery,Large Enterprise,India,Gujarat,Jamnagar,890000,34500,2024-08-09,Tier 1,Dinesh Joshi,2021-01-24
+CUST-0012,Nayara Energy,Refinery,Large Enterprise,India,Gujarat,Vadinar,120000,5400,2025-04-17,Tier 1,Ashok Gupta,2020-12-23
+CUST-0013,Mangalore Refinery,Refinery,Large Enterprise,India,Karnataka,Mangalore,85000,2800,2023-11-19,Tier 2,Raghav Khanna,2021-02-01
+CUST-0014,Sun Pharmaceutical,Pharma,Mid Enterprise,India,Maharashtra,Mumbai,47000,38000,2021-09-20,Tier 2,Shweta Pillai,2021-01-22
+CUST-0015,Dr Reddys Laboratories,Pharma,Mid Enterprise,India,Telangana,Hyderabad,28500,25500,2023-09-09,Tier 2,Anjali Naidu,2020-12-31
+CUST-0016,Cipla,Pharma,Mid Enterprise,India,Maharashtra,Mumbai,25500,22000,2022-04-15,Tier 2,Sujata Pandey,2020-11-25
+CUST-0017,Lupin Limited,Pharma,Mid Enterprise,India,Maharashtra,Mumbai,18500,19000,2024-09-25,Tier 3,Madhuri Patel,2021-02-01
+CUST-0018,Aurobindo Pharma,Pharma,Mid Enterprise,India,Telangana,Hyderabad,28800,27000,2022-02-07,Tier 2,Sanjay Malhotra,2021-01-27
+CUST-0019,Cadila Healthcare,Pharma,Mid Enterprise,India,Gujarat,Ahmedabad,19500,24000,2024-07-04,Tier 3,Shobha Gupta,2020-12-20
+CUST-0020,Torrent Pharmaceuticals,Pharma,Mid Enterprise,India,Gujarat,Ahmedabad,11800,15000,2024-04-02,Tier 3,Shweta Pandey,2021-01-17
+CUST-0021,Tata Steel,Steel,Large Enterprise,India,Jharkhand,Jamshedpur,243000,78000,2023-09-26,Tier 1,Rakesh Desai,2020-11-13
+CUST-0022,JSW Steel,Steel,Large Enterprise,India,Maharashtra,Mumbai,173000,38000,2024-04-25,Tier 1,Shashi Patel,2020-11-21
+CUST-0023,SAIL,Steel,Large Enterprise,India,Chhattisgarh,Bhilai,106000,64000,2022-04-02,Tier 1,Arun Pillai,2020-11-05
+CUST-0024,Jindal Steel and Power,Steel,Large Enterprise,India,Delhi,New Delhi,52000,15000,2024-06-09,Tier 2,Arun Dutta,2020-12-20
+CUST-0025,Vedanta Limited,Metals,Large Enterprise,India,Maharashtra,Mumbai,147000,68000,2024-04-19,Tier 1,Vinod Naidu,2021-01-09
+CUST-0026,Hindalco Industries,Metals,Large Enterprise,India,Maharashtra,Mumbai,215000,41000,2021-12-21,Tier 1,Anil Singh,2021-01-08
+CUST-0027,Tata Motors,Automotive,Large Enterprise,India,Maharashtra,Pune,438000,81000,2025-08-19,Tier 1,Anita Bansal,2020-12-17
+CUST-0028,Mahindra and Mahindra,Automotive,Large Enterprise,India,Maharashtra,Mumbai,121000,41000,2024-04-23,Tier 1,Vikram Desai,2020-11-26
+CUST-0029,Maruti Suzuki India,Automotive,Large Enterprise,India,Haryana,Gurugram,142000,16500,2021-10-14,Tier 1,Anil Desai,2020-11-15
+CUST-0030,Ashok Leyland,Automotive,Mid Enterprise,India,Tamil Nadu,Chennai,38500,11000,2023-01-05,Tier 2,Ritu Dutta,2021-01-19
+CUST-0031,Bajaj Auto,Automotive,Mid Enterprise,India,Maharashtra,Pune,45000,9800,2024-04-29,Tier 2,Meera Kapoor,2020-11-03
+CUST-0032,Hero MotoCorp,Automotive,Mid Enterprise,India,Delhi,New Delhi,37500,9500,2022-08-31,Tier 2,Girish Khanna,2020-11-03
+CUST-0033,UPL Limited,Chemicals,Large Enterprise,India,Maharashtra,Mumbai,53000,12000,2022-07-14,Tier 2,Divya Saxena,2020-12-17
+CUST-0034,PI Industries,Chemicals,Mid Enterprise,India,Rajasthan,Udaipur,8800,4500,2023-10-13,Tier 3,Sanjay Rao,2020-12-03
+CUST-0035,Tata Chemicals,Chemicals,Mid Enterprise,India,Maharashtra,Mumbai,16800,6800,2023-01-17,Tier 3,Anjali Singh,2021-01-23
+CUST-0036,SRF Limited,Chemicals,Mid Enterprise,India,Haryana,Gurugram,14800,9000,2024-12-14,Tier 3,Nikhil Menon,2020-11-11
+CUST-0037,Aarti Industries,Chemicals,Mid Enterprise,India,Maharashtra,Mumbai,7200,5500,2023-06-12,Tier 3,Raghav Patel,2020-12-19
+CUST-0038,ITC Limited (Paperboards),Paper,Large Enterprise,India,West Bengal,Kolkata,78500,26000,2023-09-03,Tier 2,Raghav Dutta,2020-12-01
+CUST-0039,JK Paper,Paper,Mid Enterprise,India,Delhi,New Delhi,6800,3200,2024-05-27,Tier 3,Lakshmi Sharma,2020-11-11
+CUST-0040,West Coast Paper,Paper,Mid Enterprise,India,Karnataka,Dandeli,2400,2100,2021-10-08,Tier 3,Deepak Pillai,2020-11-02
+CUST-0041,Nestle India,Food,Mid Enterprise,India,Haryana,Gurugram,22500,8200,2024-04-25,Tier 2,Vandana Joshi,2021-01-23
+CUST-0042,Britannia Industries,Food,Mid Enterprise,India,Karnataka,Bengaluru,17500,3800,2024-03-01,Tier 3,Divya Menon,2020-12-10
+CUST-0043,Hindustan Unilever,FMCG,Large Enterprise,India,Maharashtra,Mumbai,63500,21000,2025-10-17,Tier 2,Jitendra Khanna,2020-12-04
+CUST-0044,Marico Limited,FMCG,Mid Enterprise,India,Maharashtra,Mumbai,10500,1700,2021-07-16,Tier 3,Kavita Mukherjee,2021-01-24
+CUST-0045,Arvind Limited,Textile,Mid Enterprise,India,Gujarat,Ahmedabad,8400,27000,2022-04-22,Tier 3,Vivek Mukherjee,2020-11-21
+CUST-0046,Raymond Limited,Textile,Mid Enterprise,India,Maharashtra,Mumbai,8200,9800,2024-09-11,Tier 3,Suresh Pandey,2020-11-01
+CUST-0047,Welspun India,Textile,Mid Enterprise,India,Maharashtra,Mumbai,9400,24000,2024-11-27,Tier 3,Girish Chatterjee,2021-02-06
+CUST-0048,Balrampur Chini Mills,Sugar,Mid Enterprise,India,West Bengal,Kolkata,5600,6800,2022-06-15,Tier 3,Anil Banerjee,2021-02-04
+CUST-0049,Triveni Engineering,Sugar,Mid Enterprise,India,Uttar Pradesh,Noida,5100,4200,2025-03-08,Tier 3,Vinod Pandey,2020-12-29
+CUST-0050,NTPC Limited,Power,Large Enterprise,India,Delhi,New Delhi,179000,20000,2024-06-20,Tier 1,Sunita Kapoor,2020-11-26
+CUST-0051,Tata Power,Power,Large Enterprise,India,Maharashtra,Mumbai,57000,4200,2025-05-15,Tier 2,Anjali Banerjee,2021-01-29
+CUST-0052,Adani Power,Power,Mid Enterprise,India,Gujarat,Ahmedabad,38500,3800,2021-07-19,Tier 2,Girish Rao,2021-01-21
+CUST-0053,Torrent Power,Power,Mid Enterprise,India,Gujarat,Ahmedabad,24500,8200,2022-02-10,Tier 2,Naveen Naidu,2021-01-16

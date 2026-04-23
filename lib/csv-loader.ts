@@ -1,10 +1,20 @@
-import { readFileSync } from 'fs';
+import { readFileSync, existsSync } from 'fs';
 import path from 'path';
 
-const DATA_ROOT = path.resolve(
+const EXTERNAL_DATA_ROOT = path.resolve(
   process.cwd(),
   process.env.THERMAX_DATA_PATH || '../SampLe Thermax Data Files'
 );
+
+const BUNDLED_DATA_ROOT = path.resolve(process.cwd(), 'public', 'data-backbone');
+
+function resolveDataFile(folder: string, file: string): string {
+  const external = path.join(EXTERNAL_DATA_ROOT, folder, file);
+  if (existsSync(external)) return external;
+  const bundled = path.join(BUNDLED_DATA_ROOT, folder, file);
+  if (existsSync(bundled)) return bundled;
+  throw new Error(`Data file not found: ${folder}/${file}`);
+}
 
 export interface CsvData {
   headers: string[];
@@ -38,7 +48,7 @@ function parseCsvLine(line: string): string[] {
 }
 
 export function loadCsv(folder: string, file: string): CsvData {
-  const filePath = path.join(DATA_ROOT, folder, file);
+  const filePath = resolveDataFile(folder, file);
   const raw = readFileSync(filePath, 'utf-8');
   const lines = raw.split(/\r?\n/).filter((l) => l.trim().length > 0);
 

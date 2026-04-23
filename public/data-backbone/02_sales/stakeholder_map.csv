@@ -1,0 +1,310 @@
+stakeholder_id,opportunity_id,person_name,designation,role,influence_level,disposition,first_engagement_date,agent_mapped_by,last_interaction_date
+STK-00001,OPP-2026-0001,Ritu Mishra,CEO,Gatekeeper,High,Skeptic,2026-01-17,AGT-SAL-01,2026-03-30
+STK-00002,OPP-2026-0001,Sanjay Pillai,Project Director,Technical Buyer,Low,Skeptic,2026-02-14,AGT-SAL-01,2026-04-12
+STK-00003,OPP-2026-0001,Kunal Menon,Project Director,Gatekeeper,High,Skeptic,2026-04-07,AGT-SAL-01,2026-04-06
+STK-00004,OPP-2026-0001,Meera Khanna,Utilities Manager,Technical Buyer,High,Skeptic,2026-01-26,AGT-SAL-01,2026-04-19
+STK-00005,OPP-2026-0001,Sanjay Trivedi,Plant Head,Blocker,Medium,Champion,2026-03-08,AGT-SAL-01,2026-04-10
+STK-00006,OPP-2026-0001,Aarti Saxena,GM Operations,Influencer,High,Champion,2026-04-13,AGT-SAL-01,2026-03-25
+STK-00007,OPP-2026-0002,Nandita Vaidya,Managing Director,Influencer,High,Blocker,2026-04-04,AGT-SAL-01,2026-03-25
+STK-00008,OPP-2026-0002,Archana Mishra,Utilities Manager,User,Low,Supporter,2026-03-31,AGT-SAL-01,2026-04-17
+STK-00009,OPP-2026-0002,Manish Joshi,Procurement Head,Gatekeeper,Low,Neutral,2026-03-10,AGT-SAL-01,2026-03-25
+STK-00010,OPP-2026-0002,Madhuri Nair,Managing Director,Influencer,Medium,Neutral,2026-03-10,AGT-SAL-01,2026-04-01
+STK-00011,OPP-2026-0002,Sunita Sharma,Sustainability Head,User,High,Neutral,2026-02-05,AGT-SAL-01,2026-03-28
+STK-00012,OPP-2026-0002,Arun Banerjee,Managing Director,Champion,Low,Champion,2026-02-27,AGT-SAL-01,2026-04-08
+STK-00013,OPP-2026-0002,Naveen Mishra,CEO,Economic Buyer,High,Skeptic,2026-04-18,AGT-SAL-01,2026-03-24
+STK-00014,OPP-2026-0003,Dinesh Chatterjee,Plant Head,Economic Buyer,High,Neutral,2026-03-22,AGT-SAL-01,2026-03-30
+STK-00015,OPP-2026-0003,Gopal Trivedi,GM Operations,Champion,High,Champion,2026-02-14,AGT-SAL-01,2026-04-03
+STK-00016,OPP-2026-0003,Vivek Menon,Managing Director,Technical Buyer,High,Skeptic,2026-03-13,AGT-SAL-01,2026-04-07
+STK-00017,OPP-2026-0003,Jitendra Chatterjee,EHS Head,Gatekeeper,Medium,Champion,2026-01-22,AGT-SAL-01,2026-04-17
+STK-00018,OPP-2026-0003,Pooja Banerjee,VP Engineering,Technical Buyer,High,Neutral,2026-02-27,AGT-SAL-01,2026-04-21
+STK-00019,OPP-2026-0004,Sanjay Rao,Plant Head,Blocker,High,Blocker,2026-02-14,AGT-SAL-01,2026-04-16
+STK-00020,OPP-2026-0004,Deepak Pandey,Project Director,Technical Buyer,High,Champion,2026-01-28,AGT-SAL-01,2026-04-13
+STK-00021,OPP-2026-0004,Vandana Pillai,EHS Head,Economic Buyer,High,Supporter,2026-01-26,AGT-SAL-01,2026-03-26
+STK-00022,OPP-2026-0004,Amit Singh,Managing Director,Influencer,Low,Champion,2026-04-04,AGT-SAL-01,2026-04-04
+STK-00023,OPP-2026-0005,Naveen Iyer,Plant Head,Blocker,High,Skeptic,2026-02-25,AGT-SAL-01,2026-03-31
+STK-00024,OPP-2026-0005,Ravi Chatterjee,GM Operations,Gatekeeper,High,Champion,2026-04-06,AGT-SAL-01,2026-04-05
+STK-00025,OPP-2026-0005,Jitendra Vaidya,Managing Director,User,High,Supporter,2026-02-15,AGT-SAL-01,2026-04-15
+STK-00026,OPP-2026-0005,Raghav Pillai,GM Operations,Technical Buyer,High,Skeptic,2026-01-19,AGT-SAL-01,2026-04-08
+STK-00027,OPP-2026-0005,Sneha Menon,CEO,Gatekeeper,Low,Neutral,2026-01-21,AGT-SAL-01,2026-03-23
+STK-00028,OPP-2026-0006,Pooja Kapoor,CEO,Economic Buyer,High,Supporter,2026-02-05,AGT-SAL-01,2026-03-31
+STK-00029,OPP-2026-0006,Smita Iyer,Managing Director,Technical Buyer,High,Supporter,2026-03-18,AGT-SAL-01,2026-04-01
+STK-00030,OPP-2026-0006,Sanjay Dutta,GM Operations,User,Low,Supporter,2026-04-07,AGT-SAL-01,2026-03-26
+STK-00031,OPP-2026-0006,Kavita Kumar,GM Operations,User,Medium,Champion,2026-01-15,AGT-SAL-01,2026-04-18
+STK-00032,OPP-2026-0006,Ravi Kumar,CEO,Technical Buyer,High,Neutral,2026-03-08,AGT-SAL-01,2026-04-10
+STK-00033,OPP-2026-0006,Usha Bose,EHS Head,User,High,Skeptic,2026-03-07,AGT-SAL-01,2026-04-16
+STK-00034,OPP-2026-0007,Ritu Tiwari,Sustainability Head,User,Low,Champion,2026-02-25,AGT-SAL-01,2026-04-01
+STK-00035,OPP-2026-0007,Gopal Menon,Managing Director,Champion,High,Neutral,2026-04-06,AGT-SAL-01,2026-04-08
+STK-00036,OPP-2026-0007,Hari Saxena,Sustainability Head,Technical Buyer,Low,Neutral,2026-01-31,AGT-SAL-01,2026-04-09
+STK-00037,OPP-2026-0008,Sujata Verma,Project Director,Technical Buyer,High,Champion,2026-02-16,AGT-SAL-01,2026-04-18
+STK-00038,OPP-2026-0008,Gopal Yadav,Sustainability Head,Economic Buyer,High,Skeptic,2026-01-26,AGT-SAL-01,2026-04-11
+STK-00039,OPP-2026-0008,Rajesh Chatterjee,EHS Head,Blocker,High,Skeptic,2026-02-12,AGT-SAL-01,2026-04-05
+STK-00040,OPP-2026-0008,Shashi Vaidya,Managing Director,Influencer,High,Champion,2026-03-06,AGT-SAL-01,2026-03-31
+STK-00041,OPP-2026-0008,Archana Mishra,CFO,Technical Buyer,High,Supporter,2026-01-27,AGT-SAL-01,2026-03-23
+STK-00042,OPP-2026-0009,Yogesh Ghosh,Sustainability Head,Technical Buyer,High,Supporter,2026-01-13,AGT-SAL-01,2026-04-06
+STK-00043,OPP-2026-0009,Anil Kapoor,VP Engineering,User,High,Blocker,2026-03-22,AGT-SAL-01,2026-04-04
+STK-00044,OPP-2026-0009,Preeti Mishra,Procurement Head,Technical Buyer,High,Supporter,2026-02-20,AGT-SAL-01,2026-04-07
+STK-00045,OPP-2026-0009,Anita Chowdhury,Sustainability Head,Economic Buyer,Low,Champion,2026-03-10,AGT-SAL-01,2026-04-18
+STK-00046,OPP-2026-0010,Shalini Verma,Managing Director,Influencer,Low,Supporter,2026-02-07,AGT-SAL-01,2026-04-04
+STK-00047,OPP-2026-0010,Rajesh Shah,EHS Head,Gatekeeper,Medium,Blocker,2026-02-07,AGT-SAL-01,2026-04-15
+STK-00048,OPP-2026-0010,Preeti Dutta,VP Engineering,User,High,Neutral,2026-02-20,AGT-SAL-01,2026-04-11
+STK-00049,OPP-2026-0010,Lakshmi Vaidya,EHS Head,Influencer,Medium,Champion,2026-04-05,AGT-SAL-01,2026-04-18
+STK-00050,OPP-2026-0010,Dinesh Mehta,CEO,User,Medium,Skeptic,2026-02-08,AGT-SAL-01,2026-04-05
+STK-00051,OPP-2026-0010,Sarika Gupta,CEO,Champion,Low,Neutral,2026-01-18,AGT-SAL-01,2026-03-29
+STK-00052,OPP-2026-0011,Ravi Khanna,EHS Head,Champion,High,Supporter,2026-02-28,AGT-SAL-01,2026-04-15
+STK-00053,OPP-2026-0011,Shweta Pillai,VP Engineering,Economic Buyer,Low,Supporter,2026-01-28,AGT-SAL-01,2026-03-26
+STK-00054,OPP-2026-0011,Archana Saxena,Managing Director,Technical Buyer,Low,Champion,2026-01-25,AGT-SAL-01,2026-04-03
+STK-00055,OPP-2026-0011,Yogesh Rao,Sustainability Head,Economic Buyer,High,Blocker,2026-02-23,AGT-SAL-01,2026-03-26
+STK-00056,OPP-2026-0011,Nandita Ghosh,Utilities Manager,Technical Buyer,High,Blocker,2026-03-28,AGT-SAL-01,2026-03-29
+STK-00057,OPP-2026-0011,Sachin Rao,Managing Director,Influencer,Medium,Blocker,2026-03-01,AGT-SAL-01,2026-04-08
+STK-00058,OPP-2026-0012,Hari Kapoor,GM Operations,Influencer,Medium,Skeptic,2026-02-21,AGT-SAL-01,2026-03-27
+STK-00059,OPP-2026-0012,Meera Rao,Procurement Head,Gatekeeper,Medium,Blocker,2026-03-10,AGT-SAL-01,2026-03-30
+STK-00060,OPP-2026-0012,Shalini Naidu,Project Director,Champion,High,Neutral,2026-01-30,AGT-SAL-01,2026-03-30
+STK-00061,OPP-2026-0012,Sneha Trivedi,Project Director,Champion,High,Blocker,2026-02-09,AGT-SAL-01,2026-03-30
+STK-00062,OPP-2026-0012,Nikhil Bansal,Managing Director,Technical Buyer,Medium,Blocker,2026-02-17,AGT-SAL-01,2026-04-03
+STK-00063,OPP-2026-0012,Bharat Yadav,Project Director,Blocker,Medium,Champion,2026-04-18,AGT-SAL-01,2026-04-05
+STK-00064,OPP-2026-0012,Ravi Verma,Procurement Head,Champion,High,Supporter,2026-03-25,AGT-SAL-01,2026-04-13
+STK-00065,OPP-2026-0013,Sneha Khanna,CFO,Technical Buyer,High,Skeptic,2026-03-24,AGT-SAL-01,2026-03-28
+STK-00066,OPP-2026-0013,Girish Kumar,VP Engineering,Technical Buyer,Low,Supporter,2026-01-31,AGT-SAL-01,2026-03-25
+STK-00067,OPP-2026-0013,Archana Naidu,Plant Head,Blocker,Low,Neutral,2026-02-13,AGT-SAL-01,2026-03-27
+STK-00068,OPP-2026-0013,Ajay Malhotra,Project Director,Economic Buyer,Low,Champion,2026-02-25,AGT-SAL-01,2026-03-22
+STK-00069,OPP-2026-0014,Lakshmi Singh,CEO,Blocker,Medium,Neutral,2026-01-30,AGT-SAL-01,2026-03-25
+STK-00070,OPP-2026-0014,Vandana Bose,Plant Head,Blocker,Medium,Blocker,2026-02-09,AGT-SAL-01,2026-03-29
+STK-00071,OPP-2026-0014,Raghav Pillai,Plant Head,User,Low,Neutral,2026-01-22,AGT-SAL-01,2026-04-19
+STK-00072,OPP-2026-0014,Kavita Nair,Utilities Manager,Economic Buyer,Low,Supporter,2026-02-24,AGT-SAL-01,2026-04-13
+STK-00073,OPP-2026-0014,Lakshmi Khanna,CFO,Champion,Medium,Supporter,2026-03-08,AGT-SAL-01,2026-04-07
+STK-00074,OPP-2026-0015,Priya Iyer,VP Engineering,Gatekeeper,High,Blocker,2026-01-25,AGT-SAL-01,2026-04-12
+STK-00075,OPP-2026-0015,Smita Chowdhury,Utilities Manager,User,High,Skeptic,2026-02-11,AGT-SAL-01,2026-04-14
+STK-00076,OPP-2026-0015,Kavita Chatterjee,Managing Director,Technical Buyer,High,Champion,2026-02-09,AGT-SAL-01,2026-04-04
+STK-00077,OPP-2026-0015,Ritu Shah,VP Engineering,Champion,High,Skeptic,2026-03-08,AGT-SAL-01,2026-04-10
+STK-00078,OPP-2026-0016,Neha Vaidya,Utilities Manager,Influencer,High,Supporter,2026-01-24,AGT-SAL-01,2026-04-10
+STK-00079,OPP-2026-0016,Harish Kapoor,Project Director,Gatekeeper,High,Supporter,2026-01-22,AGT-SAL-01,2026-03-24
+STK-00080,OPP-2026-0016,Anil Mishra,Managing Director,Influencer,Medium,Blocker,2026-01-17,AGT-SAL-01,2026-04-12
+STK-00081,OPP-2026-0016,Amit Chatterjee,VP Engineering,Gatekeeper,Low,Champion,2026-04-14,AGT-SAL-01,2026-04-12
+STK-00082,OPP-2026-0016,Usha Pillai,VP Engineering,Gatekeeper,High,Supporter,2026-03-29,AGT-SAL-01,2026-03-22
+STK-00083,OPP-2026-0017,Girish Sharma,Project Director,Economic Buyer,High,Neutral,2026-01-22,AGT-SAL-01,2026-04-08
+STK-00084,OPP-2026-0017,Rekha Gupta,Plant Head,Gatekeeper,Low,Supporter,2026-01-14,AGT-SAL-01,2026-03-31
+STK-00085,OPP-2026-0017,Suresh Verma,Sustainability Head,Blocker,Medium,Supporter,2026-04-08,AGT-SAL-01,2026-04-19
+STK-00086,OPP-2026-0017,Sunita Nair,GM Operations,Gatekeeper,High,Blocker,2026-03-21,AGT-SAL-01,2026-03-23
+STK-00087,OPP-2026-0017,Aarti Yadav,Procurement Head,Influencer,Low,Champion,2026-03-10,AGT-SAL-01,2026-04-21
+STK-00088,OPP-2026-0017,Ashok Reddy,Utilities Manager,Economic Buyer,High,Blocker,2026-04-14,AGT-SAL-01,2026-03-30
+STK-00089,OPP-2026-0017,Kunal Patel,VP Engineering,Gatekeeper,High,Skeptic,2026-01-22,AGT-SAL-01,2026-04-12
+STK-00090,OPP-2026-0018,Anjali Malhotra,Sustainability Head,Influencer,Low,Supporter,2026-02-18,AGT-SAL-01,2026-04-16
+STK-00091,OPP-2026-0018,Girish Mehta,CFO,Blocker,Low,Blocker,2026-03-13,AGT-SAL-01,2026-03-22
+STK-00092,OPP-2026-0018,Nikhil Iyer,GM Operations,Blocker,Medium,Supporter,2026-02-08,AGT-SAL-01,2026-03-25
+STK-00093,OPP-2026-0018,Lakshmi Iyer,Managing Director,Economic Buyer,High,Blocker,2026-02-02,AGT-SAL-01,2026-04-09
+STK-00094,OPP-2026-0018,Girish Naidu,Managing Director,User,High,Skeptic,2026-03-23,AGT-SAL-01,2026-04-08
+STK-00095,OPP-2026-0018,Usha Mukherjee,CFO,Champion,High,Neutral,2026-01-31,AGT-SAL-01,2026-03-26
+STK-00096,OPP-2026-0018,Aarti Pillai,Managing Director,Champion,High,Blocker,2026-02-19,AGT-SAL-01,2026-04-01
+STK-00097,OPP-2026-0019,Vikram Malhotra,Project Director,Economic Buyer,Medium,Supporter,2026-03-25,AGT-SAL-01,2026-03-29
+STK-00098,OPP-2026-0019,Nandita Banerjee,VP Engineering,User,High,Neutral,2026-04-07,AGT-SAL-01,2026-04-12
+STK-00099,OPP-2026-0019,Sujata Patel,Plant Head,User,Low,Champion,2026-03-08,AGT-SAL-01,2026-04-02
+STK-00100,OPP-2026-0019,Tarun Agarwal,EHS Head,Champion,Medium,Skeptic,2026-02-24,AGT-SAL-01,2026-04-16
+STK-00101,OPP-2026-0019,Rajesh Bansal,Plant Head,Technical Buyer,High,Champion,2026-03-15,AGT-SAL-01,2026-03-26
+STK-00102,OPP-2026-0019,Sarika Rao,Project Director,Blocker,Medium,Champion,2026-02-19,AGT-SAL-01,2026-04-07
+STK-00103,OPP-2026-0019,Rakesh Agarwal,Sustainability Head,Gatekeeper,High,Neutral,2026-01-27,AGT-SAL-01,2026-04-02
+STK-00104,OPP-2026-0020,Rekha Chopra,CFO,Gatekeeper,High,Skeptic,2026-01-16,AGT-SAL-01,2026-03-24
+STK-00105,OPP-2026-0020,Nikhil Patel,Managing Director,Economic Buyer,High,Blocker,2026-02-04,AGT-SAL-01,2026-04-09
+STK-00106,OPP-2026-0020,Vandana Saxena,Plant Head,Economic Buyer,Medium,Blocker,2026-02-09,AGT-SAL-01,2026-04-06
+STK-00107,OPP-2026-0021,Sarika Tiwari,Plant Head,Technical Buyer,Medium,Neutral,2026-02-19,AGT-SAL-01,2026-04-05
+STK-00108,OPP-2026-0021,Yogesh Shah,Procurement Head,User,High,Neutral,2026-01-31,AGT-SAL-01,2026-03-31
+STK-00109,OPP-2026-0021,Arun Mukherjee,CFO,Influencer,High,Neutral,2026-02-06,AGT-SAL-01,2026-03-22
+STK-00110,OPP-2026-0021,Bharat Iyer,Sustainability Head,User,High,Neutral,2026-01-12,AGT-SAL-01,2026-04-06
+STK-00111,OPP-2026-0022,Vikram Khanna,VP Engineering,Champion,High,Neutral,2026-02-12,AGT-SAL-01,2026-03-23
+STK-00112,OPP-2026-0022,Ajay Pandey,Procurement Head,Influencer,Low,Supporter,2026-04-14,AGT-SAL-01,2026-04-01
+STK-00113,OPP-2026-0022,Anil Gupta,Utilities Manager,Blocker,Medium,Skeptic,2026-02-04,AGT-SAL-01,2026-04-04
+STK-00114,OPP-2026-0022,Bharat Nair,Procurement Head,Blocker,Low,Skeptic,2026-02-03,AGT-SAL-01,2026-04-01
+STK-00115,OPP-2026-0023,Kiran Khanna,Procurement Head,Champion,Low,Skeptic,2026-03-06,AGT-SAL-01,2026-04-06
+STK-00116,OPP-2026-0023,Ajay Ghosh,EHS Head,Economic Buyer,High,Champion,2026-03-29,AGT-SAL-01,2026-04-14
+STK-00117,OPP-2026-0023,Vikram Mukherjee,Project Director,User,High,Neutral,2026-03-27,AGT-SAL-01,2026-04-16
+STK-00118,OPP-2026-0024,Raghav Reddy,Project Director,Champion,Low,Skeptic,2026-01-17,AGT-SAL-01,2026-04-18
+STK-00119,OPP-2026-0024,Naveen Ghosh,Sustainability Head,Champion,High,Champion,2026-04-17,AGT-SAL-01,2026-04-14
+STK-00120,OPP-2026-0024,Priya Rao,EHS Head,Gatekeeper,High,Neutral,2026-01-29,AGT-SAL-01,2026-04-05
+STK-00121,OPP-2026-0024,Priya Chowdhury,CFO,Economic Buyer,High,Skeptic,2026-03-27,AGT-SAL-01,2026-04-05
+STK-00122,OPP-2026-0024,Ritu Srivastava,EHS Head,Blocker,High,Skeptic,2026-04-09,AGT-SAL-01,2026-04-15
+STK-00123,OPP-2026-0025,Raghav Ghosh,Sustainability Head,Champion,High,Champion,2026-02-02,AGT-SAL-01,2026-04-17
+STK-00124,OPP-2026-0025,Ajay Saxena,CFO,Gatekeeper,Medium,Neutral,2026-01-17,AGT-SAL-01,2026-03-31
+STK-00125,OPP-2026-0025,Pooja Dutta,EHS Head,Gatekeeper,High,Neutral,2026-03-02,AGT-SAL-01,2026-04-09
+STK-00126,OPP-2026-0025,Meera Gupta,CEO,Champion,Low,Neutral,2026-02-01,AGT-SAL-01,2026-04-18
+STK-00127,OPP-2026-0025,Kavita Ghosh,EHS Head,Gatekeeper,High,Blocker,2026-02-14,AGT-SAL-01,2026-03-28
+STK-00128,OPP-2026-0025,Deepak Shah,Sustainability Head,Blocker,High,Blocker,2026-02-09,AGT-SAL-01,2026-03-26
+STK-00129,OPP-2026-0026,Usha Bhatia,Utilities Manager,Influencer,Medium,Supporter,2026-01-20,AGT-SAL-01,2026-04-05
+STK-00130,OPP-2026-0026,Divya Mehta,Sustainability Head,Technical Buyer,Low,Skeptic,2026-02-03,AGT-SAL-01,2026-03-27
+STK-00131,OPP-2026-0026,Shalini Chowdhury,Managing Director,Influencer,High,Skeptic,2026-02-17,AGT-SAL-01,2026-03-28
+STK-00132,OPP-2026-0027,Hari Shah,GM Operations,Gatekeeper,Low,Skeptic,2026-03-26,AGT-SAL-01,2026-04-21
+STK-00133,OPP-2026-0027,Madhuri Sharma,EHS Head,Gatekeeper,High,Blocker,2026-04-19,AGT-SAL-01,2026-04-09
+STK-00134,OPP-2026-0027,Preeti Desai,VP Engineering,Influencer,Medium,Supporter,2026-03-31,AGT-SAL-01,2026-04-08
+STK-00135,OPP-2026-0027,Preeti Saxena,GM Operations,User,Low,Blocker,2026-03-04,AGT-SAL-01,2026-04-02
+STK-00136,OPP-2026-0028,Archana Tiwari,Plant Head,Influencer,Low,Neutral,2026-03-03,AGT-SAL-01,2026-04-04
+STK-00137,OPP-2026-0028,Lakshmi Ghosh,GM Operations,User,Medium,Champion,2026-01-15,AGT-SAL-01,2026-04-17
+STK-00138,OPP-2026-0028,Kunal Reddy,Plant Head,Influencer,High,Supporter,2026-03-23,AGT-SAL-01,2026-04-05
+STK-00139,OPP-2026-0028,Ritu Joshi,Utilities Manager,Gatekeeper,High,Neutral,2026-03-01,AGT-SAL-01,2026-03-22
+STK-00140,OPP-2026-0028,Nikhil Sharma,Managing Director,Technical Buyer,High,Champion,2026-02-02,AGT-SAL-01,2026-04-08
+STK-00141,OPP-2026-0029,Vikram Khanna,Plant Head,User,High,Blocker,2026-04-15,AGT-SAL-01,2026-03-29
+STK-00142,OPP-2026-0029,Ashok Tiwari,EHS Head,Blocker,Medium,Blocker,2026-04-12,AGT-SAL-01,2026-03-22
+STK-00143,OPP-2026-0029,Vandana Nair,Project Director,Influencer,Low,Supporter,2026-03-25,AGT-SAL-01,2026-03-25
+STK-00144,OPP-2026-0030,Sneha Pillai,CEO,Technical Buyer,High,Blocker,2026-03-29,AGT-SAL-01,2026-03-31
+STK-00145,OPP-2026-0030,Priya Pandey,Plant Head,Blocker,High,Neutral,2026-04-08,AGT-SAL-01,2026-04-13
+STK-00146,OPP-2026-0030,Vandana Tiwari,VP Engineering,Blocker,Low,Champion,2026-02-03,AGT-SAL-01,2026-04-15
+STK-00147,OPP-2026-0030,Kiran Sharma,Managing Director,Economic Buyer,Medium,Blocker,2026-02-04,AGT-SAL-01,2026-04-10
+STK-00148,OPP-2026-0030,Rakesh Chopra,Plant Head,Gatekeeper,High,Champion,2026-02-27,AGT-SAL-01,2026-04-03
+STK-00149,OPP-2026-0030,Rajesh Khanna,CFO,Influencer,High,Blocker,2026-04-10,AGT-SAL-01,2026-04-05
+STK-00150,OPP-2026-0030,Sneha Joshi,Managing Director,Technical Buyer,Medium,Blocker,2026-02-05,AGT-SAL-01,2026-04-13
+STK-00151,OPP-2026-0031,Ashok Chowdhury,Sustainability Head,Technical Buyer,High,Skeptic,2026-02-20,AGT-SAL-01,2026-03-31
+STK-00152,OPP-2026-0031,Shweta Saxena,CEO,Influencer,High,Skeptic,2026-04-11,AGT-SAL-01,2026-04-09
+STK-00153,OPP-2026-0031,Nikhil Mehta,Project Director,Blocker,High,Skeptic,2026-02-26,AGT-SAL-01,2026-03-22
+STK-00154,OPP-2026-0031,Rakesh Chatterjee,Utilities Manager,Economic Buyer,Medium,Neutral,2026-03-14,AGT-SAL-01,2026-04-19
+STK-00155,OPP-2026-0031,Ritu Joshi,Managing Director,Gatekeeper,High,Champion,2026-03-10,AGT-SAL-01,2026-04-10
+STK-00156,OPP-2026-0031,Neha Chowdhury,GM Operations,Champion,High,Champion,2026-01-15,AGT-SAL-01,2026-04-15
+STK-00157,OPP-2026-0032,Shalini Kapoor,GM Operations,Champion,High,Neutral,2026-03-19,AGT-SAL-01,2026-03-26
+STK-00158,OPP-2026-0032,Sujata Trivedi,CFO,Technical Buyer,High,Supporter,2026-04-09,AGT-SAL-01,2026-03-31
+STK-00159,OPP-2026-0032,Tarun Banerjee,EHS Head,Economic Buyer,High,Champion,2026-03-03,AGT-SAL-01,2026-04-02
+STK-00160,OPP-2026-0032,Anil Banerjee,EHS Head,Technical Buyer,Medium,Champion,2026-03-27,AGT-SAL-01,2026-03-28
+STK-00161,OPP-2026-0033,Prakash Tiwari,Plant Head,Technical Buyer,High,Supporter,2026-02-11,AGT-SAL-01,2026-03-27
+STK-00162,OPP-2026-0033,Divya Ghosh,Utilities Manager,Economic Buyer,Medium,Champion,2026-01-22,AGT-SAL-01,2026-03-28
+STK-00163,OPP-2026-0033,Kavita Dutta,Managing Director,Blocker,Low,Skeptic,2026-01-21,AGT-SAL-01,2026-04-21
+STK-00164,OPP-2026-0033,Rajesh Desai,Procurement Head,Gatekeeper,High,Skeptic,2026-03-04,AGT-SAL-01,2026-04-02
+STK-00165,OPP-2026-0033,Shobha Khanna,CFO,Gatekeeper,Medium,Neutral,2026-03-16,AGT-SAL-01,2026-04-06
+STK-00166,OPP-2026-0033,Sujata Joshi,VP Engineering,Champion,Low,Champion,2026-03-24,AGT-SAL-01,2026-04-08
+STK-00167,OPP-2026-0033,Shashi Pandey,VP Engineering,Technical Buyer,Low,Skeptic,2026-02-21,AGT-SAL-01,2026-04-16
+STK-00168,OPP-2026-0034,Meera Chowdhury,Project Director,Champion,High,Skeptic,2026-03-20,AGT-SAL-01,2026-04-04
+STK-00169,OPP-2026-0034,Divya Mishra,Plant Head,Champion,High,Champion,2026-04-18,AGT-SAL-01,2026-04-16
+STK-00170,OPP-2026-0034,Mukesh Banerjee,CFO,Technical Buyer,Medium,Champion,2026-03-12,AGT-SAL-01,2026-04-13
+STK-00171,OPP-2026-0034,Lakshmi Chowdhury,CEO,Influencer,High,Neutral,2026-04-12,AGT-SAL-01,2026-04-15
+STK-00172,OPP-2026-0034,Sachin Khanna,Sustainability Head,Technical Buyer,High,Champion,2026-01-14,AGT-SAL-01,2026-04-11
+STK-00173,OPP-2026-0034,Aarti Pandey,VP Engineering,Gatekeeper,Medium,Skeptic,2026-04-17,AGT-SAL-01,2026-04-08
+STK-00174,OPP-2026-0034,Deepak Trivedi,Project Director,Gatekeeper,High,Blocker,2026-02-05,AGT-SAL-01,2026-04-01
+STK-00175,OPP-2026-0035,Kavita Malhotra,VP Engineering,User,Low,Champion,2026-04-09,AGT-SAL-01,2026-04-09
+STK-00176,OPP-2026-0035,Sujata Malhotra,Sustainability Head,Blocker,High,Neutral,2026-01-28,AGT-SAL-01,2026-03-27
+STK-00177,OPP-2026-0035,Vinod Joshi,Procurement Head,Blocker,Low,Supporter,2026-04-09,AGT-SAL-01,2026-04-16
+STK-00178,OPP-2026-0035,Pooja Mehta,VP Engineering,User,Medium,Skeptic,2026-02-01,AGT-SAL-01,2026-04-01
+STK-00179,OPP-2026-0035,Ritu Chopra,Sustainability Head,Technical Buyer,Medium,Blocker,2026-02-12,AGT-SAL-01,2026-03-22
+STK-00180,OPP-2026-0035,Harish Yadav,CFO,Champion,High,Neutral,2026-01-16,AGT-SAL-01,2026-04-14
+STK-00181,OPP-2026-0035,Tarun Khanna,Managing Director,Champion,High,Champion,2026-04-06,AGT-SAL-01,2026-04-18
+STK-00182,OPP-2026-0036,Vinod Ghosh,Utilities Manager,Economic Buyer,High,Champion,2026-02-11,AGT-SAL-01,2026-03-28
+STK-00183,OPP-2026-0036,Anjali Gupta,GM Operations,Gatekeeper,High,Supporter,2026-01-26,AGT-SAL-01,2026-03-23
+STK-00184,OPP-2026-0036,Gopal Mishra,GM Operations,Champion,High,Skeptic,2026-02-22,AGT-SAL-01,2026-04-01
+STK-00185,OPP-2026-0037,Meera Chatterjee,CFO,Economic Buyer,High,Skeptic,2026-03-09,AGT-SAL-01,2026-03-25
+STK-00186,OPP-2026-0037,Naveen Dutta,Utilities Manager,User,Low,Neutral,2026-01-20,AGT-SAL-01,2026-04-04
+STK-00187,OPP-2026-0037,Kavita Saxena,EHS Head,Influencer,Low,Blocker,2026-01-28,AGT-SAL-01,2026-04-01
+STK-00188,OPP-2026-0037,Girish Agarwal,VP Engineering,Influencer,High,Supporter,2026-02-22,AGT-SAL-01,2026-04-12
+STK-00189,OPP-2026-0038,Mukesh Khanna,CFO,User,High,Supporter,2026-02-12,AGT-SAL-01,2026-03-26
+STK-00190,OPP-2026-0038,Dinesh Rao,VP Engineering,User,Low,Blocker,2026-04-18,AGT-SAL-01,2026-03-30
+STK-00191,OPP-2026-0038,Vinod Banerjee,Sustainability Head,User,High,Champion,2026-03-13,AGT-SAL-01,2026-04-02
+STK-00192,OPP-2026-0038,Sanjay Sharma,Utilities Manager,User,High,Champion,2026-02-07,AGT-SAL-01,2026-04-08
+STK-00193,OPP-2026-0038,Ritu Kapoor,CFO,Blocker,Low,Champion,2026-03-22,AGT-SAL-01,2026-04-13
+STK-00194,OPP-2026-0039,Divya Kapoor,Utilities Manager,Technical Buyer,Medium,Skeptic,2026-01-26,AGT-SAL-01,2026-03-29
+STK-00195,OPP-2026-0039,Girish Chopra,Procurement Head,Champion,High,Neutral,2026-04-02,AGT-SAL-01,2026-04-12
+STK-00196,OPP-2026-0039,Deepak Dutta,EHS Head,Influencer,Medium,Blocker,2026-02-16,AGT-SAL-01,2026-04-15
+STK-00197,OPP-2026-0040,Amit Iyer,CEO,Gatekeeper,High,Neutral,2026-04-06,AGT-SAL-01,2026-04-12
+STK-00198,OPP-2026-0040,Prakash Rao,Sustainability Head,Blocker,High,Neutral,2026-04-08,AGT-SAL-01,2026-04-17
+STK-00199,OPP-2026-0040,Rajesh Banerjee,Plant Head,User,Low,Skeptic,2026-02-15,AGT-SAL-01,2026-04-10
+STK-00200,OPP-2026-0040,Shweta Kumar,VP Engineering,Economic Buyer,High,Supporter,2026-03-16,AGT-SAL-01,2026-03-28
+STK-00201,OPP-2026-0040,Ritu Patel,Utilities Manager,Influencer,High,Neutral,2026-03-18,AGT-SAL-01,2026-03-26
+STK-00202,OPP-2026-0041,Rekha Sharma,Managing Director,Technical Buyer,High,Champion,2026-01-11,AGT-SAL-01,2026-04-07
+STK-00203,OPP-2026-0041,Rohit Kumar,Plant Head,Influencer,High,Blocker,2026-01-24,AGT-SAL-01,2026-04-15
+STK-00204,OPP-2026-0041,Naveen Mishra,Project Director,User,Medium,Neutral,2026-01-29,AGT-SAL-01,2026-03-29
+STK-00205,OPP-2026-0041,Priya Naidu,Utilities Manager,Economic Buyer,Medium,Champion,2026-01-28,AGT-SAL-01,2026-04-12
+STK-00206,OPP-2026-0041,Manish Pandey,CEO,Technical Buyer,High,Supporter,2026-03-20,AGT-SAL-01,2026-04-01
+STK-00207,OPP-2026-0041,Divya Bansal,CEO,Champion,Medium,Blocker,2026-04-04,AGT-SAL-01,2026-04-09
+STK-00208,OPP-2026-0042,Rajesh Kumar,EHS Head,Technical Buyer,Low,Blocker,2026-03-31,AGT-SAL-01,2026-04-10
+STK-00209,OPP-2026-0042,Vandana Shah,Plant Head,Champion,Low,Supporter,2026-01-22,AGT-SAL-01,2026-04-02
+STK-00210,OPP-2026-0042,Pooja Singh,CEO,User,High,Blocker,2026-04-06,AGT-SAL-01,2026-04-17
+STK-00211,OPP-2026-0042,Smita Mehta,VP Engineering,Gatekeeper,Medium,Champion,2026-01-16,AGT-SAL-01,2026-04-15
+STK-00212,OPP-2026-0043,Shashi Mishra,VP Engineering,Blocker,High,Skeptic,2026-04-14,AGT-SAL-01,2026-04-06
+STK-00213,OPP-2026-0043,Madhuri Bose,Utilities Manager,User,Low,Neutral,2026-02-06,AGT-SAL-01,2026-04-16
+STK-00214,OPP-2026-0043,Girish Trivedi,VP Engineering,Blocker,Low,Skeptic,2026-02-02,AGT-SAL-01,2026-03-23
+STK-00215,OPP-2026-0044,Arun Patel,Utilities Manager,Champion,Low,Skeptic,2026-03-17,AGT-SAL-01,2026-04-04
+STK-00216,OPP-2026-0044,Sarika Dutta,CEO,Technical Buyer,Low,Neutral,2026-04-17,AGT-SAL-01,2026-04-02
+STK-00217,OPP-2026-0044,Kunal Pandey,EHS Head,Champion,Medium,Supporter,2026-01-25,AGT-SAL-01,2026-03-22
+STK-00218,OPP-2026-0044,Girish Mishra,Plant Head,Gatekeeper,Low,Blocker,2026-03-31,AGT-SAL-01,2026-04-02
+STK-00219,OPP-2026-0044,Sneha Bansal,Procurement Head,Blocker,Medium,Supporter,2026-04-07,AGT-SAL-01,2026-04-05
+STK-00220,OPP-2026-0044,Tarun Patel,CEO,Technical Buyer,High,Neutral,2026-04-15,AGT-SAL-01,2026-04-15
+STK-00221,OPP-2026-0044,Ravi Banerjee,Plant Head,Economic Buyer,High,Blocker,2026-01-27,AGT-SAL-01,2026-03-26
+STK-00222,OPP-2026-0045,Tarun Banerjee,Utilities Manager,Gatekeeper,Medium,Supporter,2026-03-04,AGT-SAL-01,2026-04-14
+STK-00223,OPP-2026-0045,Raghav Patel,CEO,Champion,Low,Supporter,2026-02-19,AGT-SAL-01,2026-03-27
+STK-00224,OPP-2026-0045,Nikhil Singh,VP Engineering,Gatekeeper,Low,Skeptic,2026-01-19,AGT-SAL-01,2026-04-20
+STK-00225,OPP-2026-0045,Sachin Vaidya,GM Operations,Gatekeeper,High,Supporter,2026-03-12,AGT-SAL-01,2026-04-19
+STK-00226,OPP-2026-0045,Neha Chatterjee,Managing Director,Economic Buyer,High,Blocker,2026-03-01,AGT-SAL-01,2026-04-15
+STK-00227,OPP-2026-0045,Manish Chatterjee,Project Director,Champion,High,Blocker,2026-01-14,AGT-SAL-01,2026-04-04
+STK-00228,OPP-2026-0046,Shalini Gupta,Project Director,Gatekeeper,Medium,Champion,2026-01-20,AGT-SAL-01,2026-03-31
+STK-00229,OPP-2026-0046,Divya Gupta,CFO,Technical Buyer,High,Blocker,2026-02-27,AGT-SAL-01,2026-04-05
+STK-00230,OPP-2026-0046,Pooja Menon,Utilities Manager,Gatekeeper,Low,Skeptic,2026-03-10,AGT-SAL-01,2026-04-04
+STK-00231,OPP-2026-0046,Anil Pandey,Procurement Head,Technical Buyer,Low,Skeptic,2026-02-01,AGT-SAL-01,2026-04-14
+STK-00232,OPP-2026-0046,Bharat Pillai,Plant Head,Influencer,Medium,Skeptic,2026-02-21,AGT-SAL-01,2026-04-07
+STK-00233,OPP-2026-0046,Ritu Sharma,CEO,User,High,Blocker,2026-04-02,AGT-SAL-01,2026-03-24
+STK-00234,OPP-2026-0047,Rajesh Agarwal,Plant Head,Champion,Medium,Supporter,2026-01-11,AGT-SAL-01,2026-03-26
+STK-00235,OPP-2026-0047,Shashi Chopra,Utilities Manager,Gatekeeper,High,Supporter,2026-04-15,AGT-SAL-01,2026-04-07
+STK-00236,OPP-2026-0047,Rakesh Iyer,CFO,User,Medium,Blocker,2026-03-19,AGT-SAL-01,2026-04-14
+STK-00237,OPP-2026-0047,Aarti Agarwal,Managing Director,Gatekeeper,Low,Blocker,2026-03-23,AGT-SAL-01,2026-03-29
+STK-00238,OPP-2026-0047,Vikram Bansal,Sustainability Head,Champion,Low,Blocker,2026-04-07,AGT-SAL-01,2026-04-02
+STK-00239,OPP-2026-0048,Priya Chowdhury,Procurement Head,Economic Buyer,High,Skeptic,2026-03-06,AGT-SAL-01,2026-03-24
+STK-00240,OPP-2026-0048,Sachin Bhatia,Procurement Head,Technical Buyer,High,Neutral,2026-01-14,AGT-SAL-01,2026-04-01
+STK-00241,OPP-2026-0048,Kunal Srivastava,CEO,Blocker,Low,Supporter,2026-03-11,AGT-SAL-01,2026-04-05
+STK-00242,OPP-2026-0048,Priya Bansal,Utilities Manager,Gatekeeper,High,Skeptic,2026-02-14,AGT-SAL-01,2026-03-30
+STK-00243,OPP-2026-0048,Sanjay Iyer,CEO,Blocker,Low,Champion,2026-01-13,AGT-SAL-01,2026-04-02
+STK-00244,OPP-2026-0049,Yogesh Shah,Plant Head,Influencer,Medium,Champion,2026-04-01,AGT-SAL-01,2026-04-17
+STK-00245,OPP-2026-0049,Pooja Shah,Sustainability Head,Gatekeeper,High,Blocker,2026-02-27,AGT-SAL-01,2026-04-13
+STK-00246,OPP-2026-0049,Anjali Tiwari,Utilities Manager,Influencer,High,Neutral,2026-02-17,AGT-SAL-01,2026-04-04
+STK-00247,OPP-2026-0049,Manish Banerjee,Procurement Head,Blocker,High,Blocker,2026-01-31,AGT-SAL-01,2026-03-29
+STK-00248,OPP-2026-0049,Kiran Kapoor,Plant Head,Economic Buyer,Medium,Champion,2026-03-09,AGT-SAL-01,2026-03-31
+STK-00249,OPP-2026-0049,Vinod Chowdhury,Managing Director,Economic Buyer,Low,Champion,2026-03-04,AGT-SAL-01,2026-04-10
+STK-00250,OPP-2026-0049,Manish Bansal,VP Engineering,Gatekeeper,High,Skeptic,2026-03-29,AGT-SAL-01,2026-04-10
+STK-00251,OPP-2026-0050,Sachin Bose,EHS Head,Champion,Low,Supporter,2026-03-21,AGT-SAL-01,2026-04-15
+STK-00252,OPP-2026-0050,Archana Pandey,CFO,Technical Buyer,High,Supporter,2026-01-15,AGT-SAL-01,2026-04-20
+STK-00253,OPP-2026-0050,Rohit Vaidya,CFO,Technical Buyer,Medium,Supporter,2026-03-07,AGT-SAL-01,2026-03-30
+STK-00254,OPP-2026-0050,Anita Reddy,GM Operations,Influencer,Low,Supporter,2026-03-08,AGT-SAL-01,2026-04-15
+STK-00255,OPP-2026-0050,Shalini Pillai,Plant Head,Champion,Medium,Blocker,2026-02-17,AGT-SAL-01,2026-04-02
+STK-00256,OPP-2026-0050,Jitendra Iyer,Project Director,Economic Buyer,Low,Blocker,2026-01-25,AGT-SAL-01,2026-04-05
+STK-00257,OPP-2026-0050,Priya Khanna,CFO,Economic Buyer,Medium,Neutral,2026-01-20,AGT-SAL-01,2026-04-02
+STK-00258,OPP-2026-0051,Sunita Dutta,Project Director,Economic Buyer,High,Champion,2026-01-25,AGT-SAL-01,2026-04-13
+STK-00259,OPP-2026-0051,Tarun Pandey,Managing Director,Economic Buyer,Medium,Champion,2026-03-21,AGT-SAL-01,2026-04-09
+STK-00260,OPP-2026-0051,Yogesh Gupta,VP Engineering,Influencer,High,Neutral,2026-03-25,AGT-SAL-01,2026-04-05
+STK-00261,OPP-2026-0051,Shweta Naidu,CEO,Economic Buyer,High,Blocker,2026-03-11,AGT-SAL-01,2026-04-11
+STK-00262,OPP-2026-0051,Smita Tiwari,CFO,Economic Buyer,Medium,Skeptic,2026-03-05,AGT-SAL-01,2026-04-01
+STK-00263,OPP-2026-0052,Rohit Mukherjee,GM Operations,Technical Buyer,High,Skeptic,2026-03-01,AGT-SAL-01,2026-03-24
+STK-00264,OPP-2026-0052,Sachin Verma,Utilities Manager,User,High,Neutral,2026-03-07,AGT-SAL-01,2026-03-24
+STK-00265,OPP-2026-0052,Ritu Rao,Managing Director,Blocker,Low,Blocker,2026-01-23,AGT-SAL-01,2026-04-02
+STK-00266,OPP-2026-0052,Shobha Mehta,Procurement Head,Champion,High,Champion,2026-03-11,AGT-SAL-01,2026-03-23
+STK-00267,OPP-2026-0052,Raghav Joshi,Sustainability Head,Gatekeeper,High,Neutral,2026-01-26,AGT-SAL-01,2026-04-17
+STK-00268,OPP-2026-0053,Girish Pillai,CFO,User,High,Champion,2026-01-11,AGT-SAL-01,2026-04-17
+STK-00269,OPP-2026-0053,Preeti Chowdhury,CFO,User,High,Blocker,2026-02-10,AGT-SAL-01,2026-03-22
+STK-00270,OPP-2026-0053,Jitendra Reddy,CFO,User,High,Supporter,2026-01-12,AGT-SAL-01,2026-04-11
+STK-00271,OPP-2026-0053,Gopal Yadav,Procurement Head,User,Low,Skeptic,2026-03-31,AGT-SAL-01,2026-03-28
+STK-00272,OPP-2026-0053,Manish Gupta,CFO,Champion,High,Blocker,2026-01-31,AGT-SAL-01,2026-04-13
+STK-00273,OPP-2026-0053,Raghav Chowdhury,EHS Head,Champion,High,Neutral,2026-01-22,AGT-SAL-01,2026-04-21
+STK-00274,OPP-2026-0053,Rakesh Shah,Sustainability Head,Champion,Low,Skeptic,2026-03-27,AGT-SAL-01,2026-03-25
+STK-00275,OPP-2026-0054,Smita Ghosh,CFO,Champion,High,Neutral,2026-04-15,AGT-SAL-01,2026-04-08
+STK-00276,OPP-2026-0054,Dinesh Sharma,GM Operations,Influencer,High,Neutral,2026-01-13,AGT-SAL-01,2026-04-15
+STK-00277,OPP-2026-0054,Vikram Nair,Sustainability Head,Technical Buyer,Low,Skeptic,2026-02-20,AGT-SAL-01,2026-03-24
+STK-00278,OPP-2026-0054,Rohit Bhatia,Procurement Head,Technical Buyer,High,Blocker,2026-01-15,AGT-SAL-01,2026-03-26
+STK-00279,OPP-2026-0054,Ashok Bansal,Procurement Head,Gatekeeper,High,Blocker,2026-04-06,AGT-SAL-01,2026-04-07
+STK-00280,OPP-2026-0054,Shweta Kumar,Plant Head,Gatekeeper,Low,Supporter,2026-02-07,AGT-SAL-01,2026-04-09
+STK-00281,OPP-2026-0055,Dinesh Singh,Plant Head,User,Low,Champion,2026-03-12,AGT-SAL-01,2026-03-28
+STK-00282,OPP-2026-0055,Sachin Malhotra,Sustainability Head,Champion,Low,Skeptic,2026-01-31,AGT-SAL-01,2026-03-23
+STK-00283,OPP-2026-0055,Sunita Chatterjee,CFO,Influencer,Low,Supporter,2026-01-17,AGT-SAL-01,2026-04-05
+STK-00284,OPP-2026-0055,Deepak Nair,EHS Head,Blocker,High,Champion,2026-02-26,AGT-SAL-01,2026-04-11
+STK-00285,OPP-2026-0055,Harish Verma,CFO,Influencer,High,Champion,2026-04-08,AGT-SAL-01,2026-04-13
+STK-00286,OPP-2026-0055,Anil Menon,Managing Director,Economic Buyer,High,Champion,2026-01-28,AGT-SAL-01,2026-04-10
+STK-00287,OPP-2026-0055,Anjali Chatterjee,Procurement Head,Blocker,High,Champion,2026-02-08,AGT-SAL-01,2026-04-09
+STK-00288,OPP-2026-0056,Vandana Menon,VP Engineering,Gatekeeper,High,Neutral,2026-04-01,AGT-SAL-01,2026-04-16
+STK-00289,OPP-2026-0056,Vandana Singh,Procurement Head,User,Medium,Champion,2026-03-14,AGT-SAL-01,2026-04-01
+STK-00290,OPP-2026-0056,Kavita Reddy,CFO,Champion,High,Blocker,2026-01-12,AGT-SAL-01,2026-04-13
+STK-00291,OPP-2026-0057,Shweta Banerjee,Sustainability Head,Gatekeeper,High,Blocker,2026-02-15,AGT-SAL-01,2026-04-14
+STK-00292,OPP-2026-0057,Neha Saxena,Project Director,Influencer,Low,Champion,2026-02-22,AGT-SAL-01,2026-04-19
+STK-00293,OPP-2026-0057,Raghav Srivastava,CEO,Champion,Medium,Blocker,2026-01-29,AGT-SAL-01,2026-04-04
+STK-00294,OPP-2026-0058,Sunita Nair,CFO,Economic Buyer,Medium,Supporter,2026-04-01,AGT-SAL-01,2026-03-25
+STK-00295,OPP-2026-0058,Priya Chowdhury,EHS Head,User,Medium,Supporter,2026-04-13,AGT-SAL-01,2026-04-18
+STK-00296,OPP-2026-0058,Mukesh Nair,CFO,Blocker,Medium,Blocker,2026-01-25,AGT-SAL-01,2026-03-30
+STK-00297,OPP-2026-0058,Shashi Srivastava,EHS Head,Technical Buyer,High,Champion,2026-01-14,AGT-SAL-01,2026-04-03
+STK-00298,OPP-2026-0059,Vinod Kumar,Managing Director,Technical Buyer,Medium,Skeptic,2026-03-03,AGT-SAL-01,2026-03-24
+STK-00299,OPP-2026-0059,Ashok Patel,Procurement Head,Technical Buyer,High,Skeptic,2026-02-18,AGT-SAL-01,2026-04-17
+STK-00300,OPP-2026-0059,Deepak Chopra,VP Engineering,Gatekeeper,Low,Blocker,2026-03-24,AGT-SAL-01,2026-03-30
+STK-00301,OPP-2026-0059,Neha Vaidya,CEO,Economic Buyer,High,Champion,2026-01-17,AGT-SAL-01,2026-03-30
+STK-00302,OPP-2026-0059,Raghav Malhotra,Procurement Head,Gatekeeper,Medium,Skeptic,2026-02-11,AGT-SAL-01,2026-04-03
+STK-00303,OPP-2026-0060,Rakesh Rao,EHS Head,Gatekeeper,Low,Blocker,2026-01-16,AGT-SAL-01,2026-04-01
+STK-00304,OPP-2026-0060,Smita Banerjee,CFO,Gatekeeper,High,Skeptic,2026-03-26,AGT-SAL-01,2026-04-21
+STK-00305,OPP-2026-0060,Deepak Verma,Sustainability Head,Blocker,High,Neutral,2026-01-31,AGT-SAL-01,2026-04-08
+STK-00306,OPP-2026-0060,Mukesh Kumar,VP Engineering,User,High,Supporter,2026-01-28,AGT-SAL-01,2026-04-15
+STK-00307,OPP-2026-0060,Shashi Malhotra,GM Operations,Technical Buyer,High,Skeptic,2026-03-12,AGT-SAL-01,2026-04-05
+STK-00308,OPP-2026-0060,Lakshmi Bansal,CEO,Economic Buyer,Medium,Skeptic,2026-02-28,AGT-SAL-01,2026-03-29
+STK-00309,OPP-2026-0060,Bharat Vaidya,CEO,Technical Buyer,High,Neutral,2026-03-08,AGT-SAL-01,2026-03-26

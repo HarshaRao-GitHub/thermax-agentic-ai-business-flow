@@ -1,0 +1,61 @@
+opportunity_id,brief_id,customer_id,description,stage,value_inr_cr,probability_pct,expected_close_date,sales_owner,bant_score,meddic_score,competitors,created_date,agent_confidence,human_go_nogo,go_nogo_by
+OPP-2026-0001,BRF-2026-0018,CUST-0049,Brownfield expansion for Triveni Engineering,Negotiation,5,37,2026-05-24,Deepak Khanna,91,56,Alstom; IJT; Cheema Boilers; Forbes Marshall,2026-01-31,0.79,GO,Deepak Trivedi
+OPP-2026-0002,BRF-2026-0023,CUST-0030,Decarbonisation project for Ashok Leyland,Proposal,350,45,2026-08-19,Rohit Agarwal,66,69,Thermax; IJT,2026-01-21,0.733,GO,Ashok Yadav
+OPP-2026-0003,BRF-2026-0039,CUST-0009,Greenfield project for Bharat Petroleum,Won,350,65,2026-05-04,Shashi Nair,79,77,Thermax; Alstom; GE Power; Mitsubishi,2026-03-27,0.772,GO,Harish Vaidya
+OPP-2026-0004,BRF-2026-0004,CUST-0023,Emission compliance for SAIL,Lost,2,57,2026-05-15,Mukesh Banerjee,86,58,Alstom; GE Power; Mitsubishi,2026-04-09,0.83,GO,Ajay Mehta
+OPP-2026-0005,BRF-2026-0019,CUST-0003,Greenfield project for Shree Cement,Won,25,61,2026-05-15,Lakshmi Mukherjee,69,84,Mitsubishi; Cheema Boilers,2026-01-10,0.825,NO-GO,Sarika Pillai
+OPP-2026-0006,BRF-2026-0053,CUST-0049,Greenfield project for Triveni Engineering,Won,2,31,2026-07-17,Vivek Kumar,83,84,Cheema Boilers; IJT; Doosan,2026-01-05,0.72,GO,Shobha Reddy
+OPP-2026-0007,BRF-2026-0050,CUST-0052,Decarbonisation project for Adani Power,Lost,15,65,2026-06-01,Arun Vaidya,68,87,Forbes Marshall; GE Power,2026-01-06,0.714,NO-GO,Rakesh Pillai
+OPP-2026-0008,BRF-2026-0018,CUST-0039,Brownfield expansion for JK Paper,Lost,200,42,2026-05-10,Usha Gupta,65,70,Doosan; Siemens Energy,2026-03-15,0.899,NO-GO,Meera Rao
+OPP-2026-0009,BRF-2026-0016,CUST-0010,Emission compliance for Hindustan Petroleum,Proposal,45,61,2026-07-12,Nikhil Yadav,70,75,Alstom; Mitsubishi; IJT,2026-01-08,0.902,GO,Anjali Tiwari
+OPP-2026-0010,BRF-2026-0033,CUST-0048,Emission compliance for Balrampur Chini Mills,Negotiation,25,62,2026-09-18,Shobha Shah,78,79,Alstom; IJT; Doosan; Siemens Energy,2026-01-08,0.823,GO,Neha Bhatia
+OPP-2026-0011,BRF-2026-0053,CUST-0014,Brownfield expansion for Sun Pharmaceutical,Negotiation,120,60,2026-08-16,Bharat Banerjee,72,70,Siemens Energy; GE Power; Alstom,2026-01-29,0.88,GO,Shweta Verma
+OPP-2026-0012,BRF-2026-0008,CUST-0011,Greenfield project for Reliance Industries,In Progress,120,83,2026-08-16,Gopal Agarwal,84,50,Cheema Boilers; Mitsubishi,2026-01-26,0.783,NO-GO,Anjali Pandey
+OPP-2026-0013,BRF-2026-0043,CUST-0042,Decarbonisation project for Britannia Industries,In Progress,8,73,2026-07-21,Divya Shah,58,75,Mitsubishi; Siemens Energy; GE Power; Forbes Marshall,2026-04-10,0.731,NO-GO,Sanjay Chatterjee
+OPP-2026-0014,BRF-2026-0044,CUST-0029,Emission compliance for Maruti Suzuki India,In Progress,2,33,2026-05-19,Vikram Mehta,55,71,Mitsubishi; GE Power; Siemens Energy,2026-03-10,0.785,GO,Vivek Rao
+OPP-2026-0015,BRF-2026-0025,CUST-0050,ZLD retrofit for NTPC Limited,In Progress,8,35,2026-05-29,Rakesh Desai,64,54,Thermax; Doosan; Cheema Boilers; IJT,2026-02-22,0.898,GO,Anjali Gupta
+OPP-2026-0016,BRF-2026-0009,CUST-0049,Brownfield expansion for Triveni Engineering,Won,5,45,2026-08-14,Rohit Chopra,92,74,Mitsubishi; Forbes Marshall; Cheema Boilers; Doosan,2026-02-02,0.866,GO,Sneha Verma
+OPP-2026-0017,BRF-2026-0055,CUST-0043,Decarbonisation project for Hindustan Unilever,Won,25,43,2026-09-05,Ajay Kapoor,68,83,Doosan; Mitsubishi; Alstom,2026-02-15,0.847,GO,Vikram Chatterjee
+OPP-2026-0018,BRF-2026-0057,CUST-0001,ZLD retrofit for UltraTech Cement,Won,45,48,2026-05-02,Archana Nair,75,58,Mitsubishi; Siemens Energy; Cheema Boilers,2026-04-11,0.703,NO-GO,Neha Kumar
+OPP-2026-0019,BRF-2026-0060,CUST-0004,Decarbonisation project for Dalmia Bharat Cement,In Progress,80,57,2026-06-04,Divya Tiwari,87,68,GE Power; Thermax,2026-03-15,0.719,GO,Anjali Mukherjee
+OPP-2026-0020,BRF-2026-0059,CUST-0014,Emission compliance for Sun Pharmaceutical,Lost,8,65,2026-09-02,Vivek Bhatia,89,70,Forbes Marshall; Siemens Energy; Mitsubishi; Alstom,2025-12-22,0.8,GO,Shweta Vaidya
+OPP-2026-0021,BRF-2026-0039,CUST-0004,Decarbonisation project for Dalmia Bharat Cement,Proposal,25,69,2026-09-16,Arun Banerjee,66,57,GE Power; Cheema Boilers; Mitsubishi,2026-03-03,0.729,GO,Vandana Chopra
+OPP-2026-0022,BRF-2026-0047,CUST-0008,Brownfield expansion for Indian Oil Corporation,Lost,2,29,2026-07-13,Madhuri Chowdhury,76,77,Mitsubishi; Alstom; Forbes Marshall; Cheema Boilers,2026-03-04,0.713,GO,Kunal Chowdhury
+OPP-2026-0023,BRF-2026-0011,CUST-0024,Greenfield project for Jindal Steel and Power,In Progress,8,57,2026-09-18,Priya Sharma,71,56,Siemens Energy; Alstom,2026-03-04,0.788,GO,Suresh Nair
+OPP-2026-0024,BRF-2026-0060,CUST-0003,Greenfield project for Shree Cement,Won,200,83,2026-06-29,Prakash Patel,81,64,IJT; Mitsubishi; Cheema Boilers; GE Power,2025-12-25,0.712,NO-GO,Sanjay Chatterjee
+OPP-2026-0025,BRF-2026-0003,CUST-0026,Brownfield expansion for Hindalco Industries,Negotiation,5,30,2026-04-30,Shweta Sharma,84,68,Forbes Marshall; Cheema Boilers; Alstom,2026-01-09,0.77,GO,Sujata Kapoor
+OPP-2026-0026,BRF-2026-0030,CUST-0024,Greenfield project for Jindal Steel and Power,Qualified,350,84,2026-06-06,Amit Mehta,86,62,IJT; Siemens Energy; Thermax; Alstom,2026-01-12,0.851,GO,Kunal Agarwal
+OPP-2026-0027,BRF-2026-0007,CUST-0014,Emission compliance for Sun Pharmaceutical,Qualified,200,34,2026-07-09,Anjali Kumar,70,76,GE Power; Doosan,2026-01-20,0.906,GO,Shweta Shah
+OPP-2026-0028,BRF-2026-0038,CUST-0007,Utility upgrade for JK Cement,Lost,200,61,2026-09-03,Divya Rao,63,90,Cheema Boilers; GE Power,2026-01-01,0.772,NO-GO,Anita Tiwari
+OPP-2026-0029,BRF-2026-0045,CUST-0048,Brownfield expansion for Balrampur Chini Mills,Proposal,45,29,2026-07-29,Meera Saxena,75,78,Thermax; Mitsubishi,2026-03-29,0.803,GO,Anil Yadav
+OPP-2026-0030,BRF-2026-0008,CUST-0035,Emission compliance for Tata Chemicals,Negotiation,45,79,2026-08-19,Anjali Menon,68,78,Cheema Boilers; Siemens Energy; Mitsubishi; Thermax,2026-04-01,0.721,NO-GO,Rohit Trivedi
+OPP-2026-0031,BRF-2026-0026,CUST-0033,Greenfield project for UPL Limited,Qualified,2,85,2026-06-07,Kunal Bose,74,66,GE Power; Forbes Marshall; Siemens Energy; Alstom,2026-04-06,0.885,GO,Meera Reddy
+OPP-2026-0032,BRF-2026-0001,CUST-0004,Brownfield expansion for Dalmia Bharat Cement,In Progress,15,65,2026-08-28,Nandita Saxena,63,62,Mitsubishi; Siemens Energy; Alstom,2026-03-25,0.908,NO-GO,Harish Rao
+OPP-2026-0033,BRF-2026-0006,CUST-0052,Utility upgrade for Adani Power,Proposal,45,84,2026-05-31,Sachin Tiwari,62,52,Siemens Energy; Doosan; IJT,2026-02-24,0.74,NO-GO,Neha Nair
+OPP-2026-0034,BRF-2026-0018,CUST-0018,Decarbonisation project for Aurobindo Pharma,Negotiation,120,56,2026-06-05,Gopal Naidu,64,52,Siemens Energy; Mitsubishi; Thermax,2026-03-01,0.732,GO,Manish Chatterjee
+OPP-2026-0035,BRF-2026-0016,CUST-0041,Emission compliance for Nestle India,Lost,200,75,2026-05-17,Rakesh Chowdhury,56,74,IJT; Doosan; Thermax; Mitsubishi,2026-04-16,0.773,NO-GO,Sanjay Verma
+OPP-2026-0036,BRF-2026-0058,CUST-0052,ZLD retrofit for Adani Power,Proposal,25,35,2026-08-24,Rohit Kapoor,58,80,GE Power; Siemens Energy; Doosan,2026-03-22,0.832,NO-GO,Anita Mishra
+OPP-2026-0037,BRF-2026-0023,CUST-0012,Brownfield expansion for Nayara Energy,In Progress,8,69,2026-06-19,Hari Saxena,70,87,IJT; Thermax,2026-02-06,0.918,GO,Rekha Banerjee
+OPP-2026-0038,BRF-2026-0035,CUST-0020,Utility upgrade for Torrent Pharmaceuticals,Proposal,8,63,2026-07-24,Amit Chatterjee,86,52,Siemens Energy; IJT; Cheema Boilers,2026-03-25,0.885,GO,Pooja Nair
+OPP-2026-0039,BRF-2026-0059,CUST-0052,ZLD retrofit for Adani Power,In Progress,45,83,2026-08-13,Vandana Reddy,58,51,IJT; Mitsubishi; Thermax; GE Power,2026-01-25,0.791,GO,Ravi Joshi
+OPP-2026-0040,BRF-2026-0020,CUST-0021,Decarbonisation project for Tata Steel,Negotiation,8,36,2026-04-28,Shashi Vaidya,65,77,Forbes Marshall; Thermax; GE Power,2026-03-11,0.869,NO-GO,Sneha Rao
+OPP-2026-0041,BRF-2026-0012,CUST-0047,ZLD retrofit for Welspun India,Qualified,2,36,2026-06-29,Hari Vaidya,91,75,Mitsubishi; Alstom,2026-04-01,0.776,GO,Vikram Kapoor
+OPP-2026-0042,BRF-2026-0023,CUST-0021,Emission compliance for Tata Steel,Qualified,8,41,2026-07-27,Rohit Patel,95,55,Cheema Boilers; Mitsubishi; IJT,2026-04-19,0.711,NO-GO,Harish Yadav
+OPP-2026-0043,BRF-2026-0011,CUST-0027,ZLD retrofit for Tata Motors,Won,120,31,2026-05-19,Ajay Chowdhury,79,72,Forbes Marshall; Thermax; GE Power; Siemens Energy,2026-01-07,0.895,GO,Sneha Verma
+OPP-2026-0044,BRF-2026-0021,CUST-0017,Emission compliance for Lupin Limited,Proposal,5,71,2026-08-30,Lakshmi Shah,59,71,Alstom; Siemens Energy; Forbes Marshall,2026-01-26,0.738,GO,Gopal Bhatia
+OPP-2026-0045,BRF-2026-0011,CUST-0004,Emission compliance for Dalmia Bharat Cement,In Progress,5,60,2026-05-03,Aarti Malhotra,76,63,Forbes Marshall; Mitsubishi; Siemens Energy,2026-02-28,0.832,GO,Rekha Banerjee
+OPP-2026-0046,BRF-2026-0010,CUST-0004,Brownfield expansion for Dalmia Bharat Cement,In Progress,45,65,2026-05-19,Manish Gupta,55,77,Forbes Marshall; Thermax,2026-01-28,0.767,GO,Anjali Ghosh
+OPP-2026-0047,BRF-2026-0055,CUST-0008,Emission compliance for Indian Oil Corporation,In Progress,25,41,2026-08-26,Preeti Pillai,80,80,Thermax; IJT; Forbes Marshall,2026-03-03,0.743,GO,Priya Khanna
+OPP-2026-0048,BRF-2026-0029,CUST-0030,Greenfield project for Ashok Leyland,In Progress,25,67,2026-08-25,Anjali Trivedi,69,67,Doosan; Forbes Marshall; Cheema Boilers; Siemens Energy,2026-01-02,0.789,GO,Kiran Yadav
+OPP-2026-0049,BRF-2026-0035,CUST-0044,Emission compliance for Marico Limited,Negotiation,120,30,2026-06-09,Usha Kumar,91,65,GE Power; Thermax; Siemens Energy; Forbes Marshall,2026-03-28,0.918,GO,Arun Desai
+OPP-2026-0050,BRF-2026-0052,CUST-0013,Decarbonisation project for Mangalore Refinery,Won,8,37,2026-08-12,Rekha Srivastava,57,77,IJT; Mitsubishi; Siemens Energy,2026-03-01,0.828,GO,Lakshmi Bansal
+OPP-2026-0051,BRF-2026-0055,CUST-0018,Utility upgrade for Aurobindo Pharma,Won,200,34,2026-08-12,Bharat Saxena,84,50,Mitsubishi; GE Power; Cheema Boilers; Siemens Energy,2026-01-09,0.766,NO-GO,Girish Trivedi
+OPP-2026-0052,BRF-2026-0057,CUST-0027,Emission compliance for Tata Motors,Lost,25,63,2026-05-20,Priya Nair,79,91,Doosan; Thermax; Cheema Boilers,2026-02-01,0.857,GO,Ritu Kumar
+OPP-2026-0053,BRF-2026-0026,CUST-0022,Brownfield expansion for JSW Steel,Qualified,15,46,2026-07-03,Vivek Chopra,58,80,Mitsubishi; Forbes Marshall; GE Power,2026-03-12,0.924,NO-GO,Harish Bansal
+OPP-2026-0054,BRF-2026-0018,CUST-0047,Utility upgrade for Welspun India,Proposal,80,53,2026-07-26,Hari Yadav,93,91,Alstom; IJT; Doosan; Siemens Energy,2026-02-13,0.882,GO,Vikram Agarwal
+OPP-2026-0055,BRF-2026-0046,CUST-0033,Greenfield project for UPL Limited,Proposal,80,81,2026-07-29,Rekha Singh,63,83,Siemens Energy; Alstom,2026-04-13,0.911,GO,Madhuri Pillai
+OPP-2026-0056,BRF-2026-0018,CUST-0024,Decarbonisation project for Jindal Steel and Power,Qualified,120,68,2026-09-11,Rohit Pandey,87,75,Alstom; Thermax; Doosan,2026-02-18,0.835,GO,Rakesh Trivedi
+OPP-2026-0057,BRF-2026-0011,CUST-0017,Utility upgrade for Lupin Limited,Proposal,5,79,2026-07-26,Kunal Mehta,73,51,Forbes Marshall; GE Power; Thermax; IJT,2026-02-26,0.818,NO-GO,Shobha Sharma
+OPP-2026-0058,BRF-2026-0031,CUST-0009,Brownfield expansion for Bharat Petroleum,Lost,8,76,2026-07-02,Madhuri Chopra,93,50,Doosan; IJT; Forbes Marshall,2026-03-18,0.75,GO,Vivek Chatterjee
+OPP-2026-0059,BRF-2026-0053,CUST-0040,ZLD retrofit for West Coast Paper,In Progress,80,78,2026-06-15,Lakshmi Srivastava,92,56,Cheema Boilers; GE Power; IJT; Siemens Energy,2026-02-17,0.715,GO,Prakash Bansal
+OPP-2026-0060,BRF-2026-0056,CUST-0018,ZLD retrofit for Aurobindo Pharma,Proposal,25,82,2026-09-04,Anita Srivastava,74,62,IJT; Thermax; GE Power,2026-04-16,0.851,GO,Sneha Khanna

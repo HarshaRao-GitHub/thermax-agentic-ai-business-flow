@@ -1,0 +1,56 @@
+incident_id,project_id,incident_date,incident_type,severity,description,root_cause,agent_detected,stop_work_triggered,closed_by,closure_date
+INC-2026-0001,PRJ-2026-0008,2025-12-21,Electrical,Near Miss,Contractor injured during cutting,Procedure non-compliance,Yes,No,Vandana Naidu,2026-03-02
+INC-2026-0002,PRJ-2026-0014,2026-01-31,Height Work,Minor,Contractor injured during lifting,Procedure non-compliance,Yes,No,Anil Pandey,2026-02-04
+INC-2026-0003,PRJ-2026-0004,2025-12-18,Slip-Trip-Fall,Minor,Worker injured during hot work,Equipment failure,Yes,No,Vivek Rao,2026-03-14
+INC-2026-0004,PRJ-2026-0034,2026-02-16,Fire,Minor,Worker involved in during scaffolding,Training gap,Yes,No,Prakash Naidu,2026-02-02
+INC-2026-0005,PRJ-2026-0028,2025-12-15,Hot Work,Minor,Worker involved in during scaffolding,PPE non-use,No,No,Sachin Agarwal,2026-03-12
+INC-2026-0006,PRJ-2026-0028,2026-01-18,Chemical Exposure,LTI,Contractor involved in during hot work,Unsafe act,Yes,Yes,Ajay Agarwal,2026-01-13
+INC-2026-0007,PRJ-2026-0021,2026-03-03,Equipment,Near Miss,Operator injured during scaffolding,Unsafe condition,No,No,Ajay Pandey,2026-03-19
+INC-2026-0008,PRJ-2026-0052,2026-01-14,Fire,Minor,Operator injured during scaffolding,PPE non-use,Yes,No,Sunita Gupta,2026-03-02
+INC-2026-0009,PRJ-2026-0041,2026-01-23,Height Work,Near Miss,Worker injured during scaffolding,Unsafe condition,Yes,No,Deepak Nair,2026-04-02
+INC-2026-0010,PRJ-2026-0019,2025-12-27,Hot Work,Near Miss,Contractor involved in during welding,Training gap,No,No,Anil Vaidya,2026-04-13
+INC-2026-0011,PRJ-2026-0025,2026-03-26,Electrical,Near Miss,Worker involved in during lifting,Unsafe act,Yes,No,Kunal Mukherjee,2026-03-20
+INC-2026-0012,PRJ-2026-0035,2025-12-10,Hot Work,LTI,Worker injured during hot work,Unsafe act,No,Yes,Nandita Chatterjee,2026-03-02
+INC-2026-0013,PRJ-2026-0031,2025-12-16,Equipment,Major,Worker injured during lifting,Unsafe condition,Yes,Yes,Gopal Trivedi,2026-02-24
+INC-2026-0014,PRJ-2026-0051,2026-02-11,Chemical Exposure,Near Miss,Worker involved in during welding,Unsafe condition,Yes,No,Divya Patel,2026-04-03
+INC-2026-0015,PRJ-2026-0047,2026-03-10,Slip-Trip-Fall,Near Miss,Worker involved in during cutting,Equipment failure,Yes,No,Naveen Joshi,2026-03-23
+INC-2026-0016,PRJ-2026-0028,2025-11-22,Hot Work,Near Miss,Operator injured during scaffolding,Procedure non-compliance,Yes,No,Sachin Menon,2026-03-05
+INC-2026-0017,PRJ-2026-0017,2026-03-08,Confined Space,Minor,Worker injured during hot work,Equipment failure,Yes,No,Yogesh Bansal,2026-03-20
+INC-2026-0018,PRJ-2026-0024,2026-02-12,Slip-Trip-Fall,LTI,Worker involved in during welding,PPE non-use,Yes,Yes,Sneha Dutta,2026-03-09
+INC-2026-0019,PRJ-2026-0048,2026-03-02,Electrical,Near Miss,Worker injured during cutting,Unsafe condition,Yes,No,Harish Malhotra,2026-01-13
+INC-2026-0020,PRJ-2026-0035,2025-12-17,Electrical,Minor,Contractor involved in during scaffolding,Unsafe condition,No,No,Sneha Menon,2026-02-18
+INC-2026-0021,PRJ-2026-0011,2026-03-03,Equipment,Near Miss,Operator involved in during cutting,Unsafe act,Yes,No,Rakesh Sharma,2026-01-28
+INC-2026-0022,PRJ-2026-0035,2026-04-04,Hot Work,Near Miss,Worker injured during welding,PPE non-use,Yes,No,Manish Kumar,2026-03-03
+INC-2026-0023,PRJ-2026-0039,2026-02-22,Material Handling,LTI,Operator injured during welding,Procedure non-compliance,Yes,Yes,Pooja Mehta,2026-03-13
+INC-2026-0024,PRJ-2026-0001,2026-03-26,Equipment,Near Miss,Worker involved in during scaffolding,Training gap,Yes,No,Yogesh Patel,2026-02-26
+INC-2026-0025,PRJ-2026-0023,2026-02-09,Confined Space,Near Miss,Contractor involved in during welding,PPE non-use,Yes,No,Sachin Pillai,2026-03-26
+INC-2026-0026,PRJ-2026-0053,2026-01-19,Electrical,Minor,Contractor injured during scaffolding,Equipment failure,Yes,No,Ravi Sharma,2026-01-29
+INC-2026-0027,PRJ-2026-0044,2026-01-29,Height Work,Major,Operator injured during cutting,Procedure non-compliance,Yes,Yes,Yogesh Mukherjee,2026-01-27
+INC-2026-0028,PRJ-2026-0017,2025-12-05,Hot Work,LTI,Operator involved in during hot work,Procedure non-compliance,Yes,Yes,Suresh Srivastava,2026-04-14
+INC-2026-0029,PRJ-2026-0020,2025-12-19,Fire,Near Miss,Contractor injured during welding,Training gap,Yes,No,Aarti Mishra,2026-03-23
+INC-2026-0030,PRJ-2026-0003,2026-03-30,Equipment,LTI,Operator involved in during welding,Unsafe condition,No,Yes,Usha Desai,2026-02-09
+INC-2026-0031,PRJ-2026-0042,2025-12-27,Fire,Near Miss,Operator injured during cutting,Procedure non-compliance,Yes,No,Suresh Reddy,2026-01-29
+INC-2026-0032,PRJ-2026-0043,2025-12-15,Slip-Trip-Fall,Minor,Contractor injured during hot work,Unsafe condition,Yes,No,Kiran Mukherjee,2026-04-15
+INC-2026-0033,PRJ-2026-0046,2025-11-30,Height Work,Minor,Worker injured during lifting,Unsafe act,Yes,No,Rajesh Nair,2026-03-23
+INC-2026-0034,PRJ-2026-0012,2026-04-17,Electrical,Near Miss,Operator involved in during scaffolding,Training gap,Yes,No,Priya Verma,2026-02-15
+INC-2026-0035,PRJ-2026-0054,2025-11-30,Chemical Exposure,Major,Operator involved in during lifting,Unsafe act,Yes,Yes,Sachin Malhotra,2026-03-28
+INC-2026-0036,PRJ-2026-0024,2026-03-29,Confined Space,Minor,Worker injured during hot work,PPE non-use,Yes,No,Preeti Kapoor,2026-01-29
+INC-2026-0037,PRJ-2026-0006,2025-12-12,Slip-Trip-Fall,Minor,Contractor involved in during scaffolding,Procedure non-compliance,Yes,No,Manish Bansal,2026-03-13
+INC-2026-0038,PRJ-2026-0027,2025-11-22,Material Handling,LTI,Operator injured during lifting,Unsafe act,No,Yes,Vandana Verma,2026-02-22
+INC-2026-0039,PRJ-2026-0054,2026-01-08,Fire,LTI,Worker involved in during welding,PPE non-use,Yes,Yes,Nandita Mishra,2026-02-24
+INC-2026-0040,PRJ-2026-0054,2026-01-27,Slip-Trip-Fall,Near Miss,Operator injured during scaffolding,Training gap,Yes,No,Tarun Mishra,2026-02-26
+INC-2026-0041,PRJ-2026-0018,2026-04-03,Slip-Trip-Fall,Near Miss,Operator involved in during welding,PPE non-use,Yes,No,Madhuri Shah,2026-01-21
+INC-2026-0042,PRJ-2026-0054,2026-02-08,Slip-Trip-Fall,Near Miss,Contractor involved in during lifting,Training gap,Yes,No,Vinod Saxena,2026-03-18
+INC-2026-0043,PRJ-2026-0050,2025-12-22,Slip-Trip-Fall,Minor,Operator injured during welding,Procedure non-compliance,Yes,No,Divya Yadav,2026-02-10
+INC-2026-0044,PRJ-2026-0013,2025-12-01,Fire,Near Miss,Contractor involved in during cutting,Training gap,Yes,No,Ajay Sharma,2026-02-13
+INC-2026-0045,PRJ-2026-0015,2026-01-01,Equipment,Minor,Operator injured during scaffolding,Procedure non-compliance,Yes,No,Tarun Banerjee,2026-01-11
+INC-2026-0046,PRJ-2026-0040,2026-01-18,Slip-Trip-Fall,Near Miss,Contractor involved in during cutting,PPE non-use,Yes,No,Vikram Chowdhury,2026-02-22
+INC-2026-0047,PRJ-2026-0025,2026-02-20,Fire,Near Miss,Worker injured during cutting,Training gap,Yes,No,Dinesh Trivedi,2026-02-22
+INC-2026-0048,PRJ-2026-0055,2025-12-09,Equipment,Major,Worker involved in during lifting,PPE non-use,Yes,Yes,Lakshmi Sharma,2026-01-14
+INC-2026-0049,PRJ-2026-0037,2026-03-17,Electrical,Near Miss,Contractor involved in during welding,Procedure non-compliance,Yes,No,Deepak Dutta,2026-02-18
+INC-2026-0050,PRJ-2026-0030,2026-03-29,Fire,Near Miss,Contractor involved in during scaffolding,Procedure non-compliance,No,No,Vikram Gupta,2026-02-11
+INC-2026-0051,PRJ-2026-0044,2025-12-01,Fire,LTI,Contractor injured during hot work,Equipment failure,Yes,Yes,Meera Bhatia,2026-03-18
+INC-2026-0052,PRJ-2026-0012,2026-03-16,Chemical Exposure,Near Miss,Contractor injured during scaffolding,Unsafe act,Yes,No,Gopal Khanna,2026-01-19
+INC-2026-0053,PRJ-2026-0047,2026-02-12,Fire,Near Miss,Worker involved in during welding,PPE non-use,Yes,No,Rekha Kumar,2026-03-12
+INC-2026-0054,PRJ-2026-0028,2025-12-13,Fire,LTI,Worker injured during cutting,PPE non-use,Yes,Yes,Rajesh Chowdhury,2026-04-19
+INC-2026-0055,PRJ-2026-0047,2026-04-05,Hot Work,Near Miss,Worker involved in during scaffolding,PPE non-use,Yes,No,Shweta Menon,2026-03-25

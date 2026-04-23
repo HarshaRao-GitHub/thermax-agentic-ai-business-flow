@@ -1,0 +1,56 @@
+assessment_id,proposal_id,margin_pct,cash_flow_score,currency_exposure,payment_terms_risk,ld_exposure_pct,overall_risk_rating,agent_recommendation,cfo_name,decision_date,decision
+CRA-2026-0001,PRP-2026-0001,27.0,0.8,Mixed,High,3.3,Low,Hold for review,Sneha Reddy,2026-04-03,Rejected
+CRA-2026-0002,PRP-2026-0002,26.1,0.77,INR only,Low,11.9,Low,Proceed,Rakesh Shah,2026-03-21,Approved
+CRA-2026-0003,PRP-2026-0003,16.6,0.78,EUR 20%,Medium,8.3,Medium,Approve with conditions,Archana Patel,2026-03-09,Approved
+CRA-2026-0004,PRP-2026-0004,18.4,0.93,USD 60%,Medium,3.9,Medium,Approve with conditions,Tarun Kumar,2026-01-27,Approved
+CRA-2026-0005,PRP-2026-0005,15.2,0.81,USD 30%,High,4.0,Medium,Hold for review,Suresh Banerjee,2026-03-26,Rejected
+CRA-2026-0006,PRP-2026-0006,15.8,0.67,INR only,High,10.6,Medium,Proceed with hedging,Rajesh Bhatia,2026-04-10,Rejected
+CRA-2026-0007,PRP-2026-0007,20.5,0.67,USD 30%,Low,6.2,Low,Re-price,Sujata Mishra,2026-01-28,Approved
+CRA-2026-0008,PRP-2026-0008,21.8,0.77,USD 30%,Medium,10.4,Low,Re-price,Tarun Banerjee,2026-02-15,Rejected
+CRA-2026-0009,PRP-2026-0009,21.2,0.79,EUR 20%,Low,4.2,Low,Re-price,Mukesh Bose,2026-03-08,Approved
+CRA-2026-0010,PRP-2026-0010,22.3,0.64,Mixed,Medium,8.6,Low,Re-price,Shashi Tiwari,2026-04-02,Rejected
+CRA-2026-0011,PRP-2026-0011,25.3,0.9,USD 60%,Medium,8.9,Low,Proceed,Sneha Chopra,2026-02-13,Approved
+CRA-2026-0012,PRP-2026-0012,26.1,0.87,INR only,High,9.7,Low,Re-price,Archana Bansal,2026-02-25,Rejected
+CRA-2026-0013,PRP-2026-0013,24.8,0.75,EUR 20%,Low,4.7,Low,Proceed with hedging,Pooja Kumar,2026-03-10,Rejected
+CRA-2026-0014,PRP-2026-0014,18.0,0.8,USD 30%,High,4.1,Medium,Proceed,Sujata Vaidya,2026-03-07,Approved
+CRA-2026-0015,PRP-2026-0015,21.3,0.61,INR only,Medium,2.9,Low,Re-price,Hari Trivedi,2026-02-07,Approved
+CRA-2026-0016,PRP-2026-0016,22.1,0.78,EUR 20%,High,4.0,Low,Proceed with hedging,Rekha Pillai,2026-02-27,Approved
+CRA-2026-0017,PRP-2026-0017,15.9,0.66,EUR 20%,Medium,6.1,Medium,Approve with conditions,Jitendra Kapoor,2026-04-17,Approved
+CRA-2026-0018,PRP-2026-0018,25.4,0.86,USD 60%,Low,7.0,Low,Hold for review,Priya Menon,2026-03-13,Conditional
+CRA-2026-0019,PRP-2026-0019,11.4,0.82,USD 30%,Low,4.7,High,Proceed,Sachin Mishra,2026-01-25,Rejected
+CRA-2026-0020,PRP-2026-0020,13.2,0.86,EUR 20%,Low,2.8,High,Approve with conditions,Jitendra Yadav,2026-04-16,Approved
+CRA-2026-0021,PRP-2026-0021,23.6,0.79,USD 30%,Low,9.4,Low,Hold for review,Manish Srivastava,2026-03-10,Conditional
+CRA-2026-0022,PRP-2026-0022,18.2,0.86,EUR 20%,Medium,6.6,Medium,Proceed,Aarti Chowdhury,2026-02-17,Rejected
+CRA-2026-0023,PRP-2026-0023,16.0,0.63,Mixed,High,4.8,Medium,Re-price,Hari Pillai,2026-02-13,Approved
+CRA-2026-0024,PRP-2026-0024,17.5,0.95,Mixed,Medium,9.6,Medium,Proceed,Harish Mehta,2026-02-04,Approved
+CRA-2026-0025,PRP-2026-0025,17.8,0.68,EUR 20%,Medium,7.6,Medium,Re-price,Pooja Iyer,2026-01-28,Approved
+CRA-2026-0026,PRP-2026-0026,12.6,0.66,Mixed,High,4.5,High,Proceed with hedging,Ritu Vaidya,2026-02-17,Approved
+CRA-2026-0027,PRP-2026-0027,12.0,0.77,Mixed,Medium,9.4,High,Proceed with hedging,Priya Bansal,2026-02-05,Rejected
+CRA-2026-0028,PRP-2026-0028,25.8,0.69,USD 30%,High,9.9,Low,Approve with conditions,Smita Bansal,2026-01-25,Approved
+CRA-2026-0029,PRP-2026-0029,16.5,0.85,USD 60%,High,10.6,Medium,Proceed,Hari Gupta,2026-02-23,Approved
+CRA-2026-0030,PRP-2026-0030,17.4,0.86,USD 30%,High,9.5,Medium,Proceed with hedging,Manish Bose,2026-04-04,Approved
+CRA-2026-0031,PRP-2026-0031,26.1,0.77,USD 60%,Medium,3.4,Low,Approve with conditions,Mukesh Tiwari,2026-04-17,Conditional
+CRA-2026-0032,PRP-2026-0032,13.0,0.95,EUR 20%,High,5.2,High,Re-price,Bharat Menon,2026-03-31,Conditional
+CRA-2026-0033,PRP-2026-0033,19.9,0.67,USD 60%,High,5.7,Medium,Approve with conditions,Aarti Ghosh,2026-02-18,Approved
+CRA-2026-0034,PRP-2026-0034,26.9,0.92,USD 30%,Low,7.2,Low,Hold for review,Rajesh Bansal,2026-02-24,Approved
+CRA-2026-0035,PRP-2026-0035,13.6,0.62,INR only,Medium,9.0,High,Proceed with hedging,Shashi Gupta,2026-02-09,Rejected
+CRA-2026-0036,PRP-2026-0036,16.6,0.62,Mixed,High,3.6,Medium,Re-price,Nikhil Naidu,2026-03-21,Conditional
+CRA-2026-0037,PRP-2026-0037,21.7,0.92,EUR 20%,Medium,10.2,Low,Hold for review,Nandita Agarwal,2026-03-02,Rejected
+CRA-2026-0038,PRP-2026-0038,26.9,0.8,USD 30%,Low,7.9,Low,Proceed,Jitendra Desai,2026-03-14,Approved
+CRA-2026-0039,PRP-2026-0039,15.5,0.64,USD 60%,High,8.4,Medium,Hold for review,Pooja Chowdhury,2026-02-02,Conditional
+CRA-2026-0040,PRP-2026-0040,27.4,0.86,USD 60%,High,11.1,Low,Proceed with hedging,Arun Sharma,2026-03-20,Approved
+CRA-2026-0041,PRP-2026-0041,12.6,0.88,USD 30%,Low,3.6,High,Proceed,Anil Patel,2026-04-12,Approved
+CRA-2026-0042,PRP-2026-0042,19.7,0.75,Mixed,Medium,5.0,Medium,Proceed,Rohit Naidu,2026-02-27,Rejected
+CRA-2026-0043,PRP-2026-0043,24.2,0.85,EUR 20%,Medium,10.4,Low,Re-price,Kiran Shah,2026-01-31,Approved
+CRA-2026-0044,PRP-2026-0044,27.2,0.93,EUR 20%,High,3.4,Low,Hold for review,Lakshmi Bose,2026-02-15,Conditional
+CRA-2026-0045,PRP-2026-0045,22.7,0.8,Mixed,High,5.5,Low,Proceed,Shobha Pandey,2026-02-18,Conditional
+CRA-2026-0046,PRP-2026-0046,23.4,0.67,USD 60%,Low,5.8,Low,Proceed with hedging,Vinod Sharma,2026-03-24,Rejected
+CRA-2026-0047,PRP-2026-0047,17.1,0.67,USD 60%,Medium,5.3,Medium,Re-price,Hari Khanna,2026-02-13,Approved
+CRA-2026-0048,PRP-2026-0048,21.3,0.61,EUR 20%,High,6.8,Low,Proceed,Shashi Khanna,2026-03-14,Approved
+CRA-2026-0049,PRP-2026-0049,27.5,0.89,Mixed,High,8.3,Low,Hold for review,Kavita Ghosh,2026-01-26,Approved
+CRA-2026-0050,PRP-2026-0050,11.6,0.61,USD 30%,High,9.4,High,Proceed with hedging,Anjali Yadav,2026-04-03,Approved
+CRA-2026-0051,PRP-2026-0051,18.5,0.85,EUR 20%,Low,10.6,Medium,Re-price,Kunal Pillai,2026-01-25,Approved
+CRA-2026-0052,PRP-2026-0052,16.7,0.84,EUR 20%,High,3.7,Medium,Approve with conditions,Jitendra Pandey,2026-02-11,Approved
+CRA-2026-0053,PRP-2026-0053,27.0,0.74,INR only,Low,3.9,Low,Approve with conditions,Suresh Chopra,2026-04-08,Approved
+CRA-2026-0054,PRP-2026-0054,18.5,0.7,USD 30%,High,7.1,Medium,Proceed with hedging,Nikhil Sharma,2026-03-10,Conditional
+CRA-2026-0055,PRP-2026-0055,20.5,0.64,Mixed,High,10.4,Low,Proceed,Bharat Dutta,2026-04-07,Approved

@@ -1,0 +1,71 @@
+gate_id,stage,approval_type,entity_id,approver_role,approver_name,submitted_date,decision_date,decision,decision_reason,sla_hours,sla_status
+GATE-2026-0001,Site Ops,Stop Work Decision,INC-2026-0001,Site Manager,Vikram Srivastava,2026-02-05,2026-02-20,Approved,Needs rework,2,Met
+GATE-2026-0002,HR/PMO,Charter Approval,PRJ-2026-0055,PMO Head,Rekha Chopra,2026-02-06,2026-03-09,Approved,Risk acceptable,48,Met
+GATE-2026-0003,Site Ops,Change Order,PRJ-2026-0018,Project Director,Ashok Vaidya,2026-04-06,2026-03-18,Approved,Needs rework,72,Met
+GATE-2026-0004,Marketing,Account Brief Approval,BRF-2026-0020,Marketing Director,Neha Trivedi,2026-03-11,2026-03-04,Rejected,Procedure gaps,24,Met
+GATE-2026-0005,Service,Retrofit Proposal,TKT-2026-0032,Service Director,Bharat Bansal,2026-03-13,2026-02-17,Approved,Risk too high,72,Breached
+GATE-2026-0006,Commissioning,PAC Issuance,PRJ-2026-0015,Commissioning Head,Amit Joshi,2026-02-06,2026-02-10,Approved,Meets criteria,96,Met
+GATE-2026-0007,Pre-sales,Proposal Approval,PRP-2026-0043,Solution Director,Madhuri Vaidya,2026-02-24,2026-03-20,Approved,Margin adequate,72,Met
+GATE-2026-0008,Pre-sales,Proposal Approval,PRP-2026-0042,Solution Director,Rakesh Chatterjee,2026-04-15,2026-04-04,Approved,Margin adequate,72,Met
+GATE-2026-0009,Site Ops,Change Order,PRJ-2026-0018,Project Director,Manish Agarwal,2026-02-01,2026-04-02,Rejected,Meets criteria,72,Met
+GATE-2026-0010,Engineering,PG Sign-off,PG-2026-0007,Chief Engineer,Shweta Ghosh,2026-02-07,2026-03-16,Approved,Needs rework,96,Met
+GATE-2026-0011,Legal,Contract Approval,CNT-2026-0030,General Counsel,Deepak Agarwal,2026-03-05,2026-04-13,Approved,Needs rework,96,Breached
+GATE-2026-0012,Legal,Contract Approval,CNT-2026-0048,General Counsel,Arun Pillai,2026-03-17,2026-04-21,Approved,Needs rework,96,Breached
+GATE-2026-0013,Site Ops,Change Order,PRJ-2026-0049,Project Director,Ajay Chatterjee,2026-04-04,2026-03-02,Approved,Risk too high,72,Breached
+GATE-2026-0014,Site Ops,Change Order,PRJ-2026-0052,Project Director,Mukesh Menon,2026-03-16,2026-03-21,Conditional,Risk too high,72,Met
+GATE-2026-0015,Engineering,PG Sign-off,PG-2026-0011,Chief Engineer,Preeti Pandey,2026-02-25,2026-02-10,Approved,Scope clear,96,Met
+GATE-2026-0016,Service,Retrofit Proposal,TKT-2026-0040,Service Director,Mukesh Ghosh,2026-03-16,2026-03-15,Rejected,Needs rework,72,Met
+GATE-2026-0017,Engineering,PG Sign-off,PG-2026-0007,Chief Engineer,Rajesh Mishra,2026-02-23,2026-03-01,Approved,Risk acceptable,96,Met
+GATE-2026-0018,Site Ops,Stop Work Decision,INC-2026-0014,Site Manager,Anita Chatterjee,2026-04-09,2026-04-10,Approved,Scope clear,2,Met
+GATE-2026-0019,Site Ops,Change Order,PRJ-2026-0033,Project Director,Suresh Mishra,2026-04-01,2026-03-06,Pending,Procedure gaps,72,Met
+GATE-2026-0020,Finance,Margin Approval,CRA-2026-0037,CFO,Lakshmi Saxena,2026-03-12,2026-04-19,Conditional,Scope clear,48,Met
+GATE-2026-0021,Pre-sales,Proposal Approval,PRP-2026-0016,Solution Director,Suresh Mehta,2026-04-03,2026-02-20,Approved,Meets criteria,72,Met
+GATE-2026-0022,HR/PMO,Charter Approval,PRJ-2026-0040,PMO Head,Suresh Menon,2026-02-15,2026-03-23,Approved,Scope clear,48,Breached
+GATE-2026-0023,Commissioning,PAC Issuance,PRJ-2026-0053,Commissioning Head,Madhuri Bhatia,2026-02-06,2026-03-12,Approved,Procedure gaps,96,Met
+GATE-2026-0024,Engineering,HAZOP Clearance,ENV-2026-0052,Safety Head,Tarun Naidu,2026-02-10,2026-03-17,Approved,Procedure gaps,120,Met
+GATE-2026-0025,HR/PMO,Charter Approval,PRJ-2026-0029,PMO Head,Aarti Patel,2026-02-05,2026-02-24,Approved,Scope clear,48,Met
+GATE-2026-0026,HR/PMO,Charter Approval,PRJ-2026-0021,PMO Head,Kiran Patel,2026-03-11,2026-02-11,Conditional,Needs rework,48,Met
+GATE-2026-0027,Site Ops,Stop Work Decision,INC-2026-0044,Site Manager,Neha Dutta,2026-04-15,2026-02-15,Approved,Meets criteria,2,Met
+GATE-2026-0028,Finance,Margin Approval,CRA-2026-0038,CFO,Raghav Singh,2026-04-12,2026-03-14,Rejected,Margin adequate,48,Met
+GATE-2026-0029,Site Ops,Change Order,PRJ-2026-0039,Project Director,Sachin Naidu,2026-03-02,2026-03-26,Rejected,Needs rework,72,Met
+GATE-2026-0030,Engineering,HAZOP Clearance,ENV-2026-0036,Safety Head,Neha Chatterjee,2026-02-14,2026-04-19,Rejected,Procedure gaps,120,Met
+GATE-2026-0031,Pre-sales,Proposal Approval,PRP-2026-0002,Solution Director,Suresh Kapoor,2026-02-18,2026-03-01,Approved,Risk too high,72,Met
+GATE-2026-0032,Sales,Go/No-Go Decision,OPP-2026-0012,BU Head Sales,Nikhil Joshi,2026-04-06,2026-04-10,Approved,Needs rework,48,Breached
+GATE-2026-0033,Site Ops,Change Order,PRJ-2026-0007,Project Director,Ajay Pillai,2026-04-01,2026-02-14,Approved,Risk too high,72,Breached
+GATE-2026-0034,Legal,Contract Approval,CNT-2026-0055,General Counsel,Meera Verma,2026-04-08,2026-02-18,Pending,Meets criteria,96,Breached
+GATE-2026-0035,Legal,Contract Approval,CNT-2026-0025,General Counsel,Deepak Singh,2026-02-03,2026-02-22,Pending,Needs rework,96,Met
+GATE-2026-0036,Pre-sales,Proposal Approval,PRP-2026-0015,Solution Director,Lakshmi Iyer,2026-02-18,2026-03-03,Conditional,Needs rework,72,Met
+GATE-2026-0037,Site Ops,Stop Work Decision,INC-2026-0015,Site Manager,Yogesh Bhatia,2026-03-23,2026-03-14,Approved,Needs rework,2,Met
+GATE-2026-0038,HR/PMO,Charter Approval,PRJ-2026-0003,PMO Head,Mukesh Banerjee,2026-03-20,2026-03-11,Approved,Scope clear,48,Met
+GATE-2026-0039,Site Ops,Change Order,PRJ-2026-0040,Project Director,Jitendra Mehta,2026-02-27,2026-03-28,Pending,Margin adequate,72,Breached
+GATE-2026-0040,Finance,Margin Approval,CRA-2026-0045,CFO,Smita Bose,2026-02-22,2026-03-22,Pending,Risk too high,48,Met
+GATE-2026-0041,Sales,Go/No-Go Decision,OPP-2026-0050,BU Head Sales,Anil Joshi,2026-03-30,2026-03-09,Approved,Risk too high,48,Met
+GATE-2026-0042,Marketing,Account Brief Approval,BRF-2026-0044,Marketing Director,Usha Kumar,2026-03-11,2026-03-07,Approved,Risk acceptable,24,Met
+GATE-2026-0043,Commissioning,PAC Issuance,PRJ-2026-0006,Commissioning Head,Raghav Mehta,2026-02-12,2026-02-14,Conditional,Margin adequate,96,Met
+GATE-2026-0044,Service,Retrofit Proposal,TKT-2026-0053,Service Director,Vivek Pandey,2026-03-16,2026-02-15,Approved,Needs rework,72,Met
+GATE-2026-0045,Engineering,PG Sign-off,PG-2026-0007,Chief Engineer,Vivek Ghosh,2026-04-11,2026-04-15,Approved,Risk too high,96,Met
+GATE-2026-0046,Service,Retrofit Proposal,TKT-2026-0007,Service Director,Ajay Bansal,2026-04-01,2026-04-15,Approved,Risk acceptable,72,Met
+GATE-2026-0047,Legal,Contract Approval,CNT-2026-0035,General Counsel,Nikhil Tiwari,2026-02-23,2026-02-12,Approved,Needs rework,96,Met
+GATE-2026-0048,Sales,Go/No-Go Decision,OPP-2026-0048,BU Head Sales,Harish Bose,2026-04-16,2026-02-23,Approved,Needs rework,48,Breached
+GATE-2026-0049,Marketing,Account Brief Approval,BRF-2026-0010,Marketing Director,Vandana Chopra,2026-03-22,2026-03-07,Pending,Scope clear,24,Met
+GATE-2026-0050,Site Ops,Change Order,PRJ-2026-0019,Project Director,Bharat Malhotra,2026-03-18,2026-04-18,Rejected,Procedure gaps,72,Met
+GATE-2026-0051,Engineering,PG Sign-off,PG-2026-0053,Chief Engineer,Sachin Verma,2026-02-25,2026-04-13,Approved,Scope clear,96,Met
+GATE-2026-0052,Engineering,PG Sign-off,PG-2026-0009,Chief Engineer,Neha Banerjee,2026-02-01,2026-02-16,Rejected,Risk too high,96,Met
+GATE-2026-0053,Engineering,PG Sign-off,PG-2026-0056,Chief Engineer,Smita Pandey,2026-04-05,2026-02-23,Conditional,Risk too high,96,Met
+GATE-2026-0054,Pre-sales,Proposal Approval,PRP-2026-0039,Solution Director,Ravi Mukherjee,2026-04-02,2026-03-02,Approved,Needs rework,72,Met
+GATE-2026-0055,Service,Retrofit Proposal,TKT-2026-0014,Service Director,Rekha Shah,2026-04-16,2026-03-10,Conditional,Needs rework,72,Met
+GATE-2026-0056,Finance,Margin Approval,CRA-2026-0059,CFO,Sanjay Mehta,2026-03-13,2026-03-30,Pending,Margin adequate,48,Met
+GATE-2026-0057,Sales,Go/No-Go Decision,OPP-2026-0025,BU Head Sales,Rakesh Khanna,2026-03-04,2026-02-12,Conditional,Risk acceptable,48,Met
+GATE-2026-0058,Site Ops,Stop Work Decision,INC-2026-0028,Site Manager,Hari Desai,2026-03-02,2026-03-14,Rejected,Margin adequate,2,Met
+GATE-2026-0059,Legal,Contract Approval,CNT-2026-0055,General Counsel,Kavita Reddy,2026-02-19,2026-03-08,Rejected,Risk too high,96,Met
+GATE-2026-0060,Commissioning,PAC Issuance,PRJ-2026-0037,Commissioning Head,Preeti Shah,2026-03-06,2026-02-18,Approved,Margin adequate,96,Breached
+GATE-2026-0061,Service,Retrofit Proposal,TKT-2026-0040,Service Director,Harish Sharma,2026-04-06,2026-03-09,Approved,Meets criteria,72,Met
+GATE-2026-0062,Pre-sales,Proposal Approval,PRP-2026-0011,Solution Director,Ravi Tiwari,2026-04-11,2026-02-10,Approved,Meets criteria,72,Breached
+GATE-2026-0063,Commissioning,PAC Issuance,PRJ-2026-0054,Commissioning Head,Ajay Agarwal,2026-03-15,2026-03-17,Approved,Risk too high,96,Met
+GATE-2026-0064,HR/PMO,Charter Approval,PRJ-2026-0025,PMO Head,Sachin Naidu,2026-04-13,2026-03-26,Approved,Risk too high,48,Breached
+GATE-2026-0065,HR/PMO,Charter Approval,PRJ-2026-0052,PMO Head,Shalini Rao,2026-02-22,2026-04-05,Approved,Needs rework,48,Met
+GATE-2026-0066,Legal,Contract Approval,CNT-2026-0019,General Counsel,Vinod Verma,2026-03-21,2026-04-02,Pending,Scope clear,96,Met
+GATE-2026-0067,Commissioning,PAC Issuance,PRJ-2026-0023,Commissioning Head,Preeti Saxena,2026-04-17,2026-03-03,Approved,Risk too high,96,Breached
+GATE-2026-0068,Pre-sales,Proposal Approval,PRP-2026-0008,Solution Director,Ashok Bose,2026-02-08,2026-02-22,Rejected,Meets criteria,72,Met
+GATE-2026-0069,Site Ops,Stop Work Decision,INC-2026-0048,Site Manager,Divya Patel,2026-03-03,2026-04-21,Rejected,Risk acceptable,2,Met
+GATE-2026-0070,Finance,Margin Approval,CRA-2026-0048,CFO,Kavita Kumar,2026-03-01,2026-04-04,Approved,Procedure gaps,48,Met

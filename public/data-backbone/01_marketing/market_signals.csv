@@ -1,0 +1,71 @@
+signal_id,detected_date,source,signal_type,customer_id,industry,description,urgency_score,estimated_value_inr_cr,agent_id,agent_confidence,status,human_reviewed_by,review_outcome
+SIG-2026-0001,2025-12-29,LinkedIn,Industry Conference,CUST-0044,FMCG,Plant Expansion News detected for Marico Limited in Mumbai,4,2,AGT-MKT-01,0.88,Under Review,Shashi Khanna,Pending
+SIG-2026-0002,2026-03-25,Moneycontrol,Reliability Issue Report,CUST-0020,Pharma,Industry Conference detected for Torrent Pharmaceuticals in Ahmedabad,2,18,AGT-MKT-01,0.81,Rejected,Shashi Malhotra,Approved
+SIG-2026-0003,2025-11-28,News API,Decarbonisation Mandate,CUST-0043,FMCG,Industry Conference detected for Hindustan Unilever in Mumbai,3,8,AGT-MKT-01,0.906,Rejected,Vandana Mehta,Rejected
+SIG-2026-0004,2026-02-16,CRISIL Reports,Analyst Report,CUST-0015,Pharma,Regulatory Change detected for Dr Reddys Laboratories in Hyderabad,4,5,AGT-MKT-01,0.946,Escalated,Pending,Approved
+SIG-2026-0005,2025-11-24,LinkedIn,Government Policy,CUST-0020,Pharma,Emission Norm Update detected for Torrent Pharmaceuticals in Ahmedabad,5,25,AGT-MKT-01,0.743,Rejected,Anil Yadav,Needs more info
+SIG-2026-0006,2025-12-07,BSE Filings,Water Scarcity Alert,CUST-0013,Refinery,Emission Norm Update detected for Mangalore Refinery in Mangalore,2,35,AGT-MKT-01,0.784,Under Review,Anita Malhotra,Rejected
+SIG-2026-0007,2026-03-16,Moneycontrol,Water Scarcity Alert,CUST-0052,Power,Analyst Report detected for Adani Power in Ahmedabad,1,25,AGT-MKT-01,0.901,Under Review,Kunal Naidu,Rejected
+SIG-2026-0008,2026-02-13,MCA Filings,Competitor Exit,CUST-0006,Cement,Sustainability Target detected for Ramco Cements in Chennai,5,18,AGT-MKT-01,0.888,Escalated,Aarti Saxena,Pending
+SIG-2026-0009,2025-10-31,Moneycontrol,Competitor Exit,CUST-0053,Power,Capex Announcement detected for Torrent Power in Ahmedabad,4,12,AGT-MKT-01,0.875,Approved,Anil Vaidya,Needs more info
+SIG-2026-0010,2025-10-24,BSE Filings,Analyst Report,CUST-0042,Food,Reliability Issue Report detected for Britannia Industries in Bengaluru,1,75,AGT-MKT-01,0.749,Approved,Priya Agarwal,Pending
+SIG-2026-0011,2026-03-18,CII Reports,Competitor Exit,CUST-0008,Refinery,Sustainability Target detected for Indian Oil Corporation in Panipat,1,5,AGT-MKT-01,0.888,Escalated,Pending,Pending
+SIG-2026-0012,2026-01-05,MCA Filings,Water Scarcity Alert,CUST-0038,Paper,Competitor Exit detected for ITC Limited (Paperboards) in Kolkata,4,120,AGT-MKT-01,0.874,Rejected,Priya Pandey,Needs more info
+SIG-2026-0013,2026-03-27,LinkedIn,Executive Change,CUST-0029,Automotive,Decarbonisation Mandate detected for Maruti Suzuki India in Gurugram,3,5,AGT-MKT-01,0.964,Rejected,Sunita Tiwari,Rejected
+SIG-2026-0014,2025-11-03,Moneycontrol,Analyst Report,CUST-0013,Refinery,Analyst Report detected for Mangalore Refinery in Mangalore,1,25,AGT-MKT-01,0.869,Approved,Sunita Joshi,Needs more info
+SIG-2026-0015,2026-04-04,Moneycontrol,Industry Conference,CUST-0009,Refinery,Annual Report Disclosure detected for Bharat Petroleum in Mumbai,5,50,AGT-MKT-01,0.923,Approved,Pooja Iyer,Approved
+SIG-2026-0016,2025-12-04,BSE Filings,Energy Cost Pressure,CUST-0018,Pharma,Emission Norm Update detected for Aurobindo Pharma in Hyderabad,5,2,AGT-MKT-01,0.747,Approved,Meera Sharma,Rejected
+SIG-2026-0017,2026-01-29,News API,Emission Norm Update,CUST-0051,Power,Plant Expansion News detected for Tata Power in Mumbai,5,5,AGT-MKT-01,0.733,Escalated,Pending,Pending
+SIG-2026-0018,2025-12-21,Industry Journal,Energy Cost Pressure,CUST-0034,Chemicals,Sustainability Target detected for PI Industries in Udaipur,1,120,AGT-MKT-01,0.848,Approved,Harish Mukherjee,Needs more info
+SIG-2026-0019,2025-12-09,BSE Filings,Competitor Exit,CUST-0040,Paper,Analyst Report detected for West Coast Paper in Dandeli,1,120,AGT-MKT-01,0.961,Approved,Pending,Pending
+SIG-2026-0020,2025-12-17,Industry Journal,Regulatory Change,CUST-0026,Metals,Decarbonisation Mandate detected for Hindalco Industries in Mumbai,3,75,AGT-MKT-01,0.74,Approved,Suresh Patel,Needs more info
+SIG-2026-0021,2025-12-02,LinkedIn,Reliability Issue Report,CUST-0018,Pharma,Industry Conference detected for Aurobindo Pharma in Hyderabad,4,75,AGT-MKT-01,0.853,Under Review,Pending,Pending
+SIG-2026-0022,2025-11-05,Moneycontrol,Reliability Issue Report,CUST-0007,Cement,Competitor Exit detected for JK Cement in Kanpur,5,120,AGT-MKT-01,0.942,Under Review,Pooja Dutta,Pending
+SIG-2026-0023,2026-01-02,LinkedIn,Analyst Report,CUST-0027,Automotive,Plant Expansion News detected for Tata Motors in Pune,4,1,AGT-MKT-01,0.814,Approved,Archana Ghosh,Approved
+SIG-2026-0024,2026-01-01,MCA Filings,Government Policy,CUST-0006,Cement,Government Policy detected for Ramco Cements in Chennai,5,1,AGT-MKT-01,0.813,Approved,Lakshmi Singh,Rejected
+SIG-2026-0025,2025-11-02,CII Reports,Water Scarcity Alert,CUST-0043,FMCG,Decarbonisation Mandate detected for Hindustan Unilever in Mumbai,1,18,AGT-MKT-01,0.9,Rejected,Raghav Agarwal,Rejected
+SIG-2026-0026,2026-03-13,Industry Journal,Annual Report Disclosure,CUST-0007,Cement,Water Scarcity Alert detected for JK Cement in Kanpur,4,35,AGT-MKT-01,0.747,Approved,Sarika Reddy,Rejected
+SIG-2026-0027,2025-11-13,News API,Industry Conference,CUST-0037,Chemicals,Decarbonisation Mandate detected for Aarti Industries in Mumbai,2,18,AGT-MKT-01,0.884,Escalated,Pending,Rejected
+SIG-2026-0028,2026-02-01,LinkedIn,Sustainability Target,CUST-0002,Cement,Capex Announcement detected for ACC Limited in Mumbai,2,8,AGT-MKT-01,0.765,Approved,Pending,Pending
+SIG-2026-0029,2026-04-14,MCA Filings,Government Policy,CUST-0005,Cement,Executive Change detected for Ambuja Cements in Mumbai,2,120,AGT-MKT-01,0.774,Under Review,Pending,Pending
+SIG-2026-0030,2026-01-28,MCA Filings,Decarbonisation Mandate,CUST-0022,Steel,Capex Announcement detected for JSW Steel in Mumbai,2,12,AGT-MKT-01,0.759,Approved,Sunita Shah,Rejected
+SIG-2026-0031,2025-11-17,Industry Journal,Reliability Issue Report,CUST-0029,Automotive,Plant Expansion News detected for Maruti Suzuki India in Gurugram,4,18,AGT-MKT-01,0.774,Approved,Deepak Trivedi,Pending
+SIG-2026-0032,2025-11-21,Industry Journal,Executive Change,CUST-0008,Refinery,Analyst Report detected for Indian Oil Corporation in Panipat,3,75,AGT-MKT-01,0.797,Approved,Pending,Pending
+SIG-2026-0033,2026-02-03,Moneycontrol,Energy Cost Pressure,CUST-0039,Paper,Emission Norm Update detected for JK Paper in New Delhi,1,0.5,AGT-MKT-01,0.911,Rejected,Anil Reddy,Approved
+SIG-2026-0034,2026-03-19,CII Reports,Executive Change,CUST-0032,Automotive,Government Policy detected for Hero MotoCorp in New Delhi,4,18,AGT-MKT-01,0.778,Approved,Rekha Trivedi,Approved
+SIG-2026-0035,2025-12-31,News API,Competitor Exit,CUST-0026,Metals,Decarbonisation Mandate detected for Hindalco Industries in Mumbai,5,120,AGT-MKT-01,0.739,Rejected,Bharat Bhatia,Pending
+SIG-2026-0036,2026-03-23,CII Reports,Capex Announcement,CUST-0046,Textile,Sustainability Target detected for Raymond Limited in Mumbai,4,18,AGT-MKT-01,0.763,Approved,Shweta Pandey,Approved
+SIG-2026-0037,2025-12-31,CII Reports,Executive Change,CUST-0028,Automotive,Regulatory Change detected for Mahindra and Mahindra in Mumbai,5,1,AGT-MKT-01,0.819,Rejected,Shalini Joshi,Needs more info
+SIG-2026-0038,2025-12-12,MCA Filings,Executive Change,CUST-0022,Steel,Executive Change detected for JSW Steel in Mumbai,5,2,AGT-MKT-01,0.768,Rejected,Rakesh Iyer,Needs more info
+SIG-2026-0039,2026-03-08,CRISIL Reports,Energy Cost Pressure,CUST-0007,Cement,Energy Cost Pressure detected for JK Cement in Kanpur,2,8,AGT-MKT-01,0.884,Approved,Vandana Banerjee,Pending
+SIG-2026-0040,2025-10-29,LinkedIn,Water Scarcity Alert,CUST-0049,Sugar,Analyst Report detected for Triveni Engineering in Noida,4,50,AGT-MKT-01,0.799,Under Review,Vikram Ghosh,Pending
+SIG-2026-0041,2026-04-07,LinkedIn,Executive Change,CUST-0041,Food,Regulatory Change detected for Nestle India in Gurugram,3,8,AGT-MKT-01,0.798,Under Review,Pending,Approved
+SIG-2026-0042,2025-11-07,MCA Filings,Industry Conference,CUST-0004,Cement,Industry Conference detected for Dalmia Bharat Cement in New Delhi,3,8,AGT-MKT-01,0.847,Under Review,Nandita Naidu,Approved
+SIG-2026-0043,2026-03-04,LinkedIn,Industry Conference,CUST-0029,Automotive,Competitor Exit detected for Maruti Suzuki India in Gurugram,5,50,AGT-MKT-01,0.845,Approved,Pending,Pending
+SIG-2026-0044,2026-03-31,CRISIL Reports,Capex Announcement,CUST-0007,Cement,Annual Report Disclosure detected for JK Cement in Kanpur,5,12,AGT-MKT-01,0.897,Under Review,Pending,Needs more info
+SIG-2026-0045,2026-01-07,LinkedIn,Analyst Report,CUST-0024,Steel,Industry Conference detected for Jindal Steel and Power in New Delhi,3,8,AGT-MKT-01,0.733,Escalated,Preeti Joshi,Approved
+SIG-2026-0046,2026-01-13,BSE Filings,Plant Expansion News,CUST-0022,Steel,Government Policy detected for JSW Steel in Mumbai,1,35,AGT-MKT-01,0.933,Approved,Pending,Needs more info
+SIG-2026-0047,2026-03-16,LinkedIn,Plant Expansion News,CUST-0022,Steel,Analyst Report detected for JSW Steel in Mumbai,1,50,AGT-MKT-01,0.895,Under Review,Pending,Needs more info
+SIG-2026-0048,2025-11-29,CII Reports,Analyst Report,CUST-0039,Paper,Energy Cost Pressure detected for JK Paper in New Delhi,4,1,AGT-MKT-01,0.802,Approved,Tarun Chatterjee,Approved
+SIG-2026-0049,2026-01-19,News API,Sustainability Target,CUST-0042,Food,Plant Expansion News detected for Britannia Industries in Bengaluru,4,18,AGT-MKT-01,0.765,Approved,Pending,Rejected
+SIG-2026-0050,2026-03-17,CRISIL Reports,Regulatory Change,CUST-0050,Power,Plant Expansion News detected for NTPC Limited in New Delhi,3,5,AGT-MKT-01,0.931,Approved,Yogesh Pillai,Approved
+SIG-2026-0051,2025-11-20,CII Reports,Emission Norm Update,CUST-0043,FMCG,Emission Norm Update detected for Hindustan Unilever in Mumbai,3,50,AGT-MKT-01,0.765,Escalated,Vandana Vaidya,Needs more info
+SIG-2026-0052,2026-01-18,Moneycontrol,Competitor Exit,CUST-0047,Textile,Industry Conference detected for Welspun India in Mumbai,3,0.5,AGT-MKT-01,0.791,Escalated,Ajay Bose,Needs more info
+SIG-2026-0053,2026-03-03,LinkedIn,Analyst Report,CUST-0035,Chemicals,Industry Conference detected for Tata Chemicals in Mumbai,2,8,AGT-MKT-01,0.966,Under Review,Vandana Malhotra,Pending
+SIG-2026-0054,2026-03-01,CRISIL Reports,Water Scarcity Alert,CUST-0033,Chemicals,Plant Expansion News detected for UPL Limited in Mumbai,4,18,AGT-MKT-01,0.733,Under Review,Shobha Pandey,Approved
+SIG-2026-0055,2026-02-08,MCA Filings,Energy Cost Pressure,CUST-0046,Textile,Emission Norm Update detected for Raymond Limited in Mumbai,5,35,AGT-MKT-01,0.788,Approved,Suresh Bhatia,Approved
+SIG-2026-0056,2026-04-15,CII Reports,Capex Announcement,CUST-0015,Pharma,Reliability Issue Report detected for Dr Reddys Laboratories in Hyderabad,5,25,AGT-MKT-01,0.846,Approved,Ashok Shah,Rejected
+SIG-2026-0057,2025-11-06,LinkedIn,Energy Cost Pressure,CUST-0015,Pharma,Emission Norm Update detected for Dr Reddys Laboratories in Hyderabad,1,12,AGT-MKT-01,0.754,Rejected,Hari Ghosh,Needs more info
+SIG-2026-0058,2025-11-15,News API,Decarbonisation Mandate,CUST-0049,Sugar,Regulatory Change detected for Triveni Engineering in Noida,4,25,AGT-MKT-01,0.725,Approved,Rekha Iyer,Pending
+SIG-2026-0059,2026-02-03,MCA Filings,Capex Announcement,CUST-0008,Refinery,Annual Report Disclosure detected for Indian Oil Corporation in Panipat,5,8,AGT-MKT-01,0.825,Approved,Shweta Patel,Approved
+SIG-2026-0060,2025-11-11,Moneycontrol,Government Policy,CUST-0032,Automotive,Emission Norm Update detected for Hero MotoCorp in New Delhi,4,35,AGT-MKT-01,0.793,Approved,Sujata Trivedi,Needs more info
+SIG-2026-0061,2025-11-01,MCA Filings,Executive Change,CUST-0037,Chemicals,Sustainability Target detected for Aarti Industries in Mumbai,3,2,AGT-MKT-01,0.737,Approved,Pending,Approved
+SIG-2026-0062,2025-11-10,CII Reports,Sustainability Target,CUST-0025,Metals,Plant Expansion News detected for Vedanta Limited in Mumbai,5,25,AGT-MKT-01,0.907,Rejected,Ajay Patel,Rejected
+SIG-2026-0063,2026-03-26,LinkedIn,Emission Norm Update,CUST-0016,Pharma,Capex Announcement detected for Cipla in Mumbai,4,75,AGT-MKT-01,0.808,Rejected,Pending,Needs more info
+SIG-2026-0064,2025-12-20,CRISIL Reports,Energy Cost Pressure,CUST-0050,Power,Emission Norm Update detected for NTPC Limited in New Delhi,4,25,AGT-MKT-01,0.736,Under Review,Pending,Approved
+SIG-2026-0065,2026-04-11,LinkedIn,Decarbonisation Mandate,CUST-0019,Pharma,Plant Expansion News detected for Cadila Healthcare in Ahmedabad,2,0.5,AGT-MKT-01,0.849,Approved,Naveen Khanna,Approved
+SIG-2026-0066,2026-01-20,News API,Water Scarcity Alert,CUST-0049,Sugar,Analyst Report detected for Triveni Engineering in Noida,4,5,AGT-MKT-01,0.803,Approved,Anita Pandey,Pending
+SIG-2026-0067,2026-01-25,CRISIL Reports,Competitor Exit,CUST-0026,Metals,Government Policy detected for Hindalco Industries in Mumbai,4,25,AGT-MKT-01,0.844,Approved,Prakash Shah,Pending
+SIG-2026-0068,2025-12-03,BSE Filings,Sustainability Target,CUST-0006,Cement,Regulatory Change detected for Ramco Cements in Chennai,3,50,AGT-MKT-01,0.74,Escalated,Sneha Agarwal,Pending
+SIG-2026-0069,2025-10-27,Industry Journal,Sustainability Target,CUST-0039,Paper,Competitor Exit detected for JK Paper in New Delhi,4,18,AGT-MKT-01,0.731,Rejected,Sujata Bhatia,Rejected
+SIG-2026-0070,2025-11-01,CII Reports,Sustainability Target,CUST-0041,Food,Executive Change detected for Nestle India in Gurugram,5,0.5,AGT-MKT-01,0.92,Escalated,Arun Verma,Needs more info

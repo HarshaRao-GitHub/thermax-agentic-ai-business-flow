@@ -1,0 +1,76 @@
+alert_id,project_id,timestamp,alert_type,component,severity,ai_prediction,recommended_action,technician_assigned,target_resolution_date,status
+ALT-2026-00001,PRJ-2026-0010,2026-04-13,Bearing Vibration,Superheater,High,Anomaly pattern matches scaling signature,Immediate attention,Sunita Khanna,2026-03-16,Resolved
+ALT-2026-00002,PRJ-2026-0014,2026-03-04,Fouling Buildup,ESP,Critical,Anomaly pattern matches misalignment signature,Parts replacement,Jitendra Bose,2026-04-21,Acknowledged
+ALT-2026-00003,PRJ-2026-0013,2026-04-10,Tube Leak Risk,Superheater,Low,Anomaly pattern matches misalignment signature,Plan shutdown within 72 hrs,Bharat Sharma,2026-03-27,Resolved
+ALT-2026-00004,PRJ-2026-0019,2026-04-10,Fouling Buildup,Control Valve,High,Anomaly pattern matches catalyst aging signature,Plan shutdown within 72 hrs,Smita Reddy,2026-03-22,Resolved
+ALT-2026-00005,PRJ-2026-0014,2026-04-01,Efficiency Drop,FD Fan,Critical,Anomaly pattern matches misalignment signature,Schedule inspection,Shweta Sharma,2026-04-18,In Progress
+ALT-2026-00006,PRJ-2026-0020,2026-04-11,Temperature Excursion,Control Valve,Medium,Anomaly pattern matches bearing wear signature,Plan shutdown within 72 hrs,Amit Desai,2026-03-12,Escalated
+ALT-2026-00007,PRJ-2026-0019,2026-03-09,Efficiency Drop,Superheater,High,Anomaly pattern matches scaling signature,Plan shutdown within 72 hrs,Anil Agarwal,2026-03-14,Escalated
+ALT-2026-00008,PRJ-2026-0020,2026-04-20,Fouling Buildup,Boiler Drum,Critical,Anomaly pattern matches bearing wear signature,Preventive cleaning,Sujata Yadav,2026-04-18,Resolved
+ALT-2026-00009,PRJ-2026-0013,2026-04-10,Fouling Buildup,Control Valve,High,Anomaly pattern matches bearing wear signature,Preventive cleaning,Harish Pillai,2026-04-26,In Progress
+ALT-2026-00010,PRJ-2026-0009,2026-03-19,Bearing Vibration,Boiler Drum,High,Anomaly pattern matches fouling signature,Preventive cleaning,Hari Mukherjee,2026-03-10,In Progress
+ALT-2026-00011,PRJ-2026-0008,2026-03-08,Bearing Vibration,Superheater,Low,Anomaly pattern matches misalignment signature,Parts replacement,Girish Reddy,2026-03-31,Acknowledged
+ALT-2026-00012,PRJ-2026-0017,2026-03-28,Temperature Excursion,Boiler Drum,Low,Anomaly pattern matches scaling signature,Plan shutdown within 72 hrs,Archana Reddy,2026-04-05,Escalated
+ALT-2026-00013,PRJ-2026-0017,2026-02-25,Tube Leak Risk,Superheater,High,Anomaly pattern matches misalignment signature,Parts replacement,Kunal Khanna,2026-03-08,Resolved
+ALT-2026-00014,PRJ-2026-0005,2026-03-20,Fouling Buildup,Feed Pump,Critical,Anomaly pattern matches tube leak signature,Plan shutdown within 72 hrs,Harish Kumar,2026-04-21,Acknowledged
+ALT-2026-00015,PRJ-2026-0002,2026-04-12,Temperature Excursion,Boiler Drum,High,Anomaly pattern matches tube leak signature,Immediate attention,Gopal Singh,2026-04-13,Resolved
+ALT-2026-00016,PRJ-2026-0017,2026-03-18,Tube Leak Risk,ESP,Critical,Anomaly pattern matches scaling signature,Schedule inspection,Shweta Menon,2026-04-18,Resolved
+ALT-2026-00017,PRJ-2026-0017,2026-03-14,Temperature Excursion,ESP,Low,Anomaly pattern matches fouling signature,Parts replacement,Shobha Malhotra,2026-03-04,In Progress
+ALT-2026-00018,PRJ-2026-0017,2026-03-04,Tube Leak Risk,Economiser,Medium,Anomaly pattern matches misalignment signature,Plan shutdown within 72 hrs,Kiran Mukherjee,2026-03-15,Resolved
+ALT-2026-00019,PRJ-2026-0011,2026-04-10,Control Drift,Boiler Drum,High,Anomaly pattern matches tube leak signature,Schedule inspection,Mukesh Pillai,2026-04-26,Acknowledged
+ALT-2026-00020,PRJ-2026-0019,2026-04-14,Temperature Excursion,Superheater,Critical,Anomaly pattern matches fouling signature,Immediate attention,Ritu Tiwari,2026-04-20,Resolved
+ALT-2026-00021,PRJ-2026-0018,2026-03-19,Bearing Vibration,Economiser,Low,Anomaly pattern matches fouling signature,Preventive cleaning,Deepak Dutta,2026-04-23,Escalated
+ALT-2026-00022,PRJ-2026-0006,2026-04-09,Emission Spike,Boiler Drum,Medium,Anomaly pattern matches bearing wear signature,Plan shutdown within 72 hrs,Anil Srivastava,2026-04-02,Escalated
+ALT-2026-00023,PRJ-2026-0006,2026-04-05,Pressure Anomaly,ESP,Critical,Anomaly pattern matches scaling signature,Immediate attention,Usha Sharma,2026-04-21,Resolved
+ALT-2026-00024,PRJ-2026-0001,2026-03-05,Emission Spike,ID Fan,Critical,Anomaly pattern matches bearing wear signature,Plan shutdown within 72 hrs,Tarun Pandey,2026-04-20,Acknowledged
+ALT-2026-00025,PRJ-2026-0020,2026-03-15,Fouling Buildup,ID Fan,Low,Anomaly pattern matches fouling signature,Immediate attention,Sarika Kapoor,2026-04-26,Resolved
+ALT-2026-00026,PRJ-2026-0018,2026-03-16,Control Drift,Burner,Medium,Anomaly pattern matches scaling signature,Schedule inspection,Rohit Vaidya,2026-04-02,Escalated
+ALT-2026-00027,PRJ-2026-0015,2026-04-13,Emission Spike,FD Fan,Low,Anomaly pattern matches misalignment signature,Monitor closely,Meera Agarwal,2026-04-24,In Progress
+ALT-2026-00028,PRJ-2026-0012,2026-03-08,Temperature Excursion,Boiler Drum,Low,Anomaly pattern matches catalyst aging signature,Schedule inspection,Shashi Pillai,2026-03-05,Acknowledged
+ALT-2026-00029,PRJ-2026-0012,2026-03-09,Tube Leak Risk,FD Fan,Medium,Anomaly pattern matches misalignment signature,Parts replacement,Prakash Mukherjee,2026-03-23,Resolved
+ALT-2026-00030,PRJ-2026-0004,2026-02-25,Control Drift,APH,Medium,Anomaly pattern matches fouling signature,Preventive cleaning,Sarika Chopra,2026-03-12,Acknowledged
+ALT-2026-00031,PRJ-2026-0014,2026-04-09,Bearing Vibration,FD Fan,Low,Anomaly pattern matches misalignment signature,Schedule inspection,Ashok Tiwari,2026-03-06,Acknowledged
+ALT-2026-00032,PRJ-2026-0020,2026-03-19,Temperature Excursion,Boiler Drum,High,Anomaly pattern matches catalyst aging signature,Schedule inspection,Meera Pandey,2026-03-20,In Progress
+ALT-2026-00033,PRJ-2026-0019,2026-02-22,Bearing Vibration,ID Fan,Medium,Anomaly pattern matches scaling signature,Schedule inspection,Aarti Nair,2026-03-19,Resolved
+ALT-2026-00034,PRJ-2026-0013,2026-04-11,Temperature Excursion,Control Valve,Low,Anomaly pattern matches catalyst aging signature,Plan shutdown within 72 hrs,Rajesh Mishra,2026-03-31,Acknowledged
+ALT-2026-00035,PRJ-2026-0003,2026-02-20,Temperature Excursion,ID Fan,Medium,Anomaly pattern matches fouling signature,Monitor closely,Ashok Vaidya,2026-03-20,Resolved
+ALT-2026-00036,PRJ-2026-0005,2026-02-22,Efficiency Drop,FD Fan,High,Anomaly pattern matches bearing wear signature,Preventive cleaning,Shalini Ghosh,2026-03-02,Acknowledged
+ALT-2026-00037,PRJ-2026-0018,2026-03-23,Control Drift,APH,High,Anomaly pattern matches catalyst aging signature,Plan shutdown within 72 hrs,Sarika Bhatia,2026-04-26,In Progress
+ALT-2026-00038,PRJ-2026-0004,2026-04-05,Bearing Vibration,Economiser,Low,Anomaly pattern matches catalyst aging signature,Monitor closely,Usha Srivastava,2026-03-05,Resolved
+ALT-2026-00039,PRJ-2026-0004,2026-04-09,Efficiency Drop,Control Valve,Medium,Anomaly pattern matches tube leak signature,Plan shutdown within 72 hrs,Meera Tiwari,2026-04-26,Resolved
+ALT-2026-00040,PRJ-2026-0001,2026-04-03,Emission Spike,Economiser,Low,Anomaly pattern matches scaling signature,Parts replacement,Shashi Dutta,2026-04-01,Resolved
+ALT-2026-00041,PRJ-2026-0020,2026-03-05,Fouling Buildup,Boiler Drum,Critical,Anomaly pattern matches scaling signature,Parts replacement,Tarun Mehta,2026-04-21,In Progress
+ALT-2026-00042,PRJ-2026-0019,2026-04-08,Emission Spike,Superheater,Low,Anomaly pattern matches tube leak signature,Plan shutdown within 72 hrs,Kiran Chowdhury,2026-03-26,In Progress
+ALT-2026-00043,PRJ-2026-0005,2026-02-27,Control Drift,ID Fan,Critical,Anomaly pattern matches tube leak signature,Preventive cleaning,Sujata Pillai,2026-04-18,Escalated
+ALT-2026-00044,PRJ-2026-0011,2026-03-28,Emission Spike,ID Fan,Critical,Anomaly pattern matches scaling signature,Parts replacement,Shashi Rao,2026-04-19,Resolved
+ALT-2026-00045,PRJ-2026-0011,2026-03-07,Bearing Vibration,Economiser,High,Anomaly pattern matches catalyst aging signature,Plan shutdown within 72 hrs,Sanjay Joshi,2026-03-04,Resolved
+ALT-2026-00046,PRJ-2026-0001,2026-02-21,Control Drift,Burner,High,Anomaly pattern matches misalignment signature,Preventive cleaning,Anita Gupta,2026-03-18,In Progress
+ALT-2026-00047,PRJ-2026-0018,2026-03-27,Bearing Vibration,Control Valve,High,Anomaly pattern matches catalyst aging signature,Schedule inspection,Preeti Pandey,2026-04-01,Resolved
+ALT-2026-00048,PRJ-2026-0005,2026-04-16,Control Drift,Feed Pump,Low,Anomaly pattern matches fouling signature,Parts replacement,Vinod Sharma,2026-03-29,Resolved
+ALT-2026-00049,PRJ-2026-0014,2026-04-15,Temperature Excursion,Control Valve,Medium,Anomaly pattern matches bearing wear signature,Immediate attention,Suresh Malhotra,2026-03-03,Resolved
+ALT-2026-00050,PRJ-2026-0010,2026-03-02,Emission Spike,APH,Low,Anomaly pattern matches bearing wear signature,Schedule inspection,Madhuri Menon,2026-04-06,Resolved
+ALT-2026-00051,PRJ-2026-0003,2026-04-09,Control Drift,Control Valve,Critical,Anomaly pattern matches bearing wear signature,Immediate attention,Ravi Sharma,2026-04-21,Acknowledged
+ALT-2026-00052,PRJ-2026-0016,2026-04-09,Bearing Vibration,Superheater,Medium,Anomaly pattern matches misalignment signature,Monitor closely,Sunita Mehta,2026-03-31,Resolved
+ALT-2026-00053,PRJ-2026-0019,2026-04-10,Tube Leak Risk,ID Fan,Critical,Anomaly pattern matches scaling signature,Monitor closely,Rekha Vaidya,2026-04-21,Resolved
+ALT-2026-00054,PRJ-2026-0007,2026-03-22,Efficiency Drop,FD Fan,High,Anomaly pattern matches misalignment signature,Schedule inspection,Manish Agarwal,2026-03-11,Resolved
+ALT-2026-00055,PRJ-2026-0010,2026-04-04,Control Drift,Boiler Drum,Medium,Anomaly pattern matches catalyst aging signature,Preventive cleaning,Rajesh Chopra,2026-03-26,Acknowledged
+ALT-2026-00056,PRJ-2026-0001,2026-03-05,Temperature Excursion,ID Fan,Medium,Anomaly pattern matches fouling signature,Monitor closely,Vikram Sharma,2026-03-13,Acknowledged
+ALT-2026-00057,PRJ-2026-0014,2026-04-17,Fouling Buildup,APH,Medium,Anomaly pattern matches scaling signature,Schedule inspection,Hari Naidu,2026-03-03,In Progress
+ALT-2026-00058,PRJ-2026-0003,2026-03-08,Efficiency Drop,ID Fan,Medium,Anomaly pattern matches catalyst aging signature,Preventive cleaning,Rakesh Shah,2026-04-09,In Progress
+ALT-2026-00059,PRJ-2026-0013,2026-04-05,Tube Leak Risk,Control Valve,Low,Anomaly pattern matches tube leak signature,Preventive cleaning,Ajay Trivedi,2026-03-25,Resolved
+ALT-2026-00060,PRJ-2026-0012,2026-03-18,Fouling Buildup,Superheater,Medium,Anomaly pattern matches bearing wear signature,Immediate attention,Aarti Chopra,2026-03-12,Resolved
+ALT-2026-00061,PRJ-2026-0013,2026-03-29,Efficiency Drop,Control Valve,Critical,Anomaly pattern matches scaling signature,Schedule inspection,Hari Tiwari,2026-04-21,Escalated
+ALT-2026-00062,PRJ-2026-0016,2026-04-21,Tube Leak Risk,Boiler Drum,Medium,Anomaly pattern matches tube leak signature,Preventive cleaning,Rohit Sharma,2026-03-12,In Progress
+ALT-2026-00063,PRJ-2026-0011,2026-04-14,Emission Spike,Economiser,Medium,Anomaly pattern matches fouling signature,Preventive cleaning,Vinod Pillai,2026-04-17,Resolved
+ALT-2026-00064,PRJ-2026-0003,2026-04-20,Efficiency Drop,Control Valve,High,Anomaly pattern matches misalignment signature,Immediate attention,Vandana Menon,2026-03-08,Escalated
+ALT-2026-00065,PRJ-2026-0002,2026-03-20,Pressure Anomaly,ESP,Low,Anomaly pattern matches catalyst aging signature,Immediate attention,Archana Chopra,2026-03-17,Escalated
+ALT-2026-00066,PRJ-2026-0001,2026-03-24,Tube Leak Risk,ID Fan,Critical,Anomaly pattern matches misalignment signature,Monitor closely,Arun Srivastava,2026-04-19,Resolved
+ALT-2026-00067,PRJ-2026-0013,2026-03-08,Temperature Excursion,Control Valve,Medium,Anomaly pattern matches fouling signature,Plan shutdown within 72 hrs,Jitendra Kapoor,2026-04-05,Escalated
+ALT-2026-00068,PRJ-2026-0014,2026-04-09,Tube Leak Risk,FD Fan,Low,Anomaly pattern matches catalyst aging signature,Immediate attention,Vivek Khanna,2026-03-03,Resolved
+ALT-2026-00069,PRJ-2026-0017,2026-02-23,Tube Leak Risk,Burner,High,Anomaly pattern matches misalignment signature,Schedule inspection,Yogesh Srivastava,2026-03-22,Acknowledged
+ALT-2026-00070,PRJ-2026-0002,2026-04-11,Tube Leak Risk,Superheater,High,Anomaly pattern matches catalyst aging signature,Parts replacement,Sujata Shah,2026-03-23,Escalated
+ALT-2026-00071,PRJ-2026-0010,2026-04-16,Fouling Buildup,FD Fan,Low,Anomaly pattern matches scaling signature,Plan shutdown within 72 hrs,Anita Mishra,2026-04-02,Resolved
+ALT-2026-00072,PRJ-2026-0004,2026-03-18,Emission Spike,ESP,Medium,Anomaly pattern matches bearing wear signature,Preventive cleaning,Sunita Joshi,2026-04-16,Acknowledged
+ALT-2026-00073,PRJ-2026-0008,2026-03-10,Fouling Buildup,Superheater,Low,Anomaly pattern matches catalyst aging signature,Parts replacement,Ritu Kumar,2026-04-08,Acknowledged
+ALT-2026-00074,PRJ-2026-0006,2026-04-20,Pressure Anomaly,FD Fan,Low,Anomaly pattern matches catalyst aging signature,Immediate attention,Archana Sharma,2026-03-27,Acknowledged
+ALT-2026-00075,PRJ-2026-0009,2026-03-07,Emission Spike,Boiler Drum,Medium,Anomaly pattern matches misalignment signature,Parts replacement,Shashi Singh,2026-03-02,Resolved

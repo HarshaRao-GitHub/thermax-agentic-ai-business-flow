@@ -1,0 +1,61 @@
+ticket_id,project_id,raised_date,issue_type,priority,description,ai_diagnosis,agent_recommendation,field_engineer,resolution_date,customer_satisfaction_rating,status
+TKT-2026-00001,PRJ-2026-0005,2025-12-25,Spare Parts,P1,Customer reported trip,Instrument fault,Remote fix,Sneha Mishra,2026-01-16,1,In Progress
+TKT-2026-00002,PRJ-2026-0019,2026-03-09,Spare Parts,P3,Customer reported noise,Instrument fault,Calibration,Anita Mishra,2026-02-28,2,Open
+TKT-2026-00003,PRJ-2026-0006,2026-03-21,Training,P4,Customer reported efficiency drop,Control loop issue,Site visit required,Rajesh Rao,2026-01-16,4,Closed
+TKT-2026-00004,PRJ-2026-0018,2026-03-14,Performance,P2,Customer reported leak,Mechanical wear,Software update,Hari Bose,2026-04-21,2,Open
+TKT-2026-00005,PRJ-2026-0017,2026-03-01,Performance,P3,Customer reported efficiency drop,Mechanical wear,Site visit required,Priya Tiwari,2026-03-02,2,Open
+TKT-2026-00006,PRJ-2026-0001,2026-03-05,Performance,P2,Customer reported unusual vibration,Software glitch,Operator training,Divya Chopra,2026-04-20,5,In Progress
+TKT-2026-00007,PRJ-2026-0019,2026-04-06,Performance,P2,Customer reported efficiency drop,Combustion tuning,Remote fix,Arun Singh,2026-01-17,2,Resolved
+TKT-2026-00008,PRJ-2026-0001,2026-04-03,Training,P2,Customer reported efficiency drop,Combustion tuning,Parts replacement,Pooja Menon,2026-01-23,2,Open
+TKT-2026-00009,PRJ-2026-0012,2026-02-08,Emergency,P3,Customer reported flame failure,Instrument fault,Remote fix,Bharat Nair,2026-03-02,1,Closed
+TKT-2026-00010,PRJ-2026-0020,2026-01-20,Audit,P1,Customer reported alarm,Instrument fault,Calibration,Rakesh Banerjee,2026-03-15,3,Closed
+TKT-2026-00011,PRJ-2026-0009,2026-01-31,Preventive Maintenance,P1,Customer reported leak,Control loop issue,Operator training,Lakshmi Srivastava,2026-03-16,3,Closed
+TKT-2026-00012,PRJ-2026-0008,2026-02-15,Breakdown,P1,Customer reported efficiency drop,Software glitch,Software update,Deepak Naidu,2026-02-04,4,Closed
+TKT-2026-00013,PRJ-2026-0012,2026-02-13,Spare Parts,P3,Customer reported emission excursion,Instrument fault,Parts replacement,Ritu Tiwari,2026-04-01,2,In Progress
+TKT-2026-00014,PRJ-2026-0012,2026-04-02,Breakdown,P4,Customer reported trip,Sensor drift,Parts replacement,Shashi Yadav,2026-03-04,1,Closed
+TKT-2026-00015,PRJ-2026-0014,2026-04-08,Audit,P2,Customer reported emission excursion,Combustion tuning,Calibration,Amit Bose,2026-04-20,3,Open
+TKT-2026-00016,PRJ-2026-0005,2026-01-15,Audit,P4,Customer reported efficiency drop,Fouling,Site visit required,Rakesh Patel,2026-03-06,5,Closed
+TKT-2026-00017,PRJ-2026-0001,2026-04-12,Training,P2,Customer reported efficiency drop,Sensor drift,Calibration,Sanjay Shah,2026-02-26,4,Closed
+TKT-2026-00018,PRJ-2026-0011,2026-02-26,Performance,P3,Customer reported trip,Combustion tuning,Remote fix,Sarika Rao,2026-03-30,3,Closed
+TKT-2026-00019,PRJ-2026-0003,2026-03-26,Spare Parts,P3,Customer reported emission excursion,Mechanical wear,Software update,Aarti Singh,2026-01-21,4,Closed
+TKT-2026-00020,PRJ-2026-0012,2026-03-25,Breakdown,P3,Customer reported trip,Combustion tuning,Remote fix,Anil Dutta,2026-04-06,5,Resolved
+TKT-2026-00021,PRJ-2026-0003,2026-01-14,Audit,P4,Customer reported emission excursion,Instrument fault,Operator training,Ritu Saxena,2026-03-25,4,Closed
+TKT-2026-00022,PRJ-2026-0013,2025-12-29,Breakdown,P2,Customer reported flame failure,Control loop issue,Operator training,Raghav Banerjee,2026-03-19,5,Open
+TKT-2026-00023,PRJ-2026-0013,2026-02-10,Performance,P3,Customer reported trip,Sensor drift,Site visit required,Rohit Ghosh,2026-02-20,1,In Progress
+TKT-2026-00024,PRJ-2026-0009,2026-03-21,Performance,P1,Customer reported alarm,Fouling,Remote fix,Raghav Pandey,2026-02-25,4,Closed
+TKT-2026-00025,PRJ-2026-0007,2026-03-28,Preventive Maintenance,P4,Customer reported flame failure,Instrument fault,Operator training,Meera Desai,2026-02-08,4,Closed
+TKT-2026-00026,PRJ-2026-0009,2026-04-16,Preventive Maintenance,P2,Customer reported leak,Fouling,Site visit required,Sachin Tiwari,2026-02-22,4,In Progress
+TKT-2026-00027,PRJ-2026-0019,2026-01-28,Preventive Maintenance,P3,Customer reported alarm,Mechanical wear,Calibration,Hari Kapoor,2026-02-01,2,Closed
+TKT-2026-00028,PRJ-2026-0018,2025-12-31,Training,P2,Customer reported efficiency drop,Fouling,Site visit required,Archana Nair,2026-04-19,5,Closed
+TKT-2026-00029,PRJ-2026-0009,2026-01-23,Performance,P1,Customer reported noise,Combustion tuning,Site visit required,Sanjay Nair,2026-02-14,3,Closed
+TKT-2026-00030,PRJ-2026-0005,2026-03-25,Optimization,P4,Customer reported unusual vibration,Combustion tuning,Software update,Kiran Iyer,2026-02-03,1,Resolved
+TKT-2026-00031,PRJ-2026-0016,2026-03-10,Training,P1,Customer reported leak,Instrument fault,Parts replacement,Shashi Joshi,2026-04-05,4,Closed
+TKT-2026-00032,PRJ-2026-0015,2026-03-11,Audit,P1,Customer reported flame failure,Combustion tuning,Site visit required,Deepak Verma,2026-04-21,4,Closed
+TKT-2026-00033,PRJ-2026-0008,2026-03-25,Preventive Maintenance,P2,Customer reported noise,Software glitch,Operator training,Vandana Iyer,2026-04-05,4,Open
+TKT-2026-00034,PRJ-2026-0015,2026-02-21,Spare Parts,P2,Customer reported unusual vibration,Mechanical wear,Operator training,Yogesh Kumar,2026-03-02,4,Closed
+TKT-2026-00035,PRJ-2026-0016,2026-04-18,Emergency,P1,Customer reported flame failure,Combustion tuning,Parts replacement,Sunita Kapoor,2026-03-04,1,Closed
+TKT-2026-00036,PRJ-2026-0020,2026-03-12,Preventive Maintenance,P3,Customer reported alarm,Software glitch,Parts replacement,Anjali Kumar,2026-01-30,4,Resolved
+TKT-2026-00037,PRJ-2026-0010,2026-01-18,Performance,P2,Customer reported trip,Control loop issue,Remote fix,Archana Bhatia,2026-02-20,3,In Progress
+TKT-2026-00038,PRJ-2026-0006,2026-02-26,Emergency,P4,Customer reported alarm,Control loop issue,Software update,Vinod Sharma,2026-02-25,2,Closed
+TKT-2026-00039,PRJ-2026-0002,2026-03-21,Audit,P2,Customer reported leak,Software glitch,Calibration,Gopal Khanna,2026-02-28,1,Closed
+TKT-2026-00040,PRJ-2026-0019,2026-02-23,Optimization,P3,Customer reported trip,Software glitch,Software update,Neha Gupta,2026-02-14,2,In Progress
+TKT-2026-00041,PRJ-2026-0019,2026-01-25,Emergency,P3,Customer reported unusual vibration,Control loop issue,Software update,Hari Mukherjee,2026-02-26,1,In Progress
+TKT-2026-00042,PRJ-2026-0020,2025-12-29,Training,P3,Customer reported efficiency drop,Instrument fault,Parts replacement,Raghav Desai,2026-04-03,4,Open
+TKT-2026-00043,PRJ-2026-0010,2026-03-25,Preventive Maintenance,P2,Customer reported flame failure,Combustion tuning,Parts replacement,Usha Mishra,2026-04-09,2,Closed
+TKT-2026-00044,PRJ-2026-0006,2026-01-20,Breakdown,P1,Customer reported leak,Combustion tuning,Parts replacement,Lakshmi Joshi,2026-03-23,3,Closed
+TKT-2026-00045,PRJ-2026-0001,2026-01-22,Breakdown,P2,Customer reported trip,Mechanical wear,Operator training,Shashi Menon,2026-04-04,2,In Progress
+TKT-2026-00046,PRJ-2026-0017,2026-01-21,Optimization,P4,Customer reported emission excursion,Fouling,Operator training,Arun Joshi,2026-03-02,4,Resolved
+TKT-2026-00047,PRJ-2026-0017,2026-01-22,Emergency,P1,Customer reported alarm,Fouling,Site visit required,Harish Chatterjee,2026-01-29,5,Resolved
+TKT-2026-00048,PRJ-2026-0016,2026-04-14,Training,P3,Customer reported unusual vibration,Mechanical wear,Software update,Sunita Mishra,2026-01-22,1,Resolved
+TKT-2026-00049,PRJ-2026-0007,2026-01-22,Optimization,P3,Customer reported noise,Control loop issue,Calibration,Shalini Chowdhury,2026-02-04,5,Closed
+TKT-2026-00050,PRJ-2026-0013,2026-04-18,Training,P4,Customer reported trip,Combustion tuning,Parts replacement,Bharat Mishra,2026-03-28,5,Closed
+TKT-2026-00051,PRJ-2026-0001,2026-01-02,Emergency,P2,Customer reported flame failure,Mechanical wear,Remote fix,Sunita Pillai,2026-04-14,5,Closed
+TKT-2026-00052,PRJ-2026-0014,2026-04-11,Audit,P4,Customer reported alarm,Sensor drift,Remote fix,Mukesh Bansal,2026-03-07,3,Resolved
+TKT-2026-00053,PRJ-2026-0015,2026-01-24,Audit,P3,Customer reported leak,Mechanical wear,Operator training,Vinod Chatterjee,2026-03-01,3,Closed
+TKT-2026-00054,PRJ-2026-0012,2025-12-29,Emergency,P3,Customer reported unusual vibration,Fouling,Parts replacement,Naveen Bhatia,2026-03-17,1,Closed
+TKT-2026-00055,PRJ-2026-0002,2026-03-03,Emergency,P3,Customer reported noise,Instrument fault,Software update,Kunal Rao,2026-03-15,1,Closed
+TKT-2026-00056,PRJ-2026-0003,2026-02-27,Audit,P3,Customer reported emission excursion,Control loop issue,Remote fix,Suresh Nair,2026-03-20,3,Closed
+TKT-2026-00057,PRJ-2026-0003,2026-01-13,Emergency,P3,Customer reported efficiency drop,Fouling,Site visit required,Manish Chatterjee,2026-02-28,5,Open
+TKT-2026-00058,PRJ-2026-0001,2026-02-15,Spare Parts,P3,Customer reported trip,Instrument fault,Remote fix,Jitendra Patel,2026-02-23,1,Closed
+TKT-2026-00059,PRJ-2026-0014,2026-03-28,Performance,P3,Customer reported emission excursion,Fouling,Site visit required,Yogesh Yadav,2026-04-14,2,Closed
+TKT-2026-00060,PRJ-2026-0011,2026-01-18,Performance,P2,Customer reported efficiency drop,Combustion tuning,Parts replacement,Shalini Patel,2026-03-25,3,Resolved

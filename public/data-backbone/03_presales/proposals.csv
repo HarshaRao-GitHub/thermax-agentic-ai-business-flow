@@ -1,0 +1,56 @@
+proposal_id,opportunity_id,customer_id,version,value_inr_cr,margin_pct,scope_type,delivery_weeks,submitted_date,agent_drafted,solution_architect,approved_by,approval_date,status
+PRP-2026-0001,OPP-2026-0022,CUST-0044,v1,180,26.7,Turnkey EPC,62,2026-03-30,AGT-PRS-01,Amit Desai,Madhuri Bansal,2026-01-20,Submitted
+PRP-2026-0002,OPP-2026-0018,CUST-0027,v2,10,20.0,Supply only,60,2026-01-02,AGT-PRS-01,Suresh Pillai,Vinod Kumar,2026-01-23,Lost
+PRP-2026-0003,OPP-2026-0039,CUST-0006,v1,70,19.5,Supply + Erection,65,2026-01-10,AGT-PRS-01,Prakash Iyer,Sujata Joshi,2026-02-10,Rejected
+PRP-2026-0004,OPP-2026-0004,CUST-0009,v4,5,19.5,Supply + Erection,38,2026-02-28,AGT-PRS-01,Bharat Rao,Shweta Banerjee,2026-04-17,Submitted
+PRP-2026-0005,OPP-2026-0031,CUST-0008,v2,70,19.7,Supply only,81,2026-03-05,AGT-PRS-01,Divya Bhatia,Deepak Saxena,2026-02-03,Rejected
+PRP-2026-0006,OPP-2026-0021,CUST-0036,v2,10,25.2,Supply only,57,2026-04-10,AGT-PRS-01,Vandana Mishra,Nandita Sharma,2026-02-01,Revised
+PRP-2026-0007,OPP-2026-0026,CUST-0009,v2,45,13.0,Supply + Erection,32,2026-01-18,AGT-PRS-01,Shashi Saxena,Anjali Rao,2026-01-28,Lost
+PRP-2026-0008,OPP-2026-0027,CUST-0030,v1,120,22.0,EPCM,59,2026-02-07,AGT-PRS-01,Sanjay Nair,Rohit Ghosh,2026-01-30,Won
+PRP-2026-0009,OPP-2026-0043,CUST-0043,v2,10,22.9,EPCM,51,2026-01-30,AGT-PRS-01,Naveen Dutta,Kunal Chopra,2026-03-19,Under Review
+PRP-2026-0010,OPP-2026-0040,CUST-0018,v1,45,25.7,Supply + Erection,70,2026-03-27,AGT-PRS-01,Shalini Iyer,Arun Dutta,2026-02-28,Rejected
+PRP-2026-0011,OPP-2026-0020,CUST-0031,v4,280,15.7,Supply + Commissioning,62,2026-03-16,AGT-PRS-01,Suresh Chatterjee,Archana Sharma,2026-01-04,Submitted
+PRP-2026-0012,OPP-2026-0001,CUST-0027,v4,10,20.4,Supply + Commissioning,54,2026-03-21,AGT-PRS-01,Anjali Srivastava,Arun Patel,2026-03-16,Lost
+PRP-2026-0013,OPP-2026-0004,CUST-0025,v1,120,17.3,Supply only,84,2026-03-16,AGT-PRS-01,Madhuri Khanna,Usha Tiwari,2026-02-06,Submitted
+PRP-2026-0014,OPP-2026-0033,CUST-0046,v1,180,19.7,Supply + Erection,66,2026-03-21,AGT-PRS-01,Nikhil Shah,Meera Kumar,2026-03-27,Submitted
+PRP-2026-0015,OPP-2026-0047,CUST-0038,v1,28,19.8,EPCM,73,2026-03-10,AGT-PRS-01,Ritu Reddy,Rekha Saxena,2026-04-12,Lost
+PRP-2026-0016,OPP-2026-0053,CUST-0007,v2,10,20.0,Turnkey EPC,36,2026-01-06,AGT-PRS-01,Manish Bhatia,Kavita Shah,2026-01-20,Won
+PRP-2026-0017,OPP-2026-0038,CUST-0019,v1,120,23.1,Turnkey EPC,45,2026-03-31,AGT-PRS-01,Yogesh Mehta,Smita Nair,2026-03-31,Won
+PRP-2026-0018,OPP-2026-0060,CUST-0003,v3,5,22.3,Turnkey EPC,59,2026-03-17,AGT-PRS-01,Priya Gupta,Naveen Saxena,2026-02-17,Submitted
+PRP-2026-0019,OPP-2026-0057,CUST-0028,v2,18,15.5,Supply + Commissioning,43,2026-02-28,AGT-PRS-01,Kunal Chatterjee,Naveen Dutta,2026-03-16,Submitted
+PRP-2026-0020,OPP-2026-0047,CUST-0028,v1,28,16.0,EPCM,46,2025-12-25,AGT-PRS-01,Arun Dutta,Amit Dutta,2026-02-20,Lost
+PRP-2026-0021,OPP-2026-0009,CUST-0046,v3,120,15.0,Supply + Commissioning,77,2026-01-27,AGT-PRS-01,Dinesh Chopra,Pooja Kapoor,2026-02-10,Submitted
+PRP-2026-0022,OPP-2026-0042,CUST-0031,v2,28,24.1,Supply only,54,2025-12-25,AGT-PRS-01,Kiran Reddy,Kiran Verma,2026-03-14,Rejected
+PRP-2026-0023,OPP-2026-0044,CUST-0035,v1,18,19.6,Supply + Commissioning,79,2026-01-26,AGT-PRS-01,Mukesh Saxena,Madhuri Pillai,2026-03-15,Under Review
+PRP-2026-0024,OPP-2026-0012,CUST-0046,v1,18,14.6,Supply + Erection,52,2026-02-04,AGT-PRS-01,Dinesh Chowdhury,Jitendra Bose,2026-03-08,Won
+PRP-2026-0025,OPP-2026-0008,CUST-0047,v2,180,26.4,EPCM,39,2026-03-10,AGT-PRS-01,Archana Shah,Rajesh Malhotra,2026-03-07,Approved
+PRP-2026-0026,OPP-2026-0020,CUST-0029,v4,280,13.4,Supply + Commissioning,79,2026-02-24,AGT-PRS-01,Pooja Patel,Lakshmi Banerjee,2026-04-15,Lost
+PRP-2026-0027,OPP-2026-0053,CUST-0020,v4,45,19.9,Supply + Commissioning,46,2026-04-15,AGT-PRS-01,Nandita Ghosh,Shweta Rao,2026-03-06,Under Review
+PRP-2026-0028,OPP-2026-0004,CUST-0018,v3,70,18.7,Supply + Erection,50,2026-03-12,AGT-PRS-01,Ravi Desai,Sujata Chatterjee,2026-01-02,Revised
+PRP-2026-0029,OPP-2026-0046,CUST-0036,v1,10,18.7,Supply + Erection,84,2026-04-02,AGT-PRS-01,Vandana Ghosh,Nandita Singh,2026-02-19,Submitted
+PRP-2026-0030,OPP-2026-0059,CUST-0017,v4,5,13.1,Supply + Erection,80,2026-04-06,AGT-PRS-01,Suresh Chopra,Hari Mukherjee,2026-01-02,Won
+PRP-2026-0031,OPP-2026-0031,CUST-0024,v1,18,19.0,Turnkey EPC,85,2026-03-04,AGT-PRS-01,Archana Bose,Archana Pandey,2026-03-29,Submitted
+PRP-2026-0032,OPP-2026-0044,CUST-0032,v2,10,18.3,Supply + Erection,39,2026-03-31,AGT-PRS-01,Ritu Banerjee,Sanjay Rao,2026-04-17,Submitted
+PRP-2026-0033,OPP-2026-0048,CUST-0004,v1,10,20.0,Turnkey EPC,56,2026-01-31,AGT-PRS-01,Smita Mukherjee,Gopal Menon,2026-02-17,Rejected
+PRP-2026-0034,OPP-2026-0009,CUST-0020,v1,120,19.8,EPCM,75,2026-02-15,AGT-PRS-01,Anil Singh,Sunita Kapoor,2026-03-20,Under Review
+PRP-2026-0035,OPP-2026-0042,CUST-0020,v1,10,26.6,Supply only,39,2026-03-06,AGT-PRS-01,Vivek Pandey,Neha Malhotra,2026-03-18,Submitted
+PRP-2026-0036,OPP-2026-0020,CUST-0037,v2,120,24.9,Supply + Erection,77,2025-12-31,AGT-PRS-01,Yogesh Agarwal,Vinod Pillai,2026-01-07,Revised
+PRP-2026-0037,OPP-2026-0055,CUST-0050,v4,120,27.0,Supply + Erection,65,2026-03-24,AGT-PRS-01,Prakash Malhotra,Meera Verma,2026-03-18,Lost
+PRP-2026-0038,OPP-2026-0052,CUST-0018,v1,280,14.8,Supply + Commissioning,82,2026-04-16,AGT-PRS-01,Ritu Rao,Suresh Gupta,2026-03-29,Under Review
+PRP-2026-0039,OPP-2026-0018,CUST-0029,v2,120,16.1,Supply + Erection,63,2026-02-09,AGT-PRS-01,Priya Singh,Anjali Kapoor,2026-03-13,Under Review
+PRP-2026-0040,OPP-2026-0056,CUST-0011,v4,180,22.1,Supply + Commissioning,82,2026-04-14,AGT-PRS-01,Naveen Yadav,Deepak Menon,2026-03-20,Revised
+PRP-2026-0041,OPP-2026-0046,CUST-0050,v4,18,25.6,Supply + Commissioning,82,2026-03-09,AGT-PRS-01,Sujata Bhatia,Aarti Iyer,2026-04-09,Approved
+PRP-2026-0042,OPP-2026-0011,CUST-0037,v2,10,12.2,Supply + Commissioning,81,2025-12-22,AGT-PRS-01,Sujata Bose,Meera Bansal,2026-01-22,Rejected
+PRP-2026-0043,OPP-2026-0044,CUST-0014,v4,120,23.3,EPCM,48,2026-04-09,AGT-PRS-01,Meera Naidu,Priya Rao,2026-02-16,Lost
+PRP-2026-0044,OPP-2026-0054,CUST-0018,v3,70,26.8,Supply only,71,2026-01-02,AGT-PRS-01,Divya Menon,Neha Malhotra,2026-03-28,Lost
+PRP-2026-0045,OPP-2026-0011,CUST-0048,v2,280,25.2,EPCM,45,2026-02-03,AGT-PRS-01,Preeti Vaidya,Meera Desai,2025-12-31,Submitted
+PRP-2026-0046,OPP-2026-0052,CUST-0042,v1,45,17.2,Supply + Erection,67,2026-01-31,AGT-PRS-01,Gopal Mishra,Raghav Bhatia,2026-04-09,Lost
+PRP-2026-0047,OPP-2026-0028,CUST-0052,v1,70,21.8,Supply + Commissioning,37,2026-04-13,AGT-PRS-01,Kiran Bhatia,Aarti Saxena,2026-04-10,Lost
+PRP-2026-0048,OPP-2026-0033,CUST-0002,v1,10,23.8,Turnkey EPC,82,2026-03-26,AGT-PRS-01,Vivek Vaidya,Sarika Tiwari,2026-01-08,Approved
+PRP-2026-0049,OPP-2026-0006,CUST-0009,v1,18,12.2,Supply + Erection,76,2026-03-25,AGT-PRS-01,Amit Bose,Kunal Banerjee,2026-01-16,Revised
+PRP-2026-0050,OPP-2026-0039,CUST-0047,v1,280,28.0,Supply + Commissioning,57,2026-02-15,AGT-PRS-01,Sneha Pillai,Meera Malhotra,2026-01-18,Won
+PRP-2026-0051,OPP-2026-0025,CUST-0027,v2,70,24.7,EPCM,45,2026-03-13,AGT-PRS-01,Tarun Ghosh,Vandana Naidu,2026-03-17,Under Review
+PRP-2026-0052,OPP-2026-0055,CUST-0045,v1,280,21.7,Supply + Erection,91,2026-02-21,AGT-PRS-01,Arun Malhotra,Sneha Mukherjee,2026-03-30,Submitted
+PRP-2026-0053,OPP-2026-0018,CUST-0024,v4,120,17.8,Turnkey EPC,41,2026-01-12,AGT-PRS-01,Madhuri Chatterjee,Jitendra Bansal,2026-03-07,Submitted
+PRP-2026-0054,OPP-2026-0053,CUST-0018,v2,280,21.8,Supply + Commissioning,60,2026-01-26,AGT-PRS-01,Lakshmi Agarwal,Yogesh Reddy,2026-01-17,Submitted
+PRP-2026-0055,OPP-2026-0054,CUST-0024,v3,45,22.0,Supply + Erection,35,2026-01-12,AGT-PRS-01,Harish Agarwal,Divya Rao,2026-02-19,Under Review

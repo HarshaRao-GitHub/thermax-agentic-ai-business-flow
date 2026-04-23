@@ -1,0 +1,76 @@
+employee_id,name,designation,function,location,joining_date,years_experience,primary_skill,email,reports_to
+EMP-0001,Anita Gupta,HSE Manager,Safety,"Jamshedpur, JH",2023-02-27,9,Automation,anita.gupta@thermax.com,EMP-0029
+EMP-0002,Kavita Chopra,Pre-sales Director,Pre-sales,"Haridwar, UK",2022-07-03,5,Safety,kavita.chopra@thermax.com,EMP-0036
+EMP-0003,Preeti Pillai,Marketing Manager,Marketing,"Pune, MH",2024-04-04,27,Commissioning,preeti.pillai@thermax.com,EMP-0011
+EMP-0004,Naveen Desai,CHRO,HR,"Raipur, CG",2024-08-24,8,Legal,naveen.desai@thermax.com,EMP-0001
+EMP-0005,Vinod Dutta,HR Director,HR,"Kochi, KL",2020-07-24,25,Chemical,vinod.dutta@thermax.com,EMP-0036
+EMP-0006,Suresh Pillai,Service Director,Service,"Kochi, KL",2022-11-12,4,Mechanical,suresh.pillai@thermax.com,EMP-0048
+EMP-0007,Shalini Bansal,Site Engineer,Site Operations,"Chennai, TN",2024-09-28,21,Safety,shalini.bansal@thermax.com,EMP-0033
+EMP-0008,Sunita Mukherjee,Site Manager,Site Operations,"Bengaluru, KA",2015-10-04,8,Thermal Engineering,sunita.mukherjee@thermax.com,EMP-0039
+EMP-0009,Ritu Reddy,Senior Marketing Manager,Marketing,"Visakhapatnam, AP",2022-07-18,21,Mechanical,ritu.reddy@thermax.com,EMP-0003
+EMP-0010,Mukesh Saxena,Commissioning Engineer,Commissioning,"Visakhapatnam, AP",2019-06-11,13,Sales,mukesh.saxena@thermax.com,EMP-0014
+EMP-0011,Rohit Khanna,Regional Service Head,Service,"Raipur, CG",2023-11-02,24,Electrical,rohit.khanna@thermax.com,EMP-0020
+EMP-0012,Vinod Patel,Program Director,PMO,"Pune, MH",2020-03-01,22,Mechanical,vinod.patel@thermax.com,EMP-0007
+EMP-0013,Yogesh Khanna,Senior Marketing Manager,Marketing,"Mumbai, MH",2021-05-23,5,Commissioning,yogesh.khanna@thermax.com,EMP-0024
+EMP-0014,Harish Pillai,Senior Finance Manager,Finance,"Kanpur, UP",2021-11-29,22,Digital,harish.pillai@thermax.com,EMP-0042
+EMP-0015,Tarun Naidu,Site Engineer,Site Operations,"Kochi, KL",2017-11-12,6,Project Management,tarun.naidu@thermax.com,EMP-0017
+EMP-0016,Shalini Naidu,Marketing Manager,Marketing,"Mumbai, MH",2022-04-02,12,Mechanical,shalini.naidu@thermax.com,EMP-0014
+EMP-0017,Neha Khanna,HSE Manager,Safety,"Noida, UP",2019-10-29,11,Process Design,neha.khanna@thermax.com,EMP-0006
+EMP-0018,Rekha Chopra,Service Director,Service,"Chennai, TN",2025-04-07,13,Digital,rekha.chopra@thermax.com,EMP-0009
+EMP-0019,Arun Bose,Regional Service Head,Service,"Panipat, HR",2017-05-23,16,Automation,arun.bose@thermax.com,EMP-0001
+EMP-0020,Gopal Iyer,Marketing Manager,Marketing,"Panipat, HR",2024-11-25,14,Mechanical,gopal.iyer@thermax.com,EMP-0036
+EMP-0021,Meera Kumar,Pre-sales Director,Pre-sales,"Kochi, KL",2021-03-20,28,Process Design,meera.kumar@thermax.com,EMP-0023
+EMP-0022,Tarun Gupta,Senior Design Engineer,Engineering,"Coimbatore, TN",2016-07-22,20,Legal,tarun.gupta@thermax.com,EMP-0040
+EMP-0023,Vinod Kapoor,Safety Officer,Safety,"Ahmedabad, GJ",2016-05-02,28,Project Management,vinod.kapoor@thermax.com,EMP-0027
+EMP-0024,Shalini Joshi,Key Account Manager,Sales,"Indore, MP",2016-04-23,24,Chemical,shalini.joshi@thermax.com,EMP-0016
+EMP-0025,Ajay Gupta,Senior Finance Manager,Finance,"Raipur, CG",2015-07-11,4,Safety,ajay.gupta@thermax.com,EMP-0015
+EMP-0026,Rakesh Agarwal,Chief Engineer,Engineering,"Jamshedpur, JH",2022-10-21,3,Electrical,rakesh.agarwal@thermax.com,EMP-0013
+EMP-0027,Prakash Patel,HR Director,HR,"Bhubaneswar, OD",2021-05-14,23,Automation,prakash.patel@thermax.com,EMP-0026
+EMP-0028,Amit Reddy,Regional Service Head,Service,"Bhubaneswar, OD",2023-04-21,21,Sales,amit.reddy@thermax.com,EMP-0003
+EMP-0029,Rakesh Bansal,CMO,Marketing,"Indore, MP",2018-07-04,19,Thermal Engineering,rakesh.bansal@thermax.com,EMP-0025
+EMP-0030,Aarti Kumar,Commissioning Engineer,Commissioning,"Kanpur, UP",2020-05-31,3,Automation,aarti.kumar@thermax.com,EMP-0035
+EMP-0031,Sarika Bhatia,Service Manager,Service,"Bengaluru, KA",2017-11-09,13,Mechanical,sarika.bhatia@thermax.com,EMP-0021
+EMP-0032,Jitendra Agarwal,Service Engineer,Service,"Noida, UP",2021-11-02,24,Legal,jitendra.agarwal@thermax.com,EMP-0021
+EMP-0033,Lakshmi Rao,HR Director,HR,"Vadodara, GJ",2020-08-03,24,Legal,lakshmi.rao@thermax.com,EMP-0044
+EMP-0034,Sujata Chowdhury,Safety Officer,Safety,"Kochi, KL",2020-10-01,20,Process Design,sujata.chowdhury@thermax.com,EMP-0020
+EMP-0035,Divya Saxena,Senior Finance Manager,Finance,"Mangalore, KA",2017-12-18,13,Safety,divya.saxena@thermax.com,EMP-0029
+EMP-0036,Yogesh Ghosh,Senior Project Manager,PMO,"New Delhi, DL",2023-05-27,24,Thermal Engineering,yogesh.ghosh@thermax.com,EMP-0019
+EMP-0037,Anjali Kapoor,Construction Manager,Site Operations,"Beawar, RJ",2021-10-28,10,Digital,anjali.kapoor@thermax.com,EMP-0013
+EMP-0038,Priya Kapoor,Solution Architect,Pre-sales,"Gurugram, HR",2018-06-14,27,Thermal Engineering,priya.kapoor@thermax.com,EMP-0030
+EMP-0039,Madhuri Mishra,HR Manager,HR,"Gurugram, HR",2020-10-28,10,Project Management,madhuri.mishra@thermax.com,EMP-0042
+EMP-0040,Usha Gupta,Safety Officer,Safety,"Indore, MP",2022-11-07,8,Digital,usha.gupta@thermax.com,EMP-0045
+EMP-0041,Sunita Naidu,Project Director,Site Operations,"Jamshedpur, JH",2015-10-17,6,Safety,sunita.naidu@thermax.com,EMP-0009
+EMP-0042,Dinesh Bose,Program Director,PMO,"Mangalore, KA",2016-03-01,26,Automation,dinesh.bose@thermax.com,EMP-0028
+EMP-0043,Usha Menon,Project Director,Site Operations,"New Delhi, DL",2015-08-24,18,Safety,usha.menon@thermax.com,EMP-0017
+EMP-0044,Vandana Chatterjee,Principal Engineer,Engineering,"Gurugram, HR",2018-04-11,10,Sales,vandana.chatterjee@thermax.com,EMP-0029
+EMP-0045,Rohit Chopra,Marketing Director,Marketing,"Surat, GJ",2021-09-20,20,Thermal Engineering,rohit.chopra@thermax.com,EMP-0009
+EMP-0046,Ashok Iyer,Senior Solution Architect,Pre-sales,"Kanpur, UP",2022-11-27,5,Legal,ashok.iyer@thermax.com,EMP-0027
+EMP-0047,Shweta Yadav,General Counsel,Legal,"Chennai, TN",2022-12-26,16,Legal,shweta.yadav@thermax.com,EMP-0050
+EMP-0048,Amit Chowdhury,Commissioning Lead,Commissioning,"Raipur, CG",2019-12-16,3,Finance,amit.chowdhury@thermax.com,EMP-0020
+EMP-0049,Girish Pillai,CHRO,HR,"Mangalore, KA",2022-10-31,18,Commissioning,girish.pillai@thermax.com,EMP-0018
+EMP-0050,Amit Mishra,CHRO,HR,"Surat, GJ",2017-10-21,24,Digital,amit.mishra@thermax.com,EMP-0026
+EMP-0051,Rekha Dutta,Safety Officer,Safety,"Mumbai, MH",2018-04-30,20,Process Design,rekha.dutta@thermax.com,EMP-0026
+EMP-0052,Tarun Verma,Commissioning Lead,Commissioning,"Bengaluru, KA",2018-02-05,16,Project Management,tarun.verma@thermax.com,EMP-0030
+EMP-0053,Aarti Mishra,Solution Architect,Pre-sales,"Surat, GJ",2022-12-07,17,Finance,aarti.mishra@thermax.com,EMP-0022
+EMP-0054,Dinesh Yadav,HR Director,HR,"Bhubaneswar, OD",2015-12-11,5,Safety,dinesh.yadav@thermax.com,EMP-0002
+EMP-0055,Sunita Trivedi,HSE Director,Safety,"Jamshedpur, JH",2018-01-06,5,Digital,sunita.trivedi@thermax.com,EMP-0042
+EMP-0056,Rohit Pillai,Account Manager,Sales,"Pune, MH",2018-05-04,7,Commissioning,rohit.pillai@thermax.com,EMP-0009
+EMP-0057,Bharat Desai,Project Manager,PMO,"Haridwar, UK",2017-06-17,11,Digital,bharat.desai@thermax.com,EMP-0024
+EMP-0058,Vandana Menon,Solution Architect,Pre-sales,"Kochi, KL",2024-02-04,21,Process Design,vandana.menon@thermax.com,EMP-0020
+EMP-0059,Hari Mishra,Commissioning Lead,Commissioning,"Raipur, CG",2017-04-15,9,Thermal Engineering,hari.mishra@thermax.com,EMP-0038
+EMP-0060,Rohit Gupta,HSE Director,Safety,"Kanpur, UP",2016-08-22,12,Electrical,rohit.gupta@thermax.com,EMP-0039
+EMP-0061,Rakesh Pillai,Marketing Manager,Marketing,"Indore, MP",2017-11-20,14,Thermal Engineering,rakesh.pillai@thermax.com,EMP-0033
+EMP-0062,Rajesh Yadav,Regional Service Head,Service,"Gurugram, HR",2024-02-14,16,Finance,rajesh.yadav@thermax.com,EMP-0041
+EMP-0063,Divya Nair,Senior Project Manager,PMO,"New Delhi, DL",2019-06-15,23,Sales,divya.nair@thermax.com,EMP-0040
+EMP-0064,Shweta Bhatia,Project Director,Site Operations,"New Delhi, DL",2018-08-30,11,Finance,shweta.bhatia@thermax.com,EMP-0016
+EMP-0065,Gopal Bose,Marketing Director,Marketing,"Jamshedpur, JH",2016-11-21,17,Mechanical,gopal.bose@thermax.com,EMP-0040
+EMP-0066,Pooja Verma,Service Director,Service,"Gurugram, HR",2015-10-06,13,Project Management,pooja.verma@thermax.com,EMP-0032
+EMP-0067,Anita Khanna,Principal Engineer,Engineering,"Surat, GJ",2022-03-03,22,Chemical,anita.khanna@thermax.com,EMP-0018
+EMP-0068,Kiran Pillai,Site Engineer,Site Operations,"Bengaluru, KA",2022-08-07,26,Legal,kiran.pillai@thermax.com,EMP-0032
+EMP-0069,Shashi Ghosh,Site Manager,Site Operations,"Jamnagar, GJ",2017-04-28,18,Safety,shashi.ghosh@thermax.com,EMP-0002
+EMP-0070,Sanjay Tiwari,Marketing Director,Marketing,"Kanpur, UP",2022-07-30,12,Electrical,sanjay.tiwari@thermax.com,EMP-0038
+EMP-0071,Lakshmi Chatterjee,Senior Legal Counsel,Legal,"Coimbatore, TN",2020-07-14,26,Automation,lakshmi.chatterjee@thermax.com,EMP-0022
+EMP-0072,Shweta Chopra,General Counsel,Legal,"Kochi, KL",2022-06-27,10,Thermal Engineering,shweta.chopra@thermax.com,EMP-0047
+EMP-0073,Deepak Pillai,Principal Engineer,Engineering,"Kanpur, UP",2023-03-25,9,Commissioning,deepak.pillai@thermax.com,EMP-0048
+EMP-0074,Jitendra Saxena,Program Director,PMO,"Noida, UP",2018-08-12,12,Thermal Engineering,jitendra.saxena@thermax.com,EMP-0013
+EMP-0075,Sarika Nair,Senior Finance Manager,Finance,"Kochi, KL",2025-02-23,25,Automation,sarika.nair@thermax.com,EMP-0009

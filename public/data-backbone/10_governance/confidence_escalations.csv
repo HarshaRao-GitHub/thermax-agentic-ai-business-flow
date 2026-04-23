@@ -1,0 +1,56 @@
+escalation_id,timestamp,agent_id,agent_name,entity_id,task_description,confidence_score,confidence_threshold,escalated_to_role,resolution_time_minutes,final_outcome
+ESC-2026-0001,2025-12-05,AGT-SRV-01,Performance and Service Agent,ENT-4393,Unknown customer vertical,0.684,0.8,Legal Counsel,424,Knowledge base updated
+ESC-2026-0002,2026-02-18,AGT-SAL-01,Qualification Agent,ENT-9568,Novel contract clause,0.643,0.8,CFO,275,Knowledge base updated
+ESC-2026-0003,2026-03-30,AGT-SRV-01,Performance and Service Agent,ENT-9641,Multilingual content,0.726,0.8,CFO,320,"Human resolved, AI learned"
+ESC-2026-0004,2026-01-14,AGT-HR-01,Mobilisation Agent,ENT-6473,Unstructured drawing,0.701,0.8,Service Director,300,Agent retrained
+ESC-2026-0005,2026-03-07,AGT-PRS-01,Solution Agent,ENT-9585,Unknown customer vertical,0.641,0.8,Senior Solution Architect,260,Routed to specialist SME
+ESC-2026-0006,2026-04-21,AGT-CMS-01,Commissioning Agent,ENT-2839,Outside training distribution,0.588,0.8,CFO,94,Policy updated
+ESC-2026-0007,2026-01-21,AGT-ENG-01,Engineering Validation Agent,ENT-7880,Outside training distribution,0.66,0.8,Senior Solution Architect,253,Agent retrained
+ESC-2026-0008,2026-04-14,AGT-ENG-01,Engineering Validation Agent,ENT-9740,Conflicting data sources,0.725,0.8,Senior Solution Architect,408,Knowledge base updated
+ESC-2026-0009,2025-12-09,AGT-ORC-01,Workflow Orchestrator,ENT-7082,Novel contract clause,0.656,0.8,Safety Head,145,Escalated to committee
+ESC-2026-0010,2026-02-28,AGT-FIN-01,Commercial Risk Agent,ENT-7744,Legacy project reference,0.696,0.8,Senior Solution Architect,148,Knowledge base updated
+ESC-2026-0011,2026-04-12,AGT-CMS-01,Commissioning Agent,ENT-8123,Unstructured drawing,0.613,0.8,BU Head,278,Policy updated
+ESC-2026-0012,2026-04-04,AGT-SIT-01,Execution Monitoring Agent,ENT-6531,Legacy project reference,0.658,0.8,Senior Solution Architect,58,Knowledge base updated
+ESC-2026-0013,2026-04-10,AGT-FIN-01,Commercial Risk Agent,ENT-6752,First-of-kind technology,0.635,0.8,Service Director,202,Feature added to agent
+ESC-2026-0014,2026-02-03,AGT-SIT-01,Execution Monitoring Agent,ENT-5078,Novel contract clause,0.6,0.8,BU Head,39,Policy updated
+ESC-2026-0015,2026-03-15,AGT-CMS-01,Commissioning Agent,ENT-1266,Unknown customer vertical,0.6,0.8,Chief Engineer,193,Agent retrained
+ESC-2026-0016,2026-02-26,AGT-HR-01,Mobilisation Agent,ENT-4935,Legacy project reference,0.653,0.8,Safety Head,259,Knowledge base updated
+ESC-2026-0017,2026-03-01,AGT-ENG-01,Engineering Validation Agent,ENT-2628,Unstructured drawing,0.554,0.8,CFO,367,Agent retrained
+ESC-2026-0018,2026-03-11,AGT-CMS-01,Commissioning Agent,ENT-7810,Novel contract clause,0.576,0.8,Legal Counsel,159,Agent retrained
+ESC-2026-0019,2026-04-18,AGT-CMS-01,Commissioning Agent,ENT-2695,Ambiguous specification,0.712,0.8,Legal Counsel,355,"Human resolved, AI learned"
+ESC-2026-0020,2026-02-06,AGT-PRS-01,Solution Agent,ENT-6521,Multilingual content,0.779,0.8,Senior Solution Architect,351,"Human resolved, AI learned"
+ESC-2026-0021,2026-04-13,AGT-HR-01,Mobilisation Agent,ENT-9311,Unknown customer vertical,0.621,0.8,Safety Head,303,Agent retrained
+ESC-2026-0022,2025-12-16,AGT-SRV-01,Performance and Service Agent,ENT-7577,Legacy project reference,0.752,0.8,Chief Engineer,281,Agent retrained
+ESC-2026-0023,2026-01-15,AGT-CMS-01,Commissioning Agent,ENT-2595,Unstructured drawing,0.582,0.8,Chief Engineer,21,Routed to specialist SME
+ESC-2026-0024,2026-02-24,AGT-FIN-01,Commercial Risk Agent,ENT-1973,Unknown customer vertical,0.61,0.8,Senior Solution Architect,312,"Human resolved, AI learned"
+ESC-2026-0025,2026-03-12,AGT-FIN-01,Commercial Risk Agent,ENT-6033,First-of-kind technology,0.604,0.8,Chief Engineer,24,Knowledge base updated
+ESC-2026-0026,2026-01-06,AGT-FIN-01,Commercial Risk Agent,ENT-6146,Outside training distribution,0.576,0.8,CFO,401,Knowledge base updated
+ESC-2026-0027,2025-12-15,AGT-PRS-01,Solution Agent,ENT-4189,Multilingual content,0.673,0.8,Senior Solution Architect,282,Agent retrained
+ESC-2026-0028,2026-01-25,AGT-SIT-01,Execution Monitoring Agent,ENT-3542,Legacy project reference,0.588,0.8,Service Director,182,Policy updated
+ESC-2026-0029,2026-03-10,AGT-SIT-01,Execution Monitoring Agent,ENT-3087,Conflicting data sources,0.563,0.8,Senior Solution Architect,81,Routed to specialist SME
+ESC-2026-0030,2026-01-14,AGT-FIN-01,Commercial Risk Agent,ENT-8669,Legacy project reference,0.559,0.8,Service Director,449,"Human resolved, AI learned"
+ESC-2026-0031,2026-01-17,AGT-PRS-01,Solution Agent,ENT-9497,First-of-kind technology,0.636,0.8,Safety Head,37,Feature added to agent
+ESC-2026-0032,2025-12-10,AGT-FIN-01,Commercial Risk Agent,ENT-3719,Unusual payment terms,0.575,0.8,Senior Solution Architect,187,"Human resolved, AI learned"
+ESC-2026-0033,2026-04-10,AGT-SIT-01,Execution Monitoring Agent,ENT-9884,Novel contract clause,0.647,0.8,Service Director,107,Routed to specialist SME
+ESC-2026-0034,2025-12-08,AGT-ORC-01,Workflow Orchestrator,ENT-5815,Outside training distribution,0.581,0.8,CFO,340,Agent retrained
+ESC-2026-0035,2026-01-14,AGT-MKT-01,Market Intelligence Agent,ENT-4173,Unstructured drawing,0.69,0.8,Senior Solution Architect,182,Routed to specialist SME
+ESC-2026-0036,2026-01-29,AGT-CMS-01,Commissioning Agent,ENT-5617,Outside training distribution,0.644,0.8,Legal Counsel,94,"Human resolved, AI learned"
+ESC-2026-0037,2026-02-14,AGT-PRS-01,Solution Agent,ENT-3444,Outside training distribution,0.588,0.8,BU Head,293,Feature added to agent
+ESC-2026-0038,2026-04-03,AGT-SIT-01,Execution Monitoring Agent,ENT-5002,Legacy project reference,0.596,0.8,Chief Engineer,251,"Human resolved, AI learned"
+ESC-2026-0039,2026-02-23,AGT-FIN-01,Commercial Risk Agent,ENT-2207,Novel contract clause,0.638,0.8,BU Head,31,Policy updated
+ESC-2026-0040,2026-01-14,AGT-PRS-01,Solution Agent,ENT-2995,Outside training distribution,0.641,0.8,Service Director,77,Agent retrained
+ESC-2026-0041,2026-01-07,AGT-ENG-01,Engineering Validation Agent,ENT-1104,Unstructured drawing,0.711,0.8,Senior Solution Architect,27,Escalated to committee
+ESC-2026-0042,2026-03-29,AGT-CMS-01,Commissioning Agent,ENT-9214,First-of-kind technology,0.773,0.8,Service Director,396,"Human resolved, AI learned"
+ESC-2026-0043,2026-03-20,AGT-SAL-01,Qualification Agent,ENT-6166,Unstructured drawing,0.745,0.8,Safety Head,361,Agent retrained
+ESC-2026-0044,2025-12-18,AGT-PRS-01,Solution Agent,ENT-7704,Unusual payment terms,0.763,0.8,BU Head,357,Feature added to agent
+ESC-2026-0045,2026-04-10,AGT-ENG-01,Engineering Validation Agent,ENT-4611,Outside training distribution,0.619,0.8,Senior Solution Architect,158,"Human resolved, AI learned"
+ESC-2026-0046,2025-12-10,AGT-ENG-01,Engineering Validation Agent,ENT-2698,Novel contract clause,0.731,0.8,Service Director,452,Agent retrained
+ESC-2026-0047,2026-01-24,AGT-SAL-01,Qualification Agent,ENT-2407,Conflicting data sources,0.625,0.8,Chief Engineer,176,Policy updated
+ESC-2026-0048,2026-04-21,AGT-SAL-01,Qualification Agent,ENT-6074,Outside training distribution,0.657,0.8,CFO,34,Agent retrained
+ESC-2026-0049,2026-02-10,AGT-HR-01,Mobilisation Agent,ENT-1782,Unstructured drawing,0.649,0.8,CFO,66,Escalated to committee
+ESC-2026-0050,2026-02-26,AGT-SRV-01,Performance and Service Agent,ENT-2133,Unknown customer vertical,0.66,0.8,Chief Engineer,68,Escalated to committee
+ESC-2026-0051,2026-01-12,AGT-HR-01,Mobilisation Agent,ENT-5452,Multilingual content,0.733,0.8,CFO,79,Feature added to agent
+ESC-2026-0052,2025-12-22,AGT-PRS-01,Solution Agent,ENT-5403,Unknown customer vertical,0.66,0.8,CFO,386,Escalated to committee
+ESC-2026-0053,2025-12-27,AGT-MKT-01,Market Intelligence Agent,ENT-5350,Outside training distribution,0.603,0.8,BU Head,336,Agent retrained
+ESC-2026-0054,2025-12-08,AGT-ORC-01,Workflow Orchestrator,ENT-8369,Unknown customer vertical,0.771,0.8,BU Head,132,Routed to specialist SME
+ESC-2026-0055,2026-02-22,AGT-ORC-01,Workflow Orchestrator,ENT-7441,First-of-kind technology,0.576,0.8,Legal Counsel,60,Routed to specialist SME
