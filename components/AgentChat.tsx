@@ -15,6 +15,8 @@ interface ChatMessage { role: Role; content: string; }
 interface UploadedFile { filename: string; text: string; truncated: boolean; }
 interface ToolEvent { type: 'start' | 'result'; tool: string; input?: Record<string, unknown>; result?: string; timestamp: number; }
 interface UsageStats { input_tokens?: number; output_tokens?: number; total_tokens?: number; tool_calls?: number; api_turns?: number; model?: string; response_time_s?: number; estimated_cost_usd?: number; }
+interface DataViewerState { open: boolean; title: string; content: string; loading: boolean; }
+interface UserPromptState { text: string; saved: boolean; validating: boolean; error: string | null; }
 
 export default function AgentChat({
   stage,
@@ -38,6 +40,8 @@ export default function AgentChat({
   const [hitlDecision, setHitlDecision] = useState<string | null>(null);
   const [restored, setRestored] = useState(false);
   const [loadingSampleFiles, setLoadingSampleFiles] = useState<Set<string>>(new Set());
+  const [dataViewer, setDataViewer] = useState<DataViewerState>({ open: false, title: '', content: '', loading: false });
+  const [userPrompt, setUserPrompt] = useState<UserPromptState>({ text: '', saved: false, validating: false, error: null });
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const startTimeRef = useRef<number>(0);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -120,7 +124,8 @@ export default function AgentChat({
         body: JSON.stringify({
           slug: stage.slug,
           messages: next,
-          uploadedTexts: uploadedFiles.map(f => ({ filename: f.filename, text: f.text }))
+          uploadedTexts: uploadedFiles.map(f => ({ filename: f.filename, text: f.text })),
+          ...(userPrompt.saved && userPrompt.text.trim() ? { customSystemPrompt: undefined, userCustomPrompt: userPrompt.text.trim() } : {}),
         })
       });
 
@@ -266,7 +271,106 @@ export default function AgentChat({
     for (const sf of unloaded) await loadSampleFile(sf);
   }
 
+  async function viewDataBackbone(ds: { file: string; label: string; folder: string }) {
+    setDataViewer({ open: true, title: ds.label, content: '', loading: true });
+    try {
+      const res = await fetch(`/api/view-data?folder=${encodeURIComponent(ds.folder)}&file=${encodeURIComponent(ds.file)}`);
+      if (!res.ok) throw new Error('Failed to load file');
+      const data = await res.json();
+      if (data.headers && data.rows) {
+        const header = data.headers.join(' | ');
+        const sep = data.headers.map(() => '---').join(' | ');
+        const rows = data.rows.map((row: Record<string, string>) =>
+          data.headers.map((h: string) => (row[h] ?? '').replace(/\n/g, ' ')).join(' | ')
+        );
+        setDataViewer({ open: true, title: `${ds.label} (${ds.file}) — ${data.rowCount} rows`, content: `| ${header} |\n| ${sep} |\n${rows.map((r: string) => `| ${r} |`).join('\n')}`, loading: false });
+      } else {
+        setDataViewer(prev => ({ ...prev, content: JSON.stringify(data, null, 2), loading: false }));
+      }
+    } catch {
+      setDataViewer(prev => ({ ...prev, content: 'Error: Could not load this file. It may not be available on the server.', loading: false }));
+    }
+  }
+
+  async function viewSampleFile(sf: SampleFile) {
+    setDataViewer({ open: true, title: sf.label, content: '', loading: true });
+    try {
+      const res = await fetch(sf.path);
+      if (!res.ok) throw new Error('Failed to fetch');
+      const text = await res.text();
+      setDataViewer({ open: true, title: `${sf.label} (${sf.filename})`, content: text, loading: false });
+    } catch {
+      setDataViewer(prev => ({ ...prev, content: 'Error: Could not load this file.', loading: false }));
+    }
+  }
+
+  async function validateAndSavePrompt() {
+    const text = userPrompt.text.trim();
+    if (!text) { setUserPrompt(prev => ({ ...prev, error: 'Prompt cannot be empty.', saved: false })); return; }
+    setUserPrompt(prev => ({ ...prev, validating: true, error: null, saved: false }));
+    try {
+      const res = await fetch('/api/validate-prompt', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          prompt: text,
+          agentName: stage.agent.name,
+          agentDescription: stage.agent.description,
+          stageTitle: stage.title,
+          acceptedFileHint: (stage as Stage).acceptedFileHint ?? '',
+        }),
+      });
+      const data = await res.json();
+      if (data.valid) {
+        setUserPrompt(prev => ({ ...prev, saved: true, validating: false, error: null }));
+      } else {
+        setUserPrompt(prev => ({ ...prev, saved: false, validating: false, error: data.reason || 'Prompt rejected — not relevant to this agent.' }));
+      }
+    } catch {
+      setUserPrompt(prev => ({ ...prev, saved: false, validating: false, error: 'Validation failed — please try again.' }));
+    }
+  }
+
   return (
+    <>
+    {dataViewer.open && (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4" onClick={() => setDataViewer({ open: false, title: '', content: '', loading: false })}>
+        <div className="bg-white rounded-xl shadow-2xl w-full max-w-5xl max-h-[85vh] flex flex-col" onClick={e => e.stopPropagation()}>
+          <div className="flex items-center justify-between px-5 py-3 border-b border-thermax-line bg-thermax-mist rounded-t-xl">
+            <div className="flex items-center gap-2">
+              <span className="text-lg">📊</span>
+              <h3 className="font-bold text-thermax-navy text-[14px]">{dataViewer.title}</h3>
+              <span className="text-[10px] font-mono text-thermax-slate bg-white px-2 py-0.5 rounded border border-thermax-line">VIEW ONLY</span>
+            </div>
+            <button onClick={() => setDataViewer({ open: false, title: '', content: '', loading: false })}
+              className="text-thermax-slate hover:text-thermax-navy text-xl font-bold px-2">✕</button>
+          </div>
+          <div className="flex-1 overflow-auto p-5">
+            {dataViewer.loading ? (
+              <div className="flex items-center justify-center h-40 text-thermax-slate">
+                <span className="animate-spin mr-2">⏳</span> Loading data...
+              </div>
+            ) : dataViewer.content.startsWith('|') ? (
+              <div className="prose prose-sm max-w-none overflow-x-auto">
+                <Markdown>{dataViewer.content}</Markdown>
+              </div>
+            ) : (
+              <pre className="text-[12px] font-mono text-thermax-navy bg-thermax-mist rounded-lg p-4 overflow-x-auto whitespace-pre-wrap leading-relaxed">{dataViewer.content}</pre>
+            )}
+          </div>
+          <div className="px-5 py-3 border-t border-thermax-line bg-thermax-mist rounded-b-xl flex justify-end">
+            <button onClick={() => navigator.clipboard.writeText(dataViewer.content)}
+              className="text-[11px] font-semibold text-thermax-navy hover:text-thermax-saffronDeep px-3 py-1.5 border border-thermax-line rounded-md hover:bg-white mr-2">
+              📋 Copy
+            </button>
+            <button onClick={() => setDataViewer({ open: false, title: '', content: '', loading: false })}
+              className="text-[11px] font-semibold bg-thermax-navy text-white px-4 py-1.5 rounded-md hover:bg-thermax-navyDeep">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    )}
     <div className="grid lg:grid-cols-[280px_1fr] gap-6">
       <aside className="space-y-4">
         <section className="bg-white border border-thermax-line rounded-xl shadow-card p-4">
@@ -308,7 +412,13 @@ export default function AgentChat({
               <div key={ds.file} className="p-2 rounded-lg bg-thermax-mist border border-thermax-line">
                 <div className="flex items-center justify-between mb-0.5">
                   <span className="text-thermax-navy font-semibold text-[11px]">{ds.label}</span>
-                  <span className="text-thermax-saffronDeep font-mono font-bold text-[10px]">{ds.rowEstimate} rows</span>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => viewDataBackbone(ds)}
+                      className="text-[9px] font-bold text-blue-600 bg-blue-50 hover:bg-blue-100 border border-blue-200 px-2 py-0.5 rounded transition"
+                    >👁 View</button>
+                    <span className="text-thermax-saffronDeep font-mono font-bold text-[10px]">{ds.rowEstimate} rows</span>
+                  </div>
                 </div>
                 <div className="text-thermax-slate text-[10px] leading-snug">{ds.description}</div>
               </div>
@@ -354,29 +464,36 @@ export default function AgentChat({
                   const isLoaded = uploadedFiles.some(f => f.filename === sf.filename);
                   const isLoading = loadingSampleFiles.has(sf.filename);
                   return (
-                    <button
-                      key={sf.filename}
-                      onClick={() => loadSampleFile(sf)}
-                      disabled={isLoaded || isLoading || streaming}
-                      className={`w-full text-left px-2.5 py-2 rounded-lg border transition-all ${
+                    <div key={sf.filename} className={`px-2.5 py-2 rounded-lg border transition-all ${
                         isLoaded
-                          ? 'bg-emerald-50 border-emerald-200 cursor-default'
+                          ? 'bg-emerald-50 border-emerald-200'
                           : isLoading
                           ? 'bg-blue-50 border-blue-200 animate-pulse'
-                          : 'bg-thermax-mist border-thermax-line hover:border-thermax-saffron hover:bg-amber-50 cursor-pointer'
-                      }`}
-                    >
+                          : 'bg-thermax-mist border-thermax-line'
+                      }`}>
                       <div className="flex items-center gap-2">
-                        <span className="text-[12px] shrink-0">{isLoaded ? '✅' : isLoading ? '⏳' : '📄'}</span>
-                        <div className="min-w-0 flex-1">
-                          <div className={`text-[11px] font-semibold truncate ${isLoaded ? 'text-emerald-700' : 'text-thermax-navy'}`}>
-                            {sf.label}
+                        <button
+                          onClick={() => loadSampleFile(sf)}
+                          disabled={isLoaded || isLoading || streaming}
+                          className={`flex items-center gap-2 min-w-0 flex-1 text-left ${!isLoaded && !isLoading ? 'hover:opacity-80 cursor-pointer' : 'cursor-default'}`}
+                        >
+                          <span className="text-[12px] shrink-0">{isLoaded ? '✅' : isLoading ? '⏳' : '📄'}</span>
+                          <div className="min-w-0 flex-1">
+                            <div className={`text-[11px] font-semibold truncate ${isLoaded ? 'text-emerald-700' : 'text-thermax-navy'}`}>
+                              {sf.label}
+                            </div>
+                            <div className="text-[9px] text-thermax-slate leading-snug truncate">{sf.description}</div>
                           </div>
-                          <div className="text-[9px] text-thermax-slate leading-snug truncate">{sf.description}</div>
+                        </button>
+                        <div className="flex items-center gap-1.5 shrink-0">
+                          <button
+                            onClick={(e) => { e.stopPropagation(); viewSampleFile(sf); }}
+                            className="text-[9px] font-bold text-blue-600 bg-blue-50 hover:bg-blue-100 border border-blue-200 px-2 py-0.5 rounded transition"
+                          >👁 View</button>
+                          {isLoaded && <span className="text-[8px] font-bold text-emerald-600 bg-emerald-100 px-1.5 py-0.5 rounded">LOADED</span>}
                         </div>
-                        {isLoaded && <span className="text-[8px] font-bold text-emerald-600 bg-emerald-100 px-1.5 py-0.5 rounded shrink-0">LOADED</span>}
                       </div>
-                    </button>
+                    </div>
                   );
                 })}
               </div>
@@ -426,6 +543,13 @@ export default function AgentChat({
 
       <section className="flex flex-col bg-white border border-thermax-line rounded-xl shadow-card min-h-[640px]">
         <SystemPromptViewer prompt={stage.systemPrompt} agentName={stage.agent.name} />
+        <UserPromptEditor
+          userPrompt={userPrompt}
+          onChange={(text) => setUserPrompt({ text, saved: false, validating: false, error: null })}
+          onSave={validateAndSavePrompt}
+          onClear={() => setUserPrompt({ text: '', saved: false, validating: false, error: null })}
+          agentName={stage.agent.name}
+        />
         <div className="flex items-center justify-between px-5 py-3 border-b border-thermax-line">
           {streaming ? (
             <ProgressBar percent={progress.percent} label={progress.label} />
@@ -518,6 +642,7 @@ export default function AgentChat({
         </div>
       </section>
     </div>
+    </>
   );
 }
 
@@ -691,6 +816,75 @@ function CompareCard({ title, badge, badgeColor, borderColor, bgColor, time, cos
           <span className="font-bold text-thermax-navy">{cost}</span>
         </div>
       </div>
+    </div>
+  );
+}
+
+function UserPromptEditor({ userPrompt, onChange, onSave, onClear, agentName }: {
+  userPrompt: UserPromptState;
+  onChange: (text: string) => void;
+  onSave: () => void;
+  onClear: () => void;
+  agentName: string;
+}) {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <div className="border-b border-thermax-line bg-gradient-to-r from-violet-50 to-blue-50">
+      <button
+        onClick={() => setExpanded(!expanded)}
+        className="w-full flex items-center justify-between px-5 py-2 hover:bg-white/40 transition"
+      >
+        <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-violet-700">
+          <span>✏️</span>
+          Custom Prompt {userPrompt.saved && <span className="text-[9px] font-bold bg-emerald-100 text-emerald-700 px-1.5 py-0.5 rounded normal-case tracking-normal">ACTIVE</span>}
+        </div>
+        <span className="text-[10px] font-semibold text-violet-600 tracking-wide">
+          {expanded ? 'HIDE ▲' : 'ADD YOUR OWN ▼'}
+        </span>
+      </button>
+      {expanded && (
+        <div className="px-5 pb-4 space-y-2">
+          <p className="text-[10px] text-violet-600 leading-snug">
+            Add your own instructions to guide the {agentName}. Your prompt will be appended to the system prompt. Only domain-relevant prompts are accepted.
+          </p>
+          <textarea
+            value={userPrompt.text}
+            onChange={e => onChange(e.target.value)}
+            placeholder={`e.g., "Focus on high-risk items and provide detailed recommendations for each..." or "Prioritize analysis by financial impact and include trend data..."`}
+            rows={3}
+            maxLength={2000}
+            className="w-full border border-violet-200 rounded-lg px-3 py-2 text-[12px] resize-y focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-200 bg-white placeholder:text-violet-300"
+          />
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <button
+                onClick={onSave}
+                disabled={userPrompt.validating || !userPrompt.text.trim()}
+                className="text-[11px] font-semibold bg-violet-600 text-white px-4 py-1.5 rounded-md hover:bg-violet-700 disabled:opacity-40 disabled:cursor-not-allowed transition"
+              >
+                {userPrompt.validating ? '⏳ Validating...' : userPrompt.saved ? '✅ Saved & Active' : '💾 Save'}
+              </button>
+              {(userPrompt.saved || userPrompt.text) && (
+                <button onClick={onClear} className="text-[11px] font-semibold text-red-500 hover:text-red-700 px-2 py-1.5">
+                  Clear
+                </button>
+              )}
+            </div>
+            <span className="text-[10px] text-violet-400 font-mono">{userPrompt.text.length}/2000</span>
+          </div>
+          {userPrompt.error && (
+            <div className="text-[11px] text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
+              ⚠️ {userPrompt.error}
+            </div>
+          )}
+          {userPrompt.saved && (
+            <div className="text-[11px] text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-lg px-3 py-2">
+              ✅ Your custom prompt is active and will be included when you run the agent.
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

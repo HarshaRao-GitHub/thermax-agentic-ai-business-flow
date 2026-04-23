@@ -27,6 +27,7 @@ interface ChatRequest {
   uploadedText?: string;
   uploadedTexts?: UploadedTextEntry[];
   customSystemPrompt?: string;
+  userCustomPrompt?: string;
 }
 
 export async function POST(req: NextRequest) {
@@ -109,10 +110,15 @@ BEFORE processing any uploaded document, you MUST first assess whether each file
 If SOME files are relevant and others are not, process the relevant ones and display the rejection message only for the irrelevant ones.`;
   }
 
+  const userCustomBlock = body.userCustomPrompt?.trim()
+    ? `\n\n--- USER CUSTOM INSTRUCTIONS ---\nThe user has provided additional instructions for this analysis. Follow them alongside your core responsibilities:\n\n${body.userCustomPrompt.trim()}\n\n--- END USER CUSTOM INSTRUCTIONS ---`
+    : '';
+
   const systemPrompt = [
     basePrompt,
     fileValidationBlock,
     getAgenticInstructions(body.slug),
+    userCustomBlock,
     knowledgeBlocks.length
       ? '\n\n--- BEGIN DATA BACKBONE ---\n\n' +
         knowledgeBlocks.join('\n\n') +
