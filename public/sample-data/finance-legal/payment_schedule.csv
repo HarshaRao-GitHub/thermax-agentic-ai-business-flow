@@ -1,0 +1,15 @@
+schedule_id,po_number,customer,milestone,milestone_description,due_date,amount_cr,percentage,invoice_status,payment_status,days_overdue,remarks
+PAY-001,PO-2026-001,Arvind Ltd,Advance,Order advance — 10% on PO,2026-04-05,3.82,10%,Invoiced,Received,0,Advance BG submitted
+PAY-002,PO-2026-001,Arvind Ltd,Delivery,Major equipment delivery to site — 50%,2026-11-25,19.10,50%,Not Due,Pending,—,RO membranes + MEE shell delivery
+PAY-003,PO-2026-001,Arvind Ltd,Commissioning,System commissioning acceptance — 30%,2027-03-25,11.46,30%,Not Due,Pending,—,Performance test with 85% recovery target
+PAY-004,PO-2026-001,Arvind Ltd,Performance,Performance acceptance — 10%,2027-05-25,3.82,10%,Not Due,Pending,—,30-day continuous run at design capacity
+PAY-005,PO-2026-002,Dalmia Cement,Advance,Order advance — 15% on PO,2026-03-10,13.28,15%,Invoiced,Received,0,Advance BG + performance BG submitted
+PAY-006,PO-2026-002,Dalmia Cement,Delivery-1,Boiler drums and headers — 20%,2026-08-10,17.70,20%,Not Due,Pending,—,Critical path items
+PAY-007,PO-2026-002,Dalmia Cement,Delivery-2,Turbine and auxiliaries — 35%,2026-12-10,30.98,35%,Not Due,Pending,—,Turbine from Triveni Turbines
+PAY-008,PO-2026-002,Dalmia Cement,Erection,Erection completion — 20%,2027-06-10,17.70,20%,Not Due,Pending,—,Mechanical completion certificate
+PAY-009,PO-2026-002,Dalmia Cement,Commissioning,Commissioning + PG test — 10%,2027-10-10,8.85,10%,Not Due,Pending,—,72-hour reliability run
+PAY-010,PO-2026-003,Bajaj Hindusthan,Advance,Order advance — 10% on PO,2026-02-15,4.20,10%,Invoiced,Overdue,37,"Invoice sent Feb 15; payment reminder sent Mar 10; customer cited sugar season cash crunch"
+PAY-011,PO-2026-003,Bajaj Hindusthan,Delivery,Boiler components dispatch — 60%,2027-01-15,25.20,60%,Not Due,Pending,—,Conditional on advance receipt
+PAY-012,PO-2026-005,ONGC,Advance,Order advance — 10% on PO,2025-12-20,6.20,10%,Invoiced,Received,0,PSU standard advance terms
+PAY-013,PO-2026-005,ONGC,Delivery,Process heaters delivery — 70%,2026-09-20,43.40,70%,Not Due,Pending,—,3 heaters staggered delivery
+PAY-014,PO-2026-006,SRF Ltd,Advance,Order advance — 30% on PO,2026-04-01,3.84,30%,Invoiced,Pending,—,Expected by April 10

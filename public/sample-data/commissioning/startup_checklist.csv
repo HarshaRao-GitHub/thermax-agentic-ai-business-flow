@@ -1,0 +1,15 @@
+check_id,project,equipment,checklist_category,check_item,acceptance_criteria,checked_by,check_date,result,remarks
+CHK-001,WHRS Dalmia Cement,AFBC Boiler,Pre-Startup Safety Review,Emergency shutdown system tested,All ESDs trip within 2 seconds,D. Patil,2027-04-20,PASS,All 5 ESD scenarios tested — 100% successful
+CHK-002,WHRS Dalmia Cement,AFBC Boiler,Pre-Startup Safety Review,Safety valve set pressures verified,SV-1: 49.5 bar; SV-2: 51.0 bar,D. Patil,2027-04-20,PASS,Both SVs popped at set pressure; reseated correctly
+CHK-003,WHRS Dalmia Cement,AFBC Boiler,Pre-Startup Safety Review,Fire protection system operational,Hydrant + sprinkler system active; fire extinguishers in place,N. Kulkarni,2027-04-20,PASS,Fire pump tested; all hydrants flowing
+CHK-004,WHRS Dalmia Cement,AFBC Boiler,Mechanical Completion,All boiler tube connections leak-tested,Zero leaks at hydro test pressure (78 bar),M. Reddy,2027-04-18,PASS,100% radiography on critical welds — all acceptable
+CHK-005,WHRS Dalmia Cement,AFBC Boiler,Mechanical Completion,Refractory drying complete,Refractory surface temp uniform; no hot spots on casing,D. Patil,2027-04-19,PASS,72-hour controlled heat-up completed per refractory supplier protocol
+CHK-006,WHRS Dalmia Cement,AFBC Boiler,Instrumentation & Control,All DCS I/O points checked,100% loop test completion,K. Sharma,2027-04-17,PASS,248 I/O points tested; 3 had wiring errors — corrected and retested
+CHK-007,WHRS Dalmia Cement,AFBC Boiler,Instrumentation & Control,Interlock logic verified,All 32 safety interlocks functional,K. Sharma,2027-04-18,PASS,Interlock simulation test completed; all trips activated correctly
+CHK-008,WHRS Dalmia Cement,Hot ESP,Mechanical Completion,Electrode alignment verified,All collecting plates within ±3mm; discharge electrodes centered,M. Reddy,2027-04-15,PASS,Laser alignment used; documented for each field
+CHK-009,WHRS Dalmia Cement,Hot ESP,Electrical,High voltage test — all 3 fields,No flashover at 75 kV DC per field,K. Sharma,2027-04-16,PASS,Field 1: 78kV; Field 2: 76kV; Field 3: 77kV — all clear
+CHK-010,WHRS Dalmia Cement,Hot ESP,Mechanical Completion,Rapping system operational,All rappers cycling at correct frequency,D. Patil,2027-04-16,PASS,Automatic and manual rapping modes verified
+CHK-011,WHRS Dalmia Cement,Steam Turbine,Pre-Startup,Lube oil system flushed and commissioned,"Oil cleanliness NAS 7 or better; bearing clearances within spec",D. Patil,2027-04-22,PASS,Oil circulated for 48 hours; filtered to NAS 6
+CHK-012,WHRS Dalmia Cement,Steam Turbine,Pre-Startup,Governor and trip system tested,"Speed control responsive; overspeed trip at 110% rated speed",D. Patil,2027-04-22,PASS,Electronic governor calibrated; mechanical overspeed trip verified at 3300 RPM
+CHK-013,WHRS Dalmia Cement,Overall Plant,Utility Readiness,DM water plant operational,DM water conductivity < 1 µS/cm,Process Engr,2027-04-19,PASS,DM plant producing water at 0.6 µS/cm
+CHK-014,WHRS Dalmia Cement,Overall Plant,Utility Readiness,Compressed air system operational,Instrument air: 6 bar dry; Plant air: 7 bar,Process Engr,2027-04-19,PASS,Air compressor and dryer running; dew point -40°C

@@ -1,0 +1,13 @@
+alloc_id,project,customer,required_role,required_skills,required_certifications,headcount,priority,assigned_to,match_score,gap_identified,gap_resolution
+RA-001,WHRS BF#3,Tata Steel,Project Manager,"EPC project management, boiler projects, 15+ years",PMP,1,Critical,EMP-001 Rajesh Kumar,0.92,PMP certification expired,Renewal in progress — expected by May 2026
+RA-002,WHRS BF#3,Tata Steel,Lead Design Engineer,"Boiler design, ASME, thermal calculations","PE, ASME",1,Critical,EMP-002 Dr. Anand Rao,0.95,None,Fully qualified
+RA-003,WHRS BF#3,Tata Steel,Process Engineer,"HAZOP, heat balance, P&ID",HAZOP Certified,1,High,EMP-003 Priya Venkatesh,0.88,None,Fully qualified
+RA-004,WHRS BF#3,Tata Steel,Site Erection Manager,"Heavy erection, welding supervision, 12+ years","NEBOSH, IBR",1,Critical,EMP-004 Suresh Nair,0.90,IBR cert expiring May 2026,Renewal submitted
+RA-005,WHRS BF#3,Tata Steel,Controls Engineer,"DCS/SCADA, PLC programming","ISA CCST, Yokogawa",1,High,EMP-005 Kavita Sharma,0.85,None,Available after PI Industries Dahej project
+RA-006,WHRS BF#3,Tata Steel,HSE Officer,"Site safety, permit to work, incident investigation",NEBOSH,1,Critical,EMP-010 Neha Kulkarni,0.87,None,Available from May 2026
+RA-007,WHRS BF#3,Tata Steel,Quality Inspector,"Welding inspection, NDE, ASME","CSWIP 3.1, ASNT",1,High,EMP-008 Meenakshi Reddy,0.82,None,Partial allocation — also supports other projects
+RA-008,ZLD Santej,Arvind Ltd,Project Manager,"Water treatment projects, 10+ years",PMP,1,Critical,UNASSIGNED,0.00,No suitable internal candidate,External recruitment — 2 candidates shortlisted
+RA-009,ZLD Santej,Arvind Ltd,Water Treatment Specialist,"ZLD design, membranes, evaporators",CEng,1,High,EMP-012 Dr. Smita Jain,0.93,None,6-month deployment
+RA-010,FGD Singrauli,NTPC,Project Manager,"Large EPC 200+ Cr, government projects, 18+ years","PMP, PRINCE2",1,Critical,UNASSIGNED,0.00,Award pending — recruitment initiated,2 internal candidates being evaluated; external search parallel
+RA-011,FGD Singrauli,NTPC,FGD Process Specialist,"FGD design, limestone-gypsum, emission control",CEng,2,Critical,UNASSIGNED,0.00,Niche skill — limited internal availability,External recruitment + possible technology partner secondment
+RA-012,Utility Dahej,PI Industries,Project Engineer,"Utility systems, piping, 5+ years",None mandatory,1,Medium,TBD — junior engineer pool,0.75,Limited experience on chiller projects,Mentoring plan with senior engineer during execution

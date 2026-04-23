@@ -1,0 +1,13 @@
+test_id,project,equipment,test_type,parameter,guaranteed_value,measured_value,unit,tolerance_pct,deviation_pct,result,test_date,witness,test_method
+PGT-001,WHRS Dalmia Cement,AFBC Boiler,Performance Guarantee,Boiler Efficiency (indirect method),86.5,87.1,%,±1.0%,+0.7%,PASS,2027-08-20,"Client + Thermax + Third-party",ASME PTC 4
+PGT-002,WHRS Dalmia Cement,AFBC Boiler,Performance Guarantee,Steam Output at MCR,30,30.8,TPH,±5%,+2.7%,PASS,2027-08-20,"Client + Thermax",Direct measurement
+PGT-003,WHRS Dalmia Cement,AFBC Boiler,Performance Guarantee,NOx Emission,100,82,mg/Nm3 @ 6% O2,Maximum,N/A,PASS,2027-08-21,"Client + CPCB-certified lab",USEPA Method 7E
+PGT-004,WHRS Dalmia Cement,AFBC Boiler,Performance Guarantee,SO2 Emission,200,165,mg/Nm3 @ 6% O2,Maximum,N/A,PASS,2027-08-21,"Client + CPCB-certified lab",USEPA Method 6C
+PGT-005,WHRS Dalmia Cement,AFBC Boiler,Performance Guarantee,Particulate Matter (after ESP),50,28,mg/Nm3,Maximum,N/A,PASS,2027-08-21,"Client + CPCB-certified lab",USEPA Method 17
+PGT-006,WHRS Dalmia Cement,Steam Turbine,Performance Guarantee,Electrical Output,3.0,3.12,MW,±3%,+4.0%,PASS,2027-08-22,"Client + Thermax + Triveni",IEC 60034
+PGT-007,WHRS Dalmia Cement,Steam Turbine,Performance Guarantee,Specific Steam Consumption,4.2,4.15,kg/kWh,±3%,-1.2%,PASS,2027-08-22,"Client + Thermax",Direct measurement
+PGT-008,WHRS Dalmia Cement,Hot ESP,Performance Guarantee,Outlet Dust Loading,50,32,mg/Nm3,Maximum,N/A,PASS,2027-08-21,"Client + CPCB-certified lab",IS 11255 / USEPA 17
+PGT-009,WHRS Dalmia Cement,Hot ESP,Performance Guarantee,Collection Efficiency,99.5,99.72,%,Minimum,N/A,PASS,2027-08-21,"Client + Thermax",Inlet/outlet sampling
+PGT-010,Cogen Bajaj Meerut,Cogen Boiler,Performance Guarantee,Boiler Efficiency,84.0,84.5,%,±1.0%,+0.6%,PASS,2026-06-10,"Client + Thermax",ASME PTC 4
+PGT-011,Cogen Bajaj Meerut,Cogen Boiler,Performance Guarantee,Steam Output at MCR,25,25.3,TPH,±5%,+1.2%,PASS,2026-06-10,"Client + Thermax",Direct measurement
+PGT-012,Cogen Bajaj Meerut,Cogen Turbine,Performance Guarantee,Power Output,4.0,3.82,MW,±3%,-4.5%,CONDITIONAL,2026-06-11,"Client + Thermax","IEC 60034 — deviation exceeds tolerance; under review with turbine vendor"

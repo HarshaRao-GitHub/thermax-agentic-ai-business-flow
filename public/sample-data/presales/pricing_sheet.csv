@@ -1,0 +1,13 @@
+item_id,proposal_ref,product_category,item_description,quantity,unit,unit_cost_lakhs,total_cost_lakhs,margin_pct,lead_time_weeks,supplier,notes
+PRC-001,PROP-101,Boiler,AFBC Boiler 30 TPH — 45 bar/440°C,1,Unit,1850,1850,22%,28,Thermax Pune,Standard design; minor customization for BF gas firing
+PRC-002,PROP-101,Heat Exchanger,Waste Heat Recovery Economizer — 12 MW thermal,2,Unit,420,840,18%,22,Thermax Pune,High-temperature design for BF exhaust
+PRC-003,PROP-101,Turbine,Steam Turbine Generator — 3 MW condensing,1,Unit,1200,1200,15%,32,Triveni Turbines (outsourced),Partnered supply; Thermax integration
+PRC-004,PROP-101,ESP,Hot ESP for BF Gas — 180000 Nm3/hr capacity,1,Unit,650,650,20%,24,Thermax Enviro Division,Proven design at similar BF installations
+PRC-005,PROP-101,Civil & Structural,Foundation and structural steel for WHRS island,1,Lot,380,380,12%,16,Subcontracted,Local fabrication at Jamshedpur
+PRC-006,PROP-101,Erection,Erection and commissioning — complete WHRS,1,Lot,520,520,14%,20,Thermax Projects,Includes site supervision and commissioning team
+PRC-007,PROP-102,WHRS,Cement Kiln WHRS — Dual source (PH + AQC),1,System,2800,2800,19%,30,Thermax Energy,Integrated design for 3.5 MW recovery
+PRC-008,PROP-102,ESP,Pulse-jet ESP upgrade — 250000 Nm3/hr,1,Unit,480,480,21%,20,Thermax Enviro,Replacement of existing undersized ESP
+PRC-009,PROP-103,Chiller,LiBr Absorption Chiller — 500 TR,1,Unit,320,320,25%,16,Thermax Cooling,Standard pharma-grade model
+PRC-010,PROP-103,Boiler,HPSG Boiler — 10 TPH / 10.5 bar,1,Unit,185,185,28%,14,Thermax Heating,High-margin standard product
+PRC-011,PROP-103,Piping,Steam and condensate piping + insulation,1,Lot,45,45,18%,12,Local subcontractor,Site-specific routing
+PRC-012,PROP-103,Automation,DCS integration + instrumentation,1,Lot,65,65,22%,10,Thermax + Yokogawa,Pharma-compliant automation package

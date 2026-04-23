@@ -1,0 +1,11 @@
+news_id,headline,source,date,sector,region,summary,signal_type,urgency
+NEWS-001,Tata Steel Announces ₹5000 Cr Green Steel Initiative,Economic Times,2026-03-15,Steel,India,"Tata Steel to invest in electric arc furnaces and waste heat recovery at Jamshedpur; RFQs expected Q2 2026",Capex Announcement,High
+NEWS-002,Reliance Industries Expands Jamnagar Refinery Complex,Reuters,2026-03-12,Oil & Gas,India,"Reliance adding new crude distillation unit and hydrogen plant; EPC packages being finalized for utilities",Expansion,High
+NEWS-003,Vietnam Cement Industry Faces New Emission Caps,Vietnam News,2026-02-28,Cement,Vietnam,"Government mandates 50% reduction in particulate emissions by 2028; 8 cement plants seeking retrofits",Regulatory Change,Medium
+NEWS-004,Adani Group Plans 5 GW Biomass Power Portfolio,Mint,2026-03-08,Renewable Energy,India,"Adani Green exploring biomass co-firing and dedicated biomass plants across 10 locations in MP and UP",Capex Announcement,High
+NEWS-005,Saudi Aramco Awards $2B Utilities Package for Ras Al-Khair,MEED,2026-02-25,Oil & Gas,Saudi Arabia,"Package includes steam generation, water treatment, and cooling systems; international EPC firms shortlisted",Tender,Critical
+NEWS-006,Indian Railways Electrification Drives Transformer Demand,Hindu BusinessLine,2026-03-01,Railways,India,"₹12,000 Cr electrification push creating demand for industrial transformers and associated cooling systems",Infrastructure,Medium
+NEWS-007,Hindalco Aluminium Smelter Expansion at Aditya Birla,Business Standard,2026-03-18,Metals,India,"New 500 KTPA smelter line requires captive power, waste heat recovery, and water treatment systems",Expansion,High
+NEWS-008,Bangladesh Garment Sector Investing in Boiler Upgrades,Daily Star BD,2026-02-20,Textiles,Bangladesh,"200+ garment factories mandated to upgrade coal boilers to gas/biomass by 2027 under EU compliance pressure",Regulatory Change,High
+NEWS-009,UltraTech Cement to Add 20 MTPA Capacity by 2028,LiveMint,2026-03-05,Cement,India,"Major expansion across 6 plants; waste heat recovery systems and emission control equipment in scope",Expansion,High
+NEWS-010,NTPC Awards Flue Gas Desulphurisation Contract,Power Today,2026-03-20,Power,India,"₹3,200 Cr FGD retrofit across 4 thermal plants; Thermax and L&T among shortlisted bidders",Tender,Critical

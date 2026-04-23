@@ -1,0 +1,11 @@
+mob_id,project,customer,role,assigned_employee,deployment_location,mob_start_date,mob_end_date,duration_months,travel_required,accommodation,daily_allowance_inr,status,notes
+MOB-001,WHRS BF#3,Tata Steel,Project Manager,Rajesh Kumar (EMP-001),Jamshedpur,2026-05-15,2027-11-15,18,Yes — Pune to Jamshedpur,Company guest house,2500,Planned,Full-time site deployment; reporting to VP Projects
+MOB-002,WHRS BF#3,Tata Steel,Lead Design Engineer,Dr. Anand Rao (EMP-002),Pune (HQ) + Jamshedpur visits,2026-04-01,2026-10-31,7,Monthly visits to Jamshedpur (3 days/month),Hotel during visits,3500,Planned,Design phase in Pune; site visits for design validation
+MOB-003,WHRS BF#3,Tata Steel,Site Erection Manager,Suresh Nair (EMP-004),Jamshedpur,2026-08-01,2027-09-30,14,Yes — Mumbai to Jamshedpur,Company guest house,2500,Planned,Erection phase; supervises 40+ contractor crew
+MOB-004,WHRS BF#3,Tata Steel,Commissioning Engineer,Deepak Patil (EMP-007),Jamshedpur,2027-06-01,2027-11-15,5.5,Yes — Pune to Jamshedpur,Company guest house,2500,Planned,Cold + hot commissioning + PG test
+MOB-005,WHRS BF#3,Tata Steel,HSE Officer,Neha Kulkarni (EMP-010),Jamshedpur,2026-08-01,2027-11-15,15,Yes — Pune to Jamshedpur,Company guest house,2000,Planned,Full-time site safety; from erection start to handover
+MOB-006,ZLD Santej,Arvind Ltd,Project Manager,TBD — External hire required,Santej (Ahmedabad),2026-06-01,2027-08-31,15,Yes,Rented apartment,2000,Gap,No suitable PM available internally; external recruitment initiated
+MOB-007,ZLD Santej,Arvind Ltd,Water Treatment Specialist,Dr. Smita Jain (EMP-012),Santej (Ahmedabad),2026-06-15,2026-12-15,6,Yes — Pune to Ahmedabad,Hotel,3000,Planned,Process design supervision + membrane commissioning
+MOB-008,Utility Dahej,PI Industries,Controls Engineer,Kavita Sharma (EMP-005),Dahej GIDC,2026-09-01,2027-02-28,6,Yes — Pune to Dahej,Hotel,2500,Planned,DCS programming and commissioning for utility package
+MOB-009,FGD Singrauli,NTPC,Project Manager,TBD (pending award),Singrauli UP,2026-10-01,2029-03-31,30,Yes,Site colony,3000,Pending Award,Large project; requires experienced PM with government project background
+MOB-010,Cogen Meerut,Bajaj Hindusthan,Commissioning Lead,Deepak Patil (EMP-007),Meerut,2026-04-01,2026-06-30,3,Yes — Pune to Meerut,Hotel,2500,Active,Completing current assignment; available for Tata Steel after this

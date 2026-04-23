@@ -1,0 +1,11 @@
+punch_id,project,system,category,description,severity,raised_by,raised_date,assigned_to,target_close_date,actual_close_date,status,pac_blocker
+PL-001,WHRS Dalmia Cement,Boiler,Mechanical,Minor steam leak at economizer header drain valve — repacking required,B (Minor),D. Patil,2027-08-18,Erection Team,2027-08-22,2027-08-21,Closed,No
+PL-002,WHRS Dalmia Cement,Boiler,Instrument,Temperature transmitter TT-301 showing 5°C offset vs calibrated reference,B (Minor),K. Sharma,2027-08-19,Instrument Technician,2027-08-23,2027-08-22,Closed,No
+PL-003,WHRS Dalmia Cement,ESP,Electrical,Rapping motor #7 (Field 2) drawing 15% higher current than nameplate,B (Minor),K. Sharma,2027-08-20,Electrical Team,2027-08-25,—,Open,No
+PL-004,WHRS Dalmia Cement,ESP,Mechanical,Hopper #4 discharge valve sticking intermittently — needs lubrication/adjustment,B (Minor),D. Patil,2027-08-21,Mechanical Team,2027-08-24,—,Open,No
+PL-005,WHRS Dalmia Cement,Turbine,Mechanical,Turbine bearing #2 vibration at 3.2 mm/s — above normal (2.8 target) but within alarm (4.5),B (Minor),Turbine Engr,2027-08-22,Triveni Service,2027-08-28,—,Open,No — monitoring
+PL-006,WHRS Dalmia Cement,DCS,Control,Auto/manual transfer for FD fan speed not smooth — 5% bump on transfer,B (Minor),K. Sharma,2027-08-19,Controls Team,2027-08-25,2027-08-24,Closed,No
+PL-007,WHRS Dalmia Cement,Civil,Structural,Handrail missing at boiler platform level +12m — north side access,A (Safety),N. Kulkarni,2027-08-18,Civil Contractor,2027-08-20,2027-08-20,Closed,Yes — was PAC blocker until closed
+PL-008,WHRS Dalmia Cement,Documentation,Handover,O&M manual — final as-built P&IDs not yet updated with field modifications,B (Minor),Client QA,2027-08-22,Thermax Engineering,2027-09-05,—,Open,No — required before FAC
+PL-009,Cogen Bajaj Meerut,Turbine,Performance,Power output 3.82 MW vs 4.0 MW guaranteed — 4.5% shortfall beyond ±3% tolerance,A (Critical),Client,2026-06-11,Triveni + Thermax,2026-07-15,—,Open,Yes — PAC hold pending resolution
+PL-010,Cogen Bajaj Meerut,Boiler,Instrument,Stack opacity monitor not communicating with DCS — communication cable fault,B (Minor),K. Sharma,2026-06-10,Instrument Team,2026-06-15,2026-06-14,Closed,No

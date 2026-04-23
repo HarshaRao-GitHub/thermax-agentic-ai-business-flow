@@ -1,0 +1,9 @@
+calc_id,project,equipment,calculation_type,parameter,formula_basis,input_values,calculated_result,unit,design_margin,final_design_value,code_reference,verified_by
+CALC-001,WHRS BF#3,AFBC Boiler,Heat Balance,Steam Output from BF Gas Heat,"Q = m × Cp × (T1-T2) × η; η = 0.865",Gas flow=180000 Nm3/hr; Cp=1.05 kJ/Nm3K; T1=250°C; T2=150°C,27.8,MW(th),10%,30.6 MW(th),ASME PTC 4,Dr. Rao
+CALC-002,WHRS BF#3,Steam Turbine,Power Output,Electrical Power Generation,"P = m_steam × (h1-h2) × η_turbine × η_gen",Steam=30 TPH; h1=3300 kJ/kg; h2=2400 kJ/kg; η_t=0.82; η_g=0.96,3.15,MW(e),5%,3.0 MW(e) guaranteed,IEC 60034,Dr. Rao
+CALC-003,WHRS BF#3,Hot ESP,Sizing,Collecting Plate Area,"A = Q × SCA; SCA = 80 m2/(1000 Nm3/hr) for BF gas dust","Gas flow=180000 Nm3/hr; SCA=80",14400,m2 (total across 3 fields),15%,16560 m2 (installed),IS 10009,K. Singh
+CALC-004,WHRS BF#3,Economizer,Heat Transfer,LMTD and Surface Area,"Q = U × A × LMTD","U=45 W/m2K; Q=2.1 MW; LMTD=33.5°C",1407,m2,10%,1548 m2,TEMA / ASME,Dr. Rao
+CALC-005,Cipla Goa,Absorption Chiller,Thermal Balance,Hot Water Flow Required,"Q_cooling = m_hw × Cp × ΔT / COP","Cooling=500 TR=1758 kW; COP=1.38; ΔT=15°C",81,m3/hr,8%,87.5 m3/hr,AHRI 560,P. Joshi
+CALC-006,Cipla Goa,HPSG Boiler,Sizing,Boiler Heating Surface,"Q = m × (h_steam - h_fw); A = Q / (U × LMTD)","Steam=10 TPH; h_steam=2780 kJ/kg; h_fw=105 kJ/kg; U=35 W/m2K",210,m2,15%,242 m2,IBR / IS 2825,P. Joshi
+CALC-007,NTPC Singrauli,FGD Absorber,Mass Balance,Limestone Consumption,"CaCO3 = SO2_removed × (MW_CaCO3/MW_SO2) × stoich_ratio","SO2 inlet=2200 mg/Nm3; Flow=1.8M Nm3/hr; efficiency=96%; stoich=1.05",7.2,TPH per unit,10%,7.9 TPH per unit,EPA Method 17,S. Kumar
+CALC-008,NTPC Singrauli,FGD,Pressure Drop,Absorber System ΔP,"Sum of: duct entry + absorber spray + demister + duct exit","Entry=5 mbar; Spray zone=12 mbar; Demister=4 mbar; Exit=3 mbar",24,mbar,—,24 mbar (within 25 limit),Thermax CFD model,S. Kumar

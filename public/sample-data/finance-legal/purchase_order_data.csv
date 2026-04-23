@@ -1,0 +1,8 @@
+po_number,date,customer,project,po_value_cr,currency,payment_terms,delivery_deadline,scope_summary,status,thermax_division,margin_pct
+PO-2026-001,2026-03-25,Arvind Ltd,ZLD Santej,38.2,INR,"10% advance; 50% on delivery; 30% on commissioning; 10% on performance acceptance",2027-05-25,Zero liquid discharge system with RO + MEE + crystallizer + 5yr chemical AMC,Active,Water & Waste Solutions,21%
+PO-2026-002,2026-02-10,Dalmia Cement,WHRS Line 3 Ariyalur,88.5,INR,"15% advance; 55% pro-rata delivery; 20% erection; 10% commissioning",2027-10-10,4 MW cement kiln waste heat recovery system — dual source,Active,Energy,18%
+PO-2026-003,2026-01-15,Bajaj Hindusthan,Cogen Boiler Meerut,42.0,INR,"10% advance; 60% dispatch; 20% erection; 10% commissioning",2027-07-15,25 TPH bagasse-fired cogen boiler with turbine package,Active,Heating,24%
+PO-2026-004,2026-03-01,PI Industries,Utility Package Dahej,28.5,INR,"20% advance; 40% dispatch; 30% erection; 10% commissioning",2027-03-01,Steam boiler 8TPH + absorption chiller 300TR + piping for new agrochemical plant,Active,Heating + Cooling,26%
+PO-2026-005,2025-11-20,ONGC,Process Heaters Hazira,62.0,INR,"10% advance; 70% on delivery; 15% erection; 5% commissioning",2027-01-20,3x process heaters for Hazira gas processing plant upgrade,Active,Heating,16%
+PO-2026-006,2026-03-18,SRF Ltd,Thermic Fluid Heater Bhiwadi,12.8,INR,"30% advance; 50% dispatch; 20% commissioning",2026-12-18,15 million kcal/hr thermic fluid heater for specialty chemicals plant,Active,Heating,30%
+PO-2026-007,2025-12-05,Tata Chemicals,Boiler + ESP Mithapur,55.0,INR,"10% advance; 55% dispatch; 25% erection; 10% commissioning",2027-06-05,20 TPH FBC boiler + ESP for Mithapur soda ash plant expansion,Active,Heating + Enviro,20%

@@ -1,0 +1,15 @@
+milestone_id,project,customer,milestone_name,planned_date,forecast_date,actual_date,variance_days,status,critical_path,dependency,remarks
+MS-001,WHRS Dalmia Cement,Dalmia Cement,Engineering Design Approval,2026-01-15,2026-01-15,2026-01-15,0,Completed,Yes,None,Design approved on schedule
+MS-002,WHRS Dalmia Cement,Dalmia Cement,Major Equipment Ordering,2026-02-01,2026-02-01,2026-02-05,+4,Completed,Yes,MS-001,Minor delay due to vendor negotiation
+MS-003,WHRS Dalmia Cement,Dalmia Cement,Civil Foundation Complete,2026-05-15,2026-05-22,—,—,In Progress,Yes,None,7-day delay forecast due to unseasonal rain
+MS-004,WHRS Dalmia Cement,Dalmia Cement,Boiler Drum Dispatch from Pune,2026-06-01,2026-06-01,—,—,On Track,Yes,MS-002,Fabrication progressing on schedule
+MS-005,WHRS Dalmia Cement,Dalmia Cement,Structural Steel Erection Complete,2026-07-31,2026-08-07,—,—,At Risk,Yes,MS-003,Dependent on civil completion; 7-day slip cascading
+MS-006,WHRS Dalmia Cement,Dalmia Cement,Mechanical Completion,2027-03-31,2027-04-10,—,—,At Risk,Yes,MS-005,10-day cumulative delay; recovery plan being developed
+MS-007,WHRS Dalmia Cement,Dalmia Cement,Cold Commissioning Start,2027-04-15,2027-04-25,—,—,At Risk,Yes,MS-006,Dependent on mechanical completion
+MS-008,WHRS Dalmia Cement,Dalmia Cement,Performance Guarantee Test,2027-08-15,2027-08-25,—,—,At Risk,Yes,MS-007,10-day delay in all subsequent milestones
+MS-009,Cogen Bajaj Meerut,Bajaj Hindusthan,Boiler Hydro Test,2026-03-20,2026-03-20,2026-03-20,0,Completed,Yes,None,Hydro test passed — IBR inspector witnessed
+MS-010,Cogen Bajaj Meerut,Bajaj Hindusthan,Steam Blowing,2026-04-10,2026-04-10,—,—,On Track,Yes,MS-009,Target plates procured
+MS-011,Cogen Bajaj Meerut,Bajaj Hindusthan,Commissioning Complete,2026-06-15,2026-06-15,—,—,On Track,No,MS-010,On track for sugar off-season window
+MS-012,Tata Chemicals Mithapur,Tata Chemicals,ESP Energisation,2026-04-30,2026-05-10,—,—,Delayed,Yes,Foundation redesign,10-day delay due to COR-004 foundation redesign
+MS-013,ONGC Hazira,ONGC,Heater #1 Hydro Test,2026-04-15,2026-04-15,—,—,On Track,Yes,None,Tube-to-tubesheet welding in progress
+MS-014,ONGC Hazira,ONGC,All 3 Heaters Delivered,2026-09-15,2026-10-05,—,—,At Risk,Yes,COR-005 material change,Heater #3 SS316 material change may delay by 20 days

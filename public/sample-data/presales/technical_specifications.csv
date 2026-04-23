@@ -1,0 +1,17 @@
+spec_id,product,parameter,value,unit,tolerance,test_standard,category,notes
+SPEC-001,AFBC Boiler 30 TPH,Steam Output,30,TPH,±5%,ASME PTC 4,Performance,At MCR conditions
+SPEC-002,AFBC Boiler 30 TPH,Steam Pressure,45,bar(g),±1 bar,IS 2825,Performance,At superheater outlet
+SPEC-003,AFBC Boiler 30 TPH,Steam Temperature,440,°C,±5°C,ASME PTC 4,Performance,At superheater outlet
+SPEC-004,AFBC Boiler 30 TPH,Boiler Efficiency,86.5,%,±1%,ASME PTC 4 (indirect),Performance,On GCV basis with design fuel
+SPEC-005,AFBC Boiler 30 TPH,NOx Emission,<100,mg/Nm3,N/A,CPCB Phase III,Environmental,At 6% O2 correction
+SPEC-006,AFBC Boiler 30 TPH,SO2 Emission,<200,mg/Nm3,N/A,CPCB Phase III,Environmental,With in-bed limestone dosing
+SPEC-007,LiBr Absorption Chiller 500TR,Cooling Capacity,500,TR,±3%,AHRI 560,Performance,At design hot water conditions
+SPEC-008,LiBr Absorption Chiller 500TR,COP,1.38,dimensionless,minimum 1.35,AHRI 560,Performance,At rated conditions
+SPEC-009,LiBr Absorption Chiller 500TR,Chilled Water Outlet,7,°C,±0.5°C,AHRI 560,Performance,Design point
+SPEC-010,LiBr Absorption Chiller 500TR,Noise Level,72,dB(A) at 1m,<75 dB(A),ISO 3744,Environmental,With acoustic enclosure
+SPEC-011,HPSG Boiler 10 TPH,Steam Output,10,TPH,±5%,IBR / IS 2825,Performance,At MCR
+SPEC-012,HPSG Boiler 10 TPH,Steam Pressure,10.5,bar(g),±0.5 bar,IBR,Performance,Saturated steam
+SPEC-013,HPSG Boiler 10 TPH,Feedwater Quality,TDS < 10 ppm,mg/L,N/A,cGMP,Quality,Pharma-grade condensate return
+SPEC-014,Hot ESP 180000 Nm3/hr,Gas Flow Capacity,180000,Nm3/hr,±10%,IS 10009,Performance,At design temperature
+SPEC-015,Hot ESP 180000 Nm3/hr,Outlet Dust Loading,<50,mg/Nm3,N/A,CPCB,Environmental,Guaranteed maximum
+SPEC-016,Hot ESP 180000 Nm3/hr,Collection Efficiency,99.5,%,minimum,IS 10009,Performance,At rated conditions

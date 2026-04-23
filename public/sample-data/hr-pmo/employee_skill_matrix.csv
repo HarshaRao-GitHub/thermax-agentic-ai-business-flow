@@ -1,0 +1,13 @@
+employee_id,name,designation,department,primary_skill,secondary_skills,experience_years,certifications,location,availability,current_project,utilisation_pct
+EMP-001,Rajesh Kumar,Lead Project Manager,Projects,Project Management,"EPC execution, risk management, stakeholder management",18,"PMP, PRINCE2",Pune,Available from May 2026,WHRS Dalmia (closing),85%
+EMP-002,Dr. Anand Rao,Chief Design Engineer,Engineering,Boiler Design,"CFBC design, thermal calculations, ASME code compliance",22,"PE (Mechanical), ASME certified",Pune,Partially available,FGD NTPC (design phase),90%
+EMP-003,Priya Venkatesh,Senior Process Engineer,Engineering,Process Engineering,"Heat balance, PFD/P&ID development, HAZOP facilitation",12,"Chartered Engineer (IEI), HAZOP certified",Pune,Available,Between projects,30%
+EMP-004,Suresh Nair,Site Manager — Erection,Projects,Site Erection,"Heavy lifting, welding supervision, safety management",15,"NEBOSH IGC, IBR Inspector certification",Mumbai (mobile),Available from April 2026,Tata Chemicals Mithapur (completing),95%
+EMP-005,Kavita Sharma,Controls Engineer,Automation,DCS/SCADA,"PLC programming, instrumentation, Yokogawa systems",8,"ISA CCST Level II, Yokogawa certified",Pune,Available,Between projects,20%
+EMP-006,Ahmed Hassan,Regional Manager — ME,Sales/Projects,Business Development,"Aramco/ADNOC vendor management, ME project execution",14,"PMP, CIPS (Procurement)",Dubai Office,Available,ME business development,60%
+EMP-007,Deepak Patil,Commissioning Engineer,Commissioning,Boiler Commissioning,"Performance testing, troubleshooting, DCS tuning",10,"IBR Competent Person, Boiler Operation certified",Pune (mobile),Available from June 2026,Cogen Bajaj Hindusthan,100%
+EMP-008,Meenakshi Reddy,Quality Engineer,QA/QC,Welding Inspection,"NDE, material testing, ASME code inspection",7,"CSWIP 3.1, ASNT Level II (UT/RT)",Pune,Available,In-house audits,50%
+EMP-009,Vikram Joshi,Planning Engineer,Projects,Project Planning,"Primavera P6, earned value management, resource levelling",9,"PMI-SP (Scheduling Professional)",Pune,Available,Supporting multiple projects,70%
+EMP-010,Neha Kulkarni,HSE Officer,Safety,Health Safety Environment,"Risk assessment, permit to work, incident investigation",6,"NEBOSH IGC, IOSH Managing Safely",Pune (mobile),Available from May 2026,Tata Chemicals Mithapur,100%
+EMP-011,Ravi Shankar,Procurement Manager,Supply Chain,Vendor Management,"Strategic sourcing, import logistics, contract negotiation",13,"CIPS Level 5, SAP MM certified",Pune,Available,Partial allocation to 3 projects,75%
+EMP-012,Dr. Smita Jain,Water Treatment Specialist,Water Solutions,ZLD/ETP Design,"Membrane systems, evaporators, crystallizers, chemical dosing",16,"CEng, IChemE member",Pune,Available,Supporting Arvind ZLD,40%

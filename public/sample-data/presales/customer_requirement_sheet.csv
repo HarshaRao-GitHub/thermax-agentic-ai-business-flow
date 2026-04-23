@@ -1,0 +1,13 @@
+req_id,customer,project,requirement_category,requirement_detail,priority,thermax_solution,product_line,compliance_standard,notes
+REQ-001,Tata Steel,BF#3 WHRS,Power Recovery,"Minimum 3 MW electrical output from BF exhaust gas waste heat",Must Have,WHRS with ORC or steam turbine,Energy,IS 11170 / ASME PTC 4,"Core project requirement — primary evaluation criteria"
+REQ-002,Tata Steel,BF#3 WHRS,Gas Cleaning,"Dust removal to <50 mg/Nm3 before heat recovery elements",Must Have,High-temperature ESP or cyclone pre-cleaner,Environment,CPCB norms,"Essential for heat exchanger protection"
+REQ-003,Tata Steel,BF#3 WHRS,Emissions,"Stack emissions within CPCB Phase III limits",Must Have,Integrated emission monitoring,Environment,CPCB Phase III,"Non-negotiable regulatory requirement"
+REQ-004,Tata Steel,BF#3 WHRS,Delivery,"Complete system operational within 18 months of PO",Must Have,Modular design for parallel fabrication,All,N/A,"Aligned with BF shutdown schedule"
+REQ-005,Cipla,Goa Clean Utility,Steam Quality,"Pharma-grade steam — oil-free, TDS <2 ppm in condensate",Must Have,HPSG Boiler with condensate polishing,Heating,cGMP / WHO-PQ,"Pharma compliance non-negotiable"
+REQ-006,Cipla,Goa Clean Utility,Cooling,"500 TR cooling capacity with COP ≥ 1.35",Must Have,Absorption chiller (LiBr),Cooling,AHRI 560,"Energy-efficient cooling for API manufacturing"
+REQ-007,Cipla,Goa Clean Utility,Noise,"Plant noise level < 75 dB(A) at 1 meter boundary",Should Have,Acoustic enclosures and vibration isolation,All,OSHA / Factory Act,"Goa plant is near residential area"
+REQ-008,UltraTech,Unit 5 WHRS,Power Recovery,"3.5 MW minimum from combined preheater + cooler exhaust",Must Have,Dual-source WHRS with steam turbine,Energy,IS / ASME,"Primary deliverable"
+REQ-009,UltraTech,Unit 5 WHRS,Dust Control,"ESP upgrade to achieve <30 mg/Nm3 stack emission",Must Have,Pulse-jet ESP with auto-rapping,Environment,CPCB,"Regulatory compliance"
+REQ-010,UltraTech,Unit 5 WHRS,Automation,"Fully automated DCS-integrated control system",Should Have,Thermax proprietary SCADA integration,All,IEC 61131,"Operator efficiency improvement"
+REQ-011,NTPC,Singrauli FGD,SO2 Removal,"≥95% SO2 removal efficiency across all load conditions",Must Have,Limestone-gypsum wet FGD,Environment,MOEF&CC 2015,"Core project requirement"
+REQ-012,NTPC,Singrauli FGD,Byproduct Quality,"Gypsum purity ≥90% CaSO4·2H2O — suitable for cement industry sale",Should Have,Gypsum dewatering and quality control system,Environment,BIS IS 12679,"Revenue potential from gypsum sales"

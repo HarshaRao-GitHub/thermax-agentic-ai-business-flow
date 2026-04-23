@@ -1,0 +1,13 @@
+cert_id,employee_id,employee_name,certification_name,issuing_body,issue_date,expiry_date,status,renewal_action_required,project_requirement,criticality
+CERT-001,EMP-001,Rajesh Kumar,PMP — Project Management Professional,PMI,2022-06-15,2025-06-15,Expired,Renewal PDU submission overdue — submit 60 PDUs by April 30,Required for PM role on NTPC FGD,High
+CERT-002,EMP-001,Rajesh Kumar,PRINCE2 Practitioner,Axelos,2021-03-20,2026-03-20,Active,Renewal due in 12 months,Optional,Low
+CERT-003,EMP-002,Dr. Anand Rao,PE — Professional Engineer (Mechanical),Institution of Engineers India,2015-01-10,N/A (lifetime),Active,No renewal needed,Required for engineering sign-off,Critical
+CERT-004,EMP-002,Dr. Anand Rao,ASME Authorized Inspector,ASME / National Board,2024-01-15,2027-01-15,Active,Renewal in 9 months,Required for ASME code work,Critical
+CERT-005,EMP-003,Priya Venkatesh,HAZOP Facilitator Certification,IChemE,2023-08-01,2026-08-01,Active,Renewal CPD due by Aug 2026,Required for HAZOP studies,High
+CERT-006,EMP-004,Suresh Nair,NEBOSH International General Certificate,NEBOSH,2020-11-10,N/A (lifetime),Active,No renewal needed,Required for site manager role,Critical
+CERT-007,EMP-004,Suresh Nair,IBR Inspector Certification,Chief Inspector of Boilers,2023-05-01,2026-05-01,Expiring Soon,Renewal application submitted — awaiting inspection,Required for IBR boiler erection supervision,Critical
+CERT-008,EMP-005,Kavita Sharma,ISA CCST Level II,International Society of Automation,2024-02-15,2027-02-15,Active,No action needed,Required for controls engineering,High
+CERT-009,EMP-005,Kavita Sharma,Yokogawa Centum VP Certified Engineer,Yokogawa,2023-09-01,2026-09-01,Active,Renewal training scheduled July 2026,Required for Cipla DCS work,High
+CERT-010,EMP-007,Deepak Patil,IBR Competent Person Certificate,Central Boilers Board,2024-04-10,2027-04-10,Active,No action needed,Required for boiler commissioning,Critical
+CERT-011,EMP-008,Meenakshi Reddy,CSWIP 3.1 — Welding Inspector,TWI,2023-01-20,2028-01-20,Active,No action needed,Required for welding QC,High
+CERT-012,EMP-010,Neha Kulkarni,NEBOSH International General Certificate,NEBOSH,2022-08-15,N/A (lifetime),Active,No renewal needed,Required for HSE officer role,Critical

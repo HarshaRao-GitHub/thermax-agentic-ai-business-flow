@@ -1,0 +1,21 @@
+timestamp,project,equipment,tag_name,parameter,value,unit,low_alarm,high_alarm,status,quality
+2027-08-20 10:00:00,WHRS Dalmia,AFBC Boiler,TT-101,Furnace Temperature,885,°C,800,920,Normal,Good
+2027-08-20 10:00:00,WHRS Dalmia,AFBC Boiler,PT-101,Steam Drum Pressure,44.8,bar(g),42,46,Normal,Good
+2027-08-20 10:00:00,WHRS Dalmia,AFBC Boiler,FT-101,Steam Flow,30.5,TPH,5,32,Normal,Good
+2027-08-20 10:00:00,WHRS Dalmia,AFBC Boiler,LT-101,Drum Level,+52,mm,+25,+75,Normal,Good
+2027-08-20 10:00:00,WHRS Dalmia,AFBC Boiler,AT-101,Flue Gas O2,3.8,%,2.5,5.0,Normal,Good
+2027-08-20 10:00:00,WHRS Dalmia,AFBC Boiler,TT-201,Economizer Outlet Gas Temp,168,°C,140,200,Normal,Good
+2027-08-20 10:00:00,WHRS Dalmia,AFBC Boiler,TT-301,Superheater Steam Temp,438,°C,420,445,Normal,Good
+2027-08-20 10:00:00,WHRS Dalmia,Hot ESP,AT-301,ESP Outlet Dust,28,mg/Nm3,0,50,Normal,Good
+2027-08-20 10:00:00,WHRS Dalmia,Hot ESP,II-301,ESP Field 1 Current,320,mA,100,400,Normal,Good
+2027-08-20 10:00:00,WHRS Dalmia,Hot ESP,II-302,ESP Field 2 Current,335,mA,100,400,Normal,Good
+2027-08-20 10:00:00,WHRS Dalmia,Hot ESP,II-303,ESP Field 3 Current,310,mA,100,400,Normal,Good
+2027-08-20 10:00:00,WHRS Dalmia,Steam Turbine,ST-101,Turbine Speed,3000,RPM,2970,3030,Normal,Good
+2027-08-20 10:00:00,WHRS Dalmia,Steam Turbine,PT-201,Exhaust Pressure,0.08,bar(a),0.06,0.12,Normal,Good
+2027-08-20 10:00:00,WHRS Dalmia,Steam Turbine,VT-201,Bearing #1 Vibration,2.1,mm/s,0,2.8,Normal,Good
+2027-08-20 10:00:00,WHRS Dalmia,Steam Turbine,VT-202,Bearing #2 Vibration,3.2,mm/s,0,2.8,High Alarm,Good
+2027-08-20 10:00:00,WHRS Dalmia,Steam Turbine,WT-101,Generator Output,3.12,MW,0,3.5,Normal,Good
+2027-08-20 10:15:00,WHRS Dalmia,AFBC Boiler,TT-101,Furnace Temperature,888,°C,800,920,Normal,Good
+2027-08-20 10:15:00,WHRS Dalmia,AFBC Boiler,PT-101,Steam Drum Pressure,44.9,bar(g),42,46,Normal,Good
+2027-08-20 10:15:00,WHRS Dalmia,AFBC Boiler,FT-101,Steam Flow,30.2,TPH,5,32,Normal,Good
+2027-08-20 10:15:00,WHRS Dalmia,Steam Turbine,VT-202,Bearing #2 Vibration,3.1,mm/s,0,2.8,High Alarm,Good

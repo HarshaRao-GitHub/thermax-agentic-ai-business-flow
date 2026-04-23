@@ -1,0 +1,13 @@
+account_id,account_name,industry,segment,region,revenue_tier,relationship_status,last_contact_date,account_owner,open_opportunities,total_pipeline_cr,ltv_cr,satisfaction_score,strategic_tier
+ACC-001,Tata Steel Ltd,Steel,Energy & Power,East India,Enterprise (>₹50000 Cr),Active Customer,2026-03-18,Rajesh Mehta,2,225,180,4.2,Tier 1 — Strategic
+ACC-002,UltraTech Cement,Cement,Building Materials,West India,Enterprise,Active Customer,2026-03-12,Priya Sharma,1,120,95,4.5,Tier 1 — Strategic
+ACC-003,Reliance Industries,Oil & Gas,Energy & Petrochemical,West India,Mega (>₹100000 Cr),Active Prospect,2026-03-10,Amit Patel,1,340,0,N/A,Tier 1 — Strategic
+ACC-004,Cipla Ltd,Pharmaceuticals,Healthcare & Pharma,West India,Large (₹10000-50000 Cr),Active Customer,2026-03-20,Sunita Desai,1,45,32,4.6,Tier 2 — Growth
+ACC-005,NTPC Ltd,Power Generation,Energy & Power,North India,Enterprise,Active Customer,2026-03-15,Vikram Singh,1,280,150,3.9,Tier 1 — Strategic
+ACC-006,Adani Power,Power Generation,Energy & Power,West India,Enterprise,Active Prospect,2026-03-08,Deepak Nair,1,95,25,3.5,Tier 2 — Growth
+ACC-007,Saudi Aramco,Oil & Gas,Energy & Petrochemical,Middle East,Mega,Active Prospect,2026-02-20,Karim Hassan,1,210,0,N/A,Tier 1 — Strategic
+ACC-008,Arvind Ltd,Textiles,Consumer Goods,West India,Large,Active Customer,2026-03-22,Meera Joshi,1,38,28,4.7,Tier 2 — Growth
+ACC-009,JSW Steel,Steel,Energy & Power,South India,Enterprise,Dormant,2026-03-05,Rajesh Mehta,1,155,60,3.8,Tier 2 — Growth
+ACC-010,Hindalco Industries,Metals,Mining & Metals,East India,Enterprise,Active Customer,2026-03-10,Priya Sharma,1,92,72,4.3,Tier 2 — Growth
+ACC-011,PI Industries,Specialty Chemicals,Chemicals,West India,Mid (₹5000-10000 Cr),New Prospect,2026-02-25,Sunita Desai,0,0,0,N/A,Tier 3 — Explore
+ACC-012,SRF Ltd,Chemicals & Packaging,Chemicals,North India,Large,New Prospect,2026-02-25,Amit Patel,0,0,0,N/A,Tier 3 — Explore

@@ -1,0 +1,11 @@
+test_id,equipment,test_type,test_date,test_location,parameter_tested,target_value,actual_value,unit,tolerance,result,test_engineer,witness,remarks
+TEST-001,AFBC Boiler 30TPH (S/N: TMX-BLR-2026-001),Hydrostatic Test,2026-02-20,Thermax Pune Works,Drum Test Pressure,78,78,bar(g),N/A,PASS,R. Kulkarni,IBR Inspector,"Held at 78 bar for 30 min; no leakage or permanent deformation"
+TEST-002,AFBC Boiler 30TPH,Tube Expansion Pull-Out Test,2026-02-22,Thermax Pune Works,Pull-Out Force per Tube,2500,3200,kgf,minimum 2500,PASS,R. Kulkarni,QA Inspector,"All 8 sample tubes exceeded minimum pull-out force"
+TEST-003,Hot ESP (S/N: TMX-ESP-2026-042),High Voltage Test,2026-03-01,Thermax Enviro Savli,TR Set Output Voltage,75,78,kV DC,minimum 75 kV,PASS,A. Mehta,QA Inspector,"Each field TR set tested independently; no flashover at rated voltage"
+TEST-004,Hot ESP,Rapping System Test,2026-03-02,Thermax Enviro Savli,Rapping Cycle Time,180,175,seconds,±10s,PASS,A. Mehta,None,"All collecting and discharge electrode rappers cycled correctly"
+TEST-005,LiBr Absorption Chiller 500TR (S/N: TMX-ABS-2026-015),Helium Leak Test,2026-03-10,Thermax Chinchwad,Leak Rate,1.0E-06,3.2E-07,mbar·L/s,maximum 1.0E-06,PASS,K. Patel,Cipla QA,"Shell-side helium leak test; well below acceptance limit"
+TEST-006,LiBr Absorption Chiller 500TR,Performance Test (FAT),2026-03-15,Thermax Chinchwad,Cooling Capacity,500,512,TR,±3% (485-515),PASS,K. Patel,Cipla QA,"Tested with hot water at 90°C inlet; cooling water 32°C inlet"
+TEST-007,LiBr Absorption Chiller 500TR,Performance Test (FAT),2026-03-15,Thermax Chinchwad,COP,1.35,1.39,dimensionless,minimum 1.35,PASS,K. Patel,Cipla QA,"Measured simultaneously with capacity test"
+TEST-008,HPSG Boiler 10TPH (S/N: TMX-BLR-2026-088),Hydrostatic Test,2026-03-08,Thermax Pune Works,Shell Test Pressure,15.75,15.75,bar(g),N/A,PASS,S. Deshpande,IBR Inspector,"1.5x design pressure; held for 30 min"
+TEST-009,HPSG Boiler 10TPH,Safety Valve Test,2026-03-09,Thermax Pune Works,Set Pressure (SV-1),10.8,10.82,bar(g),±3%,PASS,S. Deshpande,IBR Inspector,"SV-1 popped at 10.82 bar; reseated at 10.2 bar"
+TEST-010,HPSG Boiler 10TPH,Safety Valve Test,2026-03-09,Thermax Pune Works,Set Pressure (SV-2),11.0,11.05,bar(g),±3%,PASS,S. Deshpande,IBR Inspector,"SV-2 (backup) popped at 11.05 bar; reseated at 10.4 bar"

@@ -8,6 +8,7 @@ import ApprovalPanel from './ApprovalPanel';
 import type { HitlEvent } from './ApprovalPanel';
 import { useWorkflow } from './WorkflowContext';
 import { getStageResult, saveStageResult } from '@/lib/client-store';
+import { sampleFilesByStage, type SampleFile } from '@/data/sample-files';
 
 type Role = 'user' | 'assistant';
 interface ChatMessage { role: Role; content: string; }
@@ -36,11 +37,14 @@ export default function AgentChat({
   const [hitlEvent, setHitlEvent] = useState<HitlEvent | null>(null);
   const [hitlDecision, setHitlDecision] = useState<string | null>(null);
   const [restored, setRestored] = useState(false);
+  const [loadingSampleFiles, setLoadingSampleFiles] = useState<Set<string>>(new Set());
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const startTimeRef = useRef<number>(0);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const streamRef = useRef<HTMLDivElement>(null);
   const { refresh: refreshWorkflow } = useWorkflow();
+
+  const sampleFiles: SampleFile[] = sampleFilesByStage[stage.slug] ?? [];
 
   const transcript: ChatMessage[] =
     streaming && streamBuffer
@@ -237,6 +241,31 @@ export default function AgentChat({
     }
   }
 
+  async function loadSampleFile(sf: SampleFile) {
+    if (uploadedFiles.some(f => f.filename === sf.filename)) return;
+    setLoadingSampleFiles(prev => new Set(prev).add(sf.filename));
+    try {
+      const res = await fetch(sf.path);
+      if (!res.ok) throw new Error(`Failed to fetch ${sf.filename}`);
+      const text = await res.text();
+      const truncated = text.length > 200_000;
+      setUploadedFiles(prev => [...prev, {
+        filename: sf.filename,
+        text: truncated ? text.slice(0, 200_000) : text,
+        truncated,
+      }]);
+    } catch (err) {
+      setUploadError(err instanceof Error ? err.message : 'Failed to load sample file');
+    } finally {
+      setLoadingSampleFiles(prev => { const next = new Set(prev); next.delete(sf.filename); return next; });
+    }
+  }
+
+  async function loadAllSampleFiles() {
+    const unloaded = sampleFiles.filter(sf => !uploadedFiles.some(f => f.filename === sf.filename));
+    for (const sf of unloaded) await loadSampleFile(sf);
+  }
+
   return (
     <div className="grid lg:grid-cols-[280px_1fr] gap-6">
       <aside className="space-y-4">
@@ -328,6 +357,57 @@ export default function AgentChat({
           )}
           {uploadError && <div className="mt-2 text-[11px] text-red-600">{uploadError}</div>}
         </section>
+
+        {sampleFiles.length > 0 && (
+          <section className="bg-white border border-thermax-line rounded-xl shadow-card p-4">
+            <div className="flex items-center justify-between mb-2">
+              <h3 className="text-[11px] font-bold uppercase tracking-wider text-thermax-slate">
+                Sample Data Files ({sampleFiles.length})
+              </h3>
+              {sampleFiles.some(sf => !uploadedFiles.some(f => f.filename === sf.filename)) && (
+                <button
+                  onClick={loadAllSampleFiles}
+                  disabled={streaming}
+                  className="text-[10px] font-semibold text-thermax-saffronDeep hover:underline disabled:opacity-40"
+                >
+                  Load All
+                </button>
+              )}
+            </div>
+            <p className="text-[10px] text-thermax-slate mb-2 leading-snug">
+              Pre-built Thermax data files for this agent. Click any file to load it.
+            </p>
+            <div className="space-y-1.5">
+              {sampleFiles.map((sf) => {
+                const isLoaded = uploadedFiles.some(f => f.filename === sf.filename);
+                const isLoading = loadingSampleFiles.has(sf.filename);
+                return (
+                  <button
+                    key={sf.filename}
+                    onClick={() => loadSampleFile(sf)}
+                    disabled={isLoaded || isLoading || streaming}
+                    className={`w-full text-left p-2 rounded-lg border transition-all ${
+                      isLoaded
+                        ? 'bg-emerald-50 border-emerald-200 cursor-default'
+                        : isLoading
+                        ? 'bg-blue-50 border-blue-200 animate-pulse'
+                        : 'bg-thermax-mist border-thermax-line hover:border-thermax-saffron hover:bg-amber-50 cursor-pointer'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2 mb-0.5">
+                      <span className="text-[11px]">{isLoaded ? '✅' : isLoading ? '⏳' : '📄'}</span>
+                      <span className={`text-[11px] font-semibold truncate ${isLoaded ? 'text-emerald-700' : 'text-thermax-navy'}`}>
+                        {sf.label}
+                      </span>
+                      {isLoaded && <span className="ml-auto text-[9px] font-bold text-emerald-600 bg-emerald-100 px-1.5 py-0.5 rounded">LOADED</span>}
+                    </div>
+                    <div className="text-[10px] text-thermax-slate leading-snug pl-5">{sf.description}</div>
+                  </button>
+                );
+              })}
+            </div>
+          </section>
+        )}
       </aside>
 
       <section className="flex flex-col bg-white border border-thermax-line rounded-xl shadow-card min-h-[640px]">

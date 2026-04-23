@@ -1,0 +1,17 @@
+datasheet_id,equipment,parameter,design_value,unit,operating_range,code_standard,material_of_construction,remarks
+DS-001,AFBC Boiler 30TPH — BF Gas Firing,Type,Atmospheric Fluidised Bed Combustion,—,N/A,IS 2825 / IBR,N/A,Designed for BF gas + coal co-firing
+DS-002,AFBC Boiler 30TPH,Design Pressure,52,bar(g),42-52 bar,ASME Sec I,SA 516 Gr 70 (drum),Hydrotest at 1.5x design pressure
+DS-003,AFBC Boiler 30TPH,Design Temperature,460,°C,380-460°C,ASME Sec I,SA 213 T11 (SH tubes),Superheater outlet design temperature
+DS-004,AFBC Boiler 30TPH,Furnace Volume,85,m3,N/A,Thermax proprietary,Refractory lined,Sized for 2.5 sec residence time
+DS-005,AFBC Boiler 30TPH,Bed Area,18,m2,N/A,Thermax design,SS 310 nozzles,Fluidising velocity 1.8-2.2 m/s
+DS-006,AFBC Boiler 30TPH,Heating Surface — Evaporator,520,m2,N/A,ASME,SA 210 Gr A1 tubes,Membrane wall + bank tubes
+DS-007,AFBC Boiler 30TPH,Heating Surface — Superheater,85,m2,N/A,ASME,SA 213 T11 tubes,Pendant + convection sections
+DS-008,AFBC Boiler 30TPH,Heating Surface — Economizer,140,m2,N/A,ASME,SA 210 Gr A1 tubes,Integral economizer
+DS-009,Hot ESP 180000 Nm3/hr,Collecting Area,4800,m2,N/A,IS 10009,Corten-A plates,Specific collecting area: 80 m2/(1000 Nm3/hr)
+DS-010,Hot ESP 180000 Nm3/hr,Number of Fields,3,fields,N/A,Thermax design,N/A,Each field independently powered
+DS-011,Hot ESP 180000 Nm3/hr,Operating Temperature,250,°C,200-300°C,IS 10009,Corten-A casing,Above acid dew point
+DS-012,Hot ESP 180000 Nm3/hr,Power Consumption,120,kW,80-150 kW,IS 10009,N/A,Total for all TR sets
+DS-013,LiBr Absorption Chiller 500TR,Type,Single Effect — Hot Water Driven,—,N/A,AHRI 560,N/A,Thermax model: TD-500-HW
+DS-014,LiBr Absorption Chiller 500TR,Shell Design Pressure,8.5,bar(g),vacuum to 8.5,ASME Sec VIII Div 1,SA 516 Gr 70,Includes generator shell and absorber/evaporator shell
+DS-015,LiBr Absorption Chiller 500TR,Tube Material,Cu-Ni 90/10,—,N/A,ASTM B111,N/A,Enhanced tubes for improved heat transfer
+DS-016,LiBr Absorption Chiller 500TR,LiBr Solution Concentration,53-58,% by weight,53-58%,Thermax standard,N/A,Corrosion inhibitor added

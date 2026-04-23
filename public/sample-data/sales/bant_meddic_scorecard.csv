@@ -1,0 +1,11 @@
+opportunity_id,account,budget_score,authority_score,need_score,timeline_score,bant_total,metrics_score,economic_buyer_score,decision_criteria_score,decision_process_score,identify_pain_score,champion_score,meddic_total,overall_recommendation,notes
+OPP-101,Tata Steel,8,7,9,8,8.0,7,8,8,7,9,6,7.5,GO,"Budget approved in capex plan; VP Engineering is authority; clear need for energy recovery; timeline aligned with BF shutdown"
+OPP-102,UltraTech Cement,9,8,9,9,8.8,8,9,8,8,9,8,8.3,GO,"Strong across all dimensions; Thermax champion identified (Plant Head); PO expected within 45 days"
+OPP-103,Reliance Industries,7,5,8,4,6.0,6,4,5,4,7,3,4.8,CONDITIONAL GO,"Large budget but authority unclear; multiple technology evaluations in progress; no clear Thermax champion yet"
+OPP-104,Cipla Ltd,8,9,8,8,8.3,8,8,8,8,8,9,8.2,GO,"Cipla VP Projects is Thermax champion; clear pain point (clean utility compliance); budget sanctioned"
+OPP-105,NTPC,7,6,9,5,6.8,7,5,6,4,8,5,5.8,CONDITIONAL GO,"Strong need but government procurement process is slow; authority distributed across multiple levels"
+OPP-106,Adani Power,6,5,7,5,5.8,5,5,6,5,6,4,5.2,CONDITIONAL GO,"Budget allocation pending board approval; need driven by regulatory mandate; timeline uncertain"
+OPP-107,Saudi Aramco,8,6,7,6,6.8,7,6,7,5,7,5,6.2,CONDITIONAL GO,"Aramco budget available; but decision process involves multiple rounds of technical evaluation"
+OPP-108,Arvind Ltd,9,9,9,10,9.3,9,9,9,9,9,9,9.0,STRONG GO,"All dimensions strong; PO imminent; Thermax is preferred vendor; repeat customer"
+OPP-109,JSW Steel,5,4,6,3,4.5,4,3,5,3,5,3,3.7,NO-GO (Revisit Q3),"Low scores across authority and timeline; JSW still evaluating technology; revisit when decision process matures"
+OPP-110,Hindalco,7,7,8,7,7.3,7,7,7,7,8,7,7.2,GO,"Solid opportunity; Hindalco is repeat customer; installed base advantage; moderate competition from BHEL"

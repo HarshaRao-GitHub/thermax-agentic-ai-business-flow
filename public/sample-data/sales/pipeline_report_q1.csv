@@ -1,0 +1,11 @@
+opportunity_id,account_name,deal_title,stage,value_cr,probability,expected_close,owner,bant_score,meddic_score,competitor,notes
+OPP-101,Tata Steel Ltd,Waste Heat Recovery — Jamshedpur BF#3,Proposal,185,65%,2026-06-30,Rajesh Mehta,8,7,L&T,"Technical proposal submitted; awaiting commercial negotiation"
+OPP-102,UltraTech Cement,Kiln WHRS + Bag Filter — Aditya Birla Unit,Negotiation,120,80%,2026-05-15,Priya Sharma,9,8,ISGEC,"Final price negotiation; delivery timeline is key differentiator"
+OPP-103,Reliance Industries,Hydrogen Generation Unit — Jamnagar Expansion,Qualification,340,40%,2026-09-30,Amit Patel,6,5,Linde / L&T,"Early stage; Thermax positioned as utility island partner"
+OPP-104,Cipla Ltd,Clean Utility System — Goa Pharma Plant,Proposal,45,70%,2026-05-30,Sunita Desai,8,8,Forbes Marshall,"Absorption chiller + steam system; Cipla has prior Thermax installations"
+OPP-105,NTPC Ltd,FGD Retrofit — Singrauli STPS Units 3-5,Proposal,280,55%,2026-08-31,Vikram Singh,7,6,BHEL / L&T,"Large value; government decision cycle; Thermax on technical shortlist"
+OPP-106,Adani Power,Biomass Co-firing System — Mundra TPP,Qualification,95,45%,2026-07-31,Deepak Nair,6,5,Babcock & Wilcox,"Adani exploring 10% biomass co-firing as per MNRE mandate"
+OPP-107,Saudi Aramco,Process Heaters Package — Ras Tanura Refinery,Proposal,210,50%,2026-10-31,Karim Hassan,7,6,Alfa Laval,"Thermax ME office coordinating; technical prequalification cleared"
+OPP-108,Arvind Ltd,ZLD + Water Recycling — Santej Textile Park,Negotiation,38,85%,2026-04-30,Meera Joshi,9,9,Veolia,"Almost won; final PO expected this month; Thermax chemical division bundled"
+OPP-109,JSW Steel,Coke Oven Gas Recovery — Vijayanagar Works,Qualification,155,35%,2026-11-30,Rajesh Mehta,5,4,Danieli,"Complex project; JSW evaluating multiple technology options"
+OPP-110,Hindalco Industries,Captive Power Boiler — Aditya Aluminium,Proposal,92,60%,2026-06-30,Priya Sharma,7,7,Thermax vs BHEL,"Repeat customer; Thermax has installed base advantage"

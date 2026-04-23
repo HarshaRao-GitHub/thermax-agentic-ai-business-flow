@@ -1,0 +1,18 @@
+timestamp,plant_id,customer,equipment,sensor_tag,parameter,value,unit,normal_range_low,normal_range_high,anomaly_flag,trend
+2026-03-20 08:00,PLT-001,Dalmia Cement,WHRS Boiler,BLR-EFF-001,Boiler Efficiency,86.8,%,85.0,88.0,Normal,Stable
+2026-03-20 08:00,PLT-001,Dalmia Cement,WHRS Boiler,BLR-STM-001,Steam Output,29.5,TPH,25.0,32.0,Normal,Stable
+2026-03-20 08:00,PLT-001,Dalmia Cement,Hot ESP,ESP-DUST-001,Stack Dust Emission,35,mg/Nm3,0,50,Normal,Slight upward trend
+2026-03-20 08:00,PLT-001,Dalmia Cement,Steam Turbine,TRB-VIB-001,Bearing #2 Vibration,3.4,mm/s,0,2.8,ANOMALY — Above normal,Increasing over 30 days
+2026-03-20 08:00,PLT-001,Dalmia Cement,Steam Turbine,TRB-PWR-001,Generator Output,3.05,MW,2.5,3.5,Normal,Stable
+2026-03-20 08:00,PLT-002,Bajaj Hindusthan,Cogen Boiler,BLR-EFF-002,Boiler Efficiency,83.2,%,82.0,86.0,Normal,Slight decline (-0.5% over 60 days)
+2026-03-20 08:00,PLT-002,Bajaj Hindusthan,Cogen Boiler,BLR-STM-002,Steam Output,24.8,TPH,20.0,26.0,Normal,Stable
+2026-03-20 08:00,PLT-002,Bajaj Hindusthan,Cogen Turbine,TRB-PWR-002,Generator Output,3.78,MW,3.5,4.2,Normal,Stable
+2026-03-20 08:00,PLT-003,Tata Chemicals,FBC Boiler,BLR-EFF-003,Boiler Efficiency,85.5,%,84.0,87.0,Normal,Stable
+2026-03-20 08:00,PLT-003,Tata Chemicals,FBC Boiler,BLR-FLU-003,Flue Gas Temperature,172,°C,150,180,Normal,Stable
+2026-03-20 08:00,PLT-003,Tata Chemicals,ESP,ESP-DUST-003,Stack Dust Emission,42,mg/Nm3,0,50,Warning — Approaching limit,Upward trend (+8 mg over 45 days)
+2026-03-20 08:00,PLT-004,ONGC Hazira,Process Heater #1,HTR-TEMP-001,Outlet Process Temp,385,°C,370,400,Normal,Stable
+2026-03-20 08:00,PLT-004,ONGC Hazira,Process Heater #1,HTR-EFF-001,Heater Thermal Efficiency,89.2,%,87.0,92.0,Normal,Stable
+2026-03-20 08:00,PLT-005,SRF Bhiwadi,Thermic Fluid Heater,THF-TEMP-001,TF Outlet Temperature,285,°C,270,300,Normal,Stable
+2026-03-20 08:00,PLT-005,SRF Bhiwadi,Thermic Fluid Heater,THF-EFF-001,Heater Efficiency,87.5,%,86.0,90.0,Normal,Stable
+2026-03-20 12:00,PLT-001,Dalmia Cement,Steam Turbine,TRB-VIB-001,Bearing #2 Vibration,3.6,mm/s,0,2.8,ANOMALY — Increasing,0.2 mm/s increase in 4 hours
+2026-03-20 12:00,PLT-003,Tata Chemicals,ESP,ESP-DUST-003,Stack Dust Emission,44,mg/Nm3,0,50,Warning — Approaching limit,+2 mg from morning reading
