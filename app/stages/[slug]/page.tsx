@@ -12,7 +12,7 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   const stage = getStageBySlug(params.slug);
   if (!stage) return { title: 'Stage Not Found' };
   return {
-    title: `Stage ${stage.number}: ${stage.title} — Thermax Agentic AI`,
+    title: `Stage ${stage.number}: ${stage.title} — Thermax's AI OS 2030`,
     description: `${stage.agent.name} — ${stage.subtitle}. ${stage.tools.length} tools, ${stage.dataSources.length} data sources.`
   };
 }

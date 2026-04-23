@@ -19,7 +19,7 @@ export default function Home() {
           <div>
             <div className="inline-flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-[11px] font-mono mb-5">
               <span className="w-1.5 h-1.5 bg-thermax-saffron rounded-full animate-pulse" />
-              Thermax Agentic AI Operating System · Enterprise LLM
+              Thermax's Agentic AI Operating System 2030 · Enterprise LLM
             </div>
             <h1 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
               9-Stage Enterprise
@@ -27,7 +27,7 @@ export default function Home() {
               <span className="text-thermax-saffron">Agentic AI System.</span>
             </h1>
             <p className="mt-4 text-white/75 max-w-2xl text-[15px] leading-relaxed">
-              End-to-end AI operating system for Thermax — from Market Intelligence to Digital Service,
+              End-to-end AI operating system for Thermax — from Market Intelligence to O&amp;M Services,
               with AgentGuard governance. 10 autonomous agents, 31 tools, 4,086+ data records,
               processing every stage of the enterprise workflow.
             </p>
@@ -204,7 +204,7 @@ export default function Home() {
             { folder: '06_hr_pmo', label: 'HR & PMO', files: 2, icon: '👷' },
             { folder: '07_site_operations', label: 'Site Ops', files: 3, icon: '🏗️' },
             { folder: '08_commissioning', label: 'Commissioning', files: 1, icon: '🔬' },
-            { folder: '09_digital_service', label: 'Digital Service', files: 3, icon: '📱' },
+            { folder: '09_digital_service', label: 'O&M Services', files: 4, icon: '🔧' },
             { folder: '10_governance', label: 'Governance', files: 4, icon: '🛡️' }
           ].map((f) => (
             <div key={f.folder} className="bg-white border border-thermax-line rounded-lg p-3">

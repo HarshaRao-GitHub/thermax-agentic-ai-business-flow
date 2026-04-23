@@ -10,7 +10,7 @@ export type ToolName =
   | 'charter_project' | 'match_resources' | 'plan_mobilisation'
   | 'analyze_progress' | 'detect_safety_risks' | 'disposition_ncr'
   | 'analyze_test_results' | 'verify_performance' | 'generate_punchlist'
-  | 'analyze_telemetry' | 'predict_maintenance' | 'diagnose_ticket'
+  | 'lookup_sop' | 'diagnose_service_case' | 'check_spare_parts'
   | 'analyze_approval_gates' | 'audit_agent_actions' | 'review_overrides' | 'manage_escalations';
 
 const marketingTools: Anthropic.Messages.Tool[] = [
@@ -313,37 +313,40 @@ const commissioningTools: Anthropic.Messages.Tool[] = [
 
 const digitalServiceTools: Anthropic.Messages.Tool[] = [
   {
-    name: 'analyze_telemetry',
-    description: 'Analyzes plant telemetry data — detects efficiency drops, emission spikes, uptime degradation, and anomaly patterns. Computes rolling averages and trend analysis.',
+    name: 'lookup_sop',
+    description: 'Searches the SOP library by equipment type, issue category, or keyword. Returns relevant standard operating procedures with step-by-step instructions, safety precautions, and required tools.',
     input_schema: {
       type: 'object' as const,
       properties: {
-        project_id: { type: 'string', description: 'Project to analyze (or "all")' },
-        hours: { type: 'number', description: 'Hours of telemetry to analyze (default: 168 / 1 week)' }
+        equipment_type: { type: 'string', description: 'Equipment type: AFBC Boiler, Thermic Fluid Heater, WHRB, FGD System, Absorption Chiller, or General' },
+        category: { type: 'string', description: 'SOP category: Startup, Operation, Maintenance, Emergency, Performance, Safety, Diagnosis' },
+        keyword: { type: 'string', description: 'Search keyword (e.g., "tube leak", "vibration", "combustion")' }
       },
       required: []
     }
   },
   {
-    name: 'predict_maintenance',
-    description: 'Generates predictive maintenance alerts based on telemetry patterns, component degradation curves, and historical failure data. Recommends actions and assigns technicians.',
+    name: 'diagnose_service_case',
+    description: 'Performs AI-powered diagnosis of a service case using why-why (5-Why) root cause analysis. Traces symptoms to root causes and recommends corrective and preventive actions.',
     input_schema: {
       type: 'object' as const,
       properties: {
-        project_id: { type: 'string', description: 'Project to predict maintenance for (or "all")' },
-        severity_filter: { type: 'string', description: 'Severity filter: Low/Medium/High/Critical' }
+        case_id: { type: 'string', description: 'Specific case ID (e.g., SC-001) or "all" for open cases' },
+        equipment_type: { type: 'string', description: 'Filter by equipment type' },
+        severity: { type: 'string', description: 'Filter by severity: Low/Medium/High/Critical' }
       },
       required: []
     }
   },
   {
-    name: 'diagnose_ticket',
-    description: 'AI diagnosis of service tickets — root cause analysis, recommended actions, technician assignment, and CSAT prediction.',
+    name: 'check_spare_parts',
+    description: 'Checks spare parts inventory — availability, stock levels, lead times, pricing, and consumption history. Identifies parts needed for a service case or equipment type.',
     input_schema: {
       type: 'object' as const,
       properties: {
-        ticket_id: { type: 'string', description: 'Specific ticket (or "all" for open tickets)' },
-        priority_filter: { type: 'string', description: 'Priority filter: Low/Medium/High/Critical' }
+        equipment_type: { type: 'string', description: 'Equipment type to check parts for (or "all")' },
+        criticality: { type: 'string', description: 'Criticality filter: Critical/High/Medium/Low' },
+        low_stock_only: { type: 'boolean', description: 'If true, only show parts below reorder level' }
       },
       required: []
     }
@@ -463,9 +466,9 @@ export function executeToolLocally(
       case 'analyze_test_results': return executeTestResultsAnalysis(input);
       case 'verify_performance': return executePerformanceVerification(input);
       case 'generate_punchlist': return executePunchlistGeneration(input);
-      case 'analyze_telemetry': return executeTelemetryAnalysis(input);
-      case 'predict_maintenance': return executeMaintenancePrediction(input);
-      case 'diagnose_ticket': return executeTicketDiagnosis(input);
+      case 'lookup_sop': return executeSOPLookup(input);
+      case 'diagnose_service_case': return executeServiceCaseDiagnosis(input);
+      case 'check_spare_parts': return executeSparePartsCheck(input);
       case 'analyze_approval_gates': return executeApprovalGateAnalysis(input);
       case 'audit_agent_actions': return executeAuditAnalysis(input);
       case 'review_overrides': return executeOverrideReview(input);
@@ -1223,105 +1226,124 @@ function executePunchlistGeneration(input: Record<string, unknown>): string {
   });
 }
 
-function executeTelemetryAnalysis(input: Record<string, unknown>): string {
-  const telemetry = loadCsv('09_digital_service', 'plant_telemetry.csv');
-  const projId = input.project_id as string;
+function executeSOPLookup(input: Record<string, unknown>): string {
+  const sops = loadCsv('09_digital_service', 'sop_library.csv');
+  const equipType = input.equipment_type as string;
+  const category = input.category as string;
+  const keyword = input.keyword as string;
 
-  let filtered = projId && projId !== 'all'
-    ? telemetry.rows.filter((t) => t.project_id === projId)
-    : telemetry.rows;
-
-  const anomalies = filtered.filter((t) => t.anomaly_detected === 'Yes');
-  const avgEfficiency = filtered.reduce((a, t) => a + Number(t.boiler_efficiency_pct || 0), 0) / Math.max(filtered.length, 1);
-  const avgUptime = filtered.reduce((a, t) => a + Number(t.uptime_pct || 0), 0) / Math.max(filtered.length, 1);
+  let filtered = sops.rows;
+  if (equipType && equipType !== 'all') filtered = filtered.filter((s) => s.equipment_type?.toLowerCase().includes(equipType.toLowerCase()));
+  if (category) filtered = filtered.filter((s) => s.category?.toLowerCase().includes(category.toLowerCase()));
+  if (keyword) filtered = filtered.filter((s) =>
+    s.sop_title?.toLowerCase().includes(keyword.toLowerCase()) ||
+    s.summary?.toLowerCase().includes(keyword.toLowerCase()) ||
+    s.key_steps?.toLowerCase().includes(keyword.toLowerCase())
+  );
 
   return JSON.stringify({
-    total_readings: filtered.length,
-    anomalies_detected: anomalies.length,
-    anomaly_rate: filtered.length > 0 ? (anomalies.length / filtered.length * 100).toFixed(1) + '%' : 'N/A',
-    avg_boiler_efficiency: avgEfficiency.toFixed(2),
-    avg_uptime: avgUptime.toFixed(2),
-    latest_readings: filtered.slice(0, 10).map((t) => ({
-      telemetry_id: t.telemetry_id,
-      project_id: t.project_id,
-      timestamp: t.timestamp,
-      efficiency: t.boiler_efficiency_pct,
-      steam_tph: t.steam_output_tph,
-      fuel_kg_hr: t.fuel_consumption_kg_hr,
-      nox: t.nox_emission_mg_nm3,
-      so2: t.so2_emission_mg_nm3,
-      uptime: t.uptime_pct,
-      anomaly: t.anomaly_detected
+    total_sops_found: filtered.length,
+    sops: filtered.map((s) => ({
+      sop_id: s.sop_id,
+      equipment: s.equipment_type,
+      title: s.sop_title,
+      category: s.category,
+      revision: s.revision,
+      summary: s.summary,
+      key_steps: s.key_steps,
+      safety_precautions: s.safety_precautions,
+      tools_required: s.tools_required
     })),
-    summary: `${filtered.length} telemetry readings. ${anomalies.length} anomalies (${filtered.length > 0 ? (anomalies.length / filtered.length * 100).toFixed(1) : 0}%). Avg efficiency: ${avgEfficiency.toFixed(2)}%.`
+    summary: `${filtered.length} SOPs found${equipType ? ` for ${equipType}` : ''}${category ? ` in ${category} category` : ''}${keyword ? ` matching "${keyword}"` : ''}.`
   });
 }
 
-function executeMaintenancePrediction(input: Record<string, unknown>): string {
-  const alerts = loadCsv('09_digital_service', 'maintenance_alerts.csv');
-  const projId = input.project_id as string;
-  const sevFilter = input.severity_filter as string;
+function executeServiceCaseDiagnosis(input: Record<string, unknown>): string {
+  const cases = loadCsv('09_digital_service', 'service_cases.csv');
+  const caseId = input.case_id as string;
+  const equipType = input.equipment_type as string;
+  const severity = input.severity as string;
 
-  let filtered = alerts.rows;
-  if (projId && projId !== 'all') filtered = filtered.filter((a) => a.project_id === projId);
-  if (sevFilter) filtered = filtered.filter((a) => a.severity === sevFilter);
+  let filtered = cases.rows;
+  if (caseId && caseId !== 'all') filtered = filtered.filter((c) => c.case_id === caseId);
+  if (equipType) filtered = filtered.filter((c) => c.equipment_type?.toLowerCase().includes(equipType.toLowerCase()));
+  if (severity) filtered = filtered.filter((c) => c.severity === severity);
 
-  const byType: Record<string, number> = {};
   const bySeverity: Record<string, number> = {};
-  for (const a of filtered) {
-    byType[a.alert_type] = (byType[a.alert_type] || 0) + 1;
-    bySeverity[a.severity] = (bySeverity[a.severity] || 0) + 1;
+  const byEquipment: Record<string, number> = {};
+  const byStatus: Record<string, number> = {};
+  for (const c of filtered) {
+    bySeverity[c.severity] = (bySeverity[c.severity] || 0) + 1;
+    byEquipment[c.equipment_type] = (byEquipment[c.equipment_type] || 0) + 1;
+    byStatus[c.diagnosis_status] = (byStatus[c.diagnosis_status] || 0) + 1;
   }
 
+  const avgCsat = filtered.reduce((a, c) => a + Number(c.csat_rating || 0), 0) / Math.max(filtered.filter((c) => c.csat_rating && c.csat_rating !== 'Pending').length, 1);
+
   return JSON.stringify({
-    total_alerts: filtered.length,
-    by_type: byType,
+    total_cases: filtered.length,
     by_severity: bySeverity,
-    open_alerts: filtered.filter((a) => a.status === 'Open' || a.status === 'In Progress').length,
-    alerts: filtered.slice(0, 15).map((a) => ({
-      alert_id: a.alert_id,
-      project_id: a.project_id,
-      type: a.alert_type,
-      component: a.component,
-      severity: a.severity,
-      prediction: a.ai_prediction,
-      action: a.recommended_action,
-      technician: a.technician_assigned,
-      target_date: a.target_resolution_date,
-      status: a.status
+    by_equipment: byEquipment,
+    by_status: byStatus,
+    avg_csat: avgCsat.toFixed(2),
+    cases: filtered.slice(0, 15).map((c) => ({
+      case_id: c.case_id,
+      customer: c.customer_name,
+      equipment: c.equipment_type,
+      symptom: c.symptom_description,
+      severity: c.severity,
+      root_cause: c.root_cause,
+      resolution: c.resolution,
+      spare_parts: c.spare_parts_used,
+      engineer: c.assigned_engineer,
+      resolve_time_hrs: c.time_to_resolve_hrs,
+      csat: c.csat_rating,
+      status: c.diagnosis_status
     })),
-    summary: `${filtered.length} maintenance alerts. ${bySeverity['Critical'] || 0} Critical, ${bySeverity['High'] || 0} High. ${filtered.filter((a) => a.status === 'Open' || a.status === 'In Progress').length} open.`
+    summary: `${filtered.length} service cases. ${bySeverity['Critical'] || 0} Critical, ${bySeverity['High'] || 0} High. ${byStatus['In Progress'] || 0} in progress. Avg CSAT: ${avgCsat.toFixed(2)}.`
   });
 }
 
-function executeTicketDiagnosis(input: Record<string, unknown>): string {
-  const tickets = loadCsv('09_digital_service', 'service_tickets.csv');
-  const ticketId = input.ticket_id as string;
-  const prioFilter = input.priority_filter as string;
+function executeSparePartsCheck(input: Record<string, unknown>): string {
+  const parts = loadCsv('09_digital_service', 'spare_parts_inventory.csv');
+  const equipType = input.equipment_type as string;
+  const criticality = input.criticality as string;
+  const lowStockOnly = input.low_stock_only as boolean;
 
-  let filtered = tickets.rows;
-  if (ticketId && ticketId !== 'all') filtered = filtered.filter((t) => t.ticket_id === ticketId);
-  if (prioFilter) filtered = filtered.filter((t) => t.priority === prioFilter);
+  let filtered = parts.rows;
+  if (equipType && equipType !== 'all') filtered = filtered.filter((p) => p.equipment_type?.toLowerCase().includes(equipType.toLowerCase()));
+  if (criticality) filtered = filtered.filter((p) => p.criticality === criticality);
+  if (lowStockOnly) filtered = filtered.filter((p) => Number(p.stock_qty) <= Number(p.reorder_level));
 
-  const avgCsat = filtered.reduce((a, t) => a + Number(t.customer_satisfaction_rating || 0), 0) / Math.max(filtered.filter((t) => t.customer_satisfaction_rating).length, 1);
+  const lowStock = filtered.filter((p) => Number(p.stock_qty) <= Number(p.reorder_level));
+  const totalValue = filtered.reduce((a, p) => a + Number(p.stock_qty) * Number(p.unit_price_inr || 0), 0);
 
   return JSON.stringify({
-    total_tickets: filtered.length,
-    avg_csat: avgCsat.toFixed(2),
-    low_csat_count: filtered.filter((t) => Number(t.customer_satisfaction_rating) < 3 && Number(t.customer_satisfaction_rating) > 0).length,
-    tickets: filtered.slice(0, 15).map((t) => ({
-      ticket_id: t.ticket_id,
-      project_id: t.project_id,
-      issue_type: t.issue_type,
-      priority: t.priority,
-      description: t.description,
-      ai_diagnosis: t.ai_diagnosis,
-      recommendation: t.agent_recommendation,
-      engineer: t.field_engineer,
-      csat: t.customer_satisfaction_rating,
-      status: t.status
+    total_parts: filtered.length,
+    low_stock_alerts: lowStock.length,
+    total_inventory_value_inr: totalValue,
+    parts: filtered.map((p) => ({
+      part_id: p.part_id,
+      name: p.part_name,
+      equipment: p.equipment_type,
+      stock: Number(p.stock_qty),
+      reorder_level: Number(p.reorder_level),
+      low_stock: Number(p.stock_qty) <= Number(p.reorder_level),
+      unit_price: p.unit_price_inr,
+      lead_time_days: p.lead_time_days,
+      criticality: p.criticality,
+      consumption_12m: p.consumption_12m,
+      warehouse: p.warehouse_location
     })),
-    summary: `${filtered.length} service tickets. Avg CSAT: ${avgCsat.toFixed(2)}. ${filtered.filter((t) => Number(t.customer_satisfaction_rating) < 3 && Number(t.customer_satisfaction_rating) > 0).length} low-CSAT tickets.`
+    low_stock_items: lowStock.map((p) => ({
+      part_id: p.part_id,
+      name: p.part_name,
+      stock: Number(p.stock_qty),
+      reorder_level: Number(p.reorder_level),
+      lead_time_days: p.lead_time_days,
+      criticality: p.criticality
+    })),
+    summary: `${filtered.length} spare parts. ${lowStock.length} below reorder level. Inventory value: ₹${(totalValue / 100000).toFixed(1)} lakhs.`
   });
 }
 

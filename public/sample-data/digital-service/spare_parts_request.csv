@@ -1,0 +1,9 @@
+request_id,case_ref,part_name,part_number,qty_needed,equipment,site,requested_by,request_date,urgency,stock_available,lead_time_days,estimated_cost_inr,status
+SPR-001,SC-003,Water Wall Tubes SA210 Gr A1,TBW-WW-2540,4,WHRB Unit 2,JSW Vijayanagar,Ankit Verma,2025-01-16,Critical,Yes — 24 in stock,0,74000,Dispatched
+SPR-002,SC-004,FGD Recirc Pump Impeller,TFG-IMP-0880,1,FGD System,UltraTech Aditya Nagar,Priya Menon,2025-01-21,High,Yes — 3 in stock,0,95000,Dispatched
+SPR-003,SC-006,ID Fan Bearings SKF 6328,SKF-6328-C3,2,AFBC Boiler 110TPH,NTPC Dadri,Ravi Sharma,2025-02-02,High,Yes — 6 in stock,0,56000,Dispatched
+SPR-004,SC-008,Refractory Gunning Mix,TRF-GM-5000,2000,AFBC Boiler 80TPH,Hindalco Renukoot,Deepak Patil,2025-02-11,Medium,Yes — 5000 in stock,0,170000,Dispatched
+SPR-005,SC-010,Coal Feeder Screw Flights,TCF-SF-0800,4,AFBC Boiler Coal Feeder,ACC Wadi,Suresh Kumar,2025-02-19,Medium,No — reorder needed,30,34000,On Order
+SPR-006,SC-012,Mist Eliminator Wash Nozzles,TME-WN-0120,12,FGD ME System,IOC Haldia,Ankit Verma,2025-03-01,Medium,Yes — 24 in stock,0,42000,Dispatched
+SPR-007,SC-014,Ash Cooler Screw Flights,TAS-SF-1200,6,Bottom Ash Cooler,SAIL Rourkela,Suresh Kumar,2025-03-09,High,No — reorder needed,35,78000,On Order
+SPR-008,SC-015,Economizer Tube Plugs,TEC-TP-0060,8,WHRB Economizer,Paradeep Phosphates,Priya Menon,2025-03-13,Critical,Yes — in field kit,0,12000,Dispatched

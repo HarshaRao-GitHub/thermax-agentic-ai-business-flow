@@ -169,16 +169,16 @@ const AGENT_STAGES: AgentStage[] = [
   },
   {
     number: 9,
-    title: 'Digital & Service',
-    agentName: 'Performance & Service Agent',
-    icon: '📱',
+    title: 'O&M Services',
+    agentName: 'O&M Service Intelligence Agent',
+    icon: '🔧',
     color: '#14B8A6',
     aiAutomates:
-      '24\u00d77 remote performance monitoring, predictive maintenance alerts, energy and fuel optimisation recommendations, periodic performance reports, retrofit and renewal opportunity identification, draft reference case studies.',
+      'SOP lookup and field engineer guidance, service case diagnosis with why-why root cause analysis, spare parts availability checks and recommendations, O&M contract intelligence, recurring issue pattern analysis.',
     humanInLoop:
-      'Service head reviews critical alerts; customer success manager reviews reports before sending; sales team reviews upsell opportunities.',
+      'Service head reviews critical diagnoses; field engineer validates root cause before communicating to customer; spare parts orders above threshold need approval.',
     mandatoryApproval:
-      'Any customer-facing recommendation, field intervention dispatch, retrofit or renewal proposal submission.'
+      'Any customer-facing diagnosis report, field intervention dispatch, spare parts order above threshold, retrofit or renewal proposal.'
   }
 ];
 
@@ -624,8 +624,8 @@ const DATA_FOLDERS = [
   },
   {
     folder: '09_digital_service',
-    icon: '📱',
-    description: 'Plant telemetry (300), maintenance alerts (75), service tickets (60)'
+    icon: '🔧',
+    description: 'Service cases (15), SOP library (12), spare parts (20), service tickets (60)'
   },
   {
     folder: '10_governance',

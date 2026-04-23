@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Business Storyline — Thermax 9-Stage Agentic AI',
+  title: 'Business Storyline — Thermax\'s Agentic AI Operating System 2030',
   description:
     'The Thermax business storyline: how every project flows from opportunity sensing to long-term customer value in a continuous loop.'
 };
@@ -56,8 +56,8 @@ const STORYLINE_PARAGRAPHS = [
   },
   {
     highlight: 'But the story does not end at handover.',
-    body: `Digital and Service take over the plant's ongoing life by monitoring performance, spotting issues early, optimising energy and fuel, supporting operators, and helping the customer get the most out of their investment.`,
-    accent: 'Digital & Service'
+    body: `O&M Services take over the plant's ongoing life — supporting field engineers with SOPs and diagnosis guidance, resolving service cases through structured root cause analysis, managing spare parts intelligence, and helping the customer get the most out of their investment.`,
+    accent: 'O&M Services'
   },
   {
     highlight:
@@ -79,7 +79,7 @@ const STAGE_COLORS: Record<string, string> = {
   'HR & PMO': '#10B981',
   'Site Operations': '#6366F1',
   Commissioning: '#EC4899',
-  'Digital & Service': '#14B8A6',
+  'O&M Services': '#14B8A6',
   Loop: '#DC2626'
 };
 

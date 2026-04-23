@@ -2,7 +2,7 @@
   "name": "thermax-agentic-business-flow",
   "version": "1.0.0",
   "private": true,
-  "description": "Thermax 9-Stage Agentic AI Business Flow — End-to-end enterprise operating system with AgentGuard governance, powered by Claude Opus 4.7",
+  "description": "Thermax's Agentic AI Operating System 2030 — End-to-end enterprise operating system with AgentGuard governance",
   "scripts": {
     "dev": "next dev -p 3001",
     "dev:clean": "rimraf .next && next dev -p 3001",

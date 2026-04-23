@@ -23,7 +23,7 @@ export default function Header() {
           </div>
           <div className="leading-tight">
             <div className="font-bold text-[15px] tracking-tight">
-              Thermax Agentic AI Operating System
+              Thermax's Agentic AI Operating System 2030
             </div>
             <div className="text-[11px] text-white/60 font-mono">
               9 Stages · 10 Agents · Signal → Service · AgentGuard
@@ -148,7 +148,7 @@ const STAGE_NAV = [
   { slug: 'hr-pmo', icon: '👷', label: '6. Mobilisation', short: '6' },
   { slug: 'site-operations', icon: '🏗️', label: '7. Site Operations', short: '7' },
   { slug: 'commissioning', icon: '🔬', label: '8. Commissioning', short: '8' },
-  { slug: 'digital-service', icon: '📱', label: '9. Digital & Service', short: '9' }
+  { slug: 'digital-service', icon: '🔧', label: '9. O&M Services', short: '9' }
 ];
 
 function NavLink({ href, children }: { href: string; children: React.ReactNode }) {

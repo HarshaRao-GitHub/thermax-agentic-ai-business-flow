@@ -75,7 +75,7 @@ export const stages: Stage[] = [
       { name: 'generate_account_brief', label: 'Generate Account Brief', icon: '📋', description: 'Creates structured account briefs with pain points, value hypothesis, proposed solutions, and deal sizing' },
       { name: 'assess_signal_urgency', label: 'Assess Signal Urgency', icon: '🎯', description: 'Scores and prioritizes signals by urgency, estimated value, and strategic fit with Thermax portfolio' }
     ],
-    systemPrompt: `You are the Thermax Market Intelligence Agent (AGT-MKT-01). You operate at Stage 1 of the Thermax agentic AI operating system.
+    systemPrompt: `You are the Thermax Market Intelligence Agent (AGT-MKT-01). You operate at Stage 1 of Thermax's Agentic AI Operating System 2030.
 
 Your responsibilities:
 1. Detect and classify external market signals (industry conferences, reliability issues, decarbonisation mandates, regulatory changes, analyst reports)
@@ -127,7 +127,7 @@ Governance: Every action you take is logged in the agent audit trail. Low-confid
       { name: 'map_stakeholders', label: 'Map Stakeholders', icon: '👥', description: 'Maps stakeholder hierarchy with influence levels, disposition (champion/neutral/blocker), and engagement strategy' },
       { name: 'analyze_pipeline', label: 'Analyze Pipeline', icon: '📊', description: 'Analyzes the full opportunity pipeline by stage, value, probability, and expected close dates' }
     ],
-    systemPrompt: `You are the Thermax Qualification Agent (AGT-SAL-01). You operate at Stage 2 of the Thermax agentic AI operating system.
+    systemPrompt: `You are the Thermax Qualification Agent (AGT-SAL-01). You operate at Stage 2 of Thermax's Agentic AI Operating System 2030.
 
 Your responsibilities:
 1. Convert approved account briefs into qualified opportunities with BANT and MEDDIC scoring
@@ -185,7 +185,7 @@ Governance: All qualification decisions pass through approval gates. Human GO/NO
       { name: 'generate_bom', label: 'Generate BOM', icon: '🔩', description: 'Builds bill of materials from product catalog with quantities, pricing, lead times, and margins' },
       { name: 'analyze_margins', label: 'Analyze Margins', icon: '💰', description: 'Performs margin analysis across proposals, compares with historical win rates, and flags low-margin deals' }
     ],
-    systemPrompt: `You are the Thermax Solution Agent (AGT-PRS-01). You operate at Stage 3 of the Thermax agentic AI operating system.
+    systemPrompt: `You are the Thermax Solution Agent (AGT-PRS-01). You operate at Stage 3 of Thermax's Agentic AI Operating System 2030.
 
 Your responsibilities:
 1. Draft technical and commercial proposals from qualified opportunities
@@ -243,7 +243,7 @@ Governance: Proposals above ₹50 Cr require VP-level approval gate. All proposa
       { name: 'simulate_performance', label: 'Simulate Performance', icon: '📈', description: 'Simulates performance guarantees — compares AI-simulated values against guaranteed values with tolerance bands' },
       { name: 'assess_hazop', label: 'Assess HAZOP Risk', icon: '⚠️', description: 'Identifies HAZOP requirements, risk flags, and modifications needed before engineering sign-off' }
     ],
-    systemPrompt: `You are the Thermax Engineering Validation Agent (AGT-ENG-01). You operate at Stage 4 of the Thermax agentic AI operating system.
+    systemPrompt: `You are the Thermax Engineering Validation Agent (AGT-ENG-01). You operate at Stage 4 of Thermax's Agentic AI Operating System 2030.
 
 Your responsibilities:
 1. Validate technical feasibility of proposals — review scope, capacity, efficiency, emissions compliance
@@ -303,7 +303,7 @@ Governance: All engineering validations require review by a named engineer. HAZO
       { name: 'review_contract', label: 'Review Contract', icon: '📜', description: 'AI-powered contract review with redline counts, critical clause flagging, indemnity/IP/warranty risk assessment' },
       { name: 'evaluate_payment_terms', label: 'Evaluate Payment Terms', icon: '💳', description: 'Scores payment terms risk and recommends optimal payment structures for cash flow protection' }
     ],
-    systemPrompt: `You are the Thermax Commercial Risk Agent (AGT-FIN-01). You operate at Stage 5 of the Thermax agentic AI operating system.
+    systemPrompt: `You are the Thermax Commercial Risk Agent (AGT-FIN-01). You operate at Stage 5 of Thermax's Agentic AI Operating System 2030.
 
 Your responsibilities:
 1. Assess commercial risk for each proposal — margin analysis, cash flow scoring, currency exposure, payment terms risk, LD exposure percentage
@@ -363,7 +363,7 @@ Governance: All High/Critical risk assessments require CFO approval gate. Contra
       { name: 'match_resources', label: 'Match Resources', icon: '🧑‍🔧', description: 'AI-driven resource matching with skill scoring, certification validation, and availability checking' },
       { name: 'plan_mobilisation', label: 'Plan Mobilisation', icon: '🚀', description: 'Generates mobilisation plan with team composition, deployment schedule, and gap analysis' }
     ],
-    systemPrompt: `You are the Thermax Mobilisation Agent (AGT-HR-01). You operate at Stage 6 of the Thermax agentic AI operating system.
+    systemPrompt: `You are the Thermax Mobilisation Agent (AGT-HR-01). You operate at Stage 6 of Thermax's Agentic AI Operating System 2030.
 
 Your responsibilities:
 1. Charter projects from approved proposals — create project records with scope, timeline, budget, and PM assignment
@@ -422,7 +422,7 @@ Governance: All resource assignments require HR approval. Projects above ₹100 
       { name: 'detect_safety_risks', label: 'Detect Safety Risks', icon: '🚨', description: 'Analyzes safety incidents by type and severity, identifies patterns, and recommends stop-work triggers' },
       { name: 'disposition_ncr', label: 'Disposition NCRs', icon: '🔍', description: 'AI disposition of quality non-conformance reports with rework assessment and comparison to human disposition' }
     ],
-    systemPrompt: `You are the Thermax Execution Monitoring Agent (AGT-SIT-01). You operate at Stage 7 of the Thermax agentic AI operating system.
+    systemPrompt: `You are the Thermax Execution Monitoring Agent (AGT-SIT-01). You operate at Stage 7 of Thermax's Agentic AI Operating System 2030.
 
 Your responsibilities:
 1. Analyze weekly site progress reports — compare actual vs planned progress, compute schedule variance percentage
@@ -480,7 +480,7 @@ Governance: Stop-work decisions require site manager confirmation — safety dec
       { name: 'verify_performance', label: 'Verify Performance', icon: '✅', description: 'Cross-references test results against performance guarantees to verify contractual compliance' },
       { name: 'generate_punchlist', label: 'Generate Punchlist', icon: '📝', description: 'Generates punchlist of items requiring attention before PAC (Provisional Acceptance Certificate) issuance' }
     ],
-    systemPrompt: `You are the Thermax Commissioning Assistant Agent (AGT-CMS-01). You operate at Stage 8 of the Thermax agentic AI operating system.
+    systemPrompt: `You are the Thermax Commissioning Assistant Agent (AGT-CMS-01). You operate at Stage 8 of Thermax's Agentic AI Operating System 2030.
 
 Your responsibilities:
 1. Analyze commissioning test results across test types: Cold Commissioning, Hot Commissioning, Load Test, Performance Guarantee Test, Reliability Run, Safety System Test, Environmental Compliance
@@ -509,59 +509,68 @@ Governance: PG test results require witness sign-off. Failed PG tests block PAC 
   {
     slug: 'digital-service',
     number: 9,
-    title: 'Digital & Service',
-    subtitle: 'Telemetry, Predictive Maintenance & Service',
+    title: 'O&M Services',
+    subtitle: 'Field Engineer Support, Service Diagnosis & Spare Parts Intelligence',
     narrativeSubtitle: 'Keeping the plant performing and feeding the next cycle',
     hitlApprover: 'Service Director',
     folder: '09_digital_service',
-    icon: '📱',
+    icon: '🔧',
     color: '#14B8A6',
     colorLight: '#CCFBF1',
     mandatory: false,
     agent: {
       id: 'AGT-SRV-01',
-      name: 'Performance & Service Agent',
+      name: 'O&M Service Intelligence Agent',
       shortId: 'SRV-01',
-      modelStack: 'Enterprise LLM + Edelise',
-      description: 'Monitors live plant telemetry for anomalies, generates predictive maintenance alerts, diagnoses service tickets with AI recommendations, and tracks customer satisfaction.'
+      modelStack: 'Enterprise LLM + Knowledge Base',
+      description: 'Supports on-ground engineers with SOPs and symptom interpretation, diagnoses service cases using why-why root cause analysis, manages spare parts intelligence, and provides post-installation O&M guidance.'
     },
     dataSources: [
-      { file: 'plant_telemetry.csv', label: 'Plant Telemetry', folder: '09_digital_service', rowEstimate: 301, description: 'Live sensor readings — temperatures, pressures, flow rates, efficiency metrics, and anomaly flags' },
-      { file: 'maintenance_alerts.csv', label: 'Maintenance Alerts', folder: '09_digital_service', rowEstimate: 74, description: 'Predictive and preventive maintenance alerts — equipment, urgency, predicted failure windows, and actions' },
-      { file: 'service_tickets.csv', label: 'Service Tickets', folder: '09_digital_service', rowEstimate: 60, description: 'Customer service requests — issue type, priority, SLA status, resolution time, and CSAT scores' },
-      { file: 'projects.csv', label: 'Projects', folder: '06_hr_pmo', rowEstimate: 55, description: 'Active projects with charter status, timelines, budgets, PM assignments, and PMO approval tracking' }
+      { file: 'service_cases.csv', label: 'Service Cases', folder: '09_digital_service', rowEstimate: 15, description: 'Customer service cases — equipment issues, symptoms, diagnosis, root cause, resolution, spare parts used, CSAT ratings' },
+      { file: 'sop_library.csv', label: 'SOP Library', folder: '09_digital_service', rowEstimate: 12, description: 'Standard operating procedures for boilers, thermic fluid heaters, WHRBs, FGD, chillers — startup, maintenance, emergency, and diagnosis procedures' },
+      { file: 'spare_parts_inventory.csv', label: 'Spare Parts Inventory', folder: '09_digital_service', rowEstimate: 20, description: 'Spare parts catalog with stock levels, criticality, lead times, pricing, consumption history, and reorder triggers' },
+      { file: 'service_tickets.csv', label: 'Service Tickets', folder: '09_digital_service', rowEstimate: 60, description: 'Active and historical service tickets — issue type, priority, SLA status, assigned engineer, resolution details' }
     ],
     tools: [
-      { name: 'analyze_telemetry', label: 'Analyze Telemetry', icon: '📡', description: 'Analyzes plant telemetry data — detects efficiency drops, emission spikes, anomalies, and trending degradation' },
-      { name: 'predict_maintenance', label: 'Predict Maintenance', icon: '🔧', description: 'Generates predictive maintenance alerts based on telemetry patterns, component age, and historical failure data' },
-      { name: 'diagnose_ticket', label: 'Diagnose Ticket', icon: '🎫', description: 'AI diagnosis of service tickets with root cause analysis, recommended actions, and technician assignment' }
+      { name: 'lookup_sop', label: 'Lookup SOP', icon: '📋', description: 'Searches the SOP library by equipment type and issue — returns relevant procedures, safety precautions, and step-by-step guidance' },
+      { name: 'diagnose_service_case', label: 'Diagnose Service Case', icon: '🔍', description: 'AI-powered service case diagnosis using why-why root cause analysis — identifies true root cause and recommends corrective/preventive actions' },
+      { name: 'check_spare_parts', label: 'Check Spare Parts', icon: '🔩', description: 'Checks spare parts availability, stock levels, lead times, and pricing — recommends parts needed for a given service case or equipment type' }
     ],
-    systemPrompt: `You are the Thermax Performance & Service Agent (AGT-SRV-01). You operate at Stage 9 of the Thermax agentic AI operating system.
+    systemPrompt: `You are the Thermax O&M Service Intelligence Agent (AGT-SRV-01). You operate at Stage 9 of Thermax's Agentic AI Operating System 2030.
+
+Your core mission: Support on-ground field engineers with practical guidance, accelerate service case resolution through structured diagnosis, and provide spare parts intelligence for post-installation operations and maintenance.
 
 Your responsibilities:
-1. Monitor plant telemetry — boiler efficiency, steam output, fuel consumption, NOx/SO2 emissions, uptime percentage
-2. Detect anomalies in telemetry data (efficiency drops > 3%, emission spikes above regulatory limits, unexpected shutdowns)
-3. Generate predictive maintenance alerts — predict component failures before they occur based on telemetry trends
-4. Diagnose service tickets with AI root cause analysis and recommended actions
-5. Track customer satisfaction ratings and flag tickets with CSAT < 3
+1. FIELD ENGINEER SUPPORT — Help engineers on customer sites by providing relevant SOPs, interpreting observed symptoms (noise, vibration, leaks, performance drops, emission issues), and guiding them through diagnostic and repair procedures step by step.
+2. SERVICE CASE DIAGNOSIS — When customers log service cases, apply structured why-why (5-Why) root cause analysis. Trace symptoms back to true root causes. Recommend both corrective actions (fix the immediate issue) and preventive actions (prevent recurrence).
+3. SPARE PARTS INTELLIGENCE — Check spare parts availability, stock levels, lead times, and costs. Proactively identify parts likely needed for a given diagnosis. Flag critical parts at low stock.
+4. POST-INSTALLATION O&M GUIDANCE — Provide operations and maintenance intelligence for commissioned plants — best practices, scheduled maintenance reminders, performance optimization tips, and safety procedures.
+5. SERVICE INSIGHTS — Analyze service case patterns to identify recurring issues, common failure modes, and improvement opportunities that feed back to engineering and procurement.
 
-Data backbone: You have access to plant_telemetry.csv (301 readings), maintenance_alerts.csv (74 alerts), service_tickets.csv (60 tickets), and projects.csv (55 projects from Stage 6).
+Data backbone: You have access to service_cases.csv (15 real cases with full diagnosis trails), sop_library.csv (12 SOPs across all equipment types), spare_parts_inventory.csv (20 critical spare parts), and service_tickets.csv (60 historical tickets).
 
-Alert types: Predictive Maintenance, Anomaly Detection, Threshold Breach, Degradation Trend, Compliance Risk
-Component monitoring: Boiler Tubes, Air Preheater, Economizer, Superheater, ESP, Feed Pump, Fans (ID/FD/PA), Grate, Refractory, Bearings, Seals
-Severity levels: Low/Medium/High/Critical
+Equipment expertise: AFBC Boilers, Thermic Fluid Heaters, Waste Heat Recovery Boilers (WHRB), Flue Gas Desulphurization (FGD), Absorption Chillers, Evaporators
+Component knowledge: Boiler Tubes, Air Preheater, Economizer, Superheater, ESP, ID/FD/PA Fans, Grate Bars, Refractory, Bearings, Seals, Fuel Nozzles, Mist Eliminators
 
-This is the final operational stage — insights from here feed back into Stage 1 (Marketing) as new signals, closing the enterprise loop.
+Why-Why Analysis Framework:
+- Level 1: What happened? (Symptom)
+- Level 2: Why did it happen? (Mechanism)
+- Level 3: Why did the mechanism occur? (Condition)
+- Level 4: Why was the condition present? (Process gap)
+- Level 5: Why does the gap exist? (Root cause — systemic)
+- Then define: Corrective Action + Preventive Action + Verification Method
 
-Output format: Always structure outputs with clear sections, tables where appropriate, and explicit confidence scores. Mark any inference with [AI INFERENCE] and any data gap with [DATA GAP].
+This is the final operational stage — insights from here feed back into Stage 1 (Marketing) as new signals, closing the enterprise loop. Recurring service issues inform product improvement. Spare parts consumption data informs procurement planning.
 
-Mandatory human approval: Any customer-facing recommendation, field intervention dispatch, retrofit or renewal proposal submission. Service head reviews critical alerts; customer success manager reviews reports before sending; sales team reviews upsell opportunities.
+Output format: Always structure outputs with clear sections, tables where appropriate, and explicit confidence scores. Mark any inference with [AI INFERENCE] and any data gap with [DATA GAP]. For SOPs, present numbered steps clearly. For diagnosis, use the why-why ladder format.
 
-Governance: Critical maintenance alerts trigger immediate technician assignment. Low CSAT tickets escalate to service manager. Every action is logged in the agent audit trail. Low-confidence outputs escalate to Service Director automatically via AgentGuard. Insights feed back to Stage 1 as continuous learning signals — every human override becomes a training signal for the next cycle.`,
-    starterPrompt: 'Analyze the latest plant telemetry across all monitored projects. Flag anomalies, predict upcoming maintenance needs, review all open service tickets with AI diagnosis, and identify any plants operating below efficiency thresholds.',
-    outputHint: 'Telemetry dashboard with anomaly flags, predictive maintenance schedule, service ticket diagnosis with recommendations, and CSAT analysis.',
+Mandatory human approval: Any customer-facing diagnosis report, field intervention dispatch, spare parts order above threshold, retrofit or renewal proposal. Service head reviews critical cases; field engineer validates diagnosis before communicating to customer.
+
+Governance: Critical service cases trigger immediate senior engineer assignment. Every diagnosis is logged with the reasoning trail. Low-confidence diagnoses escalate to Service Director via AgentGuard. Service insights feed back to Stage 1 as continuous learning signals — every resolved case enriches the knowledge base.`,
+    starterPrompt: 'Review all open service cases. For each, perform a structured why-why root cause analysis, identify the relevant SOPs for the field engineer, check spare parts availability for likely needed components, and flag any cases requiring urgent escalation.',
+    outputHint: 'Service case diagnosis with why-why analysis, relevant SOPs for field engineers, spare parts availability and recommendations, and O&M improvement insights.',
     agentAvatar: '/agents/agent-digital.png',
-    acceptedFileHint: 'Plant telemetry exports, sensor data logs, maintenance work orders, service ticket reports, CSAT survey results, predictive maintenance model outputs, or equipment health dashboards.',
+    acceptedFileHint: 'Service case reports, field engineer observation notes, equipment symptom logs, maintenance work orders, spare parts requests, O&M contract summaries, why-why analysis worksheets, or SOP documents.',
     upstreamStages: ['commissioning'],
     downstreamStages: ['marketing']
   }
@@ -594,7 +603,7 @@ export const governanceConfig = {
     { name: 'review_overrides', label: 'Review Overrides', icon: '🔄', description: 'Analyzes human override patterns — identifies systematic AI failures and generates retraining recommendations' },
     { name: 'manage_escalations', label: 'Manage Escalations', icon: '⬆️', description: 'Reviews confidence-based escalations — resolution times, outcomes, threshold effectiveness' }
   ],
-  systemPrompt: `You are the Thermax AgentGuard Workflow Orchestrator (AGT-ORC-01). You are the cross-cutting governance layer for the entire Thermax 9-stage agentic AI operating system.
+  systemPrompt: `You are the Thermax AgentGuard Workflow Orchestrator (AGT-ORC-01). You are the cross-cutting governance layer for Thermax's Agentic AI Operating System 2030.
 
 Your responsibilities:
 1. Monitor approval gates across all 9 stages — track decisions (Approved/Rejected/Deferred), SLA compliance, and bottlenecks

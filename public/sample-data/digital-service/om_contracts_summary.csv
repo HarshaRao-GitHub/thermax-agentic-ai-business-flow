@@ -1,0 +1,9 @@
+contract_id,customer,site,equipment,contract_type,start_date,end_date,annual_value_lakhs,scope,sla_response_hrs,sla_resolution_hrs,spare_parts_included,visits_per_year,engineer_assigned,renewal_status
+OMC-001,Reliance Industries,Jamnagar,AFBC Boiler 60TPH + 80TPH,Comprehensive AMC,2024-04-01,2027-03-31,48.5,Preventive maintenance + breakdown support + consumables,4,48,Yes — critical spares,12,Ravi Sharma,Active
+OMC-002,Tata Chemicals,Mithapur,Thermic Fluid Heater 30 Lakh kcal/hr,Standard AMC,2024-07-01,2026-06-30,18.2,Preventive maintenance + 4 scheduled visits + phone support,8,72,No — billed separately,4,Deepak Patil,Due for Renewal
+OMC-003,JSW Steel,Vijayanagar,WHRB 50TPH x2,Comprehensive AMC,2025-01-01,2027-12-31,85.0,Full O&M support + spares + performance guarantee,4,24,Yes — all spares,24,Ankit Verma,Active
+OMC-004,UltraTech Cement,Aditya Nagar,FGD System 200 MW,Performance-Based,2024-10-01,2029-09-30,62.0,SO2 compliance guarantee + O&M + chemicals + spares,4,36,Yes — all consumables,18,Priya Menon,Active
+OMC-005,NTPC,Dadri,AFBC Boiler 110TPH,Standard AMC,2024-06-01,2026-05-31,32.5,Scheduled maintenance + emergency response,6,48,No — billed separately,8,Ravi Sharma,Due for Renewal
+OMC-006,Hindalco,Renukoot,AFBC Boiler 80TPH + Absorption Chiller,Comprehensive AMC,2025-04-01,2028-03-31,55.0,Full scope including chiller O&M + performance monitoring,4,36,Yes — critical spares,16,Deepak Patil,Active
+OMC-007,Birla Carbon,Renukoot,Absorption Chiller 500TR,Standard AMC,2024-08-01,2026-07-31,12.8,Quarterly visits + vacuum maintenance + solution testing,8,72,No — billed separately,4,Suresh Kumar,Active
+OMC-008,ACC Cement,Wadi,AFBC Boiler 45TPH,Standard AMC,2024-09-01,2026-08-31,22.0,Bi-monthly visits + breakdown support + phone guidance,6,48,No — billed separately,6,Suresh Kumar,Active

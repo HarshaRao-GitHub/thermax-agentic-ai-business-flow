@@ -6,7 +6,7 @@ export default function NotFound() {
       <div className="text-5xl mb-4">🔍</div>
       <h2 className="text-2xl font-bold text-thermax-navy mb-2">Page Not Found</h2>
       <p className="text-thermax-slate mb-6 max-w-md">
-        The page you are looking for does not exist in the Thermax Agentic AI Operating System.
+        The page you are looking for does not exist in Thermax's Agentic AI Operating System 2030.
       </p>
       <Link
         href="/"

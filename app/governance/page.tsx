@@ -2,7 +2,7 @@ import { governanceConfig } from '@/data/stages';
 import GovernanceClient from '@/components/GovernanceClient';
 
 export const metadata = {
-  title: 'AgentGuard Governance — Thermax Agentic AI',
+  title: 'AgentGuard Governance — Thermax\'s AI OS 2030',
   description: 'Cross-cutting governance layer for the Thermax 9-stage agentic AI operating system.'
 };
 

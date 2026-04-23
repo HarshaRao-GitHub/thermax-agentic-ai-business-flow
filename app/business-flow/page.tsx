@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "'9-Stage' Business Flow/Process — Thermax Agentic AI",
+  title: "'9-Stage' Business Flow/Process — Thermax's AI OS 2030",
   description:
     'The disciplined 9-stage Thermax business flow with clear entry, process, exit, and handoff documents between every function.'
 };
@@ -158,24 +158,24 @@ const FLOW_STAGES: FlowStage[] = [
     outputs:
       'Commissioning reports, PG test report, Provisional Acceptance Certificate (PAC), snag and punch list, as-built drawings, training records for operators.',
     handoff:
-      'PAC + as-built drawings + O&M manuals + handover dossier \u2192 Digital & Service'
+      'PAC + as-built drawings + O&M manuals + handover dossier \u2192 O&M Services'
   },
   {
     number: 9,
-    title: 'Digital & Service',
+    title: 'O&M Services',
     narrativeSubtitle: 'Keeping the plant performing and feeding the next cycle',
-    icon: '📱',
+    icon: '🔧',
     color: '#14B8A6',
     colorLight: '#CCFBF1',
     entry: 'Provisional / Final Acceptance and handover dossier.',
     inputs:
-      'Handover dossier, O&M manuals, as-built drawings, PG test report, service contract, connected-plant data streams.',
+      'Handover dossier, O&M manuals, as-built drawings, PG test report, service contract, field engineer observations, service cases.',
     process:
-      'Enable remote monitoring, track performance, run preventive and predictive maintenance, support operators, generate insights, identify improvement opportunities.',
+      'Support field engineers with SOPs and diagnosis guidance, perform why-why root cause analysis on service cases, manage spare parts intelligence, provide post-installation O&M insights.',
     outputs:
-      'Periodic performance reports, health dashboards, predictive alerts, service reports, customer success stories, retrofit and upgrade proposals, renewal contracts.',
+      'Service case diagnoses with root cause analysis, SOP-guided repair procedures, spare parts recommendations, O&M improvement insights, customer success stories, renewal and spare parts sales opportunities.',
     handoff:
-      'Reference case studies, renewal opportunities, retrofit leads, customer insights \u2192 back to Marketing & Sales for the next cycle'
+      'Service insights, recurring issue patterns, spare parts demand signals, customer renewal opportunities \u2192 back to Marketing & Sales for the next cycle'
   }
 ];
 

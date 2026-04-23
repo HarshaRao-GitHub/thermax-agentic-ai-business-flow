@@ -1,0 +1,21 @@
+part_id,part_name,equipment_type,category,oem_part_number,stock_qty,reorder_level,unit_price_inr,lead_time_days,last_ordered,consumption_12m,criticality,warehouse_location
+SP-001,Boiler Water Wall Tubes,AFBC Boiler,Pressure Parts,TBW-WW-2540,24,10,18500,45,2025-01-20,38,Critical,Pune Central
+SP-002,Air Preheater Baskets,AFBC Boiler,Heat Transfer,TAP-BK-1820,8,4,42000,60,2024-12-15,12,High,Pune Central
+SP-003,Economizer Finned Tubes,WHRB,Heat Transfer,TEC-FT-3260,16,6,22500,50,2025-02-01,20,Critical,Pune Central
+SP-004,Superheater Tubes,AFBC Boiler,Pressure Parts,TSH-TB-4580,12,5,35000,55,2025-01-10,15,Critical,Savli Works
+SP-005,ID Fan Bearings SKF 6328,All Boilers,Rotating Equipment,SKF-6328-C3,6,3,28000,21,2025-02-15,9,High,Pune Central
+SP-006,Grate Bars — Moving,AFBC Boiler,Combustion,TGB-MV-0640,40,15,8500,30,2025-01-25,52,High,Savli Works
+SP-007,Refractory Gunning Mix,All Boilers,Refractory,TRF-GM-5000,5000,2000,85,14,2025-03-01,8500,Medium,Pune Central
+SP-008,FD Fan Impeller,All Boilers,Rotating Equipment,TFD-IMP-1200,2,1,125000,75,2024-11-20,3,Critical,Savli Works
+SP-009,Thermic Fluid — Therminol 66,Thermic Fluid Heater,Consumable,TF-T66-200L,20,8,32000,10,2025-02-20,28,Medium,Pune Central
+SP-010,Fuel Nozzle Assembly,Thermic Fluid Heater,Combustion,TFN-ASM-0480,8,4,15500,25,2025-01-30,11,High,Pune Central
+SP-011,Circulation Pump Mech Seal,Thermic Fluid Heater,Sealing,TMS-CP-0380,6,3,22000,28,2025-02-10,8,High,Savli Works
+SP-012,Limestone Dosing Pump,FGD System,Pumping,TLP-DS-0550,2,1,185000,45,2024-12-01,2,Medium,Pune Central
+SP-013,FGD Recirculation Pump Impeller,FGD System,Pumping,TFG-IMP-0880,3,1,95000,60,2025-01-15,4,Critical,Pune Central
+SP-014,Mist Eliminator Wash Nozzles,FGD System,Scrubbing,TME-WN-0120,24,12,3500,14,2025-02-25,36,Medium,Pune Central
+SP-015,Vacuum Pump Seal Kit,Absorption Chiller,Sealing,TVP-SK-0240,4,2,18500,21,2025-01-05,5,High,Savli Works
+SP-016,LiBr Solution — 55% conc,Absorption Chiller,Consumable,TLB-55-100L,10,4,45000,30,2024-11-30,8,Medium,Pune Central
+SP-017,ESP Collecting Plates,AFBC Boiler,Emission Control,TEP-CP-2400,30,10,12000,40,2025-02-05,25,High,Savli Works
+SP-018,Soot Blower Lance Tubes,All Boilers,Cleaning,TSB-LT-3600,6,3,28000,35,2025-01-18,8,Medium,Pune Central
+SP-019,Safety Valve — Boiler Drum,All Boilers,Safety,TSV-BD-1050,2,1,85000,45,2024-10-20,2,Critical,Pune Central
+SP-020,Flue Gas Analyzer Sensor Kit,All Equipment,Instrumentation,TFA-SK-0100,4,2,35000,21,2025-03-05,6,Medium,Pune Central

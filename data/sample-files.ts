@@ -57,9 +57,9 @@ export const sampleFilesByStage: Record<string, SampleFile[]> = {
     { filename: 'scada_parameter_export.csv', label: 'SCADA Parameter Export', description: 'Real-time DCS/SCADA readings — temperatures, pressures, flows, alarms, and data quality tags', path: '/sample-data/commissioning/scada_parameter_export.csv' },
   ],
   'digital-service': [
-    { filename: 'sensor_data_log.csv', label: 'Sensor Data Log', description: 'Plant telemetry readings — efficiency, emissions, vibration, output with anomaly flags and trends', path: '/sample-data/digital-service/sensor_data_log.csv' },
-    { filename: 'maintenance_work_orders.csv', label: 'Maintenance Work Orders', description: 'Corrective, preventive, and predictive maintenance — priority, technician, parts, costs, completion status', path: '/sample-data/digital-service/maintenance_work_orders.csv' },
-    { filename: 'csat_survey_results.csv', label: 'CSAT Survey Results', description: 'Customer satisfaction surveys — scores across performance, service, expertise, communication, and comments', path: '/sample-data/digital-service/csat_survey_results.csv' },
-    { filename: 'equipment_health_report.csv', label: 'Equipment Health Report', description: 'Plant health scorecards — efficiency, mechanical, electrical status, failure risk, remaining useful life', path: '/sample-data/digital-service/equipment_health_report.csv' },
+    { filename: 'field_engineer_observations.csv', label: 'Field Engineer Observations', description: 'On-site engineer reports — equipment symptoms, initial assessments, photos, urgency, and follow-up actions', path: '/sample-data/digital-service/field_engineer_observations.csv' },
+    { filename: 'why_why_analysis_log.csv', label: 'Why-Why Analysis Log', description: 'Structured 5-Why root cause analysis records — problem → root cause → corrective/preventive actions', path: '/sample-data/digital-service/why_why_analysis_log.csv' },
+    { filename: 'spare_parts_request.csv', label: 'Spare Parts Requests', description: 'Parts requested for service cases — part details, urgency, stock availability, lead times, and dispatch status', path: '/sample-data/digital-service/spare_parts_request.csv' },
+    { filename: 'om_contracts_summary.csv', label: 'O&M Contracts Summary', description: 'Active O&M and AMC contracts — scope, SLA terms, annual values, assigned engineers, and renewal status', path: '/sample-data/digital-service/om_contracts_summary.csv' },
   ],
 };

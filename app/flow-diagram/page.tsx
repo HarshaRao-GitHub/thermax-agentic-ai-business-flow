@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "'9-Stage' Business Flow Diagram — Thermax Agentic AI",
+  title: "'9-Stage' Business Flow Diagram — Thermax's AI OS 2030",
   description:
     'Visual pipeline diagram of the Thermax 9-stage business workflow — three phases, nine stages, with HITL gates and data flow.'
 };
@@ -138,15 +138,15 @@ const PHASES = [
       },
       {
         n: 9,
-        title: 'Digital + Service',
+        title: 'O&M Services',
         narrative: 'Keeping the plant performing and feeding the next cycle',
-        icon: '📱',
+        icon: '🔧',
         color: '#14B8A6',
         colorLight: '#CCFBF1',
-        produces: 'Alerts + Retrofit Leads',
+        produces: 'Diagnosis + Spare Parts + SOP Guidance',
         hitlApprover: 'Service Director',
-        reads: 'plant_telemetry (live feed)',
-        writes: 'maintenance_alerts \u2192 service_tickets'
+        reads: 'service_cases + sop_library',
+        writes: 'diagnosis_reports \u2192 spare_parts_orders'
       }
     ]
   }
@@ -518,9 +518,9 @@ const DATA_FLOW = [
   },
   {
     n: 9,
-    title: 'Digital + Service',
-    reads: 'plant_telemetry (live feed)',
-    writes: 'maintenance_alerts \u2192 service_tickets',
+    title: 'O&M Services',
+    reads: 'service_cases + sop_library',
+    writes: 'diagnosis_reports \u2192 spare_parts_orders',
     hitl: 'Service Director OK'
   }
 ];

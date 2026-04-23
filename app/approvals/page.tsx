@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import ApprovalQueueClient from '@/components/ApprovalQueueClient';
 
 export const metadata: Metadata = {
-  title: 'HITL Approval Queue — Thermax Agentic AI',
+  title: 'HITL Approval Queue — Thermax\'s AI OS 2030',
   description:
     'Human-in-the-Loop approval queue — pending, approved, and rejected agent decisions across all 9 stages.'
 };
