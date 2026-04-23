@@ -409,28 +409,28 @@ export default function AgentChat({
             <button onClick={() => setDataViewer({ open: false, title: '', content: '', loading: false })}
               className="text-thermax-slate hover:text-thermax-navy text-xl font-bold px-2 shrink-0">✕</button>
           </div>
-          <div className="flex-1 overflow-auto p-5">
+          <div className="flex-1 min-h-0 overflow-hidden">
             {dataViewer.loading ? (
               <div className="flex items-center justify-center h-40 text-thermax-slate">
                 <span className="animate-spin mr-2">⏳</span> Loading data...
               </div>
             ) : dataViewer.content.startsWith('|') ? (
-              <div className="overflow-x-auto">
-                <table className="min-w-max border-collapse text-[12px]">
+              <div className="h-full overflow-x-auto overflow-y-auto">
+                <table className="border-collapse text-[12px]">
                   {(() => {
                     const rows = dataViewer.content.split('\n').filter(r => r.trim() && !r.match(/^\|\s*-+/));
                     const cells = rows.map(r => r.split('|').filter(c => c !== '').map(c => c.trim()));
                     return (
                       <>
                         {cells.length > 0 && (
-                          <thead className="bg-thermax-navy text-white sticky top-0">
-                            <tr>{cells[0].map((h, i) => <th key={i} className="px-3 py-2 text-left font-semibold whitespace-nowrap border border-thermax-navy/30">{h}</th>)}</tr>
+                          <thead className="bg-thermax-navy text-white sticky top-0 z-10">
+                            <tr>{cells[0].map((h, i) => <th key={i} className="px-3 py-2 text-left font-semibold whitespace-nowrap border-r border-thermax-navy/30">{h}</th>)}</tr>
                           </thead>
                         )}
                         <tbody>
                           {cells.slice(1).map((row, ri) => (
                             <tr key={ri} className={ri % 2 === 0 ? 'bg-white' : 'bg-thermax-mist/50'}>
-                              {row.map((cell, ci) => <td key={ci} className="px-3 py-1.5 border border-thermax-line whitespace-nowrap max-w-[400px] truncate" title={cell}>{cell}</td>)}
+                              {row.map((cell, ci) => <td key={ci} className="px-3 py-1.5 border-r border-b border-thermax-line whitespace-nowrap" title={cell}>{cell}</td>)}
                             </tr>
                           ))}
                         </tbody>
@@ -440,7 +440,9 @@ export default function AgentChat({
                 </table>
               </div>
             ) : (
-              <pre className="text-[12px] font-mono text-thermax-navy bg-thermax-mist rounded-lg p-4 overflow-x-auto whitespace-pre-wrap leading-relaxed">{dataViewer.content}</pre>
+              <div className="h-full overflow-auto p-5">
+                <pre className="text-[12px] font-mono text-thermax-navy bg-thermax-mist rounded-lg p-4 whitespace-pre-wrap leading-relaxed">{dataViewer.content}</pre>
+              </div>
             )}
           </div>
           <div className="px-5 py-3 border-t border-thermax-line bg-thermax-mist rounded-b-xl flex justify-end shrink-0">
