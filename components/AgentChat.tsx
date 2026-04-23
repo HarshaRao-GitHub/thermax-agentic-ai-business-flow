@@ -46,6 +46,7 @@ export default function AgentChat({
   const startTimeRef = useRef<number>(0);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const streamRef = useRef<HTMLDivElement>(null);
+  const streamThrottleRef = useRef<number>(0);
   const { refresh: refreshWorkflow } = useWorkflow();
 
   const sampleFiles: SampleFile[] = sampleFilesByStage[stage.slug] ?? [];
@@ -156,6 +157,8 @@ export default function AgentChat({
     let buffer = '';
     let assembled = '';
 
+    const flushStream = () => { setStreamBuffer(assembled); streamThrottleRef.current = 0; };
+
     while (true) {
       const { value, done } = await reader.read();
       if (done) break;
@@ -182,7 +185,9 @@ export default function AgentChat({
               case 'text_delta':
                 if (!assembled) setTextStreamStarted(true);
                 assembled += data;
-                setStreamBuffer(assembled);
+                if (!streamThrottleRef.current) {
+                  streamThrottleRef.current = requestAnimationFrame(flushStream);
+                }
                 break;
               case 'usage':
               case 'usage_delta':
@@ -203,6 +208,7 @@ export default function AgentChat({
         }
       }
     }
+    if (streamThrottleRef.current) cancelAnimationFrame(streamThrottleRef.current);
     setMessages([...prev, { role: 'assistant', content: assembled }]);
   }
 

@@ -26,8 +26,8 @@ const config: Config = {
         }
       },
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'ui-monospace', 'monospace']
+        sans: ['var(--font-inter)', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-mono)', 'JetBrains Mono', 'ui-monospace', 'monospace']
       },
       boxShadow: {
         card: '0 1px 2px rgba(10,37,64,.04), 0 4px 12px rgba(10,37,64,.06)',

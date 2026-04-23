@@ -32,6 +32,7 @@ export default function StagePage({ params }: { params: { slug: string } }) {
           alt={stage.agent.name}
           width={1200}
           height={400}
+          sizes="100vw"
           className="w-full h-full object-cover object-top opacity-40"
           priority
         />
@@ -46,6 +47,7 @@ export default function StagePage({ params }: { params: { slug: string } }) {
                   alt={stage.agent.name}
                   width={200}
                   height={200}
+                  sizes="112px"
                   className="w-full h-full object-cover object-top"
                 />
               </div>

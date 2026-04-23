@@ -3,6 +3,7 @@ import { getAnthropicClient, getModelId, isMockMode } from '@/lib/anthropic';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
+export const maxDuration = 30;
 
 interface ValidateBody {
   prompt: string;

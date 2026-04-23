@@ -40,6 +40,7 @@ export default function StageCard({ stage }: { stage: Stage }) {
           alt={stage.agent.name}
           width={400}
           height={200}
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className={`w-full h-full object-cover object-top group-hover:scale-105 transition duration-500 ${isDisabled ? 'grayscale opacity-50' : 'opacity-90'}`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />

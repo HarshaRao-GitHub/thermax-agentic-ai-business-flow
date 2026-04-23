@@ -93,8 +93,16 @@ export default function ApprovalQueueClient() {
 
   useEffect(() => {
     fetchData();
-    const interval = setInterval(fetchData, 3000);
-    return () => clearInterval(interval);
+    const interval = setInterval(fetchData, 15000);
+    const onFocus = () => fetchData();
+    const onStorage = (e: StorageEvent) => { if (e.key?.startsWith('thermax_')) fetchData(); };
+    window.addEventListener('focus', onFocus);
+    window.addEventListener('storage', onStorage);
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('focus', onFocus);
+      window.removeEventListener('storage', onStorage);
+    };
   }, [fetchData]);
 
   const filtered = approvals.filter((a) => {

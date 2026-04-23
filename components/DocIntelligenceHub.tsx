@@ -42,6 +42,7 @@ export default function DocIntelligenceHub() {
   const streamRef = useRef<HTMLDivElement>(null);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const startTimeRef = useRef<number>(0);
+  const streamThrottleRef = useRef<number>(0);
 
   const dept = getDepartmentById(selectedDept);
   const operation = getOperationById(selectedOp);
@@ -159,6 +160,8 @@ export default function DocIntelligenceHub() {
     let buffer = '';
     let assembled = '';
 
+    const flushStream = () => { setStreamBuffer(assembled); streamThrottleRef.current = 0; };
+
     while (true) {
       const { value, done } = await reader.read();
       if (done) break;
@@ -178,7 +181,9 @@ export default function DocIntelligenceHub() {
             switch (currentEvent) {
               case 'text_delta':
                 assembled += data;
-                setStreamBuffer(assembled);
+                if (!streamThrottleRef.current) {
+                  streamThrottleRef.current = requestAnimationFrame(flushStream);
+                }
                 break;
               case 'usage':
               case 'usage_delta':
@@ -196,6 +201,7 @@ export default function DocIntelligenceHub() {
         }
       }
     }
+    if (streamThrottleRef.current) cancelAnimationFrame(streamThrottleRef.current);
     setMessages([...prev, { role: 'assistant', content: assembled }]);
   }
 

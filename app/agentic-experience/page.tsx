@@ -47,6 +47,7 @@ export default function AgenticExperiencePage() {
                   alt={stage.agent.name}
                   width={600}
                   height={240}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="w-full h-full object-cover object-top opacity-40 group-hover:opacity-50 group-hover:scale-105 transition-all duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
@@ -69,6 +70,7 @@ export default function AgenticExperiencePage() {
                       alt={stage.agent.name}
                       width={100}
                       height={100}
+                      sizes="56px"
                       className="w-full h-full object-cover object-top"
                     />
                   </div>

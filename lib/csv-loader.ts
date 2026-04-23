@@ -8,6 +8,9 @@ const EXTERNAL_DATA_ROOT = path.resolve(
 
 const BUNDLED_DATA_ROOT = path.resolve(process.cwd(), 'public', 'data-backbone');
 
+const csvCache = new Map<string, { data: CsvData; ts: number }>();
+const CACHE_TTL = 5 * 60 * 1000;
+
 function resolveDataFile(folder: string, file: string): string {
   const external = path.join(EXTERNAL_DATA_ROOT, folder, file);
   if (existsSync(external)) return external;
@@ -48,12 +51,18 @@ function parseCsvLine(line: string): string[] {
 }
 
 export function loadCsv(folder: string, file: string): CsvData {
+  const cacheKey = `${folder}/${file}`;
+  const cached = csvCache.get(cacheKey);
+  if (cached && Date.now() - cached.ts < CACHE_TTL) return cached.data;
+
   const filePath = resolveDataFile(folder, file);
   const raw = readFileSync(filePath, 'utf-8');
   const lines = raw.split(/\r?\n/).filter((l) => l.trim().length > 0);
 
   if (lines.length === 0) {
-    return { headers: [], rows: [], rowCount: 0, file };
+    const empty = { headers: [], rows: [], rowCount: 0, file };
+    csvCache.set(cacheKey, { data: empty, ts: Date.now() });
+    return empty;
   }
 
   const headers = parseCsvLine(lines[0]);
@@ -66,7 +75,9 @@ export function loadCsv(folder: string, file: string): CsvData {
     return record;
   });
 
-  return { headers, rows, rowCount: rows.length, file };
+  const result = { headers, rows, rowCount: rows.length, file };
+  csvCache.set(cacheKey, { data: result, ts: Date.now() });
+  return result;
 }
 
 export function loadCsvAsMarkdownTable(
