@@ -7,7 +7,7 @@ import Markdown from './Markdown';
 import ApprovalPanel from './ApprovalPanel';
 import type { HitlEvent } from './ApprovalPanel';
 import { useWorkflow } from './WorkflowContext';
-import { getStageResult, saveStageResult } from '@/lib/client-store';
+import { getStageResult, saveStageResult, getUpstreamResults } from '@/lib/client-store';
 import { sampleFilesByStage, type SampleFile } from '@/data/sample-files';
 
 type Role = 'user' | 'assistant';
@@ -120,6 +120,8 @@ export default function AgentChat({
     }, 100);
 
     try {
+      const upstreamResults = getUpstreamResults(stage.slug);
+
       const res = await fetch('/api/chat-agentic', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -128,6 +130,7 @@ export default function AgentChat({
           messages: next,
           uploadedTexts: uploadedFiles.map(f => ({ filename: f.filename, text: f.text })),
           ...(userPrompt.saved && userPrompt.text.trim() ? { customSystemPrompt: undefined, userCustomPrompt: userPrompt.text.trim() } : {}),
+          ...(upstreamResults.length > 0 ? { upstreamResults } : {}),
         })
       });
 

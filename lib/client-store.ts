@@ -283,6 +283,28 @@ export function getFlowSummary() {
   };
 }
 
+// ============= UPSTREAM RESULTS =============
+
+export function getUpstreamResults(slug: string): { slug: string; stageNumber: number; agentOutput: string }[] {
+  const idx = STAGE_ORDER.indexOf(slug as (typeof STAGE_ORDER)[number]);
+  if (idx <= 0) return [];
+
+  const results: { slug: string; stageNumber: number; agentOutput: string }[] = [];
+  for (let i = 0; i < idx; i++) {
+    const upSlug = STAGE_ORDER[i];
+    const sr = getStageResult(upSlug);
+    if (!sr) continue;
+    const assistantMsgs = sr.messages.filter(m => m.role === 'assistant').map(m => m.content);
+    if (assistantMsgs.length === 0) continue;
+    results.push({
+      slug: upSlug,
+      stageNumber: sr.stageNumber,
+      agentOutput: assistantMsgs[0],
+    });
+  }
+  return results;
+}
+
 // ============= CUSTOM AGENTS =============
 
 export function listCustomAgents(): CustomAgent[] {

@@ -21,6 +21,12 @@ interface IncomingMessage {
 
 interface UploadedTextEntry { filename: string; text: string; }
 
+interface UpstreamResult {
+  slug: string;
+  stageNumber: number;
+  agentOutput: string;
+}
+
 interface ChatRequest {
   slug: string;
   messages: IncomingMessage[];
@@ -28,6 +34,7 @@ interface ChatRequest {
   uploadedTexts?: UploadedTextEntry[];
   customSystemPrompt?: string;
   userCustomPrompt?: string;
+  upstreamResults?: UpstreamResult[];
 }
 
 export async function POST(req: NextRequest) {
@@ -78,6 +85,38 @@ export async function POST(req: NextRequest) {
     );
   }
 
+  const stageNameMap: Record<string, string> = {
+    marketing: 'Market Intelligence Agent (Stage 1)',
+    sales: 'Lead Qualification Agent (Stage 2)',
+    presales: 'Proposal Agent (Stage 3)',
+    engineering: 'Engineering Review Agent (Stage 4)',
+    'finance-legal': 'Commercial Risk Agent (Stage 5)',
+    'hr-pmo': 'Project Planning Agent (Stage 6)',
+    'site-operations': 'Project Execution & Monitoring Agent (Stage 7)',
+    commissioning: 'Commissioning Agent (Stage 8)',
+    'digital-service': 'O&M Service Intelligence Agent (Stage 9)',
+  };
+
+  let upstreamContextBlock = '';
+  if (body.upstreamResults?.length) {
+    const upstreamParts = body.upstreamResults.map(ur => {
+      const agentLabel = stageNameMap[ur.slug] || `Stage ${ur.stageNumber}`;
+      const trimmedOutput = ur.agentOutput.length > 4000
+        ? ur.agentOutput.slice(0, 4000) + '\n\n[... output truncated for context window ...]'
+        : ur.agentOutput;
+      return `=== UPSTREAM RESULT FROM: ${agentLabel} ===\n\n${trimmedOutput}\n\n=== END UPSTREAM RESULT ===`;
+    });
+
+    upstreamContextBlock = `
+
+--- UPSTREAM AGENT RESULTS (CRITICAL INPUT) ---
+The following are the actual results/artifacts produced by the upstream agents in this workflow. These are your PRIMARY INPUT — your analysis MUST build upon and reference these results. Only the qualified/approved items from upstream should be processed further. Do not ignore these results.
+
+${upstreamParts.join('\n\n')}
+
+--- END UPSTREAM AGENT RESULTS ---`;
+  }
+
   const basePrompt = body.customSystemPrompt?.trim() ||
     (isGovernance ? governanceConfig.systemPrompt : stage!.systemPrompt);
 
@@ -116,6 +155,7 @@ If SOME files are relevant and others are not, process the relevant ones and dis
 
   const systemPrompt = [
     basePrompt,
+    upstreamContextBlock,
     fileValidationBlock,
     getAgenticInstructions(body.slug),
     userCustomBlock,
@@ -191,7 +231,16 @@ If SOME files are relevant and others are not, process the relevant ones and dis
             await pause(400);
           }
 
-          const mockText = buildMockFinalOutput(body.slug);
+          let mockText = buildMockFinalOutput(body.slug);
+
+          if (body.upstreamResults?.length) {
+            const upstreamNote = body.upstreamResults.map(ur => {
+              const label = stageNameMap[ur.slug] || `Stage ${ur.stageNumber}`;
+              return `- **${label}**: Results received and incorporated`;
+            }).join('\n');
+            mockText += `\n\n---\n### Upstream Context Incorporated\nThis analysis builds upon the results from the following upstream agents:\n${upstreamNote}\n\nThe qualified items identified by upstream agents were used as the primary input for this stage's processing.`;
+          }
+
           const tokens = mockText.split(/(\s+)/);
           for (let i = 0; i < tokens.length; i += 4) {
             const chunk = tokens.slice(i, i + 4).join('');
