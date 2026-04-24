@@ -529,7 +529,7 @@ export default function ApprovalPanel({
             <>
               <button
                 onClick={handleApproveModified}
-                disabled={!approverName.trim() || state === 'submitting'}
+                disabled={!approverName.trim()}
                 className="flex items-center gap-2 bg-teal-600 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-teal-700 transition disabled:opacity-40 disabled:cursor-not-allowed text-sm"
               >
                 <span>✓</span> Approve
