@@ -196,13 +196,13 @@ export default function Home() {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2">
           {[
             { folder: '00_master_data', label: 'Master Data', files: 4, icon: '🗄️' },
-            { folder: '01_marketing', label: 'Marketing', files: 2, icon: '📡' },
-            { folder: '02_sales', label: 'Sales', files: 2, icon: '🎯' },
-            { folder: '03_presales', label: 'Pre-sales', files: 2, icon: '📝' },
-            { folder: '04_engineering', label: 'Engineering', files: 2, icon: '⚙️' },
-            { folder: '05_finance_legal', label: 'Finance & Legal', files: 2, icon: '💼' },
-            { folder: '06_hr_pmo', label: 'HR & PMO', files: 2, icon: '👷' },
-            { folder: '07_site_operations', label: 'Site Ops', files: 3, icon: '🏗️' },
+            { folder: '01_marketing', label: 'Market Intelligence', files: 2, icon: '📡' },
+            { folder: '02_sales', label: 'Lead Qualification', files: 2, icon: '🎯' },
+            { folder: '03_presales', label: 'Proposal', files: 2, icon: '📝' },
+            { folder: '04_engineering', label: 'Engineering Review', files: 2, icon: '⚙️' },
+            { folder: '05_finance_legal', label: 'Commercial & Legal', files: 2, icon: '💼' },
+            { folder: '06_hr_pmo', label: 'Project Planning', files: 2, icon: '👷' },
+            { folder: '07_site_operations', label: 'Execution & Monitoring', files: 3, icon: '🏗️' },
             { folder: '08_commissioning', label: 'Commissioning', files: 1, icon: '🔬' },
             { folder: '09_digital_service', label: 'O&M Services', files: 4, icon: '🔧' },
             { folder: '10_governance', label: 'Governance', files: 4, icon: '🛡️' }

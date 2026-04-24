@@ -141,12 +141,12 @@ export default function Header() {
 
 const STAGE_NAV = [
   { slug: 'marketing', icon: '📡', label: '1. Market Intelligence', short: '1' },
-  { slug: 'sales', icon: '🎯', label: '2. Sales Qualification', short: '2' },
-  { slug: 'presales', icon: '📝', label: '3. Solution Design', short: '3' },
-  { slug: 'engineering', icon: '⚙️', label: '4. Engineering', short: '4' },
-  { slug: 'finance-legal', icon: '💼', label: '5. Finance & Legal', short: '5' },
-  { slug: 'hr-pmo', icon: '👷', label: '6. Mobilisation', short: '6' },
-  { slug: 'site-operations', icon: '🏗️', label: '7. Site Operations', short: '7' },
+  { slug: 'sales', icon: '🎯', label: '2. Lead Qualification', short: '2' },
+  { slug: 'presales', icon: '📝', label: '3. Proposal', short: '3' },
+  { slug: 'engineering', icon: '⚙️', label: '4. Engineering Review', short: '4' },
+  { slug: 'finance-legal', icon: '💼', label: '5. Commercial & Legal', short: '5' },
+  { slug: 'hr-pmo', icon: '👷', label: '6. Project Planning', short: '6' },
+  { slug: 'site-operations', icon: '🏗️', label: '7. Execution & Monitoring', short: '7' },
   { slug: 'commissioning', icon: '🔬', label: '8. Commissioning', short: '8' },
   { slug: 'digital-service', icon: '🔧', label: '9. O&M Services', short: '9' }
 ];

@@ -464,6 +464,7 @@ export default function AgentChat({
           <h3 className="text-[11px] font-bold uppercase tracking-wider text-thermax-slate mb-2">Agent Profile</h3>
           <div className="space-y-1.5 text-[12px]">
             <Field label="Agent" value={stage.agent.name} />
+            {stage.agent.persona && <Field label="Persona" value={stage.agent.persona} />}
             <Field label="ID" value={stage.agent.shortId} mono />
             <Field label="Model" value={stage.agent.modelStack} mono />
             <Field label="Mode" value="Agentic (tool-use)" />

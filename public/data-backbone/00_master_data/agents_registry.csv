@@ -5,42 +5,42 @@ AGT-MKT-01-IND-003,Market Intelligence Agent,Marketing,gpt-4o + Claude Opus,v2.3
 AGT-MKT-01-IND-004,Market Intelligence Agent,Marketing,gpt-4o + Claude Opus,v2.3,India East,Active,2025-07-21,2026-04-17,13969,0.858,10
 AGT-MKT-01-MID-005,Market Intelligence Agent,Marketing,gpt-4o + Claude Opus,v2.3,Middle East,Active,2025-05-31,2026-03-31,11746,0.857,5
 AGT-MKT-01-SOU-006,Market Intelligence Agent,Marketing,gpt-4o + Claude Opus,v2.3,South East Asia,Staging,2025-10-18,2026-04-18,4566,0.865,15
-AGT-SAL-01-IND-007,Qualification Agent,Sales,Claude Opus,v1.8,India West,Active,2025-05-16,2026-04-01,13455,0.93,15
-AGT-SAL-01-IND-008,Qualification Agent,Sales,Claude Opus,v1.8,India South,Staging,2025-09-09,2026-04-06,7753,0.889,12
-AGT-SAL-01-IND-009,Qualification Agent,Sales,Claude Opus,v1.8,India North,Active,2025-10-17,2026-04-02,10674,0.858,14
-AGT-SAL-01-IND-010,Qualification Agent,Sales,Claude Opus,v1.8,India East,Active,2025-12-06,2026-03-31,3957,0.884,4
-AGT-SAL-01-MID-011,Qualification Agent,Sales,Claude Opus,v1.8,Middle East,Active,2025-11-20,2026-04-15,9543,0.86,3
-AGT-SAL-01-SOU-012,Qualification Agent,Sales,Claude Opus,v1.8,South East Asia,Active,2025-08-04,2026-03-29,10229,0.911,3
-AGT-PRS-01-IND-013,Solution Agent,Pre-sales,Claude Opus + domain tools,v3.1,India West,Active,2025-10-26,2026-03-29,5132,0.941,10
-AGT-PRS-01-IND-014,Solution Agent,Pre-sales,Claude Opus + domain tools,v3.1,India South,Active,2025-04-05,2026-04-13,4834,0.952,13
-AGT-PRS-01-IND-015,Solution Agent,Pre-sales,Claude Opus + domain tools,v3.1,India North,Staging,2025-04-18,2026-03-26,3741,0.905,11
-AGT-PRS-01-IND-016,Solution Agent,Pre-sales,Claude Opus + domain tools,v3.1,India East,Active,2025-04-25,2026-04-16,4852,0.957,4
-AGT-PRS-01-MID-017,Solution Agent,Pre-sales,Claude Opus + domain tools,v3.1,Middle East,Active,2025-12-28,2026-03-26,5539,0.927,12
-AGT-PRS-01-SOU-018,Solution Agent,Pre-sales,Claude Opus + domain tools,v3.1,South East Asia,Active,2025-08-10,2026-04-17,8179,0.94,14
-AGT-ENG-01-IND-019,Engineering Validation Agent,Engineering,Claude Opus + CAD tools,v2.5,India West,Active,2025-11-03,2026-04-04,9347,0.914,4
-AGT-ENG-01-IND-020,Engineering Validation Agent,Engineering,Claude Opus + CAD tools,v2.5,India South,Staging,2026-03-02,2026-03-23,7578,0.945,12
-AGT-ENG-01-IND-021,Engineering Validation Agent,Engineering,Claude Opus + CAD tools,v2.5,India North,Active,2026-03-09,2026-04-18,4250,0.975,12
-AGT-ENG-01-IND-022,Engineering Validation Agent,Engineering,Claude Opus + CAD tools,v2.5,India East,Staging,2026-03-12,2026-03-27,11514,0.957,12
-AGT-ENG-01-MID-023,Engineering Validation Agent,Engineering,Claude Opus + CAD tools,v2.5,Middle East,Active,2025-12-23,2026-04-05,9002,0.935,7
-AGT-ENG-01-SOU-024,Engineering Validation Agent,Engineering,Claude Opus + CAD tools,v2.5,South East Asia,Active,2025-05-27,2026-04-07,10900,0.956,4
+AGT-SAL-01-IND-007,Lead Qualification Agent,Lead Qualification,Claude Opus,v1.8,India West,Active,2025-05-16,2026-04-01,13455,0.93,15
+AGT-SAL-01-IND-008,Lead Qualification Agent,Lead Qualification,Claude Opus,v1.8,India South,Staging,2025-09-09,2026-04-06,7753,0.889,12
+AGT-SAL-01-IND-009,Lead Qualification Agent,Lead Qualification,Claude Opus,v1.8,India North,Active,2025-10-17,2026-04-02,10674,0.858,14
+AGT-SAL-01-IND-010,Lead Qualification Agent,Lead Qualification,Claude Opus,v1.8,India East,Active,2025-12-06,2026-03-31,3957,0.884,4
+AGT-SAL-01-MID-011,Lead Qualification Agent,Lead Qualification,Claude Opus,v1.8,Middle East,Active,2025-11-20,2026-04-15,9543,0.86,3
+AGT-SAL-01-SOU-012,Lead Qualification Agent,Lead Qualification,Claude Opus,v1.8,South East Asia,Active,2025-08-04,2026-03-29,10229,0.911,3
+AGT-PRS-01-IND-013,Proposal Agent,Proposal,Claude Opus + domain tools,v3.1,India West,Active,2025-10-26,2026-03-29,5132,0.941,10
+AGT-PRS-01-IND-014,Proposal Agent,Proposal,Claude Opus + domain tools,v3.1,India South,Active,2025-04-05,2026-04-13,4834,0.952,13
+AGT-PRS-01-IND-015,Proposal Agent,Proposal,Claude Opus + domain tools,v3.1,India North,Staging,2025-04-18,2026-03-26,3741,0.905,11
+AGT-PRS-01-IND-016,Proposal Agent,Proposal,Claude Opus + domain tools,v3.1,India East,Active,2025-04-25,2026-04-16,4852,0.957,4
+AGT-PRS-01-MID-017,Proposal Agent,Proposal,Claude Opus + domain tools,v3.1,Middle East,Active,2025-12-28,2026-03-26,5539,0.927,12
+AGT-PRS-01-SOU-018,Proposal Agent,Proposal,Claude Opus + domain tools,v3.1,South East Asia,Active,2025-08-10,2026-04-17,8179,0.94,14
+AGT-ENG-01-IND-019,Engineering Review Agent,Engineering Review,Claude Opus + CAD tools,v2.5,India West,Active,2025-11-03,2026-04-04,9347,0.914,4
+AGT-ENG-01-IND-020,Engineering Review Agent,Engineering Review,Claude Opus + CAD tools,v2.5,India South,Staging,2026-03-02,2026-03-23,7578,0.945,12
+AGT-ENG-01-IND-021,Engineering Review Agent,Engineering Review,Claude Opus + CAD tools,v2.5,India North,Active,2026-03-09,2026-04-18,4250,0.975,12
+AGT-ENG-01-IND-022,Engineering Review Agent,Engineering Review,Claude Opus + CAD tools,v2.5,India East,Staging,2026-03-12,2026-03-27,11514,0.957,12
+AGT-ENG-01-MID-023,Engineering Review Agent,Engineering Review,Claude Opus + CAD tools,v2.5,Middle East,Active,2025-12-23,2026-04-05,9002,0.935,7
+AGT-ENG-01-SOU-024,Engineering Review Agent,Engineering Review,Claude Opus + CAD tools,v2.5,South East Asia,Active,2025-05-27,2026-04-07,10900,0.956,4
 AGT-FIN-01-IND-025,Commercial Risk Agent,Finance and Legal,Claude Opus + SAP FICO,v2.0,India West,Active,2025-09-25,2026-04-07,5960,0.892,4
 AGT-FIN-01-IND-026,Commercial Risk Agent,Finance and Legal,Claude Opus + SAP FICO,v2.0,India South,Active,2025-10-05,2026-04-07,11865,0.914,13
 AGT-FIN-01-IND-027,Commercial Risk Agent,Finance and Legal,Claude Opus + SAP FICO,v2.0,India North,Active,2025-06-14,2026-04-19,7951,0.861,7
 AGT-FIN-01-IND-028,Commercial Risk Agent,Finance and Legal,Claude Opus + SAP FICO,v2.0,India East,Active,2026-01-22,2026-03-27,7122,0.962,3
 AGT-FIN-01-MID-029,Commercial Risk Agent,Finance and Legal,Claude Opus + SAP FICO,v2.0,Middle East,Deprecated,2025-06-18,2026-04-06,7270,0.857,11
 AGT-FIN-01-SOU-030,Commercial Risk Agent,Finance and Legal,Claude Opus + SAP FICO,v2.0,South East Asia,Active,2025-05-08,2026-03-27,8667,0.931,15
-AGT-HR-01-IND-031,Mobilisation Agent,HR and PMO,Claude Opus + SuccessFactors,v1.6,India West,Active,2025-12-08,2026-04-12,9498,0.867,7
-AGT-HR-01-IND-032,Mobilisation Agent,HR and PMO,Claude Opus + SuccessFactors,v1.6,India South,Active,2025-03-30,2026-04-05,2489,0.854,13
-AGT-HR-01-IND-033,Mobilisation Agent,HR and PMO,Claude Opus + SuccessFactors,v1.6,India North,Staging,2025-11-20,2026-03-29,3094,0.89,3
-AGT-HR-01-IND-034,Mobilisation Agent,HR and PMO,Claude Opus + SuccessFactors,v1.6,India East,Staging,2025-08-26,2026-04-18,4181,0.979,4
-AGT-HR-01-MID-035,Mobilisation Agent,HR and PMO,Claude Opus + SuccessFactors,v1.6,Middle East,Active,2026-01-21,2026-03-31,14133,0.87,14
-AGT-HR-01-SOU-036,Mobilisation Agent,HR and PMO,Claude Opus + SuccessFactors,v1.6,South East Asia,Active,2025-07-05,2026-03-29,4979,0.904,10
-AGT-SIT-01-IND-037,Execution Monitoring Agent,Site Operations,Claude Opus + IoT stream,v2.8,India West,Active,2025-11-18,2026-04-06,9531,0.869,6
-AGT-SIT-01-IND-038,Execution Monitoring Agent,Site Operations,Claude Opus + IoT stream,v2.8,India South,Staging,2025-07-05,2026-03-28,14906,0.868,4
-AGT-SIT-01-IND-039,Execution Monitoring Agent,Site Operations,Claude Opus + IoT stream,v2.8,India North,Active,2025-08-22,2026-04-10,13405,0.916,3
-AGT-SIT-01-IND-040,Execution Monitoring Agent,Site Operations,Claude Opus + IoT stream,v2.8,India East,Active,2025-10-21,2026-03-25,10116,0.925,13
-AGT-SIT-01-MID-041,Execution Monitoring Agent,Site Operations,Claude Opus + IoT stream,v2.8,Middle East,Active,2026-01-05,2026-04-06,9324,0.913,8
-AGT-SIT-01-SOU-042,Execution Monitoring Agent,Site Operations,Claude Opus + IoT stream,v2.8,South East Asia,Staging,2025-06-17,2026-04-08,7960,0.971,6
+AGT-HR-01-IND-031,Project Planning Agent,Project Planning,Claude Opus + SuccessFactors,v1.6,India West,Active,2025-12-08,2026-04-12,9498,0.867,7
+AGT-HR-01-IND-032,Project Planning Agent,Project Planning,Claude Opus + SuccessFactors,v1.6,India South,Active,2025-03-30,2026-04-05,2489,0.854,13
+AGT-HR-01-IND-033,Project Planning Agent,Project Planning,Claude Opus + SuccessFactors,v1.6,India North,Staging,2025-11-20,2026-03-29,3094,0.89,3
+AGT-HR-01-IND-034,Project Planning Agent,Project Planning,Claude Opus + SuccessFactors,v1.6,India East,Staging,2025-08-26,2026-04-18,4181,0.979,4
+AGT-HR-01-MID-035,Project Planning Agent,Project Planning,Claude Opus + SuccessFactors,v1.6,Middle East,Active,2026-01-21,2026-03-31,14133,0.87,14
+AGT-HR-01-SOU-036,Project Planning Agent,Project Planning,Claude Opus + SuccessFactors,v1.6,South East Asia,Active,2025-07-05,2026-03-29,4979,0.904,10
+AGT-SIT-01-IND-037,Project Execution & Monitoring Agent,Execution & Monitoring,Claude Opus + IoT stream,v2.8,India West,Active,2025-11-18,2026-04-06,9531,0.869,6
+AGT-SIT-01-IND-038,Project Execution & Monitoring Agent,Execution & Monitoring,Claude Opus + IoT stream,v2.8,India South,Staging,2025-07-05,2026-03-28,14906,0.868,4
+AGT-SIT-01-IND-039,Project Execution & Monitoring Agent,Execution & Monitoring,Claude Opus + IoT stream,v2.8,India North,Active,2025-08-22,2026-04-10,13405,0.916,3
+AGT-SIT-01-IND-040,Project Execution & Monitoring Agent,Execution & Monitoring,Claude Opus + IoT stream,v2.8,India East,Active,2025-10-21,2026-03-25,10116,0.925,13
+AGT-SIT-01-MID-041,Project Execution & Monitoring Agent,Execution & Monitoring,Claude Opus + IoT stream,v2.8,Middle East,Active,2026-01-05,2026-04-06,9324,0.913,8
+AGT-SIT-01-SOU-042,Project Execution & Monitoring Agent,Execution & Monitoring,Claude Opus + IoT stream,v2.8,South East Asia,Staging,2025-06-17,2026-04-08,7960,0.971,6
 AGT-CMS-01-IND-043,Commissioning Agent,Commissioning,Claude Opus + SCADA,v1.9,India West,Deprecated,2025-11-20,2026-04-02,6774,0.88,15
 AGT-CMS-01-IND-044,Commissioning Agent,Commissioning,Claude Opus + SCADA,v1.9,India South,Active,2026-02-28,2026-04-10,12701,0.911,15
 AGT-CMS-01-IND-045,Commissioning Agent,Commissioning,Claude Opus + SCADA,v1.9,India North,Active,2025-09-06,2026-03-30,13482,0.957,5

@@ -66,12 +66,12 @@ interface AgentStage {
 const AGENT_STAGES: AgentStage[] = [
   {
     number: 1,
-    title: 'Marketing',
+    title: 'Market Intelligence',
     agentName: 'Market Intelligence Agent',
     icon: '📡',
     color: '#3B82F6',
     aiAutomates:
-      'Scans news, regulatory filings, customer annual reports, capex and emission-norm announcements; identifies accounts matching Thermax\u2019s ideal customer profile; drafts account briefs and value hypotheses.',
+      'Scans news, regulatory filings, customer annual reports, capex and emission-norm announcements; identifies accounts matching Thermax\u2019s ideal customer profile; drafts account briefs and value hypotheses; identifies the TOP 5 IMMEDIATE LEADS with confidence levels.',
     humanInLoop:
       'Marketing/BU head reviews the shortlisted accounts and validates the value hypothesis.',
     mandatoryApproval:
@@ -79,24 +79,24 @@ const AGENT_STAGES: AgentStage[] = [
   },
   {
     number: 2,
-    title: 'Sales',
-    agentName: 'Qualification Agent',
+    title: 'Lead Qualification',
+    agentName: 'Lead Qualification Agent',
     icon: '🎯',
     color: '#8B5CF6',
     aiAutomates:
-      'Runs BANT / MEDDIC scoring on available data, builds stakeholder maps from CRM and public sources, synthesises competitive intelligence, estimates win probability.',
+      'Takes the top 5 leads from Stage 1, runs BANT / MEDDIC scoring, builds stakeholder maps from CRM and public sources, synthesises competitive intelligence, estimates win probability. Remaining opportunities summarised for context.',
     humanInLoop:
       'Sales lead validates political reality, customer urgency, and stakeholder relationships.',
     mandatoryApproval: 'Go / no-go pursuit decision and NDA signing.'
   },
   {
     number: 3,
-    title: 'Pre-sales',
-    agentName: 'Solution Agent',
+    title: 'Proposal',
+    agentName: 'Proposal Agent',
     icon: '📝',
     color: '#06B6D4',
     aiAutomates:
-      'Retrieves similar past solutions, sizes equipment using parametric models, drafts BoM, scope, technical narrative and proposal, runs first-cut cost estimate.',
+      'Drafts proposals only for qualified leads from Stage 2, sizes equipment using parametric models, drafts BoM, scope, technical narrative and proposal, runs first-cut cost estimate.',
     humanInLoop:
       'Solution architect reviews technical approach; pricing and margin review by commercial leader.',
     mandatoryApproval:
@@ -104,12 +104,12 @@ const AGENT_STAGES: AgentStage[] = [
   },
   {
     number: 4,
-    title: 'Engineering',
-    agentName: 'Engineering Validation Agent',
+    title: 'Engineering Review',
+    agentName: 'Engineering Review Agent',
     icon: '⚙️',
     color: '#EF4444',
     aiAutomates:
-      'Feasibility checks against design codes, preliminary HAZOP screening, generation of draft PFDs, P&IDs, GA drawings, simulation of performance against guarantees.',
+      'Validates only proposals for qualified leads — feasibility checks against design codes, preliminary HAZOP screening, generation of draft PFDs, P&IDs, GA drawings, simulation of performance against guarantees.',
     humanInLoop:
       'Chief engineer reviews every technical commitment; safety officer reviews HAZOP output; performance guarantees calibrated by domain experts.',
     mandatoryApproval:
@@ -117,12 +117,12 @@ const AGENT_STAGES: AgentStage[] = [
   },
   {
     number: 5,
-    title: 'Finance & Legal',
+    title: 'Commercial & Legal',
     agentName: 'Commercial Risk Agent',
     icon: '💼',
     color: '#F59E0B',
     aiAutomates:
-      'Builds margin and cash-flow models, scans contracts for risky clauses (LDs, indemnities, IP, warranty), compares against Thermax\u2019s playbook and precedents, generates redlines and recommended counter-positions.',
+      'Assesses only validated proposals for qualified leads — builds margin and cash-flow models, scans contracts for risky clauses (LDs, indemnities, IP, warranty), compares against Thermax\u2019s playbook and precedents, generates redlines.',
     humanInLoop:
       'CFO reviews margin and cash-flow position; Legal counsel reviews redlines; Risk committee reviews high-exposure items.',
     mandatoryApproval:
@@ -130,12 +130,12 @@ const AGENT_STAGES: AgentStage[] = [
   },
   {
     number: 6,
-    title: 'HR & PMO',
-    agentName: 'Mobilisation Agent',
+    title: 'Project Planning',
+    agentName: 'Project Planning Agent',
     icon: '👷',
     color: '#10B981',
     aiAutomates:
-      'Matches project needs to available resources (skills, certifications, location), builds mobilisation schedule, drafts project charter, tracks certification expiries and readiness gaps.',
+      'Charters only approved qualified deals — matches project needs to available resources (skills, certifications, location), builds mobilisation schedule, drafts project charter, tracks certification expiries and readiness gaps.',
     humanInLoop:
       'PMO head approves the resource plan; HR validates availability and mobility.',
     mandatoryApproval:
@@ -143,12 +143,12 @@ const AGENT_STAGES: AgentStage[] = [
   },
   {
     number: 7,
-    title: 'Site Operations',
-    agentName: 'Execution Monitoring Agent',
+    title: 'Execution & Monitoring',
+    agentName: 'Project Execution & Monitoring Agent',
     icon: '🏗️',
     color: '#6366F1',
     aiAutomates:
-      'Real-time progress tracking from site IoT, drone images and daily reports; predictive schedule-slippage alerts; automated quality and safety compliance checks; draft progress, MIR and NCR reports; subcontractor performance scoring.',
+      'Monitors only active qualified projects — real-time progress tracking from site reports; predictive schedule-slippage alerts; automated quality and safety compliance checks; draft progress, MIR and NCR reports; subcontractor performance scoring.',
     humanInLoop:
       'Site manager validates progress claims; safety officer reviews incident flags; project manager approves changes.',
     mandatoryApproval:
@@ -157,11 +157,11 @@ const AGENT_STAGES: AgentStage[] = [
   {
     number: 8,
     title: 'Commissioning',
-    agentName: 'Commissioning Assistant Agent',
+    agentName: 'Commissioning Agent',
     icon: '🔬',
     color: '#EC4899',
     aiAutomates:
-      'Pre-commissioning checklist execution, performance trend analysis during stabilisation, deviation detection against PG targets, draft commissioning and PG test reports.',
+      'Commissions only projects from the qualified pipeline — pre-commissioning checklist execution, performance trend analysis during stabilisation, deviation detection against PG targets, draft commissioning and PG test reports.',
     humanInLoop:
       'Commissioning lead supervises startup; customer witness validates test results; operations team confirms handover readiness.',
     mandatoryApproval:
@@ -585,37 +585,37 @@ const DATA_FOLDERS = [
   {
     folder: '01_marketing',
     icon: '📡',
-    description: 'Market signals (70) and account briefs (60)'
+    description: 'Market Intelligence — Market signals (70) and account briefs (60)'
   },
   {
     folder: '02_sales',
     icon: '🎯',
-    description: 'Opportunities (60) and stakeholder map (309)'
+    description: 'Lead Qualification — Opportunities (60) and stakeholder map (309)'
   },
   {
     folder: '03_presales',
     icon: '📝',
-    description: 'Proposals (55) and Bill of Materials (297)'
+    description: 'Proposal — Proposals (55) and Bill of Materials (297)'
   },
   {
     folder: '04_engineering',
     icon: '⚙️',
-    description: 'Validations (55) and performance guarantees (106)'
+    description: 'Engineering Review — Validations (55) and performance guarantees (106)'
   },
   {
     folder: '05_finance_legal',
     icon: '💼',
-    description: 'Commercial risk assessments (55) and contract reviews (55)'
+    description: 'Commercial & Legal — Risk assessments (55) and contract reviews (55)'
   },
   {
     folder: '06_hr_pmo',
     icon: '👷',
-    description: 'Projects (55) and resource assignments (410)'
+    description: 'Project Planning — Projects (55) and resource assignments (410)'
   },
   {
     folder: '07_site_operations',
     icon: '🏗️',
-    description: 'Site progress (417), safety incidents (55), NCRs (55)'
+    description: 'Execution & Monitoring — Site progress (417), safety incidents (55), NCRs (55)'
   },
   {
     folder: '08_commissioning',
