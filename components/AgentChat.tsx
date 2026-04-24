@@ -774,16 +774,18 @@ export default function AgentChat({
         {/* ── SECTION 4: HITL Approval Gate ── */}
         {hitlEvent && !streaming && (
           <div className="bg-white border border-thermax-line rounded-xl shadow-card overflow-hidden">
-            <div className="px-5 py-3 border-b border-thermax-line bg-gradient-to-r from-amber-50 to-orange-50">
+            <div className="px-5 py-3 border-b border-thermax-line bg-gradient-to-r from-slate-50 to-sky-50">
               <div className="flex items-center gap-2">
-                <span className="text-[10px] font-bold bg-amber-600 text-white px-2 py-0.5 rounded">4</span>
-                <h3 className="text-[13px] font-bold text-thermax-navy">HITL Approval Gate</h3>
-                <span className="text-[10px] font-semibold text-amber-700 bg-amber-100 px-2 py-0.5 rounded">REQUIRES HUMAN DECISION</span>
+                <span className="text-[10px] font-bold bg-slate-600 text-white px-2 py-0.5 rounded">4</span>
+                <h3 className="text-[13px] font-bold text-thermax-navy">Human Review Gate</h3>
+                <span className="text-[10px] font-semibold text-sky-700 bg-sky-100 px-2 py-0.5 rounded">Awaiting Decision</span>
               </div>
             </div>
             <div className="p-4">
               <ApprovalPanel
                 hitl={hitlEvent}
+                stageSlug={stage.slug}
+                originalResult={transcript.find(m => m.role === 'assistant')?.content}
                 onDecision={(decision, detail) => {
                   setHitlDecision(`${decision}: ${detail}`);
                   setTimeout(() => {
@@ -791,17 +793,23 @@ export default function AgentChat({
                     refreshWorkflow();
                   }, 1000);
                 }}
+                onModifiedResult={(modifiedContent) => {
+                  const existing = [...messages];
+                  existing.push({ role: 'assistant', content: modifiedContent });
+                  setMessages(existing);
+                  setTimeout(() => persistResult(), 500);
+                }}
               />
             </div>
           </div>
         )}
         {hitlDecision && (
-          <div className="bg-emerald-50 border border-emerald-200 rounded-xl shadow-card p-4">
+          <div className="bg-teal-50 border border-teal-200 rounded-xl shadow-card p-4">
             <div className="flex items-center gap-2 mb-1">
-              <span className="text-emerald-600">✅</span>
-              <span className="text-[12px] font-bold text-emerald-800">Approval Decision Recorded</span>
+              <span className="text-teal-600">✓</span>
+              <span className="text-[12px] font-bold text-teal-700">Review Decision Recorded</span>
             </div>
-            <div className="text-[12px] text-emerald-700">{hitlDecision}</div>
+            <div className="text-[12px] text-teal-600">{hitlDecision}</div>
           </div>
         )}
 
