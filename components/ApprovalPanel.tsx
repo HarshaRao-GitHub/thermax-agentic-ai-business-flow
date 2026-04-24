@@ -19,7 +19,7 @@ export interface HitlEvent {
   summary: string;
 }
 
-type DecisionState = 'pending' | 'approved' | 'modified' | 'rejected' | 'submitting' | 'processing_modifications';
+type DecisionState = 'pending' | 'approved' | 'modified' | 'rejected' | 'submitting' | 'processing_modifications' | 'review_modifications';
 
 interface Props {
   hitl: HitlEvent;
@@ -51,7 +51,7 @@ export default function ApprovalPanel({
   const threshPct = (hitl.confidenceThreshold * 100).toFixed(0);
   const isLowConfidence = hitl.isConfidenceTriggered;
 
-  async function handleModifyAndApprove() {
+  async function handleApplyChanges() {
     if (!approverName.trim() || !modifications.trim()) return;
     setProcessingMods(true);
     setState('processing_modifications');
@@ -121,8 +121,20 @@ export default function ApprovalPanel({
 
       setModifiedOutput(assembled);
       onModifiedResult?.(assembled);
+      setState('review_modifications');
+    } catch {
+      setState('pending');
+      setProcessingMods(false);
+    } finally {
+      setProcessingMods(false);
+    }
+  }
 
-      const now = new Date().toISOString();
+  function handleApproveModified() {
+    if (!approverName.trim()) return;
+    setState('submitting');
+    const now = new Date().toISOString();
+    try {
       addApproval({
         id: hitl.approvalId,
         stageSlug: String(hitl.stageNumber),
@@ -133,16 +145,12 @@ export default function ApprovalPanel({
         createdAt: now,
         decidedAt: now,
       });
-
       const msg = `Approved with modifications by ${approverName.trim()} for Stage ${hitl.stageNumber}: ${hitl.stageTitle}`;
       setState('modified');
       setResult(msg);
       onDecision?.('modified', msg);
     } catch {
-      setState('pending');
-      setProcessingMods(false);
-    } finally {
-      setProcessingMods(false);
+      setState('review_modifications');
     }
   }
 
@@ -432,9 +440,25 @@ export default function ApprovalPanel({
           </div>
         )}
 
+        {/* Modified output review */}
+        {state === 'review_modifications' && modifiedOutput && (
+          <div className="rounded-xl border border-sky-200 bg-sky-50/50 overflow-hidden">
+            <div className="px-5 py-2.5 bg-sky-100/60 border-b border-sky-200">
+              <div className="flex items-center gap-2">
+                <span className="text-sm">📝</span>
+                <span className="text-[12px] font-bold text-sky-800">Modified Agent Results — Ready for Review</span>
+                <span className="text-[10px] text-sky-600 bg-sky-200/60 px-2 py-0.5 rounded-full">Pending approval</span>
+              </div>
+            </div>
+            <div className="p-5 max-h-[500px] overflow-y-auto">
+              <Markdown>{modifiedOutput}</Markdown>
+            </div>
+          </div>
+        )}
+
         {/* Action buttons */}
         <div className="flex flex-wrap gap-2 pt-1">
-          {!showReject && !showModify && (
+          {!showReject && !showModify && state !== 'review_modifications' && (
             <button
               onClick={handleApprove}
               disabled={!approverName.trim() || state === 'submitting'}
@@ -444,24 +468,24 @@ export default function ApprovalPanel({
             </button>
           )}
 
-          {!showReject && !showModify && (
+          {!showReject && !showModify && state !== 'review_modifications' && (
             <button
               onClick={() => setShowModify(true)}
               disabled={state === 'submitting'}
               className="flex items-center gap-2 bg-sky-600 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-sky-700 transition disabled:opacity-40 text-sm"
             >
-              <span>📝</span> Modify + Approve
+              <span>📝</span> Modify &amp; Review
             </button>
           )}
 
-          {showModify && !showReject && (
+          {showModify && !showReject && state !== 'review_modifications' && (
             <>
               <button
-                onClick={handleModifyAndApprove}
+                onClick={handleApplyChanges}
                 disabled={!approverName.trim() || !modifications.trim() || processingMods}
                 className="flex items-center gap-2 bg-sky-600 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-sky-700 transition disabled:opacity-40 disabled:cursor-not-allowed text-sm"
               >
-                <span>📝</span> Apply Changes & Approve
+                <span>📝</span> Apply Changes &amp; Review
               </button>
               <button
                 onClick={() => { setShowModify(false); setModifications(''); }}
@@ -473,7 +497,7 @@ export default function ApprovalPanel({
             </>
           )}
 
-          {!showReject && !showModify && (
+          {!showReject && !showModify && state !== 'review_modifications' && (
             <button
               onClick={() => setShowReject(true)}
               disabled={state === 'submitting'}
@@ -483,7 +507,7 @@ export default function ApprovalPanel({
             </button>
           )}
 
-          {showReject && (
+          {showReject && state !== 'review_modifications' && (
             <>
               <button
                 onClick={handleReject}
@@ -497,6 +521,24 @@ export default function ApprovalPanel({
                 className="text-slate-500 text-sm hover:text-thermax-navy transition"
               >
                 Cancel
+              </button>
+            </>
+          )}
+
+          {state === 'review_modifications' && (
+            <>
+              <button
+                onClick={handleApproveModified}
+                disabled={!approverName.trim() || state === 'submitting'}
+                className="flex items-center gap-2 bg-teal-600 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-teal-700 transition disabled:opacity-40 disabled:cursor-not-allowed text-sm"
+              >
+                <span>✓</span> Approve
+              </button>
+              <button
+                onClick={() => { setState('pending'); setShowModify(true); setModifiedOutput(null); }}
+                className="flex items-center gap-2 text-slate-500 text-sm hover:text-thermax-navy transition"
+              >
+                ← Back to Edit
               </button>
             </>
           )}
