@@ -375,6 +375,21 @@ export default function ApprovalPanel({
               className="w-full border border-sky-300 rounded-lg px-3 py-2 text-[13px] focus:outline-none focus:ring-2 focus:ring-sky-400 resize-none bg-white"
               disabled={processingMods}
             />
+            {!approverName.trim() && (
+              <div className="mt-2">
+                <label className="block text-[11px] font-semibold text-sky-800 mb-1">
+                  Your Name (required to apply changes)
+                </label>
+                <input
+                  type="text"
+                  value={approverName}
+                  onChange={(e) => setApproverName(e.target.value)}
+                  placeholder={`Enter your name as ${hitl.approverRole}`}
+                  className="w-full border border-sky-300 rounded-lg px-3 py-2 text-[13px] focus:outline-none focus:ring-2 focus:ring-sky-400 bg-white"
+                  disabled={processingMods}
+                />
+              </div>
+            )}
             {processingMods && (
               <div className="flex items-center gap-2 py-2">
                 <span className="inline-block w-4 h-4 border-2 border-sky-500 border-t-transparent rounded-full animate-spin" />
@@ -399,6 +414,21 @@ export default function ApprovalPanel({
               className="w-full border border-rose-200 rounded-lg px-3 py-2 text-[13px] focus:outline-none focus:ring-2 focus:ring-rose-300 resize-none bg-white"
               disabled={state === 'submitting'}
             />
+            {!approverName.trim() && (
+              <div className="mt-1">
+                <label className="block text-[11px] font-semibold text-rose-700 mb-1">
+                  Your Name (required)
+                </label>
+                <input
+                  type="text"
+                  value={approverName}
+                  onChange={(e) => setApproverName(e.target.value)}
+                  placeholder={`Enter your name as ${hitl.approverRole}`}
+                  className="w-full border border-rose-200 rounded-lg px-3 py-2 text-[13px] focus:outline-none focus:ring-2 focus:ring-rose-300 bg-white"
+                  disabled={state === 'submitting'}
+                />
+              </div>
+            )}
           </div>
         )}
 
