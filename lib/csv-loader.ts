@@ -8,6 +8,8 @@ const EXTERNAL_DATA_ROOT = path.resolve(
 
 const BUNDLED_DATA_ROOT = path.resolve(process.cwd(), 'public', 'data-backbone');
 
+const SAMPLE_DATA_ROOT = path.resolve(process.cwd(), 'public', 'sample-data');
+
 const csvCache = new Map<string, { data: CsvData; ts: number }>();
 const CACHE_TTL = 5 * 60 * 1000;
 
@@ -16,6 +18,8 @@ function resolveDataFile(folder: string, file: string): string {
   if (existsSync(external)) return external;
   const bundled = path.join(BUNDLED_DATA_ROOT, folder, file);
   if (existsSync(bundled)) return bundled;
+  const sample = path.join(SAMPLE_DATA_ROOT, folder, file);
+  if (existsSync(sample)) return sample;
   throw new Error(`Data file not found: ${folder}/${file}`);
 }
 
@@ -126,6 +130,17 @@ export function loadMultipleCsv(
     result[key] = loadCsv(src.folder, src.file);
   }
   return result;
+}
+
+export function loadTextFile(folder: string, file: string, maxChars = 12000): string {
+  const filePath = resolveDataFile(folder, file);
+  const raw = readFileSync(filePath, 'utf-8');
+  if (raw.length <= maxChars) return raw;
+  return raw.slice(0, maxChars) + `\n\n... [truncated — showing first ${maxChars} characters of ${raw.length} total]`;
+}
+
+export function isNonCsvDataFile(file: string): boolean {
+  return /\.(txt|pdf|json|xlsx)$/i.test(file);
 }
 
 export function getDataSummary(

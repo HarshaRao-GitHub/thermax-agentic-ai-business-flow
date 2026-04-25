@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 import { getStageBySlug, governanceConfig, type Stage } from '@/data/stages';
-import { loadCsvAsMarkdownTable } from '@/lib/csv-loader';
+import { loadCsvAsMarkdownTable, loadTextFile, isNonCsvDataFile } from '@/lib/csv-loader';
 import { getAnthropicClient, getModelId, callWithRetry } from '@/lib/anthropic';
 import {
   getToolsForSlug,
@@ -62,10 +62,18 @@ export async function POST(req: NextRequest) {
   const dataSources = isGovernance ? governanceConfig.dataSources : stage!.dataSources;
   for (const ds of dataSources) {
     try {
-      const table = loadCsvAsMarkdownTable(ds.folder, ds.file, 25);
-      knowledgeBlocks.push(
-        `=== DATA: ${ds.label} (${ds.file}) ===\n\n${table}\n\n=== END ===`
-      );
+      if (isNonCsvDataFile(ds.file)) {
+        const text = loadTextFile(ds.folder, ds.file, 12000);
+        const ft = ('fileType' in ds && ds.fileType) ? String(ds.fileType).toUpperCase() : 'TEXT';
+        knowledgeBlocks.push(
+          `=== DATA: ${ds.label} (${ds.file}) [${ft}] ===\n\n${text}\n\n=== END ===`
+        );
+      } else {
+        const table = loadCsvAsMarkdownTable(ds.folder, ds.file, 25);
+        knowledgeBlocks.push(
+          `=== DATA: ${ds.label} (${ds.file}) ===\n\n${table}\n\n=== END ===`
+        );
+      }
     } catch (e) {
       console.error('Failed to load data source', ds.file, e);
     }

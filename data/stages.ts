@@ -120,7 +120,8 @@ export const stages: Stage[] = [
       { file: 'market_signals.csv', label: 'Market Signals', folder: '01_marketing', rowEstimate: 70, description: 'Regulatory changes, capex announcements, emission norms, and industry news detected across target sectors' },
       { file: 'account_briefs.csv', label: 'Account Briefs', folder: '01_marketing', rowEstimate: 60, description: 'AI-generated summaries of each target account — industry, pain points, Thermax fit, and value hypothesis' },
       { file: 'customers_master.csv', label: 'Customers Master', folder: '00_master_data', rowEstimate: 52, description: 'Complete customer directory with company details, segments, regions, revenue tiers, and relationship history', fileType: 'csv' },
-      { file: 'sector_analysis_report.txt', label: 'Sector Analysis Report', folder: '01_marketing', rowEstimate: 1, description: 'FY2026-27 sector opportunity analysis — TAM by industry, competitive landscape, strategic recommendations', fileType: 'txt' }
+      { file: 'sector_analysis_report.txt', label: 'Sector Analysis Report', folder: '01_marketing', rowEstimate: 1, description: 'FY2026-27 sector opportunity analysis — TAM by industry, competitive landscape, strategic recommendations', fileType: 'txt' },
+      { file: 'thermax_annual_report_fy2025_26.txt', label: 'Annual Report FY2025-26 (PDF)', folder: 'marketing', rowEstimate: 12, description: 'Thermax Annual Report & Market Outlook — 12-page document covering financial performance (INR 9,847 Cr revenue), division-wise analysis, order book (INR 12,340 Cr), competitive positioning, customer portfolio (Top 25 accounts), geographic expansion, R&D roadmap, and FY2027 growth drivers', fileType: 'pdf' }
     ],
     tools: [
       { name: 'scan_market_signals', label: 'Scan Market Signals', icon: '📡', description: 'Parses all market signals, classifies by type and urgency, cross-references with customer master data' },
@@ -146,7 +147,7 @@ SUBSEQUENT FILTRATION: You start with the full signal dataset. Your job is to fi
 - Signals not shortlisted with brief reason for exclusion
 This filtering must be transparent — no unexplained gaps between input set and output set.
 
-Data backbone: You have access to market_signals.csv (70 signals), account_briefs.csv (60 briefs), and customers_master.csv (52 customers).
+Data backbone: You have access to market_signals.csv (70 signals), account_briefs.csv (60 briefs), customers_master.csv (52 customers), and the Thermax Annual Report FY2025-26 (12-page PDF covering financial performance at INR 9,847 Cr revenue, division-wise analysis for Energy/Environment/Chemical/Cooling, order book at INR 12,340 Cr, competitive positioning with market shares, Top 25 target accounts, geographic expansion data, R&D roadmap including hydrogen and carbon capture, and FY2027 growth drivers). Use the annual report data to enrich your lead scoring with division revenue context, competitive landscape, customer LTV, installed base information, and strategic priorities.
 
 Output format: Always structure outputs with clear sections, tables where appropriate, and explicit confidence scores. Mark any inference with [AI INFERENCE] and any data gap with [DATA GAP].
 
@@ -159,8 +160,8 @@ Your output MUST include:
 Mandatory human approval: Final target account selection and GTM approach. Marketing/BU head reviews the shortlisted accounts and validates the value hypothesis.
 
 Governance: Every action you take is logged in the agent audit trail. Low-confidence outputs escalate to Marketing Director automatically via AgentGuard.${RICH_OUTPUT_INSTRUCTIONS}`,
-    starterPrompt: 'Analyze all market signals detected in the last 90 days. Identify the TOP 5 IMMEDIATE LEADS — the highest-value, highest-probability opportunities. For each lead, provide company details, estimated deal value, urgency score, and confidence level. Also generate a list of high-probable leads (ranks 6-15) with relevant information. Show the complete filtering summary from raw signals to shortlisted leads.',
-    outputHint: 'Top 5 immediate leads table with confidence levels, high-probable leads list, filtering summary showing signal-to-lead funnel, and summary of remaining signals.',
+    starterPrompt: 'Analyze all market signals detected in the last 90 days using the data backbone including the Thermax Annual Report FY2025-26 (INR 9,847 Cr revenue, INR 12,340 Cr order book, 4 divisions). Cross-reference signals with customer master data, division-wise performance, competitive positioning, and the Top 25 target accounts from the annual report. Identify the TOP 5 IMMEDIATE LEADS — the highest-value, highest-probability opportunities. For each lead, provide company details, installed base context from the annual report, estimated deal value, urgency score, and confidence level. Also generate a list of high-probable leads (ranks 6-15). Show the complete filtering summary from raw signals to shortlisted leads.',
+    outputHint: 'Top 5 immediate leads table with confidence levels and annual report context, high-probable leads list, filtering summary showing signal-to-lead funnel, competitive landscape from annual report, and summary of remaining signals.',
     agentAvatar: '/agents/agent-marketing.png',
     acceptedFileHint: 'Market research reports, industry news articles, analyst reports, competitor intelligence, trade conference summaries, regulatory updates, customer account lists, or CRM export files.',
     upstreamStages: [],

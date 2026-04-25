@@ -1,0 +1,353 @@
+===============================================================================
+THERMAX LIMITED — ANNUAL REPORT & MARKET OUTLOOK FY2025-26
+Registered Office: D-13, MIDC Industrial Estate, Chinchwad, Pune 411 019
+CIN: L29299PN1980PLC022787 | BSE: 500411 | NSE: THERMAX
+CONFIDENTIAL — For Internal Strategic Planning & AI System Data Integration
+===============================================================================
+
+TABLE OF CONTENTS
+1. Chairman's Statement & Strategic Outlook
+2. Financial Performance Summary — FY2025-26
+3. Division-wise Performance Analysis
+4. Order Book & Pipeline Analysis
+5. Key Market Trends & Regulatory Landscape
+6. Competitive Positioning & Win/Loss Analysis
+7. Customer Portfolio & Account Intelligence
+8. Geographic Expansion & International Markets
+9. Innovation, R&D & Technology Roadmap
+10. FY2026-27 Guidance & Strategic Growth Drivers
+Annexure A — Top 25 Target Accounts
+Annexure B — Sector-wise Opportunity Matrix
+Annexure C — Risk Register & Mitigation
+
+===============================================================================
+1. CHAIRMAN'S STATEMENT & STRATEGIC OUTLOOK
+===============================================================================
+
+Dear Stakeholders,
+
+FY2025-26 has been a transformational year for Thermax Limited. We achieved consolidated revenue of INR 9,847 Cr, a growth of 14.2% over FY2024-25, driven by strong order inflows across all four divisions. Our EBITDA margin expanded to 12.8%, reflecting operational efficiencies and a favourable product mix. The order book as of March 2026 stands at INR 12,340 Cr — the highest in Thermax's history — providing revenue visibility for the next 18-24 months.
+
+The global decarbonisation imperative continues to create significant tailwinds for our business. India's tightening emission norms (CPCB Phase III mandating NOx limits of 100 mg/Nm3 for thermal plants), the European CBAM mechanism affecting Indian exporters, and MNRE's biomass co-firing mandates are driving unprecedented demand for our flue gas desulphurisation (FGD), waste heat recovery systems (WHRS), and biomass boiler technologies.
+
+Internationally, we see accelerating opportunities in the Middle East (NEOM, Saudi Vision 2030 industrial zones), Southeast Asia (Thailand and Vietnam coal-to-gas transitions), and Africa (municipal water treatment under World Bank financing). Our international order book grew 22% to INR 2,890 Cr. I am particularly excited about our strategic partnership with Saudi Aramco for process heaters at Ras Tanura refinery — our largest single international order at INR 210 Cr.
+
+Looking ahead, we are investing aggressively in AI-powered operations through the Thermax Agentic AI Operating System 2030. This initiative deploys 9 specialised AI agents across our end-to-end business flow — from market intelligence to O&M services — with robust human-in-the-loop governance. The system has already demonstrated a 40% reduction in proposal turnaround time and a 60% improvement in lead qualification accuracy during pilot deployment.
+
+— Meher Pudumjee, Chairperson, Thermax Limited
+
+===============================================================================
+2. FINANCIAL PERFORMANCE SUMMARY — FY2025-26
+===============================================================================
+
+| Metric                  | FY2025-26      | FY2024-25      | Growth %  | Remarks                           |
+|-------------------------|----------------|----------------|-----------|-----------------------------------|
+| Consolidated Revenue    | INR 9,847 Cr   | INR 8,623 Cr   | 14.2%     | All divisions contributed         |
+| EBITDA                  | INR 1,260 Cr   | INR 1,035 Cr   | 21.7%     | Margin: 12.8% vs 12.0%           |
+| PAT (Net Profit)        | INR 782 Cr     | INR 645 Cr     | 21.2%     | PAT Margin: 7.9%                  |
+| Order Inflow            | INR 13,210 Cr  | INR 10,870 Cr  | 21.5%     | Record inflows                    |
+| Order Book (closing)    | INR 12,340 Cr  | INR 9,980 Cr   | 23.6%     | Highest ever                      |
+| RoCE                    | 22.4%          | 19.8%          | +260 bps  | Capital efficiency improving      |
+| Free Cash Flow          | INR 520 Cr     | INR 380 Cr     | 36.8%     | Working capital discipline        |
+| Dividend per Share      | INR 12         | INR 10         | 20.0%     | Payout ratio: 18%                 |
+| International Revenue   | INR 2,460 Cr   | INR 1,980 Cr   | 24.2%     | 25% of total revenue              |
+| R&D Spend               | INR 285 Cr     | INR 230 Cr     | 23.9%     | 2.9% of revenue                   |
+
+REVENUE SEGMENTATION BY DIVISION (FY2025-26):
+
+| Division     | Revenue (INR Cr) | % Share | YoY Growth | Order Book (Cr) | Key Driver                        |
+|--------------|-----------------|---------|------------|-----------------|-----------------------------------|
+| Energy       | 4,135           | 42%     | 12.8%      | 5,200           | Boilers, WHRS, biomass            |
+| Environment  | 2,856           | 29%     | 18.4%      | 3,700           | FGD, water treatment, ZLD         |
+| Chemical     | 1,872           | 19%     | 11.2%      | 2,040           | Ion exchange, specialty chemicals |
+| Cooling      | 984             | 10%     | 9.6%       | 1,400           | Absorption chillers, HVAC         |
+
+===============================================================================
+3. DIVISION-WISE PERFORMANCE ANALYSIS
+===============================================================================
+
+3.1 ENERGY DIVISION (42% of Revenue — INR 4,135 Cr)
+
+The Energy division delivered robust growth of 12.8%, driven by large-ticket boiler orders from the cement and steel sectors. FGD orders from state gencos (NTPC Singrauli Units 3-5 at INR 280 Cr, MSEDCL Bhusawal at INR 145 Cr) were significant contributors. Biomass boilers gained traction due to MNRE's 5% co-firing mandate — Adani Power Mundra (INR 95 Cr) and Tata Power Trombay (INR 78 Cr) entered the pipeline. WHRS orders from UltraTech Cement (INR 120 Cr) and Dalmia Cement (INR 85 Cr) reflect the cement industry's aggressive decarbonisation push.
+
+Key risks: Execution timelines on large EPC projects remain stretched (average 18-24 months); raw material price volatility (steel, nickel) compresses margins on fixed-price contracts; BHEL and L&T remain aggressive competitors on FGD projects with government clients.
+
+3.2 ENVIRONMENT DIVISION (29% of Revenue — INR 2,856 Cr)
+
+Environment grew fastest at 18.4%, fuelled by Zero Liquid Discharge (ZLD) mandates in textiles (Arvind Ltd — INR 38 Cr ZLD system) and pharma (Cipla Goa — INR 45 Cr clean utility system). Water treatment for industrial zones continues to expand — Dahej PCPIR (INR 112 Cr), Vizag SEZ (INR 87 Cr). The Saudi NEOM water treatment consortium (where Thermax is an EPC sub-contractor to ACCIONA) represents a breakthrough in mega-project participation. Municipal water treatment under Smart Cities Mission Phase 2 yielded 3 new orders worth INR 210 Cr total.
+
+Innovation highlight: Launch of the 'AquaSure-AI' real-time water quality prediction system — an IoT+ML platform that reduces chemical dosing costs by 15-20% and has been piloted at 8 customer sites with positive results.
+
+3.3 CHEMICAL DIVISION (19% of Revenue — INR 1,872 Cr)
+
+The Chemical division grew 11.2%, led by strong demand for ion exchange resins from pharma (water-for-injection grade) and power (condensate polishing). Specialty chemical sales to food & beverage processing rose 28% due to FSSAI's stricter water quality standards for packaged foods. Our joint venture with Solenis (now Diversey) for paper industry chemicals contributed INR 180 Cr. Export revenues from the chemical division reached INR 320 Cr — a 32% increase — largely driven by sales to Southeast Asian markets.
+
+3.4 COOLING DIVISION (10% of Revenue — INR 984 Cr)
+
+Cooling division grew 9.6%, with vapour absorption machines (VAMs) seeing a resurgence in data centre cooling applications. Three data centre cooling orders (totaling INR 135 Cr) from Yotta Infrastructure, NTT Communications, and AdaniConneX highlight this emerging vertical. The HVAC segment for pharmaceutical clean rooms contributed INR 220 Cr. District cooling projects in Dubai (INR 65 Cr) represent our expanding footprint in Middle East real estate and hospitality sectors.
+
+===============================================================================
+4. ORDER BOOK & PIPELINE ANALYSIS
+===============================================================================
+
+4.1 ORDER BOOK COMPOSITION (INR 12,340 Cr as of March 2026):
+
+| Sector                | Order Book (Cr) | % Share | Avg. Ticket (Cr) | Execution (months) | Top Customer                      |
+|-----------------------|-----------------|---------|-------------------|---------------------|-----------------------------------|
+| Cement                | 2,470           | 20%     | 95                | 18                  | UltraTech, Dalmia, Shree Cement   |
+| Power & Utilities     | 2,220           | 18%     | 180               | 24                  | NTPC, MSEDCL, Tata Power          |
+| Oil & Gas             | 1,850           | 15%     | 150               | 20                  | Reliance, Saudi Aramco, KNPC      |
+| Steel & Metals        | 1,600           | 13%     | 120               | 18                  | Tata Steel, JSW, Hindalco         |
+| Pharma & Healthcare   | 1,110           | 9%      | 42                | 12                  | Cipla, Aurobindo, Dr. Reddy's     |
+| Textiles              | 740             | 6%      | 35                | 10                  | Arvind, Raymond, Welspun          |
+| Water & Municipal     | 1,234           | 10%     | 70                | 15                  | Pune MC, Chennai Metro, NEOM      |
+| Chemicals             | 620             | 5%      | 55                | 12                  | PI Industries, SRF, Aarti         |
+| Data Centres          | 496             | 4%      | 135               | 14                  | Yotta, NTT, AdaniConneX           |
+
+4.2 ACTIVE PIPELINE (INR 18,500 Cr — Weighted Value INR 8,900 Cr):
+
+Our active pipeline stands at INR 18,500 Cr across 142 tracked opportunities, with a weighted probability-adjusted value of INR 8,900 Cr. The win rate in FY2025-26 improved to 34% (from 28% in FY2024-25), reflecting better proposal quality and earlier engagement in the customer decision cycle.
+
+| Pipeline Stage       | Opportunities | Gross Value (Cr) | Weighted (Cr) | Avg. Probability |
+|---------------------|---------------|-------------------|---------------|------------------|
+| Qualification       | 42            | 6,200             | 2,170         | 35%              |
+| Proposal Submitted  | 38            | 5,800             | 3,190         | 55%              |
+| Negotiation         | 28            | 3,400             | 2,380         | 70%              |
+| Final Decision      | 18            | 2,100             | 1,680         | 80%              |
+| Won — Pending PO    | 16            | 1,000             | 950           | 95%              |
+
+4.3 TOP 10 PIPELINE OPPORTUNITIES (Active Pursuit):
+
+| Account              | Project                          | Value (Cr) | Stage         | Win Prob. | Competitor       |
+|----------------------|----------------------------------|-----------|---------------|-----------|------------------|
+| Reliance Industries  | Hydrogen Unit — Jamnagar          | 340       | Qualification | 40%       | Linde / L&T      |
+| NTPC Ltd             | FGD — Singrauli Units 3-5         | 280       | Proposal      | 55%       | BHEL / L&T       |
+| Saudi Aramco         | Process Heaters — Ras Tanura      | 210       | Proposal      | 50%       | Alfa Laval       |
+| Tata Steel           | WHR — Jamshedpur BF#3             | 185       | Proposal      | 65%       | L&T              |
+| JSW Steel            | COG Recovery — Vijayanagar        | 155       | Qualification | 35%       | Danieli          |
+| UltraTech Cement     | Kiln WHRS + Bag Filter            | 120       | Negotiation   | 80%       | ISGEC            |
+| Adani Power          | Biomass Co-firing — Mundra        | 95        | Qualification | 45%       | Babcock          |
+| Hindalco             | Captive Power Boiler              | 92        | Proposal      | 60%       | BHEL             |
+| NEOM (via ACCIONA)   | Water Treatment Package           | 85        | Negotiation   | 75%       | Veolia           |
+| Cipla Ltd            | Clean Utility — Goa Plant         | 45        | Proposal      | 70%       | Forbes Marshall  |
+
+===============================================================================
+5. KEY MARKET TRENDS & REGULATORY LANDSCAPE
+===============================================================================
+
+5.1 EMISSION NORMS — CPCB PHASE III (Critical)
+
+The Central Pollution Control Board has mandated NOx limits of 100 mg/Nm3 for all thermal power plants above 500 MW, effective January 2027. This creates a retrofit window of 18-24 months for approximately 85 GW of installed coal-based capacity. Thermax's addressable market for FGD and SCR systems is estimated at INR 8,000-10,000 Cr. Currently, only 35% of the installed base has contracted for retrofits — the remaining 55 GW represents an immediate opportunity. Key competitors: BHEL (incumbent in 40% of plants), L&T (aggressive pricing), and Chinese EPC firms (SEPCO, DEC) offering 15-20% lower prices but facing quality perception issues.
+
+5.2 INDUSTRIAL BOILER MARKET (High Growth)
+
+India's industrial boiler market is projected to grow at 8.2% CAGR through 2030 (Frost & Sullivan). Biomass boilers are gaining share rapidly — from 12% in FY2024 to a projected 22% by FY2028 — driven by MNRE's co-firing mandates and carbon credit monetisation. Thermax holds an estimated 28% market share in industrial boilers (by value) and 35% in biomass-capable boilers.
+
+5.3 ZERO LIQUID DISCHARGE (ZLD) MANDATES
+
+State Pollution Control Boards in Gujarat, Maharashtra, Tamil Nadu, and Andhra Pradesh have mandated ZLD for textiles, pharma, and chemical industries in 23 industrial zones. The addressable market is estimated at INR 4,500 Cr over 3 years. Thermax's multi-effect evaporator + RO + crystalliser combination is the preferred technology for high-TDS effluent treatment (>50,000 mg/L). We have a 32% share in industrial ZLD systems by installed capacity.
+
+5.4 EUROPEAN CARBON BORDER ADJUSTMENT MECHANISM (CBAM)
+
+CBAM, effective from January 2026 (reporting phase), will impose carbon tariffs on Indian exports of steel, cement, aluminium, fertilisers, and hydrogen. An estimated 120 Indian exporters with combined exports of USD 8.5 Bn will be affected. These companies urgently need to reduce carbon intensity — creating demand for Thermax's waste heat recovery, energy-efficient boilers, and process optimisation solutions. We estimate an addressable market of INR 2,200 Cr from CBAM-driven technology upgrades over the next 3 years.
+
+5.5 DATA CENTRE COOLING (Emerging)
+
+India's data centre capacity is projected to triple from 800 MW in 2025 to 2,400 MW by 2028 (CRISIL). Each MW of IT load requires approximately 0.4 MW of cooling. Absorption chillers running on waste heat or natural gas offer 30-40% lower operating costs than conventional electric chillers at scale. Thermax has secured 3 data centre cooling orders (INR 135 Cr) in FY26 and targets INR 500 Cr annual revenue from this vertical by FY2028.
+
+5.6 WASTE-TO-ENERGY (WtE)
+
+The Smart Cities Mission Phase 2 has allocated INR 8,000 Cr for municipal solid waste-to-energy plants across 15 cities. Thermax's moving grate combustion technology (licensed from Martin GmbH) positions us as a preferred EPC partner. We are in active pursuit for 4 WtE projects (Pune, Nagpur, Indore, Ahmedabad) with a combined pipeline of INR 1,400 Cr.
+
+===============================================================================
+6. COMPETITIVE POSITIONING & WIN/LOSS ANALYSIS
+===============================================================================
+
+6.1 MARKET POSITION BY SEGMENT:
+
+| Segment              | Thermax Share | Rank | #1 Competitor    | #2 Competitor   | Thermax Advantage      |
+|----------------------|---------------|------|------------------|-----------------|------------------------|
+| Industrial Boilers   | 28%           | #1   | BHEL (22%)       | ISGEC (15%)     | Tech range + service   |
+| Biomass Boilers      | 35%           | #1   | Cethar (18%)     | ISGEC (12%)     | Fuel flexibility       |
+| FGD Systems          | 15%           | #3   | BHEL (35%)       | L&T (20%)       | Quality + speed        |
+| Water Treatment      | 18%           | #2   | Veolia (22%)     | SUEZ (14%)      | Domestic + chemical    |
+| ZLD Systems          | 32%           | #1   | Praj (18%)       | ENCON (10%)     | Integrated solution    |
+| Absorption Chillers  | 45%           | #1   | Carrier (20%)    | Broad (12%)     | Technology leader      |
+| Ion Exchange Resins  | 24%           | #2   | Purolite (28%)   | Lanxess (18%)   | Cost + local mfg.     |
+| Process Heaters      | 20%           | #2   | Alfa Laval (25%) | Wesman (15%)    | Full EPC capability    |
+
+6.2 WIN/LOSS ANALYSIS — FY2025-26:
+
+| Metric                 | FY2025-26  | FY2024-25  | Change   | Root Cause                     |
+|------------------------|-----------|-----------|----------|--------------------------------|
+| Total Bids Submitted   | 218       | 195       | +12%     | Pipeline expansion             |
+| Wins                   | 74        | 55        | +35%     | Better solutioning             |
+| Losses                 | 112       | 108       | +4%      | Price competition              |
+| Win Rate               | 34%       | 28%       | +6 pp    | Improved proposal quality      |
+| Avg. Win Value         | INR 42 Cr | INR 38 Cr | +11%     | Larger ticket pursuits         |
+| Top Loss Reason        | Price     | Price     | —        | 65% of losses on price         |
+| #2 Loss Reason         | Tech Spec | Delivery  | Changed  | Better logistics               |
+| Competitor Most Lost To| BHEL      | L&T       | Changed  | Govt. projects                 |
+
+6.3 STRATEGIC RESPONSE TO COMPETITIVE THREATS:
+- Price Competition (BHEL, Chinese EPC): Launching 'Value Engineering 2.0' — standardised design library reducing engineering hours by 30% and enabling 8-12% cost reduction without margin impact.
+- Technology Gap (Hydrogen, Carbon Capture): R&D collaboration with IIT Bombay on green hydrogen electrolysers (INR 45 Cr investment). Pilot hydrogen unit at Thermax Chinchwad campus by Q2 FY2027.
+- International Expansion: New sales offices in Riyadh and Ho Chi Minh City. Local engineering centres to reduce proposal turnaround from 6 weeks to 3 weeks.
+- Service Revenue Growth: Target 15% of revenue from O&M services by FY2028 (currently 8%). Digital twin deployment on top 50 installed boilers.
+
+===============================================================================
+7. CUSTOMER PORTFOLIO & ACCOUNT INTELLIGENCE
+===============================================================================
+
+7.1 CUSTOMER CONCENTRATION & HEALTH:
+
+| Tier                   | Accounts | Revenue (Cr) | % Share | Avg. LTV (Cr) | CSAT | Strategy                |
+|------------------------|----------|--------------|---------|---------------|------|-------------------------|
+| Tier 1 — Strategic     | 12       | 4,430        | 45%     | 185           | 4.2  | Deepen, cross-sell      |
+| Tier 2 — Growth        | 28       | 3,150        | 32%     | 72            | 4.1  | Expand wallet share     |
+| Tier 3 — Explore       | 45       | 1,580        | 16%     | 18            | 3.8  | Qualify & convert       |
+| Tier 4 — Transactional | 180+     | 687          | 7%      | 4             | 3.5  | Automate & standardise  |
+
+7.2 TOP 10 ACCOUNTS BY REVENUE (FY2025-26):
+
+| Rank | Account             | Industry   | Revenue (Cr) | Installed Base          | Open Pipeline (Cr) | Relationship |
+|------|---------------------|-----------|--------------|------------------------|--------------------|----|
+| 1    | NTPC Ltd            | Power     | 620          | 14 boilers, 3 FGD      | 280                | 20+ years    |
+| 2    | Tata Steel          | Steel     | 485          | 8 boilers, 2 WHRS      | 185                | 25+ years    |
+| 3    | UltraTech Cement    | Cement    | 380          | 12 boilers, 4 WHRS     | 120                | 15+ years    |
+| 4    | Reliance Industries | Oil & Gas | 310          | 6 heaters, 2 WTP       | 340                | 10+ years    |
+| 5    | Cipla Ltd           | Pharma    | 180          | 3 chillers, 1 WTP      | 45                 | 8+ years     |
+| 6    | Arvind Ltd          | Textiles  | 145          | 2 boilers, 1 ZLD       | 38                 | 12+ years    |
+| 7    | Hindalco            | Metals    | 130          | 4 boilers, 1 WHRS      | 92                 | 15+ years    |
+| 8    | Saudi Aramco        | Oil & Gas | 125          | New account             | 210                | 2 years      |
+| 9    | Adani Power         | Power     | 110          | 2 boilers              | 95                 | 5 years      |
+| 10   | JSW Steel           | Steel     | 105          | 3 boilers, 1 WHRS      | 155                | 10+ years    |
+
+Customer concentration risk: Top 10 accounts contribute 58% of revenue. Strategic action: Expand Tier 3 conversion rate from 12% to 20% through early-engagement marketing automation and the AI-powered Market Intelligence Agent. Target: reduce top-10 concentration to below 50% by FY2028.
+
+===============================================================================
+8. GEOGRAPHIC EXPANSION & INTERNATIONAL MARKETS
+===============================================================================
+
+| Region                 | Revenue (Cr) | % Share | Growth % | Key Markets                        | Order Book (Cr) |
+|------------------------|-------------|---------|----------|------------------------------------|-----------------|
+| India — North & Central| 2,660       | 27%     | 11%      | UP, MP, Rajasthan, Delhi NCR       | 3,200           |
+| India — West           | 2,560       | 26%     | 13%      | Gujarat, Maharashtra, Goa          | 3,100           |
+| India — South          | 1,480       | 15%     | 15%      | Tamil Nadu, AP, Karnataka, Telangana| 1,800          |
+| India — East           | 690         | 7%      | 9%       | WB, Jharkhand, Odisha, Bihar       | 870             |
+| Middle East & Africa   | 1,280       | 13%     | 28%      | Saudi Arabia, UAE, Egypt, Kenya    | 1,650           |
+| Southeast Asia         | 680         | 7%      | 22%      | Thailand, Vietnam, Indonesia       | 920             |
+| Rest of World          | 497         | 5%      | 18%      | Europe, Bangladesh, Sri Lanka      | 800             |
+
+International revenue crossed 25% of total revenue for the first time, up from 23% in FY2025. The Middle East is the fastest-growing region at 28%, driven by Saudi Vision 2030 industrial mega-projects. Southeast Asia growth (22%) is fuelled by coal-to-gas transitions and industrial water treatment demand. Target: 30% of revenue from international markets by FY2028.
+
+===============================================================================
+9. INNOVATION, R&D & TECHNOLOGY ROADMAP
+===============================================================================
+
+R&D spend increased 23.9% to INR 285 Cr (2.9% of revenue). We filed 18 new patents in FY26 (total portfolio: 142 active patents). Key R&D centres: Pune (headquarters, 180 engineers), Hyderabad (combustion lab, 45 engineers), and Baroda (chemical R&D, 30 engineers).
+
+| R&D Program                     | Investment (Cr) | Stage              | Expected Launch | Market Potential (Cr/yr) | Partner       |
+|---------------------------------|-----------------|--------------------|-----------------|-----------------------------|---|
+| Green Hydrogen Electrolyser     | 45              | Pilot              | Q2 FY2027       | 800                         | IIT Bombay    |
+| AquaSure-AI (WTP Digital Twin)  | 22              | Deployed (8 sites) | Launched Q3 FY26| 120                         | In-house      |
+| Next-Gen Biomass Boiler (50 TPH)| 35              | Prototype          | Q4 FY2027       | 400                         | Thermax R&D   |
+| Carbon Capture (Post-combustion)| 38              | Lab Scale          | FY2029          | 1,500                       | CSIR-NCL      |
+| AI-Optimised Combustion Control | 18              | Pilot (3 sites)    | Q1 FY2027       | 200                         | TCS Research  |
+| Electric Boiler Range           | 28              | Design             | Q3 FY2027       | 300                         | ABB India     |
+| Smart Chemical Dosing Platform  | 15              | Deployed (12 sites)| Launched Q1 FY26| 80                          | In-house      |
+| Modular Waste-to-Energy Unit    | 42              | Engineering        | FY2028          | 600                         | Martin GmbH   |
+
+DIGITAL & AI INITIATIVES:
+- Thermax Agentic AI Operating System 2030: 9 specialised AI agents deployed across the business flow with human-in-the-loop governance. Pilot results: 40% faster proposals, 60% better lead scoring, 25% reduction in contract review time.
+- AI Nexus Platform: Asset Performance Monitoring (2,000+ failure modes, 4 site locations) and Tender Intelligence Tool (automated RFP extraction across Water Treatment, Boilers, Heating, Solar Thermal divisions).
+- Digital Twin Deployment: 50 boiler digital twins operational, providing predictive maintenance insights. Targeting 200 by FY2028. Estimated O&M revenue uplift: INR 80 Cr/year.
+- IoT Sensor Network: 12,000+ sensors deployed across 35 customer sites. Real-time telemetry ingestion for the Asset Performance Platform. Anomaly detection accuracy: 94.2%.
+
+===============================================================================
+10. FY2026-27 GUIDANCE & STRATEGIC GROWTH DRIVERS
+===============================================================================
+
+| Metric                 | FY2025-26 (Actual) | FY2026-27 (Target)    | Growth Implied | Key Assumption                    |
+|------------------------|--------------------|-----------------------|----------------|-----------------------------------|
+| Revenue                | INR 9,847 Cr       | INR 11,200-11,500 Cr  | 14-17%         | Order execution + new wins        |
+| EBITDA Margin          | 12.8%              | 13.0-13.5%            | +20-70 bps     | Value engineering savings         |
+| Order Inflow           | INR 13,210 Cr      | INR 15,000+ Cr        | 14%+           | FGD + biomass + international     |
+| International Revenue %| 25%                | 28-30%                | +3-5 pp        | Saudi, Vietnam expansion          |
+| R&D as % Revenue       | 2.9%               | 3.0-3.2%              | +10-30 bps     | Hydrogen + carbon capture         |
+| Service Revenue %      | 8%                 | 10%                   | +2 pp          | Digital twin monetisation         |
+
+STRATEGIC GROWTH DRIVERS FOR FY2027:
+- FGD Retrofit Wave (INR 3,000+ Cr addressable): Target 5-6 new FGD orders from NTPC, DVC, MSEDCL, and Tata Power before CPCB Phase III deadline of Jan 2027.
+- Biomass Boiler Expansion: Launch 50 TPH next-gen boiler with 15% higher efficiency. Target 20+ orders from sugar, paper, and rice industries.
+- Middle East Breakthrough: Scale Saudi operations with 2-3 large process heater orders from Aramco, KNPC, and ADNOC. Target INR 500+ Cr in ME order inflow.
+- Data Centre Cooling: Secure 5+ data centre orders (INR 300+ Cr) from hyperscalers and colocation providers in India and Southeast Asia.
+- ZLD + Water: Capture 10+ ZLD orders from textile and pharma clusters in Gujarat, Tamil Nadu, and AP. Target INR 400+ Cr.
+- AI-Powered Operations: Full rollout of the Agentic AI Operating System across all business units. Target 50% adoption by March 2027. Expected productivity gain: 25% in proposal and engineering functions.
+- Service Revenue Ramp: Deploy digital twins on 100 additional boilers. Launch 'TherMax Care' subscription O&M service. Target INR 1,000+ Cr service revenue by FY2028.
+
+===============================================================================
+ANNEXURE A — TOP 25 TARGET ACCOUNTS FOR FY2027 PURSUIT
+===============================================================================
+
+| #  | Account              | Sector        | Region          | Est. Potential (Cr) | Priority | Current Status   |
+|----|----------------------|---------------|-----------------|---------------------|----------|------------------|
+| 1  | NTPC Ltd             | Power         | India — North   | 500+                | P1       | Active Customer  |
+| 2  | Reliance Industries  | Oil & Gas     | India — West    | 400+                | P1       | Active Prospect  |
+| 3  | Saudi Aramco         | Oil & Gas     | Middle East     | 350+                | P1       | Active Prospect  |
+| 4  | Tata Steel           | Steel         | India — East    | 300+                | P1       | Active Customer  |
+| 5  | UltraTech Cement     | Cement        | India — West    | 250+                | P1       | Active Customer  |
+| 6  | JSW Steel            | Steel         | India — South   | 200+                | P2       | Dormant          |
+| 7  | Adani Group          | Multi         | India — West    | 200+                | P1       | Active Prospect  |
+| 8  | KNPC (Kuwait)        | Oil & Gas     | Middle East     | 180+                | P2       | New Prospect     |
+| 9  | Hindalco             | Metals        | India — East    | 150+                | P2       | Active Customer  |
+| 10 | DVC (Damodar Valley) | Power         | India — East    | 140+                | P2       | Active Prospect  |
+| 11 | Dalmia Cement        | Cement        | India — South   | 120+                | P2       | Active Customer  |
+| 12 | Cipla Ltd            | Pharma        | India — West    | 100+                | P2       | Active Customer  |
+| 13 | Aurobindo Pharma     | Pharma        | India — South   | 80+                 | P3       | New Prospect     |
+| 14 | NEOM (Saudi)         | Multi         | Middle East     | 150+                | P1       | Via ACCIONA      |
+| 15 | Vietnam Oil & Gas    | Oil & Gas     | SE Asia         | 120+                | P2       | New Prospect     |
+| 16 | SCG Chemicals        | Chemicals     | SE Asia         | 90+                 | P3       | New Prospect     |
+| 17 | Yotta Infrastructure | Data Centre   | India — West    | 80+                 | P2       | New Customer     |
+| 18 | PI Industries        | Chemicals     | India — West    | 60+                 | P3       | New Prospect     |
+| 19 | SRF Ltd              | Chemicals     | India — North   | 55+                 | P3       | New Prospect     |
+| 20 | Arvind Ltd           | Textiles      | India — West    | 50+                 | P2       | Active Customer  |
+| 21 | MSEDCL               | Power         | India — West    | 180+                | P1       | Active Customer  |
+| 22 | Tata Power            | Power         | India — West    | 120+                | P2       | Active Customer  |
+| 23 | Dr. Reddy's          | Pharma        | India — South   | 70+                 | P3       | New Prospect     |
+| 24 | Welspun Group        | Textiles      | India — West    | 45+                 | P3       | Active Prospect  |
+| 25 | Shree Cement         | Cement        | India — North   | 90+                 | P2       | Active Customer  |
+
+===============================================================================
+ANNEXURE B — SECTOR-WISE OPPORTUNITY MATRIX (FY2027)
+===============================================================================
+
+| Sector              | TAM (Cr) | Thermax SAM (Cr) | Current Share | Target Share | Key Lever                      |
+|---------------------|----------|-------------------|---------------|--------------|--------------------------------|
+| Power — FGD/SCR     | 10,000   | 3,500             | 15%           | 22%          | CPCB Phase III mandate         |
+| Industrial Boilers  | 6,500    | 4,200             | 28%           | 32%          | Biomass transition             |
+| Water & ZLD         | 4,500    | 2,800             | 18%           | 24%          | State pollution mandates       |
+| Oil & Gas Equipment | 3,200    | 1,600             | 20%           | 25%          | Refinery modernisation         |
+| Cooling & HVAC      | 2,800    | 1,200             | 12%           | 18%          | Data centre expansion          |
+| Waste-to-Energy     | 2,000    | 800               | 5%            | 12%          | Smart Cities Phase 2           |
+| Specialty Chemicals | 1,500    | 900               | 24%           | 28%          | Pharma + F&B quality           |
+| Hydrogen & CCUS     | 800      | 200               | 0%            | 5%           | First-mover play               |
+
+===============================================================================
+ANNEXURE C — RISK REGISTER & MITIGATION
+===============================================================================
+
+| Risk                                   | Probability | Impact | Score | Mitigation                           | Owner            |
+|----------------------------------------|-------------|--------|-------|--------------------------------------|------------------|
+| Raw material price spike (steel, nickel)| High       | High   | 9     | Hedging + price variation clauses    | CFO              |
+| FGD order delays (regulatory timeline) | Medium      | High   | 6     | Diversify into non-FGD revenue       | BU Head Energy   |
+| Chinese EPC undercutting               | High        | Medium | 6     | Value engineering + service bundling | Sales Director   |
+| Key talent attrition (engineers)       | Medium      | High   | 6     | Retention incentives + upskilling    | CHRO             |
+| Customer concentration (top 10 = 58%)  | Medium      | Medium | 4     | Expand Tier 3 conversion             | CMO              |
+| Technology obsolescence (H2, CCUS)     | Low         | High   | 3     | R&D investment + partnerships        | CTO              |
+| Geopolitical (Middle East operations)  | Low         | Medium | 2     | Political risk insurance             | CFO              |
+| Cybersecurity (AI/IoT systems)         | Low         | High   | 3     | SOC + zero-trust architecture        | CIO              |
+
+===============================================================================
+END OF DOCUMENT
+===============================================================================
