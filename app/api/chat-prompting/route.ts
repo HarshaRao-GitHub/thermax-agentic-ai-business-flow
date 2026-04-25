@@ -4,7 +4,7 @@ import { needsWebSearch, searchWeb, formatSearchContext } from '@/lib/web-search
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
-export const maxDuration = 120;
+export const maxDuration = 300;
 
 interface IncomingMessage {
   role: 'user' | 'assistant';
@@ -99,13 +99,14 @@ export async function POST(req: NextRequest) {
           ? `${SYSTEM_PROMPT}\n\n${webContext}`
           : SYSTEM_PROMPT;
 
-        const response = await callWithRetry(
+        const stream = await callWithRetry(
           () =>
             client.messages.create({
               model,
-              max_tokens: 8192,
+              max_tokens: 4096,
               system: systemWithWeb,
               messages: conversationMessages,
+              stream: true,
             }),
           (attempt, max, err) => {
             controller.enqueue(
@@ -118,13 +119,9 @@ export async function POST(req: NextRequest) {
           }
         );
 
-        for (const block of response.content) {
-          if (block.type === 'text' && block.text) {
-            const tokens = block.text.split(/(\s+)/);
-            for (let i = 0; i < tokens.length; i += 4) {
-              const chunk = tokens.slice(i, i + 4).join('');
-              controller.enqueue(sse('text_delta', chunk));
-            }
+        for await (const event of stream) {
+          if (event.type === 'content_block_delta' && event.delta.type === 'text_delta') {
+            controller.enqueue(sse('text_delta', event.delta.text));
           }
         }
 

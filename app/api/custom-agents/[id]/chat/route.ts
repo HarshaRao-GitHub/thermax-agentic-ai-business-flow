@@ -3,7 +3,7 @@ import { getAnthropicClient, getModelId, callWithRetry } from '@/lib/anthropic';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
-export const maxDuration = 120;
+export const maxDuration = 300;
 
 interface TaskDef { id: string; label: string; description: string; }
 interface BaseDocDef { filename: string; text: string; sizeKb: number; }
@@ -123,34 +123,30 @@ export async function POST(
         let totalOutputTokens = 0;
         let apiTurns = 0;
 
-        const MAX_LOOPS = 5;
-        for (let loop = 0; loop < MAX_LOOPS; loop++) {
-          apiTurns++;
-          const response = await callWithRetry(
-            () => client.messages.create({
-              model,
-              max_tokens: 8192,
-              system: systemPrompt,
-              messages: conversationMessages
-            }),
-            (attempt, max, err) => {
-              controller.enqueue(sse('retry', { attempt, max, message: `API busy (${err.message}), retrying ${attempt}/${max}...` }));
-            }
-          );
-
-          totalInputTokens += response.usage?.input_tokens ?? 0;
-          totalOutputTokens += response.usage?.output_tokens ?? 0;
-
-          for (const block of response.content) {
-            if (block.type === 'text' && block.text) {
-              const tokens = block.text.split(/(\s+)/);
-              for (let i = 0; i < tokens.length; i += 4) {
-                controller.enqueue(sse('text_delta', tokens.slice(i, i + 4).join('')));
-              }
-            }
+        apiTurns = 1;
+        const stream = await callWithRetry(
+          () => client.messages.create({
+            model,
+            max_tokens: 4096,
+            system: systemPrompt,
+            messages: conversationMessages,
+            stream: true,
+          }),
+          (attempt, max, err) => {
+            controller.enqueue(sse('retry', { attempt, max, message: `API busy (${err.message}), retrying ${attempt}/${max}...` }));
           }
+        );
 
-          if (response.stop_reason === 'end_turn') break;
+        for await (const event of stream) {
+          if (event.type === 'content_block_delta' && event.delta.type === 'text_delta') {
+            controller.enqueue(sse('text_delta', event.delta.text));
+          }
+          if (event.type === 'message_delta' && event.usage) {
+            totalOutputTokens = event.usage.output_tokens ?? 0;
+          }
+          if (event.type === 'message_start' && event.message?.usage) {
+            totalInputTokens = event.message.usage.input_tokens ?? 0;
+          }
         }
 
         const elapsedS = parseFloat(((Date.now() - liveStart) / 1000).toFixed(1));
