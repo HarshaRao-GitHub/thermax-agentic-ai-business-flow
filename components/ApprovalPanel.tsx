@@ -202,68 +202,46 @@ export default function ApprovalPanel({
     }
   }
 
-  if (state === 'approved' || state === 'modified' || state === 'rejected') {
-    return (
-      <div className="space-y-3">
-        <div
-          className={`rounded-xl border p-5 ${
-            state === 'rejected'
-              ? 'bg-rose-50 border-rose-200'
-              : 'bg-teal-50 border-teal-200'
-          }`}
-        >
-          <div className="flex items-center gap-3 mb-2">
-            <span className="text-xl">
-              {state === 'rejected' ? '⊘' : '✓'}
-            </span>
-            <div>
-              <h3
-                className={`font-bold text-[14px] ${
-                  state === 'rejected' ? 'text-rose-700' : 'text-teal-700'
-                }`}
-              >
-                HITL Decision:{' '}
-                {state === 'approved'
-                  ? 'Approved'
-                  : state === 'modified'
-                  ? 'Approved with Modifications'
-                  : 'Rejected'}
-              </h3>
-              <p className="text-[11px] text-thermax-slate mt-0.5">
-                {hitl.approvalId} · Decided by {approverName} · Stage{' '}
-                {hitl.stageNumber}: {hitl.stageTitle}
-              </p>
-            </div>
-          </div>
-          {result && (
-            <p className="text-[12px] text-thermax-navy mt-2 leading-relaxed">
-              {result}
-            </p>
-          )}
-        </div>
-
-        {modifiedOutput && (
-          <div className="rounded-xl border border-sky-200 bg-sky-50/50 overflow-hidden">
-            <div className="px-5 py-2.5 bg-sky-100/60 border-b border-sky-200">
-              <div className="flex items-center gap-2">
-                <span className="text-sm">📝</span>
-                <span className="text-[12px] font-bold text-sky-800">Modified Agent Results</span>
-                <span className="text-[10px] text-sky-600 bg-sky-200/60 px-2 py-0.5 rounded-full">Updated per reviewer feedback</span>
-              </div>
-            </div>
-            <div className="p-5 max-h-[500px] overflow-y-auto">
-              <Markdown>{modifiedOutput}</Markdown>
-            </div>
-          </div>
-        )}
-      </div>
-    );
-  }
+  const isDecided = state === 'approved' || state === 'modified' || state === 'rejected';
 
   return (
-    <div className="rounded-xl border border-slate-200 bg-gradient-to-b from-slate-50 to-blue-50/30 shadow-sm overflow-hidden">
+    <div className={`rounded-xl border shadow-sm overflow-hidden ${isDecided ? 'border-slate-300 opacity-75 pointer-events-none select-none' : 'border-slate-200'} bg-gradient-to-b from-slate-50 to-blue-50/30`}>
+      {/* Decision banner */}
+      {isDecided && (
+        <div className={`px-5 py-3 flex items-center gap-3 ${state === 'rejected' ? 'bg-rose-100 border-b border-rose-200' : 'bg-teal-100 border-b border-teal-200'}`}>
+          <span className="text-xl">{state === 'rejected' ? '⊘' : '✓'}</span>
+          <div className="flex-1">
+            <h3 className={`font-bold text-[14px] ${state === 'rejected' ? 'text-rose-700' : 'text-teal-700'}`}>
+              HITL Decision: {state === 'approved' ? 'Approved' : state === 'modified' ? 'Approved with Modifications' : 'Rejected'}
+            </h3>
+            <p className="text-[11px] text-thermax-slate mt-0.5">
+              {hitl.approvalId} · Decided by {approverName} · Stage {hitl.stageNumber}: {hitl.stageTitle}
+            </p>
+          </div>
+          <div className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wide ${state === 'rejected' ? 'bg-rose-200 text-rose-800' : 'bg-teal-200 text-teal-800'}`}>
+            {state === 'rejected' ? 'Closed — Rejected' : 'Closed — Approved'}
+          </div>
+        </div>
+      )}
+
+      {/* Modified output (shown after approval with modifications) */}
+      {isDecided && modifiedOutput && (
+        <div className="border-b border-sky-200 bg-sky-50/50">
+          <div className="px-5 py-2.5 bg-sky-100/60 border-b border-sky-200">
+            <div className="flex items-center gap-2">
+              <span className="text-sm">📝</span>
+              <span className="text-[12px] font-bold text-sky-800">Modified Agent Results</span>
+              <span className="text-[10px] text-sky-600 bg-sky-200/60 px-2 py-0.5 rounded-full">Updated per reviewer feedback</span>
+            </div>
+          </div>
+          <div className="p-5 max-h-[300px] overflow-y-auto pointer-events-auto">
+            <Markdown>{modifiedOutput}</Markdown>
+          </div>
+        </div>
+      )}
+
       {/* Header */}
-      <div className="bg-gradient-to-r from-slate-600 to-slate-500 px-5 py-3 flex items-center gap-3">
+      <div className={`px-5 py-3 flex items-center gap-3 ${isDecided ? 'bg-slate-400' : 'bg-gradient-to-r from-slate-600 to-slate-500'}`}>
         <span className="text-xl">🛡️</span>
         <div className="flex-1">
           <h3 className="font-bold text-white text-[15px]">
@@ -346,7 +324,7 @@ export default function ApprovalPanel({
             onChange={(e) => setApproverName(e.target.value)}
             placeholder={`Enter your name as ${hitl.approverRole}`}
             className="w-full border border-slate-200 rounded-lg px-3 py-2 text-[13px] focus:outline-none focus:ring-2 focus:ring-sky-300 bg-white"
-            disabled={state === 'submitting' || processingMods}
+            disabled={isDecided || state === 'submitting' || processingMods}
           />
         </div>
 
@@ -361,12 +339,12 @@ export default function ApprovalPanel({
             placeholder="Add any observations or notes..."
             rows={2}
             className="w-full border border-slate-200 rounded-lg px-3 py-2 text-[13px] focus:outline-none focus:ring-2 focus:ring-sky-300 resize-none bg-white"
-            disabled={state === 'submitting' || processingMods}
+            disabled={isDecided || state === 'submitting' || processingMods}
           />
         </div>
 
         {/* Modify section */}
-        {showModify && (
+        {showModify && !isDecided && (
           <div className="bg-sky-50 border border-sky-200 rounded-lg p-4 space-y-2">
             <div className="flex items-center gap-2 mb-1">
               <span className="text-sm">📝</span>
@@ -408,7 +386,7 @@ export default function ApprovalPanel({
         )}
 
         {/* Reject section */}
-        {showReject && (
+        {showReject && !isDecided && (
           <div className="bg-rose-50 border border-rose-200 rounded-lg p-4 space-y-2">
             <div className="flex items-center gap-2 mb-1">
               <span className="text-sm">↩️</span>
@@ -441,7 +419,7 @@ export default function ApprovalPanel({
         )}
 
         {/* Modified output review */}
-        {state === 'review_modifications' && modifiedOutput && (
+        {state === 'review_modifications' && !isDecided && modifiedOutput && (
           <div className="rounded-xl border border-sky-200 bg-sky-50/50 overflow-hidden">
             <div className="px-5 py-2.5 bg-sky-100/60 border-b border-sky-200">
               <div className="flex items-center gap-2">
@@ -457,7 +435,7 @@ export default function ApprovalPanel({
         )}
 
         {/* Action buttons */}
-        <div className="flex flex-wrap gap-2 pt-1">
+        {!isDecided && <div className="flex flex-wrap gap-2 pt-1">
           {!showReject && !showModify && state !== 'review_modifications' && (
             <button
               onClick={handleApprove}
@@ -542,7 +520,7 @@ export default function ApprovalPanel({
               </button>
             </>
           )}
-        </div>
+        </div>}
 
         {state === 'submitting' && (
           <div className="flex items-center gap-2 py-1">
@@ -557,8 +535,9 @@ export default function ApprovalPanel({
             Delegation of Authority: {hitl.isMandatory ? 'Mandatory Review' : 'Standard'}
           </span>
           <span>
-            Next: Stage {hitl.stageNumber < 9 ? hitl.stageNumber + 1 : '1 (loop)'}{' '}
-            blocked until {hitl.approverRole} decides
+            {isDecided
+              ? `Decision recorded · ${state === 'rejected' ? 'Rejected' : 'Approved'} by ${approverName}`
+              : `Next: Stage ${hitl.stageNumber < 9 ? hitl.stageNumber + 1 : '1 (loop)'} blocked until ${hitl.approverRole} decides`}
           </span>
         </div>
       </div>
