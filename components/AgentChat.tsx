@@ -15,7 +15,7 @@ interface ChatMessage { role: Role; content: string; }
 interface UploadedFile { filename: string; text: string; truncated: boolean; }
 interface ToolEvent { type: 'start' | 'result'; tool: string; input?: Record<string, unknown>; result?: string; timestamp: number; }
 interface UsageStats { input_tokens?: number; output_tokens?: number; total_tokens?: number; tool_calls?: number; api_turns?: number; model?: string; response_time_s?: number; estimated_cost_usd?: number; }
-interface DataViewerState { open: boolean; title: string; content: string; loading: boolean; }
+interface DataViewerState { open: boolean; title: string; content: string; loading: boolean; pdfUrl?: string; }
 interface UserPromptState { text: string; saved: boolean; validating: boolean; error: string | null; }
 
 export default function AgentChat({
@@ -393,14 +393,32 @@ export default function AgentChat({
   }
 
   async function viewDataBackbone(ds: { file: string; label: string; folder: string; fileType?: string }) {
-    setDataViewer({ open: true, title: ds.label, content: '', loading: true });
+    setDataViewer({ open: true, title: ds.label, content: '', loading: true, pdfUrl: undefined });
 
     const isPdf = ds.fileType === 'pdf' || ds.file.endsWith('.pdf');
-    const viewFile = isPdf ? ds.file.replace(/\.pdf$/i, '.txt') : ds.file;
+
+    if (isPdf) {
+      const pdfFile = ds.file.endsWith('.pdf') ? ds.file : ds.file.replace(/\.txt$/i, '.pdf');
+      const candidatePdfUrls = [
+        `/data-backbone/${ds.folder}/${pdfFile}`,
+        `/sample-data/${ds.folder}/${pdfFile}`,
+      ];
+      for (const url of candidatePdfUrls) {
+        try {
+          const res = await fetch(url, { method: 'HEAD' });
+          if (res.ok) {
+            setDataViewer({ open: true, title: `${ds.label} (${pdfFile})`, content: '', loading: false, pdfUrl: url });
+            return;
+          }
+        } catch { /* try next */ }
+      }
+      setDataViewer(prev => ({ ...prev, content: 'Error: Could not load PDF file.', loading: false }));
+      return;
+    }
 
     const candidateUrls = [
-      `/data-backbone/${ds.folder}/${viewFile}`,
-      `/sample-data/${ds.folder}/${viewFile}`,
+      `/data-backbone/${ds.folder}/${ds.file}`,
+      `/sample-data/${ds.folder}/${ds.file}`,
     ];
 
     let text = '';
@@ -441,8 +459,7 @@ export default function AgentChat({
         const rowLines = dataRows.map(r => headers.map((_, i) => (r[i] ?? '').replace(/\n/g, ' ')).join(' | '));
         setDataViewer({ open: true, title: `${ds.label} (${ds.file}) — ${dataRows.length} rows`, content: `| ${header} |\n| ${sep} |\n${rowLines.map(r => `| ${r} |`).join('\n')}`, loading: false });
       } else {
-        const suffix = isPdf ? ` — ${ds.label}` : '';
-        setDataViewer({ open: true, title: `${ds.label} (${ds.file})${suffix}`, content: text, loading: false });
+        setDataViewer({ open: true, title: `${ds.label} (${ds.file})`, content: text, loading: false });
       }
     } catch {
       setDataViewer(prev => ({ ...prev, content: 'Error: Could not load this file.', loading: false }));
@@ -527,6 +544,12 @@ export default function AgentChat({
               <div className="flex items-center justify-center h-40 text-thermax-slate">
                 <span className="animate-spin mr-2">⏳</span> Loading data...
               </div>
+            ) : dataViewer.pdfUrl ? (
+              <iframe
+                src={dataViewer.pdfUrl}
+                className="w-full h-full border-0"
+                title={dataViewer.title}
+              />
             ) : dataViewer.content.startsWith('|') ? (
               <div className="h-full overflow-x-auto overflow-y-auto">
                 <table className="border-collapse text-[12px]">
@@ -559,10 +582,18 @@ export default function AgentChat({
             )}
           </div>
           <div className="px-5 py-3 border-t border-thermax-line bg-thermax-mist rounded-b-xl flex justify-end shrink-0">
-            <button onClick={() => { try { navigator.clipboard.writeText(dataViewer.content); } catch { /* clipboard not available */ } }}
-              className="text-[11px] font-semibold text-thermax-navy hover:text-thermax-saffronDeep px-3 py-1.5 border border-thermax-line rounded-md hover:bg-white mr-2">
-              📋 Copy
-            </button>
+            {dataViewer.pdfUrl && (
+              <a href={dataViewer.pdfUrl} download target="_blank" rel="noopener noreferrer"
+                className="text-[11px] font-semibold text-thermax-navy hover:text-thermax-saffronDeep px-3 py-1.5 border border-thermax-line rounded-md hover:bg-white mr-2">
+                📥 Download PDF
+              </a>
+            )}
+            {!dataViewer.pdfUrl && (
+              <button onClick={() => { try { navigator.clipboard.writeText(dataViewer.content); } catch { /* clipboard not available */ } }}
+                className="text-[11px] font-semibold text-thermax-navy hover:text-thermax-saffronDeep px-3 py-1.5 border border-thermax-line rounded-md hover:bg-white mr-2">
+                📋 Copy
+              </button>
+            )}
             <button onClick={() => setDataViewer({ open: false, title: '', content: '', loading: false })}
               className="text-[11px] font-semibold bg-thermax-navy text-white px-4 py-1.5 rounded-md hover:bg-thermax-navyDeep">
               Close
