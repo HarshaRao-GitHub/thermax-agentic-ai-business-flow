@@ -1,0 +1,21 @@
+employee_id,employee_name,primary_skill,secondary_skills,certifications,experience_years,current_project,availability_status,available_from,location,utilization_pct
+EMP-0001,Rajesh Kumar,Project Management,"Risk Management,Stakeholder Management",PMP|PRINCE2,18,PRJ-2026-0007,Assigned,2027-04-06,Mumbai,95
+EMP-0002,Priya Sharma,Process Engineering,"Thermal Design,CFD Analysis",PE|BOE,12,PRJ-2026-0002,Assigned,2026-05-05,Pune,90
+EMP-0003,Amit Patel,Mechanical Engineering,"Pressure Vessel Design,FEA",ASME|IBR,15,None,Available,2026-04-25,Pune,0
+EMP-0004,Deepika Menon,Procurement,"Vendor Management,Contract Negotiation",CIPS,10,PRJ-2026-0001,Assigned,2026-09-12,Mumbai,85
+EMP-0005,Suresh Iyer,Electrical Engineering,"Power Systems,Control Systems",IET|ISA,14,PRJ-2026-0003,Assigned,2026-05-28,Chennai,80
+EMP-0006,Kavita Reddy,Instrumentation,"DCS/PLC Programming,SCADA",ISA|TUV,11,PRJ-2026-0004,Assigned,2027-01-05,Hyderabad,75
+EMP-0007,Vikram Singh,Civil Engineering,"Structural Design,Foundation",ICE,16,None,Available,2026-04-25,Pune,0
+EMP-0008,Anita Desai,Quality Control,"NDT,Welding Inspection",AWS|ASNT,9,PRJ-2026-0001,Assigned,2026-09-12,Mumbai,70
+EMP-0009,Rohit Ghosh,Commissioning,"Boiler Startup,Performance Testing",BOE|OSHA,13,PRJ-2026-0003,Assigned,2026-05-28,Kolkata,90
+EMP-0010,Sneha Pillai,Safety Engineering,"HAZOP,Risk Assessment",NEBOSH|IOSH,8,PRJ-2026-0008,Assigned,2027-06-19,Gurugram,65
+EMP-0011,Tarun Nair,Manufacturing,"Workshop Management,Fabrication",AWS,20,None,Available,2026-04-25,Pune,0
+EMP-0012,Meera Chopra,Piping Engineering,"Stress Analysis,Material Selection",ASME,7,PRJ-2026-0007,Assigned,2027-04-06,Mumbai,80
+EMP-0013,Arjun Bhatia,Site Management,"Erection Supervision,Planning",PMP,12,PRJ-2026-0002,Assigned,2026-05-05,Delhi,85
+EMP-0014,Divya Saxena,HR & Training,"Talent Management,Compliance",SHRM,9,None,Available,2026-04-25,Pune,30
+EMP-0015,Karthik Rao,Service Engineering,"Troubleshooting,Maintenance",BOE,11,None,Available,2026-04-25,Chennai,40
+EMP-0016,Nandini Verma,Finance & Contracts,"Cost Control,Billing",CA,14,PRJ-2026-0008,Assigned,2027-06-19,Mumbai,60
+EMP-0017,Sanjay Dutta,Welding Engineering,"WPS/PQR,NDT Coordination",AWS|CSWIP,17,PRJ-2026-0007,Assigned,2027-04-06,Mumbai,75
+EMP-0018,Pooja Agarwal,Environmental Engineering,"Emission Control,EIA",None,6,None,Available,2026-04-25,Pune,20
+EMP-0019,Ravi Joshi,Refractory Engineering,"Lining Design,Installation Supervision",None,22,PRJ-2026-0003,Assigned,2026-05-28,Pune,70
+EMP-0020,Lakshmi Nair,Planning & Scheduling,"Primavera,MS Project",PMP,8,PRJ-2026-0001,Assigned,2026-09-12,Mumbai,90

@@ -79,20 +79,24 @@ const STAGE_ORDER = [
   'marketing',
   'sales',
   'presales',
-  'engineering',
-  'finance-legal',
-  'hr-pmo',
-  'site-operations',
+  'commercial-legal',
+  'project-planning',
+  'engineering-design',
+  'procurement-mfg',
   'commissioning',
-  'digital-service',
+  'service-troubleshooting',
 ] as const;
 
 const MANDATORY_SLUGS = new Set<string>([
   'marketing',
   'sales',
   'presales',
-  'engineering',
-  'finance-legal',
+  'commercial-legal',
+  'project-planning',
+  'engineering-design',
+  'procurement-mfg',
+  'commissioning',
+  'service-troubleshooting',
 ]);
 
 // ============= HELPERS =============

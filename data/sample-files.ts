@@ -26,29 +26,29 @@ export const sampleFilesByStage: Record<string, SampleFile[]> = {
     { filename: 'pricing_sheet.csv', label: 'Pricing Sheet', description: 'Itemized pricing — products, quantities, unit costs, margins, lead times, and supplier details', path: '/sample-data/presales/pricing_sheet.csv' },
     { filename: 'technical_specifications.csv', label: 'Technical Specifications', description: 'Product specs — boilers, chillers, ESPs — performance parameters, tolerances, and test standards', path: '/sample-data/presales/technical_specifications.csv' },
   ],
-  engineering: [
-    { filename: 'technical_datasheets.csv', label: 'Technical Datasheets', description: 'Equipment datasheets — design pressures, temperatures, materials of construction, heating surfaces', path: '/sample-data/engineering/technical_datasheets.csv' },
-    { filename: 'hazop_worksheet.csv', label: 'HAZOP Worksheet', description: 'HAZOP study records — nodes, guide words, deviations, consequences, safeguards, and recommendations', path: '/sample-data/engineering/hazop_worksheet.csv' },
-    { filename: 'design_calculations.csv', label: 'Design Calculations', description: 'Engineering calculations — heat balance, power output, sizing, LMTD, mass balance with code references', path: '/sample-data/engineering/design_calculations.csv' },
-    { filename: 'equipment_test_reports.csv', label: 'Equipment Test Reports', description: 'Factory acceptance test results — hydro tests, leak tests, performance tests with witness sign-offs', path: '/sample-data/engineering/equipment_test_reports.csv' },
+  'engineering-design': [
+    { filename: 'technical_datasheets.csv', label: 'Technical Datasheets', description: 'Equipment datasheets — design pressures, temperatures, materials of construction, heating surfaces', path: '/sample-data/engineering-design/technical_datasheets.csv' },
+    { filename: 'hazop_worksheet.csv', label: 'HAZOP Worksheet', description: 'HAZOP study records — nodes, guide words, deviations, consequences, safeguards, and recommendations', path: '/sample-data/engineering-design/hazop_worksheet.csv' },
+    { filename: 'design_calculations.csv', label: 'Design Calculations', description: 'Engineering calculations — heat balance, power output, sizing, LMTD, mass balance with code references', path: '/sample-data/engineering-design/design_calculations.csv' },
+    { filename: 'equipment_test_reports.csv', label: 'Equipment Test Reports', description: 'Factory acceptance test results — hydro tests, leak tests, performance tests with witness sign-offs', path: '/sample-data/engineering-design/equipment_test_reports.csv' },
   ],
-  'finance-legal': [
-    { filename: 'sample_contract_terms.csv', label: 'Contract Terms & Clauses', description: 'Clause-by-clause contract review — indemnity, LD, IP, warranty risks with Thermax redline positions', path: '/sample-data/finance-legal/sample_contract_terms.csv' },
-    { filename: 'purchase_order_data.csv', label: 'Purchase Order Data', description: 'Active POs — values, payment terms, delivery deadlines, margins, and Thermax division allocation', path: '/sample-data/finance-legal/purchase_order_data.csv' },
-    { filename: 'payment_schedule.csv', label: 'Payment Schedule', description: 'Milestone-based payment tracker — invoiced amounts, payment status, overdue items, and cash flow impact', path: '/sample-data/finance-legal/payment_schedule.csv' },
-    { filename: 'financial_risk_report.csv', label: 'Financial Risk Report', description: 'Commercial risk register — currency exposure, LD liability, margin erosion, payment defaults, BG exposure', path: '/sample-data/finance-legal/financial_risk_report.csv' },
+  'commercial-legal': [
+    { filename: 'sample_contract_terms.csv', label: 'Contract Terms & Clauses', description: 'Clause-by-clause contract review — indemnity, LD, IP, warranty risks with Thermax redline positions', path: '/sample-data/commercial-legal/sample_contract_terms.csv' },
+    { filename: 'purchase_order_data.csv', label: 'Purchase Order Data', description: 'Active POs — values, payment terms, delivery deadlines, margins, and Thermax division allocation', path: '/sample-data/commercial-legal/purchase_order_data.csv' },
+    { filename: 'payment_schedule.csv', label: 'Payment Schedule', description: 'Milestone-based payment tracker — invoiced amounts, payment status, overdue items, and cash flow impact', path: '/sample-data/commercial-legal/payment_schedule.csv' },
+    { filename: 'financial_risk_report.csv', label: 'Financial Risk Report', description: 'Commercial risk register — currency exposure, LD liability, margin erosion, payment defaults, BG exposure', path: '/sample-data/commercial-legal/financial_risk_report.csv' },
   ],
-  'hr-pmo': [
-    { filename: 'employee_skill_matrix.csv', label: 'Employee Skill Matrix', description: 'Workforce skills — primary/secondary skills, certifications, experience levels, availability, and utilisation', path: '/sample-data/hr-pmo/employee_skill_matrix.csv' },
-    { filename: 'certification_tracker.csv', label: 'Certification Tracker', description: 'Certification status — PMP, NEBOSH, IBR, ASME, CSWIP — issue dates, expiry, renewal actions', path: '/sample-data/hr-pmo/certification_tracker.csv' },
-    { filename: 'mobilisation_schedule.csv', label: 'Mobilisation Schedule', description: 'Staff deployment plan — roles, locations, travel, accommodation, daily allowance, and deployment dates', path: '/sample-data/hr-pmo/mobilisation_schedule.csv' },
-    { filename: 'resource_allocation_plan.csv', label: 'Resource Allocation Plan', description: 'Resource matching — required vs assigned, AI match scores, certification gaps, and gap resolution plans', path: '/sample-data/hr-pmo/resource_allocation_plan.csv' },
+  'project-planning': [
+    { filename: 'employee_skill_matrix.csv', label: 'Employee Skill Matrix', description: 'Workforce skills — primary/secondary skills, certifications, experience levels, availability, and utilisation', path: '/sample-data/project-planning/employee_skill_matrix.csv' },
+    { filename: 'certification_tracker.csv', label: 'Certification Tracker', description: 'Certification status — PMP, NEBOSH, IBR, ASME, CSWIP — issue dates, expiry, renewal actions', path: '/sample-data/project-planning/certification_tracker.csv' },
+    { filename: 'mobilisation_schedule.csv', label: 'Mobilisation Schedule', description: 'Staff deployment plan — roles, locations, travel, accommodation, daily allowance, and deployment dates', path: '/sample-data/project-planning/mobilisation_schedule.csv' },
+    { filename: 'resource_allocation_plan.csv', label: 'Resource Allocation Plan', description: 'Resource matching — required vs assigned, AI match scores, certification gaps, and gap resolution plans', path: '/sample-data/project-planning/resource_allocation_plan.csv' },
   ],
-  'site-operations': [
-    { filename: 'daily_work_log.csv', label: 'Daily Work Log', description: 'Site work records — planned vs actual quantities, manpower, equipment, weather, and safety observations', path: '/sample-data/site-operations/daily_work_log.csv' },
-    { filename: 'change_order_requests.csv', label: 'Change Order Requests', description: 'Scope changes — descriptions, cost/schedule impact, approval status, and authorization levels', path: '/sample-data/site-operations/change_order_requests.csv' },
-    { filename: 'project_milestone_tracker.csv', label: 'Project Milestone Tracker', description: 'Milestone status — planned vs actual dates, variance, critical path dependencies, and risk flags', path: '/sample-data/site-operations/project_milestone_tracker.csv' },
-    { filename: 'safety_observation_reports.csv', label: 'Safety Observation Reports', description: 'Site safety observations — unsafe conditions, near misses, good practices, corrective actions', path: '/sample-data/site-operations/safety_observation_reports.csv' },
+  'procurement-mfg': [
+    { filename: 'daily_work_log.csv', label: 'Daily Work Log', description: 'Site work records — planned vs actual quantities, manpower, equipment, weather, and safety observations', path: '/sample-data/procurement-mfg/daily_work_log.csv' },
+    { filename: 'change_order_requests.csv', label: 'Change Order Requests', description: 'Scope changes — descriptions, cost/schedule impact, approval status, and authorization levels', path: '/sample-data/procurement-mfg/change_order_requests.csv' },
+    { filename: 'project_milestone_tracker.csv', label: 'Project Milestone Tracker', description: 'Milestone status — planned vs actual dates, variance, critical path dependencies, and risk flags', path: '/sample-data/procurement-mfg/project_milestone_tracker.csv' },
+    { filename: 'safety_observation_reports.csv', label: 'Safety Observation Reports', description: 'Site safety observations — unsafe conditions, near misses, good practices, corrective actions', path: '/sample-data/procurement-mfg/safety_observation_reports.csv' },
   ],
   commissioning: [
     { filename: 'startup_checklist.csv', label: 'Startup Checklist', description: 'Pre-commissioning checks — safety systems, mechanical completion, I&C, utilities readiness', path: '/sample-data/commissioning/startup_checklist.csv' },
@@ -56,10 +56,10 @@ export const sampleFilesByStage: Record<string, SampleFile[]> = {
     { filename: 'punchlist_items.csv', label: 'Punchlist Items', description: 'Outstanding items — severity A/B, PAC blockers, assigned teams, target closure dates', path: '/sample-data/commissioning/punchlist_items.csv' },
     { filename: 'scada_parameter_export.csv', label: 'SCADA Parameter Export', description: 'Real-time DCS/SCADA readings — temperatures, pressures, flows, alarms, and data quality tags', path: '/sample-data/commissioning/scada_parameter_export.csv' },
   ],
-  'digital-service': [
-    { filename: 'field_engineer_observations.csv', label: 'Field Engineer Observations', description: 'On-site engineer reports — equipment symptoms, initial assessments, photos, urgency, and follow-up actions', path: '/sample-data/digital-service/field_engineer_observations.csv' },
-    { filename: 'why_why_analysis_log.csv', label: 'Why-Why Analysis Log', description: 'Structured 5-Why root cause analysis records — problem → root cause → corrective/preventive actions', path: '/sample-data/digital-service/why_why_analysis_log.csv' },
-    { filename: 'spare_parts_request.csv', label: 'Spare Parts Requests', description: 'Parts requested for service cases — part details, urgency, stock availability, lead times, and dispatch status', path: '/sample-data/digital-service/spare_parts_request.csv' },
-    { filename: 'om_contracts_summary.csv', label: 'O&M Contracts Summary', description: 'Active O&M and AMC contracts — scope, SLA terms, annual values, assigned engineers, and renewal status', path: '/sample-data/digital-service/om_contracts_summary.csv' },
+  'service-troubleshooting': [
+    { filename: 'field_engineer_observations.csv', label: 'Field Engineer Observations', description: 'On-site engineer reports — equipment symptoms, initial assessments, photos, urgency, and follow-up actions', path: '/sample-data/service-troubleshooting/field_engineer_observations.csv' },
+    { filename: 'why_why_analysis_log.csv', label: 'Why-Why Analysis Log', description: 'Structured 5-Why root cause analysis records — problem → root cause → corrective/preventive actions', path: '/sample-data/service-troubleshooting/why_why_analysis_log.csv' },
+    { filename: 'spare_parts_request.csv', label: 'Spare Parts Requests', description: 'Parts requested for service cases — part details, urgency, stock availability, lead times, and dispatch status', path: '/sample-data/service-troubleshooting/spare_parts_request.csv' },
+    { filename: 'om_contracts_summary.csv', label: 'O&M Contracts Summary', description: 'Active O&M and AMC contracts — scope, SLA terms, annual values, assigned engineers, and renewal status', path: '/sample-data/service-troubleshooting/om_contracts_summary.csv' },
   ],
 };

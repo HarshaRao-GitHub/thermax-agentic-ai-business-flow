@@ -1,0 +1,16 @@
+datasheet_id,project_id,equipment_tag,equipment_type,capacity,design_pressure,design_temperature,material_construction,weight_tonnes,dimensions_lxwxh_m,power_kw,manufacturer,delivery_weeks,status
+EDS-001,PRJ-2026-0001,BLR-101,AFBC Boiler,60 TPH,74 kg/cm2,510°C,SA516 Gr70 + SA213 T11,285,12x8x18,450 (auxiliaries),Thermax,40,Approved
+EDS-002,PRJ-2026-0001,APH-101,Air Preheater,Tubular — 60 TPH boiler,0.5 kg/cm2,350°C,CS tubes + SS baffles,18,4x3x4,15 (ID fan),Thermax,28,Approved
+EDS-003,PRJ-2026-0001,ESP-101,Electrostatic Precipitator,180000 Nm3/hr,0.3 kg/cm2,180°C,CS casing + alloy internals,45,8x4x12,120,Thermax/BHEL,32,Under Review
+EDS-004,PRJ-2026-0001,FD-101,FD Fan,2500 Nm3/min @ 350 mmWC,N/A,Ambient,CS + SS impeller,3.5,2x1.5x1.8,185,Thermax/TLT,20,Approved
+EDS-005,PRJ-2026-0001,ID-101,ID Fan,4500 Nm3/min @ 250 mmWC,N/A,180°C,Alloy steel impeller,5.2,2.5x2x2.2,280,Thermax/TLT,20,Approved
+EDS-006,PRJ-2026-0002,BLR-201,AFBC Boiler,85 TPH,52 kg/cm2,440°C,SA516 Gr70 + SA213 T22,380,14x9x20,620 (auxiliaries),Thermax,44,Approved
+EDS-007,PRJ-2026-0002,ECO-201,Economizer,85 TPH boiler,55 kg/cm2,300°C,CS finned tubes,12,3x2x4,N/A,Thermax,24,Approved
+EDS-008,PRJ-2026-0003,WHRB-301,Waste Heat Recovery Boiler,35 TPH from GT exhaust,32 kg/cm2,400°C,SA213 T11 + Alloy 625,120,10x6x15,80 (auxiliaries),Thermax,36,Under Review
+EDS-009,PRJ-2026-0003,DB-301,Duct Burner,30% supplementary firing,N/A,900°C,SS310 + Ceramic fiber,4.5,3x2x2,50 (blower),Thermax,16,Under Review
+EDS-010,PRJ-2026-0004,ABS-401,Absorption Chiller,500 TR,8 kg/cm2,165°C generator,CS shell + CuNi tubes,28,6x3x3.5,25 (pumps),Thermax,30,Approved
+EDS-011,PRJ-2026-0004,CT-401,Cooling Tower,750 TR capacity,N/A,45°C HW,FRP casing + PVC fills,8,4x4x5,45 (fans),Thermax/Paharpur,18,Approved
+EDS-012,PRJ-2026-0008,BLR-801,AFBC Boiler,120 TPH,110 kg/cm2,540°C,SA516 Gr70 + SA213 T91,520,16x10x24,850 (auxiliaries),Thermax,48,Under Review
+EDS-013,PRJ-2026-0008,SH-801,Superheater,120 TPH boiler,115 kg/cm2,560°C,SA213 T91 + TP347H,22,4x3x6,N/A,Thermax,32,Under Review
+EDS-014,PRJ-2026-0008,DEA-801,Deaerator,150 TPH capacity,3.5 kg/cm2,145°C,SA516 Gr70,8,5x2.5x3,15 (pumps),Thermax,20,Under Review
+EDS-015,PRJ-2026-0008,FGD-801,FGD System,300000 Nm3/hr,0.5 kg/cm2,180°C,SS316L + Rubber lined CS,65,10x8x18,320,Thermax,36,Under Review

@@ -4,13 +4,16 @@ import { loadCsv } from './csv-loader';
 export type ToolName =
   | 'scan_market_signals' | 'generate_account_brief' | 'assess_signal_urgency'
   | 'qualify_opportunity' | 'map_stakeholders' | 'analyze_pipeline'
-  | 'draft_proposal' | 'generate_bom' | 'analyze_margins'
+  | 'draft_proposal' | 'generate_bom' | 'analyze_margins' | 'analyze_deviations'
   | 'validate_engineering' | 'simulate_performance' | 'assess_hazop'
-  | 'assess_commercial_risk' | 'review_contract' | 'evaluate_payment_terms'
-  | 'charter_project' | 'match_resources' | 'plan_mobilisation'
+  | 'assess_commercial_risk' | 'review_contract' | 'evaluate_payment_terms' | 'review_proposal_feasibility'
+  | 'charter_project' | 'match_resources' | 'plan_mobilisation' | 'build_wbs'
+  | 'extract_datasheets' | 'classify_make_buy'
+  | 'evaluate_vendors' | 'plan_manufacturing' | 'track_material_readiness'
   | 'analyze_progress' | 'detect_safety_risks' | 'disposition_ncr'
   | 'analyze_test_results' | 'verify_performance' | 'generate_punchlist'
-  | 'lookup_sop' | 'diagnose_service_case' | 'check_spare_parts'
+  | 'get_checklist' | 'recommend_corrective_actions'
+  | 'lookup_sop' | 'diagnose_service_case' | 'diagnose_fault' | 'check_spare_parts'
   | 'analyze_approval_gates' | 'audit_agent_actions' | 'review_overrides' | 'manage_escalations';
 
 const marketingTools: Anthropic.Messages.Tool[] = [
@@ -403,16 +406,91 @@ const governanceTools: Anthropic.Messages.Tool[] = [
   }
 ];
 
+const engineeringDesignTools: Anthropic.Messages.Tool[] = [
+  {
+    name: 'extract_datasheets',
+    description: 'Extracts technical specifications from proposal/order documents and generates structured instrument and equipment data sheets with tag numbers, ranges, materials, and design conditions.',
+    input_schema: {
+      type: 'object' as const,
+      properties: {
+        project_id: { type: 'string', description: 'Project to extract data sheets for' },
+        datasheet_type: { type: 'string', description: 'Type: instrument or equipment (default: both)' }
+      },
+      required: []
+    }
+  },
+  {
+    name: 'classify_make_buy',
+    description: 'Classifies each component as Make (in-house fabrication) or Buy (vendor procurement) based on Thermax capability, workshop capacity, and strategic sourcing decisions.',
+    input_schema: {
+      type: 'object' as const,
+      properties: {
+        project_id: { type: 'string', description: 'Project to classify components for' }
+      },
+      required: []
+    }
+  },
+  {
+    name: 'validate_engineering',
+    description: 'Validates technical parameters against design codes, performance guarantees, and Thermax engineering standards.',
+    input_schema: {
+      type: 'object' as const,
+      properties: {
+        proposal_id: { type: 'string', description: 'Proposal to validate (or "all" for pending validations)' }
+      },
+      required: []
+    }
+  }
+];
+
+const procurementMfgTools: Anthropic.Messages.Tool[] = [
+  {
+    name: 'evaluate_vendors',
+    description: 'Evaluates vendor quotations against engineering specifications, applies technical and commercial criteria, and produces L1 (lowest commercial) and T1 (technically best) rankings.',
+    input_schema: {
+      type: 'object' as const,
+      properties: {
+        project_id: { type: 'string', description: 'Project to evaluate vendors for' },
+        item_filter: { type: 'string', description: 'Optional filter by item description' }
+      },
+      required: []
+    }
+  },
+  {
+    name: 'plan_manufacturing',
+    description: 'Generates simplified manufacturing plan with work orders, workshop assignments, start/end dates, completion status, and delay risk assessment.',
+    input_schema: {
+      type: 'object' as const,
+      properties: {
+        project_id: { type: 'string', description: 'Project to plan manufacturing for' }
+      },
+      required: []
+    }
+  },
+  {
+    name: 'track_material_readiness',
+    description: 'Monitors material procurement status — required vs committed dates, gap days, vendor delivery tracking, and risk flags (Green/Amber/Red).',
+    input_schema: {
+      type: 'object' as const,
+      properties: {
+        project_id: { type: 'string', description: 'Project to track materials for' },
+        risk_filter: { type: 'string', description: 'Filter by risk flag: Green/Amber/Red' }
+      },
+      required: []
+    }
+  }
+];
+
 const toolRegistry: Record<string, Anthropic.Messages.Tool[]> = {
   'marketing': marketingTools,
   'sales': salesTools,
   'presales': presalesTools,
-  'engineering': engineeringTools,
-  'finance-legal': financeLegalTools,
-  'hr-pmo': hrPmoTools,
-  'site-operations': siteOpsTools,
+  'commercial-legal': [...financeLegalTools, ...engineeringTools.filter(t => t.name === 'validate_engineering')],
+  'project-planning': hrPmoTools,
+  'engineering-design': engineeringDesignTools,
+  'procurement-mfg': procurementMfgTools,
   'commissioning': commissioningTools,
-  'digital-service': digitalServiceTools,
+  'service-troubleshooting': digitalServiceTools,
   'governance': governanceTools
 };
 
@@ -466,6 +544,17 @@ export function executeToolLocally(
       case 'analyze_test_results': return executeTestResultsAnalysis(input);
       case 'verify_performance': return executePerformanceVerification(input);
       case 'generate_punchlist': return executePunchlistGeneration(input);
+      case 'extract_datasheets': return executeDatasheetExtraction(input);
+      case 'classify_make_buy': return executeMakeBuyClassification(input);
+      case 'evaluate_vendors': return executeVendorEvaluation(input);
+      case 'plan_manufacturing': return executeManufacturingPlan(input);
+      case 'track_material_readiness': return executeMaterialReadiness(input);
+      case 'get_checklist': return executeChecklistRetrieval(input);
+      case 'recommend_corrective_actions': return executeCorrectiveActions(input);
+      case 'analyze_deviations': return executeDeviationAnalysis(input);
+      case 'review_proposal_feasibility': return executeProposalFeasibility(input);
+      case 'build_wbs': return executeWbsBuild(input);
+      case 'diagnose_fault': return executeServiceCaseDiagnosis(input);
       case 'lookup_sop': return executeSOPLookup(input);
       case 'diagnose_service_case': return executeServiceCaseDiagnosis(input);
       case 'check_spare_parts': return executeSparePartsCheck(input);
@@ -1455,6 +1544,245 @@ function executeOverrideReview(input: Record<string, unknown>): string {
       lesson: o.lesson_learned
     })),
     summary: `${filtered.length} human overrides. Most overridden: ${Object.entries(byAgent).sort((a, b) => b[1] - a[1])[0]?.[0] || 'N/A'}.`
+  });
+}
+
+function executeDatasheetExtraction(input: Record<string, unknown>): string {
+  const instruments = loadCsv('06_engineering_design', 'instrument_datasheets.csv');
+  const equipment = loadCsv('06_engineering_design', 'equipment_datasheets.csv');
+  const projId = input.project_id as string;
+  const dsType = input.datasheet_type as string;
+
+  const filteredInst = projId ? instruments.rows.filter((i) => i.project_id === projId) : instruments.rows;
+  const filteredEquip = projId ? equipment.rows.filter((e) => e.project_id === projId) : equipment.rows;
+
+  return JSON.stringify({
+    project_id: projId || 'all',
+    instrument_datasheets: (!dsType || dsType === 'instrument' || dsType === 'both') ? {
+      count: filteredInst.length,
+      items: filteredInst.map((i) => ({
+        datasheet_id: i.datasheet_id, tag: i.tag_number, type: i.instrument_type, service: i.service,
+        range: i.range, conditions: i.operating_conditions, material: i.material, accuracy: i.accuracy,
+        connection: i.connection_size, output: i.output_signal, status: i.status
+      }))
+    } : null,
+    equipment_datasheets: (!dsType || dsType === 'equipment' || dsType === 'both') ? {
+      count: filteredEquip.length,
+      items: filteredEquip.map((e) => ({
+        datasheet_id: e.datasheet_id, tag: e.equipment_tag, type: e.equipment_type, capacity: e.capacity,
+        design_pressure: e.design_pressure, design_temp: e.design_temperature, material: e.material_construction,
+        weight: e.weight_tonnes, dimensions: e.dimensions_lxwxh_m, power: e.power_kw, delivery: e.delivery_weeks, status: e.status
+      }))
+    } : null,
+    summary: `${filteredInst.length} instrument data sheets and ${filteredEquip.length} equipment data sheets extracted.`
+  });
+}
+
+function executeMakeBuyClassification(input: Record<string, unknown>): string {
+  const makeBuy = loadCsv('06_engineering_design', 'make_buy_classification.csv');
+  const projId = input.project_id as string;
+  const filtered = projId ? makeBuy.rows.filter((m) => m.project_id === projId) : makeBuy.rows;
+
+  const makeCount = filtered.filter((m) => m.classification === 'Make').length;
+  const buyCount = filtered.filter((m) => m.classification === 'Buy').length;
+
+  return JSON.stringify({
+    project_id: projId || 'all',
+    total_items: filtered.length,
+    make_count: makeCount,
+    buy_count: buyCount,
+    classification: filtered.map((m) => ({
+      item_id: m.item_id, component: m.component, category: m.category,
+      classification: m.classification, rationale: m.rationale,
+      preferred_vendor: m.preferred_vendor, estimated_cost_lakh: m.estimated_cost_inr_lakh,
+      lead_time_weeks: m.lead_time_weeks, spec_ref: m.engineering_spec_ref
+    })),
+    summary: `${filtered.length} components classified: ${makeCount} Make (in-house), ${buyCount} Buy (vendor procurement).`
+  });
+}
+
+function executeVendorEvaluation(input: Record<string, unknown>): string {
+  const quotes = loadCsv('07_procurement_mfg', 'vendor_quotations.csv');
+  const vendors = loadCsv('07_procurement_mfg', 'vendor_master.csv');
+  const projId = input.project_id as string;
+
+  const filtered = projId ? quotes.rows.filter((q) => q.project_id === projId) : quotes.rows;
+
+  return JSON.stringify({
+    project_id: projId || 'all',
+    total_quotations: filtered.length,
+    quotations: filtered.map((q) => {
+      const vendor = vendors.rows.find((v) => v.vendor_id === q.vendor_id);
+      return {
+        quote_id: q.quote_id, item: q.item_description, vendor: q.vendor_name,
+        price_lakh: q.quoted_price_inr_lakh, delivery_weeks: q.delivery_weeks,
+        technical_compliance: q.technical_compliance, commercial_score: q.commercial_score,
+        l1_rank: q.l1_rank, t1_rank: q.t1_rank, recommendation: q.recommendation,
+        vendor_quality_rating: vendor?.quality_rating || 'N/A',
+        vendor_delivery_rating: vendor?.delivery_rating || 'N/A',
+        status: q.status
+      };
+    }),
+    summary: `${filtered.length} vendor quotations evaluated for ${projId || 'all projects'}.`
+  });
+}
+
+function executeManufacturingPlan(input: Record<string, unknown>): string {
+  const schedule = loadCsv('07_procurement_mfg', 'manufacturing_schedule.csv');
+  const projId = input.project_id as string;
+  const filtered = projId ? schedule.rows.filter((s) => s.project_id === projId) : schedule.rows;
+
+  const completed = filtered.filter((s) => s.status === 'Completed').length;
+  const inProgress = filtered.filter((s) => s.status === 'In Progress').length;
+  const atRisk = filtered.filter((s) => s.delay_risk === 'High' || s.delay_risk === 'Medium').length;
+
+  return JSON.stringify({
+    project_id: projId || 'all',
+    total_work_orders: filtered.length,
+    completed, in_progress: inProgress, at_risk: atRisk,
+    schedule: filtered.map((s) => ({
+      schedule_id: s.schedule_id, component: s.component, work_order: s.work_order,
+      workshop: s.workshop, start: s.start_date, planned_end: s.planned_end_date,
+      actual_end: s.actual_end_date || 'Pending', status: s.status,
+      completion_pct: s.completion_pct, material_status: s.material_status,
+      delay_risk: s.delay_risk, remarks: s.remarks
+    })),
+    summary: `${filtered.length} work orders: ${completed} completed, ${inProgress} in progress, ${atRisk} at risk.`
+  });
+}
+
+function executeMaterialReadiness(input: Record<string, unknown>): string {
+  const materials = loadCsv('07_procurement_mfg', 'material_readiness.csv');
+  const projId = input.project_id as string;
+  const riskFilter = input.risk_filter as string;
+
+  let filtered = projId ? materials.rows.filter((m) => m.project_id === projId) : materials.rows;
+  if (riskFilter) filtered = filtered.filter((m) => m.risk_flag?.includes(riskFilter));
+
+  const received = filtered.filter((m) => m.status === 'Received').length;
+  const committed = filtered.filter((m) => m.status === 'Committed').length;
+  const redFlags = filtered.filter((m) => m.risk_flag?.includes('Red')).length;
+
+  return JSON.stringify({
+    project_id: projId || 'all',
+    total_materials: filtered.length,
+    received, committed, red_flags: redFlags,
+    materials: filtered.map((m) => ({
+      readiness_id: m.readiness_id, category: m.material_category, description: m.description,
+      spec: m.specification, qty: m.quantity, unit: m.unit,
+      required_date: m.required_date, committed_date: m.committed_date,
+      actual_receipt: m.actual_receipt_date || 'Pending', vendor: m.vendor,
+      status: m.status, gap_days: m.gap_days, risk: m.risk_flag
+    })),
+    summary: `${filtered.length} material items tracked: ${received} received, ${committed} committed, ${redFlags} red-flagged.`
+  });
+}
+
+function executeChecklistRetrieval(input: Record<string, unknown>): string {
+  const checklists = loadCsv('08_commissioning', 'commissioning_checklists.csv');
+  const productType = input.product_type as string;
+  const phase = input.phase as string;
+
+  let filtered = checklists.rows;
+  if (productType) filtered = filtered.filter((c) => c.product_type?.toLowerCase().includes(productType.toLowerCase()));
+  if (phase) filtered = filtered.filter((c) => c.phase?.toLowerCase().includes(phase.toLowerCase()));
+
+  return JSON.stringify({
+    total_items: filtered.length,
+    checklist: filtered.map((c) => ({
+      id: c.checklist_id, product: c.product_type, variant: c.product_variant,
+      phase: c.phase, check_item: c.check_item, category: c.category,
+      acceptance_criteria: c.acceptance_criteria, mandatory: c.mandatory,
+      typical_issue: c.typical_issue, corrective_action: c.corrective_action
+    })),
+    summary: `${filtered.length} checklist items found${productType ? ` for ${productType}` : ''}${phase ? ` in ${phase} phase` : ''}.`
+  });
+}
+
+function executeCorrectiveActions(input: Record<string, unknown>): string {
+  const tests = loadCsv('08_commissioning', 'commissioning_tests.csv');
+  const projId = input.project_id as string;
+
+  const failed = tests.rows.filter((t) =>
+    (!projId || t.project_id === projId) && (t.result === 'Fail' || t.result === 'Conditional Pass')
+  );
+
+  return JSON.stringify({
+    project_id: projId || 'all',
+    deviations_found: failed.length,
+    recommendations: failed.map((t) => ({
+      test_id: t.test_id, parameter: t.parameter_tested, target: t.target_value,
+      actual: t.actual_value, deviation_pct: t.deviation_pct, result: t.result,
+      ai_analysis: t.ai_analysis
+    })),
+    summary: `${failed.length} test deviations requiring corrective action.`
+  });
+}
+
+function executeDeviationAnalysis(input: Record<string, unknown>): string {
+  const rfq = loadCsv('03_presales', 'rfq_requirements.csv');
+  const oppId = input.opportunity_id as string;
+
+  const filtered = oppId ? rfq.rows.filter((r) => r.opportunity_id === oppId) : rfq.rows;
+  const met = filtered.filter((r) => r.compliance_status === 'Met').length;
+  const notMet = filtered.filter((r) => r.compliance_status === 'Not Met').length;
+  const partial = filtered.filter((r) => r.compliance_status === 'Partial').length;
+
+  return JSON.stringify({
+    opportunity_id: oppId || 'all',
+    total_requirements: filtered.length,
+    met, not_met: notMet, partial,
+    deviations: filtered.map((r) => ({
+      rfq_id: r.rfq_id, clause: r.clause_ref, category: r.requirement_category,
+      requirement: r.requirement_description, thermax_standard: r.thermax_standard,
+      compliance: r.compliance_status, deviation_type: r.deviation_type,
+      alternative: r.proposed_alternative, remarks: r.remarks
+    })),
+    summary: `${filtered.length} requirements analyzed: ${met} Met, ${partial} Partial, ${notMet} Not Met.`
+  });
+}
+
+function executeProposalFeasibility(input: Record<string, unknown>): string {
+  const validations = loadCsv('04_engineering', 'engineering_validations.csv');
+  const propId = input.proposal_id as string;
+  const filtered = propId ? validations.rows.filter((v) => v.proposal_id === propId) : validations.rows;
+
+  return JSON.stringify({
+    proposal_id: propId || 'all',
+    total_validations: filtered.length,
+    feasible: filtered.filter((v) => v.ai_verdict === 'Feasible').length,
+    conditional: filtered.filter((v) => v.ai_verdict?.includes('modifications')).length,
+    not_feasible: filtered.filter((v) => v.ai_verdict?.includes('Not feasible')).length,
+    validations: filtered.slice(0, 15).map((v) => ({
+      validation_id: v.validation_id, proposal_id: v.proposal_id, type: v.validation_type,
+      verdict: v.ai_verdict, confidence: v.ai_confidence, risk_flags: v.risk_flags,
+      hazop_required: v.hazop_required, modifications: v.modifications_required, status: v.status
+    })),
+    summary: `Proposal feasibility review for ${propId || 'all proposals'}: ${filtered.length} validations assessed.`
+  });
+}
+
+function executeWbsBuild(input: Record<string, unknown>): string {
+  const wbs = loadCsv('05_project_planning', 'wbs_template.csv');
+  const timelines = loadCsv('05_project_planning', 'project_timelines.csv');
+
+  const phases = new Set(wbs.rows.map((w) => w.phase));
+  const milestones = wbs.rows.filter((w) => w.milestone);
+
+  return JSON.stringify({
+    total_wbs_items: wbs.rowCount,
+    phases: Array.from(phases),
+    milestones: milestones.map((m) => ({
+      wbs_id: m.wbs_id, phase: m.phase, activity: m.activity,
+      milestone: m.milestone, duration_weeks: m.duration_weeks, owner: m.owner_role
+    })),
+    wbs_structure: wbs.rows.map((w) => ({
+      wbs_id: w.wbs_id, level: w.wbs_level, phase: w.phase, activity: w.activity,
+      owner: w.owner_role, duration_weeks: w.duration_weeks, predecessor: w.predecessor,
+      deliverable: w.deliverable, milestone: w.milestone
+    })),
+    timeline_data_points: timelines.rowCount,
+    summary: `WBS template with ${wbs.rowCount} activities across ${phases.size} phases and ${milestones.length} milestones.`
   });
 }
 

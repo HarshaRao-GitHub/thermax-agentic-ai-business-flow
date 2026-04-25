@@ -1,0 +1,26 @@
+timeline_id,project_id,milestone,planned_date,actual_date,status,delay_days,delay_reason,impact_assessment,risk_level
+TL-001,PRJ-2026-0001,Kickoff Meeting,2025-11-15,2025-11-15,Completed,0,,None,Low
+TL-002,PRJ-2026-0001,Scope Freeze,2025-12-01,2025-12-08,Completed,7,Customer scope additions,Minor schedule adjustment,Low
+TL-003,PRJ-2026-0001,Design Freeze,2026-02-15,2026-03-01,Completed,14,Multiple design iterations,Procurement delayed by 2 weeks,Medium
+TL-004,PRJ-2026-0001,PO Release,2026-04-01,2026-04-10,Completed,9,Vendor re-evaluation,Manufacturing start delayed,Medium
+TL-005,PRJ-2026-0001,Equipment Dispatch,2026-07-15,,Planned,,,Tracking,Low
+TL-006,PRJ-2026-0001,Mechanical Completion,2026-08-20,,Planned,,,Tracking,Low
+TL-007,PRJ-2026-0001,PG Test Complete,2026-09-10,,Planned,,,On track,Low
+TL-008,PRJ-2026-0002,Kickoff Meeting,2025-06-30,2025-06-30,Completed,0,,None,Low
+TL-009,PRJ-2026-0002,Design Freeze,2025-09-15,2025-09-15,Completed,0,,None,Low
+TL-010,PRJ-2026-0002,PO Release,2025-10-20,2025-10-25,Completed,5,Budget re-approval,Minor delay,Low
+TL-011,PRJ-2026-0002,Equipment Dispatch,2026-02-15,2026-02-20,Completed,5,Logistics delay,No impact on erection,Low
+TL-012,PRJ-2026-0002,Mechanical Completion,2026-04-10,2026-04-15,Completed,5,Rain delay at site,Minor,Low
+TL-013,PRJ-2026-0002,PG Test Complete,2026-05-05,,In Progress,,,On track,Low
+TL-014,PRJ-2026-0003,Kickoff Meeting,2025-07-20,2025-07-20,Completed,0,,None,Low
+TL-015,PRJ-2026-0003,Design Freeze,2025-10-10,2025-10-30,Completed,20,Complex CPP integration,Engineering redesign needed,High
+TL-016,PRJ-2026-0003,PO Release,2025-12-15,2026-01-10,Completed,26,Vendor capacity constraints,Manufacturing delayed,High
+TL-017,PRJ-2026-0003,Equipment Dispatch,2026-04-15,2026-04-25,Completed,10,Shop test rework,Minor delay,Medium
+TL-018,PRJ-2026-0003,Commissioning Start,2026-05-20,2026-05-28,In Progress,8,Site readiness delay,Under monitoring,Medium
+TL-019,PRJ-2026-0004,Kickoff Meeting,2025-11-01,2025-11-01,Completed,0,,None,Low
+TL-020,PRJ-2026-0004,Design Freeze,2026-02-01,2026-02-15,Completed,14,Customer requirement change,Scope revision,Medium
+TL-021,PRJ-2026-0004,PO Release,2026-03-15,2026-03-20,Completed,5,Budget approval delay,Minor,Low
+TL-022,PRJ-2026-0004,Equipment Dispatch,2026-08-15,,Planned,,,Tracking,Low
+TL-023,PRJ-2026-0004,PG Test Complete,2027-01-05,,Planned,,,On track — long project,Low
+TL-024,PRJ-2026-0008,Kickoff Meeting,2026-02-05,2026-02-05,Completed,0,,None,Low
+TL-025,PRJ-2026-0008,Design Freeze,2026-05-15,,Planned,,,On track,Low

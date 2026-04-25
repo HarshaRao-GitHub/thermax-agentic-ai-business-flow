@@ -1,0 +1,30 @@
+wbs_id,wbs_level,phase,activity,owner_role,duration_weeks,predecessor,deliverable,milestone
+WBS-1.0,1,Project Initiation,Project Kickoff & Charter,Project Manager,1,,Project Charter,Kickoff Meeting
+WBS-1.1,2,Project Initiation,Stakeholder Identification,Project Manager,1,WBS-1.0,Stakeholder Register,
+WBS-1.2,2,Project Initiation,Scope Baseline Approval,Project Manager,1,WBS-1.1,Scope Document,Scope Freeze
+WBS-2.0,1,Engineering & Design,Basic Engineering,Lead Engineer,6,WBS-1.2,Basic Engineering Package,
+WBS-2.1,2,Engineering & Design,Process Design & P&ID,Process Engineer,4,WBS-2.0,P&ID Drawings,
+WBS-2.2,2,Engineering & Design,Mechanical Design,Mechanical Engineer,4,WBS-2.0,GA Drawings + Data Sheets,
+WBS-2.3,2,Engineering & Design,Electrical & Instrumentation Design,E&I Engineer,3,WBS-2.1,E&I Specifications,
+WBS-2.4,2,Engineering & Design,Civil & Structural Design,Civil Engineer,3,WBS-2.2,Foundation Drawings,
+WBS-2.5,2,Engineering & Design,Design Review & Approval,Chief Engineer,2,WBS-2.4,Design Approval,Design Freeze
+WBS-3.0,1,Procurement,Vendor Identification & RFQ,Procurement Lead,3,WBS-2.5,RFQ Package,
+WBS-3.1,2,Procurement,Technical Bid Evaluation,Lead Engineer,2,WBS-3.0,TBE Report,
+WBS-3.2,2,Procurement,Commercial Bid Evaluation,Procurement Lead,2,WBS-3.1,CBE Report,
+WBS-3.3,2,Procurement,Purchase Order Placement,Procurement Lead,1,WBS-3.2,Purchase Orders,PO Release
+WBS-3.4,2,Procurement,Vendor Drawing Approval,Lead Engineer,3,WBS-3.3,Approved Drawings,
+WBS-4.0,1,Manufacturing,Raw Material Procurement,Manufacturing Head,4,WBS-3.3,Material Receipt,
+WBS-4.1,2,Manufacturing,Fabrication & Assembly,Workshop Manager,12,WBS-4.0,Fabricated Components,
+WBS-4.2,2,Manufacturing,Shop Testing & QC,QC Engineer,2,WBS-4.1,Test Certificates,Shop Test Complete
+WBS-4.3,2,Manufacturing,Packing & Dispatch,Logistics Lead,1,WBS-4.2,Dispatch Documents,Equipment Dispatch
+WBS-5.0,1,Site Erection,Civil & Foundation Work,Site Manager,8,WBS-2.4,Foundation Ready,Foundation Complete
+WBS-5.1,2,Site Erection,Structural Erection,Site Manager,6,WBS-5.0,Structure Complete,
+WBS-5.2,2,Site Erection,Equipment Erection,Erection Lead,8,WBS-4.3,Equipment Erected,Mechanical Completion
+WBS-5.3,2,Site Erection,Piping & Ducting,Piping Engineer,6,WBS-5.2,Piping Complete,
+WBS-5.4,2,Site Erection,Electrical & Instrumentation,E&I Engineer,4,WBS-5.3,E&I Complete,
+WBS-5.5,2,Site Erection,Insulation & Refractory,Site Manager,3,WBS-5.2,Insulation Complete,
+WBS-6.0,1,Commissioning,Pre-Commissioning Checks,Commissioning Lead,2,WBS-5.4,Pre-Comm Checklist,
+WBS-6.1,2,Commissioning,Cold Commissioning,Commissioning Lead,2,WBS-6.0,Cold Comm Report,
+WBS-6.2,2,Commissioning,Hot Commissioning & Load Test,Commissioning Lead,3,WBS-6.1,Hot Comm Report,
+WBS-6.3,2,Commissioning,Performance Guarantee Test,Commissioning Lead,2,WBS-6.2,PG Test Report,PG Test Complete
+WBS-6.4,2,Commissioning,Handover & PAC,Project Manager,1,WBS-6.3,PAC Certificate,Project Handover

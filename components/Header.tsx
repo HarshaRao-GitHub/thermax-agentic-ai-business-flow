@@ -36,18 +36,22 @@ export default function Header() {
         )}
       </div>
 
-      {/* Navigation bar: two-line layout */}
+      {/* Navigation bar: three-tier layout */}
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6">
-          {/* Line 1: Primary navigation */}
-          <nav className="hidden md:flex items-center justify-center gap-1 pt-1.5 pb-0.5">
+          {/* Line 1: Three Experience Modes */}
+          <nav className="hidden md:flex items-center justify-center gap-2 pt-2 pb-1">
+            <ModeLink href="/prompting" icon="💬" label="Prompting" />
+            <ModeLink href="/doc-intelligence" icon="📊" label="Doc Intelligence & Visualization" />
+            <ModeLink href="/agentic-experience" icon="🤖" label="Agentic AI" />
+          </nav>
+          {/* Line 2: Platform navigation */}
+          <nav className="hidden md:flex items-center justify-center gap-1 py-0.5">
             <NavLink href="/">Dashboard</NavLink>
-            <NavSep />
-            <NavLink href="/agentic-experience">Agentic Experience</NavLink>
             <NavSep />
             <NavLink href="/governance">Governance</NavLink>
             <NavSep />
-            <NavLink href="/doc-intelligence">Doc Intelligence</NavLink>
+            <NavLink href="/approvals">HITL Queue</NavLink>
             <NavSep />
             <Link
               href="/custom-agents"
@@ -56,7 +60,7 @@ export default function Header() {
               + Custom Agents
             </Link>
           </nav>
-          {/* Line 2: Workflow exploration */}
+          {/* Line 3: Workflow exploration */}
           <nav className="hidden md:flex items-center justify-center gap-1 pb-1.5 pt-0.5">
             <NavLink href="/storyline">Storyline</NavLink>
             <NavDot />
@@ -65,12 +69,22 @@ export default function Header() {
             <NavLink href="/flow-diagram">Flow Diagram</NavLink>
             <NavDot />
             <NavLink href="/operating-system">AI OS</NavLink>
-            <NavDot />
-            <NavLink href="/approvals">HITL Queue</NavLink>
           </nav>
         </div>
       </div>
     </header>
+  );
+}
+
+function ModeLink({ href, icon, label }: { href: string; icon: string; label: string }) {
+  return (
+    <Link
+      href={href}
+      className="px-4 py-1.5 rounded-lg text-[13px] font-semibold text-white/85 hover:text-white bg-white/5 hover:bg-white/15 transition flex items-center gap-1.5 border border-white/10 hover:border-white/25"
+    >
+      <span>{icon}</span>
+      {label}
+    </Link>
   );
 }
 

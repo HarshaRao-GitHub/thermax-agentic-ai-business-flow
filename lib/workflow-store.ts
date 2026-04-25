@@ -78,21 +78,21 @@ export function isStageSkipped(slug: string): boolean {
 }
 
 const STAGE_ORDER = [
-  'marketing', 'sales', 'presales', 'engineering',
-  'finance-legal', 'hr-pmo', 'site-operations',
-  'commissioning', 'digital-service'
+  'marketing', 'sales', 'presales', 'commercial-legal',
+  'project-planning', 'engineering-design', 'procurement-mfg',
+  'commissioning', 'service-troubleshooting'
 ];
 
 const STAGE_META: Record<string, { mandatory: boolean }> = {
   'marketing': { mandatory: true },
   'sales': { mandatory: true },
   'presales': { mandatory: true },
-  'engineering': { mandatory: true },
-  'finance-legal': { mandatory: true },
-  'hr-pmo': { mandatory: false },
-  'site-operations': { mandatory: false },
+  'commercial-legal': { mandatory: true },
+  'project-planning': { mandatory: true },
+  'engineering-design': { mandatory: false },
+  'procurement-mfg': { mandatory: false },
   'commissioning': { mandatory: false },
-  'digital-service': { mandatory: false },
+  'service-troubleshooting': { mandatory: false },
 };
 
 function isPrevStageCleared(i: number, result: Record<string, GateStatus>): boolean {

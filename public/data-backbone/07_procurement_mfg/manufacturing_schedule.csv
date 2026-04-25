@@ -1,0 +1,16 @@
+schedule_id,project_id,component,work_order,workshop,start_date,planned_end_date,actual_end_date,status,completion_pct,material_status,delay_risk,remarks
+MS-001,PRJ-2026-0001,Boiler Drum,WO-2026-0101,Heavy Fabrication — Pune,2026-04-15,2026-06-30,,In Progress,45,Available,Low,On track — drum rolling completed
+MS-002,PRJ-2026-0001,Water Wall Panels,WO-2026-0102,Tube Shop — Pune,2026-04-20,2026-07-15,,In Progress,35,Available,Low,Panel welding in progress
+MS-003,PRJ-2026-0001,Economizer Coils,WO-2026-0103,Tube Shop — Pune,2026-05-01,2026-06-15,,Not Started,0,Ordered — ETA May 5,Low,Material awaited
+MS-004,PRJ-2026-0001,ESP Casing,WO-2026-0104,Structural Shop — Pune,2026-05-15,2026-07-10,,Not Started,0,Available,Medium,Workshop capacity tight — 2nd shift planned
+MS-005,PRJ-2026-0001,Air Preheater,WO-2026-0105,Heat Exchanger Shop — Pune,2026-05-10,2026-06-20,,Not Started,0,Available,Low,Standard design
+MS-006,PRJ-2026-0002,Boiler Drum,WO-2026-0201,Heavy Fabrication — Pune,2025-12-01,2026-02-15,2026-02-18,Completed,100,Delivered,None,Completed — 3 days delay
+MS-007,PRJ-2026-0002,Superheater Assembly,WO-2026-0202,Tube Shop — Pune,2026-01-10,2026-03-20,2026-03-20,Completed,100,Delivered,None,Completed on time
+MS-008,PRJ-2026-0002,Structural Steel,WO-2026-0203,Structural Shop — Pune,2025-11-15,2026-01-30,2026-02-05,Completed,100,Delivered,None,5 days delay — weather impact
+MS-009,PRJ-2026-0003,WHRB Pressure Parts,WO-2026-0301,Heavy Fabrication — Pune,2026-02-01,2026-05-15,,In Progress,70,Available,Medium,Alloy welding requires special procedures
+MS-010,PRJ-2026-0003,Duct Burner Support,WO-2026-0302,Structural Shop — Pune,2026-03-01,2026-04-15,2026-04-20,Completed,100,Delivered,None,Minor delay — no impact
+MS-011,PRJ-2026-0004,Chiller Shell,WO-2026-0401,Heavy Fabrication — Pune,2025-10-15,2026-01-30,2026-01-28,Completed,100,Delivered,None,Completed ahead of schedule
+MS-012,PRJ-2026-0004,Tube Bundle — Generator,WO-2026-0402,Tube Shop — Pune,2025-11-01,2026-02-15,2026-02-15,Completed,100,Delivered,None,On time
+MS-013,PRJ-2026-0008,Boiler Drum — HP,WO-2026-0801,Heavy Fabrication — Pune,2026-04-01,2026-07-30,,In Progress,20,Ordered — ETA April 28,High,Thick plate availability — import material
+MS-014,PRJ-2026-0008,Superheater Coils — T91,WO-2026-0802,Tube Shop — Pune,2026-04-15,2026-07-15,,Not Started,0,Ordered — ETA May 10,High,Special alloy tubes — long lead
+MS-015,PRJ-2026-0008,FGD Absorber Tower,WO-2026-0803,Heavy Fabrication — Pune,2026-05-01,2026-08-30,,Not Started,0,Partially Available,Medium,Rubber lining to be done after fabrication

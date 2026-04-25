@@ -757,12 +757,14 @@ export default function AgentChat({
                 {firstAssistant && (
                   <div className="px-5 py-3">
                     <MessageBubble role="assistant" content={firstAssistant.content}
-                      streaming={streaming && transcript.filter(m => m.role === 'assistant').length === 1} />
+                      streaming={streaming && transcript.filter(m => m.role === 'assistant').length === 1}
+                      agentName={stage.agent.name} />
                   </div>
                 )}
                 {!firstAssistant && streaming && streamBuffer && (
                   <div className="px-5 py-3">
-                    <MessageBubble role="assistant" content={streamBuffer} streaming={true} />
+                    <MessageBubble role="assistant" content={streamBuffer} streaming={true}
+                      agentName={stage.agent.name} />
                   </div>
                 )}
               </div>
@@ -857,7 +859,8 @@ export default function AgentChat({
               <div className="max-h-[500px] overflow-y-auto p-4 space-y-3">
                 {followUpMessages.map((m, i) => (
                   <MessageBubble key={`qa-${i}`} role={m.role} content={m.content}
-                    streaming={streaming && m.role === 'assistant' && i === followUpMessages.length - 1} />
+                    streaming={streaming && m.role === 'assistant' && i === followUpMessages.length - 1}
+                    agentName={stage.agent.name} />
                 ))}
               </div>
             </div>
@@ -1156,7 +1159,9 @@ function Field({ label, value, mono }: { label: string; value: string; mono?: bo
   );
 }
 
-function MessageBubble({ role, content, streaming: isStreaming }: { role: Role; content: string; streaming?: boolean }) {
+function MessageBubble({ role, content, streaming: isStreaming, agentName }: { role: Role; content: string; streaming?: boolean; agentName?: string }) {
+  const [copied, setCopied] = useState(false);
+
   if (role === 'user') {
     return (
       <div className="flex justify-end">
@@ -1164,6 +1169,30 @@ function MessageBubble({ role, content, streaming: isStreaming }: { role: Role; 
       </div>
     );
   }
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(content);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch { /* clipboard not available */ }
+  };
+
+  const handleDownload = () => {
+    const slug = (agentName ?? 'agent').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    const ts = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
+    const filename = `${slug}-output-${ts}.md`;
+    const blob = new Blob([content], { type: 'text/markdown;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="flex justify-start">
       <div className="max-w-[95%] bg-thermax-mist border border-thermax-line rounded-lg rounded-tl-sm px-4 py-3 text-[13px] w-full">
@@ -1172,6 +1201,33 @@ function MessageBubble({ role, content, streaming: isStreaming }: { role: Role; 
         {isStreaming && (
           <div className="mt-2 h-1 w-24 bg-thermax-line rounded-full overflow-hidden">
             <div className="h-full bg-thermax-saffron rounded-full animate-shimmer" style={{ width: '60%' }} />
+          </div>
+        )}
+        {!isStreaming && content && (
+          <div className="mt-3 pt-2 border-t border-thermax-line/60 flex items-center gap-2">
+            <button
+              onClick={handleDownload}
+              className="flex items-center gap-1 text-[10px] text-thermax-slate/70 hover:text-thermax-navy font-medium px-2 py-1 rounded hover:bg-white/60 transition"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download
+            </button>
+            <button
+              onClick={handleCopy}
+              className="flex items-center gap-1 text-[10px] text-thermax-slate/70 hover:text-thermax-navy font-medium px-2 py-1 rounded hover:bg-white/60 transition"
+            >
+              {copied ? (
+                <>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-600"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span className="text-emerald-600 font-semibold">Copied!</span>
+                </>
+              ) : (
+                <>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  Copy
+                </>
+              )}
+            </button>
           </div>
         )}
       </div>

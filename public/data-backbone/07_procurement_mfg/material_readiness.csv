@@ -1,0 +1,16 @@
+readiness_id,project_id,material_category,description,specification,quantity,unit,required_date,committed_date,actual_receipt_date,vendor,status,gap_days,risk_flag
+MR-001,PRJ-2026-0001,Plates,SA516 Gr70 Drum Plate — 80mm thick,ASME SA516 Gr70,12,Tonnes,2026-04-10,2026-04-08,2026-04-08,Tata Steel,Received,0,Green
+MR-002,PRJ-2026-0001,Tubes,SA213 T11 Superheater Tubes,ASME SA213 T11 OD38.1x4.0,2400,Metres,2026-04-20,2026-04-18,2026-04-18,SAIL Tubes,Received,0,Green
+MR-003,PRJ-2026-0001,Tubes,SA210 GrA1 Water Wall Tubes,ASME SA210 GrA1 OD63.5x5.6,3200,Metres,2026-04-15,2026-04-15,2026-04-15,SAIL Tubes,Received,0,Green
+MR-004,PRJ-2026-0001,Valves,Gate Valves — IBR stamped,IBR Certified — various sizes,45,Nos,2026-05-15,2026-05-10,,L&T Valves,Committed,0,Green
+MR-005,PRJ-2026-0001,Refractory,Dense Castable — Al2O3 60%,IS 8 Grade — 1600°C rated,8,Tonnes,2026-06-01,2026-05-25,,Harbison Walker,Committed,0,Green
+MR-006,PRJ-2026-0001,Electrical,MCC Panel — Type tested,IEC 61439 certified,2,Sets,2026-06-15,2026-06-20,,Siemens India,Committed,5,Amber
+MR-007,PRJ-2026-0001,Instruments,DCS System — Complete,Yokogawa CENTUM VP,1,Lot,2026-06-15,2026-07-01,,Yokogawa India,Committed,16,Red
+MR-008,PRJ-2026-0002,Plates,SA516 Gr70 — 100mm thick,ASME SA516 Gr70,16,Tonnes,2025-11-20,2025-11-18,2025-11-18,Tata Steel,Received,0,Green
+MR-009,PRJ-2026-0002,Tubes,SA213 T22 SH Tubes,ASME SA213 T22 OD50.8x5.0,1800,Metres,2025-12-15,2025-12-15,2025-12-15,SAIL Tubes,Received,0,Green
+MR-010,PRJ-2026-0003,Tubes,Alloy 625 WHRB Tubes,ASME SB444 UNS N06625,800,Metres,2026-01-15,2026-02-10,2026-02-10,Imported — Sandvik,Received,26,Red — delayed
+MR-011,PRJ-2026-0003,Plates,SA516 Gr70 — 60mm,ASME SA516 Gr70,8,Tonnes,2026-01-20,2026-01-20,2026-01-20,Tata Steel,Received,0,Green
+MR-012,PRJ-2026-0008,Plates,SA516 Gr70 — 120mm thick,ASME SA516 Gr70 — import,20,Tonnes,2026-04-25,2026-05-10,,Imported — Posco,Committed,15,Red
+MR-013,PRJ-2026-0008,Tubes,SA213 T91 SH Tubes,ASME SA213 T91 OD44.5x6.3,1500,Metres,2026-05-10,2026-05-20,,Imported — V&M Tubes,Committed,10,Amber
+MR-014,PRJ-2026-0008,Structural,Heavy structural — columns & beams,IS 2062 Gr E250,35,Tonnes,2026-05-15,2026-05-15,,SAIL,Committed,0,Green
+MR-015,PRJ-2026-0008,Rubber Lining,FGD Absorber lining,Ebonite + Natural Rubber 6mm,250,Sq.m,2026-07-01,2026-07-05,,Polycorp India,Committed,4,Green

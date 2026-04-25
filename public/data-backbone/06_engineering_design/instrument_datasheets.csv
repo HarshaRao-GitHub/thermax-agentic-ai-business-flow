@@ -1,0 +1,16 @@
+datasheet_id,project_id,tag_number,instrument_type,service,range,operating_conditions,material,accuracy,connection_size,output_signal,manufacturer_preference,status
+IDS-001,PRJ-2026-0001,FT-101,Flow Transmitter,Main Steam Flow,0-80 TPH,65 kg/cm2 | 485°C,SS316L,±0.5%,DN80 Flange,4-20mA HART,Yokogawa/E+H,Issued for Procurement
+IDS-002,PRJ-2026-0001,PT-101,Pressure Transmitter,Drum Pressure,0-100 kg/cm2,Operating 67 kg/cm2,SS316,±0.1%,1/2" NPT,4-20mA HART,Yokogawa/Honeywell,Issued for Procurement
+IDS-003,PRJ-2026-0001,TT-101,Temperature Transmitter,Main Steam Temperature,0-550°C,Operating 485°C,Inconel 600 thermowell,±0.5°C,1/2" NPT,4-20mA HART,Yokogawa/E+H,Issued for Procurement
+IDS-004,PRJ-2026-0001,LT-101,Level Transmitter,Drum Level,0-500mm WC,67 kg/cm2 | 285°C,SS316L,±0.1%,1/2" NPT,4-20mA HART,Yokogawa/E+H,Issued for Procurement
+IDS-005,PRJ-2026-0001,AT-101,Analyzer — O2,Flue Gas O2,0-25% O2,Stack | 180°C max,SS316 probe,±0.5%,Flange mounted,4-20mA HART,ABB/Siemens,Approved
+IDS-006,PRJ-2026-0001,AT-102,Analyzer — CO,Flue Gas CO,0-1000 ppm,Stack | 180°C max,SS316 probe,±2%,Flange mounted,4-20mA HART,ABB/Siemens,Approved
+IDS-007,PRJ-2026-0002,FT-201,Flow Transmitter,Steam to Process,0-100 TPH,45 kg/cm2 | 400°C,SS316L,±0.5%,DN100 Flange,4-20mA HART,Yokogawa,Issued for Procurement
+IDS-008,PRJ-2026-0002,PT-201,Pressure Transmitter,Header Pressure,0-60 kg/cm2,Operating 45 kg/cm2,SS316,±0.1%,1/2" NPT,4-20mA HART,Honeywell,Approved
+IDS-009,PRJ-2026-0003,FT-301,Flow Transmitter,Exhaust Gas Flow,0-200000 Nm3/hr,GT exhaust | 550°C,Hastelloy C276,±1%,DN600 Flange,4-20mA HART,E+H,Under Review
+IDS-010,PRJ-2026-0003,TT-301,Temperature Element,GT Exhaust Inlet,0-650°C,Operating 540°C,Inconel 600,±0.5°C,Flange mounted,4-20mA HART,Yokogawa,Under Review
+IDS-011,PRJ-2026-0004,FT-401,Flow Transmitter,Chilled Water Flow,0-500 m3/hr,7°C | 3 kg/cm2,SS316L,±0.5%,DN200 Flange,4-20mA HART,E+H,Issued for Procurement
+IDS-012,PRJ-2026-0004,TT-401,Temperature Element,CHW Supply,0-25°C,Operating 7°C,SS316 thermowell,±0.1°C,1/2" NPT,4-20mA HART,Yokogawa,Approved
+IDS-013,PRJ-2026-0008,FT-801,Flow Transmitter,Feed Water Flow,0-120 TPH,105 kg/cm2 | 150°C,SS316L,±0.5%,DN150 Flange,4-20mA HART,Yokogawa/E+H,Under Review
+IDS-014,PRJ-2026-0008,PT-801,Pressure Transmitter,SH Outlet Pressure,0-120 kg/cm2,Operating 105 kg/cm2,SS316,±0.1%,1/2" NPT,4-20mA HART,Yokogawa,Under Review
+IDS-015,PRJ-2026-0008,AT-801,Analyzer — NOx,Stack NOx,0-500 mg/Nm3,Stack | 200°C,SS316 probe,±2%,Flange mounted,4-20mA HART,ABB,Under Review

@@ -1,0 +1,21 @@
+rfq_id,opportunity_id,clause_ref,requirement_category,requirement_description,thermax_standard,compliance_status,deviation_type,proposed_alternative,remarks
+RFQ-001,OPP-2026-0022,CL-1.1,Technical,Steam generation capacity 60 TPH at 65 kg/cm2,Standard AFBC 60 TPH rated at 67 kg/cm2,Met,None,,Exceeds requirement
+RFQ-002,OPP-2026-0022,CL-1.2,Technical,Boiler efficiency minimum 86% on GCV basis,Standard efficiency 85.5% on NCV — 87% on GCV achievable,Met,None,,Within standard range
+RFQ-003,OPP-2026-0022,CL-1.3,Technical,Multi-fuel capability — coal + biomass + petcoke,Standard AFBC supports coal + biomass only,Partial,Technical,Petcoke co-firing up to 20% with modified fuel handling,Requires fuel handling system upgrade
+RFQ-004,OPP-2026-0022,CL-2.1,Environmental,NOx emissions < 100 mg/Nm3 at 6% O2,Standard AFBC achieves <150 mg/Nm3 without SNCR,Not Met,Technical,SNCR system addition to achieve <100 mg/Nm3,Additional cost ₹45L for SNCR
+RFQ-005,OPP-2026-0022,CL-2.2,Environmental,SOx emissions < 200 mg/Nm3,Standard with in-bed limestone achieves <200 mg/Nm3,Met,None,,Standard compliance
+RFQ-006,OPP-2026-0022,CL-3.1,Commercial,Delivery within 14 months ex-works,Standard delivery 16 months for 60 TPH AFBC,Not Met,Schedule,Fast-track manufacturing with 2-shift operation — 15 months achievable,1 month gap — needs customer discussion
+RFQ-007,OPP-2026-0022,CL-3.2,Commercial,Performance guarantee test within 3 months of commissioning,Standard PG test window is 6 months,Met,None,,Thermax standard exceeds requirement
+RFQ-008,OPP-2026-0022,CL-4.1,Safety,HAZOP study compliance per IEC 61882,Standard practice includes HAZOP for all EPC projects,Met,None,,Standard compliance
+RFQ-009,OPP-2026-0022,CL-4.2,Safety,Emergency shutdown system — SIL 2 rated,Standard ESD is SIL 1 rated,Not Met,Technical,Upgrade to SIL 2 ESD with certified safety PLC,Additional cost ₹28L
+RFQ-010,OPP-2026-0018,CL-1.1,Technical,Thermic fluid heater 5 million kcal/hr capacity,Standard TF heater range up to 6 million kcal/hr,Met,None,,Within standard range
+RFQ-011,OPP-2026-0018,CL-1.2,Technical,Operating temperature 300°C with Therminol-66,Standard operating range up to 320°C with approved fluids,Met,None,,Standard compliance
+RFQ-012,OPP-2026-0018,CL-2.1,Environmental,Stack emission monitoring system — CEMS,CEMS is optional add-on in standard scope,Partial,Scope,CEMS can be included as additional scope item,Additional cost ₹18L
+RFQ-013,OPP-2026-0039,CL-1.1,Technical,ZLD system — 200 KLD capacity with crystallizer,Standard ZLD range includes 200 KLD with MEE + crystallizer,Met,None,,Standard product
+RFQ-014,OPP-2026-0039,CL-1.2,Technical,Product water TDS < 500 ppm for reuse,Standard product water TDS 200-300 ppm,Met,None,,Exceeds requirement
+RFQ-015,OPP-2026-0039,CL-2.1,Commercial,5-year comprehensive AMC post warranty,Standard AMC offering is 3 years,Partial,Commercial,5-year AMC available at escalated rate — year 4-5 at 115% of base,Price escalation clause needed
+RFQ-016,OPP-2026-0004,CL-1.1,Technical,Absorption chiller 500 TR capacity — hot water driven,Standard range up to 700 TR — steam and hot water variants,Met,None,,Standard product
+RFQ-017,OPP-2026-0004,CL-1.2,Technical,COP minimum 1.4 at design conditions,Standard COP 1.35-1.45 depending on operating conditions,Met,None,,At design conditions COP 1.42
+RFQ-018,OPP-2026-0004,CL-3.1,Commercial,Liquidated damages capped at 5% of contract value,Standard LD cap is 10% of contract value,Not Met,Commercial,Counter-propose LD cap at 7.5% with step-wise penalty structure,Needs commercial negotiation
+RFQ-019,OPP-2026-0031,CL-1.1,Technical,WHRB for 150 MW gas turbine exhaust,Standard WHRB designs available for GT exhaust up to 200 MW,Met,None,,Standard product range
+RFQ-020,OPP-2026-0031,CL-1.2,Technical,Supplementary firing capability — 30% additional steam,Standard supplementary firing up to 25%,Partial,Technical,25% supplementary firing standard — 30% requires burner upsizing,Minor engineering change — cost ₹12L

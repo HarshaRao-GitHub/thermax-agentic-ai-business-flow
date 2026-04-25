@@ -88,13 +88,13 @@ export async function POST(req: NextRequest) {
   const stageNameMap: Record<string, string> = {
     marketing: 'Market Intelligence Agent (Stage 1)',
     sales: 'Lead Qualification Agent (Stage 2)',
-    presales: 'Proposal Agent (Stage 3)',
-    engineering: 'Engineering Review Agent (Stage 4)',
-    'finance-legal': 'Commercial Risk Agent (Stage 5)',
-    'hr-pmo': 'Project Planning Agent (Stage 6)',
-    'site-operations': 'Project Execution & Monitoring Agent (Stage 7)',
+    presales: 'Proposal Drafting Agent (Stage 3)',
+    'commercial-legal': 'Commercial & Legal Risk Review Agent (Stage 4)',
+    'project-planning': 'Project Planning Agent (Stage 5)',
+    'engineering-design': 'Engineering Design Agent (Stage 6)',
+    'procurement-mfg': 'Procurement & Manufacturing Review Agent (Stage 7)',
     commissioning: 'Commissioning Agent (Stage 8)',
-    'digital-service': 'O&M Service Intelligence Agent (Stage 9)',
+    'service-troubleshooting': 'Service Troubleshooting Agent (Stage 9)',
   };
 
   let upstreamContextBlock = '';

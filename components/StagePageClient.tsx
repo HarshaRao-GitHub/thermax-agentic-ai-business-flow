@@ -25,8 +25,8 @@ export default function StagePageClient({ stage }: { stage: Stage }) {
   if (status === 'locked') {
     const prevStageNum = stage.number - 1;
     const prevSlugMap: Record<number, string> = {
-      1: 'marketing', 2: 'sales', 3: 'presales', 4: 'engineering',
-      5: 'finance-legal', 6: 'hr-pmo', 7: 'site-operations', 8: 'commissioning'
+      1: 'marketing', 2: 'sales', 3: 'presales', 4: 'commercial-legal',
+      5: 'project-planning', 6: 'engineering-design', 7: 'procurement-mfg', 8: 'commissioning'
     };
     const prevSlug = prevSlugMap[prevStageNum];
 

@@ -1,0 +1,16 @@
+vendor_id,vendor_name,category,products_supplied,location,quality_rating,delivery_rating,price_competitiveness,total_orders,on_time_pct,approved_status,iso_certified,last_audit_date
+VND-001,TLT-Babcock India,Rotating Equipment,"ID Fans,FD Fans,PA Fans",Pune,4.5,4.2,3.8,45,89,Approved,ISO 9001:2015,2025-11-15
+VND-002,Yokogawa India,Instrumentation,"DCS,Flow Meters,Pressure Transmitters",Bangalore,4.8,4.5,3.5,62,94,Approved,ISO 9001:2015,2025-12-01
+VND-003,L&T Valves,Piping Components,"Gate Valves,Globe Valves,Check Valves,Actuators",Coimbatore,4.6,4.0,4.0,85,87,Approved,ISO 9001:2015,2025-10-20
+VND-004,KSB India,Pumps,"Centrifugal Pumps,Boiler Feed Pumps,Process Pumps",Pune,4.4,4.3,3.9,55,91,Approved,ISO 9001:2015,2025-09-15
+VND-005,Siemens India,Electrical,"MCC Panels,VFDs,Motors,Switchgear",Mumbai,4.7,4.1,3.2,40,88,Approved,ISO 9001:2015,2025-11-30
+VND-006,ABB India,Electrical & Instrumentation,"Drives,Motors,Analyzers,Switchgear",Bangalore,4.6,4.0,3.4,38,86,Approved,ISO 9001:2015,2025-10-05
+VND-007,Harbison Walker India,Refractory,"Gunning Mix,Castables,Bricks,Ceramic Fiber",Kolkata,4.3,3.8,4.2,30,82,Approved,ISO 9001:2015,2025-08-20
+VND-008,SAIL,Structural Steel,"Plates,Beams,Channels,Angles",Multiple,4.0,3.5,4.5,70,78,Approved,ISO 9001:2015,2025-07-15
+VND-009,Paharpur Cooling Towers,Cooling Equipment,"Cooling Towers,Fills,Fans",Kolkata,4.2,4.0,4.0,22,85,Approved,ISO 9001:2015,2025-09-30
+VND-010,Forbes Marshall,Process Equipment,"Deaerators,Condensate Systems,Steam Traps",Pune,4.5,4.4,3.7,48,92,Approved,ISO 9001:2015,2025-11-10
+VND-011,Honeywell India,Instrumentation,"Pressure Transmitters,Controllers,Safety Systems",Pune,4.7,4.2,3.3,35,90,Approved,ISO 9001:2015,2025-12-15
+VND-012,Endress+Hauser India,Instrumentation,"Flow Meters,Level Transmitters,Analyzers",Mumbai,4.6,4.3,3.6,42,91,Approved,ISO 9001:2015,2025-10-25
+VND-013,John Zink India,Combustion Equipment,"Duct Burners,Flares,Combustion Systems",Chennai,4.4,3.9,3.0,15,84,Approved,ISO 9001:2015,2025-06-30
+VND-014,Spirax Sarco India,Steam Systems,"Steam Traps,PRVs,Control Valves",Pune,4.5,4.4,3.8,50,93,Approved,ISO 9001:2015,2025-11-05
+VND-015,Tata Steel,Raw Materials,"Plates,Tubes,Pipes,Structural",Jamshedpur,4.2,3.8,4.3,90,80,Approved,ISO 9001:2015,2025-08-15
