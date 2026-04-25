@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useWorkflow } from './WorkflowContext';
 
 export default function Header() {
-  const { flow, resetFlow, getGateStatus } = useWorkflow();
+  const { flow, resetFlow } = useWorkflow();
   const hasActiveFlow = flow?.stages?.some(s => s.hasResult) ?? false;
 
   function handleNewFlow() {
@@ -75,84 +75,9 @@ export default function Header() {
           </nav>
         </div>
       </div>
-
-      {/* Stage pipeline strip */}
-      <div className="bg-thermax-navyDeep/60 border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6 py-1.5">
-          <div className="flex items-center justify-center gap-0 overflow-x-auto scrollbar-hide">
-            {/* Mandatory label */}
-            <span className="text-[8px] font-bold uppercase tracking-widest text-red-400/70 mr-2 shrink-0">Required</span>
-
-            {STAGE_NAV.map((s, i) => {
-              const status = getGateStatus(s.slug);
-              const isLocked = status === 'locked';
-              const isApproved = status === 'approved';
-              const isAwaiting = status === 'awaiting_approval';
-              const isSkipped = status === 'skipped';
-
-              const statusIcon = isApproved ? '✅' : isAwaiting ? '⏳' : isSkipped ? '⏭' : isLocked ? '🔒' : '';
-              const isMandatory = i < 5;
-
-              return (
-                <div key={s.slug} className="flex items-center shrink-0">
-                  {i === 5 && (
-                    <>
-                      <span className="w-[2px] h-5 bg-thermax-saffron/40 mx-2 rounded-full" />
-                      <span className="text-[8px] font-bold uppercase tracking-widest text-sky-400/70 mr-2 shrink-0">Optional</span>
-                    </>
-                  )}
-                  {isLocked || isSkipped ? (
-                    <span className={`flex items-center gap-1 px-2 py-1 rounded-md text-[11px] font-medium cursor-not-allowed ${
-                      isSkipped ? 'text-white/35 line-through decoration-white/20' : 'text-white/30'
-                    }`}>
-                      <span className="text-xs">{s.icon}</span>
-                      <span className="hidden lg:inline">{s.label}</span>
-                      <span className="lg:hidden">{s.short}</span>
-                      {statusIcon && <span className="text-[9px]">{statusIcon}</span>}
-                    </span>
-                  ) : (
-                    <Link
-                      href={`/stages/${s.slug}`}
-                      className={`flex items-center gap-1 px-2 py-1 rounded-md text-[11px] font-medium transition ${
-                        isApproved
-                          ? 'text-emerald-300 hover:text-emerald-200 hover:bg-emerald-900/20'
-                          : isAwaiting
-                          ? 'text-amber-300 hover:text-amber-200 hover:bg-amber-900/20'
-                          : isMandatory
-                          ? 'text-white/80 hover:text-white hover:bg-white/10'
-                          : 'text-sky-300/80 hover:text-sky-200 hover:bg-sky-900/20'
-                      }`}
-                    >
-                      <span className="text-xs">{s.icon}</span>
-                      <span className="hidden lg:inline">{s.label}</span>
-                      <span className="lg:hidden">{s.short}</span>
-                      {statusIcon && <span className="text-[9px]">{statusIcon}</span>}
-                    </Link>
-                  )}
-                  {i < STAGE_NAV.length - 1 && i !== 4 && (
-                    <span className={`text-[10px] mx-0.5 select-none ${isApproved || isSkipped ? 'text-emerald-500/60' : 'text-thermax-saffron/60'}`}>›</span>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
     </header>
   );
 }
-
-const STAGE_NAV = [
-  { slug: 'marketing', icon: '📡', label: '1. Market Intelligence', short: '1' },
-  { slug: 'sales', icon: '🎯', label: '2. Lead Qualification', short: '2' },
-  { slug: 'presales', icon: '📝', label: '3. Proposal', short: '3' },
-  { slug: 'engineering', icon: '⚙️', label: '4. Engineering Review', short: '4' },
-  { slug: 'finance-legal', icon: '💼', label: '5. Commercial & Legal', short: '5' },
-  { slug: 'hr-pmo', icon: '👷', label: '6. Project Planning', short: '6' },
-  { slug: 'site-operations', icon: '🏗️', label: '7. Execution & Monitoring', short: '7' },
-  { slug: 'commissioning', icon: '🔬', label: '8. Commissioning', short: '8' },
-  { slug: 'digital-service', icon: '🔧', label: '9. O&M Services', short: '9' }
-];
 
 function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
