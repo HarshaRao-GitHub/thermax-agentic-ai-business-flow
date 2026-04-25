@@ -43,11 +43,11 @@ export default function Header() {
           <nav className="hidden md:flex items-center justify-center gap-1 pt-1.5 pb-0.5">
             <NavLink href="/">Dashboard</NavLink>
             <NavSep />
+            <NavLink href="/agentic-experience">Agentic Experience</NavLink>
+            <NavSep />
             <NavLink href="/governance">Governance</NavLink>
             <NavSep />
             <NavLink href="/doc-intelligence">Doc Intelligence</NavLink>
-            <NavSep />
-            <NavLink href="/agentic-experience">Agentic Experience</NavLink>
             <NavSep />
             <Link
               href="/custom-agents"
