@@ -43,6 +43,16 @@ export default function AgentChat({
   const [dataViewer, setDataViewer] = useState<DataViewerState>({ open: false, title: '', content: '', loading: false });
   const [userPrompt, setUserPrompt] = useState<UserPromptState>({ text: '', saved: false, validating: false, error: null });
   const [expandedTool, setExpandedTool] = useState<string | null>(null);
+
+  const isServiceCopilot = stage.slug === 'service-troubleshooting';
+  const [copilotMessages, setCopilotMessages] = useState<ChatMessage[]>([]);
+  const [copilotInput, setCopilotInput] = useState('');
+  const [copilotStreaming, setCopilotStreaming] = useState(false);
+  const [copilotStreamBuffer, setCopilotStreamBuffer] = useState('');
+  const [copilotElapsed, setCopilotElapsed] = useState(0);
+  const copilotTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const copilotStreamRef = useRef<HTMLDivElement>(null);
+
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const startTimeRef = useRef<number>(0);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -99,6 +109,83 @@ export default function AgentChat({
       streamRef.current.scrollTop = streamRef.current.scrollHeight;
     }
   }, [transcript.length, streamBuffer, toolEvents.length]);
+
+  useEffect(() => {
+    if (copilotStreamRef.current) {
+      copilotStreamRef.current.scrollTop = copilotStreamRef.current.scrollHeight;
+    }
+  }, [copilotMessages.length, copilotStreamBuffer]);
+
+  async function sendCopilot(textOverride?: string) {
+    const text = (textOverride ?? copilotInput).trim();
+    if (!text || copilotStreaming) return;
+    const next: ChatMessage[] = [...copilotMessages, { role: 'user', content: text }];
+    setCopilotMessages(next);
+    setCopilotInput('');
+    setCopilotStreaming(true);
+    setCopilotStreamBuffer('');
+    setCopilotElapsed(0);
+    const t0 = Date.now();
+    copilotTimerRef.current = setInterval(() => {
+      setCopilotElapsed(parseFloat(((Date.now() - t0) / 1000).toFixed(1)));
+    }, 100);
+
+    try {
+      const res = await fetch('/api/chat-agentic', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          slug: stage.slug,
+          messages: next,
+          uploadedTexts: uploadedFiles.map(f => ({ filename: f.filename, text: f.text })),
+        })
+      });
+
+      if (!res.ok || !res.body) {
+        const errText = await res.text().catch(() => 'Request failed');
+        setCopilotMessages([...next, { role: 'assistant', content: `*Error: ${errText}*` }]);
+        return;
+      }
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = '';
+      let assembled = '';
+
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split('\n');
+        buffer = lines.pop() ?? '';
+        let currentEvent = '';
+        for (const line of lines) {
+          if (line.startsWith('event: ')) {
+            currentEvent = line.slice(7).trim();
+          } else if (line.startsWith('data: ')) {
+            try {
+              const data = JSON.parse(line.slice(6));
+              if (currentEvent === 'text_delta') {
+                assembled += data;
+                setCopilotStreamBuffer(assembled);
+              } else if (currentEvent === 'error') {
+                assembled += `\n\n*Error: ${data?.message ?? 'Unknown error'}*`;
+                setCopilotStreamBuffer(assembled);
+              }
+            } catch { /* skip */ }
+            currentEvent = '';
+          }
+        }
+      }
+      setCopilotMessages([...next, { role: 'assistant', content: assembled }]);
+    } catch (err) {
+      setCopilotMessages([...next, { role: 'assistant', content: `*Error: ${err instanceof Error ? err.message : 'Unknown'}*` }]);
+    } finally {
+      setCopilotStreaming(false);
+      setCopilotStreamBuffer('');
+      if (copilotTimerRef.current) { clearInterval(copilotTimerRef.current); copilotTimerRef.current = null; }
+    }
+  }
 
   async function send(textOverride?: string) {
     const text = (textOverride ?? input).trim();
@@ -870,6 +957,94 @@ export default function AgentChat({
           );
         })()}
 
+        {/* ── Service Co-pilot Q&A (O&M Agent Only — Always Visible) ── */}
+        {isServiceCopilot && (
+          <div className="bg-white border border-emerald-200 rounded-xl shadow-card overflow-hidden">
+            <div className="px-5 py-3 border-b border-emerald-200 bg-gradient-to-r from-emerald-50 to-teal-50">
+              <div className="flex items-center gap-2">
+                <span className="text-lg">🛠️</span>
+                <div className="flex-1">
+                  <h3 className="text-[14px] font-bold text-emerald-800">Service Co-pilot — AI Q&A</h3>
+                  <p className="text-[11px] text-emerald-600 mt-0.5">
+                    Ask any question about Thermax O&M, troubleshooting, maintenance, spare parts, SOPs, or field service — powered by data backbone, tools, and uploaded documents
+                  </p>
+                </div>
+                <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-100 border border-emerald-300">
+                  <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider">Active</span>
+                </span>
+              </div>
+            </div>
+
+            <div className="p-4 space-y-3">
+              {/* Quick action buttons */}
+              {copilotMessages.length === 0 && !copilotStreaming && (
+                <div className="space-y-2">
+                  <p className="text-[11px] text-emerald-700 font-semibold">Quick Actions:</p>
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      { label: 'Diagnose boiler tube failure', prompt: 'A 45 TPH AFBC boiler at a cement plant is experiencing tube failure in the superheater section. What are the possible root causes, diagnostic steps, and recommended corrective actions?' },
+                      { label: 'AFBC startup procedure', prompt: 'Provide the standard cold startup procedure for a Thermax AFBC boiler including pre-checks, light-up sequence, bed heating, and coal feeding stages with safety interlocks.' },
+                      { label: 'Spare parts for TF heater', prompt: 'What are the critical spare parts needed for a Thermax thermic fluid heater annual maintenance? Include part numbers, quantities, and lead times.' },
+                      { label: 'Why-why analysis template', prompt: 'Help me conduct a 5-Why root cause analysis for recurring high stack temperature in an AFBC boiler. Guide me through each why level with possible causes.' },
+                      { label: 'O&M contract SLA review', prompt: 'What are the standard SLA parameters for Thermax O&M contracts? Include availability targets, response times, penalty clauses, and performance guarantees.' },
+                    ].map((qa, i) => (
+                      <button key={i} onClick={() => sendCopilot(qa.prompt)}
+                        className="text-[11px] px-3 py-1.5 bg-emerald-50 border border-emerald-200 text-emerald-700 rounded-lg hover:bg-emerald-100 hover:border-emerald-300 transition font-medium">
+                        {qa.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Conversation area */}
+              {(copilotMessages.length > 0 || copilotStreaming) && (
+                <div ref={copilotStreamRef} className="max-h-[400px] overflow-y-auto space-y-3 border border-gray-100 rounded-lg p-3 bg-gray-50/50">
+                  {copilotMessages.map((m, i) => (
+                    <CopilotBubble key={`copilot-${i}`} message={m}
+                      isStreaming={false} agentName="Service Co-pilot" />
+                  ))}
+                  {copilotStreaming && copilotStreamBuffer && (
+                    <CopilotBubble message={{ role: 'assistant', content: copilotStreamBuffer }}
+                      isStreaming={true} agentName="Service Co-pilot" />
+                  )}
+                  {copilotStreaming && !copilotStreamBuffer && (
+                    <div className="flex justify-start">
+                      <div className="bg-white rounded-2xl rounded-tl-md px-4 py-3 text-sm border border-emerald-100">
+                        <div className="flex items-center gap-2">
+                          <span className="inline-flex gap-1">
+                            <span className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                            <span className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                            <span className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                          </span>
+                          <span className="text-[11px] text-emerald-600 font-mono">{copilotElapsed}s</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Input area */}
+              <div className="flex gap-2">
+                <textarea value={copilotInput} onChange={(e) => setCopilotInput(e.target.value)}
+                  onKeyDown={(e) => { if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) { e.preventDefault(); sendCopilot(); } }}
+                  placeholder="Ask the Service Co-pilot anything about O&M, troubleshooting, maintenance, spare parts..."
+                  rows={2} disabled={copilotStreaming}
+                  className="flex-1 border border-emerald-200 rounded-lg px-3 py-2 text-[13px] resize-y focus:outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-200 disabled:bg-gray-50 placeholder:text-emerald-300" />
+                <button onClick={() => sendCopilot()} disabled={copilotStreaming || !copilotInput.trim()}
+                  className="bg-emerald-600 text-white font-semibold px-5 rounded-lg hover:bg-emerald-700 disabled:opacity-40 disabled:cursor-not-allowed transition text-sm">
+                  {copilotStreaming ? '...' : 'Ask'}
+                </button>
+              </div>
+              <p className="text-[10px] text-emerald-500">
+                Ctrl/Cmd+Enter to send · Uses {stage.dataSources.length} data sources, {stage.tools.length} tools{uploadedFiles.length > 0 ? `, ${uploadedFiles.length} uploaded file(s)` : ''} · Powered by {stage.agent.name}
+              </p>
+            </div>
+          </div>
+        )}
+
         {/* ── Empty state when nothing has run yet ── */}
         {transcript.length === 0 && toolEvents.length === 0 && !streaming && (
           <div className="bg-white border border-thermax-line rounded-xl shadow-card">
@@ -1400,6 +1575,47 @@ function EmptyState({ stage }: { stage: { title: string; icon: string; outputHin
       <div className="mt-5 max-w-md text-[12px] bg-thermax-mist border border-thermax-line rounded-lg p-3 text-left">
         <div className="font-semibold text-thermax-navy mb-1">Expected output</div>
         <div className="text-thermax-slate">{stage.outputHint}</div>
+      </div>
+    </div>
+  );
+}
+
+function CopilotBubble({ message, isStreaming, agentName }: { message: ChatMessage; isStreaming: boolean; agentName: string }) {
+  const [expanded, setExpanded] = useState(false);
+
+  if (message.role === 'user') {
+    return (
+      <div className="flex justify-end">
+        <div className="max-w-[85%] rounded-2xl px-4 py-3 text-[13px] leading-relaxed bg-emerald-600 text-white rounded-tr-md">
+          {message.content}
+        </div>
+      </div>
+    );
+  }
+
+  const preview = message.content.slice(0, 200).replace(/\n/g, ' ');
+  const showCollapse = !isStreaming && message.content.length > 0;
+
+  return (
+    <div className="flex justify-start">
+      <div className="max-w-[90%] rounded-2xl px-4 py-3 text-[13px] leading-relaxed bg-white text-gray-800 rounded-tl-md border border-emerald-100 w-full">
+        <button onClick={() => setExpanded(!expanded)}
+          className="w-full flex items-center justify-between mb-1 group cursor-pointer">
+          <span className="text-[10px] font-mono text-emerald-600 uppercase tracking-wider">{agentName}</span>
+          {showCollapse && (
+            <span className="text-[10px] font-bold text-gray-400 group-hover:text-emerald-600 tracking-wide transition">
+              {expanded ? 'COLLAPSE ▲' : 'EXPAND ▼'}
+            </span>
+          )}
+        </button>
+        {isStreaming || expanded ? (
+          <Markdown>{message.content}</Markdown>
+        ) : (
+          <div className="text-gray-500 text-xs leading-relaxed cursor-pointer" onClick={() => setExpanded(true)}>
+            {preview}{message.content.length > 200 ? '...' : ''}
+            <span className="ml-2 text-emerald-600 font-semibold">Click to expand</span>
+          </div>
+        )}
       </div>
     </div>
   );
