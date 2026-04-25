@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { DIVISION_TEMPLATES, SAMPLE_TENDERS, type DivisionTemplate, type ExtractionCategory } from '@/data/tender-templates';
+import { DIVISION_TEMPLATES, SAMPLE_TENDERS, type DivisionTemplate } from '@/data/tender-templates';
 import Markdown from './Markdown';
 
 type Tab = 'upload' | 'extraction' | 'estimation' | 'risk' | 'chat';
@@ -36,12 +36,13 @@ export default function TenderIntelligenceTool() {
   const [documentName, setDocumentName] = useState('');
   const [extracting, setExtracting] = useState(false);
   const [extractionResult, setExtractionResult] = useState<FullExtraction | null>(null);
-  const [extractionRaw, setExtractionRaw] = useState('');
+  const [extractionMarkdown, setExtractionMarkdown] = useState('');
+  const [extractionDone, setExtractionDone] = useState(false);
   const [chatMessages, setChatMessages] = useState<ChatMsg[]>([]);
   const [chatInput, setChatInput] = useState('');
   const [chatStreaming, setChatStreaming] = useState(false);
   const [chatStreamBuffer, setChatStreamBuffer] = useState('');
-  const [expandedCats, setExpandedCats] = useState<Set<string>>(new Set());
+  const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
   const [expandedChat, setExpandedChat] = useState<Set<number>>(new Set());
   const [loadingSample, setLoadingSample] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -63,7 +64,8 @@ export default function TenderIntelligenceTool() {
       const div = DIVISION_TEMPLATES.find(d => d.id === tender.division);
       if (div) setDivision(div);
       setExtractionResult(null);
-      setExtractionRaw('');
+      setExtractionMarkdown('');
+      setExtractionDone(false);
       setChatMessages([]);
     } catch { /* ignore */ }
     setLoadingSample(null);
@@ -76,15 +78,17 @@ export default function TenderIntelligenceTool() {
     setDocumentText(text);
     setDocumentName(file.name);
     setExtractionResult(null);
-    setExtractionRaw('');
+    setExtractionMarkdown('');
+    setExtractionDone(false);
     setChatMessages([]);
   }
 
   async function runExtraction() {
     if (!documentText || extracting) return;
     setExtracting(true);
-    setExtractionRaw('');
+    setExtractionMarkdown('');
     setExtractionResult(null);
+    setExtractionDone(false);
 
     try {
       const res = await fetch('/api/ai-nexus/tender-extract', {
@@ -98,7 +102,7 @@ export default function TenderIntelligenceTool() {
       });
 
       if (!res.ok || !res.body) {
-        setExtractionRaw('Error: ' + (await res.text().catch(() => 'Request failed')));
+        setExtractionMarkdown('*Error: ' + (await res.text().catch(() => 'Request failed')) + '*');
         return;
       }
 
@@ -118,24 +122,27 @@ export default function TenderIntelligenceTool() {
           else if (line.startsWith('data: ')) {
             try {
               const data = JSON.parse(line.slice(6));
-              if (curEvent === 'text_delta') { assembled += data; setExtractionRaw(assembled); }
+              if (curEvent === 'text_delta') { assembled += data; setExtractionMarkdown(assembled); }
             } catch { /* skip */ }
             curEvent = '';
           }
         }
       }
 
+      setExtractionMarkdown(assembled);
+      setExtractionDone(true);
+      setTab('extraction');
+
+      // Try to extract JSON block from the end of the response
       try {
-        const cleaned = assembled.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
-        const parsed = JSON.parse(cleaned) as FullExtraction;
-        setExtractionResult(parsed);
-        setTab('extraction');
-      } catch {
-        setExtractionRaw(assembled);
-        setTab('extraction');
-      }
+        const jsonMatch = assembled.match(/```json\s*([\s\S]*?)```/);
+        if (jsonMatch) {
+          const parsed = JSON.parse(jsonMatch[1].trim()) as FullExtraction;
+          setExtractionResult(parsed);
+        }
+      } catch { /* structured JSON parsing failed — readable Markdown still available */ }
     } catch (err) {
-      setExtractionRaw(`Error: ${err instanceof Error ? err.message : 'Unknown'}`);
+      setExtractionMarkdown(`*Error: ${err instanceof Error ? err.message : 'Unknown'}*`);
     } finally {
       setExtracting(false);
     }
@@ -191,8 +198,8 @@ export default function TenderIntelligenceTool() {
     }
   }
 
-  const toggleCat = (id: string) => {
-    setExpandedCats(prev => { const n = new Set(prev); n.has(id) ? n.delete(id) : n.add(id); return n; });
+  const toggleSection = (id: string) => {
+    setExpandedSections(prev => { const n = new Set(prev); n.has(id) ? n.delete(id) : n.add(id); return n; });
   };
 
   const toggleChat = (idx: number) => {
@@ -201,113 +208,29 @@ export default function TenderIntelligenceTool() {
 
   const hasDoc = documentText.length > 0;
 
-  function renderExtractions(filter?: 'estimation' | 'risk') {
-    if (!extractionResult) {
-      if (extractionRaw) {
-        return <div className="p-4 text-[13px] text-thermax-slate whitespace-pre-wrap">{extractionRaw}</div>;
-      }
-      return (
-        <div className="p-8 text-center text-thermax-slate">
-          <p className="text-[13px]">No extraction results yet. Load a document and click &quot;Extract&quot;.</p>
-        </div>
-      );
+  function getReadableMarkdown(filter?: 'estimation' | 'risk'): string {
+    if (!extractionMarkdown) return '';
+    // Strip the JSON block at the end for readable display
+    const cleaned = extractionMarkdown.replace(/```json[\s\S]*?```/g, '').trim();
+    if (!filter) return cleaned;
+
+    // For estimation/risk packs, filter to relevant sections
+    if (extractionResult) {
+      const relevantCatNames = division.categories
+        .filter(c => c.pack === filter || c.pack === 'both' || c.pack === 'general')
+        .map(c => c.name);
+      
+      const sections = cleaned.split(/\n(?=## )/);
+      const filtered = sections.filter(s => {
+        const heading = s.match(/^## (.+)/)?.[1]?.trim();
+        if (!heading) return false;
+        if (filter === 'risk' && (heading.includes('Critical Risk') || heading.includes('Tender Summary'))) return true;
+        if (filter === 'estimation' && (heading.includes('Exotic Material') || heading.includes('Tender Summary'))) return true;
+        return relevantCatNames.some(cn => heading.toLowerCase().includes(cn.toLowerCase()));
+      });
+      return filtered.join('\n\n') || cleaned;
     }
-
-    const filtered = filter
-      ? extractionResult.extractions.filter(e => {
-          const cat = division.categories.find(c => c.id === e.categoryId);
-          return cat && (cat.pack === filter || cat.pack === 'both' || cat.pack === 'general');
-        })
-      : extractionResult.extractions;
-
-    return (
-      <div className="space-y-4 p-4">
-        {/* Summary */}
-        {!filter && extractionResult.summary && (
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-            <div className="text-[11px] font-bold text-blue-800 mb-1">Tender Summary</div>
-            <div className="text-[12px] text-blue-700">{extractionResult.summary}</div>
-            {extractionResult.estimatedValue && (
-              <div className="mt-2 text-[12px] font-semibold text-blue-800">Estimated Value: {extractionResult.estimatedValue}</div>
-            )}
-          </div>
-        )}
-
-        {/* Exotic Materials Alert */}
-        {!filter && extractionResult.exoticMaterials.length > 0 && (
-          <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
-            <div className="text-[11px] font-bold text-amber-800 mb-1">Exotic Materials Detected</div>
-            <div className="flex flex-wrap gap-1.5">
-              {extractionResult.exoticMaterials.map((m, i) => (
-                <span key={i} className="text-[10px] px-2 py-0.5 bg-amber-100 text-amber-800 rounded font-semibold">{m}</span>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Critical Risks */}
-        {(filter === 'risk' || !filter) && extractionResult.criticalRisks.length > 0 && (
-          <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-            <div className="text-[11px] font-bold text-red-800 mb-1">Critical Risk Items</div>
-            <ul className="space-y-1">
-              {extractionResult.criticalRisks.map((r, i) => (
-                <li key={i} className="text-[11px] text-red-700 flex items-start gap-1.5">
-                  <span className="text-red-500 mt-0.5 flex-shrink-0">&#9888;</span>{r}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {/* Category extractions */}
-        {filtered.map(ext => (
-          <div key={ext.categoryId} className="bg-white border border-thermax-line rounded-lg shadow-card overflow-hidden">
-            <button onClick={() => toggleCat(ext.categoryId)}
-              className="w-full text-left px-4 py-3 flex items-center justify-between hover:bg-gray-50 transition">
-              <div className="flex items-center gap-2">
-                <span className="text-[13px] font-bold text-thermax-navy">{ext.categoryName}</span>
-                <span className="text-[10px] bg-thermax-mist text-thermax-slate px-2 py-0.5 rounded font-mono">{ext.items.length} items</span>
-                {ext.items.some(it => it.flagged) && (
-                  <span className="text-[9px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded font-bold">FLAGGED</span>
-                )}
-              </div>
-              <span className="text-[10px] text-thermax-slate">{expandedCats.has(ext.categoryId) ? '▲' : '▼'}</span>
-            </button>
-            {expandedCats.has(ext.categoryId) && (
-              <div className="border-t border-thermax-line">
-                <table className="w-full text-[11px]">
-                  <thead>
-                    <tr className="bg-gray-50">
-                      <th className="text-left px-4 py-2 font-semibold text-thermax-navy">Field</th>
-                      <th className="text-left px-4 py-2 font-semibold text-thermax-navy">Value</th>
-                      <th className="text-center px-4 py-2 font-semibold text-thermax-navy w-20">Confidence</th>
-                      <th className="text-left px-4 py-2 font-semibold text-thermax-navy w-28">Source</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {ext.items.map((item, i) => (
-                      <tr key={i} className={`border-t border-gray-100 ${item.flagged ? 'bg-amber-50' : ''}`}>
-                        <td className="px-4 py-2 font-medium text-thermax-navy">
-                          {item.flagged && <span className="text-amber-500 mr-1">&#9888;</span>}
-                          {item.field}
-                        </td>
-                        <td className="px-4 py-2 text-thermax-slate">{item.value}</td>
-                        <td className="px-4 py-2 text-center">
-                          <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${item.confidence >= 0.9 ? 'bg-emerald-100 text-emerald-700' : item.confidence >= 0.7 ? 'bg-amber-100 text-amber-700' : 'bg-red-100 text-red-700'}`}>
-                            {Math.round(item.confidence * 100)}%
-                          </span>
-                        </td>
-                        <td className="px-4 py-2 text-thermax-slate font-mono">{item.sourceRef}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
-    );
+    return cleaned;
   }
 
   return (
@@ -333,9 +256,9 @@ export default function TenderIntelligenceTool() {
         <div className="flex items-center gap-1 px-4 py-2 border-t border-thermax-line">
           {([
             { id: 'upload' as Tab, label: 'Upload & Configure', icon: '📤' },
-            { id: 'extraction' as Tab, label: 'Structured Extraction', icon: '📋', disabled: !hasDoc },
-            { id: 'estimation' as Tab, label: 'Estimation Pack', icon: '💰', disabled: !extractionResult },
-            { id: 'risk' as Tab, label: 'Risk Pack', icon: '⚠️', disabled: !extractionResult },
+            { id: 'extraction' as Tab, label: 'Extraction Report', icon: '📋', disabled: !hasDoc },
+            { id: 'estimation' as Tab, label: 'Estimation Pack', icon: '💰', disabled: !extractionDone },
+            { id: 'risk' as Tab, label: 'Risk Pack', icon: '⚠️', disabled: !extractionDone },
             { id: 'chat' as Tab, label: 'Q&A Chat', icon: '💬', disabled: !hasDoc },
           ]).map(t => (
             <button key={t.id} onClick={() => !t.disabled && setTab(t.id)}
@@ -447,14 +370,26 @@ export default function TenderIntelligenceTool() {
       {tab === 'extraction' && (
         <div className="bg-white border border-thermax-line rounded-xl shadow-card overflow-hidden">
           <div className="px-5 py-3 border-b border-thermax-line bg-gradient-to-r from-violet-50 to-purple-50 flex items-center justify-between">
-            <h3 className="text-[14px] font-bold text-thermax-navy">Structured Extraction Results</h3>
-            {extractionResult && (
-              <span className="text-[10px] bg-emerald-100 text-emerald-700 px-2.5 py-1 rounded font-bold">
-                {extractionResult.extractions.reduce((s, e) => s + e.items.length, 0)} items extracted
-              </span>
-            )}
+            <h3 className="text-[14px] font-bold text-thermax-navy">Extraction Report</h3>
+            <div className="flex items-center gap-2">
+              {extracting && <span className="text-[10px] text-violet-600 font-mono animate-pulse">Extracting...</span>}
+              {extractionDone && (
+                <span className="text-[10px] bg-emerald-100 text-emerald-700 px-2.5 py-1 rounded font-bold">Extraction Complete</span>
+              )}
+            </div>
           </div>
-          {renderExtractions()}
+          {extractionMarkdown ? (
+            <CollapsibleResult id="extraction-report" title="AI Extraction Report" expanded={expandedSections.has('extraction-report')} onToggle={() => toggleSection('extraction-report')} streaming={extracting}>
+              <div className="p-5 max-h-[600px] overflow-y-auto">
+                <Markdown>{getReadableMarkdown()}</Markdown>
+              </div>
+            </CollapsibleResult>
+          ) : (
+            <div className="p-8 text-center text-thermax-slate">
+              <div className="text-3xl mb-2">📋</div>
+              <p className="text-[13px]">No extraction results yet. Load a document and click &quot;Extract with AI&quot;.</p>
+            </div>
+          )}
         </div>
       )}
 
@@ -463,9 +398,13 @@ export default function TenderIntelligenceTool() {
         <div className="bg-white border border-thermax-line rounded-xl shadow-card overflow-hidden">
           <div className="px-5 py-3 border-b border-thermax-line bg-gradient-to-r from-blue-50 to-cyan-50">
             <h3 className="text-[14px] font-bold text-thermax-navy">Estimation Pack</h3>
-            <p className="text-[11px] text-thermax-slate">Parameters relevant for costing and estimation</p>
+            <p className="text-[11px] text-thermax-slate">Parameters relevant for costing and estimation — filtered from the extraction report</p>
           </div>
-          {renderExtractions('estimation')}
+          <CollapsibleResult id="estimation-report" title="Estimation Parameters" expanded={expandedSections.has('estimation-report')} onToggle={() => toggleSection('estimation-report')}>
+            <div className="p-5 max-h-[600px] overflow-y-auto">
+              <Markdown>{getReadableMarkdown('estimation')}</Markdown>
+            </div>
+          </CollapsibleResult>
         </div>
       )}
 
@@ -474,9 +413,13 @@ export default function TenderIntelligenceTool() {
         <div className="bg-white border border-thermax-line rounded-xl shadow-card overflow-hidden">
           <div className="px-5 py-3 border-b border-thermax-line bg-gradient-to-r from-red-50 to-orange-50">
             <h3 className="text-[14px] font-bold text-thermax-navy">Risk Pack</h3>
-            <p className="text-[11px] text-thermax-slate">Clauses requiring legal and commercial review</p>
+            <p className="text-[11px] text-thermax-slate">Clauses requiring legal and commercial review — filtered from the extraction report</p>
           </div>
-          {renderExtractions('risk')}
+          <CollapsibleResult id="risk-report" title="Risk Analysis" expanded={expandedSections.has('risk-report')} onToggle={() => toggleSection('risk-report')}>
+            <div className="p-5 max-h-[600px] overflow-y-auto">
+              <Markdown>{getReadableMarkdown('risk')}</Markdown>
+            </div>
+          </CollapsibleResult>
         </div>
       )}
 
@@ -593,6 +536,26 @@ export default function TenderIntelligenceTool() {
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+function CollapsibleResult({ id, title, expanded, onToggle, streaming, children }: {
+  id: string; title: string; expanded: boolean; onToggle: () => void; streaming?: boolean;
+  children: React.ReactNode;
+}) {
+  const show = expanded || streaming;
+  return (
+    <div>
+      <button onClick={onToggle}
+        className="w-full text-left px-5 py-3 flex items-center justify-between hover:bg-gray-50 transition border-b border-thermax-line">
+        <div className="flex items-center gap-2">
+          <span className="text-[13px] font-semibold text-thermax-navy">{title}</span>
+          {streaming && <span className="text-[10px] text-violet-600 font-mono animate-pulse">Streaming...</span>}
+        </div>
+        <span className="text-[11px] font-bold text-thermax-slate">{show ? 'COLLAPSE ▲' : 'EXPAND ▼'}</span>
+      </button>
+      {show && children}
     </div>
   );
 }

@@ -23,36 +23,40 @@ export async function POST(request: NextRequest) {
 TASK: Analyze the provided tender document and extract information into the following categories:
 ${categoryList}
 
-OUTPUT FORMAT: You must respond with ONLY a valid JSON object (no markdown code fences, no preamble). The JSON must have this exact structure:
-{
-  "extractions": [
-    {
-      "categoryId": "<category id from above>",
-      "categoryName": "<category name>",
-      "items": [
-        {
-          "field": "<extracted field name>",
-          "value": "<extracted value>",
-          "confidence": <0.0 to 1.0>,
-          "sourceRef": "<reference to section/page in document>",
-          "flagged": <true if exotic material or critical risk item>
-        }
-      ]
-    }
-  ],
-  "summary": "<2-3 sentence overall tender summary>",
-  "exoticMaterials": ["<list of any exotic or non-standard materials found>"],
-  "criticalRisks": ["<list of high-risk clauses or conditions>"],
-  "estimatedValue": "<project estimated value if found>"
-}
+PRODUCE A DETAILED, STRUCTURED REPORT in the following format:
+
+## Tender Summary
+2-3 sentence overview of the tender, including estimated project value if found.
+
+## Exotic Materials Detected
+List any exotic or non-standard materials (Hastelloy, Inconel, Titanium, Duplex SS, alloys beyond SS 316). Mark each with the component it applies to.
+
+## Critical Risk Items
+List high-risk clauses: high LD percentages, unusual payment terms, stringent performance guarantees, IP clauses, etc.
+
+Then for EACH extraction category, produce a section:
+
+## [Category Name]
+Present extracted information in a Markdown table with columns:
+| Field | Value | Confidence | Source | Flagged |
+Where Confidence is High/Medium/Low, Source references the document section, and Flagged is Yes for exotic materials or critical risks.
+
+After the table, add any notes or observations relevant to that category.
+
+Finally, at the very end of your response, include a JSON block wrapped in triple backticks:
+\`\`\`json
+{"extractions":[{"categoryId":"...","categoryName":"...","items":[{"field":"...","value":"...","confidence":0.95,"sourceRef":"Section X","flagged":false}]}],"summary":"...","exoticMaterials":["..."],"criticalRisks":["..."],"estimatedValue":"..."}
+\`\`\`
 
 RULES:
-- Extract ALL relevant information for each category
-- Set confidence to 1.0 for directly stated values, 0.7-0.9 for inferred values, below 0.7 for uncertain
-- Flag exotic materials (Hastelloy, Inconel, Titanium, Duplex SS, special alloys beyond SS 316)
-- Flag critical risk items (high LD percentages, unusual payment terms, stringent performance guarantees)
+- Be thorough and extract ALL relevant information for each category
+- Use clear, readable language — not technical jargon
+- Confidence: High = directly stated (1.0), Medium = inferred (0.7-0.9), Low = uncertain (<0.7)
+- Flag exotic materials and critical risk items clearly
 - Reference specific section numbers from the document
-- If a category has no relevant content, return an empty items array for it`;
+- Use Mermaid diagrams where helpful (flowchart only, plain ASCII, no emojis, no xychart-beta)
+- If a category has no relevant content, note "No relevant information found in this tender"
+- Make the report comprehensive and immediately actionable for proposal engineers`;
 
     const encoder = new TextEncoder();
     const sse = (event: string, data: unknown) =>
