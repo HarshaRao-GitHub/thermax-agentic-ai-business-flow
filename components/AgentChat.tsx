@@ -697,38 +697,27 @@ export default function AgentChat({
 
         {/* ── SECTION 1: Agentic Session Metrics ── */}
         {(usageStats || streaming) && (transcript.length > 0 || toolEvents.length > 0) && (
-          <div className="bg-white border border-thermax-line rounded-xl shadow-card overflow-hidden">
-            <div className="px-5 py-3 border-b border-thermax-line bg-thermax-mist">
-              <div className="flex items-center gap-2">
-                <span className="text-[10px] font-bold bg-thermax-navy text-white px-2 py-0.5 rounded">1</span>
-                <h3 className="text-[13px] font-bold text-thermax-navy">Agentic Session Metrics</h3>
-              </div>
-            </div>
+          <CollapsibleSection sectionNumber="1" title="Agentic Session Metrics">
             <div className="p-4">
               <UsageCard stats={usageStats} elapsed={elapsedTimer} streaming={streaming} toolCount={stage.tools.length} />
             </div>
-          </div>
+          </CollapsibleSection>
         )}
 
         {/* ── SECTION 2: Agent Processing Steps ── */}
         {toolEvents.length > 0 && (
-          <div className="bg-white border border-thermax-line rounded-xl shadow-card overflow-hidden">
-            <div className="px-5 py-3 border-b border-thermax-line bg-thermax-mist">
-              <div className="flex items-center gap-2">
-                <span className="text-[10px] font-bold bg-thermax-navy text-white px-2 py-0.5 rounded">2</span>
-                <h3 className="text-[13px] font-bold text-thermax-navy">Agent Processing Steps</h3>
-                <span className="text-[10px] font-mono text-thermax-slate">
-                  {buildToolPairs(toolEvents).filter(p => p.completed).length}/{buildToolPairs(toolEvents).length} completed
-                </span>
-                {streaming && <span className="inline-block w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse" />}
-              </div>
-            </div>
+          <CollapsibleSection
+            sectionNumber="2"
+            title="Agent Processing Steps"
+            subtitle={`${buildToolPairs(toolEvents).filter(p => p.completed).length}/${buildToolPairs(toolEvents).length} completed`}
+            liveIndicator={streaming}
+          >
             <div className="p-4 max-h-[300px] overflow-y-auto space-y-2">
               {buildToolPairs(toolEvents).map((pair, i) => (
                 <ToolCard key={i} pair={pair} tools={stage.tools} />
               ))}
             </div>
-          </div>
+          </CollapsibleSection>
         )}
 
         {/* ── SECTION 3: Agent Results ── */}
@@ -737,17 +726,13 @@ export default function AgentChat({
           const firstUserPrompt = transcript.find(m => m.role === 'user');
           if (!firstAssistant && !streaming) return null;
           if (!firstAssistant && streaming && !streamBuffer) return null;
+          const isGenerating = streaming && firstUserPrompt && !firstAssistant;
           return (
-            <div className="bg-white border border-thermax-line rounded-xl shadow-card overflow-hidden">
-              <div className="px-5 py-3 border-b border-thermax-line bg-thermax-mist">
-                <div className="flex items-center gap-2">
-                  <span className="text-[10px] font-bold bg-thermax-navy text-white px-2 py-0.5 rounded">3</span>
-                  <h3 className="text-[13px] font-bold text-thermax-navy">Agent Results</h3>
-                  {streaming && firstUserPrompt && !firstAssistant && (
-                    <span className="text-[10px] font-mono text-blue-600">Generating...</span>
-                  )}
-                </div>
-              </div>
+            <CollapsibleSection
+              sectionNumber="3"
+              title="Agent Results"
+              subtitle={isGenerating ? 'Generating...' : undefined}
+            >
               <div className="max-h-[500px] overflow-y-auto">
                 {firstUserPrompt && (
                   <div className="px-5 pt-3">
@@ -768,7 +753,7 @@ export default function AgentChat({
                   </div>
                 )}
               </div>
-            </div>
+            </CollapsibleSection>
           );
         })()}
 
@@ -848,14 +833,13 @@ export default function AgentChat({
           const followUpMessages = transcript.slice(2);
           if (followUpMessages.length === 0) return null;
           return (
-            <div className="bg-white border border-thermax-line rounded-xl shadow-card overflow-hidden">
-              <div className="px-5 py-3 border-b border-thermax-line bg-gradient-to-r from-violet-50 to-blue-50">
-                <div className="flex items-center gap-2">
-                  <span className="text-[10px] font-bold bg-violet-600 text-white px-2 py-0.5 rounded">6</span>
-                  <h3 className="text-[13px] font-bold text-thermax-navy">Q&A Results</h3>
-                  <span className="text-[10px] font-mono text-violet-600">{Math.floor(followUpMessages.length / 2)} conversation(s)</span>
-                </div>
-              </div>
+            <CollapsibleSection
+              sectionNumber="6"
+              title="Q&A Results"
+              subtitle={`${Math.floor(followUpMessages.length / 2)} conversation(s)`}
+              badgeColor="bg-violet-600"
+              headerGradient="bg-gradient-to-r from-violet-50 to-blue-50"
+            >
               <div className="max-h-[500px] overflow-y-auto p-4 space-y-3">
                 {followUpMessages.map((m, i) => (
                   <MessageBubble key={`qa-${i}`} role={m.role} content={m.content}
@@ -863,7 +847,7 @@ export default function AgentChat({
                     agentName={stage.agent.name} />
                 ))}
               </div>
-            </div>
+            </CollapsibleSection>
           );
         })()}
 
@@ -1338,6 +1322,48 @@ function ToolDetailView({ tool, agentName }: { tool: StageTool; agentName: strin
           {tool.description} This tool is used by the <strong>{agentName}</strong> during its analysis workflow.
         </div>
       )}
+    </div>
+  );
+}
+
+function CollapsibleSection({
+  sectionNumber,
+  title,
+  subtitle,
+  badgeColor = 'bg-thermax-navy',
+  headerGradient = 'bg-thermax-mist',
+  defaultOpen = false,
+  liveIndicator = false,
+  children,
+}: {
+  sectionNumber: string;
+  title: string;
+  subtitle?: string;
+  badgeColor?: string;
+  headerGradient?: string;
+  defaultOpen?: boolean;
+  liveIndicator?: boolean;
+  children: React.ReactNode;
+}) {
+  const [open, setOpen] = useState(defaultOpen);
+
+  return (
+    <div className="bg-white border border-thermax-line rounded-xl shadow-card overflow-hidden">
+      <button
+        onClick={() => setOpen(!open)}
+        className={`w-full flex items-center justify-between px-5 py-3 border-b border-thermax-line ${headerGradient} hover:brightness-[0.97] transition cursor-pointer select-none`}
+      >
+        <div className="flex items-center gap-2">
+          <span className={`text-[10px] font-bold text-white px-2 py-0.5 rounded ${badgeColor}`}>{sectionNumber}</span>
+          <h3 className="text-[13px] font-bold text-thermax-navy">{title}</h3>
+          {subtitle && <span className="text-[10px] font-mono text-thermax-slate">{subtitle}</span>}
+          {liveIndicator && <span className="inline-block w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse" />}
+        </div>
+        <span className={`text-[10px] font-bold tracking-wider transition-transform ${open ? 'text-thermax-saffronDeep' : 'text-thermax-slate'}`}>
+          {open ? 'COLLAPSE ▲' : 'EXPAND ▼'}
+        </span>
+      </button>
+      {open && children}
     </div>
   );
 }
