@@ -453,6 +453,7 @@ export default function DocIntelligenceHub() {
 
 function ResultBubble({ message, isStreaming }: { message: ChatMessage; isStreaming: boolean }) {
   const [copied, setCopied] = useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   if (message.role === 'user') {
     return (
@@ -476,37 +477,60 @@ function ResultBubble({ message, isStreaming }: { message: ChatMessage; isStream
     document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
   };
 
+  const preview = message.content.slice(0, 200).replace(/\n/g, ' ');
+  const showCollapse = !isStreaming && message.content.length > 0;
+
   return (
     <div className="flex justify-start">
       <div className="max-w-[95%] w-full bg-slate-50 border border-gray-200 rounded-2xl rounded-tl-md px-5 py-4 text-sm shadow-sm">
-        <div className="flex items-center gap-2 mb-3">
-          <span className="w-2 h-2 bg-blue-600 rounded-full" />
-          <span className="text-xs font-bold text-blue-700 uppercase tracking-wider">AI Document Analyst</span>
-        </div>
-        <div className="text-gray-900 leading-relaxed doc-intel-markdown">
-          <Markdown>{message.content}</Markdown>
-        </div>
-        {isStreaming && (
-          <div className="mt-3 flex items-center gap-2">
-            <div className="h-1.5 w-24 bg-gray-200 rounded-full overflow-hidden">
-              <div className="h-full bg-gradient-to-r from-blue-500 to-teal-500 rounded-full animate-pulse" style={{ width: '60%' }} />
-            </div>
-            <span className="text-xs text-gray-500 font-medium">streaming...</span>
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="w-full flex items-center justify-between mb-2 group cursor-pointer"
+        >
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 bg-blue-600 rounded-full" />
+            <span className="text-xs font-bold text-blue-700 uppercase tracking-wider">AI Document Analyst</span>
           </div>
-        )}
-        {!isStreaming && message.content && (
-          <div className="mt-3 pt-2.5 border-t border-gray-200 flex items-center gap-3">
-            <button onClick={handleDownload} className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-gray-800 font-semibold px-2.5 py-1.5 rounded-lg hover:bg-gray-100 transition">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Download
-            </button>
-            <button onClick={handleCopy} className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-gray-800 font-semibold px-2.5 py-1.5 rounded-lg hover:bg-gray-100 transition">
-              {copied ? (
-                <><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-600"><polyline points="20 6 9 17 4 12"/></svg><span className="text-emerald-700 font-bold">Copied!</span></>
-              ) : (
-                <><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy</>
-              )}
-            </button>
+          {showCollapse && (
+            <span className="text-xs font-bold text-blue-500 group-hover:text-blue-700 tracking-wide transition">
+              {expanded ? 'COLLAPSE ▲' : 'EXPAND ▼'}
+            </span>
+          )}
+        </button>
+
+        {isStreaming || expanded ? (
+          <>
+            <div className="text-gray-900 leading-relaxed doc-intel-markdown">
+              <Markdown>{message.content}</Markdown>
+            </div>
+            {isStreaming && (
+              <div className="mt-3 flex items-center gap-2">
+                <div className="h-1.5 w-24 bg-gray-200 rounded-full overflow-hidden">
+                  <div className="h-full bg-gradient-to-r from-blue-500 to-teal-500 rounded-full animate-pulse" style={{ width: '60%' }} />
+                </div>
+                <span className="text-xs text-gray-500 font-medium">streaming...</span>
+              </div>
+            )}
+            {!isStreaming && message.content && (
+              <div className="mt-3 pt-2.5 border-t border-gray-200 flex items-center gap-3">
+                <button onClick={handleDownload} className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-gray-800 font-semibold px-2.5 py-1.5 rounded-lg hover:bg-gray-100 transition">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  Download
+                </button>
+                <button onClick={handleCopy} className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-gray-800 font-semibold px-2.5 py-1.5 rounded-lg hover:bg-gray-100 transition">
+                  {copied ? (
+                    <><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-600"><polyline points="20 6 9 17 4 12"/></svg><span className="text-emerald-700 font-bold">Copied!</span></>
+                  ) : (
+                    <><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy</>
+                  )}
+                </button>
+              </div>
+            )}
+          </>
+        ) : (
+          <div className="text-gray-500 text-xs leading-relaxed cursor-pointer" onClick={() => setExpanded(true)}>
+            {preview}{message.content.length > 200 ? '...' : ''}
+            <span className="ml-2 text-blue-600 font-semibold">Click to expand</span>
           </div>
         )}
       </div>

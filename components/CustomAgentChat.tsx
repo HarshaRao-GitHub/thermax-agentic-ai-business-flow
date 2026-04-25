@@ -317,15 +317,11 @@ export default function CustomAgentChat({ agent }: { agent: Agent }) {
           )}
 
           {transcript.map((msg, i) => (
-            <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-              <div className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${
-                msg.role === 'user'
-                  ? 'bg-thermax-navy text-white rounded-tr-md'
-                  : 'bg-thermax-mist text-thermax-navy rounded-tl-md border border-thermax-line'
-              }`}>
-                {msg.role === 'assistant' ? <Markdown>{msg.content}</Markdown> : msg.content}
-              </div>
-            </div>
+            <CustomChatBubble
+              key={i}
+              message={msg}
+              isStreaming={streaming && msg.role === 'assistant' && i === transcript.length - 1}
+            />
           ))}
 
           {streaming && !streamBuffer && (
@@ -397,5 +393,49 @@ function QuickAction({ label, onClick }: { label: string; onClick: () => void })
     >
       {label}
     </button>
+  );
+}
+
+function CustomChatBubble({ message, isStreaming }: { message: ChatMessage; isStreaming: boolean }) {
+  const [expanded, setExpanded] = useState(false);
+
+  if (message.role === 'user') {
+    return (
+      <div className="flex justify-end">
+        <div className="max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed bg-thermax-navy text-white rounded-tr-md">
+          {message.content}
+        </div>
+      </div>
+    );
+  }
+
+  const preview = message.content.slice(0, 180).replace(/\n/g, ' ');
+  const showCollapse = !isStreaming && message.content.length > 0;
+
+  return (
+    <div className="flex justify-start">
+      <div className="max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed bg-thermax-mist text-thermax-navy rounded-tl-md border border-thermax-line w-full">
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="w-full flex items-center justify-between mb-1 group cursor-pointer"
+        >
+          <span className="text-[10px] font-mono text-thermax-saffronDeep uppercase tracking-wider">AI Agent</span>
+          {showCollapse && (
+            <span className="text-[10px] font-bold text-thermax-slate group-hover:text-thermax-saffronDeep tracking-wide transition">
+              {expanded ? 'COLLAPSE ▲' : 'EXPAND ▼'}
+            </span>
+          )}
+        </button>
+
+        {isStreaming || expanded ? (
+          <Markdown>{message.content}</Markdown>
+        ) : (
+          <div className="text-thermax-slate text-xs leading-relaxed cursor-pointer" onClick={() => setExpanded(true)}>
+            {preview}{message.content.length > 180 ? '...' : ''}
+            <span className="ml-2 text-thermax-saffronDeep font-semibold">Click to expand</span>
+          </div>
+        )}
+      </div>
+    </div>
   );
 }

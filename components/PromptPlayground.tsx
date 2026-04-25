@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState, useCallback } from 'react';
+import { useRef, useState, useCallback, useEffect } from 'react';
 import Markdown from './Markdown';
 
 type Role = 'user' | 'assistant';
@@ -452,6 +452,8 @@ export default function PromptPlayground() {
 }
 
 function ChatBubble({ message, isStreaming }: { message: ChatMessage; isStreaming: boolean }) {
+  const [expanded, setExpanded] = useState(false);
+
   if (message.role === 'user') {
     return (
       <div className="flex justify-end">
@@ -462,16 +464,38 @@ function ChatBubble({ message, isStreaming }: { message: ChatMessage; isStreamin
     );
   }
 
+  const preview = message.content.slice(0, 180).replace(/\n/g, ' ');
+  const showCollapse = !isStreaming && message.content.length > 0;
+
   return (
     <div className="flex justify-start">
       <div className="max-w-[90%] w-full bg-white/[0.04] border border-white/5 rounded-2xl rounded-tl-md px-5 py-4 text-sm">
-        <div className="flex items-center gap-2 mb-2">
-          <span className="w-1.5 h-1.5 bg-teal-400 rounded-full" />
-          <span className="text-[10px] font-mono text-teal-400/70 uppercase tracking-wider">AI Research Assistant</span>
-        </div>
-        <div className="text-white/80 leading-relaxed prompt-markdown">
-          <Markdown>{message.content}</Markdown>
-        </div>
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="w-full flex items-center justify-between mb-2 group cursor-pointer"
+        >
+          <div className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 bg-teal-400 rounded-full" />
+            <span className="text-[10px] font-mono text-teal-400/70 uppercase tracking-wider">AI Research Assistant</span>
+          </div>
+          {showCollapse && (
+            <span className="text-[10px] font-bold text-teal-400/60 group-hover:text-teal-400 tracking-wide transition">
+              {expanded ? 'COLLAPSE ▲' : 'EXPAND ▼'}
+            </span>
+          )}
+        </button>
+
+        {isStreaming || expanded ? (
+          <div className="text-white/80 leading-relaxed prompt-markdown">
+            <Markdown>{message.content}</Markdown>
+          </div>
+        ) : (
+          <div className="text-white/50 text-xs leading-relaxed cursor-pointer" onClick={() => setExpanded(true)}>
+            {preview}{message.content.length > 180 ? '...' : ''}
+            <span className="ml-2 text-teal-400/70 font-semibold">Click to expand</span>
+          </div>
+        )}
+
         {isStreaming && (
           <div className="mt-3 flex items-center gap-2">
             <div className="h-1 w-20 bg-white/5 rounded-full overflow-hidden">
