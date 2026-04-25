@@ -392,13 +392,36 @@ export default function AgentChat({
     for (const sf of unloaded) await loadSampleFile(sf);
   }
 
-  async function viewDataBackbone(ds: { file: string; label: string; folder: string }) {
+  async function viewDataBackbone(ds: { file: string; label: string; folder: string; fileType?: string }) {
     setDataViewer({ open: true, title: ds.label, content: '', loading: true });
+
+    const isPdf = ds.fileType === 'pdf' || ds.file.endsWith('.pdf');
+    const viewFile = isPdf ? ds.file.replace(/\.pdf$/i, '.txt') : ds.file;
+
+    const candidateUrls = [
+      `/data-backbone/${ds.folder}/${viewFile}`,
+      `/sample-data/${ds.folder}/${viewFile}`,
+    ];
+
+    let text = '';
+    let loaded = false;
+    for (const url of candidateUrls) {
+      try {
+        const res = await fetch(url);
+        if (res.ok) {
+          text = await res.text();
+          loaded = true;
+          break;
+        }
+      } catch { /* try next */ }
+    }
+
+    if (!loaded) {
+      setDataViewer(prev => ({ ...prev, content: 'Error: Could not load this file.', loading: false }));
+      return;
+    }
+
     try {
-      const publicUrl = `/data-backbone/${ds.folder}/${ds.file}`;
-      const res = await fetch(publicUrl);
-      if (!res.ok) throw new Error('Failed to fetch');
-      const text = await res.text();
       const lines = text.split(/\r?\n/).filter(l => l.trim());
       if (lines.length > 0 && ds.file.endsWith('.csv')) {
         const parseLine = (line: string) => {
@@ -418,7 +441,8 @@ export default function AgentChat({
         const rowLines = dataRows.map(r => headers.map((_, i) => (r[i] ?? '').replace(/\n/g, ' ')).join(' | '));
         setDataViewer({ open: true, title: `${ds.label} (${ds.file}) — ${dataRows.length} rows`, content: `| ${header} |\n| ${sep} |\n${rowLines.map(r => `| ${r} |`).join('\n')}`, loading: false });
       } else {
-        setDataViewer({ open: true, title: `${ds.label} (${ds.file})`, content: text, loading: false });
+        const suffix = isPdf ? ` — ${ds.label}` : '';
+        setDataViewer({ open: true, title: `${ds.label} (${ds.file})${suffix}`, content: text, loading: false });
       }
     } catch {
       setDataViewer(prev => ({ ...prev, content: 'Error: Could not load this file.', loading: false }));
@@ -617,7 +641,7 @@ export default function AgentChat({
                       onClick={() => viewDataBackbone(ds)}
                       className="text-[9px] font-bold text-blue-600 bg-blue-50 hover:bg-blue-100 border border-blue-200 px-2 py-0.5 rounded transition"
                     >👁 View</button>
-                    {ds.rowEstimate > 1 && <span className="text-thermax-saffronDeep font-mono font-bold text-[10px]">{ds.rowEstimate} rows</span>}
+                    {ds.rowEstimate > 1 && <span className="text-thermax-saffronDeep font-mono font-bold text-[10px]">{ds.rowEstimate} {ds.fileType === 'pdf' ? 'pages' : 'rows'}</span>}
                     {ds.rowEstimate <= 1 && <span className="text-thermax-slate font-mono font-bold text-[10px]">config</span>}
                   </div>
                 </div>
