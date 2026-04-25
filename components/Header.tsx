@@ -41,21 +41,12 @@ export default function Header() {
         )}
       </div>
 
-      {/* Navigation bar: full-width, centered, spacious */}
+      {/* Navigation bar: two-line layout */}
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6">
-          <nav className="hidden md:flex items-center justify-center gap-1 py-1.5 flex-wrap">
+          {/* Line 1: Primary navigation */}
+          <nav className="hidden md:flex items-center justify-center gap-1 pt-1.5 pb-0.5">
             <NavLink href="/">Dashboard</NavLink>
-            <NavSep />
-            <NavLink href="/storyline">Storyline</NavLink>
-            <NavSep />
-            <NavLink href="/business-flow">Business Flow</NavLink>
-            <NavSep />
-            <NavLink href="/flow-diagram">Flow Diagram</NavLink>
-            <NavSep />
-            <NavLink href="/operating-system">AI OS</NavLink>
-            <NavSep />
-            <NavLink href="/approvals">HITL Queue</NavLink>
             <NavSep />
             <NavLink href="/governance">Governance</NavLink>
             <NavSep />
@@ -69,6 +60,18 @@ export default function Header() {
             >
               + Custom Agents
             </Link>
+          </nav>
+          {/* Line 2: Workflow exploration */}
+          <nav className="hidden md:flex items-center justify-center gap-1 pb-1.5 pt-0.5">
+            <NavLink href="/storyline">Storyline</NavLink>
+            <NavDot />
+            <NavLink href="/business-flow">Business Flow</NavLink>
+            <NavDot />
+            <NavLink href="/flow-diagram">Flow Diagram</NavLink>
+            <NavDot />
+            <NavLink href="/operating-system">AI OS</NavLink>
+            <NavDot />
+            <NavLink href="/approvals">HITL Queue</NavLink>
           </nav>
         </div>
       </div>
@@ -164,4 +167,8 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
 
 function NavSep() {
   return <span className="w-px h-3.5 bg-white/15" />;
+}
+
+function NavDot() {
+  return <span className="w-1 h-1 rounded-full bg-white/25" />;
 }
