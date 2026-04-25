@@ -7,7 +7,7 @@ export function getAnthropicClient(): Anthropic {
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) {
     throw new Error(
-      'ANTHROPIC_API_KEY is not set. Add it to .env.local or set WORKBENCH_FORCE_MOCK=1 for mock responses.'
+      'ANTHROPIC_API_KEY is not set. Add it to .env.local (local) or Vercel Environment Variables (production).'
     );
   }
   client = new Anthropic({ apiKey });
@@ -16,10 +16,4 @@ export function getAnthropicClient(): Anthropic {
 
 export function getModelId(): string {
   return process.env.ANTHROPIC_MODEL || 'claude-opus-4-7';
-}
-
-export function isMockMode(): boolean {
-  if (process.env.WORKBENCH_FORCE_MOCK === '1') return true;
-  if (!process.env.ANTHROPIC_API_KEY) return true;
-  return false;
 }

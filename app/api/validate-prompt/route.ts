@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getAnthropicClient, getModelId, isMockMode } from '@/lib/anthropic';
+import { getAnthropicClient, getModelId } from '@/lib/anthropic';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -45,31 +45,6 @@ export async function POST(req: NextRequest) {
     if (pat.test(prompt.trim())) {
       return NextResponse.json({ valid: false, reason: 'This does not appear to be a meaningful prompt. Please provide a specific instruction related to this agent\'s function.' });
     }
-  }
-
-  if (isMockMode()) {
-    const lowerPrompt = prompt.toLowerCase();
-    const domainKeywords = [
-      agentName.toLowerCase(),
-      stageTitle.toLowerCase(),
-      ...(agentDescription || '').toLowerCase().split(/\s+/).filter(w => w.length > 4),
-      ...(acceptedFileHint || '').toLowerCase().split(/[,;.]+/).map(s => s.trim()).filter(s => s.length > 3),
-    ];
-
-    const hasRelevance = domainKeywords.some(kw => lowerPrompt.includes(kw)) ||
-      lowerPrompt.includes('analyz') || lowerPrompt.includes('report') || lowerPrompt.includes('review') ||
-      lowerPrompt.includes('summariz') || lowerPrompt.includes('check') || lowerPrompt.includes('assess') ||
-      lowerPrompt.includes('evaluat') || lowerPrompt.includes('compare') || lowerPrompt.includes('extract') ||
-      lowerPrompt.includes('focus') || lowerPrompt.includes('priorit') || lowerPrompt.includes('includ') ||
-      lowerPrompt.includes('detail') || lowerPrompt.includes('data') || lowerPrompt.includes('output');
-
-    if (hasRelevance) {
-      return NextResponse.json({ valid: true, reason: 'Prompt is relevant to this agent\'s domain.' });
-    }
-    return NextResponse.json({
-      valid: false,
-      reason: `This prompt does not appear relevant to the ${agentName} (${stageTitle}). Please provide instructions related to: ${agentDescription?.slice(0, 150) ?? stageTitle}.`,
-    });
   }
 
   try {

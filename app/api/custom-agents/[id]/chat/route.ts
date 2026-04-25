@@ -1,5 +1,5 @@
 import { NextRequest } from 'next/server';
-import { getAnthropicClient, getModelId, isMockMode } from '@/lib/anthropic';
+import { getAnthropicClient, getModelId } from '@/lib/anthropic';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -104,97 +104,6 @@ export async function POST(
   const encoder = new TextEncoder();
   function sse(event: string, data: unknown): Uint8Array {
     return encoder.encode(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`);
-  }
-
-  if (isMockMode()) {
-    const readable = new ReadableStream({
-      async start(controller) {
-        const pause = (ms: number) => new Promise(r => setTimeout(r, ms));
-        const mockStart = Date.now();
-
-        for (const task of agent.tasks) {
-          controller.enqueue(sse('tool_start', { tool: task.label, input: { task: task.description } }));
-          await pause(700);
-          controller.enqueue(sse('tool_result', { tool: task.label, result: `Completed: ${task.description}` }));
-          await pause(300);
-        }
-
-        const uploadInfo = body.uploadedTexts?.length
-          ? `\n\n### Uploaded Documents Processed\n${body.uploadedTexts.map(d => `- **${d.filename}** (${(d.text.length / 1024).toFixed(1)} KB)`).join('\n')}\n`
-          : '';
-
-        const baseDocsInfo = agent.baseDocuments?.length
-          ? `\n\n### Knowledge Base Documents\n${agent.baseDocuments.map(d => `- **${d.filename}** (${d.sizeKb} KB) — included as base knowledge`).join('\n')}\n`
-          : '';
-
-        const tasksSection = agent.tasks.length
-          ? `### Tasks Executed\n${agent.tasks.map((t, i) => `${i + 1}. **${t.label}**: ${t.description} — ✅ Complete`).join('\n')}`
-          : '### Processing\nExecuted analysis according to configured instructions.';
-
-        const mockText = `## ${agent.name} — Analysis Complete
-
-### Summary
-I have processed your request according to my configured instructions. Here is a structured analysis based on the data and context provided.
-
-${tasksSection}
-${baseDocsInfo}${uploadInfo}
-### Key Findings
-
-Based on my analysis, here are the structured results:
-
-| # | Finding | Confidence | Status |
-|---|---------|-----------|--------|
-| 1 | Primary analysis completed per instructions | 0.92 | ✅ Complete |
-| 2 | Data patterns identified and documented | 0.88 | ✅ Complete |
-| 3 | Recommendations generated based on findings | 0.85 | ✅ Complete |
-
-### Recommendations
-1. Review the findings above and validate against your domain expertise
-2. Upload additional relevant documents if deeper analysis is needed
-3. Refine instructions if you'd like a different analytical focus
-
-### Methodology
-- Followed the user-defined instructions for **${agent.name}**
-- Applied structured analysis with confidence scoring
-- Marked assumptions with [ASSUMPTION] and data gaps with [DATA GAP]
-
-*${agent.name} completed ${agent.tasks.length} task(s). All outputs generated per configured instructions.*`;
-
-        const tokens = mockText.split(/(\s+)/);
-        for (let i = 0; i < tokens.length; i += 4) {
-          controller.enqueue(sse('text_delta', tokens.slice(i, i + 4).join('')));
-          await pause(8);
-        }
-
-        const elapsed = ((Date.now() - mockStart) / 1000).toFixed(1);
-        const inputTokens = Math.round(systemPrompt.length / 4);
-        const outputTokens = Math.round(mockText.length / 4);
-        const cost = inputTokens * 15 / 1_000_000 + outputTokens * 75 / 1_000_000;
-
-        controller.enqueue(sse('usage', {
-          input_tokens: inputTokens,
-          output_tokens: outputTokens,
-          total_tokens: inputTokens + outputTokens,
-          tool_calls: agent.tasks.length,
-          api_turns: 1,
-          model: 'enterprise-llm (mock)',
-          response_time_s: parseFloat(elapsed),
-          estimated_cost_usd: parseFloat(cost.toFixed(4))
-        }));
-
-        controller.enqueue(sse('done', {}));
-        controller.close();
-      }
-    });
-
-    return new Response(readable, {
-      headers: {
-        'Content-Type': 'text/event-stream; charset=utf-8',
-        'Cache-Control': 'no-cache',
-        Connection: 'keep-alive',
-        'X-Workbench-Mode': 'mock'
-      }
-    });
   }
 
   const readable = new ReadableStream({

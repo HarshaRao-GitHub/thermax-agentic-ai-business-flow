@@ -31,7 +31,7 @@ export default function AgentChat({
   const [streamBuffer, setStreamBuffer] = useState('');
   const [uploadedFiles, setUploadedFiles] = useState<UploadedFile[]>([]);
   const [uploadError, setUploadError] = useState<string | null>(null);
-  const [mode, setMode] = useState<'live' | 'mock' | null>(null);
+  const [mode, setMode] = useState<'live' | null>(null);
   const [toolEvents, setToolEvents] = useState<ToolEvent[]>([]);
   const [textStreamStarted, setTextStreamStarted] = useState(false);
   const [usageStats, setUsageStats] = useState<UsageStats | null>(null);
@@ -135,8 +135,7 @@ export default function AgentChat({
       });
 
       const headerMode = res.headers.get('X-Workbench-Mode');
-      if (headerMode === 'mock') setMode('mock');
-      else if (headerMode === 'live') setMode('live');
+      if (headerMode === 'live') setMode('live');
 
       if (!res.ok || !res.body) {
         const errText = await res.text().catch(() => 'Request failed');
@@ -670,9 +669,9 @@ export default function AgentChat({
                 ▶ Run {stage.title} Agent
               </button>
               <div className="flex items-center gap-2 text-[12px]">
-                <span className={`inline-block w-2 h-2 rounded-full ${mode === 'live' ? 'bg-emerald-500' : mode === 'mock' ? 'bg-amber-500' : 'bg-thermax-slate/40'}`} />
+                <span className={`inline-block w-2 h-2 rounded-full ${mode === 'live' ? 'bg-emerald-500' : 'bg-thermax-slate/40'}`} />
                 <span className="font-mono text-thermax-slate">
-                  {mode === 'live' ? `Live · Enterprise LLM · ${stage.tools.length} tools` : mode === 'mock' ? 'Mock mode' : 'Ready'}
+                  {mode === 'live' ? `Live · Enterprise LLM · ${stage.tools.length} tools` : 'Ready'}
                 </span>
               </div>
             </div>

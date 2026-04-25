@@ -34,7 +34,7 @@ export default function DocIntelligenceHub() {
   const [loadingSampleFiles, setLoadingSampleFiles] = useState<Set<string>>(new Set());
   const [usageStats, setUsageStats] = useState<UsageStats | null>(null);
   const [elapsedTimer, setElapsedTimer] = useState(0);
-  const [mode, setMode] = useState<'live' | 'mock' | null>(null);
+  const [mode, setMode] = useState<'live' | null>(null);
   const [uploadError, setUploadError] = useState<string | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
@@ -135,8 +135,7 @@ export default function DocIntelligenceHub() {
       });
 
       const headerMode = res.headers.get('X-Workbench-Mode');
-      if (headerMode === 'mock') setMode('mock');
-      else if (headerMode === 'live') setMode('live');
+      if (headerMode === 'live') setMode('live');
 
       if (!res.ok || !res.body) {
         const errText = await res.text().catch(() => 'Request failed');
@@ -365,7 +364,7 @@ export default function DocIntelligenceHub() {
             </div>
             <div className="flex items-center gap-3">
               {mode && (
-                <span className={`text-[10px] font-mono px-2 py-0.5 rounded ${mode === 'mock' ? 'bg-amber-900/30 text-amber-400' : 'bg-green-900/30 text-green-400'}`}>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-green-900/30 text-green-400">
                   {mode.toUpperCase()}
                 </span>
               )}

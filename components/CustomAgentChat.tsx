@@ -17,7 +17,7 @@ export default function CustomAgentChat({ agent }: { agent: Agent }) {
   const [streamBuffer, setStreamBuffer] = useState('');
   const [uploadedFiles, setUploadedFiles] = useState<UploadedFile[]>([]);
   const [uploadError, setUploadError] = useState<string | null>(null);
-  const [mode, setMode] = useState<'live' | 'mock' | null>(null);
+  const [mode, setMode] = useState<'live' | null>(null);
   const [toolEvents, setToolEvents] = useState<ToolEvent[]>([]);
   const [textStreamStarted, setTextStreamStarted] = useState(false);
   const [usageStats, setUsageStats] = useState<UsageStats | null>(null);
@@ -82,8 +82,7 @@ export default function CustomAgentChat({ agent }: { agent: Agent }) {
       });
 
       const headerMode = res.headers.get('X-Workbench-Mode');
-      if (headerMode === 'mock') setMode('mock');
-      else if (headerMode === 'live') setMode('live');
+      if (headerMode === 'live') setMode('live');
 
       const reader = res.body?.getReader();
       if (!reader) throw new Error('No reader');
@@ -272,9 +271,9 @@ export default function CustomAgentChat({ agent }: { agent: Agent }) {
             </div>
           ) : (
             <div className="flex items-center gap-2 text-[12px]">
-              <span className={`inline-block w-2 h-2 rounded-full ${mode === 'live' ? 'bg-emerald-500' : mode === 'mock' ? 'bg-amber-500' : 'bg-thermax-slate/40'}`} />
+              <span className={`inline-block w-2 h-2 rounded-full ${mode === 'live' ? 'bg-emerald-500' : 'bg-thermax-slate/40'}`} />
               <span className="font-mono text-thermax-slate">
-                {mode === 'live' ? `Live · Enterprise LLM · ${agent.tasks.length} tasks` : mode === 'mock' ? 'Mock mode (set API key for live)' : 'Ready'}
+                {mode === 'live' ? `Live · Enterprise LLM · ${agent.tasks.length} tasks` : 'Ready'}
               </span>
             </div>
           )}
