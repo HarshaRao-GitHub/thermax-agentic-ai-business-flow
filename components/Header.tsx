@@ -36,17 +36,17 @@ export default function Header() {
         )}
       </div>
 
-      {/* Navigation bar: three-tier layout */}
+      {/* Navigation: 2-line layout */}
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6">
           {/* Line 1: Three Experience Modes */}
-          <nav className="hidden md:flex items-center justify-center gap-2 pt-2 pb-1">
+          <nav className="hidden md:flex items-center justify-center gap-3 py-2">
             <ModeLink href="/prompting" icon="💬" label="Prompting" />
             <ModeLink href="/doc-intelligence" icon="📊" label="Doc Intelligence & Visualization" />
             <ModeLink href="/agentic-experience" icon="🤖" label="Agentic AI" />
           </nav>
-          {/* Line 2: Platform navigation */}
-          <nav className="hidden md:flex items-center justify-center gap-1 py-0.5">
+          {/* Line 2: All secondary navigation */}
+          <nav className="hidden md:flex items-center justify-center gap-1 pb-2 -mt-0.5">
             <NavLink href="/">Dashboard</NavLink>
             <NavSep />
             <NavLink href="/governance">Governance</NavLink>
@@ -55,13 +55,11 @@ export default function Header() {
             <NavSep />
             <Link
               href="/custom-agents"
-              className="px-3 py-1.5 rounded-md text-thermax-saffron hover:text-white hover:bg-thermax-saffron/20 transition font-semibold text-[13px]"
+              className="px-3 py-1 rounded-md text-thermax-saffron hover:text-white hover:bg-thermax-saffron/20 transition font-semibold text-[12px]"
             >
               + Custom Agents
             </Link>
-          </nav>
-          {/* Line 3: Workflow exploration */}
-          <nav className="hidden md:flex items-center justify-center gap-1 pb-1.5 pt-0.5">
+            <span className="mx-1.5 w-px h-4 bg-gradient-to-b from-transparent via-white/25 to-transparent" />
             <NavLink href="/storyline">Storyline</NavLink>
             <NavDot />
             <NavLink href="/business-flow">Business Flow</NavLink>
@@ -92,7 +90,7 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
   return (
     <Link
       href={href}
-      className="px-3 py-1.5 rounded-md text-[13px] text-white/75 hover:text-white hover:bg-white/10 transition font-medium"
+      className="px-2.5 py-1 rounded-md text-[12px] text-white/70 hover:text-white hover:bg-white/10 transition font-medium"
     >
       {children}
     </Link>
