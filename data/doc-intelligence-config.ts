@@ -369,7 +369,7 @@ Rules:
    - **Flowchart** (graph TD or graph LR): For process flows, decision trees, organizational structures, comparisons
    - **Gantt chart**: For timelines, project schedules, milestones
    - **Sequence diagram**: For process interactions and handoff flows
-   IMPORTANT: Do NOT use xychart-beta or quadrantChart — they cause rendering errors. For comparisons and trends, use markdown tables with status indicators instead.
+   IMPORTANT: Do NOT use xychart-beta or quadrantChart — they cause rendering errors. Do NOT use emojis or special Unicode characters (×, ², ³, °, ₹, →) inside Mermaid diagrams — use ONLY plain ASCII text. For comparisons and trends, use markdown tables with status indicators instead.
 3. Output charts as fenced code blocks with the language tag "mermaid". Example:
 
 \`\`\`mermaid

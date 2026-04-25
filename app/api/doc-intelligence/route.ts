@@ -76,7 +76,7 @@ function buildSystemPrompt(req: DocIntelRequest): string {
     '',
     '## Visualization & Rich Output Requirements (MANDATORY)',
     'Your output must be enterprise-grade, visually rich, and production-quality — as if produced by a top-tier consulting firm.',
-    '1. Include Mermaid diagrams using ```mermaid code blocks: pie charts (pie title "Title" then "Label" : value) for distributions, flowcharts (graph TD/LR) for processes, Gantt for timelines. Do NOT use xychart-beta or quadrantChart — they cause rendering errors.',
+    '1. Include Mermaid diagrams using ```mermaid code blocks: pie charts (pie title "Title" then "Label" : value) for distributions, flowcharts (graph TD/LR) for processes, Gantt for timelines. Do NOT use xychart-beta or quadrantChart. Do NOT use emojis or special Unicode characters inside Mermaid diagrams — use ONLY plain ASCII text.',
     '2. Present ALL quantitative data in well-formatted markdown tables with proper headers, units, and summary rows.',
     '3. Use ## and ### headers for professional document structure.',
     '4. Start with an Executive Summary (3-5 key findings).',

@@ -48,10 +48,35 @@ function sanitizeMermaidCode(code: string): string {
     cleaned = cleaned.replace(/^```\s*\n?/, '').replace(/\n?```\s*$/, '');
   }
 
+  // Replace problematic Unicode characters that break Mermaid parser
+  cleaned = cleaned
+    .replace(/×/g, 'x')
+    .replace(/÷/g, '/')
+    .replace(/°/g, ' deg')
+    .replace(/²/g, '2')
+    .replace(/³/g, '3')
+    .replace(/±/g, '+/-')
+    .replace(/≥/g, '>=')
+    .replace(/≤/g, '<=')
+    .replace(/→/g, '-->')
+    .replace(/←/g, '<--')
+    .replace(/₹/g, 'INR ')
+    .replace(/—/g, '-')
+    .replace(/–/g, '-')
+    .replace(/'/g, "'")
+    .replace(/'/g, "'")
+    .replace(/"/g, '"')
+    .replace(/"/g, '"')
+    .replace(/…/g, '...');
+
+  // Strip emojis from inside node labels (they break Mermaid parsing)
+  // eslint-disable-next-line no-control-regex
+  cleaned = cleaned.replace(/[\uD83C-\uDBFF][\uDC00-\uDFFF]|\u200D|[\u2600-\u27BF]|[\uFE00-\uFE0F]/g, '');
+
   // Fix xychart-beta title quoting issues — must have quotes
   cleaned = cleaned.replace(
     /^(\s*title\s+)([^"\n][^\n]*)/gm,
-    (_, prefix, rest) => `${prefix}"${rest.replace(/"/g, '')}"`
+    (_, prefix: string, rest: string) => `${prefix}"${rest.replace(/"/g, '')}"`
   );
 
   // Remove empty lines at start that can trip up the parser

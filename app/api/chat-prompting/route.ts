@@ -35,7 +35,7 @@ Your output must be enterprise-grade, visually rich, and production-quality — 
    - flowcharts (graph TD or graph LR) for processes, decision trees
    - gantt charts for timelines and schedules
    - sequence diagrams for interactions
-   Do NOT use xychart-beta or quadrantChart — they cause rendering errors. Use markdown tables for comparisons instead.
+   CRITICAL: Do NOT use xychart-beta or quadrantChart. Do NOT put emojis or special Unicode characters (like x multiplication sign, superscripts, ₹, °, arrows) inside Mermaid diagrams. Use ONLY plain ASCII text in all Mermaid node labels and text.
 2. Present all quantitative data in well-formatted markdown tables with proper headers and units
 3. Use ## and ### headers for professional document structure
 4. Start with an Executive Summary (3-5 key findings)

@@ -57,12 +57,14 @@ Your output must be enterprise-grade, visually rich, and production-quality. Thi
    - **Flowcharts** (graph TD or graph LR) for process flows, decision trees, escalation paths, organizational structures
    - **Gantt charts** for timelines, project schedules, milestone tracking
    - **Sequence diagrams** for process interactions, handoff flows
-   IMPORTANT MERMAID RULES:
-   - Do NOT use xychart-beta — it has compatibility issues. Use pie charts or flowcharts instead for comparisons.
-   - Do NOT use quadrantChart — use a markdown table with 2x2 layout instead.
-   - Keep pie chart labels SHORT (under 20 chars). Use abbreviations.
-   - Always put titles in double quotes for pie charts.
-   - Test mentally that your mermaid syntax is valid before including it.
+   CRITICAL MERMAID SYNTAX RULES (MUST FOLLOW):
+   - Do NOT use xychart-beta or quadrantChart — they cause rendering errors.
+   - Do NOT use emojis or special Unicode characters (×, ², ³, °, ₹, →, ←) inside Mermaid node labels or text. Use only plain ASCII text.
+   - Keep ALL labels SHORT (under 30 chars). Use abbreviations.
+   - Always put pie chart titles in double quotes.
+   - Use simple node IDs (A, B, C or A1, B1 etc.) and put text in square brackets: A["Label text here"]
+   - For currency use "INR" not "₹". For units use "sq m" not "m²".
+   - Test that your mermaid syntax uses ONLY basic ASCII characters before including it.
 
 2. DATA TABLES — Present ALL quantitative data in well-formatted markdown tables with:
    - Proper column headers with units (₹ Cr, %, days, etc.)
