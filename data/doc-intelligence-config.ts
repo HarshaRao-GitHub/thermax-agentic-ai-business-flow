@@ -1,6 +1,6 @@
 // ─── Types ───
 
-export type Bucket = 'understand' | 'extract' | 'analyze' | 'compare' | 'govern';
+export type Bucket = 'understand' | 'extract' | 'analyze' | 'compare' | 'govern' | 'visualize';
 
 export interface Operation {
   id: string;
@@ -35,6 +35,7 @@ export const BUCKETS: { id: Bucket; label: string; icon: string; color: string }
   { id: 'analyze', label: 'C. Analyze', icon: '📊', color: '#06B6D4' },
   { id: 'compare', label: 'D. Compare', icon: '⚖️', color: '#F59E0B' },
   { id: 'govern', label: 'E. Govern', icon: '🛡️', color: '#EF4444' },
+  { id: 'visualize', label: 'F. Visualize', icon: '📈', color: '#10B981' },
 ];
 
 // ─── 10 Operations ───
@@ -346,6 +347,59 @@ Rules:
       'Draft an email summarizing the key findings of this document',
       'Generate a FAQ from this policy document',
       'Build a checklist from this SOP/procedure manual',
+    ],
+  },
+
+  // F. Visualize
+  {
+    id: 'visualize',
+    label: 'Visualize / Charts',
+    icon: '📈',
+    bucket: 'visualize',
+    description: 'Generate charts, graphs, and visual representations from document data — bar charts, pie charts, trend lines, distribution plots, and more using Mermaid diagrams.',
+    supportedLevels: ['single', 'multi'],
+    systemPromptTemplate: `You are a Thermax Document Intelligence Agent specializing in Data Visualization.
+
+Your task: Analyze the uploaded document(s) and produce visual chart representations using Mermaid diagram syntax.
+
+Rules:
+1. First analyze the data in the document(s) to identify what is visualizable — numeric data, categories, trends, distributions, comparisons.
+2. Choose the MOST APPROPRIATE chart type for the data:
+   - **Pie chart**: For proportions, market share, budget breakdowns, category distributions
+   - **Bar chart (xychart-beta)**: For comparisons across categories, rankings, before/after
+   - **Line chart (xychart-beta)**: For trends over time, performance tracking
+   - **Flowchart**: For process flows, decision trees, organizational structures
+   - **Gantt chart**: For timelines, project schedules, milestones
+3. Output charts as fenced code blocks with the language tag "mermaid". Example:
+
+\`\`\`mermaid
+pie title Budget Distribution
+    "Engineering" : 40
+    "Marketing" : 25
+    "Operations" : 20
+    "HR" : 15
+\`\`\`
+
+\`\`\`mermaid
+xychart-beta
+    title "Monthly Revenue (INR Lakhs)"
+    x-axis [Jan, Feb, Mar, Apr, May, Jun]
+    y-axis "Revenue" 0 --> 500
+    bar [120, 180, 250, 310, 280, 420]
+\`\`\`
+
+4. Always include a MARKDOWN TABLE with the underlying raw data below each chart for reference.
+5. Add a brief interpretation/insight paragraph after each visualization.
+6. If the user requests a specific chart type, use that type.
+7. You may produce MULTIPLE charts from a single dataset if different aspects benefit from different visualizations.
+8. If the data is not suitable for visualization, explain why and suggest what additional data would be needed.
+9. Use clear, descriptive titles for all charts.
+10. For Mermaid xychart-beta, keep category labels short (abbreviate if needed) to ensure readability.`,
+    starterPrompts: [
+      'Create charts from this data — choose the best visualization type',
+      'Show a pie chart breakdown of the key categories in this data',
+      'Generate a bar chart comparing the main metrics',
+      'Visualize trends and patterns as line/bar charts',
     ],
   },
 ];

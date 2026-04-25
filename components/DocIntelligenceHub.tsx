@@ -3,15 +3,12 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
 import Markdown from './Markdown';
 import {
-  BUCKETS,
   OPERATIONS,
   DEPARTMENTS,
-  getOperationsByBucket,
   getOperationById,
   getDepartmentById,
   type Operation,
   type SampleFile,
-  type Bucket,
 } from '@/data/doc-intelligence-config';
 
 type Role = 'user' | 'assistant';
@@ -36,7 +33,7 @@ export default function DocIntelligenceHub() {
   const [elapsedTimer, setElapsedTimer] = useState(0);
   const [mode, setMode] = useState<'live' | null>(null);
   const [uploadError, setUploadError] = useState<string | null>(null);
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [docsExpanded, setDocsExpanded] = useState(true);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const streamRef = useRef<HTMLDivElement>(null);
@@ -89,10 +86,7 @@ export default function DocIntelligenceHub() {
         const formData = new FormData();
         formData.append('file', file);
         const res = await fetch('/api/upload', { method: 'POST', body: formData });
-        if (!res.ok) {
-          setUploadError(`Failed to process ${file.name}`);
-          continue;
-        }
+        if (!res.ok) { setUploadError(`Failed to process ${file.name}`); continue; }
         const data = await res.json();
         newFiles.push({ filename: file.name, text: data.text ?? '' });
       } catch {
@@ -214,270 +208,343 @@ export default function DocIntelligenceHub() {
     if (timerRef.current) { clearInterval(timerRef.current); timerRef.current = null; }
   }
 
+  const hasFiles = uploadedFiles.length > 0;
+
   return (
-    <div className="flex h-[calc(100vh-8rem)] bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 text-white rounded-xl overflow-hidden border border-gray-800/60">
-      {/* Mobile sidebar toggle */}
-      <button
-        onClick={() => setSidebarOpen(!sidebarOpen)}
-        className="lg:hidden fixed top-20 left-2 z-50 p-2 bg-gray-800 rounded-lg border border-gray-700"
-      >
-        {sidebarOpen ? '✕' : '☰'}
-      </button>
+    <div className="min-h-screen bg-gradient-to-b from-[#0a0f1e] to-[#111827] text-white">
 
-      {/* ─── LEFT SIDEBAR ─── */}
-      <div className={`${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 transition-transform duration-200 w-[300px] min-w-[300px] border-r border-gray-800/60 bg-gray-900/80 flex flex-col overflow-hidden absolute lg:relative z-40 h-full`}>
-        <div className="flex-1 overflow-y-auto p-4 space-y-5 scrollbar-thin">
-          {/* Department Selector */}
-          <div>
-            <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Department</label>
-            <select
-              value={selectedDept}
-              onChange={e => { setSelectedDept(e.target.value); reset(); }}
-              className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50"
-            >
-              {DEPARTMENTS.map(d => (
-                <option key={d.id} value={d.id}>{d.icon} {d.label}</option>
-              ))}
-            </select>
-            {dept && <p className="text-[11px] text-gray-500 mt-1.5 leading-relaxed">{dept.description}</p>}
-          </div>
-
-          {/* Operation Selector */}
-          <div>
-            <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Operation</label>
-            <div className="space-y-3">
-              {BUCKETS.map(bucket => {
-                const ops = getOperationsByBucket(bucket.id);
-                return (
-                  <div key={bucket.id}>
-                    <div className="flex items-center gap-1.5 mb-1.5">
-                      <span className="text-xs">{bucket.icon}</span>
-                      <span className="text-[11px] font-semibold uppercase tracking-wider" style={{ color: bucket.color }}>{bucket.label}</span>
-                    </div>
-                    <div className="space-y-1 ml-1">
-                      {ops.map(op => (
-                        <button
-                          key={op.id}
-                          onClick={() => { setSelectedOp(op.id); reset(); }}
-                          className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-all ${
-                            selectedOp === op.id
-                              ? 'bg-blue-600/20 border border-blue-500/40 text-blue-300'
-                              : 'hover:bg-gray-800/60 text-gray-300 border border-transparent'
-                          }`}
-                        >
-                          <span className="mr-1.5">{op.icon}</span>
-                          {op.label}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* File Panel */}
-          <div>
-            <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Documents</label>
-
-            {/* Sample files */}
-            {sampleFiles.length > 0 && (
-              <div className="mb-3">
-                <p className="text-[11px] text-gray-500 mb-1.5">Available Data Files</p>
-                <div className="space-y-1">
-                  {sampleFiles.map(sf => {
-                    const loaded = uploadedFiles.some(f => f.filename === sf.filename);
-                    const loading = loadingSampleFiles.has(sf.filename);
-                    return (
-                      <button
-                        key={sf.filename}
-                        onClick={() => !loaded && !loading && loadSampleFile(sf)}
-                        disabled={loaded || loading}
-                        className={`w-full text-left px-2.5 py-2 rounded-lg text-xs transition-all border ${
-                          loaded
-                            ? 'bg-green-900/20 border-green-700/30 text-green-400'
-                            : loading
-                              ? 'bg-yellow-900/20 border-yellow-700/30 text-yellow-400 animate-pulse'
-                              : 'bg-gray-800/40 border-gray-700/30 text-gray-300 hover:bg-gray-800/70 hover:border-gray-600/50'
-                        }`}
-                        title={sf.description}
-                      >
-                        <div className="flex items-center gap-1.5">
-                          <span>{loaded ? '✅' : loading ? '⏳' : '📄'}</span>
-                          <span className="truncate font-medium">{sf.label}</span>
-                        </div>
-                        <p className="text-[10px] text-gray-500 mt-0.5 ml-5 line-clamp-1">{sf.description}</p>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-
-            {/* Upload own files */}
-            <div className="mb-2">
-              <p className="text-[11px] text-gray-500 mb-1.5">Or Upload Your Own</p>
-              <label className="flex items-center justify-center gap-2 px-3 py-2 bg-gray-800/60 hover:bg-gray-800 border border-gray-700/50 hover:border-gray-600 rounded-lg cursor-pointer transition-all text-xs text-gray-300">
-                <span>📁</span> Choose Files
-                <input
-                  ref={fileInputRef}
-                  type="file"
-                  multiple
-                  accept=".csv,.txt,.md,.tsv,.log,.json"
-                  onChange={handleUpload}
-                  className="hidden"
-                />
-              </label>
-            </div>
-
-            {uploadError && (
-              <p className="text-[11px] text-red-400 mt-1">{uploadError}</p>
-            )}
-
-            {/* Loaded files list */}
-            {uploadedFiles.length > 0 && (
-              <div className="mt-2 space-y-1">
-                <p className="text-[11px] text-gray-500">Selected ({uploadedFiles.length})</p>
-                {uploadedFiles.map(f => (
-                  <div key={f.filename} className="flex items-center justify-between px-2 py-1.5 bg-gray-800/40 rounded text-xs text-gray-300">
-                    <span className="truncate flex-1 mr-2">📄 {f.filename}</span>
-                    <button onClick={() => removeFile(f.filename)} className="text-red-400 hover:text-red-300 flex-shrink-0">✕</button>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-
-      {/* ─── MAIN PANEL ─── */}
-      <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
-        {/* Header */}
-        <div className="px-6 py-4 border-b border-gray-800/60 bg-gray-900/40 flex-shrink-0">
+      {/* ── Hero Header ── */}
+      <section className="bg-gradient-to-br from-[#0c1222] via-[#111d35] to-[#0f172a] border-b border-white/5">
+        <div className="max-w-6xl mx-auto px-6 py-6">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <span className="text-2xl">{operation?.icon ?? '📄'}</span>
-              <div>
-                <h2 className="text-lg font-bold text-white">{operation?.label ?? 'Document Intelligence'}</h2>
-                <p className="text-xs text-gray-400 max-w-xl">{operation?.description}</p>
+            <div>
+              <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur px-3 py-1 rounded-full text-[11px] font-mono text-blue-400 mb-3">
+                <span className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse" />
+                Document Intelligence & Visualization
               </div>
+              <h1 className="text-2xl font-bold tracking-tight">Analyze, Extract & Visualize Documents</h1>
+              <p className="mt-1 text-white/50 text-sm max-w-xl">
+                Upload documents, choose an operation, and get structured insights, charts, and actionable outputs.
+              </p>
             </div>
             <div className="flex items-center gap-3">
               {mode && (
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-green-900/30 text-green-400">
-                  {mode.toUpperCase()}
-                </span>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-900/30 text-emerald-400 border border-emerald-500/20">LIVE</span>
               )}
-              <button
-                onClick={reset}
-                className="text-xs text-gray-400 hover:text-white px-3 py-1.5 rounded-lg hover:bg-gray-800 border border-gray-700/50 transition-all"
-              >
-                ↻ Clear
+              <button onClick={reset} className="text-xs text-white/50 hover:text-white border border-white/10 hover:border-white/30 px-3 py-2 rounded-lg transition">
+                Clear All
               </button>
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Chat / Results Area */}
-        <div ref={streamRef} className="flex-1 overflow-y-auto px-6 py-4 space-y-4 scrollbar-thin">
-          {transcript.length === 0 && !streaming ? (
-            <div className="flex flex-col items-center justify-center h-full text-center">
-              <div className="text-5xl mb-4">{operation?.icon ?? '📄'}</div>
-              <h3 className="text-xl font-bold text-white mb-2">{operation?.label}</h3>
-              <p className="text-sm text-gray-400 max-w-lg mb-6">{operation?.description}</p>
+      <div className="max-w-6xl mx-auto px-6 py-5 space-y-4">
 
-              {/* Starter Prompts */}
-              {operation?.starterPrompts && operation.starterPrompts.length > 0 && (
-                <div className="w-full max-w-2xl">
-                  <p className="text-xs text-gray-500 mb-3">Quick Start — click a prompt to begin:</p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                    {operation.starterPrompts.map((prompt, i) => (
-                      <button
-                        key={i}
-                        onClick={() => send(prompt)}
-                        disabled={streaming || uploadedFiles.length === 0}
-                        className="text-left px-4 py-3 bg-gray-800/50 hover:bg-gray-800 border border-gray-700/40 hover:border-blue-500/40 rounded-xl text-sm text-gray-300 hover:text-white transition-all disabled:opacity-40 disabled:cursor-not-allowed"
-                      >
-                        <span className="text-blue-400 mr-1.5">→</span> {prompt}
-                      </button>
-                    ))}
+        {/* ═══════════════════════════════════════════════════════════════
+            STEP 1: Documents
+           ═══════════════════════════════════════════════════════════════ */}
+        <section className="bg-[#131b2e] border border-white/5 rounded-xl overflow-hidden">
+          <button
+            onClick={() => setDocsExpanded(!docsExpanded)}
+            className="w-full flex items-center justify-between px-5 py-3 hover:bg-white/[0.02] transition"
+          >
+            <div className="flex items-center gap-3">
+              <span className="text-[10px] font-bold bg-blue-600 text-white px-2 py-0.5 rounded">STEP 1</span>
+              <h3 className="text-[13px] font-bold">
+                Load Documents
+                {hasFiles && <span className="ml-2 text-emerald-400 font-mono text-[11px]">({uploadedFiles.length} loaded)</span>}
+              </h3>
+              {!hasFiles && <span className="text-[11px] text-amber-400/80 font-medium">Required before analysis</span>}
+            </div>
+            <div className="flex items-center gap-3">
+              <select
+                value={selectedDept}
+                onChange={e => { e.stopPropagation(); setSelectedDept(e.target.value); setUploadedFiles([]); }}
+                onClick={e => e.stopPropagation()}
+                className="bg-white/5 border border-white/10 rounded-lg px-3 py-1.5 text-[12px] text-white/80 focus:outline-none focus:ring-1 focus:ring-blue-500/50"
+              >
+                {DEPARTMENTS.map(d => (
+                  <option key={d.id} value={d.id} className="bg-gray-900">{d.icon} {d.label}</option>
+                ))}
+              </select>
+              <span className="text-[10px] font-bold text-white/40">{docsExpanded ? 'COLLAPSE ▲' : 'EXPAND ▼'}</span>
+            </div>
+          </button>
+
+          {docsExpanded && (
+            <div className="px-5 pb-4 border-t border-white/5 pt-3">
+              {dept && (
+                <p className="text-[11px] text-white/40 mb-3">{dept.description}</p>
+              )}
+
+              {/* Sample files as quick-load chips */}
+              {sampleFiles.length > 0 && (
+                <div className="mb-3">
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-white/50 mb-2">Available Data Files</div>
+                  <div className="flex flex-wrap gap-2">
+                    {sampleFiles.map(sf => {
+                      const loaded = uploadedFiles.some(f => f.filename === sf.filename);
+                      const loading = loadingSampleFiles.has(sf.filename);
+                      return (
+                        <button
+                          key={sf.filename}
+                          onClick={() => !loaded && !loading && loadSampleFile(sf)}
+                          disabled={loaded || loading}
+                          title={sf.description}
+                          className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-medium border transition-all ${
+                            loaded
+                              ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400 cursor-default'
+                              : loading
+                                ? 'bg-amber-500/10 border-amber-500/30 text-amber-400 animate-pulse cursor-wait'
+                                : 'bg-white/[0.03] border-white/10 text-white/70 hover:bg-white/[0.07] hover:border-white/20 hover:text-white cursor-pointer'
+                          }`}
+                        >
+                          <span className="text-sm">{loaded ? '✅' : loading ? '⏳' : '📄'}</span>
+                          {sf.label}
+                        </button>
+                      );
+                    })}
                   </div>
-                  {uploadedFiles.length === 0 && (
-                    <p className="text-[11px] text-amber-400/70 mt-3">⬅ Load or upload documents first to enable analysis</p>
-                  )}
                 </div>
               )}
+
+              {/* Upload + loaded files row */}
+              <div className="flex items-start gap-4">
+                <label className="shrink-0 flex items-center gap-2 px-4 py-2 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 rounded-lg cursor-pointer transition text-[12px] font-semibold text-blue-300">
+                  <span>📁</span> Upload Your Files
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    multiple
+                    accept=".csv,.txt,.md,.tsv,.log,.json,.pdf,.doc,.docx,.xls,.xlsx"
+                    onChange={handleUpload}
+                    className="hidden"
+                  />
+                </label>
+
+                {uploadedFiles.length > 0 && (
+                  <div className="flex flex-wrap gap-1.5 flex-1 min-w-0">
+                    {uploadedFiles.map(f => (
+                      <div key={f.filename} className="inline-flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/20 rounded-lg px-2.5 py-1 text-[11px] text-emerald-400">
+                        <span>📄</span>
+                        <span className="truncate max-w-[140px]" title={f.filename}>{f.filename}</span>
+                        <button onClick={() => removeFile(f.filename)} className="text-red-400/60 hover:text-red-400 ml-0.5 font-bold">×</button>
+                      </div>
+                    ))}
+                    <button
+                      onClick={() => setUploadedFiles([])}
+                      className="text-[10px] text-red-400/60 hover:text-red-400 px-2 py-1 transition"
+                    >
+                      Clear all
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              {uploadError && (
+                <p className="text-[11px] text-red-400 mt-2">{uploadError}</p>
+              )}
             </div>
-          ) : (
-            transcript.map((msg, i) => (
-              <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div className={`max-w-[85%] rounded-2xl px-5 py-3 ${
-                  msg.role === 'user'
-                    ? 'bg-blue-600/20 border border-blue-500/30 text-blue-100'
-                    : 'bg-gray-800/50 border border-gray-700/30 text-gray-100'
-                }`}>
-                  {msg.role === 'assistant' ? (
-                    <div className="prose prose-invert prose-sm max-w-none">
-                      <Markdown>{msg.content}</Markdown>
+          )}
+        </section>
+
+        {/* ═══════════════════════════════════════════════════════════════
+            STEP 2: Choose Operation
+           ═══════════════════════════════════════════════════════════════ */}
+        <section className="bg-[#131b2e] border border-white/5 rounded-xl px-5 py-3">
+          <div className="flex items-center gap-3 mb-3">
+            <span className="text-[10px] font-bold bg-violet-600 text-white px-2 py-0.5 rounded">STEP 2</span>
+            <h3 className="text-[13px] font-bold">Choose Operation</h3>
+            {operation && (
+              <span className="text-[11px] text-white/40 hidden sm:inline">|  {operation.description.slice(0, 80)}...</span>
+            )}
+          </div>
+          <div className="flex flex-wrap gap-1.5">
+            {OPERATIONS.map(op => (
+              <button
+                key={op.id}
+                onClick={() => { setSelectedOp(op.id); setMessages([]); setStreamBuffer(''); setUsageStats(null); }}
+                className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-[12px] font-semibold border transition-all ${
+                  selectedOp === op.id
+                    ? 'bg-blue-600/20 border-blue-500/40 text-blue-300 shadow-lg shadow-blue-500/5'
+                    : 'bg-white/[0.02] border-white/5 text-white/60 hover:bg-white/[0.06] hover:border-white/15 hover:text-white/90'
+                }`}
+              >
+                <span>{op.icon}</span>
+                {op.label}
+              </button>
+            ))}
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════════════════
+            STEP 3: Results Area
+           ═══════════════════════════════════════════════════════════════ */}
+        <section className="bg-[#131b2e] border border-white/5 rounded-xl overflow-hidden flex flex-col" style={{ minHeight: 'calc(100vh - 480px)' }}>
+          {/* Results header */}
+          <div className="px-5 py-3 border-b border-white/5 bg-white/[0.01] flex items-center justify-between shrink-0">
+            <div className="flex items-center gap-3">
+              <span className="text-[10px] font-bold bg-teal-600 text-white px-2 py-0.5 rounded">STEP 3</span>
+              <h3 className="text-[13px] font-bold">Results</h3>
+              <span className="text-lg">{operation?.icon}</span>
+              <span className="text-[12px] text-white/60 font-medium">{operation?.label}</span>
+            </div>
+            {(usageStats || streaming) && (
+              <div className="flex items-center gap-3 text-[10px] font-mono text-white/40">
+                {streaming && <span className="text-blue-400">⏱ {elapsedTimer}s</span>}
+                {usageStats?.response_time_s != null && <span>⏱ {usageStats.response_time_s}s</span>}
+                {usageStats?.total_tokens != null && <span>{usageStats.total_tokens.toLocaleString()} tokens</span>}
+                {usageStats?.estimated_cost_usd != null && <span>${usageStats.estimated_cost_usd.toFixed(4)}</span>}
+              </div>
+            )}
+          </div>
+
+          {/* Chat / results body */}
+          <div ref={streamRef} className="flex-1 overflow-y-auto px-5 py-4 space-y-4">
+            {transcript.length === 0 && !streaming ? (
+              <div className="flex flex-col items-center justify-center h-full text-center py-12">
+                <div className="text-5xl mb-4">{operation?.icon ?? '📄'}</div>
+                <h3 className="text-lg font-bold mb-1">{operation?.label}</h3>
+                <p className="text-sm text-white/40 max-w-lg mb-6 leading-relaxed">{operation?.description}</p>
+
+                {/* Starter Prompts */}
+                {operation?.starterPrompts && operation.starterPrompts.length > 0 && (
+                  <div className="w-full max-w-2xl">
+                    <p className="text-[11px] text-white/40 mb-3 font-medium">Quick Start — click a prompt to begin:</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {operation.starterPrompts.map((prompt, i) => (
+                        <button
+                          key={i}
+                          onClick={() => send(prompt)}
+                          disabled={streaming || !hasFiles}
+                          className="text-left px-4 py-3 bg-white/[0.03] hover:bg-white/[0.07] border border-white/5 hover:border-blue-500/30 rounded-xl text-[12px] text-white/60 hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                        >
+                          <span className="text-blue-400 mr-1.5">→</span> {prompt}
+                        </button>
+                      ))}
                     </div>
-                  ) : (
-                    <p className="text-sm whitespace-pre-wrap">{msg.content}</p>
-                  )}
-                </div>
+                    {!hasFiles && (
+                      <p className="text-[11px] text-amber-400/70 mt-3 font-medium">
+                        ▲ Load or upload documents in Step 1 first
+                      </p>
+                    )}
+                  </div>
+                )}
               </div>
-            ))
-          )}
+            ) : (
+              transcript.map((msg, i) => (
+                <ResultBubble key={i} message={msg} isStreaming={streaming && msg.role === 'assistant' && i === transcript.length - 1} />
+              ))
+            )}
 
-          {streaming && !streamBuffer && (
-            <div className="flex justify-start">
-              <div className="bg-gray-800/50 border border-gray-700/30 rounded-2xl px-5 py-3">
-                <div className="flex items-center gap-2 text-sm text-gray-400">
-                  <span className="animate-spin">⏳</span> Analyzing documents...
+            {streaming && !streamBuffer && (
+              <div className="flex items-center gap-3 px-4 py-3">
+                <div className="flex gap-1">
+                  <span className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                  <span className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                  <span className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
                 </div>
+                <span className="text-xs text-white/40 font-mono">Analyzing documents...</span>
               </div>
+            )}
+          </div>
+
+          {/* Input bar */}
+          <div className="border-t border-white/5 bg-[#0f172a] px-5 py-3 shrink-0">
+            <div className="flex gap-3">
+              <input
+                type="text"
+                value={input}
+                onChange={e => setInput(e.target.value)}
+                onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } }}
+                placeholder={
+                  !hasFiles
+                    ? 'Load documents in Step 1 first, then type your query...'
+                    : `Ask about your ${dept?.label ?? ''} documents or request charts/visualizations...`
+                }
+                disabled={streaming}
+                className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white placeholder:text-white/25 focus:outline-none focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 disabled:opacity-40 transition"
+              />
+              <button
+                onClick={() => send()}
+                disabled={streaming || !input.trim() || !hasFiles}
+                className="px-5 py-2.5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white rounded-lg text-sm font-semibold transition disabled:opacity-30 disabled:cursor-not-allowed shrink-0"
+              >
+                {streaming ? '...' : 'Send'}
+              </button>
             </div>
-          )}
+            <div className="flex items-center justify-between mt-1.5">
+              <p className="text-[10px] text-white/20">
+                {hasFiles ? `${uploadedFiles.length} document(s) loaded · ${operation?.label} mode` : 'No documents loaded'}
+              </p>
+              <p className="text-[10px] text-white/15 font-mono">Enter to send</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+}
+
+function ResultBubble({ message, isStreaming }: { message: ChatMessage; isStreaming: boolean }) {
+  const [copied, setCopied] = useState(false);
+
+  if (message.role === 'user') {
+    return (
+      <div className="flex justify-end">
+        <div className="max-w-[80%] bg-gradient-to-r from-blue-600/60 to-blue-500/60 border border-blue-500/20 text-white rounded-2xl rounded-tr-md px-4 py-3 text-[13px]">
+          <div className="whitespace-pre-wrap">{message.content}</div>
         </div>
+      </div>
+    );
+  }
 
-        {/* Usage Metrics */}
-        {(usageStats || streaming) && (
-          <div className="px-6 py-2 border-t border-gray-800/40 bg-gray-900/30 flex-shrink-0">
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px] font-mono text-gray-500">
-              {streaming && <span className="text-blue-400">⏱ {elapsedTimer}s</span>}
-              {usageStats?.response_time_s != null && <span>⏱ {usageStats.response_time_s}s</span>}
-              {usageStats?.input_tokens != null && <span>↗ {usageStats.input_tokens.toLocaleString()} in</span>}
-              {usageStats?.output_tokens != null && <span>↘ {usageStats.output_tokens.toLocaleString()} out</span>}
-              {usageStats?.model && <span>🤖 {usageStats.model}</span>}
-              {usageStats?.estimated_cost_usd != null && <span>💰 ${usageStats.estimated_cost_usd.toFixed(4)}</span>}
+  const handleCopy = async () => {
+    try { await navigator.clipboard.writeText(message.content); setCopied(true); setTimeout(() => setCopied(false), 2000); } catch {}
+  };
+
+  const handleDownload = () => {
+    const ts = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
+    const blob = new Blob([message.content], { type: 'text/markdown;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href = url; a.download = `doc-intelligence-${ts}.md`;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+  };
+
+  return (
+    <div className="flex justify-start">
+      <div className="max-w-[95%] w-full bg-white/[0.03] border border-white/5 rounded-2xl rounded-tl-md px-5 py-4 text-[13px]">
+        <div className="flex items-center gap-2 mb-2">
+          <span className="w-1.5 h-1.5 bg-blue-400 rounded-full" />
+          <span className="text-[10px] font-mono text-blue-400/70 uppercase tracking-wider">AI Document Analyst</span>
+        </div>
+        <div className="text-white/80 leading-relaxed doc-intel-markdown">
+          <Markdown>{message.content}</Markdown>
+        </div>
+        {isStreaming && (
+          <div className="mt-3 flex items-center gap-2">
+            <div className="h-1 w-20 bg-white/5 rounded-full overflow-hidden">
+              <div className="h-full bg-gradient-to-r from-blue-400 to-teal-400 rounded-full animate-pulse" style={{ width: '60%' }} />
             </div>
+            <span className="text-[10px] text-white/30 font-mono">streaming...</span>
           </div>
         )}
-
-        {/* Input Bar */}
-        <div className="px-6 py-4 border-t border-gray-800/60 bg-gray-900/50 flex-shrink-0">
-          <div className="flex gap-3">
-            <input
-              type="text"
-              value={input}
-              onChange={e => setInput(e.target.value)}
-              onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } }}
-              placeholder={
-                uploadedFiles.length === 0
-                  ? 'Load documents first, then type your query...'
-                  : `Ask about your ${dept?.label ?? ''} documents...`
-              }
-              disabled={streaming}
-              className="flex-1 bg-gray-800/60 border border-gray-700/50 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 disabled:opacity-50"
-            />
-            <button
-              onClick={() => send()}
-              disabled={streaming || !input.trim() || uploadedFiles.length === 0}
-              className="px-5 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-sm font-semibold transition-all disabled:opacity-40 disabled:cursor-not-allowed flex-shrink-0"
-            >
-              {streaming ? '...' : 'Send'}
+        {!isStreaming && message.content && (
+          <div className="mt-3 pt-2 border-t border-white/5 flex items-center gap-2">
+            <button onClick={handleDownload} className="flex items-center gap-1 text-[10px] text-white/30 hover:text-white/70 font-medium px-2 py-1 rounded hover:bg-white/5 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download
+            </button>
+            <button onClick={handleCopy} className="flex items-center gap-1 text-[10px] text-white/30 hover:text-white/70 font-medium px-2 py-1 rounded hover:bg-white/5 transition">
+              {copied ? (
+                <><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-400"><polyline points="20 6 9 17 4 12"/></svg><span className="text-emerald-400">Copied!</span></>
+              ) : (
+                <><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy</>
+              )}
             </button>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

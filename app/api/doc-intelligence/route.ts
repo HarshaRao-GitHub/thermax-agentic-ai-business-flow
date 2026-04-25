@@ -72,6 +72,16 @@ function buildSystemPrompt(req: DocIntelRequest): string {
     parts.push('', `## Comparison Mode: ${req.options.comparisonMode}`, modeInstructions[req.options.comparisonMode] || '');
   }
 
+  if (req.operation !== 'visualize') {
+    parts.push(
+      '',
+      '## Visualization Capability',
+      'If the user asks you to create charts, graphs, or visualizations from the data, you can output Mermaid diagram code blocks.',
+      'Use ```mermaid fenced code blocks with pie, xychart-beta, flowchart, or gantt syntax.',
+      'Always include a data table alongside any chart for reference.',
+    );
+  }
+
   if (req.uploadedTexts?.length) {
     const docBlocks = req.uploadedTexts
       .filter(d => d.text?.trim())
