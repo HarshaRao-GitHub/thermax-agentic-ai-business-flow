@@ -200,21 +200,93 @@ If SOME files are relevant and others are not, process the relevant ones and dis
         const MAX_LOOPS = 12;
         for (let loop = 0; loop < MAX_LOOPS; loop++) {
           apiTurns++;
-          const response = await callWithRetry(
+
+          const stream = await callWithRetry(
             () => client.messages.create({
               model,
-              max_tokens: 8192,
+              max_tokens: 4096,
               system: systemPrompt,
               tools: slugTools,
-              messages: conversationMessages
+              messages: conversationMessages,
+              stream: true,
             }),
             (attempt, max, err) => {
               controller.enqueue(sse('retry', { attempt, max, message: `API busy (${err.message}), retrying ${attempt}/${max}...` }));
             }
           );
 
-          totalInputTokens += response.usage?.input_tokens ?? 0;
-          totalOutputTokens += response.usage?.output_tokens ?? 0;
+          const assembledContent: ContentBlock[] = [];
+          const toolResults: { id: string; result: string }[] = [];
+          let currentTextContent = '';
+          let currentToolId = '';
+          let currentToolName = '';
+          let currentToolInputJson = '';
+          let stopReason = '';
+
+          for await (const event of stream) {
+            switch (event.type) {
+              case 'message_start':
+                if (event.message?.usage) {
+                  totalInputTokens += event.message.usage.input_tokens ?? 0;
+                }
+                break;
+
+              case 'content_block_start':
+                if (event.content_block?.type === 'tool_use') {
+                  currentToolId = event.content_block.id;
+                  currentToolName = event.content_block.name;
+                  currentToolInputJson = '';
+                } else if (event.content_block?.type === 'text') {
+                  currentTextContent = '';
+                }
+                break;
+
+              case 'content_block_delta':
+                if (event.delta?.type === 'text_delta') {
+                  currentTextContent += event.delta.text;
+                  controller.enqueue(sse('text_delta', event.delta.text));
+                } else if (event.delta?.type === 'input_json_delta') {
+                  currentToolInputJson += event.delta.partial_json;
+                }
+                break;
+
+              case 'content_block_stop':
+                if (currentToolId && currentToolName) {
+                  let parsedInput: Record<string, unknown> = {};
+                  try { parsedInput = JSON.parse(currentToolInputJson || '{}'); } catch { /* empty */ }
+
+                  assembledContent.push({
+                    type: 'tool_use',
+                    id: currentToolId,
+                    name: currentToolName,
+                    input: parsedInput,
+                  });
+
+                  totalToolCalls++;
+                  controller.enqueue(sse('tool_start', { tool: currentToolName, input: parsedInput }));
+                  const result = executeToolLocally(currentToolName as ToolName, parsedInput);
+                  controller.enqueue(sse('tool_result', { tool: currentToolName, result }));
+                  toolResults.push({ id: currentToolId, result });
+
+                  currentToolId = '';
+                  currentToolName = '';
+                  currentToolInputJson = '';
+                } else if (currentTextContent) {
+                  assembledContent.push({ type: 'text', text: currentTextContent });
+                  currentTextContent = '';
+                }
+                break;
+
+              case 'message_delta':
+                if (event.usage) {
+                  totalOutputTokens += event.usage.output_tokens ?? 0;
+                }
+                if (event.delta?.stop_reason) {
+                  stopReason = event.delta.stop_reason;
+                }
+                break;
+            }
+          }
 
           const deltaCost = totalInputTokens * 3 / 1_000_000 + totalOutputTokens * 15 / 1_000_000;
           controller.enqueue(sse('usage_delta', {
@@ -228,28 +300,16 @@ If SOME files are relevant and others are not, process the relevant ones and dis
             estimated_cost_usd: parseFloat(deltaCost.toFixed(4))
           }));
 
-          const toolResults: ContentBlock[] = [];
+          if (stopReason === 'end_turn' || toolResults.length === 0) break;
 
-          for (const block of response.content) {
-            if (block.type === 'text' && block.text) {
-              const tokens = block.text.split(/(\s+)/);
-              for (let i = 0; i < tokens.length; i += 4) {
-                const chunk = tokens.slice(i, i + 4).join('');
-                controller.enqueue(sse('text_delta', chunk));
-              }
-            } else if (block.type === 'tool_use') {
-              totalToolCalls++;
-              controller.enqueue(sse('tool_start', { tool: block.name, input: block.input }));
-              const result = executeToolLocally(block.name as ToolName, block.input as Record<string, unknown>);
-              controller.enqueue(sse('tool_result', { tool: block.name, result }));
-              toolResults.push({ type: 'tool_result', tool_use_id: block.id, content: result });
-            }
-          }
+          const toolResultBlocks: ContentBlock[] = toolResults.map(tr => ({
+            type: 'tool_result' as const,
+            tool_use_id: tr.id,
+            content: tr.result,
+          }));
 
-          if (response.stop_reason === 'end_turn' || toolResults.length === 0) break;
-
-          conversationMessages.push({ role: 'assistant', content: response.content as ContentBlock[] });
-          conversationMessages.push({ role: 'user', content: toolResults });
+          conversationMessages.push({ role: 'assistant', content: assembledContent });
+          conversationMessages.push({ role: 'user', content: toolResultBlocks });
         }
 
         const elapsedS = parseFloat(((Date.now() - liveStart) / 1000).toFixed(1));
