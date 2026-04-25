@@ -418,6 +418,9 @@ export const DEPARTMENTS: Department[] = [
       { filename: 'shutdown_startup_procedure.csv', label: 'Shutdown/Startup Procedures', description: 'Step-by-step procedures for plant shutdown and cold/hot startup across equipment types', path: '/sample-data/doc-intelligence/operations/shutdown_startup_procedure.csv' },
       { filename: 'breakdown_log.csv', label: 'Breakdown Log', description: '6-month breakdown records — equipment, failure mode, root cause, downtime hours, corrective action', path: '/sample-data/doc-intelligence/operations/breakdown_log.csv' },
       { filename: 'equipment_inspection.csv', label: 'Equipment Inspection Records', description: 'Periodic inspection findings — equipment ID, parameters checked, condition rating, next inspection due', path: '/sample-data/doc-intelligence/operations/equipment_inspection.csv' },
+      { filename: 'shift_handover_log.csv', label: 'Shift Handover Log', description: 'Daily shift handover notes — shift, operator, equipment status, pending jobs, safety alerts', path: '/sample-data/doc-intelligence/operations/shift_handover_log.csv' },
+      { filename: 'energy_consumption_report.csv', label: 'Energy Consumption Report', description: 'Monthly energy usage — boiler efficiency, fuel consumption, steam output, specific coal consumption', path: '/sample-data/doc-intelligence/operations/energy_consumption_report.csv' },
+      { filename: 'spare_parts_inventory.csv', label: 'Spare Parts Inventory', description: 'Critical spare inventory — part number, description, stock qty, reorder level, lead time, last used', path: '/sample-data/doc-intelligence/operations/spare_parts_inventory.csv' },
     ],
   },
   {
@@ -431,6 +434,9 @@ export const DEPARTMENTS: Department[] = [
       { filename: 'purchase_orders.csv', label: 'Purchase Orders', description: 'Active POs — vendor, items, quantities, values, delivery dates, payment terms, status', path: '/sample-data/doc-intelligence/procurement/purchase_orders.csv' },
       { filename: 'delivery_performance.csv', label: 'Delivery Performance', description: 'Vendor delivery tracking — promised vs actual dates, delay reasons, penalty applicability', path: '/sample-data/doc-intelligence/procurement/delivery_performance.csv' },
       { filename: 'vendor_contract_terms.csv', label: 'Vendor Contract Terms', description: 'Key contract terms by vendor — warranty, LD, payment, force majeure, IP, termination clauses', path: '/sample-data/doc-intelligence/procurement/vendor_contract_terms.csv' },
+      { filename: 'vendor_rating_scorecard.csv', label: 'Vendor Rating Scorecard', description: 'Quarterly vendor performance — quality, delivery, pricing, responsiveness, overall rating', path: '/sample-data/doc-intelligence/procurement/vendor_rating_scorecard.csv' },
+      { filename: 'material_requisition.csv', label: 'Material Requisition', description: 'Internal material requests — dept, item, qty, urgency, project code, approval status', path: '/sample-data/doc-intelligence/procurement/material_requisition.csv' },
+      { filename: 'goods_receipt_notes.csv', label: 'Goods Receipt Notes', description: 'GRN register — PO ref, vendor, items received, inspection result, discrepancy, warehouse location', path: '/sample-data/doc-intelligence/procurement/goods_receipt_notes.csv' },
     ],
   },
   {
@@ -444,6 +450,9 @@ export const DEPARTMENTS: Department[] = [
       { filename: 'audit_observations.csv', label: 'Audit Observations', description: 'Internal audit findings — area, observation, severity, recommendation, management response, status', path: '/sample-data/doc-intelligence/finance/audit_observations.csv' },
       { filename: 'budget_vs_actual.csv', label: 'Budget vs Actual', description: 'Department-wise budget comparison — budgeted, actual, variance, YTD utilization percentage', path: '/sample-data/doc-intelligence/finance/budget_vs_actual.csv' },
       { filename: 'expense_claims.csv', label: 'Expense Claims', description: 'Employee expense reports — category, amount, project allocation, approval status, reimbursement date', path: '/sample-data/doc-intelligence/finance/expense_claims.csv' },
+      { filename: 'bank_guarantee_tracker.csv', label: 'Bank Guarantee Tracker', description: 'Active BGs — customer, type, amount, validity period, bank name, claim status', path: '/sample-data/doc-intelligence/finance/bank_guarantee_tracker.csv' },
+      { filename: 'project_cost_sheet.csv', label: 'Project Cost Sheet', description: 'Project-wise cost tracking — material, labour, overheads, margin, billed vs collected', path: '/sample-data/doc-intelligence/finance/project_cost_sheet.csv' },
+      { filename: 'gst_reconciliation.csv', label: 'GST Reconciliation', description: 'Monthly GST reconciliation — GSTR-1 vs GSTR-3B, ITC claimed, mismatches, action items', path: '/sample-data/doc-intelligence/finance/gst_reconciliation.csv' },
     ],
   },
   {
@@ -457,6 +466,9 @@ export const DEPARTMENTS: Department[] = [
       { filename: 'training_records.csv', label: 'Training Records', description: 'Employee training log — name, program, date, hours, certification, score, expiry, next refresher', path: '/sample-data/doc-intelligence/hr/training_records.csv' },
       { filename: 'appraisal_summary.csv', label: 'Appraisal Summary', description: 'Annual performance reviews — employee, rating, strengths, improvement areas, goals, promotion eligibility', path: '/sample-data/doc-intelligence/hr/appraisal_summary.csv' },
       { filename: 'grievance_log.csv', label: 'Grievance Log', description: 'Employee grievance records — category, description, filed date, assigned to, resolution, days to close', path: '/sample-data/doc-intelligence/hr/grievance_log.csv' },
+      { filename: 'manpower_plan.csv', label: 'Manpower Plan', description: 'Dept-wise headcount plan — current, sanctioned, vacancies, hiring pipeline, cost per role', path: '/sample-data/doc-intelligence/hr/manpower_plan.csv' },
+      { filename: 'employee_handbook_excerpt.txt', label: 'Employee Handbook', description: 'Key policies — code of conduct, travel policy, IT usage, POSH guidelines, exit process', path: '/sample-data/doc-intelligence/hr/employee_handbook_excerpt.txt' },
+      { filename: 'attendance_summary.csv', label: 'Attendance Summary', description: 'Monthly attendance — employee, present, absent, late arrivals, overtime hours, leave balance', path: '/sample-data/doc-intelligence/hr/attendance_summary.csv' },
     ],
   },
   {
@@ -470,6 +482,9 @@ export const DEPARTMENTS: Department[] = [
       { filename: 'service_agreement_clauses.csv', label: 'Service Agreement Clauses', description: 'Clause-by-clause breakdown of active service agreements — clause type, text summary, risk level, notes', path: '/sample-data/doc-intelligence/legal/service_agreement_clauses.csv' },
       { filename: 'contract_obligation_matrix.csv', label: 'Contract Obligation Matrix', description: 'Obligations tracker — contract, obligation, responsible party, due date, penalty, completion status', path: '/sample-data/doc-intelligence/legal/contract_obligation_matrix.csv' },
       { filename: 'litigation_tracker.csv', label: 'Litigation Tracker', description: 'Active legal matters — case type, counterparty, amount at stake, status, next hearing, counsel assigned', path: '/sample-data/doc-intelligence/legal/litigation_tracker.csv' },
+      { filename: 'ip_patent_register.csv', label: 'IP & Patent Register', description: 'Thermax IP portfolio — patent title, filing date, jurisdiction, status, renewal due, assignee', path: '/sample-data/doc-intelligence/legal/ip_patent_register.csv' },
+      { filename: 'regulatory_license_tracker.csv', label: 'Regulatory Licenses', description: 'Statutory licenses & permits — type, authority, validity, renewal date, responsible officer', path: '/sample-data/doc-intelligence/legal/regulatory_license_tracker.csv' },
+      { filename: 'vendor_agreement_summary.csv', label: 'Vendor Agreement Summary', description: 'Active vendor agreements — vendor, scope, term, value, key clauses, risk assessment', path: '/sample-data/doc-intelligence/legal/vendor_agreement_summary.csv' },
     ],
   },
   {
@@ -483,6 +498,9 @@ export const DEPARTMENTS: Department[] = [
       { filename: 'capa_register.csv', label: 'CAPA Register', description: 'Corrective and preventive actions — NCR ref, finding, root cause, action, owner, target date, status', path: '/sample-data/doc-intelligence/ehs/capa_register.csv' },
       { filename: 'safety_audit.csv', label: 'Safety Audit Findings', description: 'EHS audit results — area, finding, category, risk rating, recommendation, responsible, due date', path: '/sample-data/doc-intelligence/ehs/safety_audit.csv' },
       { filename: 'compliance_checklist.csv', label: 'Compliance Checklist', description: 'Regulatory compliance tracker — regulation, requirement, applicable area, evidence, status, gap', path: '/sample-data/doc-intelligence/ehs/compliance_checklist.csv' },
+      { filename: 'hazard_identification.csv', label: 'Hazard Identification (HIRA)', description: 'Hazard register — activity, hazard, risk rating, existing controls, residual risk, action plan', path: '/sample-data/doc-intelligence/ehs/hazard_identification.csv' },
+      { filename: 'fire_safety_inspection.csv', label: 'Fire Safety Inspection', description: 'Fire safety audit — location, equipment type, condition, last tested, next due, non-conformances', path: '/sample-data/doc-intelligence/ehs/fire_safety_inspection.csv' },
+      { filename: 'waste_management_log.csv', label: 'Waste Management Log', description: 'Waste disposal records — type, quantity, disposal method, vendor, manifest, compliance status', path: '/sample-data/doc-intelligence/ehs/waste_management_log.csv' },
     ],
   },
   {
@@ -496,6 +514,9 @@ export const DEPARTMENTS: Department[] = [
       { filename: 'service_reports.csv', label: 'Field Service Reports', description: 'Technician visit logs — customer, equipment, issue found, action taken, parts used, follow-up needed', path: '/sample-data/doc-intelligence/sales-service/service_reports.csv' },
       { filename: 'amc_contracts.csv', label: 'AMC Contracts', description: 'Active maintenance contracts — customer, scope, value, start/end dates, SLA terms, renewal status', path: '/sample-data/doc-intelligence/sales-service/amc_contracts.csv' },
       { filename: 'proposal_tracker.csv', label: 'Proposal Tracker', description: 'Sales proposals — customer, scope, value, submitted date, status, competitor, win probability', path: '/sample-data/doc-intelligence/sales-service/proposal_tracker.csv' },
+      { filename: 'commissioning_checklist.csv', label: 'Commissioning Checklist', description: 'Equipment commissioning records — project, equipment, test parameters, result, sign-off status', path: '/sample-data/doc-intelligence/sales-service/commissioning_checklist.csv' },
+      { filename: 'warranty_claims.csv', label: 'Warranty Claims', description: 'Warranty claim log — customer, product, issue, claim date, resolution, cost, coverage status', path: '/sample-data/doc-intelligence/sales-service/warranty_claims.csv' },
+      { filename: 'customer_visit_schedule.csv', label: 'Customer Visit Schedule', description: 'Planned service visits — customer, location, purpose, engineer assigned, date, status', path: '/sample-data/doc-intelligence/sales-service/customer_visit_schedule.csv' },
     ],
   },
 ];
