@@ -15,7 +15,7 @@ export function getAnthropicClient(): Anthropic {
 }
 
 export function getModelId(): string {
-  return process.env.ANTHROPIC_MODEL || 'claude-sonnet-4-20250514';
+  return process.env.ANTHROPIC_MODEL || 'claude-sonnet-4-6';
 }
 
 const RETRY_DELAYS = [2000, 4000, 8000, 16000, 30000];

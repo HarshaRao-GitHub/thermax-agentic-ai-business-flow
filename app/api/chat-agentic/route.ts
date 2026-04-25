@@ -216,7 +216,7 @@ If SOME files are relevant and others are not, process the relevant ones and dis
           totalInputTokens += response.usage?.input_tokens ?? 0;
           totalOutputTokens += response.usage?.output_tokens ?? 0;
 
-          const deltaCost = totalInputTokens * 15 / 1_000_000 + totalOutputTokens * 75 / 1_000_000;
+          const deltaCost = totalInputTokens * 3 / 1_000_000 + totalOutputTokens * 15 / 1_000_000;
           controller.enqueue(sse('usage_delta', {
             input_tokens: totalInputTokens,
             output_tokens: totalOutputTokens,
@@ -253,7 +253,7 @@ If SOME files are relevant and others are not, process the relevant ones and dis
         }
 
         const elapsedS = parseFloat(((Date.now() - liveStart) / 1000).toFixed(1));
-        const totalCost = totalInputTokens * 15 / 1_000_000 + totalOutputTokens * 75 / 1_000_000;
+        const totalCost = totalInputTokens * 3 / 1_000_000 + totalOutputTokens * 15 / 1_000_000;
 
         controller.enqueue(sse('usage', {
           input_tokens: totalInputTokens,

@@ -154,7 +154,7 @@ export async function POST(
         }
 
         const elapsedS = parseFloat(((Date.now() - liveStart) / 1000).toFixed(1));
-        const totalCost = totalInputTokens * 15 / 1_000_000 + totalOutputTokens * 75 / 1_000_000;
+        const totalCost = totalInputTokens * 3 / 1_000_000 + totalOutputTokens * 15 / 1_000_000;
 
         controller.enqueue(sse('usage', {
           input_tokens: totalInputTokens,
