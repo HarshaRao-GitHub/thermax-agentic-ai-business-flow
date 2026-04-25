@@ -171,11 +171,11 @@ const FLOW_STAGES: FlowStage[] = [
     inputs:
       'Handover dossier, O&M manuals, as-built drawings, PG test report, service contract, field engineer observations, service cases.',
     process:
-      'Support field engineers with SOPs and diagnosis guidance, perform why-why root cause analysis on service cases, manage spare parts intelligence, provide post-installation O&M insights.',
+      'Support field engineers with SOPs and diagnosis guidance, perform why-why root cause analysis on service cases, manage spare parts intelligence, provide post-installation O&M insights. The proactive Service Co-pilot (always-on AI Q&A) answers field engineer questions in real time without requiring an agent run.',
     outputs:
-      'Service case diagnoses with root cause analysis, SOP-guided repair procedures, spare parts recommendations, O&M improvement insights, customer success stories, renewal and spare parts sales opportunities.',
+      'Service case diagnoses with root cause analysis, SOP-guided repair procedures, spare parts recommendations, O&M improvement insights, customer success stories, renewal and spare parts sales opportunities, Co-pilot Q&A responses.',
     handoff:
-      'Service insights, recurring issue patterns, spare parts demand signals, customer renewal opportunities \u2192 back to Marketing & Sales for the next cycle'
+      'Service insights, recurring issue patterns, spare parts demand signals, customer renewal opportunities \u2192 back to Marketing & Sales for the next cycle. Asset telemetry feeds the AI Nexus Asset Performance Platform for predictive monitoring.'
   }
 ];
 
@@ -199,7 +199,9 @@ export default function BusinessFlowPage() {
           </h1>
           <p className="mt-4 text-white/70 max-w-3xl text-[15px] leading-relaxed">
             The same Thermax story, re-drawn as a disciplined business flow — with clear entry,
-            process, exit, and the documents that move from one function to the next.
+            process, exit, and the documents that move from one function to the next. Now powered
+            by 9 specialised AI agents, a proactive Service Co-pilot, and the AI Nexus platform
+            for asset monitoring and tender intelligence.
           </p>
         </div>
       </section>
@@ -308,6 +310,12 @@ export default function BusinessFlowPage() {
             className="border border-thermax-navy text-thermax-navy font-semibold px-5 py-2.5 rounded-md hover:bg-thermax-navy hover:text-white transition text-sm"
           >
             View AI Operating System &rarr;
+          </Link>
+          <Link
+            href="/ai-nexus"
+            className="border border-violet-600 text-violet-600 font-semibold px-5 py-2.5 rounded-md hover:bg-violet-600 hover:text-white transition text-sm"
+          >
+            Explore AI Nexus &rarr;
           </Link>
         </div>
       </section>

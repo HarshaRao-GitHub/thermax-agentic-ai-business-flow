@@ -139,13 +139,13 @@ const PHASES = [
       {
         n: 9,
         title: 'O&M Services',
-        narrative: 'Keeping the plant performing and feeding the next cycle',
+        narrative: 'Keeping the plant performing + Service Co-pilot (always-on AI Q&A)',
         icon: '🔧',
         color: '#14B8A6',
         colorLight: '#CCFBF1',
-        produces: 'Diagnosis + Spare Parts + SOP Guidance',
+        produces: 'Diagnosis + Spare Parts + SOP Guidance + Co-pilot Q&A',
         hitlApprover: 'Service Director',
-        reads: 'service_cases + sop_library',
+        reads: 'service_cases + sop_library + telemetry',
         writes: 'diagnosis_reports \u2192 spare_parts_orders'
       }
     ]
@@ -308,13 +308,16 @@ export default function FlowDiagramPage() {
             <div className="text-4xl">🔄</div>
             <div>
               <h3 className="font-bold text-thermax-navy text-lg">
-                Feedback Loop: Stage 9 &rarr; Stage 1
+                Feedback Loop: Stage 9 &rarr; Stage 1 + AI Nexus
               </h3>
               <p className="text-[13px] text-thermax-slate mt-1 leading-relaxed">
                 Retrofit opportunities, renewal contracts, customer success stories,
                 and operational insights become new market signals — flowing back to
-                Marketing &amp; Sales. Every well-delivered project becomes the starting
-                point for the next one.
+                Marketing &amp; Sales. The AI Nexus apps (Asset Performance Platform &amp;
+                Tender Intelligence Tool) extend this loop by providing real-time fleet
+                monitoring across 2,000+ failure modes and automated tender extraction
+                for faster proposal turnaround. Every well-delivered project becomes the
+                starting point for the next one.
               </p>
             </div>
           </div>
@@ -338,6 +341,12 @@ export default function FlowDiagramPage() {
                 </li>
                 <li>
                   &bull; Appends each transition to the audit trail
+                </li>
+                <li>
+                  &bull; Routes data to AI Nexus apps (Asset Performance, Tender Intelligence)
+                </li>
+                <li>
+                  &bull; Provides 4 experience modes: Prompting, Doc Intelligence, Agentic AI, AI Nexus
                 </li>
               </ul>
             </div>
@@ -416,6 +425,12 @@ export default function FlowDiagramPage() {
             className="border border-thermax-navy text-thermax-navy font-semibold px-5 py-2.5 rounded-md hover:bg-thermax-navy hover:text-white transition text-sm"
           >
             Business Storyline
+          </Link>
+          <Link
+            href="/ai-nexus"
+            className="border border-violet-600 text-violet-600 font-semibold px-5 py-2.5 rounded-md hover:bg-violet-600 hover:text-white transition text-sm"
+          >
+            Explore AI Nexus &rarr;
           </Link>
         </div>
       </section>
@@ -518,8 +533,8 @@ const DATA_FLOW = [
   },
   {
     n: 9,
-    title: 'O&M Services',
-    reads: 'service_cases + sop_library',
+    title: 'O&M Services + Co-pilot',
+    reads: 'service_cases + sop_library + telemetry',
     writes: 'diagnosis_reports \u2192 spare_parts_orders',
     hitl: 'Service Director OK'
   }

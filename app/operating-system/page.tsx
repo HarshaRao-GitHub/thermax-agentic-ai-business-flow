@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "'9-Stage' Agentic AI Operating System — Thermax",
   description:
-    'The four-layer agentic AI architecture — Knowledge Foundation, Agent Network, Human-in-the-Loop Controls, and AgentGuard Governance — with stage-by-stage AI vs human breakdown.'
+    'The five-layer agentic AI architecture — Knowledge Foundation, Agent Network, Human-in-the-Loop Controls, AgentGuard Governance, and Experience Modes — with 9 agents, Service Co-pilot, AI Nexus apps, and stage-by-stage AI vs human breakdown.'
 };
 
 const LAYERS = [
@@ -15,8 +15,9 @@ const LAYERS = [
     icon: '🧠',
     items: [
       'Unified data lake of customer records, past proposals, engineering designs, project histories, service data',
-      'Document AI to extract and classify every inbound document',
-      'A knowledge graph linking customers, sites, equipment, contracts, and outcomes'
+      'Document AI to extract and classify every inbound document (Doc Intelligence & Visualization mode)',
+      'A knowledge graph linking customers, sites, equipment, contracts, and outcomes',
+      'Synthetic data backbone: 27+ interlinked CSV files, PDFs, and domain-specific datasets across all 9 stages'
     ]
   },
   {
@@ -25,8 +26,10 @@ const LAYERS = [
     color: '#8B5CF6',
     icon: '🤖',
     items: [
-      'Nine specialist domain agents (one per stage)',
-      'One Orchestrator Agent that manages handoffs, enforces gates, and routes exceptions'
+      'Nine specialist domain agents (one per stage) with real-time streaming output',
+      'One Orchestrator Agent that manages handoffs, enforces gates, and routes exceptions',
+      'Proactive Service Co-pilot on O&M agent — always-on AI Q&A without requiring agent run',
+      'AI Nexus enterprise apps: Asset Performance Platform (2,000+ failure modes) and Tender Intelligence Tool'
     ]
   },
   {
@@ -36,7 +39,8 @@ const LAYERS = [
     icon: '👤',
     items: [
       'Approval gates at every commercial, legal, technical, and safety-critical decision',
-      'Automatic escalation when agent confidence drops below a defined threshold'
+      'Automatic escalation when agent confidence drops below a defined threshold',
+      'Apply Changes & Review workflow with separate Approve/Reject actions'
     ]
   },
   {
@@ -48,6 +52,18 @@ const LAYERS = [
       'Full audit trail, explainability',
       'Red-team testing, bias and hallucination monitoring',
       'Compliance gates for data protection, export control, and safety standards'
+    ]
+  },
+  {
+    number: 5,
+    name: 'Experience Modes',
+    color: '#7C3AED',
+    icon: '⚡',
+    items: [
+      'Prompting Mode — prompt ladder library with Thermax-specific templates and web search',
+      'Doc Intelligence & Visualization — document upload, extraction, chart generation, side-by-side layout',
+      'Agentic AI — 9-stage workflow with per-agent chatbot and HITL governance',
+      'AI Nexus — enterprise apps for asset monitoring, tender intelligence, and future AI-powered tools'
     ]
   }
 ];
@@ -169,12 +185,12 @@ const AGENT_STAGES: AgentStage[] = [
   },
   {
     number: 9,
-    title: 'O&M Services',
-    agentName: 'O&M Service Intelligence Agent',
+    title: 'O&M Services + Service Co-pilot',
+    agentName: 'O&M Service Intelligence Agent + Always-On Co-pilot',
     icon: '🔧',
     color: '#14B8A6',
     aiAutomates:
-      'SOP lookup and field engineer guidance, service case diagnosis with why-why root cause analysis, spare parts availability checks and recommendations, O&M contract intelligence, recurring issue pattern analysis.',
+      'SOP lookup and field engineer guidance, service case diagnosis with why-why root cause analysis, spare parts availability checks and recommendations, O&M contract intelligence, recurring issue pattern analysis. The proactive Service Co-pilot provides always-on AI Q&A — answering field engineer questions, processing uploaded files, and querying the data backbone in real time without requiring an agent run.',
     humanInLoop:
       'Service head reviews critical diagnoses; field engineer validates root cause before communicating to customer; spare parts orders above threshold need approval.',
     mandatoryApproval:
@@ -257,11 +273,23 @@ const ADVANTAGES = [
     description:
       'Because every decision is logged, explainable, and traceable back to a named human owner.',
     icon: '🔗'
+  },
+  {
+    title: 'Predictive intelligence at scale',
+    description:
+      'The AI Nexus platform monitors 2,000+ failure modes across the entire fleet in real time, predicts asset failures before they happen, and reads 500-page tenders in minutes — turning reactive operations into proactive value creation.',
+    icon: '🔮'
+  },
+  {
+    title: 'Always-on field support',
+    description:
+      'The O&M Service Co-pilot provides instant AI Q&A for field engineers — answering questions, guiding diagnosis, and querying data in real time without waiting for an agent run or manager availability.',
+    icon: '💬'
   }
 ];
 
 const CLOSING =
-  'This is not AI replacing Thermax\u2019s people. It is AI giving every Thermax engineer, salesperson, project manager, and leader a tireless team of digital assistants \u2014 so the organisation can grow its top line, while keeping its engineering rigour, safety culture, and customer trust fully intact.';
+  'This is not AI replacing Thermax\u2019s people. It is AI giving every Thermax engineer, salesperson, project manager, and leader a tireless team of digital assistants \u2014 with 9 specialised agents, a proactive Service Co-pilot, real-time asset performance monitoring, automated tender intelligence, and four experience modes \u2014 so the organisation can grow its top line, while keeping its engineering rigour, safety culture, and customer trust fully intact.';
 
 export default function OperatingSystemPage() {
   return (
@@ -271,7 +299,7 @@ export default function OperatingSystemPage() {
         <div className="max-w-6xl mx-auto px-6 py-14 md:py-20">
           <div className="inline-flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-[11px] font-mono mb-5">
             <span className="w-1.5 h-1.5 bg-thermax-saffron rounded-full animate-pulse" />
-            Four-Layer Architecture
+            Five-Layer Architecture
           </div>
           <h1 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
             &lsquo;9-Stage&rsquo; Agentic AI
@@ -279,8 +307,9 @@ export default function OperatingSystemPage() {
             <span className="text-thermax-saffron">Operating System</span>
           </h1>
           <p className="mt-4 text-white/70 max-w-3xl text-[15px] leading-relaxed">
-            Specialised AI agents carry the load of research, drafting, calculation,
-            coordination, and monitoring — while humans stay firmly in control of
+            9 specialised agents, a proactive Service Co-pilot, 4 experience modes (Prompting,
+            Doc Intelligence, Agentic AI, AI Nexus), and enterprise apps for asset performance
+            monitoring and tender intelligence — while humans stay firmly in control of
             every commitment, risk acceptance, and accountability decision.
           </p>
           <p className="mt-3 text-thermax-saffron font-semibold text-lg italic">
@@ -293,11 +322,12 @@ export default function OperatingSystemPage() {
       <section className="max-w-6xl mx-auto px-6 py-10">
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-thermax-navy">
-            The Four-Layer Architecture
+            The Five-Layer Architecture
           </h2>
           <p className="text-[14px] text-thermax-slate mt-2 max-w-3xl leading-relaxed">
             The automation is not a single chatbot bolted onto the workflow. It is a
-            stack of four layers working in concert:
+            stack of five layers working in concert — from the data foundation through
+            agent intelligence to the experience modes that bring it all together:
           </p>
         </div>
 
@@ -478,12 +508,13 @@ export default function OperatingSystemPage() {
             Synthetic Data Files
           </h2>
           <p className="text-[14px] text-thermax-slate mt-2 max-w-4xl leading-relaxed">
-            The system datasets contain 27 interlinked CSV files across 11 folders,
-            organised exactly along the nine-stage workflow plus master data and
-            governance. Every file has 50+ rows, and all IDs cross-reference
-            consistently (a CUST-xxxx in customers_master.csv flows through signals
-            &rarr; briefs &rarr; opportunities &rarr; proposals &rarr; projects
-            &rarr; telemetry &rarr; tickets).
+            The system datasets contain 27+ interlinked CSV files across 11 folders
+            plus AI Nexus data, organised exactly along the nine-stage workflow plus
+            master data, governance, and enterprise apps. Every file has 50+ rows, and
+            all IDs cross-reference consistently (a CUST-xxxx in customers_master.csv
+            flows through signals &rarr; briefs &rarr; opportunities &rarr; proposals
+            &rarr; projects &rarr; telemetry &rarr; tickets). The AI Nexus adds asset
+            telemetry, incident histories, and tender documents across 4 divisions.
           </p>
         </div>
 
@@ -508,8 +539,10 @@ export default function OperatingSystemPage() {
         <p className="text-[12px] text-thermax-slate mt-3 leading-relaxed">
           Total: <strong>4,300+ data rows</strong> of realistic, interconnected
           records using authentic Indian industrial customers, Thermax products, and
-          employee names — ready to drop into a database, BI tool, or agent
-          simulator.
+          employee names — plus AI Nexus datasets for asset telemetry (boilers,
+          heaters, water treatment, solar thermal), incident histories, and tender
+          documents across 4 divisions — ready to drop into a database, BI tool, or
+          agent simulator.
         </p>
       </section>
 
@@ -539,6 +572,12 @@ export default function OperatingSystemPage() {
             className="border border-red-600 text-red-600 font-semibold px-5 py-2.5 rounded-md hover:bg-red-600 hover:text-white transition text-sm"
           >
             AgentGuard Governance
+          </Link>
+          <Link
+            href="/ai-nexus"
+            className="border border-violet-600 text-violet-600 font-semibold px-5 py-2.5 rounded-md hover:bg-violet-600 hover:text-white transition text-sm"
+          >
+            Explore AI Nexus
           </Link>
         </div>
       </section>
@@ -632,5 +671,17 @@ const DATA_FOLDERS = [
     icon: '🛡️',
     description:
       'Approval gates (70), agent audit log (450), human overrides (60), confidence escalations (55)'
+  },
+  {
+    folder: 'ai-nexus/assets',
+    icon: '⚡',
+    description:
+      'Asset Performance — boiler telemetry, incident history, 2,000+ failure modes, 4 site locations'
+  },
+  {
+    folder: 'ai-nexus/tenders',
+    icon: '📑',
+    description:
+      'Tender Intelligence — sample RFPs for Water Treatment, CFBC Boiler, Heating Systems, Solar Thermal'
   }
 ];

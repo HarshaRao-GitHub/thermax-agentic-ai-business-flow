@@ -23,11 +23,12 @@ export default function GovernancePage() {
         </div>
         <p className="text-[14px] text-thermax-slate max-w-3xl">
           {governanceConfig.subtitle}. Powered by the <strong>{governanceConfig.agent.name}</strong> ({governanceConfig.agent.shortId})
-          with {governanceConfig.tools.length} governance tools monitoring {governanceConfig.dataSources.reduce((a, d) => a + d.rowEstimate, 0)}+ records.
+          with {governanceConfig.tools.length} governance tools monitoring {governanceConfig.dataSources.reduce((a, d) => a + d.rowEstimate, 0)}+ records
+          across 9 agents, the O&amp;M Service Co-pilot, and AI Nexus enterprise apps.
         </p>
       </div>
 
-      <div className="grid lg:grid-cols-4 gap-4 mb-8">
+      <div className="grid lg:grid-cols-5 gap-4 mb-8">
         <GovernanceStat
           icon="🚦"
           label="Approval Gates"
@@ -55,6 +56,13 @@ export default function GovernancePage() {
           value="55"
           detail="Low-confidence cases"
           color="bg-red-50 border-red-200"
+        />
+        <GovernanceStat
+          icon="⚡"
+          label="AI Nexus Apps"
+          value="2"
+          detail="Asset Perf. + Tender Intel."
+          color="bg-violet-50 border-violet-200"
         />
       </div>
 

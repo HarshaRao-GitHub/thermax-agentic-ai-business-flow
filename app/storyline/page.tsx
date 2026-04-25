@@ -56,19 +56,24 @@ const STORYLINE_PARAGRAPHS = [
   },
   {
     highlight: 'But the story does not end at handover.',
-    body: `O&M Services take over the plant's ongoing life — supporting field engineers with SOPs and diagnosis guidance, resolving service cases through structured root cause analysis, managing spare parts intelligence, and helping the customer get the most out of their investment.`,
+    body: `O&M Services take over the plant's ongoing life — supported by a proactive AI Service Co-pilot that is always on, answering field engineer questions in real time, guiding diagnosis through SOPs and root cause analysis, managing spare parts intelligence, and helping the customer get the most out of their investment — without waiting for an agent run.`,
     accent: 'O&M Services'
+  },
+  {
+    highlight: 'Meanwhile, the AI Nexus powers the next generation of intelligence.',
+    body: `The Asset Performance Platform monitors the entire fleet in real time — predicting failures across boilers, heaters, water treatment, and solar thermal assets using 2,000+ failure modes. The Tender Intelligence Tool reads 500–2,000 page RFPs in minutes, extracting key parameters, flagging exotic materials and risky clauses, and accelerating proposal creation with AI-powered Q&A.`,
+    accent: 'AI Nexus'
   },
   {
     highlight:
       'Over time, this same customer becomes the source of the next opportunity',
-    body: `— through renewals, retrofits, upgrades, service contracts, and success stories that go back to Marketing and Sales.`,
+    body: `— through renewals, retrofits, upgrades, service contracts, and success stories that go back to Marketing and Sales. The continuous loop is now powered by four AI experience modes: Prompting, Document Intelligence, Agentic AI, and AI Nexus — each amplifying human expertise at every stage.`,
     accent: 'Loop'
   }
 ];
 
 const CLOSING =
-  'In this way, the Thermax workflow is not a straight line from order to delivery — it is a continuous loop, where every well-delivered project becomes the starting point for the next one.';
+  'In this way, the Thermax workflow is not a straight line from order to delivery — it is a continuous loop, where every well-delivered project becomes the starting point for the next one. With four AI experience modes (Prompting, Doc Intelligence & Visualization, Agentic AI, and AI Nexus), nine specialised agents, a proactive Service Co-pilot, and enterprise apps for asset performance monitoring and tender intelligence — the Thermax AI Operating System 2030 transforms every function into a compounding growth engine.';
 
 const STAGE_COLORS: Record<string, string> = {
   Marketing: '#3B82F6',
@@ -80,6 +85,7 @@ const STAGE_COLORS: Record<string, string> = {
   'Site Operations': '#6366F1',
   Commissioning: '#EC4899',
   'O&M Services': '#14B8A6',
+  'AI Nexus': '#7C3AED',
   Loop: '#DC2626'
 };
 
@@ -170,6 +176,12 @@ export default function StorylinePage() {
             className="border border-thermax-navy text-thermax-navy font-semibold px-5 py-2.5 rounded-md hover:bg-thermax-navy hover:text-white transition text-sm"
           >
             View AI Operating System &rarr;
+          </Link>
+          <Link
+            href="/ai-nexus"
+            className="border border-violet-600 text-violet-600 font-semibold px-5 py-2.5 rounded-md hover:bg-violet-600 hover:text-white transition text-sm"
+          >
+            Explore AI Nexus &rarr;
           </Link>
         </div>
       </section>

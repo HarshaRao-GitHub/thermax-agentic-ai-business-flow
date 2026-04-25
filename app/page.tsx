@@ -28,8 +28,8 @@ export default function Home() {
             </h1>
             <p className="mt-4 text-white/75 max-w-2xl text-[15px] leading-relaxed">
               End-to-end AI operating system for Thermax — from Market Intelligence to O&amp;M Services,
-              with AgentGuard governance. 10 autonomous agents, 31 tools, 4,086+ data records,
-              processing every stage of the enterprise workflow.
+              with AgentGuard governance. 10 autonomous agents, a proactive Service Co-pilot, AI Nexus enterprise apps,
+              4 experience modes, {totalTools} tools, and {totalDataRows.toLocaleString()}+ data records.
             </p>
             <p className="mt-2 text-thermax-saffron font-semibold italic text-[15px]">
               &ldquo;AI does the work, humans make the calls.&rdquo;
@@ -47,16 +47,22 @@ export default function Home() {
               >
                 AgentGuard Governance
               </Link>
+              <Link
+                href="/ai-nexus"
+                className="border border-violet-400 text-violet-300 px-5 py-2.5 rounded-md hover:bg-violet-500/20 transition"
+              >
+                AI Nexus
+              </Link>
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-3">
             <Stat n="9" label="Workflow Stages" />
-            <Stat n="10" label="AI Agents" />
+            <Stat n="10+1" label="Agents + Co-pilot" />
             <Stat n={String(totalTools)} label="Agentic Tools" />
             <Stat n={totalDataRows.toLocaleString()} label="Data Records" />
-            <Stat n="27" label="CSV Data Files" />
-            <Stat n="LLM" label="Foundation Model" mono />
+            <Stat n="4" label="Experience Modes" />
+            <Stat n="2" label="AI Nexus Apps" />
           </div>
         </div>
       </section>
@@ -75,7 +81,8 @@ export default function Home() {
           </h2>
           <p className="text-thermax-slate mt-2 max-w-3xl text-[14px] leading-relaxed">
             Each stage has a dedicated AI agent with specialized tools, operating on real enterprise data.
-            Every agent action is governed by AgentGuard — approval gates, audit trails, confidence-based escalations, and human override tracking.
+            Every agent action is governed by AgentGuard. The O&amp;M agent includes a proactive Service Co-pilot
+            (always-on AI Q&amp;A). AI Nexus extends the pipeline with Asset Performance and Tender Intelligence apps.
           </p>
         </div>
         <StageFlowGrid stages={stages} />
@@ -158,7 +165,7 @@ export default function Home() {
               icon: '🤖',
               title: "'9-Stage' AI Operating System",
               description:
-                'Four-layer architecture, AI vs human breakdown per stage, AgentGuard governance principles.',
+                'Five-layer architecture, AI vs human breakdown per stage, Service Co-pilot, AI Nexus, AgentGuard governance.',
               color: '#DC2626'
             }
           ].map((card) => (
@@ -190,7 +197,7 @@ export default function Home() {
         <div className="mb-6">
           <h2 className="text-xl font-bold text-thermax-navy">Data Backbone</h2>
           <p className="text-[13px] text-thermax-slate mt-1">
-            27 interlinked CSV files with referential integrity across all 9 stages + governance.
+            27+ interlinked data files (CSV, PDF, TXT) with referential integrity across all 9 stages + governance + AI Nexus.
           </p>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2">
@@ -205,7 +212,9 @@ export default function Home() {
             { folder: '07_site_operations', label: 'Execution & Monitoring', files: 3, icon: '🏗️' },
             { folder: '08_commissioning', label: 'Commissioning', files: 1, icon: '🔬' },
             { folder: '09_digital_service', label: 'O&M Services', files: 4, icon: '🔧' },
-            { folder: '10_governance', label: 'Governance', files: 4, icon: '🛡️' }
+            { folder: '10_governance', label: 'Governance', files: 4, icon: '🛡️' },
+            { folder: 'ai-nexus/assets', label: 'Asset Performance', files: 2, icon: '⚡' },
+            { folder: 'ai-nexus/tenders', label: 'Tender Intelligence', files: 4, icon: '📑' }
           ].map((f) => (
             <div key={f.folder} className="bg-white border border-thermax-line rounded-lg p-3">
               <div className="flex items-center gap-2 mb-1">
