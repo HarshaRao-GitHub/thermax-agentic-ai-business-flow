@@ -33,7 +33,6 @@ export default function DocIntelligenceHub() {
   const [elapsedTimer, setElapsedTimer] = useState(0);
   const [mode, setMode] = useState<'live' | null>(null);
   const [uploadError, setUploadError] = useState<string | null>(null);
-  const [docsExpanded, setDocsExpanded] = useState(true);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const streamRef = useRef<HTMLDivElement>(null);
@@ -215,7 +214,7 @@ export default function DocIntelligenceHub() {
 
       {/* ── Hero Header ── */}
       <section className="bg-gradient-to-br from-[#0c1222] via-[#111d35] to-[#0f172a] border-b border-white/5">
-        <div className="max-w-6xl mx-auto px-6 py-6">
+        <div className="max-w-7xl mx-auto px-6 py-6">
           <div className="flex items-center justify-between">
             <div>
               <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur px-3 py-1 rounded-full text-[11px] font-mono text-blue-400 mb-3">
@@ -239,144 +238,111 @@ export default function DocIntelligenceHub() {
         </div>
       </section>
 
-      <div className="max-w-6xl mx-auto px-6 py-5 space-y-4">
+      <div className="max-w-7xl mx-auto px-6 py-4 space-y-4">
 
         {/* ═══════════════════════════════════════════════════════════════
-            STEP 1: Documents
+            STEPS 1 & 2: Side-by-side — Documents | Operations
            ═══════════════════════════════════════════════════════════════ */}
-        <section className="bg-[#131b2e] border border-white/5 rounded-xl overflow-hidden">
-          <button
-            onClick={() => setDocsExpanded(!docsExpanded)}
-            className="w-full flex items-center justify-between px-5 py-3 hover:bg-white/[0.02] transition"
-          >
-            <div className="flex items-center gap-3">
-              <span className="text-[10px] font-bold bg-blue-600 text-white px-2 py-0.5 rounded">STEP 1</span>
-              <h3 className="text-[13px] font-bold">
-                Load Documents
-                {hasFiles && <span className="ml-2 text-emerald-400 font-mono text-[11px]">({uploadedFiles.length} loaded)</span>}
-              </h3>
-              {!hasFiles && <span className="text-[11px] text-amber-400/80 font-medium">Required before analysis</span>}
-            </div>
-            <div className="flex items-center gap-3">
+        <div className="grid lg:grid-cols-[1fr_340px] gap-4">
+
+          {/* STEP 1: Documents */}
+          <section className="bg-[#131b2e] border border-white/5 rounded-xl overflow-hidden">
+            <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/5 bg-white/[0.01]">
+              <div className="flex items-center gap-2.5">
+                <span className="text-[9px] font-bold bg-blue-600 text-white px-1.5 py-0.5 rounded">1</span>
+                <h3 className="text-[12px] font-bold">
+                  Documents
+                  {hasFiles && <span className="ml-1.5 text-emerald-400 font-mono text-[10px]">({uploadedFiles.length})</span>}
+                </h3>
+                {!hasFiles && <span className="text-[10px] text-amber-400/80">Required</span>}
+              </div>
               <select
                 value={selectedDept}
-                onChange={e => { e.stopPropagation(); setSelectedDept(e.target.value); setUploadedFiles([]); }}
-                onClick={e => e.stopPropagation()}
-                className="bg-white/5 border border-white/10 rounded-lg px-3 py-1.5 text-[12px] text-white/80 focus:outline-none focus:ring-1 focus:ring-blue-500/50"
+                onChange={e => { setSelectedDept(e.target.value); setUploadedFiles([]); }}
+                className="bg-white/5 border border-white/10 rounded-lg px-2.5 py-1 text-[11px] text-white/80 focus:outline-none focus:ring-1 focus:ring-blue-500/50"
               >
                 {DEPARTMENTS.map(d => (
                   <option key={d.id} value={d.id} className="bg-gray-900">{d.icon} {d.label}</option>
                 ))}
               </select>
-              <span className="text-[10px] font-bold text-white/40">{docsExpanded ? 'COLLAPSE ▲' : 'EXPAND ▼'}</span>
             </div>
-          </button>
 
-          {docsExpanded && (
-            <div className="px-5 pb-4 border-t border-white/5 pt-3">
-              {dept && (
-                <p className="text-[11px] text-white/40 mb-3">{dept.description}</p>
-              )}
-
-              {/* Sample files as quick-load chips */}
+            <div className="px-4 py-3 space-y-2.5">
+              {/* Sample files */}
               {sampleFiles.length > 0 && (
-                <div className="mb-3">
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-white/50 mb-2">Available Data Files</div>
-                  <div className="flex flex-wrap gap-2">
-                    {sampleFiles.map(sf => {
-                      const loaded = uploadedFiles.some(f => f.filename === sf.filename);
-                      const loading = loadingSampleFiles.has(sf.filename);
-                      return (
-                        <button
-                          key={sf.filename}
-                          onClick={() => !loaded && !loading && loadSampleFile(sf)}
-                          disabled={loaded || loading}
-                          title={sf.description}
-                          className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-medium border transition-all ${
-                            loaded
-                              ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400 cursor-default'
-                              : loading
-                                ? 'bg-amber-500/10 border-amber-500/30 text-amber-400 animate-pulse cursor-wait'
-                                : 'bg-white/[0.03] border-white/10 text-white/70 hover:bg-white/[0.07] hover:border-white/20 hover:text-white cursor-pointer'
-                          }`}
-                        >
-                          <span className="text-sm">{loaded ? '✅' : loading ? '⏳' : '📄'}</span>
-                          {sf.label}
-                        </button>
-                      );
-                    })}
-                  </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {sampleFiles.map(sf => {
+                    const loaded = uploadedFiles.some(f => f.filename === sf.filename);
+                    const loading = loadingSampleFiles.has(sf.filename);
+                    return (
+                      <button
+                        key={sf.filename}
+                        onClick={() => !loaded && !loading && loadSampleFile(sf)}
+                        disabled={loaded || loading}
+                        title={sf.description}
+                        className={`inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-[10px] font-medium border transition-all ${
+                          loaded
+                            ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400'
+                            : loading
+                              ? 'bg-amber-500/10 border-amber-500/30 text-amber-400 animate-pulse'
+                              : 'bg-white/[0.03] border-white/10 text-white/60 hover:bg-white/[0.07] hover:text-white'
+                        }`}
+                      >
+                        <span className="text-xs">{loaded ? '✅' : loading ? '⏳' : '📄'}</span>
+                        {sf.label}
+                      </button>
+                    );
+                  })}
                 </div>
               )}
 
-              {/* Upload + loaded files row */}
-              <div className="flex items-start gap-4">
-                <label className="shrink-0 flex items-center gap-2 px-4 py-2 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 rounded-lg cursor-pointer transition text-[12px] font-semibold text-blue-300">
-                  <span>📁</span> Upload Your Files
-                  <input
-                    ref={fileInputRef}
-                    type="file"
-                    multiple
-                    accept=".csv,.txt,.md,.tsv,.log,.json,.pdf,.doc,.docx,.xls,.xlsx"
-                    onChange={handleUpload}
-                    className="hidden"
-                  />
+              {/* Upload + loaded files */}
+              <div className="flex items-center gap-3 flex-wrap">
+                <label className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 rounded-lg cursor-pointer transition text-[11px] font-semibold text-blue-300">
+                  <span>📁</span> Upload
+                  <input ref={fileInputRef} type="file" multiple accept=".csv,.txt,.md,.tsv,.log,.json,.pdf,.doc,.docx,.xls,.xlsx" onChange={handleUpload} className="hidden" />
                 </label>
 
-                {uploadedFiles.length > 0 && (
-                  <div className="flex flex-wrap gap-1.5 flex-1 min-w-0">
-                    {uploadedFiles.map(f => (
-                      <div key={f.filename} className="inline-flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/20 rounded-lg px-2.5 py-1 text-[11px] text-emerald-400">
-                        <span>📄</span>
-                        <span className="truncate max-w-[140px]" title={f.filename}>{f.filename}</span>
-                        <button onClick={() => removeFile(f.filename)} className="text-red-400/60 hover:text-red-400 ml-0.5 font-bold">×</button>
-                      </div>
-                    ))}
-                    <button
-                      onClick={() => setUploadedFiles([])}
-                      className="text-[10px] text-red-400/60 hover:text-red-400 px-2 py-1 transition"
-                    >
-                      Clear all
-                    </button>
+                {uploadedFiles.map(f => (
+                  <div key={f.filename} className="inline-flex items-center gap-1 bg-emerald-500/10 border border-emerald-500/20 rounded-lg px-2 py-1 text-[10px] text-emerald-400">
+                    <span className="truncate max-w-[120px]" title={f.filename}>{f.filename}</span>
+                    <button onClick={() => removeFile(f.filename)} className="text-red-400/60 hover:text-red-400 font-bold ml-0.5">×</button>
                   </div>
+                ))}
+
+                {uploadedFiles.length > 1 && (
+                  <button onClick={() => setUploadedFiles([])} className="text-[9px] text-red-400/50 hover:text-red-400 transition">Clear all</button>
                 )}
               </div>
 
-              {uploadError && (
-                <p className="text-[11px] text-red-400 mt-2">{uploadError}</p>
-              )}
+              {uploadError && <p className="text-[10px] text-red-400">{uploadError}</p>}
             </div>
-          )}
-        </section>
+          </section>
 
-        {/* ═══════════════════════════════════════════════════════════════
-            STEP 2: Choose Operation
-           ═══════════════════════════════════════════════════════════════ */}
-        <section className="bg-[#131b2e] border border-white/5 rounded-xl px-5 py-3">
-          <div className="flex items-center gap-3 mb-3">
-            <span className="text-[10px] font-bold bg-violet-600 text-white px-2 py-0.5 rounded">STEP 2</span>
-            <h3 className="text-[13px] font-bold">Choose Operation</h3>
-            {operation && (
-              <span className="text-[11px] text-white/40 hidden sm:inline">|  {operation.description.slice(0, 80)}...</span>
-            )}
-          </div>
-          <div className="flex flex-wrap gap-1.5">
-            {OPERATIONS.map(op => (
-              <button
-                key={op.id}
-                onClick={() => { setSelectedOp(op.id); setMessages([]); setStreamBuffer(''); setUsageStats(null); }}
-                className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-[12px] font-semibold border transition-all ${
-                  selectedOp === op.id
-                    ? 'bg-blue-600/20 border-blue-500/40 text-blue-300 shadow-lg shadow-blue-500/5'
-                    : 'bg-white/[0.02] border-white/5 text-white/60 hover:bg-white/[0.06] hover:border-white/15 hover:text-white/90'
-                }`}
-              >
-                <span>{op.icon}</span>
-                {op.label}
-              </button>
-            ))}
-          </div>
-        </section>
+          {/* STEP 2: Operations */}
+          <section className="bg-[#131b2e] border border-white/5 rounded-xl overflow-hidden">
+            <div className="flex items-center gap-2.5 px-4 py-2.5 border-b border-white/5 bg-white/[0.01]">
+              <span className="text-[9px] font-bold bg-violet-600 text-white px-1.5 py-0.5 rounded">2</span>
+              <h3 className="text-[12px] font-bold">Operation</h3>
+            </div>
+            <div className="px-3 py-3 flex flex-wrap gap-1.5 max-h-[180px] overflow-y-auto">
+              {OPERATIONS.map(op => (
+                <button
+                  key={op.id}
+                  onClick={() => { setSelectedOp(op.id); setMessages([]); setStreamBuffer(''); setUsageStats(null); }}
+                  className={`inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-[11px] font-semibold border transition-all ${
+                    selectedOp === op.id
+                      ? 'bg-blue-600/20 border-blue-500/40 text-blue-300'
+                      : 'bg-white/[0.02] border-white/5 text-white/55 hover:bg-white/[0.06] hover:text-white/90'
+                  }`}
+                >
+                  <span className="text-sm">{op.icon}</span>
+                  {op.label}
+                </button>
+              ))}
+            </div>
+          </section>
+        </div>
 
         {/* ═══════════════════════════════════════════════════════════════
             STEP 3: Results Area
