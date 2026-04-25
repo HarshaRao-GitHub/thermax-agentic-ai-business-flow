@@ -70,15 +70,24 @@ export default function DocIntelligenceHub() {
     }
   }, [uploadedFiles]);
 
+  const MAX_UPLOAD_FILES = 5;
+  const MAX_UPLOAD_SIZE_MB = 30;
+
   async function handleUpload(e: React.ChangeEvent<HTMLInputElement>) {
     const files = e.target.files;
     if (!files?.length) return;
     setUploadError(null);
 
+    if (uploadedFiles.length >= MAX_UPLOAD_FILES) {
+      setUploadError(`Maximum ${MAX_UPLOAD_FILES} files allowed. Remove existing files first.`);
+      if (fileInputRef.current) fileInputRef.current.value = '';
+      return;
+    }
+
     const newFiles: UploadedFile[] = [];
     for (const file of Array.from(files)) {
-      if (file.size > 5 * 1024 * 1024) {
-        setUploadError(`${file.name} exceeds 5MB limit`);
+      if (file.size > MAX_UPLOAD_SIZE_MB * 1024 * 1024) {
+        setUploadError(`${file.name} exceeds ${MAX_UPLOAD_SIZE_MB}MB limit`);
         continue;
       }
       try {
@@ -301,8 +310,11 @@ export default function DocIntelligenceHub() {
               <div className="flex items-center gap-3 flex-wrap pt-1">
                 <label className="shrink-0 inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 border border-blue-700 rounded-lg cursor-pointer transition text-xs font-bold text-white shadow-sm">
                   <span>📁</span> Upload Your Files
-                  <input ref={fileInputRef} type="file" multiple accept=".csv,.txt,.md,.tsv,.log,.json,.pdf,.doc,.docx,.xls,.xlsx" onChange={handleUpload} className="hidden" />
+                  <input ref={fileInputRef} type="file" multiple accept=".csv,.txt,.md,.tsv,.log,.json,.pdf,.doc,.docx,.xls,.xlsx,.xml" onChange={handleUpload} className="hidden" />
                 </label>
+                <span className="text-[10px] text-gray-500 font-medium">
+                  Max {MAX_UPLOAD_FILES} files · {MAX_UPLOAD_SIZE_MB}MB each · CSV, PDF, DOCX, XLSX, JSON, TXT
+                </span>
 
                 {uploadedFiles.map(f => (
                   <div key={f.filename} className="inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-300 rounded-lg px-3 py-1.5 text-xs font-semibold text-emerald-800">

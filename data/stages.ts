@@ -13,6 +13,7 @@ export interface DataSource {
   folder: string;
   rowEstimate: number;
   description: string;
+  fileType?: 'csv' | 'json' | 'txt' | 'pdf' | 'xlsx';
 }
 
 export interface StageTool {
@@ -46,6 +47,48 @@ export interface Stage {
   downstreamStages: string[];
 }
 
+const RICH_OUTPUT_INSTRUCTIONS = `
+
+VISUALIZATION & RICH OUTPUT REQUIREMENTS (MANDATORY):
+Your output must be enterprise-grade, visually rich, and production-quality. This is a leadership-facing system — outputs must look like they came from a top-tier consulting firm, not a chatbot. Follow these rules strictly:
+
+1. MERMAID DIAGRAMS — Include at least 2-3 contextually appropriate Mermaid diagrams in your output using \`\`\`mermaid code blocks. Choose from:
+   - **Pie charts** for distribution/composition data (e.g., pipeline by stage, risk distribution, budget allocation)
+   - **Bar charts (xychart-beta)** for comparisons (e.g., deal values, efficiency metrics, cost comparisons)
+   - **Flowcharts** for process flows, decision trees, escalation paths
+   - **Gantt charts** for timelines, project schedules, milestone tracking
+   - **Sequence diagrams** for process interactions, handoff flows
+   - **Quadrant charts** for 2x2 matrices (e.g., urgency vs value, risk vs impact)
+
+2. DATA TABLES — Present ALL quantitative data in well-formatted markdown tables with:
+   - Proper column headers with units (₹ Cr, %, days, etc.)
+   - Alignment indicators for numeric columns
+   - Summary/total rows where applicable
+   - Color-coding indicators using symbols: 🟢 Low/Good, 🟡 Medium/Warning, 🔴 High/Critical, ⚪ N/A
+
+3. SECTION STRUCTURE — Use professional document structure:
+   - ## for major sections (Executive Summary, Analysis, Recommendations)
+   - ### for subsections
+   - Numbered lists for sequential items, bullet points for parallel items
+   - **Bold** for key findings, KPIs, and critical values
+   - > Blockquotes for important callouts and warnings
+
+4. EXECUTIVE SUMMARY — Always start with a concise executive summary (3-5 bullet points) highlighting key findings, critical decisions needed, and recommended actions.
+
+5. KPI DASHBOARD — Include a metrics summary section with key performance indicators formatted as:
+   | KPI | Value | Target | Status |
+   Format with status indicators (🟢🟡🔴)
+
+6. RISK HEAT MAP — When risks are involved, present them in a structured risk matrix with probability × impact scoring.
+
+7. COMPARATIVE ANALYSIS — When comparing options, use side-by-side comparison tables or weighted scoring matrices.
+
+8. ACTIONABLE RECOMMENDATIONS — End every analysis with numbered, specific, actionable recommendations with assigned owners and timelines where applicable.
+
+9. CROSS-REFERENCES — Reference upstream/downstream stage outputs explicitly. Cite data source file names and row counts to establish data lineage.
+
+10. CONFIDENCE INDICATORS — Show confidence levels for all AI-generated insights: 🟢 High (>0.85), 🟡 Medium (0.7-0.85), 🔴 Low (<0.7).`;
+
 export const stages: Stage[] = [
   {
     slug: 'marketing',
@@ -70,7 +113,8 @@ export const stages: Stage[] = [
     dataSources: [
       { file: 'market_signals.csv', label: 'Market Signals', folder: '01_marketing', rowEstimate: 70, description: 'Regulatory changes, capex announcements, emission norms, and industry news detected across target sectors' },
       { file: 'account_briefs.csv', label: 'Account Briefs', folder: '01_marketing', rowEstimate: 60, description: 'AI-generated summaries of each target account — industry, pain points, Thermax fit, and value hypothesis' },
-      { file: 'customers_master.csv', label: 'Customers Master', folder: '00_master_data', rowEstimate: 52, description: 'Complete customer directory with company details, segments, regions, revenue tiers, and relationship history' }
+      { file: 'customers_master.csv', label: 'Customers Master', folder: '00_master_data', rowEstimate: 52, description: 'Complete customer directory with company details, segments, regions, revenue tiers, and relationship history', fileType: 'csv' },
+      { file: 'sector_analysis_report.txt', label: 'Sector Analysis Report', folder: '01_marketing', rowEstimate: 1, description: 'FY2026-27 sector opportunity analysis — TAM by industry, competitive landscape, strategic recommendations', fileType: 'txt' }
     ],
     tools: [
       { name: 'scan_market_signals', label: 'Scan Market Signals', icon: '📡', description: 'Parses all market signals, classifies by type and urgency, cross-references with customer master data' },
@@ -108,7 +152,7 @@ Your output MUST include:
 
 Mandatory human approval: Final target account selection and GTM approach. Marketing/BU head reviews the shortlisted accounts and validates the value hypothesis.
 
-Governance: Every action you take is logged in the agent audit trail. Low-confidence outputs escalate to Marketing Director automatically via AgentGuard.`,
+Governance: Every action you take is logged in the agent audit trail. Low-confidence outputs escalate to Marketing Director automatically via AgentGuard.${RICH_OUTPUT_INSTRUCTIONS}`,
     starterPrompt: 'Analyze all market signals detected in the last 90 days. Identify the TOP 5 IMMEDIATE LEADS — the highest-value, highest-probability opportunities. For each lead, provide company details, estimated deal value, urgency score, and confidence level. Also generate a list of high-probable leads (ranks 6-15) with relevant information. Show the complete filtering summary from raw signals to shortlisted leads.',
     outputHint: 'Top 5 immediate leads table with confidence levels, high-probable leads list, filtering summary showing signal-to-lead funnel, and summary of remaining signals.',
     agentAvatar: '/agents/agent-marketing.png',
@@ -177,7 +221,7 @@ Output format:
 
 Mandatory human approval: Go / no-go pursuit decision and NDA signing. Sales lead validates political reality, customer urgency, and stakeholder relationships.
 
-Governance: All qualification decisions pass through approval gates. Human GO/NO-GO override is the final authority. Every action is logged in the agent audit trail. Low-confidence outputs escalate to BU Head Sales automatically via AgentGuard.`,
+Governance: All qualification decisions pass through approval gates. Human GO/NO-GO override is the final authority. Every action is logged in the agent audit trail. Low-confidence outputs escalate to BU Head Sales automatically via AgentGuard.${RICH_OUTPUT_INSTRUCTIONS}`,
     starterPrompt: 'Take the leads forwarded from Stage 1 (Market Intelligence). Perform deep BANT and MEDDIC qualification for each lead, map their key stakeholders, identify competitive threats, and issue GO/NO-GO recommendations. Show the complete handoff reconciliation with counts.',
     outputHint: 'Detailed qualification of received leads with BANT/MEDDIC scores, stakeholder maps, competitor analysis, GO/NO-GO decisions, and handoff reconciliation.',
     agentAvatar: '/agents/agent-sales.png',
@@ -210,7 +254,8 @@ Governance: All qualification decisions pass through approval gates. Human GO/NO
       { file: 'rfq_requirements.csv', label: 'RFQ Requirements', folder: '03_presales', rowEstimate: 20, description: 'Tender/RFQ clause-by-clause requirements with Thermax standard compliance status and deviation analysis' },
       { file: 'proposal_templates.csv', label: 'Proposal Templates', folder: '03_presales', rowEstimate: 8, description: 'Thermax standard proposal templates by product category with section structures and revision history' },
       { file: 'products_catalog.csv', label: 'Products Catalog', folder: '00_master_data', rowEstimate: 55, description: 'Thermax product portfolio — boilers, heaters, chillers, water treatment, chemicals, with specs and pricing' },
-      { file: 'bill_of_materials.csv', label: 'Bill of Materials', folder: '03_presales', rowEstimate: 296, description: 'Detailed equipment and component lists per proposal — quantities, unit costs, totals, and lead times' }
+      { file: 'bill_of_materials.csv', label: 'Bill of Materials', folder: '03_presales', rowEstimate: 296, description: 'Detailed equipment and component lists per proposal — quantities, unit costs, totals, and lead times', fileType: 'csv' },
+      { file: 'thermax_design_standards.json', label: 'Design Standards', folder: '00_master_data', rowEstimate: 1, description: 'Thermax engineering design codes (IBR, ASME, CPCB), material specs, performance standards, safety interlocks', fileType: 'json' }
     ],
     tools: [
       { name: 'draft_proposal', label: 'Draft Proposal', icon: '📝', description: 'Creates structured draft proposal with executive summary, scope, technical specs, PGs, delivery schedule, and commercial terms' },
@@ -265,7 +310,7 @@ Output format: Always structure outputs with clear sections, tables where approp
 
 Mandatory human approval: Final proposal scope, pricing, and customer commitments before submission. Solution architect reviews technical approach; pricing and margin review by commercial leader.
 
-Governance: Proposals above ₹50 Cr require VP-level approval gate. Every action is logged in the agent audit trail. Low-confidence outputs escalate to Solution Director automatically via AgentGuard.`,
+Governance: Proposals above ₹50 Cr require VP-level approval gate. Every action is logged in the agent audit trail. Low-confidence outputs escalate to Solution Director automatically via AgentGuard.${RICH_OUTPUT_INSTRUCTIONS}`,
     starterPrompt: 'Review the qualified leads forwarded from Stage 2. For each qualified lead, draft a structured proposal using the appropriate Thermax proposal template. Analyze all tender/RFQ requirements against Thermax standards and generate a detailed deviation report. Flag any requirements that cannot be met and propose alternatives.',
     outputHint: 'Draft proposal document (structured with executive summary, scope, specs, PGs, schedule, commercial terms) plus deviation report table (requirement vs Thermax standard, Met/Not Met/Partial, alternatives).',
     agentAvatar: '/agents/agent-presales.png',
@@ -297,7 +342,8 @@ Governance: Proposals above ₹50 Cr require VP-level approval gate. Every actio
       { file: 'commercial_risk_assessments.csv', label: 'Risk Assessments', folder: '05_finance_legal', rowEstimate: 55, description: 'Margin analysis, cash flow scores, currency exposure, LD risk, and overall commercial risk ratings per deal' },
       { file: 'contract_reviews.csv', label: 'Contract Reviews', folder: '05_finance_legal', rowEstimate: 55, description: 'Clause-by-clause contract analysis — indemnities, IP, warranties, LDs, with redline counts and risk flags' },
       { file: 'proposals.csv', label: 'Proposals', folder: '03_presales', rowEstimate: 55, description: 'Technical and commercial proposals with scope, pricing, margins, delivery timelines, and submission status' },
-      { file: 'engineering_validations.csv', label: 'Engineering Validations', folder: '04_engineering', rowEstimate: 55, description: 'Technical feasibility reviews and HAZOP assessments for proposal-level risk evaluation' }
+      { file: 'engineering_validations.csv', label: 'Engineering Validations', folder: '04_engineering', rowEstimate: 55, description: 'Technical feasibility reviews and HAZOP assessments for proposal-level risk evaluation', fileType: 'csv' },
+      { file: 'contract_risk_matrix.json', label: 'Contract Risk Matrix', folder: '05_finance_legal', rowEstimate: 1, description: 'Thermax contract risk evaluation framework — LD, indemnity, payment terms, warranty, IP thresholds and escalation rules', fileType: 'json' }
     ],
     tools: [
       { name: 'assess_commercial_risk', label: 'Assess Commercial Risk', icon: '📊', description: 'Evaluates margin, cash flow, currency exposure, payment terms risk, LD exposure, and overall risk rating' },
@@ -343,7 +389,7 @@ Output format: Always structure outputs with clear sections, tables where approp
 
 Mandatory human approval: Contract signing per Delegation of Authority (DoA), bank guarantees, insurance, and forex decisions. CFO reviews margin and cash-flow position; Legal counsel reviews redlines; Risk committee reviews high-exposure items.
 
-Governance: All High/Critical risk assessments require CFO approval gate. Contract reviews with > 3 critical clauses trigger legal escalation. Every action is logged in the agent audit trail. Low-confidence outputs escalate to CFO + Legal Counsel automatically via AgentGuard.`,
+Governance: All High/Critical risk assessments require CFO approval gate. Contract reviews with > 3 critical clauses trigger legal escalation. Every action is logged in the agent audit trail. Low-confidence outputs escalate to CFO + Legal Counsel automatically via AgentGuard.${RICH_OUTPUT_INSTRUCTIONS}`,
     starterPrompt: 'Review the draft proposals and deviation reports from Stage 3. Perform commercial risk assessment (margins, cash flow, LD exposure), legal contract review (redlines, indemnity, IP), and proposal feasibility review (deviation severity). Produce an approval-ready review note with recommendation for each proposal.',
     outputHint: 'Proposal risk summary with ratings, commercial analysis, legal review with redlines, deviation risk assessment, approval-ready review note, and flagged clauses requiring escalation.',
     agentAvatar: '/agents/agent-finance.png',
@@ -422,7 +468,7 @@ Output format: Always structure outputs with clear sections, tables where approp
 
 Mandatory human approval: Final resource assignments (especially for safety-critical roles) and project charter sign-off. PMO head approves the resource plan; HR validates availability and mobility.
 
-Governance: All resource assignments require HR approval. Projects above ₹100 Cr require PMO approver sign-off for charter. Every action is logged in the agent audit trail. Low-confidence outputs escalate to PMO Head automatically via AgentGuard.`,
+Governance: All resource assignments require HR approval. Projects above ₹100 Cr require PMO approver sign-off for charter. Every action is logged in the agent audit trail. Low-confidence outputs escalate to PMO Head automatically via AgentGuard.${RICH_OUTPUT_INSTRUCTIONS}`,
     starterPrompt: 'For the won orders, create a comprehensive project plan. Generate a project charter, build a WBS from the template, perform skill mapping and resource allocation, identify timeline milestones and gaps, and produce an HR input report for any resource shortages. Flag any projects where the customer timeline cannot be met.',
     outputHint: 'Project charter, WBS view, skill mapping table, resource availability with conflicts, timeline/milestone view, gap summary, timeline alerts, and HR/hiring input report.',
     agentAvatar: '/agents/agent-hr.png',
@@ -455,7 +501,8 @@ Governance: All resource assignments require HR approval. Projects above ₹100 
       { file: 'performance_guarantees.csv', label: 'Performance Guarantees', folder: '04_engineering', rowEstimate: 106, description: 'Equipment performance targets — efficiency, emissions, output guarantees with tolerances and test conditions' },
       { file: 'instrument_datasheets.csv', label: 'Instrument Data Sheets', folder: '06_engineering_design', rowEstimate: 15, description: 'Instrument specifications — tag numbers, types, ranges, materials, accuracy, connections, and output signals' },
       { file: 'equipment_datasheets.csv', label: 'Equipment Data Sheets', folder: '06_engineering_design', rowEstimate: 15, description: 'Equipment specifications — types, capacities, design conditions, materials, weights, dimensions, and power' },
-      { file: 'make_buy_classification.csv', label: 'Make/Buy Classification', folder: '06_engineering_design', rowEstimate: 20, description: 'Component classification as make (in-house) or buy (vendor), with rationale, preferred vendors, and lead times' }
+      { file: 'make_buy_classification.csv', label: 'Make/Buy Classification', folder: '06_engineering_design', rowEstimate: 20, description: 'Component classification as make (in-house) or buy (vendor), with rationale, preferred vendors, and lead times', fileType: 'csv' },
+      { file: 'thermax_design_standards.json', label: 'Design Standards', folder: '00_master_data', rowEstimate: 1, description: 'Thermax engineering design codes (IBR, ASME, CPCB), material specs, performance standards, safety interlocks', fileType: 'json' }
     ],
     tools: [
       { name: 'extract_datasheets', label: 'Extract Data Sheets', icon: '📋', description: 'Extracts technical specifications from proposal/order documents and generates structured instrument and equipment data sheets' },
@@ -498,7 +545,7 @@ Output format: Always structure outputs with clear sections, tables where approp
 
 Mandatory human approval: All performance guarantees, safety certifications, and technical commitments. Chief engineer reviews every technical commitment and data sheet accuracy.
 
-Governance: All engineering outputs require review by a named engineer. Every action is logged in the agent audit trail. Low-confidence outputs escalate to Chief Engineer automatically via AgentGuard.`,
+Governance: All engineering outputs require review by a named engineer. Every action is logged in the agent audit trail. Low-confidence outputs escalate to Chief Engineer automatically via AgentGuard.${RICH_OUTPUT_INSTRUCTIONS}`,
     starterPrompt: 'For the active projects from Stage 5, extract technical specifications and generate structured data sheets. Produce instrument data sheets and equipment data sheets. Classify all major components as make-vs-buy with rationale. Reference the original tender/proposal specifications to maintain digital thread continuity.',
     outputHint: 'Instrument data sheets, equipment data sheets, extracted design parameters, and make-vs-buy classification table with rationale and vendor preferences.',
     agentAvatar: '/agents/agent-engineering.png',
@@ -578,7 +625,7 @@ Output format: Always structure outputs with clear sections, tables where approp
 
 Mandatory human approval: Final vendor selection for orders above ₹25 Lakh, single-source procurement decisions, and any deviation from approved vendor list. Procurement head approves vendor selection; Manufacturing head approves production schedule changes.
 
-Governance: Single-source procurements require VP approval. All vendor evaluations are logged in the audit trail. Low-confidence outputs escalate to Procurement Head + Manufacturing Head automatically via AgentGuard.`,
+Governance: Single-source procurements require VP approval. All vendor evaluations are logged in the audit trail. Low-confidence outputs escalate to Procurement Head + Manufacturing Head automatically via AgentGuard.${RICH_OUTPUT_INSTRUCTIONS}`,
     starterPrompt: 'Review the make/buy classification from Stage 6. For buy items, evaluate vendor quotations and produce L1/T1 rankings with vendor recommendations. For make items, generate a manufacturing plan with material readiness tracking. Flag any delivery risks or delays. Maintain digital thread back to engineering specifications.',
     outputHint: 'Vendor comparison with L1/T1 rankings, shortlisted vendor recommendations, manufacturing plan with work orders, material readiness report with gap analysis, and delay/deviation flags.',
     agentAvatar: '/agents/agent-site.png',
@@ -610,7 +657,8 @@ Governance: Single-source procurements require VP approval. All vendor evaluatio
       { file: 'commissioning_tests.csv', label: 'Commissioning Tests', folder: '08_commissioning', rowEstimate: 190, description: 'Pre-commissioning and startup test results — parameters measured, targets, actuals, and pass/fail verdicts' },
       { file: 'commissioning_checklists.csv', label: 'Commissioning Checklists', folder: '08_commissioning', rowEstimate: 15, description: 'Product-variant-specific checklists — pre-commissioning, cold/hot commissioning, and PG test checks with acceptance criteria' },
       { file: 'performance_guarantees.csv', label: 'Performance Guarantees', folder: '04_engineering', rowEstimate: 106, description: 'Equipment performance targets — efficiency, emissions, output guarantees with tolerances and test conditions' },
-      { file: 'projects.csv', label: 'Projects', folder: '06_hr_pmo', rowEstimate: 55, description: 'Active projects with charter status, timelines, budgets, PM assignments, and PMO approval tracking' }
+      { file: 'projects.csv', label: 'Projects', folder: '06_hr_pmo', rowEstimate: 55, description: 'Active projects with charter status, timelines, budgets, PM assignments, and PMO approval tracking', fileType: 'csv' },
+      { file: 'commissioning_procedures.txt', label: 'Commissioning Procedures', folder: '08_commissioning', rowEstimate: 1, description: 'Standard commissioning procedures for AFBC Boilers (25-100 TPH) — pre-comm, cold/hot comm, PG test protocols', fileType: 'txt' }
     ],
     tools: [
       { name: 'get_checklist', label: 'Get Commissioning Checklist', icon: '📋', description: 'Retrieves the product-specific commissioning checklist with pre-commissioning, cold/hot commissioning, and PG test items' },
@@ -653,7 +701,7 @@ Output format: Always structure outputs with clear sections, tables where approp
 
 Mandatory human approval: PG test acceptance, PAC issuance, handover sign-off. Commissioning lead supervises startup; customer witness validates test results; operations team confirms handover readiness.
 
-Governance: PG test results require witness sign-off. Failed PG tests block PAC issuance and trigger escalation. Every action is logged in the agent audit trail. Low-confidence outputs escalate to Commissioning Head automatically via AgentGuard.`,
+Governance: PG test results require witness sign-off. Failed PG tests block PAC issuance and trigger escalation. Every action is logged in the agent audit trail. Low-confidence outputs escalate to Commissioning Head automatically via AgentGuard.${RICH_OUTPUT_INSTRUCTIONS}`,
     starterPrompt: 'Retrieve the commissioning checklist for the active project\'s product type. Walk through the pre-commissioning checks step by step. If test results are available, analyze them against performance guarantee targets, identify deviations, and recommend corrective actions for any parameters outside acceptable range.',
     outputHint: 'Product-specific checklist status, test deviation analysis with pass/fail/conditional, recommended corrective actions per deviation, and overall readiness summary.',
     agentAvatar: '/agents/agent-commissioning.png',
@@ -687,7 +735,8 @@ Governance: PG test results require witness sign-off. Failed PG tests block PAC 
       { file: 'spare_parts_inventory.csv', label: 'Spare Parts Inventory', folder: '09_digital_service', rowEstimate: 20, description: 'Spare parts catalog with stock levels, criticality, lead times, pricing, consumption history, and reorder triggers' },
       { file: 'troubleshooting_guides.csv', label: 'Troubleshooting Guides', folder: '09_digital_service', rowEstimate: 10, description: 'Symptom-based troubleshooting guides — probable causes, diagnostic steps, corrective/preventive actions per equipment type' },
       { file: 'fault_tree_library.csv', label: 'Fault Tree Library', folder: '09_digital_service', rowEstimate: 8, description: 'Fault Tree Analysis templates — top events, gate types, intermediate/basic events, probability, and verification methods' },
-      { file: 'service_tickets.csv', label: 'Service Tickets', folder: '09_digital_service', rowEstimate: 60, description: 'Active and historical service tickets — issue type, priority, SLA status, assigned engineer, resolution details' }
+      { file: 'service_tickets.csv', label: 'Service Tickets', folder: '09_digital_service', rowEstimate: 60, description: 'Active and historical service tickets — issue type, priority, SLA status, assigned engineer, resolution details', fileType: 'csv' },
+      { file: 'equipment_failure_modes.json', label: 'Equipment Failure Modes', folder: '09_digital_service', rowEstimate: 1, description: 'Failure mode analysis for AFBC Boilers and TF Heaters — root causes, diagnostics, corrective/preventive actions, spare parts', fileType: 'json' }
     ],
     tools: [
       { name: 'lookup_sop', label: 'Lookup SOP', icon: '📋', description: 'Searches the SOP library by equipment type and issue — returns relevant procedures, safety precautions, and step-by-step guidance' },
@@ -754,7 +803,7 @@ Output format: Present SOPs as numbered steps. Use the why-why ladder format for
 
 Mandatory human approval: Any customer-facing diagnosis report, field intervention dispatch, spare parts order above ₹5 Lakh, retrofit or renewal proposal.
 
-Governance: Critical service cases trigger immediate senior engineer assignment. Every diagnosis is logged with the reasoning trail. Low-confidence diagnoses (confidence < 0.75) escalate to Service Director automatically via AgentGuard.`,
+Governance: Critical service cases trigger immediate senior engineer assignment. Every diagnosis is logged with the reasoning trail. Low-confidence diagnoses (confidence < 0.75) escalate to Service Director automatically via AgentGuard.${RICH_OUTPUT_INSTRUCTIONS}`,
     starterPrompt: 'I am a field service engineer at a customer site. I need help troubleshooting an issue. Please ask me about the equipment type and the symptoms I am observing, and guide me through the diagnosis and repair process step by step.',
     outputHint: 'Relevant SOP with steps, troubleshooting guideline, diagnostic procedure, corrective procedure, root cause analysis (FTA or 5-Why), recommended next action, and spare parts needed.',
     agentAvatar: '/agents/agent-digital.png',
@@ -825,7 +874,7 @@ AgentGuard Governance Principles:
 5. Full audit trail — every agent action is logged, replayable, and auditable.
 6. Regulated data discipline — customer data, pricing, and IP are segregated with role-based access controls.
 7. Continuous learning — every human override becomes a training signal for the next cycle.
-8. Red-team cycles — periodic adversarial testing of agents against pricing errors, bad clauses, hallucinated specs and unsafe recommendations.`,
+8. Red-team cycles — periodic adversarial testing of agents against pricing errors, bad clauses, hallucinated specs and unsafe recommendations.${RICH_OUTPUT_INSTRUCTIONS}`,
   starterPrompt: 'Generate a comprehensive AgentGuard governance report. Analyze approval gate SLA compliance across all stages, review the agent audit trail for anomalies, identify patterns in human overrides, and assess confidence escalation resolution rates.'
 };
 

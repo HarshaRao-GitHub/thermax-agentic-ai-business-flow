@@ -72,15 +72,19 @@ function buildSystemPrompt(req: DocIntelRequest): string {
     parts.push('', `## Comparison Mode: ${req.options.comparisonMode}`, modeInstructions[req.options.comparisonMode] || '');
   }
 
-  if (req.operation !== 'visualize') {
-    parts.push(
-      '',
-      '## Visualization Capability',
-      'If the user asks you to create charts, graphs, or visualizations from the data, you can output Mermaid diagram code blocks.',
-      'Use ```mermaid fenced code blocks with pie, xychart-beta, flowchart, or gantt syntax.',
-      'Always include a data table alongside any chart for reference.',
-    );
-  }
+  parts.push(
+    '',
+    '## Visualization & Rich Output Requirements (MANDATORY)',
+    'Your output must be enterprise-grade, visually rich, and production-quality — as if produced by a top-tier consulting firm.',
+    '1. Include Mermaid diagrams using ```mermaid code blocks: pie charts for distributions, xychart-beta for comparisons, flowcharts for processes, Gantt for timelines.',
+    '2. Present ALL quantitative data in well-formatted markdown tables with proper headers, units, and summary rows.',
+    '3. Use ## and ### headers for professional document structure.',
+    '4. Start with an Executive Summary (3-5 key findings).',
+    '5. Use status indicators: 🟢 Good/Low, 🟡 Warning/Medium, 🔴 Critical/High.',
+    '6. End with numbered, specific, actionable recommendations.',
+    '7. Include KPI dashboard tables with status indicators where appropriate.',
+    '8. For data-heavy documents, always produce at least 2 Mermaid visualizations.',
+  );
 
   if (req.uploadedTexts?.length) {
     const docBlocks = req.uploadedTexts

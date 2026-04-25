@@ -1,0 +1,126 @@
+{
+  "matrix_id": "CRM-2026-V3",
+  "version": "3.1",
+  "last_updated": "2026-03-15",
+  "approved_by": "Chief Legal Officer",
+  "risk_categories": [
+    {
+      "category": "Liquidated Damages (LD)",
+      "weight": 0.25,
+      "thresholds": {
+        "low": "LD cap ≤ 5% of contract value",
+        "medium": "LD cap 5-10% of contract value",
+        "high": "LD cap 10-15% of contract value",
+        "critical": "LD cap > 15% or uncapped"
+      },
+      "thermax_standard": "LD cap at 5% with mutual applicability",
+      "common_deviations": [
+        "Customer insists on 10% LD cap — negotiate to 7.5% with milestone-based calculation",
+        "Performance LD separate from delay LD — ensure aggregate cap applies",
+        "LD on sub-milestones rather than final completion — high risk, push back"
+      ]
+    },
+    {
+      "category": "Indemnity",
+      "weight": 0.20,
+      "thresholds": {
+        "low": "Mutual indemnity, capped at contract value",
+        "medium": "Asymmetric indemnity with reasonable scope",
+        "high": "Broad indemnity including consequential damages",
+        "critical": "Unlimited indemnity or third-party claims"
+      },
+      "thermax_standard": "Mutual indemnity capped at 100% of contract value, excluding consequential damages",
+      "common_deviations": [
+        "Customer demands unlimited indemnity — counter with insurance-backed cap",
+        "Third-party IP indemnity — accept only for Thermax-originated IP",
+        "Environmental indemnity — limit to Thermax scope of work only"
+      ]
+    },
+    {
+      "category": "Payment Terms",
+      "weight": 0.20,
+      "thresholds": {
+        "low": "Advance 20%+ with milestone-based payments",
+        "medium": "No advance, milestone payments within 30 days",
+        "high": "Retention > 10% or payment beyond 60 days",
+        "critical": "Back-loaded payments or LC-based with restrictive terms"
+      },
+      "thermax_standard": "10-15% advance, milestone payments within 30 days, 5% retention released at PAC",
+      "common_deviations": [
+        "Zero advance — negotiate for material mobilization advance",
+        "90-day payment terms — flag for CFO approval, calculate interest cost",
+        "Bank guarantee for advance — standard, but negotiate BG reduction on milestones"
+      ]
+    },
+    {
+      "category": "Warranty & Defect Liability",
+      "weight": 0.15,
+      "thresholds": {
+        "low": "12-18 months from commissioning",
+        "medium": "24 months from commissioning or 30 from delivery",
+        "high": "36+ months or extended warranty on all components",
+        "critical": "Lifetime warranty or performance guarantee during warranty"
+      },
+      "thermax_standard": "18 months from delivery or 12 months from commissioning, whichever is earlier",
+      "common_deviations": [
+        "24-month warranty — acceptable with cost loading",
+        "Extended warranty on refractory — limit to 6 months",
+        "Warranty for third-party supplied items — pass-through vendor warranty only"
+      ]
+    },
+    {
+      "category": "Termination for Convenience",
+      "weight": 0.10,
+      "thresholds": {
+        "low": "Mutual termination with reasonable notice and payment for work done",
+        "medium": "Customer-only termination with partial payment",
+        "high": "Customer termination with minimal payment for WIP",
+        "critical": "Customer termination without payment or penalties"
+      },
+      "thermax_standard": "Mutual termination with 60-day notice, payment for all work done + 10% of remaining value",
+      "common_deviations": [
+        "Unilateral customer termination — insist on payment for procured materials",
+        "No mobilization/demobilization cost coverage — add explicit clause",
+        "Termination triggers cross-default — resist, isolate contracts"
+      ]
+    },
+    {
+      "category": "Force Majeure",
+      "weight": 0.05,
+      "thresholds": {
+        "low": "Standard FM clause with comprehensive events list",
+        "medium": "Narrow FM definition excluding some events",
+        "high": "FM restricted to natural disasters only",
+        "critical": "No FM clause or pandemic explicitly excluded"
+      },
+      "thermax_standard": "Comprehensive FM including natural disasters, pandemics, government actions, war, strikes",
+      "common_deviations": [
+        "Pandemic excluded post-COVID — insist on inclusion",
+        "Change in law not covered — add as extended FM event",
+        "FM notification period too short — negotiate 14-day minimum"
+      ]
+    },
+    {
+      "category": "IP & Confidentiality",
+      "weight": 0.05,
+      "thresholds": {
+        "low": "Each party retains pre-existing IP, joint IP shared",
+        "medium": "Customer claims IP on all deliverables",
+        "high": "Customer claims IP on Thermax background IP used in project",
+        "critical": "Non-compete or technology transfer obligation"
+      },
+      "thermax_standard": "Thermax retains all background IP and process know-how; project-specific IP shared",
+      "common_deviations": [
+        "Customer claims design IP — limit to project-specific documents only",
+        "Non-compete clause — reject or limit to 12 months and specific geography",
+        "Source code escrow — accept for software-only deliverables"
+      ]
+    }
+  ],
+  "scoring_formula": "Weighted average of all category scores (0-100). Score < 40 = Low Risk, 40-60 = Medium, 60-80 = High, > 80 = Critical",
+  "escalation_rules": {
+    "medium_risk": "BU Head approval required",
+    "high_risk": "VP + Legal Counsel approval required",
+    "critical_risk": "MD + Board Committee approval required"
+  }
+}

@@ -22,7 +22,7 @@ export default function AgentChat({
   stage,
   isGovernance = false
 }: {
-  stage: { slug: string; title: string; icon: string; tools: StageTool[]; systemPrompt: string; starterPrompt: string; outputHint: string; agent: { name: string; shortId: string; modelStack: string; description: string; }; dataSources: { file: string; label: string; folder: string; rowEstimate: number; description: string; }[]; } & Partial<Stage>;
+  stage: { slug: string; title: string; icon: string; tools: StageTool[]; systemPrompt: string; starterPrompt: string; outputHint: string; agent: { name: string; shortId: string; modelStack: string; description: string; }; dataSources: { file: string; label: string; folder: string; rowEstimate: number; description: string; fileType?: string; }[]; } & Partial<Stage>;
   isGovernance?: boolean;
 }) {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -509,21 +509,35 @@ export default function AgentChat({
             Data Backbone ({stage.dataSources.length} sources)
           </h3>
           <div className="space-y-2">
-            {stage.dataSources.map((ds) => (
+            {stage.dataSources.map((ds) => {
+              const ft = ds.fileType ?? (ds.file.endsWith('.json') ? 'json' : ds.file.endsWith('.txt') ? 'txt' : 'csv');
+              const ftColors: Record<string, string> = {
+                csv: 'bg-emerald-100 text-emerald-800 border-emerald-300',
+                json: 'bg-violet-100 text-violet-800 border-violet-300',
+                txt: 'bg-amber-100 text-amber-800 border-amber-300',
+                pdf: 'bg-red-100 text-red-800 border-red-300',
+                xlsx: 'bg-blue-100 text-blue-800 border-blue-300',
+              };
+              return (
               <div key={ds.file} className="p-2 rounded-lg bg-thermax-mist border border-thermax-line">
                 <div className="flex items-center justify-between mb-0.5">
-                  <span className="text-thermax-navy font-semibold text-[11px]">{ds.label}</span>
+                  <div className="flex items-center gap-1.5">
+                    <span className={`text-[8px] font-bold uppercase px-1.5 py-0.5 rounded border ${ftColors[ft] ?? ftColors.csv}`}>{ft}</span>
+                    <span className="text-thermax-navy font-semibold text-[11px]">{ds.label}</span>
+                  </div>
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => viewDataBackbone(ds)}
                       className="text-[9px] font-bold text-blue-600 bg-blue-50 hover:bg-blue-100 border border-blue-200 px-2 py-0.5 rounded transition"
                     >👁 View</button>
-                    <span className="text-thermax-saffronDeep font-mono font-bold text-[10px]">{ds.rowEstimate} rows</span>
+                    {ds.rowEstimate > 1 && <span className="text-thermax-saffronDeep font-mono font-bold text-[10px]">{ds.rowEstimate} rows</span>}
+                    {ds.rowEstimate <= 1 && <span className="text-thermax-slate font-mono font-bold text-[10px]">config</span>}
                   </div>
                 </div>
                 <div className="text-thermax-slate text-[10px] leading-snug">{ds.description}</div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </section>
 
@@ -580,7 +594,12 @@ export default function AgentChat({
                         >
                           <span className="text-[12px] shrink-0">{isLoaded ? '✅' : isLoading ? '⏳' : '📄'}</span>
                           <div className="min-w-0 flex-1">
-                            <div className={`text-[11px] font-semibold truncate ${isLoaded ? 'text-emerald-700' : 'text-thermax-navy'}`}>
+                            <div className={`text-[11px] font-semibold truncate flex items-center gap-1.5 ${isLoaded ? 'text-emerald-700' : 'text-thermax-navy'}`}>
+                              {(() => {
+                                const ext = sf.fileType ?? (sf.filename.endsWith('.json') ? 'json' : sf.filename.endsWith('.txt') ? 'txt' : 'csv');
+                                const c: Record<string, string> = { csv: 'bg-emerald-100 text-emerald-700', json: 'bg-violet-100 text-violet-700', txt: 'bg-amber-100 text-amber-700' };
+                                return <span className={`text-[7px] font-bold uppercase px-1 py-px rounded ${c[ext] ?? c.csv}`}>{ext}</span>;
+                              })()}
                               {sf.label}
                             </div>
                             <div className="text-[9px] text-thermax-slate leading-snug truncate">{sf.description}</div>

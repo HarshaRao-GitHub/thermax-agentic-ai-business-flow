@@ -1,0 +1,95 @@
+{
+  "document_id": "EFM-2026-R2",
+  "equipment_types": [
+    {
+      "type": "AFBC Boiler",
+      "code": "BLR-AFBC",
+      "failure_modes": [
+        {
+          "mode": "Tube Leak",
+          "frequency": "Common",
+          "severity": "Critical",
+          "detection": "Steam loss visible, water level drop, makeup water increase",
+          "root_causes": ["Erosion from bed material", "Corrosion (oxygen pitting)", "Overheating due to scale buildup", "Weld defect", "Fatigue cracking"],
+          "diagnostic_steps": ["Check makeup water consumption trend", "Acoustic emission testing", "Visual inspection of furnace walls", "UT thickness measurement of suspect tubes"],
+          "corrective_actions": ["Isolate affected tube bank", "Plug or replace damaged tube", "Perform internal cleaning", "Install erosion shields"],
+          "preventive_actions": ["Maintain water chemistry within limits", "Regular UT thickness survey", "Monitor feedwater dissolved oxygen", "Annual boroscopic inspection"],
+          "spare_parts": ["SA-210 Gr A1 tubes (OD 51mm, 63.5mm)", "Tube plugs", "Welding consumables E7018", "Erosion shields"],
+          "mttr_hours": 48,
+          "impact": "Plant shutdown, production loss"
+        },
+        {
+          "mode": "Refractory Failure",
+          "frequency": "Moderate",
+          "severity": "High",
+          "detection": "Hot spots on casing, casing temperature alarm, visible glow at night",
+          "root_causes": ["Thermal cycling stress", "Improper curing during initial startup", "Anchor failure", "Bed material impingement", "Fuel with high ash fusion temperature"],
+          "diagnostic_steps": ["Infrared thermography survey", "Visual inspection during shutdown", "Check anchor bolt condition", "Review startup/shutdown frequency"],
+          "corrective_actions": ["Patch repair with castable", "Replace refractory section", "Repair/replace anchors", "Apply guniting over damaged areas"],
+          "preventive_actions": ["Follow controlled heat-up rate (50°C/hr max)", "Annual IR survey", "Limit cold starts to < 50 per year", "Use appropriate refractory grade for fuel type"],
+          "spare_parts": ["IS-8 castable (bags)", "Y-anchors SS304", "Ceramic fiber blanket 128 kg/m3", "Guniting material"],
+          "mttr_hours": 72,
+          "impact": "Forced shutdown for repair, 3-5 day outage"
+        },
+        {
+          "mode": "Clinker Formation",
+          "frequency": "Moderate",
+          "severity": "Medium",
+          "detection": "Uneven bed temperature, increased PA fan loading, reduced heat transfer",
+          "root_causes": ["Fuel ash fusion temperature below bed temperature", "Inadequate bed material circulation", "Localized hot spots from poor air distribution", "High calcium content in ash"],
+          "diagnostic_steps": ["Check bed temperature profile across bed", "Analyze fuel ash fusion characteristics", "Inspect air nozzle condition", "Review bed material particle size"],
+          "corrective_actions": ["Remove clinkers during controlled shutdown", "Replace damaged air nozzles", "Adjust bed temperature setpoint", "Add limestone/dolomite to bed"],
+          "preventive_actions": ["Regular fuel quality analysis", "Maintain bed temperature 50°C below ash fusion", "Periodic air nozzle inspection", "Bed material top-up schedule"],
+          "spare_parts": ["Air nozzles (various sizes)", "Bed material (silica sand 0.5-1mm)", "Limestone for bed makeup"],
+          "mttr_hours": 24,
+          "impact": "Reduced efficiency, potential forced shutdown"
+        },
+        {
+          "mode": "Fan Bearing Failure",
+          "frequency": "Low",
+          "severity": "High",
+          "detection": "High vibration alarm, bearing temperature rise, unusual noise",
+          "root_causes": ["Misalignment", "Lubricant degradation", "Shaft imbalance from erosion", "Coupling failure"],
+          "diagnostic_steps": ["Vibration spectrum analysis", "Bearing temperature trend", "Oil analysis for metal particles", "Alignment check with laser tool"],
+          "corrective_actions": ["Replace bearing assembly", "Realign shaft and coupling", "Balance rotor if erosion detected", "Replace coupling elastomers"],
+          "preventive_actions": ["Monthly vibration monitoring", "Quarterly oil analysis", "Annual alignment verification", "Condition-based bearing replacement at 40,000 hours"],
+          "spare_parts": ["SKF 22328 CC/W33 spherical roller bearing", "Bearing housing seals", "Coupling elastomers", "Lubricant Mobil SHC 630"],
+          "mttr_hours": 16,
+          "impact": "Boiler trip if redundant fan not available"
+        }
+      ]
+    },
+    {
+      "type": "Thermic Fluid Heater",
+      "code": "TFH",
+      "failure_modes": [
+        {
+          "mode": "Thermic Fluid Degradation",
+          "frequency": "Common",
+          "severity": "Medium",
+          "detection": "Increased flash point, carbon residue in sample, reduced heat transfer",
+          "root_causes": ["Operating above recommended film temperature", "Air ingress through expansion tank", "Contamination from leaks", "Exceeding fluid life beyond 25,000 hours"],
+          "diagnostic_steps": ["Lab analysis of TF sample (viscosity, flash point, carbon residue, acid value)", "Check expansion tank for proper nitrogen blanketing", "Inspect for leaks at flanges and valves"],
+          "corrective_actions": ["Partial drain and top-up with fresh fluid", "Flush system if carbon residue > 2%", "Complete fluid replacement if flash point < 150°C", "Repair leaking joints"],
+          "preventive_actions": ["Quarterly TF sample analysis", "Maintain nitrogen blanket on expansion tank", "Limit film temperature to fluid manufacturer specs", "Track fluid operating hours"],
+          "spare_parts": ["Therminol 66 (drums)", "Expansion tank N2 regulator", "Flange gaskets (Spiral wound SS304/graphite)"],
+          "mttr_hours": 24,
+          "impact": "Gradual efficiency loss, coking risk"
+        },
+        {
+          "mode": "Coil Leak",
+          "frequency": "Low",
+          "severity": "Critical",
+          "detection": "TF level drop, smoke from stack, TF vapors in furnace, fire risk",
+          "root_causes": ["Local overheating causing coil coking", "Flame impingement on coils", "External corrosion in high-moisture environments", "Weld defect propagation"],
+          "diagnostic_steps": ["Pressure test at 1.5x design pressure", "UT measurement at suspect locations", "Dye penetrant test on welds", "Check for flame pattern irregularities"],
+          "corrective_actions": ["Immediate shutdown — FIRE RISK", "Isolate and drain affected coil pass", "Repair or replace damaged coil section", "Realign burner if flame impingement detected"],
+          "preventive_actions": ["Annual coil UT thickness survey", "Maintain burner in good condition", "Regular flame pattern check", "Avoid thermal shock during startup"],
+          "spare_parts": ["SA-106 Gr B coil sections", "Welding consumables ER70S-6", "Burner nozzle assembly"],
+          "mttr_hours": 96,
+          "impact": "FIRE HAZARD — immediate shutdown required"
+        }
+      ]
+    }
+  ]
+}

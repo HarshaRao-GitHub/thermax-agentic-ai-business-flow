@@ -1,0 +1,58 @@
+{
+  "standard_id": "TDS-2026-R4",
+  "revision": "4.2",
+  "effective_date": "2026-01-15",
+  "approved_by": "Chief Technology Officer",
+  "design_codes": [
+    {"code": "IBR-1950", "description": "Indian Boiler Regulations", "applicable_to": ["Boilers", "Pressure Vessels"], "mandatory": true},
+    {"code": "ASME-BPVC-SEC-I", "description": "ASME Boiler & Pressure Vessel Code Section I", "applicable_to": ["Power Boilers"], "mandatory": true},
+    {"code": "ASME-BPVC-SEC-VIII", "description": "ASME Unfired Pressure Vessels", "applicable_to": ["Heat Exchangers", "Deaerators", "Drums"], "mandatory": true},
+    {"code": "IS-2062", "description": "Indian Standard Hot Rolled Steel", "applicable_to": ["Structural Steel"], "mandatory": true},
+    {"code": "TEMA-R", "description": "Tubular Exchanger Manufacturers Association Class R", "applicable_to": ["Heat Exchangers"], "mandatory": false},
+    {"code": "API-560", "description": "Fired Heaters for General Refinery Service", "applicable_to": ["Thermic Fluid Heaters"], "mandatory": true},
+    {"code": "NFPA-85", "description": "Boiler and Combustion Systems Hazards Code", "applicable_to": ["All Combustion Equipment"], "mandatory": true},
+    {"code": "IS-875", "description": "Code of Practice for Design Loads", "applicable_to": ["Structural Design"], "mandatory": true},
+    {"code": "CPCB-2024", "description": "Central Pollution Control Board Emission Standards Phase III", "applicable_to": ["All Emission Sources"], "mandatory": true},
+    {"code": "MOEF-2024", "description": "Ministry of Environment Norms", "applicable_to": ["All Environmental Equipment"], "mandatory": true}
+  ],
+  "material_specifications": {
+    "boiler_tubes": {"grade": "SA-210 Gr A1", "min_thickness_mm": 3.25, "max_temperature_c": 450, "test_pressure_factor": 1.5},
+    "headers": {"grade": "SA-106 Gr B", "min_thickness_mm": 6.35, "max_temperature_c": 425, "test_pressure_factor": 1.5},
+    "drums": {"grade": "SA-516 Gr 70", "min_thickness_mm": 12.0, "max_temperature_c": 350, "test_pressure_factor": 1.5},
+    "superheater_tubes": {"grade": "SA-213 T11", "min_thickness_mm": 3.0, "max_temperature_c": 565, "test_pressure_factor": 1.5},
+    "economizer_tubes": {"grade": "SA-210 Gr A1", "min_thickness_mm": 2.95, "max_temperature_c": 350, "test_pressure_factor": 1.3},
+    "refractory_lining": {"type": "IS-8 Castable", "max_temperature_c": 1400, "min_thickness_mm": 100, "density_kg_m3": 2200}
+  },
+  "performance_standards": {
+    "boiler_efficiency_min_pct": 82.0,
+    "nox_limit_mg_nm3": 100,
+    "sox_limit_mg_nm3": 200,
+    "pm_limit_mg_nm3": 30,
+    "co_limit_mg_nm3": 100,
+    "noise_limit_dba": 85,
+    "stack_temperature_max_c": 180,
+    "unburnt_carbon_max_pct": 3.0,
+    "excess_air_range_pct": [20, 35],
+    "steam_purity_max_ppm_tds": 0.5
+  },
+  "safety_interlocks": [
+    {"id": "SI-001", "description": "Low drum level trip", "setpoint": "-150mm from NWL", "action": "MFT", "response_time_ms": 500},
+    {"id": "SI-002", "description": "High drum level trip", "setpoint": "+150mm from NWL", "action": "Feed water shutoff", "response_time_ms": 500},
+    {"id": "SI-003", "description": "Furnace high pressure", "setpoint": "+50 mmWC", "action": "ID fan interlock", "response_time_ms": 1000},
+    {"id": "SI-004", "description": "Loss of flame", "setpoint": "UV scanner signal loss", "action": "MFT + fuel shutoff", "response_time_ms": 3000},
+    {"id": "SI-005", "description": "Low combustion air flow", "setpoint": "< 30% of design flow", "action": "Fuel runback", "response_time_ms": 2000},
+    {"id": "SI-006", "description": "High flue gas temperature", "setpoint": "> 250°C", "action": "Alarm + load reduction", "response_time_ms": 5000},
+    {"id": "SI-007", "description": "Low feedwater pressure", "setpoint": "< design + 1 kg/cm2", "action": "Feedwater pump trip", "response_time_ms": 1000},
+    {"id": "SI-008", "description": "Bearing high temperature", "setpoint": "> 85°C", "action": "Alarm at 80°C, Trip at 85°C", "response_time_ms": 2000}
+  ],
+  "quality_hold_points": [
+    "Material test certificates verification",
+    "Tube-to-header welding radiography 100%",
+    "Hydrostatic test at 1.5x design pressure",
+    "Dimensional inspection of all pressure parts",
+    "NDE of critical welds per IBR requirements",
+    "Refractory curing inspection",
+    "Safety valve setting and testing",
+    "Insulation thickness verification"
+  ]
+}

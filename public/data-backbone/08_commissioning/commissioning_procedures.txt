@@ -1,0 +1,116 @@
+THERMAX LIMITED — STANDARD COMMISSIONING PROCEDURES
+=====================================================
+Document: TCP-2026-R3 | Rev: 3.0 | Date: March 2026
+Applicable to: AFBC Boilers (25-100 TPH Range)
+Classification: Controlled Document — Engineering Use Only
+=====================================================
+
+PHASE 1: PRE-COMMISSIONING CHECKS
+-----------------------------------
+1.1 Mechanical Completion Verification
+    □ All pressure parts hydro-tested and certified (IBR/ASME)
+    □ Refractory curing completed (72-hour controlled heat-up)
+    □ Expansion joints and sliding supports verified for free movement
+    □ Flue gas ducting leak test completed (smoke test)
+    □ All rotating equipment alignment verified (laser alignment report)
+    □ Lubrication systems charged and oil levels confirmed
+    □ Cooling water circuits flushed and chlorinated
+
+1.2 Instrumentation & Control
+    □ All field instruments calibrated with certificates
+    □ DCS/PLC I/O checked point-by-point (SAT report)
+    □ Safety interlocks logic tested and proved
+    □ Sequence-of-events (SOE) recorder verified
+    □ Remote I/O communication link tested
+    □ VFD programming verified for ID fan, FD fan, PA fan
+    □ Emergency shutdown (ESD) system tested
+
+1.3 Safety Systems
+    □ Fire detection and suppression system tested
+    □ Emergency lighting operational
+    □ Gas detection system calibrated and tested
+    □ Safety valve set pressures verified and sealed
+    □ Explosion vent panels installed (if applicable)
+    □ Emergency evacuation routes marked and unobstructed
+
+PHASE 2: COLD COMMISSIONING
+-----------------------------
+2.1 Utility Verification
+    □ DM water quality confirmed: Conductivity < 1 µS/cm, Silica < 0.02 ppm
+    □ Instrument air quality: Dew point -40°C, oil-free, 6 bar minimum
+    □ Electrical power supply verified: voltage, frequency, phase sequence
+    □ Emergency diesel generator tested under load
+
+2.2 No-Load Trial Runs
+    □ ID fan trial run: 4 hours, vibration < 4.5 mm/s, bearing temp < 80°C
+    □ FD fan trial run: 4 hours, vibration < 4.5 mm/s, bearing temp < 80°C
+    □ PA fan trial run: 2 hours, vibration < 4.5 mm/s, bearing temp < 80°C
+    □ Feedwater pump trial run: 2 hours, vibration < 3.5 mm/s
+    □ Coal/fuel handling system tested: conveyor, crusher, feeder
+    □ Ash handling system tested: clinker grinder, vacuum system, silo
+
+PHASE 3: HOT COMMISSIONING (BOILER LIGHT-UP)
+----------------------------------------------
+3.1 Pre-Light-Up Checks
+    □ Drum safety valves gagged during initial pressurization
+    □ All drain and vent valves in correct position
+    □ Chemical dosing system operational (phosphate, oxygen scavenger)
+    □ Continuous blowdown system commissioned
+    □ Furnace purge completed (5 air changes minimum)
+
+3.2 Alkali Boil-Out (First Time Only)
+    □ Tri-sodium phosphate dosing: 2-3 kg per m3 of boiler water
+    □ Temperature raised gradually: max 50°C/hour to 150°C
+    □ Maintain at operating pressure for 24 hours
+    □ Drain completely, inspect internals, refill with DM water
+
+3.3 Steam Blowing (First Time Only)
+    □ Target plate method used for acceptance
+    □ Minimum 4 blows per circuit until plate is clean
+    □ Acceptance: No impression > 0.5mm on polished target plate
+
+3.4 Load Raising
+    □ Gradual load increase: 25% → 50% → 75% → 100% over 24-48 hours
+    □ Monitor: drum level, steam pressure, SH temperature, flue gas
+    □ Tune combustion at each load point (O2, CO, draft)
+    □ Set all PID controllers at each operating point
+
+PHASE 4: PERFORMANCE GUARANTEE (PG) TEST
+-------------------------------------------
+4.1 Test Prerequisites
+    □ Boiler operating continuously at rated load for 72+ hours
+    □ All instrumentation calibrated within 7 days of test
+    □ Fuel analysis (proximate + ultimate) completed at test lab
+    □ Test coal/fuel stockpile of minimum 48 hours arranged
+    □ Customer and Third-Party Inspector (TPI) notified
+
+4.2 PG Test Parameters
+    | Parameter              | Guarantee      | Tolerance |
+    |------------------------|---------------|-----------|
+    | Boiler Efficiency      | ≥ 82%         | ±1.5%     |
+    | Steam Output           | ≥ 100 TPH     | ±2%       |
+    | Steam Pressure         | 45 kg/cm2(g)  | ±1 bar    |
+    | Steam Temperature      | 400°C         | ±5°C      |
+    | NOx Emission           | ≤ 100 mg/Nm3  | ±10%      |
+    | SOx Emission           | ≤ 200 mg/Nm3  | ±10%      |
+    | PM Emission            | ≤ 30 mg/Nm3   | ±10%      |
+    | Stack Temperature      | ≤ 180°C       | ±5°C      |
+
+4.3 Test Duration
+    □ Minimum 8-hour sustained test at rated capacity
+    □ Readings taken at 15-minute intervals
+    □ Fuel consumption by weigh belt or tank calibration
+    □ Flue gas analysis by accredited lab (NABL certified)
+
+4.4 Acceptance Criteria
+    □ All guaranteed parameters met within tolerance bands
+    □ Test witnessed by customer representative
+    □ TPI certification obtained
+    □ PAC (Provisional Acceptance Certificate) issued
+    □ Deficiency list documented if conditional acceptance
+
+=====================================================
+Prepared by: Commissioning Engineering Department
+Reviewed by: Chief Engineer, Energy Division
+Approved by: VP Operations
+=====================================================

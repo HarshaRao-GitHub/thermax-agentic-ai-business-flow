@@ -1,0 +1,112 @@
+THERMAX LIMITED — SECTOR OPPORTUNITY ANALYSIS REPORT FY2026-27
+================================================================
+Prepared by: Market Intelligence Division, Corporate Strategy
+Date: April 2026 | Classification: Confidential — Internal Use Only
+================================================================
+
+1. EXECUTIVE SUMMARY
+--------------------
+This report consolidates sector-wise market opportunities across
+Thermax's core segments: Energy (Boilers, Heaters, Cogeneration),
+Environment (Water Treatment, Air Pollution Control), and Chemicals.
+Total addressable market estimated at ₹18,500 Cr for FY2027.
+
+Key highlights:
+- Cement sector leads with ₹4,200 Cr opportunity (WHRS + APC retrofit)
+- Pharma sector emerging as high-growth (₹2,100 Cr, clean utility systems)
+- Refinery modernization presents ₹3,800 Cr potential (heat integration)
+- ZLD mandate creates ₹1,500 Cr water treatment pipeline
+- CPCB Phase III emission norms driving ₹2,800 Cr APC retrofit demand
+
+2. SECTOR-WISE ANALYSIS
+------------------------
+
+2.1 CEMENT INDUSTRY (₹4,200 Cr TAM)
+- 12 major cement players with 550+ MTPA installed capacity
+- WHRS adoption at 35%; target to reach 75% by 2028
+- Key customers: UltraTech (4 sites), Dalmia Bharat (3 sites),
+  Ambuja Cements (2 sites), ACC Limited (2 sites)
+- Thermax competitive advantage: Integrated WHRS + APC + DM plant
+- Competition: L&T (strong in large projects), FLSmidth (imported WHRS)
+- Win rate last 3 years: 42% (above industry average of 35%)
+
+2.2 PHARMACEUTICAL INDUSTRY (₹2,100 Cr TAM)
+- 15 new API manufacturing plants announced in Gujarat and Telangana
+- Clean utility requirements: Pure steam, chilled water, WFI, compressed air
+- Key customers: Dr Reddy's, Cipla, Sun Pharma, Aurobindo, Torrent
+- Thermax strength: Absorption chillers + DM plants + clean steam generators
+- Average deal size: ₹8-25 Cr per project
+- Growth driver: China+1 strategy accelerating domestic API capacity
+
+2.3 REFINERY & PETROCHEMICALS (₹3,800 Cr TAM)
+- IOC, BPCL, HPCL modernization programs totaling ₹45,000 Cr
+- Focus areas: Hydrogen generation, heat integration, sulphur recovery
+- Thermax products: Waste heat recovery boilers, heat exchangers, heaters
+- Competition: GE, Alfa Laval, ISGEC (high competition segment)
+- Win rate: 28% (below target of 35%)
+- Action: Need technology partnerships for hydrogen-ready equipment
+
+2.4 STEEL & METALS (₹2,400 Cr TAM)
+- JSW, Tata Steel, SAIL, JSPL capacity expansions underway
+- Emission compliance: ESP upgrades, FGD installations mandatory by 2027
+- Thermax ESP and FGD installed base of 50+ systems across steel plants
+- Cross-sell opportunity: Cooling towers, DM plants, chemical dosing
+- Key risk: Chinese imports of low-cost ESPs
+
+2.5 FOOD & BEVERAGE (₹1,200 Cr TAM)
+- Nestle, Britannia, ITC Foods expanding processing capacity
+- Steam requirements growing 8% YoY for process heating
+- Thermax Combloc and Shellmax boilers well-positioned
+- Emerging: Solar thermal integration for pre-heating applications
+- Average deal size: ₹2-12 Cr per project
+
+2.6 POWER SECTOR (₹2,800 Cr TAM)
+- NTPC, Adani, Tata Power fleet modernization
+- FGD installation deadline extended to Dec 2027
+- CPCB Phase III NOx limits creating SCR demand
+- Thermax FGD technology proven at 3 power stations
+- Competition: BHEL (dominant), L&T, GE Power
+- Strategy: Target 15% market share in FGD retrofits
+
+2.7 TEXTILE INDUSTRY (₹1,000 Cr TAM)
+- ZLD mandate for all textile dyeing units by 2026
+- MEE + RO + ATFD combination for zero liquid discharge
+- 200+ textile units in Tirupur, Surat, Ludhiana requiring ZLD
+- Thermax ZLD systems operational at 25+ textile plants
+- Average deal size: ₹5-15 Cr per project
+
+3. COMPETITIVE LANDSCAPE
+-------------------------
+| Competitor       | Strength           | Thermax Counter-Strategy    |
+|------------------|--------------------|-----------------------------|
+| L&T              | Large EPC projects | Focus on niche technology    |
+| Forbes Marshall  | Small-medium steam | Bundle with water/APC        |
+| ISGEC            | Boiler segment     | Efficiency differentiation   |
+| BHEL             | Power sector       | Faster delivery, flexibility |
+| Siemens Energy   | Gas turbines       | Co-gen + waste heat recovery |
+| Veolia           | Water treatment    | Local manufacturing edge     |
+| GE Power         | Large equipment    | Total solution approach      |
+
+4. STRATEGIC RECOMMENDATIONS
+-----------------------------
+a) Prioritize cement and refinery sectors for immediate pipeline building
+b) Establish pharma vertical team for clean utility solutions
+c) Develop hydrogen-ready product variants for refinery segment
+d) Accelerate ZLD solution standardization for textile/paper sectors
+e) Launch "Green Industrial Solutions" bundled offering
+f) Target 40% win rate across all sectors by FY2028
+
+5. RISK FACTORS
+---------------
+- Chinese equipment dumping in ESP and boiler segments
+- Delayed regulatory enforcement reducing urgency
+- Working capital pressure from extended payment terms
+- Technology obsolescence in conventional coal-fired equipment
+- Currency fluctuation impact on imported components
+
+Report prepared by Market Intelligence Team
+Approved by: VP Strategy & Business Development
+Distribution: CXO Team, BU Heads, Regional Directors
+================================================================
+END OF REPORT
+================================================================

@@ -3,6 +3,7 @@ export interface SampleFile {
   label: string;
   description: string;
   path: string;
+  fileType?: 'csv' | 'json' | 'txt' | 'pdf' | 'xlsx';
 }
 
 export const sampleFilesByStage: Record<string, SampleFile[]> = {
@@ -11,7 +12,8 @@ export const sampleFilesByStage: Record<string, SampleFile[]> = {
     { filename: 'industry_news_digest.csv', label: 'Industry News Digest', description: 'Latest capex announcements, regulatory changes, tenders, and expansion signals across target sectors', path: '/sample-data/marketing/industry_news_digest.csv' },
     { filename: 'competitor_intelligence.csv', label: 'Competitor Intelligence', description: 'Competitor profiles — L&T, Forbes Marshall, Veolia, ISGEC — strengths, wins, and counter-strategies', path: '/sample-data/marketing/competitor_intelligence.csv' },
     { filename: 'trade_conference_notes.csv', label: 'Trade Conference Notes', description: 'Key takeaways from ELECRAMA, IFAT, CII Summit, ADIPEC — contacts made and follow-up accounts', path: '/sample-data/marketing/trade_conference_notes.csv' },
-    { filename: 'regulatory_updates.csv', label: 'Regulatory Updates', description: 'CPCB Phase III, ZLD mandates, CBAM, BIS standards — compliance deadlines and Thermax impact', path: '/sample-data/marketing/regulatory_updates.csv' },
+    { filename: 'regulatory_updates.csv', label: 'Regulatory Updates', description: 'CPCB Phase III, ZLD mandates, CBAM, BIS standards — compliance deadlines and Thermax impact', path: '/sample-data/marketing/regulatory_updates.csv', fileType: 'csv' },
+    { filename: 'sector_analysis_report.txt', label: 'Sector Analysis Report FY27', description: 'Detailed sector-wise opportunity analysis — TAM by industry, competitive landscape, win rates, strategic recommendations', path: '/data-backbone/01_marketing/sector_analysis_report.txt', fileType: 'txt' },
   ],
   sales: [
     { filename: 'pipeline_report_q1.csv', label: 'Pipeline Report Q1', description: 'Top 10 opportunities with deal values, stages, probabilities, BANT/MEDDIC scores, and competitors', path: '/sample-data/sales/pipeline_report_q1.csv' },
@@ -24,19 +26,22 @@ export const sampleFilesByStage: Record<string, SampleFile[]> = {
     { filename: 'rfq_document.csv', label: 'RFQ Document', description: 'Customer RFQ details — scope, capacity, specs, delivery timelines, budget ranges, and evaluation criteria', path: '/sample-data/presales/rfq_document.csv' },
     { filename: 'customer_requirement_sheet.csv', label: 'Customer Requirement Sheet', description: 'Detailed technical requirements — must-have vs nice-to-have, compliance standards, and Thermax solutions', path: '/sample-data/presales/customer_requirement_sheet.csv' },
     { filename: 'pricing_sheet.csv', label: 'Pricing Sheet', description: 'Itemized pricing — products, quantities, unit costs, margins, lead times, and supplier details', path: '/sample-data/presales/pricing_sheet.csv' },
-    { filename: 'technical_specifications.csv', label: 'Technical Specifications', description: 'Product specs — boilers, chillers, ESPs — performance parameters, tolerances, and test standards', path: '/sample-data/presales/technical_specifications.csv' },
+    { filename: 'technical_specifications.csv', label: 'Technical Specifications', description: 'Product specs — boilers, chillers, ESPs — performance parameters, tolerances, and test standards', path: '/sample-data/presales/technical_specifications.csv', fileType: 'csv' },
+    { filename: 'thermax_design_standards.json', label: 'Thermax Design Standards', description: 'Engineering design codes (IBR, ASME, CPCB), material specifications, performance standards, safety interlocks', path: '/data-backbone/00_master_data/thermax_design_standards.json', fileType: 'json' },
   ],
   'engineering-design': [
     { filename: 'technical_datasheets.csv', label: 'Technical Datasheets', description: 'Equipment datasheets — design pressures, temperatures, materials of construction, heating surfaces', path: '/sample-data/engineering-design/technical_datasheets.csv' },
     { filename: 'hazop_worksheet.csv', label: 'HAZOP Worksheet', description: 'HAZOP study records — nodes, guide words, deviations, consequences, safeguards, and recommendations', path: '/sample-data/engineering-design/hazop_worksheet.csv' },
     { filename: 'design_calculations.csv', label: 'Design Calculations', description: 'Engineering calculations — heat balance, power output, sizing, LMTD, mass balance with code references', path: '/sample-data/engineering-design/design_calculations.csv' },
-    { filename: 'equipment_test_reports.csv', label: 'Equipment Test Reports', description: 'Factory acceptance test results — hydro tests, leak tests, performance tests with witness sign-offs', path: '/sample-data/engineering-design/equipment_test_reports.csv' },
+    { filename: 'equipment_test_reports.csv', label: 'Equipment Test Reports', description: 'Factory acceptance test results — hydro tests, leak tests, performance tests with witness sign-offs', path: '/sample-data/engineering-design/equipment_test_reports.csv', fileType: 'csv' },
+    { filename: 'thermax_design_standards.json', label: 'Design Standards (JSON)', description: 'IBR, ASME, CPCB design codes with material specs, safety interlocks, quality hold points', path: '/data-backbone/00_master_data/thermax_design_standards.json', fileType: 'json' },
   ],
   'commercial-legal': [
     { filename: 'sample_contract_terms.csv', label: 'Contract Terms & Clauses', description: 'Clause-by-clause contract review — indemnity, LD, IP, warranty risks with Thermax redline positions', path: '/sample-data/commercial-legal/sample_contract_terms.csv' },
     { filename: 'purchase_order_data.csv', label: 'Purchase Order Data', description: 'Active POs — values, payment terms, delivery deadlines, margins, and Thermax division allocation', path: '/sample-data/commercial-legal/purchase_order_data.csv' },
     { filename: 'payment_schedule.csv', label: 'Payment Schedule', description: 'Milestone-based payment tracker — invoiced amounts, payment status, overdue items, and cash flow impact', path: '/sample-data/commercial-legal/payment_schedule.csv' },
-    { filename: 'financial_risk_report.csv', label: 'Financial Risk Report', description: 'Commercial risk register — currency exposure, LD liability, margin erosion, payment defaults, BG exposure', path: '/sample-data/commercial-legal/financial_risk_report.csv' },
+    { filename: 'financial_risk_report.csv', label: 'Financial Risk Report', description: 'Commercial risk register — currency exposure, LD liability, margin erosion, payment defaults, BG exposure', path: '/sample-data/commercial-legal/financial_risk_report.csv', fileType: 'csv' },
+    { filename: 'contract_risk_matrix.json', label: 'Contract Risk Matrix', description: 'Thermax contract risk evaluation framework — LD, indemnity, payment terms, warranty, IP thresholds and escalation rules', path: '/data-backbone/05_finance_legal/contract_risk_matrix.json', fileType: 'json' },
   ],
   'project-planning': [
     { filename: 'employee_skill_matrix.csv', label: 'Employee Skill Matrix', description: 'Workforce skills — primary/secondary skills, certifications, experience levels, availability, and utilisation', path: '/sample-data/project-planning/employee_skill_matrix.csv' },
@@ -54,12 +59,14 @@ export const sampleFilesByStage: Record<string, SampleFile[]> = {
     { filename: 'startup_checklist.csv', label: 'Startup Checklist', description: 'Pre-commissioning checks — safety systems, mechanical completion, I&C, utilities readiness', path: '/sample-data/commissioning/startup_checklist.csv' },
     { filename: 'pg_test_data.csv', label: 'PG Test Data', description: 'Performance guarantee test results — guaranteed vs measured, deviations, pass/fail, witness sign-offs', path: '/sample-data/commissioning/pg_test_data.csv' },
     { filename: 'punchlist_items.csv', label: 'Punchlist Items', description: 'Outstanding items — severity A/B, PAC blockers, assigned teams, target closure dates', path: '/sample-data/commissioning/punchlist_items.csv' },
-    { filename: 'scada_parameter_export.csv', label: 'SCADA Parameter Export', description: 'Real-time DCS/SCADA readings — temperatures, pressures, flows, alarms, and data quality tags', path: '/sample-data/commissioning/scada_parameter_export.csv' },
+    { filename: 'scada_parameter_export.csv', label: 'SCADA Parameter Export', description: 'Real-time DCS/SCADA readings — temperatures, pressures, flows, alarms, and data quality tags', path: '/sample-data/commissioning/scada_parameter_export.csv', fileType: 'csv' },
+    { filename: 'commissioning_procedures.txt', label: 'Commissioning Procedures', description: 'Standard AFBC boiler commissioning procedures — pre-comm, cold/hot startup, PG test protocols', path: '/data-backbone/08_commissioning/commissioning_procedures.txt', fileType: 'txt' },
   ],
   'service-troubleshooting': [
     { filename: 'field_engineer_observations.csv', label: 'Field Engineer Observations', description: 'On-site engineer reports — equipment symptoms, initial assessments, photos, urgency, and follow-up actions', path: '/sample-data/service-troubleshooting/field_engineer_observations.csv' },
     { filename: 'why_why_analysis_log.csv', label: 'Why-Why Analysis Log', description: 'Structured 5-Why root cause analysis records — problem → root cause → corrective/preventive actions', path: '/sample-data/service-troubleshooting/why_why_analysis_log.csv' },
     { filename: 'spare_parts_request.csv', label: 'Spare Parts Requests', description: 'Parts requested for service cases — part details, urgency, stock availability, lead times, and dispatch status', path: '/sample-data/service-troubleshooting/spare_parts_request.csv' },
-    { filename: 'om_contracts_summary.csv', label: 'O&M Contracts Summary', description: 'Active O&M and AMC contracts — scope, SLA terms, annual values, assigned engineers, and renewal status', path: '/sample-data/service-troubleshooting/om_contracts_summary.csv' },
+    { filename: 'om_contracts_summary.csv', label: 'O&M Contracts Summary', description: 'Active O&M and AMC contracts — scope, SLA terms, annual values, assigned engineers, and renewal status', path: '/sample-data/service-troubleshooting/om_contracts_summary.csv', fileType: 'csv' },
+    { filename: 'equipment_failure_modes.json', label: 'Equipment Failure Modes', description: 'AFBC Boiler and TF Heater failure mode analysis — root causes, diagnostics, corrective actions, spare parts', path: '/data-backbone/09_digital_service/equipment_failure_modes.json', fileType: 'json' },
   ],
 };
