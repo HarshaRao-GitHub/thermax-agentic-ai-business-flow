@@ -93,6 +93,8 @@ export default function PromptPlayground() {
   const [streaming, setStreaming] = useState(false);
   const [streamBuffer, setStreamBuffer] = useState('');
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [webSearchStatus, setWebSearchStatus] = useState<null | 'searching' | 'done'>(null);
+  const [webSearchMeta, setWebSearchMeta] = useState<{ resultCount?: number; ms?: number } | null>(null);
   const chatEndRef = useRef<HTMLDivElement>(null);
   const streamThrottleRef = useRef<number>(0);
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -114,6 +116,8 @@ export default function PromptPlayground() {
     setInput('');
     setStreaming(true);
     setStreamBuffer('');
+    setWebSearchStatus(null);
+    setWebSearchMeta(null);
     setTimeout(scrollToBottom, 50);
 
     try {
@@ -138,6 +142,7 @@ export default function PromptPlayground() {
     } finally {
       setStreaming(false);
       setStreamBuffer('');
+      setWebSearchStatus(null);
     }
   }
 
@@ -170,6 +175,14 @@ export default function PromptPlayground() {
           try {
             const data = JSON.parse(raw);
             switch (currentEvent) {
+              case 'web_search':
+                if (data.status === 'searching') {
+                  setWebSearchStatus('searching');
+                } else if (data.status === 'done') {
+                  setWebSearchStatus('done');
+                  setWebSearchMeta({ resultCount: data.resultCount, ms: data.ms });
+                }
+                break;
               case 'text_delta':
                 assembled += data;
                 if (!streamThrottleRef.current) {
@@ -227,7 +240,7 @@ export default function PromptPlayground() {
               </h1>
               <p className="mt-2 text-white/50 text-sm max-w-xl leading-relaxed">
                 Explore ideas, research markets, and build structured thinking through progressively
-                detailed prompts. Learn how prompt quality shapes AI output quality.
+                detailed prompts. Web search is auto-enabled for queries needing live data.
               </p>
             </div>
             <div className="hidden md:flex items-center gap-3">
@@ -351,13 +364,36 @@ export default function PromptPlayground() {
                 ))}
 
                 {streaming && !streamBuffer && (
-                  <div className="flex items-center gap-3 px-4 py-3">
-                    <div className="flex gap-1">
-                      <span className="w-2 h-2 bg-teal-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                      <span className="w-2 h-2 bg-teal-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                      <span className="w-2 h-2 bg-teal-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                  <div className="px-4 py-3 space-y-2">
+                    {webSearchStatus === 'searching' && (
+                      <div className="flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 rounded-lg px-3 py-2 animate-pulse">
+                        <svg className="w-4 h-4 text-amber-400 animate-spin" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                        </svg>
+                        <span className="text-xs text-amber-400 font-mono">Searching the web...</span>
+                      </div>
+                    )}
+                    {webSearchStatus === 'done' && webSearchMeta && (
+                      <div className="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 rounded-lg px-3 py-2">
+                        <svg className="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span className="text-xs text-emerald-400 font-mono">
+                          {webSearchMeta.resultCount} web result{webSearchMeta.resultCount !== 1 ? 's' : ''} found ({webSearchMeta.ms}ms)
+                        </span>
+                      </div>
+                    )}
+                    <div className="flex items-center gap-3">
+                      <div className="flex gap-1">
+                        <span className="w-2 h-2 bg-teal-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                        <span className="w-2 h-2 bg-teal-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                        <span className="w-2 h-2 bg-teal-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                      </div>
+                      <span className="text-xs text-white/40 font-mono">
+                        {webSearchStatus === 'done' ? 'Analyzing web results...' : 'AI is thinking...'}
+                      </span>
                     </div>
-                    <span className="text-xs text-white/40 font-mono">AI is thinking...</span>
                   </div>
                 )}
 

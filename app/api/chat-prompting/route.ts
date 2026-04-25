@@ -1,5 +1,6 @@
 import { NextRequest } from 'next/server';
 import { getAnthropicClient, getModelId, callWithRetry } from '@/lib/anthropic';
+import { needsWebSearch, searchWeb, formatSearchContext } from '@/lib/web-search';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -53,22 +54,54 @@ export async function POST(req: NextRequest) {
 
         const conversationMessages = body.messages.map((m) => ({
           role: m.role,
-          content: m.content
+          content: m.content,
         }));
 
+        const latestUserMsg =
+          conversationMessages.filter((m) => m.role === 'user').pop()?.content ?? '';
+
+        let webContext = '';
+
+        if (needsWebSearch(latestUserMsg)) {
+          controller.enqueue(
+            sse('web_search', { status: 'searching', query: latestUserMsg })
+          );
+
+          const t0 = Date.now();
+          const results = await searchWeb(latestUserMsg);
+          const elapsed = Date.now() - t0;
+
+          controller.enqueue(
+            sse('web_search', {
+              status: 'done',
+              resultCount: results.length,
+              ms: elapsed,
+            })
+          );
+
+          webContext = formatSearchContext(results);
+        }
+
+        const systemWithWeb = webContext
+          ? `${SYSTEM_PROMPT}\n\n${webContext}`
+          : SYSTEM_PROMPT;
+
         const response = await callWithRetry(
-          () => client.messages.create({
-            model,
-            max_tokens: 8192,
-            system: SYSTEM_PROMPT,
-            messages: conversationMessages
-          }),
+          () =>
+            client.messages.create({
+              model,
+              max_tokens: 8192,
+              system: systemWithWeb,
+              messages: conversationMessages,
+            }),
           (attempt, max, err) => {
-            controller.enqueue(sse('retry', {
-              attempt,
-              max,
-              message: `API busy (${err.message}), retrying ${attempt}/${max}...`
-            }));
+            controller.enqueue(
+              sse('retry', {
+                attempt,
+                max,
+                message: `API busy (${err.message}), retrying ${attempt}/${max}...`,
+              })
+            );
           }
         );
 
@@ -86,19 +119,21 @@ export async function POST(req: NextRequest) {
         controller.close();
       } catch (err) {
         console.error('Chat-prompting error:', err);
-        controller.enqueue(sse('error', {
-          message: err instanceof Error ? err.message : 'Unknown error'
-        }));
+        controller.enqueue(
+          sse('error', {
+            message: err instanceof Error ? err.message : 'Unknown error',
+          })
+        );
         controller.close();
       }
-    }
+    },
   });
 
   return new Response(readable, {
     headers: {
       'Content-Type': 'text/event-stream; charset=utf-8',
       'Cache-Control': 'no-cache',
-      Connection: 'keep-alive'
-    }
+      Connection: 'keep-alive',
+    },
   });
 }
