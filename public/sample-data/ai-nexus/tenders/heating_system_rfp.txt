@@ -1,0 +1,87 @@
+REQUEST FOR PROPOSAL
+10 MILLION KCAL/HR THERMIC FLUID HEATER SYSTEM
+WITH WASTE HEAT RECOVERY
+
+CLIENT: M/s Bharat Textile Mills Ltd.
+LOCATION: Surat Textile Park, Pandesara GIDC, Surat, Gujarat - 394221
+RFP NO: BTM/PROJ/TFH-10M/2026/R-019
+DATE: 10 March 2026
+CLOSING: 25 April 2026
+
+SECTION 1: SCOPE
+1.1 Supply and commissioning of one (1) thermic fluid heater rated 10 million kcal/hr on coal/biomass firing.
+1.2 Complete waste heat recovery system including economizer and air preheater.
+1.3 Thermic fluid piping from heater to process battery limits (approximately 500 meters).
+1.4 Fuel handling system from yard to heater front.
+1.5 Chimney, ducting, and ESP for emission control.
+1.6 PLC-based control panel with SCADA.
+1.7 Excluded: Thermic fluid procurement (owner supply), civil works, HT/LT electrical panels.
+
+SECTION 2: PROCESS REQUIREMENTS
+2.1 Heating Medium: Thermax Thermia Oil (or equivalent synthetic thermic fluid).
+2.2 Operating Temperature Range: 280-300 deg C at heater outlet.
+2.3 Return Temperature: 240-250 deg C.
+2.4 Maximum Film Temperature: <340 deg C to prevent fluid degradation.
+2.5 Flow Rate: Approximately 450 m3/hr at operating conditions.
+2.6 Coil Pressure Drop: Maximum 3.5 kg/cm2 at design flow.
+2.7 Process Application: Textile dyeing, finishing, and polyester processing.
+2.8 Continuous Operation: 330 days/year, 24 hours/day.
+2.9 Load Variation: 40-100% with smooth modulation.
+
+SECTION 3: FUEL SPECIFICATIONS
+Parameter,Coal,Biomass (Briquettes),Unit
+GCV,3500-4000,3800-4200,kcal/kg
+Moisture,10-15,8-12,%
+Ash,30-38,5-10,%
+Volatile Matter,24-30,65-75,%
+Sulfur,0.3-0.5,<0.1,%
+Size,0-25,50x50x50 (max),mm
+
+SECTION 4: TECHNICAL REQUIREMENTS
+4.1 Heater Design: Multi-pass coil construction with single continuous coil per pass. Minimum 3 passes.
+4.2 Combustion System: Traveling grate stoker for coal, provision for biomass co-firing.
+4.3 Efficiency: Minimum 82% on GCV basis with economizer and APH.
+4.4 Coil Material: SA210 Grade A1 seamless tubes. Minimum 4mm wall thickness. All welds radiographed 100%.
+4.5 Expansion Tank: Minimum 10% of total thermic fluid volume. Nitrogen blanketing provision.
+4.6 Circulation Pump: Centrifugal, hot oil service, mechanical seal, minimum 1 working + 1 standby.
+4.7 Safety Systems: Low flow interlock, high temperature trip, stack temperature alarm, pressure relief valve, fire detection in duct.
+
+SECTION 5: MATERIAL OF CONSTRUCTION
+Component,Material
+Heater Coils,SA210 Gr A1
+Heater Casing,IS 2062 Gr B with 150mm insulation
+Economizer Tubes,SA210 Gr A1
+Air Preheater,Corten Steel (EXOTIC: weathering steel for corrosion resistance in low-temp zone)
+Ducting,IS 2062 Gr A
+ESP,IS 2062 Gr B
+TF Piping,SA106 Gr B (seamless) with bellows expansion joints
+Expansion Tank,SA516 Gr 70
+Circulation Pump,CI body SS 316 impeller
+
+SECTION 6: HEAT RECOVERY AND ENERGY AUDIT
+6.1 Waste Heat Recovery: Economizer to heat combustion air and/or preheat return thermic fluid. Stack temperature after WHR: <180 deg C.
+6.2 This facility is a Designated Consumer under PAT Scheme (Cycle VII). The heater system must demonstrate specific energy consumption improvement of 3% over baseline.
+6.3 Bidder to provide energy balance and Sankey diagram for the proposed system.
+6.4 Real-time energy monitoring with daily/monthly report generation.
+
+SECTION 7: TERMS
+7.1 Payment: 20% advance, 60% against dispatch, 10% on erection, 10% on commissioning.
+7.2 Delivery: 14 weeks for heater, 18 weeks overall including auxiliaries.
+7.3 Warranty: 18 months from dispatch or 12 months from commissioning.
+7.4 LD: 1% per week of delay, maximum 8%.
+7.5 Performance Guarantee: 168-hour continuous run. Efficiency, outlet temperature, and emission parameters to be demonstrated.
+7.6 Annual Maintenance Contract: Bidder to quote optional 5-year AMC separately.
+
+SECTION 8: COMMERCIAL
+8.1 EMD: INR 15,00,000
+8.2 Estimated Value: INR 8-12 Crore
+8.3 Prices in INR, ex-works + FOR site + erection/commissioning
+8.4 GST extra as applicable
+8.5 Bid validity: 120 days
+
+SECTION 9: COMPLIANCE
+9.1 IBR compliance not mandatory (thermic fluid system not under IBR).
+9.2 IS 7338 (thermic fluid heater code) compliance mandatory.
+9.3 ESP outlet: <50 mg/Nm3 (Gujarat PCB norm).
+9.4 ISO 9001 and ISO 14001 mandatory.
+9.5 BEE star rating label if applicable.

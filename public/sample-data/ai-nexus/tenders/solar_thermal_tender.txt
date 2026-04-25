@@ -1,0 +1,101 @@
+TENDER FOR SUPPLY AND COMMISSIONING
+5 MW PARABOLIC TROUGH SOLAR THERMAL CONCENTRATOR SYSTEM
+FOR INDUSTRIAL PROCESS HEAT
+
+OWNER: M/s Rajasthan Dairy Cooperative Federation (RCDF)
+LOCATION: Dairy Processing Complex, Jaipur-Ajmer Highway, Jaipur, Rajasthan - 302012
+TENDER NO: RCDF/SOLAR/CST-5MW/2026/T-007
+DATE: 20 March 2026
+CLOSING: 05 May 2026
+
+SECTION 1: PROJECT OVERVIEW AND SCOPE
+1.1 Design, supply, install, and commission a 5 MW thermal parabolic trough concentrating solar thermal (CST) system to provide industrial process heat for dairy processing operations.
+1.2 The system shall generate hot water at 150-180 deg C for pasteurization, CIP, and sterilization processes.
+1.3 Complete scope: Parabolic trough collector field, Heat transfer fluid (HTF) system, HTF-to-water heat exchanger, Thermal energy storage (4 hours), Control system with weather station integration, Civil works for collector field.
+1.4 The system shall integrate with existing oil-fired boiler as backup. Seamless switchover required.
+1.5 Total collector aperture area: approximately 12,000 m2.
+1.6 Land available: 5 acres (approximately 20,000 m2) within dairy complex.
+
+SECTION 2: SOLAR RESOURCE DATA
+Parameter,Value
+Location,Jaipur Rajasthan (26.9 N 75.8 E)
+Annual DNI,1850-2000 kWh/m2/year
+Peak DNI,950 W/m2
+Average Sunshine Hours,8.5 hrs/day
+Ambient Temperature Range,5-48 deg C
+Dust Factor,Moderate to High (daily cleaning assumed)
+Wind Design Speed,150 km/hr (cyclonic zone consideration)
+
+SECTION 3: TECHNICAL REQUIREMENTS
+3.1 Collector Type: Parabolic trough with single-axis tracking (N-S orientation, E-W tracking).
+3.2 Collector Aperture Width: 5.7-6.0 meters.
+3.3 Receiver Tube: Evacuated tube with cermet selective coating. Absorptance >95%, emittance <10% at 350 deg C.
+3.4 Mirror: Silver-back low-iron glass, reflectivity >93%. Thickness 4mm.
+3.5 HTF: Therminol VP-1 or equivalent, operating range 15-400 deg C.
+3.6 HTF Operating Temperature: 220-300 deg C.
+3.7 Heat Exchanger: Shell and tube type, SS 316L tubes, designed for 100% load + 10% margin.
+3.8 Thermal Storage: Molten salt (Solar Salt: 60% NaNO3 + 40% KNO3) 2-tank system for 4 hours at 80% load.
+3.9 Tracking System: Closed-loop sun tracking with inclinometer + sun sensor. Accuracy: +/- 0.1 degree.
+3.10 Stow Position: Automatic stow at wind speed >55 km/hr.
+
+SECTION 4: PERFORMANCE GUARANTEES
+4.1 Annual Solar-to-Thermal Efficiency: >45% (based on DNI to useful heat delivered).
+4.2 Peak Thermal Output: 5 MW at 850 W/m2 DNI.
+4.3 Storage Efficiency: >93% round-trip thermal efficiency.
+4.4 Plant Availability: >95% during sunshine hours (excluding cleaning and weather).
+4.5 Minimum 25-year design life for collector structure, 20 years for receiver tubes.
+
+SECTION 5: MATERIAL OF CONSTRUCTION
+Component,Material,Notes
+Collector Structure,Hot-dip galvanized steel (IS 2062 + IS 4759),25-year outdoor life
+Mirror Support,Aluminum alloy 6061-T6,Lightweight precision
+Receiver Tube,Borosilicate glass outer SS 321 inner (EXOTIC),High-temp selective coating
+HTF Piping (field),Carbon steel SA106 Gr B,With bellows expansion joints
+HTF Piping (header),SA335 P11 (EXOTIC: chrome-moly for high temp),Insulated mineral wool 100mm
+Heat Exchanger Tubes,SS 316L,TEMA R class
+Salt Tanks,SS 347H (EXOTIC: stabilized austenitic for molten salt service),With internal heating coils
+Foundation,M30 grade RCC,IS 456 compliant
+Flex Hoses,SS 321 braided (EXOTIC),For collector-to-header connection
+
+SECTION 6: SYSTEM INTEGRATION
+6.1 The CST system shall integrate with existing 5 TPH oil-fired boiler through common hot water header.
+6.2 Automatic switchover: when solar output is insufficient, boiler starts automatically.
+6.3 Solar priority mode: boiler operates only to make up deficit.
+6.4 Common SCADA interface displaying both solar and boiler parameters.
+6.5 Data logging: 1-minute resolution for all solar field parameters. Cloud-based monitoring dashboard.
+6.6 API interface for integration with RCDF ERP system (SAP).
+
+SECTION 7: SUBSIDY AND INCENTIVES
+7.1 This project is eligible under MNRE CST scheme. Bidder to assist with MNRE documentation.
+7.2 Expected MNRE subsidy: INR 6,000 per m2 of collector area (subject to MNRE approval).
+7.3 Bidder to provide carbon credit estimation (CER/VER) for 10-year crediting period.
+7.4 REC (Renewable Energy Certificate) eligibility assessment required.
+7.5 Accelerated depreciation benefit under Section 32 of IT Act: 40% in first year.
+
+SECTION 8: TERMS AND CONDITIONS
+8.1 Payment: 10% advance, 20% on design approval, 40% against progressive supply, 15% on erection, 10% on commissioning, 5% on PG test.
+8.2 Project Duration: 12 months from contract effective date (design + procurement: 6 months, erection: 4 months, commissioning: 2 months).
+8.3 Warranty: 5 years comprehensive warranty on collector structure and mirrors. 3 years on receiver tubes. 2 years on BOS (balance of system).
+8.4 Performance Guarantee Period: 1 year of monitored operation post-commissioning.
+8.5 O&M: Mandatory 5-year O&M contract with performance guarantee to be quoted separately.
+
+SECTION 9: SPECIAL CLAUSES
+9.1 LD FOR DELAY: 0.5% per week, maximum 10%.
+9.2 PERFORMANCE LD: For every 1% shortfall in annual efficiency below 45%, LD of 1.5% of contract value. For availability below 95%, LD of 2% per percentage point. Maximum performance LD: 15%.
+9.3 MIRROR BREAKAGE WARRANTY: Bidder to guarantee mirror breakage rate below 0.5% per annum. Excess breakage to be replaced free of cost during warranty.
+9.4 TECHNOLOGY LOCK-IN: No proprietary components that cannot be sourced from alternate vendors after warranty period.
+9.5 KNOWLEDGE TRANSFER: Complete technology transfer including design calculations, simulation models, and O&M procedures.
+
+SECTION 10: COMMERCIAL
+10.1 EMD: INR 25,00,000 via bank guarantee.
+10.2 Estimated Project Cost: INR 28-35 Crore (before subsidy).
+10.3 Pricing: Lump sum EPC. Separate line items for collector field, HTF system, storage, integration, civil works, O&M.
+10.4 All prices in INR, inclusive of all taxes except GST.
+10.5 Bid validity: 180 days.
+
+SECTION 11: BIDDER QUALIFICATIONS
+11.1 Minimum 3 CST installations of 1 MW or above commissioned in India.
+11.2 MNRE-empaneled CST system supplier.
+11.3 ISO 9001, ISO 14001, ISO 45001 certifications.
+11.4 In-house design capability with solar simulation tools (SAM, Greenius, or equivalent).
+11.5 Financial capability: Minimum net worth INR 50 Crore, annual turnover INR 100 Crore.

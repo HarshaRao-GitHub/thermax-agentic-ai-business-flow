@@ -44,6 +44,7 @@ export default function Header() {
             <ModeLink href="/prompting" icon="💬" label="Prompting" />
             <ModeLink href="/doc-intelligence" icon="📊" label="Doc Intelligence & Visualization" />
             <ModeLink href="/agentic-experience" icon="🤖" label="Agentic AI" />
+            <ModeLink href="/ai-nexus" icon="⚡" label="AI Nexus" />
           </nav>
           {/* Line 2: All secondary navigation */}
           <nav className="hidden md:flex items-center justify-center gap-1 pb-2 -mt-0.5">

@@ -1,0 +1,113 @@
+TENDER DOCUMENT
+100 TPH CIRCULATING FLUIDIZED BED COMBUSTION (CFBC) BOILER
+FOR CEMENT PLANT CAPTIVE POWER GENERATION
+
+ISSUED BY: M/s Deccan Cement Corporation Ltd.
+LOCATION: Village Malkhed, Gulbarga District, Karnataka - 585215
+TENDER REF: DCC/PROJ/CFBC-100/2026/T-044
+DATE: 01 April 2026
+CLOSING DATE: 15 May 2026, 1500 hrs IST
+
+SECTION 1: SCOPE OF WORK
+1.1 Design, manufacture, supply, erection, refractory, insulation, testing, and commissioning of one (1) CFBC boiler rated at 100 TPH steam output.
+1.2 The boiler shall be designed to fire petcoke as primary fuel (80%) blended with Indian coal (20%) as secondary fuel.
+1.3 Complete scope includes: Boiler pressure parts and structure, Refractory system, Air and flue gas system (FD fan, SA fan, ID fan, APH), Fuel and limestone handling system (from boiler front), Electrostatic Precipitator (ESP), Ash handling system (bottom ash + fly ash), SCADA and DCS control system, Stack (50m RCC chimney).
+1.4 Excluded: Fuel storage yard, coal/petcoke crusher house, wagon tippler, main plant building civil works.
+1.5 Turnkey erection and commissioning at site including all temporary works.
+
+SECTION 2: FUEL SPECIFICATIONS
+Parameter,Petcoke (Primary),Indian Coal (Secondary),Unit
+Gross Calorific Value,7800-8200,3200-3800,kcal/kg
+Moisture,6-10,12-18,%
+Ash Content,0.5-2,35-42,%
+Volatile Matter,8-12,22-28,%
+Fixed Carbon,78-85,25-35,%
+Sulfur,4.5-6.5,0.3-0.6,%
+HGI,45-55,50-60,
+Size (as received),0-15,0-25,mm
+Calcium in ash,,12-18,% as CaO
+Sodium + Potassium in ash,,1.5-3.5,% as Na2O+K2O
+
+SECTION 3: STEAM PARAMETERS
+Parameter,Value,Unit
+Steam Output (MCR),100,TPH
+Steam Pressure (at superheater outlet),87,kg/cm2 (g)
+Steam Temperature,515 +/- 5,deg C
+Feed Water Temperature,150,deg C
+Boiler Efficiency (on GCV basis),>86 (petcoke) / >82 (coal),%
+Turndown Ratio,1:3 (continuous operation from 33% to 100%),
+Startup Time (cold start to MCR),<12,hours
+Design Pressure,106,kg/cm2 (g)
+Hydro Test Pressure,159,kg/cm2 (g)
+
+SECTION 4: KEY TECHNICAL REQUIREMENTS
+4.1 Combustor Design: Single cyclone, refractory-lined combustor with water-cooled membrane wall panels in the upper section. Minimum two (2) independent fuel feed points.
+4.2 Bed Temperature: Controlled between 830-900 deg C using limestone injection for sulfur capture. Design calcium-to-sulfur molar ratio of 2.5:1 for 90% desulfurization.
+4.3 Superheater: Two-stage superheater with interstage desuperheater. Tube material SA213 T22 for primary and SA213 T91 for secondary (EXOTIC MOC: SA213 T91 alloy steel for high-temperature creep resistance).
+4.4 Economizer: Two-stage with finned tubes. Material SA210 Grade A1. Designed for 0% bypassing.
+4.5 Air Preheater: Tubular type, 2-stage, with soot blower provision.
+4.6 ESP: 3-field design, collection efficiency >99.5%, outlet emission <30 mg/Nm3. Rapper system: electromagnetic for collecting electrodes, pneumatic for discharge electrodes.
+4.7 DCS: Redundant DCS with minimum 4000 I/O points. Historian with 5-year data retention. Remote access capability.
+4.8 Start-up system: Oil-fired start-up burner with auto-ignition, bed pre-heater.
+
+SECTION 5: MATERIAL OF CONSTRUCTION
+Component,Material,Standard
+Drum,SA516 Gr 70,ASME Sec I
+Downcomers,SA106 Gr B,ASME Sec I
+Waterwall tubes,SA210 Gr A1,ASME Sec I
+Superheater (primary),SA213 T22,ASME Sec I
+Superheater (secondary),SA213 T91 (EXOTIC),ASME Sec I
+Economizer tubes,SA210 Gr A1,ASME Sec I
+Headers,SA106 Gr C,ASME Sec I
+Cyclone (lower),25Cr-20Ni castings,
+Cyclone (upper),Refractory lined CS,
+Air Preheater tubes,SA192,
+ESP Casing,IS 2062 Gr B,
+Stack,RCC with acid-resistant brick lining,
+Refractory (combustor),Dense castable + insulating castable (1800 deg C rated),
+Refractory (cyclone),SiC-based erosion resistant castable (1400 deg C rated),
+
+SECTION 6: EMISSION NORMS (CPCB Category A)
+Parameter,Limit,Unit
+SPM (at ESP outlet),30,mg/Nm3
+SO2 (after limestone injection),400,mg/Nm3
+NOx,300,mg/Nm3
+Stack Height,50,meters
+CO,100,mg/Nm3
+CEMS (Continuous Emission Monitoring),Mandatory for SPM SO2 NOx,
+
+SECTION 7: TERMS AND CONDITIONS
+7.1 Payment: 15% advance, 65% against progressive dispatch, 10% on mechanical completion, 5% on commissioning, 5% on PG test completion.
+7.2 Delivery: Equipment delivery within 20 months from effective date of contract. Site completion within 24 months.
+7.3 Warranty: 24 months from mechanical completion or 18 months from provisional acceptance, whichever earlier.
+7.4 Defect Liability Period: 12 months from final acceptance.
+7.5 Retention Money: 10% of each invoice retained, released 50% on commissioning and 50% on PG completion.
+
+SECTION 8: SPECIAL CLAUSES
+8.1 LD FOR DELAY: 0.5% of contract value per week, capped at 5%. LD for sustained delay beyond 8 weeks: Owner reserves right to terminate.
+8.2 PERFORMANCE GUARANTEE TEST: 72-hour continuous PG test at MCR on design fuel. Boiler efficiency, steam parameters, emission levels, and desulfurization efficiency to meet guaranteed values.
+8.3 PERFORMANCE LD: 1% contract value per 0.5% shortfall in boiler efficiency below guaranteed. 2% per 10 mg/Nm3 excess in SPM above guaranteed. Maximum total performance LD: 10%.
+8.4 PRICE ESCALATION: Base prices subject to WPI escalation formula: P1 = P0 x (0.15 + 0.50 M/M0 + 0.20 S/S0 + 0.15 L/L0) where M=material, S=steel, L=labor indices.
+8.5 SPARE PARTS: Mandatory 2-year recommended spare parts list with pricing to be submitted with bid. Capital spares with long lead time to be identified.
+8.6 TRAINING: 2 weeks operator training at manufacturer works + 4 weeks at site during commissioning. Training for minimum 12 operators and 4 maintenance personnel.
+8.7 O&M MANUAL: Complete O&M manual in English, 5 hard copies + digital. To include P&ID, logic diagrams, maintenance schedules, troubleshooting guides.
+
+SECTION 9: COMMERCIAL
+9.1 EMD: INR 1,00,00,000 (One Crore) via bank guarantee.
+9.2 Estimated Project Value: INR 120-150 Crore.
+9.3 All prices in INR, ex-works + F.O.R. site + erection commissioning.
+9.4 Separate pricing for indigenous and imported content.
+9.5 Bid validity: 240 days.
+
+SECTION 10: BIDDER QUALIFICATIONS
+10.1 Minimum 3 references of CFBC boilers above 80 TPH commissioned in last 10 years.
+10.2 Experience with petcoke firing is mandatory.
+10.3 ISO 9001, ISO 14001, ISO 45001 certifications required.
+10.4 IBR (Indian Boiler Regulation) approved manufacturer.
+10.5 Minimum annual turnover of INR 500 Crore in relevant business for last 3 years.
+
+SECTION 11: SUBMISSION
+11.1 Two-envelope system: Technical + Commercial in separate sealed covers.
+11.2 Submit at: Project Procurement Division, Deccan Cement Corporation, Head Office, Kalburgi, Karnataka.
+11.3 Technical bid: 4 hard copies + 2 pen drives.
+11.4 Pre-bid queries by email to procurement@deccancement.com before 20 April 2026.

@@ -1,0 +1,110 @@
+REQUEST FOR PROPOSAL (RFP)
+ZERO LIQUID DISCHARGE (ZLD) WATER TREATMENT PLANT
+200 m3/hr CAPACITY
+
+ISSUED BY: M/s Hindustan Chemical Industries Pvt. Ltd.
+LOCATION: Plot No. 45-48, MIDC Industrial Area, Kurkumbh, Pune - 413802
+RFP REFERENCE: HCI/PROC/WTP-ZLD/2026-27/001
+DATE OF ISSUE: 15 March 2026
+LAST DATE FOR SUBMISSION: 30 April 2026, 1700 hrs IST
+PRE-BID MEETING: 28 March 2026, 1100 hrs at Site
+
+SECTION 1: SCOPE OF WORK
+1.1 The scope includes design, engineering, manufacture, supply, erection, testing, commissioning, and performance guarantee testing of a complete Zero Liquid Discharge (ZLD) water treatment plant.
+1.2 The plant shall treat combined effluent from chemical manufacturing operations including organic synthesis, inorganic salt production, and utility blowdowns.
+1.3 Scope includes: Primary clarification, Equalization, Biological treatment (MBBR/MBR), Ultrafiltration (UF), Reverse Osmosis (2-stage with reject recirculation), Multiple Effect Evaporator (MEE) for RO reject, Agitated Thin Film Dryer (ATFD) for MEE concentrate, Mixed salt crystallizer.
+1.4 Civil works for equipment foundations and building are excluded from this scope and shall be done by owner.
+1.5 The successful bidder shall provide 12 months performance guarantee post-commissioning.
+
+SECTION 2: RAW WATER / EFFLUENT CHARACTERISTICS
+Parameter,Design Value,Peak Value,Unit
+Flow Rate,200,250,m3/hr
+pH,2-12 (equalized: 6.5-8.5),,
+TDS,8000,15000,mg/L
+COD,2500,5000,mg/L
+BOD,800,1500,mg/L
+TSS,500,1200,mg/L
+Oil & Grease,50,100,mg/L
+Chlorides,2500,4500,mg/L
+Sulfates,1500,3000,mg/L
+Heavy Metals (total),5,15,mg/L
+Silica,80,150,mg/L
+Fluorides,8,15,mg/L
+Phenol,10,25,mg/L
+Temperature,25-45,,deg C
+
+SECTION 3: TREATED WATER QUALITY REQUIREMENTS
+Parameter,Requirement,Unit
+Recovery Rate,>92,%
+Treated Water TDS,<200,mg/L
+Treated Water COD,<50,mg/L
+Treated Water BOD,<10,mg/L
+Treated Water TSS,<5,mg/L
+Treated Water pH,6.5-8.5,
+Treated Water Turbidity,<1,NTU
+Residual Chlorine,0.5-1.0,mg/L
+Conductivity,<300,uS/cm
+Final Solid Waste,Dry salt cake with <5% moisture
+
+SECTION 4: KEY TECHNICAL PARAMETERS
+4.1 UF System: Hollow fiber PVDF membranes, minimum 50 m3/hr per train, backwash provision, CEB and CIP systems.
+4.2 RO System: Thin-film composite polyamide membranes, anti-scalant dosing, acid dosing for pH adjustment, flux rate 18-22 LMH, recovery 75% minimum per pass.
+4.3 MEE System: 4-effect falling film evaporator, steam consumption ratio < 0.28 kg steam/kg evaporation, titanium tubes for corrosive service. MATERIAL OF CONSTRUCTION NOTE: MEE tubes shall be Titanium Grade 2 (ASTM B338). Tube sheets shall be Titanium Grade 2 clad on carbon steel. Vapor body shall be SS 316L with 3mm corrosion allowance. Heat exchanger shells shall be carbon steel with rubber lining.
+4.4 ATFD System: Hastelloy C-276 rotor and stator blades for highly corrosive concentrate. Shaft seal: double mechanical seal with barrier fluid. EXOTIC MATERIAL: Hastelloy C-276 is mandatory for all wetted parts of ATFD.
+4.5 Crystallizer: Forced circulation type, SS 904L construction for high chloride environment.
+4.6 All instruments shall be Foundation Fieldbus or HART protocol compatible.
+4.7 PLC/SCADA system with minimum 2000 I/O points, redundant processors, 21 CFR Part 11 compliance for data integrity.
+
+SECTION 5: MATERIAL OF CONSTRUCTION (MOC)
+Equipment,Wetted Parts,Shell/Casing
+UF Membrane Module,PVDF,FRP
+RO Pressure Vessel,Composite,FRP
+RO Membrane,Polyamide TFC,
+MEE Tubes,Titanium Gr 2,CS Rubber Lined
+MEE Tube Sheet,Ti Gr 2 clad on CS,
+MEE Vapor Body,SS 316L,
+ATFD Rotor,Hastelloy C-276,
+ATFD Stator,Hastelloy C-276,
+ATFD Body,SS 316L,
+Crystallizer Body,SS 904L,SS 904L
+Piping (general),SS 316,
+Piping (concentrate),Hastelloy C-276,
+Tanks (ETP),MSRL (Mild Steel Rubber Lined),
+Pumps (general),SS 316,CI
+Pumps (corrosive),Hastelloy C-276,CF8M
+
+SECTION 6: TERMS AND CONDITIONS
+6.1 Payment Terms: 10% advance against BG, 70% against dispatch (pro-rata), 10% on erection completion, 5% on commissioning, 5% after performance guarantee test.
+6.2 Delivery Schedule: Equipment delivery within 16 weeks from receipt of approved drawings. Erection completion within 8 weeks from equipment receipt. Commissioning within 4 weeks from erection.
+6.3 Warranty: 18 months from dispatch or 12 months from commissioning, whichever is earlier.
+6.4 Performance Bank Guarantee: 10% of contract value valid until completion of performance guarantee period.
+6.5 Insurance: Marine transit insurance by supplier until site delivery. Erection all-risk insurance by owner.
+
+SECTION 7: SPECIAL CLAUSES
+7.1 LIQUIDATED DAMAGES: LD for delay at 0.5% of contract value per week of delay, maximum 10%. LD for performance shortfall: 2% of contract value per 1% shortfall in recovery rate below guaranteed 92%.
+7.2 PERFORMANCE GUARANTEE: Continuous operation for 720 hours (30 days) at minimum 90% of design capacity. All treated water parameters must meet Section 3 specifications during PG test.
+7.3 PRICE VARIATION: No price variation for indigenous materials. For imported items, variation based on LME index for metals only, capped at +/- 5%.
+7.4 FORCE MAJEURE: Standard ICC force majeure clause applies. Pandemic explicitly included.
+7.5 IP RIGHTS: All process design and PLC logic developed for this project shall be jointly owned.
+7.6 DISPUTE RESOLUTION: Arbitration under Indian Arbitration and Conciliation Act, seat Mumbai.
+
+SECTION 8: COMMERCIAL REQUIREMENTS
+8.1 Bid Security (EMD): INR 50,00,000 (Fifty Lakhs) by way of bank guarantee from scheduled bank.
+8.2 Pricing: Lump sum turnkey price in INR. Separate schedules for indigenous and imported equipment.
+8.3 Taxes: All prices exclusive of GST. GST to be charged extra at applicable rates.
+8.4 Validity: Bid valid for 180 days from last date of submission.
+8.5 Estimated Budget: INR 45-55 Crore (indicative, for reference only).
+
+SECTION 9: COMPLIANCE AND CERTIFICATIONS
+9.1 Bidder must hold ISO 9001:2015, ISO 14001:2015, and ISO 45001:2018 certifications.
+9.2 Pressure vessels to comply with ASME Sec VIII Div 1 or IS 2825.
+9.3 Electrical installations as per IS 732 and IE Rules.
+9.4 Environmental clearance documentation to be provided by owner; bidder to assist.
+9.5 CPCB emission/discharge norms compliance mandatory in design.
+
+SECTION 10: SUBMISSION FORMAT
+10.1 Technical bid and commercial bid in separate sealed envelopes.
+10.2 Technical bid: 3 hard copies + 1 USB drive with PDF.
+10.3 Commercial bid: 2 hard copies in sealed envelope.
+10.4 All documents in English.
+10.5 Submit at: Procurement Department, M/s Hindustan Chemical Industries, Corporate Office, Wakad, Pune.
