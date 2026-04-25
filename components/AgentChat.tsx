@@ -528,18 +528,18 @@ export default function AgentChat({
   return (
     <>
     {dataViewer.open && (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-2 sm:p-4" onClick={() => setDataViewer({ open: false, title: '', content: '', loading: false })}>
-        <div className="bg-white rounded-xl shadow-2xl w-[98vw] max-w-[98vw] lg:w-[95vw] max-h-[92vh] flex flex-col" onClick={e => e.stopPropagation()}>
+      <div className="fixed inset-0 z-50 flex items-stretch bg-black/50 backdrop-blur-sm p-3 sm:p-5" onClick={() => setDataViewer({ open: false, title: '', content: '', loading: false })}>
+        <div className="bg-white rounded-xl shadow-2xl w-full h-full flex flex-col" onClick={e => e.stopPropagation()}>
           <div className="flex items-center justify-between px-5 py-3 border-b border-thermax-line bg-thermax-mist rounded-t-xl shrink-0">
             <div className="flex items-center gap-2 min-w-0">
-              <span className="text-lg shrink-0">📊</span>
+              <span className="text-lg shrink-0">{dataViewer.pdfUrl ? '📄' : '📊'}</span>
               <h3 className="font-bold text-thermax-navy text-[14px] truncate">{dataViewer.title}</h3>
               <span className="text-[10px] font-mono text-thermax-slate bg-white px-2 py-0.5 rounded border border-thermax-line shrink-0">VIEW ONLY</span>
             </div>
             <button onClick={() => setDataViewer({ open: false, title: '', content: '', loading: false })}
               className="text-thermax-slate hover:text-thermax-navy text-xl font-bold px-2 shrink-0">✕</button>
           </div>
-          <div className="flex-1 min-h-0 overflow-hidden">
+          <div className="flex-1 min-h-0 overflow-hidden" style={{ minHeight: 0 }}>
             {dataViewer.loading ? (
               <div className="flex items-center justify-center h-40 text-thermax-slate">
                 <span className="animate-spin mr-2">⏳</span> Loading data...
@@ -547,7 +547,8 @@ export default function AgentChat({
             ) : dataViewer.pdfUrl ? (
               <iframe
                 src={dataViewer.pdfUrl}
-                className="w-full h-full border-0"
+                className="w-full border-0"
+                style={{ height: '100%' }}
                 title={dataViewer.title}
               />
             ) : dataViewer.content.startsWith('|') ? (
@@ -576,8 +577,8 @@ export default function AgentChat({
                 </table>
               </div>
             ) : (
-              <div className="h-full overflow-auto p-5">
-                <pre className="text-[12px] font-mono text-thermax-navy bg-thermax-mist rounded-lg p-4 whitespace-pre-wrap leading-relaxed">{dataViewer.content}</pre>
+              <div className="h-full overflow-y-auto overflow-x-auto p-5">
+                <pre className="text-[13px] font-mono text-thermax-navy bg-thermax-mist rounded-lg p-5 whitespace-pre-wrap leading-relaxed min-h-full">{dataViewer.content}</pre>
               </div>
             )}
           </div>
