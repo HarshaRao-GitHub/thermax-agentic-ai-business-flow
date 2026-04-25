@@ -1,0 +1,13 @@
+Vendor_Name,Vendor_Code,Category,Quality_Score_25,Delivery_Score_25,Pricing_Score_25,Responsiveness_Score_25,Overall_Rating_100,Grade,Quarter,Remarks,Action_Required
+Ratnamani Metals & Tubes,V-001,Pressure Parts/Tubes,23,22,20,24,89,A,Q1-FY27,Consistent quality and good technical support,None - maintain preferred status
+Tata Metaliks,V-002,Castings (CI/SG),22,18,21,20,81,B+,Q1-FY27,Delivery delays on last 2 orders,Issue improvement notice - delivery monitoring
+BHEL Trichy,V-003,Pressure Parts/Headers,24,15,18,19,76,B,Q1-FY27,Quality excellent but chronic delivery delays,Escalate to VP level - review alternative sources
+Pennar Industries,V-004,Sheet Metal/Fabrication,20,23,22,21,86,A,Q1-FY27,Good delivery track record,Consider for increased share of business
+Eagle Burgmann,V-005,Mechanical Seals,25,21,16,23,85,A,Q1-FY27,Premium pricing but zero-defect quality,Negotiate annual rate contract for volume discount
+Orient Refractories,V-006,Refractory Materials,21,24,23,22,90,A+,Q1-FY27,Best-in-class delivery and competitive pricing,Strategic partner - explore long-term agreement
+SKF India,V-007,Bearings,24,20,17,24,85,A,Q1-FY27,Excellent product but premium pricing,Review alternative brands for non-critical applications
+Siemens Ltd,V-008,PLC/DCS/Instrumentation,22,16,15,21,74,B,Q1-FY27,Long lead times and high pricing,Evaluate Honeywell/ABB as alternatives
+Fenner Dunlop,V-009,Conveyor Belts,19,22,24,18,83,B+,Q1-FY27,Good pricing but quality inconsistency on last batch,Increase incoming inspection frequency
+Thermax In-house,V-010,Critical Fabrication,23,20,25,25,93,A+,Q1-FY27,In-house manufacturing for critical items,Expand capacity for coil manufacturing
+ABB India,V-011,Motors/Drives,24,19,16,22,81,B+,Q1-FY27,Good quality but long lead times for HT motors,Maintain buffer stock for critical spares
+Dresser Consolidated,V-012,Safety Valves,25,14,14,20,73,B,Q1-FY27,IBR-certified quality but import dependency,Explore LESER as alternative approved source

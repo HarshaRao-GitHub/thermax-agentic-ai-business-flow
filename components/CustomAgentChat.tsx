@@ -81,11 +81,16 @@ export default function CustomAgentChat({ agent }: { agent: Agent }) {
         })
       });
 
+      if (!res.ok || !res.body) {
+        const errText = await res.text().catch(() => 'Request failed');
+        setMessages([...next, { role: 'assistant', content: `*Error: ${errText}*` }]);
+        return;
+      }
+
       const headerMode = res.headers.get('X-Workbench-Mode');
       if (headerMode === 'live') setMode('live');
 
-      const reader = res.body?.getReader();
-      if (!reader) throw new Error('No reader');
+      const reader = res.body.getReader();
       const decoder = new TextDecoder();
       let buffer = '';
       let assembled = '';
@@ -133,10 +138,34 @@ export default function CustomAgentChat({ agent }: { agent: Agent }) {
     }
   }
 
+  const MAX_CUSTOM_UPLOAD_FILES = 5;
+  const MAX_CUSTOM_UPLOAD_SIZE_MB = 30;
+
   async function handleUpload(e: React.ChangeEvent<HTMLInputElement>) {
     const files = e.target.files;
     if (!files || files.length === 0) return;
     setUploadError(null);
+
+    const currentCount = uploadedFiles.length;
+    if (currentCount >= MAX_CUSTOM_UPLOAD_FILES) {
+      setUploadError(`Maximum ${MAX_CUSTOM_UPLOAD_FILES} files allowed. Remove existing files first.`);
+      if (fileInputRef.current) fileInputRef.current.value = '';
+      return;
+    }
+    const allowed = MAX_CUSTOM_UPLOAD_FILES - currentCount;
+    if (files.length > allowed) {
+      setUploadError(`You can upload ${allowed} more file${allowed > 1 ? 's' : ''} (limit: ${MAX_CUSTOM_UPLOAD_FILES}). You selected ${files.length}.`);
+      if (fileInputRef.current) fileInputRef.current.value = '';
+      return;
+    }
+    for (let i = 0; i < files.length; i++) {
+      if (files[i].size > MAX_CUSTOM_UPLOAD_SIZE_MB * 1024 * 1024) {
+        setUploadError(`"${files[i].name}" exceeds ${MAX_CUSTOM_UPLOAD_SIZE_MB} MB limit.`);
+        if (fileInputRef.current) fileInputRef.current.value = '';
+        return;
+      }
+    }
+
     const fd = new FormData();
     for (let i = 0; i < files.length; i++) fd.append('files', files[i]);
     try {

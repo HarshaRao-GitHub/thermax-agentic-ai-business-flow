@@ -200,7 +200,7 @@ export default function AgentChat({
                 setHitlEvent(data as HitlEvent);
                 break;
               case 'error':
-                assembled += `\n\n*Error: ${data.message}*`;
+                assembled += `\n\n*Error: ${data?.message ?? 'Unknown error'}*`;
                 setStreamBuffer(assembled);
                 break;
               case 'done':
@@ -448,7 +448,7 @@ export default function AgentChat({
             )}
           </div>
           <div className="px-5 py-3 border-t border-thermax-line bg-thermax-mist rounded-b-xl flex justify-end shrink-0">
-            <button onClick={() => navigator.clipboard.writeText(dataViewer.content)}
+            <button onClick={() => { try { navigator.clipboard.writeText(dataViewer.content); } catch { /* clipboard not available */ } }}
               className="text-[11px] font-semibold text-thermax-navy hover:text-thermax-saffronDeep px-3 py-1.5 border border-thermax-line rounded-md hover:bg-white mr-2">
               📋 Copy
             </button>
@@ -696,7 +696,7 @@ export default function AgentChat({
             </div>
             <div className="flex items-center gap-2">
               {messages.length > 0 && !streaming && (
-                <button onClick={() => navigator.clipboard.writeText(messages.filter(m => m.role === 'assistant')[0]?.content ?? '')}
+                <button onClick={() => { try { navigator.clipboard.writeText(messages.filter(m => m.role === 'assistant')[0]?.content ?? ''); } catch { /* clipboard not available */ } }}
                   className="text-[11px] font-semibold text-thermax-navy hover:text-thermax-saffronDeep px-2 py-1">Copy Result</button>
               )}
               <button onClick={reset} disabled={streaming}

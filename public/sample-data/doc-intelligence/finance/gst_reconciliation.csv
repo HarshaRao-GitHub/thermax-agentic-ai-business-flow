@@ -1,0 +1,13 @@
+Month,GSTIN,GSTR1_Output_Tax_INR,GSTR3B_Output_Tax_INR,Output_Mismatch_INR,ITC_Claimed_INR,ITC_Available_2A_INR,ITC_Mismatch_INR,Net_Tax_Payable_INR,Mismatch_Reason,Action_Required,Status
+Jan-2026,27AAACT1234F1ZP,4250000,4250000,0,3850000,3720000,130000,530000,Vendor late filing - 3 invoices,Follow up with vendors V-004 V-008 V-012,Resolved
+Feb-2026,27AAACT1234F1ZP,3980000,3980000,0,3650000,3580000,70000,400000,1 vendor GSTIN mismatch,Vendor V-006 GSTIN correction pending,In Progress
+Mar-2026,27AAACT1234F1ZP,5120000,5120000,0,4780000,4650000,130000,470000,2 vendors not filed GSTR-1,Escalate to procurement for vendor compliance,In Progress
+Jan-2026,33AAACT1234F2ZQ,1850000,1850000,0,1620000,1620000,0,230000,None,Nil,Reconciled
+Feb-2026,33AAACT1234F2ZQ,2100000,2100000,0,1890000,1850000,40000,250000,Import duty credit timing difference,Will auto-reconcile next month,Pending
+Mar-2026,33AAACT1234F2ZQ,1950000,1950000,0,1750000,1720000,30000,230000,Minor rounding differences,Below materiality threshold,Reconciled
+Jan-2026,29AAACT1234F3ZR,980000,980000,0,820000,810000,10000,170000,Negligible difference,No action needed,Reconciled
+Feb-2026,29AAACT1234F3ZR,1120000,1120000,0,950000,890000,60000,230000,Vendor V-009 invoice not reflected,Follow up with Fenner Dunlop accounts team,In Progress
+Mar-2026,29AAACT1234F3ZR,1350000,1350000,0,1180000,1150000,30000,200000,Credit note adjustment pending,Process credit note in April filing,Pending
+Jan-2026,24AAACT1234F4ZS,750000,750000,0,620000,620000,0,130000,None,Nil,Reconciled
+Feb-2026,24AAACT1234F4ZS,680000,680000,0,560000,540000,20000,140000,Debit note not accounted,Accounts team to process debit note,In Progress
+Mar-2026,24AAACT1234F4ZS,920000,920000,0,780000,760000,20000,160000,Minor mismatch - vendor filing delay,Auto-reconciliation expected,Pending

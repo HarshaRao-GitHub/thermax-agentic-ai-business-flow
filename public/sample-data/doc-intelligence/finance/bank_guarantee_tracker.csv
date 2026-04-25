@@ -1,0 +1,13 @@
+BG_Number,Customer_Name,Project_Code,BG_Type,Amount_INR_Lakhs,Bank_Name,Issue_Date,Validity_Date,Extension_Date,Claim_Status,Remarks
+BG-2026-001,Tata Steel Jamshedpur,PRJ-TS-045,Performance BG,185.00,HDFC Bank,2025-06-15,2026-12-15,,No Claim,65 TPH AFBC Boiler - PG test pending
+BG-2026-002,UltraTech Cement Aditya Birla,PRJ-UC-078,Advance BG,92.50,SBI,2025-09-01,2026-03-01,2026-06-01,No Claim,Extended due to project delay - ESP supply
+BG-2026-003,Reliance Industries Jamnagar,PRJ-RI-112,Performance BG,450.00,ICICI Bank,2025-03-20,2027-03-20,,No Claim,WHRS 30 MW - commissioning in progress
+BG-2026-004,NTPC Sipat,PRJ-NT-089,EMD BG,25.00,Bank of Baroda,2026-01-10,2026-07-10,,No Claim,FGD tender - decision awaited
+BG-2026-005,Hindalco Renukoot,PRJ-HI-034,Performance BG,78.50,Axis Bank,2024-12-01,2026-06-01,,Potential Claim,Chiller performance shortfall - under discussion
+BG-2026-006,Grasim Industries Nagda,PRJ-GI-056,Advance BG,120.00,Kotak Bank,2025-11-15,2026-05-15,,No Claim,ZLD Plant - 60% work completed
+BG-2026-007,JSW Steel Vijayanagar,PRJ-JS-067,Retention BG,45.00,Punjab National Bank,2025-04-10,2026-10-10,,No Claim,Bag Filter supply completed - DLP period
+BG-2026-008,Indian Oil Haldia,PRJ-IO-091,Performance BG,210.00,Union Bank,2025-08-22,2027-02-22,,No Claim,Process heater 50 Lakh kcal/hr
+BG-2026-009,Dalmia Cement Rajgangpur,PRJ-DC-023,Advance BG,55.00,Canara Bank,2026-02-01,2026-08-01,,No Claim,WHRS project - equipment dispatch started
+BG-2026-010,Vedanta Jharsuguda,PRJ-VD-044,Performance BG,320.00,HDFC Bank,2025-01-15,2026-07-15,,No Claim,CPP 2x30 MW - operational since Oct 2025
+BG-2026-011,ACC Cement Wadi,PRJ-AC-018,Retention BG,28.00,SBI,2024-09-30,2026-03-30,2026-09-30,No Claim,Extended - final payment pending from customer
+BG-2026-012,BPCL Mumbai Refinery,PRJ-BP-055,Performance BG,165.00,ICICI Bank,2025-05-18,2027-05-18,,No Claim,MEE + MVR system for effluent treatment

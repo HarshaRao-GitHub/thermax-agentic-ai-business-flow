@@ -132,7 +132,13 @@ export async function POST(req: NextRequest) {
         const liveStart = Date.now();
 
         type MsgParam = { role: 'user' | 'assistant'; content: string };
-        const conversationMessages: MsgParam[] = body.messages.map(m => ({
+        const incomingMsgs = Array.isArray(body.messages) ? body.messages : [];
+        if (incomingMsgs.length === 0) {
+          controller.enqueue(sse('error', { message: 'No messages provided' }));
+          controller.close();
+          return;
+        }
+        const conversationMessages: MsgParam[] = incomingMsgs.map(m => ({
           role: m.role,
           content: m.content,
         }));
@@ -156,7 +162,7 @@ export async function POST(req: NextRequest) {
         );
 
         for await (const event of stream) {
-          if (event.type === 'content_block_delta' && event.delta.type === 'text_delta') {
+          if (event.type === 'content_block_delta' && event.delta?.type === 'text_delta') {
             controller.enqueue(sse('text_delta', event.delta.text));
           }
           if (event.type === 'message_delta' && event.usage) {

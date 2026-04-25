@@ -101,9 +101,10 @@ export async function POST(req: NextRequest) {
   if (body.upstreamResults?.length) {
     const upstreamParts = body.upstreamResults.map(ur => {
       const agentLabel = stageNameMap[ur.slug] || `Stage ${ur.stageNumber}`;
-      const trimmedOutput = ur.agentOutput.length > 4000
-        ? ur.agentOutput.slice(0, 4000) + '\n\n[... output truncated for context window ...]'
-        : ur.agentOutput;
+      const output = ur.agentOutput || '';
+      const trimmedOutput = output.length > 4000
+        ? output.slice(0, 4000) + '\n\n[... output truncated for context window ...]'
+        : output;
       return `=== UPSTREAM RESULT FROM: ${agentLabel} ===\n\n${trimmedOutput}\n\n=== END UPSTREAM RESULT ===`;
     });
 
@@ -187,7 +188,13 @@ If SOME files are relevant and others are not, process the relevant ones and dis
           | { type: 'tool_use'; id: string; name: string; input: Record<string, unknown> }
           | { type: 'tool_result'; tool_use_id: string; content: string };
 
-        const conversationMessages: MsgParam[] = body.messages.map((m) => ({
+        const incomingMessages = Array.isArray(body.messages) ? body.messages : [];
+        if (incomingMessages.length === 0) {
+          controller.enqueue(sse('error', { message: 'No messages provided' }));
+          controller.close();
+          return;
+        }
+        const conversationMessages: MsgParam[] = incomingMessages.map((m) => ({
           role: m.role,
           content: m.content
         }));
@@ -279,7 +286,7 @@ If SOME files are relevant and others are not, process the relevant ones and dis
 
               case 'message_delta':
                 if (event.usage) {
-                  totalOutputTokens += event.usage.output_tokens ?? 0;
+                  totalOutputTokens = event.usage.output_tokens ?? 0;
                 }
                 if (event.delta?.stop_reason) {
                   stopReason = event.delta.stop_reason;

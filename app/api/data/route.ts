@@ -29,6 +29,13 @@ export async function GET(req: NextRequest) {
     );
   }
 
+  if (folder.includes('..') || file.includes('..')) {
+    return NextResponse.json(
+      { error: 'Invalid path' },
+      { status: 400 }
+    );
+  }
+
   try {
     if (action === 'summary') {
       const summary = getDataSummary(folder, file);

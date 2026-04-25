@@ -1,0 +1,13 @@
+Date,Shift,Operator_Name,Unit,Equipment_ID,Status_At_Handover,Pending_Jobs,Safety_Alerts,Remarks
+2026-04-01,Morning,Rajesh Kumar,Boiler House,BLR-AFBC-001,Running at 85% MCR,Soot blowing due at 14:00,High CO alarm tripped at 06:30 - investigated and cleared,Bed temperature stable at 850°C
+2026-04-01,Morning,Rajesh Kumar,Boiler House,BLR-AFBC-002,Under maintenance - tube leak repair,Hydro test scheduled for 03-Apr,Confined space entry permit active,Estimated return: 05-Apr
+2026-04-01,Evening,Sunil Patil,Boiler House,BLR-AFBC-001,Running at 90% MCR,Economizer drain valve leaking - work order raised,None,Steam output 42 TPH against 45 TPH rated
+2026-04-01,Evening,Sunil Patil,TG Set,TG-STG-001,Running at 4.2 MW,Bearing vibration trending up - monitor closely,Vibration alarm at 4.5 mm/s threshold,Current vibration: 3.8 mm/s
+2026-04-01,Night,Prakash Desai,Water Treatment,WTP-RO-001,Running - permeate TDS 120 ppm,Antiscalant dosing pump replacement due,Chemical storage area housekeeping pending,Recovery rate at 72%
+2026-04-02,Morning,Rajesh Kumar,Boiler House,BLR-AFBC-001,Running at 80% MCR,Coal feeder #2 tripped at 23:00 - reset done,Low drum level alarm at 02:15 - auto corrected,Reduced load due to wet coal
+2026-04-02,Morning,Rajesh Kumar,ESP,ESP-001,Running - opacity 45 mg/Nm3,Rapping motor #3 not working - electrician called,Stack emission within CPCB limits,Collection efficiency 99.2%
+2026-04-02,Evening,Sunil Patil,Cooling Tower,CT-001,Running - approach temp 5.2°C,Fan motor #2 bearing replacement scheduled,Legionella test sample collected,Basin cleaning planned for next shutdown
+2026-04-02,Night,Prakash Desai,Boiler House,BLR-AFBC-001,Running at 75% MCR,FD fan damper actuator sluggish,Boiler area lighting inadequate - reported to maintenance,Coal quality deteriorated - high ash content 38%
+2026-04-03,Morning,Rajesh Kumar,DM Plant,DMP-001,Running - conductivity 0.8 µS/cm,Regeneration chemical delivery expected today,Acid tank level low - 25% remaining,Silica in output: 0.02 ppm
+2026-04-03,Evening,Sunil Patil,Boiler House,BLR-AFBC-001,Running at 88% MCR,Ash handling system conveyor belt misaligned,Hot work permit required for welding near oil storage,Bed coil erosion inspection due next week
+2026-04-03,Night,Prakash Desai,Thermic Fluid Heater,TFH-001,Running at 280°C outlet temp,Expansion tank oil level low - top-up required,High stack temperature alarm at 22:00,Flue gas temperature 185°C - check air preheater

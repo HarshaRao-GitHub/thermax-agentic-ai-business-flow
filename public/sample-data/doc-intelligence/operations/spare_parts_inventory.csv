@@ -1,0 +1,13 @@
+Part_Number,Description,Equipment_Applicability,Category,Stock_Qty,Reorder_Level,Unit_Cost_INR,Lead_Time_Weeks,Last_Used_Date,Supplier,Criticality,Location_Bin
+TMX-BLR-TUB-001,SA210 Gr A1 Boiler Tubes 51mm OD,AFBC Boiler 45TPH/65TPH,Pressure Parts,45,20,8500,8,2026-03-15,Ratnamani Metals,Critical,WH-A-R1-B3
+TMX-BLR-REF-001,Dense Castable Refractory IS:8 Grade,All Boilers,Refractory,2500 kg,1000,185/kg,4,2026-02-28,Orient Refractories,Critical,WH-B-R2-B1
+TMX-BLR-GRT-001,Grate Bar CI Grade FG260,AFBC Boiler - Travelling Grate,Mechanical,120,50,3200,6,2026-04-01,Tata Metaliks,High,WH-A-R1-B5
+TMX-ESP-ELE-001,Collecting Electrode Plate SS409,ESP Model TX-450,Internals,35,15,12500,10,2026-01-20,Pennar Industries,High,WH-C-R1-B2
+TMX-ESP-RAP-001,Rapping Hammer Assembly,ESP - All Models,Mechanical,18,8,4500,4,2026-03-10,In-house Manufacturing,Medium,WH-C-R1-B4
+TMX-PMP-SEL-001,Mechanical Seal 65mm Cartridge Type,BFW Pump/CEP,Seals & Gaskets,6,3,28000,6,2025-12-15,Eagle Burgmann,Critical,WH-A-R3-B1
+TMX-VLV-SFV-001,Safety Valve 3 inch x 4 inch Flanged,Boiler Drum/Superheater,Valves,4,2,185000,12,2025-09-22,Dresser Consolidated,Critical,WH-A-R2-B1
+TMX-BRG-SKF-001,SKF Spherical Roller Bearing 22220,FD/ID/PA Fans,Bearings,8,4,15500,3,2026-03-28,SKF India,High,WH-A-R4-B2
+TMX-BLT-CNV-001,Conveyor Belt EP400/3 800mm Width,Ash Handling System,Conveyor Parts,150 m,50,4200/m,6,2026-02-10,Fenner Dunlop,Medium,WH-D-R1-B1
+TMX-INS-RTD-001,RTD Pt100 3-Wire 250mm,All Temperature Measurement,Instrumentation,25,10,2800,2,2026-04-05,Tempsens Instruments,Medium,WH-A-R5-B3
+TMX-MOT-FAN-001,Motor 160kW 1480 RPM TEFC,ID Fan/FD Fan,Electrical,2,1,485000,16,2025-06-30,ABB India,Critical,WH-E-R1-B1
+TMX-TFH-COI-001,Thermic Fluid Heater Coil Section,TF Heater 30 Lakh kcal/hr,Pressure Parts,2,1,225000,12,2025-11-15,In-house Manufacturing,Critical,WH-A-R1-B8

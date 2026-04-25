@@ -1,0 +1,11 @@
+GRN_Number,GRN_Date,PO_Reference,Vendor_Name,Item_Description,Qty_Ordered,Qty_Received,UOM,Inspection_Result,Discrepancy,Challan_Number,Vehicle_Number,Warehouse_Location,Received_By,Remarks
+GRN-2026-0312,2026-04-01,PO-2026-0892,Ratnamani Metals,SA210 Gr A1 Tubes 51mm OD,25,25,Nos,Accepted - IBR stamped,None,CH-RM-4521,MH12AB1234,WH-A-R1-B3,Suresh Nair,All tubes with MTCs and IBR stamps verified
+GRN-2026-0313,2026-04-02,PO-2026-0895,Tempsens Instruments,RTD Pt100 3-Wire Class A,15,15,Nos,Accepted after calibration check,None,CH-TI-892,MH14CD5678,WH-A-R5-B3,Amit Shah,Calibration certificates received
+GRN-2026-0314,2026-04-03,PO-2026-0898,UltraTech Cement,PSC Grade 53,50,48,MT,Accepted - test certificate OK,Short by 2 MT - balance in transit,CH-UC-12045,MH12EF9012,WH-D-R2-B1,Prakash Joshi,Debit note raised for short supply
+GRN-2026-0315,2026-04-04,PO-2026-0901,Orient Refractories,Dense Castable 1600°C,3000,3000,Kg,Accepted - sample test passed,None,CH-OR-7834,MH20GH3456,WH-B-R2-B1,Mahesh Patil,Storage in covered shed - moisture protection
+GRN-2026-0316,2026-04-05,PO-2026-0875,SKF India,Spherical Roller Bearing 22220,8,8,Nos,Accepted,None,CH-SKF-4512,MH12IJ7890,WH-A-R4-B2,Rajesh Kumar,Original SKF packaging verified
+GRN-2026-0317,2026-04-06,PO-2026-0905,DuPont/FilmTec,RO Membrane 8040 BW30,6,6,Nos,Accepted - performance data sheet OK,None,CH-DP-2341,MH04KL1234,WH-A-R6-B1,Deepak Kulkarni,Store in climate-controlled area
+GRN-2026-0318,2026-04-07,PO-2026-0908,Tata Metaliks,Grate Bars CI FG260,80,75,Nos,Rejected - 5 nos with casting defects,5 nos defective - returned to vendor,CH-TM-9087,MH12MN5678,WH-A-R1-B5,Sanjay Mane,NCR raised - NCR-2026-045
+GRN-2026-0319,2026-04-08,PO-2026-0880,Fenner Dunlop,Conveyor Belt EP400/3 800mm,150,150,Meters,Accepted with observation,Minor surface marks - functional OK,CH-FD-3456,MH15OP9012,WH-D-R1-B1,Vikas Rao,Document observation for vendor review
+GRN-2026-0320,2026-04-09,PO-2026-0865,Eagle Burgmann,Mechanical Seal 65mm Cartridge,6,6,Nos,Accepted,None,CH-EB-1278,KA01QR3456,WH-A-R3-B1,Ganesh Shinde,Installation manual and warranty card received
+GRN-2026-0321,2026-04-10,PO-2026-0870,Pennar Industries,ESP Collecting Electrode Plates,35,35,Nos,Accepted - dimensional check OK,None,CH-PI-5634,AP09ST7890,WH-C-R1-B2,Vikas Rao,All plates within tolerance ±1mm

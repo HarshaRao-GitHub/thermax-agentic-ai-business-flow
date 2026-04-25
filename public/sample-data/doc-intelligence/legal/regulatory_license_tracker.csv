@@ -1,0 +1,13 @@
+License_ID,License_Type,Issuing_Authority,Applicable_Location,License_Number,Issue_Date,Validity_Date,Renewal_Date,Status,Responsible_Officer,Annual_Fee_INR,Remarks
+LIC-001,Factory License,Chief Inspector of Factories - Maharashtra,Pune Plant,MH/PUN/FAC/2024/1234,2024-04-01,2026-03-31,2026-02-15,Renewal Filed,VP Operations,125000,Renewal application submitted - awaiting inspection
+LIC-002,IBR Registration,Chief Boiler Inspector - Maharashtra,Pune Plant,MH/IBR/2023/5678,2023-06-15,2025-06-14,2025-05-01,Expired - Renewal Pending,Chief Engineer Boiler,75000,Inspection scheduled for May 2026 - expedite
+LIC-003,Consent to Operate (Air),MPCB,Pune Plant,MPCB/CTO/AIR/2025/901,2025-01-01,2026-12-31,,Valid,EHS Head,250000,CPCB Phase III compliance certified
+LIC-004,Consent to Operate (Water),MPCB,Pune Plant,MPCB/CTO/WAT/2025/234,2025-01-01,2026-12-31,,Valid,EHS Head,180000,ZLD compliance achieved
+LIC-005,Hazardous Waste Authorization,MPCB,Pune Plant,MPCB/HW/2024/567,2024-07-01,2029-06-30,,Valid,EHS Head,50000,5-year validity - annual compliance report due
+LIC-006,Factory License,Chief Inspector of Factories - Gujarat,Savli Plant,GJ/SVL/FAC/2025/890,2025-04-01,2027-03-31,,Valid,Plant Head Savli,95000,Renewed in 2025
+LIC-007,Explosive License (Petroleum Storage),PESO,Pune Plant,PESO/MH/PET/2024/123,2024-09-01,2026-08-31,,Valid,Safety Officer,35000,Diesel + FO storage - 200 KL capacity
+LIC-008,Electrical Installation License,Chief Electrical Inspector - Maharashtra,Pune Plant,MH/EI/2025/456,2025-03-15,2027-03-14,,Valid,Chief Electrical Engineer,45000,HT installation 33 kV
+LIC-009,Trade License,PMC,Pune Plant,PMC/TL/2025/789,2025-01-01,2025-12-31,,Renewal Due,Admin Head,28000,Annual renewal - December deadline
+LIC-010,Fire NOC,Fire Department - Pune,Pune Plant,FD/PUN/NOC/2024/012,2024-06-01,2026-05-31,,Valid,Safety Officer,15000,Last inspection: satisfactory
+LIC-011,BIS License (Product Certification),Bureau of Indian Standards,All Manufacturing,BIS/CM/2023/345,2023-08-01,2025-07-31,2025-06-15,Expired - Renewal Filed,QA Head,200000,Product marking license - critical for market access
+LIC-012,Export License (DGFT),Director General of Foreign Trade,Corporate,DGFT/IEC/2022/678,2022-01-15,Perpetual,,Valid,Export Manager,0,IEC code - no renewal needed

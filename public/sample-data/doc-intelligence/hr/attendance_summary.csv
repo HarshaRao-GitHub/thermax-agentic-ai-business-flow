@@ -1,0 +1,13 @@
+Employee_ID,Employee_Name,Department,Month,Working_Days,Present_Days,Absent_Days,Late_Arrivals,Early_Departures,Overtime_Hours,Leave_Type_Used,Leave_Balance_CL,Leave_Balance_PL,Remarks
+EMP-1001,Rajesh Kumar,Boiler Operations,Mar-2026,26,24,2,1,0,18.5,CL-2,4,12,Overtime for boiler shutdown support
+EMP-1002,Sunil Patil,Boiler Operations,Mar-2026,26,25,1,0,0,22.0,CL-1,5,14,Night shift premium applicable
+EMP-1003,Prakash Desai,Water Treatment,Mar-2026,26,26,0,2,1,8.0,None,6,10,2 late arrivals - verbal warning issued
+EMP-1004,Amit Shah,Instrumentation,Mar-2026,26,23,3,0,0,4.0,PL-3,6,9,Planned leave for family function
+EMP-1005,Suresh Nair,Electrical,Mar-2026,26,24,2,3,0,12.0,CL-1 SL-1,3,11,Sick leave with medical certificate
+EMP-1006,Mahesh Patil,Refractory,Mar-2026,26,25,1,0,0,32.0,CL-1,5,15,Heavy overtime - refractory relining work
+EMP-1007,Deepak Kulkarni,WTP,Mar-2026,26,26,0,0,0,6.0,None,6,12,Perfect attendance - 3rd consecutive month
+EMP-1008,Sanjay Mane,Boiler Maintenance,Mar-2026,26,22,4,1,0,0.0,PL-2 SL-2,4,8,Extended sick leave - knee surgery recovery
+EMP-1009,Vikas Rao,ESP Maintenance,Mar-2026,26,25,1,0,1,15.0,CL-1,5,13,Early departure for child school emergency
+EMP-1010,Ganesh Shinde,Piping,Mar-2026,26,24,2,4,0,20.0,CL-2,2,10,Habitual late arrival - warning letter issued
+EMP-1011,Anil Deshmukh,Safety,Mar-2026,26,26,0,0,0,10.0,None,6,14,Safety audit week - additional hours
+EMP-1012,Priya Sharma,HR,Mar-2026,26,25,1,0,0,4.0,CL-1,5,12,Appraisal season preparation

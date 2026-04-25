@@ -83,6 +83,6 @@ Respond with EXACTLY one JSON object (no markdown, no explanation):
     return NextResponse.json({ valid: true, reason: 'Prompt accepted.' });
   } catch (err) {
     console.error('Prompt validation error:', err);
-    return NextResponse.json({ valid: true, reason: 'Validation skipped due to error — prompt accepted.' });
+    return NextResponse.json({ valid: false, reason: 'Prompt validation failed — please try again.' });
   }
 }

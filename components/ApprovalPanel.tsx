@@ -47,9 +47,9 @@ export default function ApprovalPanel({
   const [modifiedOutput, setModifiedOutput] = useState<string | null>(null);
   const [processingMods, setProcessingMods] = useState(false);
 
-  const confPct = (hitl.confidence * 100).toFixed(0);
-  const threshPct = (hitl.confidenceThreshold * 100).toFixed(0);
-  const isLowConfidence = hitl.isConfidenceTriggered;
+  const confPct = ((hitl.confidence ?? 0) * 100).toFixed(0);
+  const threshPct = ((hitl.confidenceThreshold ?? 0.8) * 100).toFixed(0);
+  const isLowConfidence = hitl.isConfidenceTriggered ?? false;
 
   async function handleApplyChanges() {
     if (!approverName.trim() || !modifications.trim()) return;
@@ -89,16 +89,18 @@ export default function ApprovalPanel({
         const lines = buffer.split('\n');
         buffer = lines.pop() || '';
 
+        let currentEvt = '';
         for (const line of lines) {
-          if (line.startsWith('data: ')) {
+          if (line.startsWith('event: ')) {
+            currentEvt = line.slice(7).trim();
+          } else if (line.startsWith('data: ')) {
             try {
-              const eventLine = lines[lines.indexOf(line) - 1] || '';
-              const eventType = eventLine.replace('event: ', '').trim();
               const data = JSON.parse(line.slice(6));
-              if (eventType === 'text_delta' || (!eventType && typeof data === 'string')) {
+              if (currentEvt === 'text_delta' || (!currentEvt && typeof data === 'string')) {
                 assembled += typeof data === 'string' ? data : '';
               }
             } catch { /* skip parse errors */ }
+            currentEvt = '';
           }
         }
       }

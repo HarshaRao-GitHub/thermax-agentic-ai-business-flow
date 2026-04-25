@@ -1,0 +1,11 @@
+MR_Number,Date,Requesting_Dept,Requested_By,Item_Description,Specification,Qty,UOM,Project_Code,Urgency,Required_By_Date,Estimated_Cost_INR,Budget_Head,Approval_Status,Approved_By,PO_Raised
+MR-2026-0145,2026-04-01,Boiler Maintenance,Rajesh Kumar,SA210 Gr A1 Tubes 51mm OD x 5.6mm WT,IS 2002 / ASME SA210,25,Nos,PRJ-BLR-001,Urgent,2026-04-10,212500,CAPEX-Spares,Approved,VP Engineering,PO-2026-0892
+MR-2026-0146,2026-04-01,Instrumentation,Amit Shah,RTD Pt100 3-Wire Class A,IEC 60751 / IS 2585,15,Nos,PRJ-BLR-001,Normal,2026-04-20,42000,OPEX-Maintenance,Approved,Manager I&C,PO-2026-0895
+MR-2026-0147,2026-04-02,Electrical,Suresh Nair,Motor 160kW 1480 RPM TEFC IP55,IS 12615 / IEC 60034,1,No,PRJ-FAN-003,Critical,2026-04-15,485000,CAPEX-Equipment,Pending,VP Engineering,Not Raised
+MR-2026-0148,2026-04-02,Civil,Prakash Joshi,Portland Slag Cement Grade 53,IS 455:2015,50,MT,PRJ-FNDTN-002,Normal,2026-04-25,375000,CAPEX-Civil,Approved,Project Manager,PO-2026-0898
+MR-2026-0149,2026-04-03,Refractory,Mahesh Patil,Dense Castable 1600°C Grade,IS 8 / ASTM C401,3000,Kg,PRJ-BLR-001,Urgent,2026-04-12,555000,CAPEX-Refractory,Approved,VP Engineering,PO-2026-0901
+MR-2026-0150,2026-04-03,Safety,Anil Deshmukh,BA Set Drager PSS 5000,EN 137:2006,2,Sets,GEN-SAFETY,Normal,2026-04-30,280000,OPEX-Safety,Pending,EHS Head,Not Raised
+MR-2026-0151,2026-04-04,Water Treatment,Deepak Kulkarni,RO Membrane 8040 FilmTec BW30,NSF/ANSI 61,6,Nos,PRJ-WTP-001,Normal,2026-05-01,420000,OPEX-Consumables,Approved,Manager WTP,PO-2026-0905
+MR-2026-0152,2026-04-04,Boiler Operation,Sanjay Mane,Grate Bars CI FG260,IS 210:2009,80,Nos,PRJ-BLR-002,High,2026-04-18,256000,CAPEX-Spares,Approved,Plant Head,PO-2026-0908
+MR-2026-0153,2026-04-05,ESP Maintenance,Vikas Rao,Emitting Electrode Discharge Wire,SS 304 / 2.5mm dia,500,Meters,PRJ-ESP-001,Normal,2026-04-28,175000,OPEX-Maintenance,Rejected,VP Engineering,Not Raised
+MR-2026-0154,2026-04-05,Piping,Ganesh Shinde,SS 304L Pipe 6 inch Sch 40,ASTM A312 TP304L,120,Meters,PRJ-PIPE-004,Normal,2026-05-05,1080000,CAPEX-Piping,Pending,Project Manager,Not Raised

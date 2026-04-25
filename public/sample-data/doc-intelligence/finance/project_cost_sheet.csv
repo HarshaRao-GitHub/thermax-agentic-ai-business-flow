@@ -1,0 +1,13 @@
+Project_Code,Customer,Product,Contract_Value_Lakhs,Material_Cost_Lakhs,Labour_Cost_Lakhs,Subcontracting_Lakhs,Overheads_Lakhs,Total_Cost_Lakhs,Gross_Margin_Pct,Billed_Amount_Lakhs,Collected_Amount_Lakhs,Outstanding_Lakhs,Status
+PRJ-TS-045,Tata Steel,65 TPH AFBC Boiler,1250.00,687.50,187.50,125.00,87.50,1087.50,13.0,875.00,750.00,125.00,In Progress - 70% complete
+PRJ-UC-078,UltraTech Cement,ESP 4-Field,480.00,264.00,72.00,48.00,33.60,417.60,13.0,384.00,384.00,0.00,Completed - Final bill pending
+PRJ-RI-112,Reliance Industries,30 MW WHRS,4500.00,2475.00,675.00,450.00,315.00,3915.00,13.0,3150.00,2700.00,450.00,Commissioning Phase
+PRJ-NT-089,NTPC Sipat,FGD System,3200.00,1760.00,480.00,320.00,224.00,2784.00,13.0,0.00,0.00,0.00,Order Received - Not Started
+PRJ-HI-034,Hindalco,VAM 500 TR,320.00,176.00,48.00,32.00,22.40,278.40,13.0,320.00,288.00,32.00,Completed - Retention pending
+PRJ-GI-056,Grasim Industries,ZLD 200 KLD,1800.00,990.00,270.00,180.00,126.00,1566.00,13.0,1080.00,900.00,180.00,In Progress - 60% complete
+PRJ-JS-067,JSW Steel,Bag Filter System,580.00,319.00,87.00,58.00,40.60,504.60,13.0,580.00,522.00,58.00,DLP Period
+PRJ-IO-091,Indian Oil,Process Heater 50LK,890.00,489.50,133.50,89.00,62.30,774.30,13.0,623.00,534.00,89.00,In Progress - 70% complete
+PRJ-DC-023,Dalmia Cement,WHRS 8 MW,2100.00,1155.00,315.00,210.00,147.00,1827.00,13.0,630.00,630.00,0.00,In Progress - 30% complete
+PRJ-VD-044,Vedanta,CPP 2x30 MW,8500.00,4675.00,1275.00,850.00,595.00,7395.00,13.0,7650.00,6800.00,850.00,Operational - O&M phase
+PRJ-BP-055,BPCL,MEE+MVR 100 KLD,1450.00,797.50,217.50,145.00,101.50,1261.50,13.0,725.00,580.00,145.00,In Progress - 50% complete
+PRJ-AC-018,ACC Cement,WHRS 5 MW,1650.00,907.50,247.50,165.00,115.50,1435.50,13.0,1650.00,1485.00,165.00,Completed - Final retention due

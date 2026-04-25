@@ -120,7 +120,7 @@ export async function POST(req: NextRequest) {
         );
 
         for await (const event of stream) {
-          if (event.type === 'content_block_delta' && event.delta.type === 'text_delta') {
+          if (event.type === 'content_block_delta' && event.delta?.type === 'text_delta') {
             controller.enqueue(sse('text_delta', event.delta.text));
           }
         }

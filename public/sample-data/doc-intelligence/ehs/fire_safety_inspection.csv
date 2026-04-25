@@ -1,0 +1,15 @@
+Inspection_ID,Location,Equipment_Type,Equipment_ID,Condition,Last_Tested_Date,Next_Due_Date,Pressure_Bar,Inspector_Name,Non_Conformances,Corrective_Action,Status
+FSI-001,Boiler House Ground Floor,Fire Extinguisher (DCP 5kg),FE-BH-001,Good,2026-03-15,2026-09-15,14.5,Anil Deshmukh,None,N/A,Compliant
+FSI-002,Boiler House Ground Floor,Fire Extinguisher (CO2 4.5kg),FE-BH-002,Fair,2026-03-15,2026-09-15,N/A,Anil Deshmukh,Discharge horn cracked,Replace horn assembly - ordered,Action Pending
+FSI-003,Coal Yard,Fire Hydrant Point,FH-CY-001,Good,2026-02-28,2026-08-28,7.0,Anil Deshmukh,None,N/A,Compliant
+FSI-004,Coal Yard,Foam Monitor,FM-CY-001,Poor,2025-12-15,2026-06-15,N/A,Anil Deshmukh,Foam compound expired; monitor swivel stiff,Replace foam compound (200L); service monitor mechanism,Overdue
+FSI-005,Electrical Substation,Fire Extinguisher (CO2 6.5kg),FE-ES-001,Good,2026-03-15,2026-09-15,N/A,Anil Deshmukh,None,N/A,Compliant
+FSI-006,Electrical Substation,Automatic Fire Suppression (FM200),AFS-ES-001,Good,2026-01-20,2027-01-20,42.0,External Vendor - FirePro,None,N/A,Compliant
+FSI-007,FO/LSHS Storage Tank Farm,Foam System (Fixed),FS-TF-001,Fair,2026-02-10,2026-08-10,6.5,Anil Deshmukh,Foam proportioner calibration drift,Recalibrate proportioner to 3% ratio,Action Pending
+FSI-008,DM Plant / Chemical Storage,Fire Extinguisher (DCP 10kg),FE-DM-001,Good,2026-03-15,2026-09-15,15.0,Anil Deshmukh,None,N/A,Compliant
+FSI-009,Workshop / Fabrication Bay,Fire Extinguisher (DCP 5kg),FE-WS-001,Good,2026-03-15,2026-09-15,14.0,Anil Deshmukh,None,N/A,Compliant
+FSI-010,Workshop / Fabrication Bay,Fire Blanket,FB-WS-001,Good,2026-03-15,2027-03-15,N/A,Anil Deshmukh,None,N/A,Compliant
+FSI-011,Warehouse,Sprinkler System,SS-WH-001,Fair,2026-01-30,2026-07-30,5.5,External - Johnson Controls,2 sprinkler heads corroded in Zone 3,Replace corroded heads and flush line,In Progress
+FSI-012,Admin Building,Fire Alarm Panel,FA-AB-001,Good,2026-02-20,2026-08-20,N/A,External - Honeywell,None,N/A,Compliant
+FSI-013,Main Gate / Assembly Point,Emergency Siren System,ES-MG-001,Poor,2025-11-15,2026-05-15,N/A,Anil Deshmukh,Siren audibility below standard in Zone 4 and 5,Install 2 additional sirens; repair amplifier,Overdue
+FSI-014,Turbine Hall,Fire Extinguisher (DCP 10kg),FE-TH-001,Good,2026-03-15,2026-09-15,15.2,Anil Deshmukh,None,N/A,Compliant

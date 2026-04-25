@@ -1,0 +1,15 @@
+Project_Code,Customer,Equipment,Test_Parameter,Specification,Measured_Value,Unit,Result,Sign_Off_By,Sign_Off_Date,Remarks
+PRJ-TS-045,Tata Steel,65 TPH AFBC Boiler,Steam Pressure,64.0 ± 1.0,64.2,kg/cm2(g),Pass,R. Sharma (Thermax) + K. Singh (Tata),2026-03-15,Within tolerance
+PRJ-TS-045,Tata Steel,65 TPH AFBC Boiler,Steam Temperature,485 ± 5,483,°C,Pass,R. Sharma + K. Singh,2026-03-15,SH spray valve functioning correctly
+PRJ-TS-045,Tata Steel,65 TPH AFBC Boiler,Steam Output at MCR,65.0 minimum,66.2,TPH,Pass,R. Sharma + K. Singh,2026-03-15,Above rated capacity
+PRJ-TS-045,Tata Steel,65 TPH AFBC Boiler,Boiler Efficiency (Direct),82.0 minimum,82.8,%,Pass,R. Sharma + K. Singh,2026-03-16,Coal GCV 3800 kcal/kg basis
+PRJ-TS-045,Tata Steel,65 TPH AFBC Boiler,Flue Gas Temperature at APH Outlet,<165,158,°C,Pass,R. Sharma + K. Singh,2026-03-16,APH performance satisfactory
+PRJ-TS-045,Tata Steel,65 TPH AFBC Boiler,Stack Emission SPM,<50,38,mg/Nm3,Pass,R. Sharma + MPCB representative,2026-03-16,Well within CPCB norms
+PRJ-TS-045,Tata Steel,65 TPH AFBC Boiler,Stack Emission SO2,<200,145,mg/Nm3,Pass,R. Sharma + MPCB representative,2026-03-16,Limestone dosing optimized
+PRJ-TS-045,Tata Steel,65 TPH AFBC Boiler,Safety Valve Set Pressure - Drum,70.0,70.0,kg/cm2(g),Pass,IBR Inspector + R. Sharma,2026-03-14,IBR witnessed and stamped
+PRJ-TS-045,Tata Steel,65 TPH AFBC Boiler,Feed Water Quality - pH,8.5-9.5,8.8,,Pass,Chemistry Lab,2026-03-15,WTP performing well
+PRJ-TS-045,Tata Steel,65 TPH AFBC Boiler,Feed Water Quality - TDS,<10,5.2,ppm,Pass,Chemistry Lab,2026-03-15,DM plant output excellent
+PRJ-TS-045,Tata Steel,65 TPH AFBC Boiler,Continuous Operation Test (72 hrs),No trip/alarm,Completed - 0 trips,,Pass,R. Sharma + K. Singh + Plant Head,2026-03-18,Stable operation at 85-95% MCR
+PRJ-TS-045,Tata Steel,65 TPH AFBC Boiler,Bed Temperature Uniformity,850 ± 50,835-860,°C,Pass,R. Sharma,2026-03-15,All 6 bed thermocouples within range
+PRJ-HI-034,Hindalco,VAM 500 TR Chiller,Cooling Capacity,500 minimum,492,TR,Conditional Pass,P. Deshmukh + Hindalco Eng,2026-02-28,98.4% of rated - within ±3% tolerance
+PRJ-HI-034,Hindalco,VAM 500 TR Chiller,COP,1.42 minimum,1.38,,Fail,P. Deshmukh + Hindalco Eng,2026-02-28,Below guarantee - root cause analysis initiated

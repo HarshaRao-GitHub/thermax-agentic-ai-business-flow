@@ -1,0 +1,13 @@
+Month,Waste_Type,Waste_Category,Source,Quantity_MT,Disposal_Method,Authorized_Vendor,Manifest_Number,Disposal_Date,Cost_INR,Compliance_Status,Remarks
+Mar-2026,Fly Ash,Non-Hazardous Solid,AFBC Boiler ESP,450.0,Sold to cement plant,UltraTech Cement Aditya Birla,WM-FA-2026-0045,2026-03-05,Revenue: 180000,Compliant,100% utilization as per Fly Ash Notification 2016
+Mar-2026,Bottom Ash,Non-Hazardous Solid,AFBC Boiler Grate,120.0,Sold for brick manufacturing,Eco Bricks Pvt Ltd,WM-BA-2026-0046,2026-03-08,Revenue: 24000,Compliant,Monthly lifting schedule maintained
+Mar-2026,Used Oil (Lubricant),Hazardous - Schedule IV Cat 5.1,Turbine/Pumps/Bearings,2.8,Sent to authorized recycler,Re-Sustainability Pvt Ltd,HW-UO-2026-0012,2026-03-12,8400,Compliant,Stored in bunded area before dispatch
+Mar-2026,Spent Acid (HCl),Hazardous - Schedule IV Cat 34.3,DM Plant Regeneration,4.5,Neutralization + authorized disposal,EnviroServe India,HW-SA-2026-0013,2026-03-15,67500,Compliant,Neutralization certificate received
+Mar-2026,Spent Caustic (NaOH),Hazardous - Schedule IV Cat 34.3,DM Plant Regeneration,3.2,Neutralization + authorized disposal,EnviroServe India,HW-SC-2026-0014,2026-03-15,48000,Compliant,Combined dispatch with spent acid
+Mar-2026,E-Waste,Hazardous - E-Waste Rules,IT Department/I&C,0.35,Sent to authorized dismantler,E-Parisaraa Pvt Ltd,EW-2026-0003,2026-03-20,0,Compliant,Annual collection - includes old DCS components
+Mar-2026,Scrap Metal (MS/SS),Non-Hazardous Solid,Workshop/Fabrication,8.5,Sold to authorized dealer,Jindal Scrap Dealers,WM-SM-2026-0047,2026-03-22,Revenue: 340000,Compliant,Segregated by grade - SS fetched premium
+Mar-2026,RO Reject Brine,Non-Hazardous Liquid,Water Treatment RO,850.0 KL,Treated through MEE+ATFD (ZLD),In-house ZLD Plant,N/A,Continuous,Operating cost: 125000,Compliant,Zero liquid discharge achieved - salt recovery 2.1 MT
+Mar-2026,Biomedical Waste,Hazardous - BMW Rules,Occupational Health Centre,0.015,Authorized BMW collection,BVGIL Maharashtra,BMW-2026-0012,2026-03-25,450,Compliant,Segregated in color-coded bins as per BMW Rules
+Mar-2026,Refractory Waste,Non-Hazardous Solid,Boiler Relining,15.0,Landfill at authorized site,Green Earth Waste Mgmt,WM-RW-2026-0048,2026-03-28,22500,Compliant,Tested for heavy metals - below limits
+Mar-2026,Paint/Solvent Waste,Hazardous - Schedule IV Cat 5.2,Painting Shop,0.8,Incineration at TSDF,Maharashtra Enviro Power Ltd,HW-PS-2026-0015,2026-03-30,24000,Compliant,Stored in fire-rated cabinet before dispatch
+Mar-2026,Empty Chemical Drums,Hazardous - Residual,Chemical Storage,45 Nos,Returned to supplier for refill,Chemical suppliers (various),WM-CD-2026-0049,2026-03-31,0,Compliant,Drum return program with 4 major suppliers
