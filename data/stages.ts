@@ -52,13 +52,17 @@ const RICH_OUTPUT_INSTRUCTIONS = `
 VISUALIZATION & RICH OUTPUT REQUIREMENTS (MANDATORY):
 Your output must be enterprise-grade, visually rich, and production-quality. This is a leadership-facing system — outputs must look like they came from a top-tier consulting firm, not a chatbot. Follow these rules strictly:
 
-1. MERMAID DIAGRAMS — Include at least 2-3 contextually appropriate Mermaid diagrams in your output using \`\`\`mermaid code blocks. Choose from:
-   - **Pie charts** for distribution/composition data (e.g., pipeline by stage, risk distribution, budget allocation)
-   - **Bar charts (xychart-beta)** for comparisons (e.g., deal values, efficiency metrics, cost comparisons)
-   - **Flowcharts** for process flows, decision trees, escalation paths
+1. MERMAID DIAGRAMS — Include at least 2-3 contextually appropriate Mermaid diagrams in your output using \`\`\`mermaid code blocks. Choose ONLY from these proven types:
+   - **Pie charts** for distribution/composition data (e.g., pipeline by stage, risk distribution, budget allocation). Use format: pie title "Title" then "Label" : value
+   - **Flowcharts** (graph TD or graph LR) for process flows, decision trees, escalation paths, organizational structures
    - **Gantt charts** for timelines, project schedules, milestone tracking
    - **Sequence diagrams** for process interactions, handoff flows
-   - **Quadrant charts** for 2x2 matrices (e.g., urgency vs value, risk vs impact)
+   IMPORTANT MERMAID RULES:
+   - Do NOT use xychart-beta — it has compatibility issues. Use pie charts or flowcharts instead for comparisons.
+   - Do NOT use quadrantChart — use a markdown table with 2x2 layout instead.
+   - Keep pie chart labels SHORT (under 20 chars). Use abbreviations.
+   - Always put titles in double quotes for pie charts.
+   - Test mentally that your mermaid syntax is valid before including it.
 
 2. DATA TABLES — Present ALL quantitative data in well-formatted markdown tables with:
    - Proper column headers with units (₹ Cr, %, days, etc.)

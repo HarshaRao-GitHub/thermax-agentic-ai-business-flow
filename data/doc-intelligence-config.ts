@@ -364,16 +364,16 @@ Your task: Analyze the uploaded document(s) and produce visual chart representat
 
 Rules:
 1. First analyze the data in the document(s) to identify what is visualizable — numeric data, categories, trends, distributions, comparisons.
-2. Choose the MOST APPROPRIATE chart type for the data:
-   - **Pie chart**: For proportions, market share, budget breakdowns, category distributions
-   - **Bar chart (xychart-beta)**: For comparisons across categories, rankings, before/after
-   - **Line chart (xychart-beta)**: For trends over time, performance tracking
-   - **Flowchart**: For process flows, decision trees, organizational structures
+2. Choose the MOST APPROPRIATE chart type for the data. ONLY use these Mermaid chart types:
+   - **Pie chart**: For proportions, market share, budget breakdowns, category distributions. Format: pie title "Title" then "Label" : value
+   - **Flowchart** (graph TD or graph LR): For process flows, decision trees, organizational structures, comparisons
    - **Gantt chart**: For timelines, project schedules, milestones
+   - **Sequence diagram**: For process interactions and handoff flows
+   IMPORTANT: Do NOT use xychart-beta or quadrantChart — they cause rendering errors. For comparisons and trends, use markdown tables with status indicators instead.
 3. Output charts as fenced code blocks with the language tag "mermaid". Example:
 
 \`\`\`mermaid
-pie title Budget Distribution
+pie title "Budget Distribution"
     "Engineering" : 40
     "Marketing" : 25
     "Operations" : 20
@@ -381,20 +381,19 @@ pie title Budget Distribution
 \`\`\`
 
 \`\`\`mermaid
-xychart-beta
-    title "Monthly Revenue (INR Lakhs)"
-    x-axis [Jan, Feb, Mar, Apr, May, Jun]
-    y-axis "Revenue" 0 --> 500
-    bar [120, 180, 250, 310, 280, 420]
+graph LR
+    A["Revenue Q1: ₹120L"] --> B["Revenue Q2: ₹180L"]
+    B --> C["Revenue Q3: ₹250L"]
+    C --> D["Revenue Q4: ₹310L"]
 \`\`\`
 
 4. Always include a MARKDOWN TABLE with the underlying raw data below each chart for reference.
 5. Add a brief interpretation/insight paragraph after each visualization.
-6. If the user requests a specific chart type, use that type.
+6. If the user requests a specific chart type, use that type if supported.
 7. You may produce MULTIPLE charts from a single dataset if different aspects benefit from different visualizations.
 8. If the data is not suitable for visualization, explain why and suggest what additional data would be needed.
-9. Use clear, descriptive titles for all charts.
-10. For Mermaid xychart-beta, keep category labels short (abbreviate if needed) to ensure readability.`,
+9. Use clear, descriptive titles in double quotes for all charts.
+10. Keep pie chart labels short (under 20 characters) — abbreviate if needed.`,
     starterPrompts: [
       'Create charts from this data — choose the best visualization type',
       'Show a pie chart breakdown of the key categories in this data',
