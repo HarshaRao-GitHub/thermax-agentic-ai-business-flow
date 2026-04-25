@@ -18,16 +18,11 @@ export default function Header() {
       {/* Top bar: Logo + brand */}
       <div className="max-w-7xl mx-auto px-6 pt-3 pb-2 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-lg bg-thermax-saffron flex items-center justify-center font-bold text-thermax-navy text-lg group-hover:scale-105 transition">
+          <div className="w-11 h-11 rounded-lg bg-thermax-saffron flex items-center justify-center font-bold text-thermax-navy text-xl group-hover:scale-105 transition">
             T
           </div>
-          <div className="leading-tight">
-            <div className="font-bold text-[15px] tracking-tight">
-              Thermax's Agentic AI Operating System 2030
-            </div>
-            <div className="text-[11px] text-white/60 font-mono">
-              9 Stages · 10 Agents · Signal → Service · AgentGuard
-            </div>
+          <div className="font-bold text-[18px] tracking-tight">
+            Thermax&apos;s Agentic AI Operating System 2030
           </div>
         </Link>
 
