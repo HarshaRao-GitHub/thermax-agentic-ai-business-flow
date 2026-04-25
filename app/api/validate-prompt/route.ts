@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getAnthropicClient, getModelId } from '@/lib/anthropic';
+import { getAnthropicClient, getModelId, callWithRetry } from '@/lib/anthropic';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -51,7 +51,7 @@ export async function POST(req: NextRequest) {
     const client = getAnthropicClient();
     const model = getModelId();
 
-    const response = await client.messages.create({
+    const response = await callWithRetry(() => client.messages.create({
       model,
       max_tokens: 300,
       system: `You are a prompt validator. Your ONLY job is to determine if a user-provided custom prompt is relevant to a specific AI agent's domain and use case.
@@ -69,7 +69,7 @@ RULES:
 Respond with EXACTLY one JSON object (no markdown, no explanation):
 {"valid": true/false, "reason": "one sentence explanation"}`,
       messages: [{ role: 'user', content: `Validate this custom prompt for the ${agentName}:\n\n"${prompt}"` }],
-    });
+    }));
 
     const text = response.content[0]?.type === 'text' ? response.content[0].text : '';
     try {

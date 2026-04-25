@@ -1,5 +1,5 @@
 import { NextRequest } from 'next/server';
-import { getAnthropicClient, getModelId } from '@/lib/anthropic';
+import { getAnthropicClient, getModelId, callWithRetry } from '@/lib/anthropic';
 import { getOperationById, getDepartmentById } from '@/data/doc-intelligence-config';
 
 export const runtime = 'nodejs';
@@ -130,12 +130,17 @@ export async function POST(req: NextRequest) {
         const MAX_LOOPS = 5;
         for (let loop = 0; loop < MAX_LOOPS; loop++) {
           apiTurns++;
-          const response = await client.messages.create({
-            model,
-            max_tokens: 8192,
-            system: systemPrompt,
-            messages: conversationMessages,
-          });
+          const response = await callWithRetry(
+            () => client.messages.create({
+              model,
+              max_tokens: 8192,
+              system: systemPrompt,
+              messages: conversationMessages,
+            }),
+            (attempt, max, err) => {
+              controller.enqueue(sse('retry', { attempt, max, message: `API busy (${err.message}), retrying ${attempt}/${max}...` }));
+            }
+          );
 
           totalInputTokens += response.usage?.input_tokens ?? 0;
           totalOutputTokens += response.usage?.output_tokens ?? 0;

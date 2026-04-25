@@ -1,7 +1,7 @@
 import { NextRequest } from 'next/server';
 import { getStageBySlug, governanceConfig, type Stage } from '@/data/stages';
 import { loadCsvAsMarkdownTable } from '@/lib/csv-loader';
-import { getAnthropicClient, getModelId } from '@/lib/anthropic';
+import { getAnthropicClient, getModelId, callWithRetry } from '@/lib/anthropic';
 import {
   getToolsForSlug,
   getAgenticInstructions,
@@ -200,13 +200,18 @@ If SOME files are relevant and others are not, process the relevant ones and dis
         const MAX_LOOPS = 12;
         for (let loop = 0; loop < MAX_LOOPS; loop++) {
           apiTurns++;
-          const response = await client.messages.create({
-            model,
-            max_tokens: 8192,
-            system: systemPrompt,
-            tools: slugTools,
-            messages: conversationMessages
-          });
+          const response = await callWithRetry(
+            () => client.messages.create({
+              model,
+              max_tokens: 8192,
+              system: systemPrompt,
+              tools: slugTools,
+              messages: conversationMessages
+            }),
+            (attempt, max, err) => {
+              controller.enqueue(sse('retry', { attempt, max, message: `API busy (${err.message}), retrying ${attempt}/${max}...` }));
+            }
+          );
 
           totalInputTokens += response.usage?.input_tokens ?? 0;
           totalOutputTokens += response.usage?.output_tokens ?? 0;
