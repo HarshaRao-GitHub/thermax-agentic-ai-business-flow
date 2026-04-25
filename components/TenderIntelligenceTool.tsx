@@ -38,15 +38,19 @@ export default function TenderIntelligenceTool() {
   const [extractionResult, setExtractionResult] = useState<FullExtraction | null>(null);
   const [extractionMarkdown, setExtractionMarkdown] = useState('');
   const [extractionDone, setExtractionDone] = useState(false);
+  const [extractProgress, setExtractProgress] = useState(0);
   const [chatMessages, setChatMessages] = useState<ChatMsg[]>([]);
   const [chatInput, setChatInput] = useState('');
   const [chatStreaming, setChatStreaming] = useState(false);
   const [chatStreamBuffer, setChatStreamBuffer] = useState('');
+  const [chatProgress, setChatProgress] = useState(0);
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
   const [expandedChat, setExpandedChat] = useState<Set<number>>(new Set());
   const [loadingSample, setLoadingSample] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const chatRef = useRef<HTMLDivElement>(null);
+  const extractProgressRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const chatProgressRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
     if (chatRef.current) chatRef.current.scrollTop = chatRef.current.scrollHeight;
@@ -83,12 +87,30 @@ export default function TenderIntelligenceTool() {
     setChatMessages([]);
   }
 
+  function startTimerProgress(setter: (v: number | ((p: number) => number)) => void, ref: React.MutableRefObject<ReturnType<typeof setInterval> | null>, speed = 25) {
+    setter(0);
+    const t0 = Date.now();
+    if (ref.current) clearInterval(ref.current);
+    ref.current = setInterval(() => {
+      const elapsed = (Date.now() - t0) / 1000;
+      const pct = Math.min(95, Math.round((1 - Math.exp(-elapsed / speed)) * 100));
+      setter(pct);
+    }, 300);
+  }
+
+  function stopTimerProgress(setter: (v: number) => void, ref: React.MutableRefObject<ReturnType<typeof setInterval> | null>) {
+    setter(100);
+    if (ref.current) { clearInterval(ref.current); ref.current = null; }
+    setTimeout(() => setter(0), 1000);
+  }
+
   async function runExtraction() {
     if (!documentText || extracting) return;
     setExtracting(true);
     setExtractionMarkdown('');
     setExtractionResult(null);
     setExtractionDone(false);
+    startTimerProgress(setExtractProgress, extractProgressRef, 30);
 
     try {
       const res = await fetch('/api/ai-nexus/tender-extract', {
@@ -110,6 +132,7 @@ export default function TenderIntelligenceTool() {
       const decoder = new TextDecoder();
       let buffer = '';
       let assembled = '';
+      let chunkCount = 0;
       while (true) {
         const { value, done } = await reader.read();
         if (done) break;
@@ -122,7 +145,13 @@ export default function TenderIntelligenceTool() {
           else if (line.startsWith('data: ')) {
             try {
               const data = JSON.parse(line.slice(6));
-              if (curEvent === 'text_delta') { assembled += data; setExtractionMarkdown(assembled); }
+              if (curEvent === 'text_delta') {
+                assembled += data;
+                chunkCount++;
+                setExtractionMarkdown(assembled);
+                const contentPct = Math.min(92, 8 + Math.round((chunkCount / 120) * 87));
+                setExtractProgress(prev => Math.max(prev, contentPct));
+              }
             } catch { /* skip */ }
             curEvent = '';
           }
@@ -133,7 +162,6 @@ export default function TenderIntelligenceTool() {
       setExtractionDone(true);
       setTab('extraction');
 
-      // Try to extract JSON block from the end of the response
       try {
         const jsonMatch = assembled.match(/```json\s*([\s\S]*?)```/);
         if (jsonMatch) {
@@ -144,6 +172,7 @@ export default function TenderIntelligenceTool() {
     } catch (err) {
       setExtractionMarkdown(`*Error: ${err instanceof Error ? err.message : 'Unknown'}*`);
     } finally {
+      stopTimerProgress(setExtractProgress, extractProgressRef);
       setExtracting(false);
     }
   }
@@ -156,6 +185,7 @@ export default function TenderIntelligenceTool() {
     setChatInput('');
     setChatStreaming(true);
     setChatStreamBuffer('');
+    startTimerProgress(setChatProgress, chatProgressRef, 20);
 
     try {
       const res = await fetch('/api/ai-nexus/tender-chat', {
@@ -171,6 +201,7 @@ export default function TenderIntelligenceTool() {
       const decoder = new TextDecoder();
       let buffer = '';
       let assembled = '';
+      let chunkCount = 0;
       while (true) {
         const { value, done } = await reader.read();
         if (done) break;
@@ -183,7 +214,13 @@ export default function TenderIntelligenceTool() {
           else if (line.startsWith('data: ')) {
             try {
               const data = JSON.parse(line.slice(6));
-              if (curEvent === 'text_delta') { assembled += data; setChatStreamBuffer(assembled); }
+              if (curEvent === 'text_delta') {
+                assembled += data;
+                chunkCount++;
+                setChatStreamBuffer(assembled);
+                const contentPct = Math.min(92, 8 + Math.round((chunkCount / 80) * 87));
+                setChatProgress(prev => Math.max(prev, contentPct));
+              }
             } catch { /* skip */ }
             curEvent = '';
           }
@@ -193,6 +230,7 @@ export default function TenderIntelligenceTool() {
     } catch (err) {
       setChatMessages([...next, { role: 'assistant', content: `*Error: ${err instanceof Error ? err.message : 'Unknown'}*` }]);
     } finally {
+      stopTimerProgress(setChatProgress, chatProgressRef);
       setChatStreaming(false);
       setChatStreamBuffer('');
     }
@@ -328,10 +366,20 @@ export default function TenderIntelligenceTool() {
               <div className="px-5 py-3 border-b border-thermax-line flex items-center justify-between">
                 <h3 className="text-[14px] font-bold text-thermax-navy">Document Preview</h3>
                 {hasDoc && (
-                  <button onClick={runExtraction} disabled={extracting}
-                    className="px-5 py-2 rounded-lg bg-violet-600 text-white text-[12px] font-bold hover:bg-violet-700 disabled:opacity-50 transition">
-                    {extracting ? 'Extracting...' : 'Extract with AI'}
-                  </button>
+                  <div className="flex items-center gap-3">
+                    {extracting && extractProgress > 0 && (
+                      <div className="flex items-center gap-2 min-w-[160px]">
+                        <div className="flex-1 bg-violet-100 rounded-full h-2">
+                          <div className="h-2 rounded-full bg-gradient-to-r from-violet-500 to-purple-400 transition-all duration-300" style={{ width: `${extractProgress}%` }} />
+                        </div>
+                        <span className="text-[11px] font-bold text-violet-700 w-10 text-right">{extractProgress}%</span>
+                      </div>
+                    )}
+                    <button onClick={runExtraction} disabled={extracting}
+                      className="px-5 py-2 rounded-lg bg-violet-600 text-white text-[12px] font-bold hover:bg-violet-700 disabled:opacity-50 transition">
+                      {extracting ? 'Extracting...' : 'Extract with AI'}
+                    </button>
+                  </div>
                 )}
               </div>
               <div className="p-4 max-h-[500px] overflow-y-auto">
@@ -369,14 +417,21 @@ export default function TenderIntelligenceTool() {
       {/* EXTRACTION TAB */}
       {tab === 'extraction' && (
         <div className="bg-white border border-thermax-line rounded-xl shadow-card overflow-hidden">
-          <div className="px-5 py-3 border-b border-thermax-line bg-gradient-to-r from-violet-50 to-purple-50 flex items-center justify-between">
-            <h3 className="text-[14px] font-bold text-thermax-navy">Extraction Report</h3>
-            <div className="flex items-center gap-2">
-              {extracting && <span className="text-[10px] text-violet-600 font-mono animate-pulse">Extracting...</span>}
-              {extractionDone && (
-                <span className="text-[10px] bg-emerald-100 text-emerald-700 px-2.5 py-1 rounded font-bold">Extraction Complete</span>
-              )}
+          <div className="px-5 py-3 border-b border-thermax-line bg-gradient-to-r from-violet-50 to-purple-50">
+            <div className="flex items-center justify-between mb-1">
+              <h3 className="text-[14px] font-bold text-thermax-navy">Extraction Report</h3>
+              <div className="flex items-center gap-2">
+                {extracting && <span className="text-[10px] text-violet-600 font-mono animate-pulse">Processing... {extractProgress}%</span>}
+                {extractionDone && (
+                  <span className="text-[10px] bg-emerald-100 text-emerald-700 px-2.5 py-1 rounded font-bold">Extraction Complete</span>
+                )}
+              </div>
             </div>
+            {extracting && extractProgress > 0 && (
+              <div className="w-full bg-violet-100 rounded-full h-1.5 mt-1">
+                <div className="h-1.5 rounded-full bg-gradient-to-r from-violet-500 to-purple-400 transition-all duration-300" style={{ width: `${extractProgress}%` }} />
+              </div>
+            )}
           </div>
           {extractionMarkdown ? (
             <CollapsibleResult id="extraction-report" title="AI Extraction Report" expanded={expandedSections.has('extraction-report')} onToggle={() => toggleSection('extraction-report')} streaming={extracting}>
@@ -439,6 +494,19 @@ export default function TenderIntelligenceTool() {
               </span>
             </div>
           </div>
+
+          {/* Progress bar */}
+          {chatStreaming && chatProgress > 0 && (
+            <div className="px-5 py-2 border-b border-thermax-line bg-violet-50/50">
+              <div className="flex items-center justify-between mb-1">
+                <span className="text-[11px] font-semibold text-violet-700">AI Processing</span>
+                <span className="text-[11px] font-bold text-violet-700">{chatProgress}%</span>
+              </div>
+              <div className="w-full bg-violet-100 rounded-full h-2">
+                <div className="h-2 rounded-full bg-gradient-to-r from-violet-500 to-purple-400 transition-all duration-300" style={{ width: `${chatProgress}%` }} />
+              </div>
+            </div>
+          )}
 
           {/* Quick questions */}
           {chatMessages.length === 0 && !chatStreaming && (

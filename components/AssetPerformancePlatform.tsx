@@ -15,9 +15,11 @@ export default function AssetPerformancePlatform() {
   const [chatInput, setChatInput] = useState('');
   const [chatStreaming, setChatStreaming] = useState(false);
   const [chatStreamBuffer, setChatStreamBuffer] = useState('');
+  const [chatProgress, setChatProgress] = useState(0);
   const [incidentFilter, setIncidentFilter] = useState<'all' | 'open' | 'acknowledged' | 'resolved'>('all');
   const [expandedResults, setExpandedResults] = useState<Set<number>>(new Set());
   const chatRef = useRef<HTMLDivElement>(null);
+  const progressRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const filteredAssets = ASSETS.filter(a =>
     sidebarFilter === 'all' ? true : a.status === sidebarFilter
@@ -36,6 +38,24 @@ export default function AssetPerformancePlatform() {
     setTab('detail');
   }
 
+  function startProgress() {
+    setChatProgress(0);
+    const t0 = Date.now();
+    if (progressRef.current) clearInterval(progressRef.current);
+    progressRef.current = setInterval(() => {
+      const elapsed = (Date.now() - t0) / 1000;
+      // Asymptotic approach: fast initially, slows near 95%
+      const pct = Math.min(95, Math.round((1 - Math.exp(-elapsed / 20)) * 100));
+      setChatProgress(pct);
+    }, 300);
+  }
+
+  function stopProgress() {
+    setChatProgress(100);
+    if (progressRef.current) { clearInterval(progressRef.current); progressRef.current = null; }
+    setTimeout(() => setChatProgress(0), 1000);
+  }
+
   async function sendChat(textOverride?: string) {
     const text = (textOverride ?? chatInput).trim();
     if (!text || chatStreaming) return;
@@ -44,6 +64,7 @@ export default function AssetPerformancePlatform() {
     setChatInput('');
     setChatStreaming(true);
     setChatStreamBuffer('');
+    startProgress();
 
     try {
       const res = await fetch('/api/ai-nexus/asset-chat', {
@@ -60,6 +81,7 @@ export default function AssetPerformancePlatform() {
       const decoder = new TextDecoder();
       let buffer = '';
       let assembled = '';
+      let chunkCount = 0;
       while (true) {
         const { value, done } = await reader.read();
         if (done) break;
@@ -72,7 +94,14 @@ export default function AssetPerformancePlatform() {
           else if (line.startsWith('data: ')) {
             try {
               const data = JSON.parse(line.slice(6));
-              if (curEvent === 'text_delta') { assembled += data; setChatStreamBuffer(assembled); }
+              if (curEvent === 'text_delta') {
+                assembled += data;
+                chunkCount++;
+                setChatStreamBuffer(assembled);
+                // Accelerate progress based on content received
+                const contentPct = Math.min(90, 10 + Math.round((chunkCount / 80) * 85));
+                setChatProgress(prev => Math.max(prev, contentPct));
+              }
             } catch { /* skip */ }
             curEvent = '';
           }
@@ -82,6 +111,7 @@ export default function AssetPerformancePlatform() {
     } catch (err) {
       setChatMessages([...next, { role: 'assistant', content: `*Error: ${err instanceof Error ? err.message : 'Unknown'}*` }]);
     } finally {
+      stopProgress();
       setChatStreaming(false);
       setChatStreamBuffer('');
     }
@@ -387,6 +417,19 @@ export default function AssetPerformancePlatform() {
                     </span>
                   </div>
                 </div>
+
+                {/* Progress bar */}
+                {chatStreaming && chatProgress > 0 && (
+                  <div className="px-5 py-2 border-b border-thermax-line bg-blue-50/50">
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-[11px] font-semibold text-blue-700">AI Processing</span>
+                      <span className="text-[11px] font-bold text-blue-700">{chatProgress}%</span>
+                    </div>
+                    <div className="w-full bg-blue-100 rounded-full h-2">
+                      <div className="h-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 transition-all duration-300" style={{ width: `${chatProgress}%` }} />
+                    </div>
+                  </div>
+                )}
 
                 {/* Quick actions */}
                 {chatMessages.length === 0 && !chatStreaming && (
