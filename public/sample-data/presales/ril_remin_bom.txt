@@ -1,0 +1,249 @@
+================================================================================
+BILL OF MATERIALS (BOM) — RIL REMINERALIZATION PROJECT
+================================================================================
+
+PROJECT:       630414 — RIL REMIN (Remineralization)
+CLIENT:        Reliance Industries Limited (RIL)
+SYSTEM TYPE:   Water Treatment — Remineralization Plant
+BOM REVISION:  Multi-revision (items range Rev 0–7)
+DATE RANGE:    Oct 2024 – Sep 2025 (effectivity dates)
+TOTAL ITEMS:   632 line items across 4 hierarchy levels
+
+================================================================================
+BOM SUMMARY STATISTICS
+================================================================================
+
+Hierarchy Levels:
+  Level 1 (Top Assembly):     10 categories
+  Level 2 (Sub-Assembly):     89 sub-categories
+  Level 3 (Components):      521 items
+  Level 4 (Sub-Components):   12 items
+
+Unit of Measure Distribution:
+  NOS (Numbers/Pieces):  422 items
+  LOT (Lot/Assembly):    108 items
+  MTR (Meters):           71 items
+  SET (Sets):             23 items
+  CUM (Cubic Meters):      6 items
+  CMT (Cement/MT):         2 items
+
+Item Types:
+  Finished Good:                     422
+  SOS Dummy (Structure of Supply):    99
+  MRP Planned Items:                  65
+  Common RM Purchase:                 46
+
+================================================================================
+TOP-LEVEL BOM STRUCTURE (10 MAJOR CATEGORIES)
+================================================================================
+
+1. W630414G01 — ROTARY EQUIPMENTS (Rev 4)
+   Sub-categories:
+   - G02: Agitators (2 items — Na2CO3 & NaHCO3 dosing tank agitators)
+   - G03: Dosing Pumps (3 items — Na2CO3, NaHCO3, Hypo dosing pumps)
+   - G04: CO2 System (1 set)
+   - G05: Lime Handling System (1 set)
+
+2. W630414K01 — SPARES (Rev 3)
+   Sub-categories:
+   - K02: Spare for Bought-out Items (agitator, dosing pump, CO2 system, lime handling spares)
+   - K03: Spare for Valves (seal kits for ball valves 1/2"–3", butterfly valves 2"–8", SOV, limit switch, AFR, check valves)
+   - K04: Spares for Media (10-3mm pebbles, 12-6mm pebbles, 20-12mm pebbles, high purity limestone)
+
+3. W630414E01 — ELECTRICAL BOM (Rev 7)
+   Sub-categories:
+   - E02: LT Motor BOM (0.37 KW, 4-pole, IE3 motors — 4 standard + 6 VFD-operated)
+   - EL2201: Cable Tray — ladder type & perforated type, GI, HDG
+   - EL2202: Cable Tray — ladder type, GI, 127mm height
+   - EL2203: Cable Tray (additional)
+   - AA0801: Spares — Recommended Electrical
+   - EL0301: LT Motor (additional scope)
+   - IN5101: Instrument Cable Tray
+
+4. W630414C01 — SHOP FABRICATED EQUIPMENTS (Rev varies)
+   Sub-categories:
+   - C02: FRP Tank BOM (Na2CO3 and NaHCO3 dosing tanks, FRP construction)
+   - C03: Lime Stone Filter vessels
+   - C05: Metallic Tank
+   - C06: Internals for Lime Stone Filter (SS304L nozzles, laterals, hub assemblies)
+   - C07: Vessel & Tank Flanges
+   - C08–C11: LSF Vessel Flanges, Blind Flanges, Na2CO3 Tank Flanges (various NB sizes, class ratings)
+
+5. W630414H01 — INSTRUMENTATION (Rev varies)
+   Sub-categories:
+   - H02: PLC System (Siemens S7-1500 PLC, SCADA, HMI, I/O modules, power supply, communication modules)
+   - H03: Pressure Gauge BOM (Bourdon type, SS316, various ranges 0–2.5 to 0–25 kg/cm2)
+   - H04: Magnetic Level Gauge BOM (SS316L/PP, float type)
+   - H05: Ultrasonic Level Transmitter BOM (4–20mA, HART, IP67)
+   - H06: pH Analyzer BOM (online pH transmitter, sensor, flow assembly)
+   - H12: Instrument Spare BOM
+   - IN4501: Instrument Cable
+   - IN4802: Air Manifold
+   - IN4602–IN4603: Instrument Junction Box
+   - CO4602: Instrument Hook-up
+   - IN4901: Instrument Cable Gland
+
+6. W630414L01 — MISCELLANEOUS ITEMS (Rev varies)
+   Sub-categories:
+   - L02: Name Plates (SS304, engraved)
+   - L03: Foundation Bolt & Packing Plate
+   - L04: Media Trap (SS304 strainer)
+   - L05: Inspection Window (glass sight windows)
+   - L06: Mounting Frame & Dissolving Basket (for lime/chemical dosing)
+   - L07: Static Mixer (inline, SS316L)
+   - L08: Strainer — Y Type (CS/SS)
+   - L09: Safety Shower (SS304, eye wash with drench shower)
+   - MI0801: Static Mixer (additional)
+
+7. W630414F01 — VALVES (Rev varies)
+   Sub-categories:
+   - F02: Non-Metallic Valves (CPVC/PP/FRP, ball and butterfly)
+   - F03: Ball Valves (SS316L/CS, 1/2"–3", 150# flanged & screwed)
+   - F04: Butterfly Valves (CS/SS lined EPDM/PTFE, 2"–8")
+   - F05: Check Valves (CS/SS, swing/lift type, 1"–3")
+   - F06: Pressure Safety Valve (CS/SS, flanged)
+   - F07: Ball Valve — LOT 2 (additional scope)
+   - F08: Pressure Control Valve (pneumatic actuated)
+   - VT0101–VT0102: Motorised Valves (actuated butterfly valves)
+
+8. W630414N01 — PIPING, DUCTING, PUDDLE PIPES, GASKETS/HARDWARE (Rev varies)
+   Sub-categories:
+   - N02: CPVC Piping BOM (SCH80, various sizes 1/2"–4")
+   - N03: RS12EKDR1 — SS304L 150# Piping BOM
+   - N04: RC12ACDR — CS 150# Piping BOM
+   - N05: RC12ABDR — CS 150# Piping BOM
+   - N06: RS12EAFR — SS316 150# Piping BOM
+   - N07–N11: Hardware & Gasket BOMs for each piping material class
+   - N12–N13: Instrument Fittings (SS/CS)
+   - N15–N21: LOT 2 and LOT 3 piping for SS304L, CS, SS316
+   - PP0201–PP0703: SOS for MS/SS304L/SS316 piping
+   - HW0101–HW0104: SOS for Hardware & Gaskets
+
+9. W630414J01 — MEDIA, RESIN, CHEMICALS ETC (Rev varies)
+   Sub-categories:
+   - J02: Media (high purity limestone granules 2–5mm, graded pebbles, filter media)
+
+10. W000630414M00101 — STRUCTURALS (Rev varies)
+    Sub-categories:
+    - MI4701–MI4702: Structure (SS/CS structural steel, plates, channels, angles)
+    - HW0201–HW0203: Hardware & U-clamps
+
+================================================================================
+KEY EQUIPMENT & COMPONENT DETAILS
+================================================================================
+
+AGITATORS:
+  - MF-E255-MX-620-621-A/B: Na2CO3 Dosing Tank Agitator (2 nos)
+  - MF-E255-MX-620-622-A/B: NaHCO3 Dosing Tank Agitator (2 nos)
+
+DOSING PUMPS:
+  - MP-E255-P-620-621-A/B: Na2CO3 Dosing Pumps (2 nos)
+  - MP-E255-P-620-622-A/B: NaHCO3 Dosing Pumps (2 nos)
+  - MP-E255-P-620-623-A/B: Hypo Dosing Pumps (2 nos)
+
+CO2 SYSTEM:
+  - Complete CO2 injection/dissolution system (1 set)
+
+LIME HANDLING:
+  - Complete lime storage, handling, and dissolution system (1 set)
+
+PLC/CONTROL SYSTEM:
+  - Siemens S7-1500 PLC with SCADA/HMI
+  - I/O modules (DI, DO, AI, AO)
+  - Communication: Profinet/Modbus
+  - UPS and power supply modules
+  - Engineering and runtime software
+
+FRP TANKS:
+  - Na2CO3 dosing tank (FRP)
+  - NaHCO3 dosing tank (FRP)
+
+LIME STONE FILTER (LSF):
+  - Pressure vessel with internal distribution system
+  - SS304L nozzles, laterals, hub assemblies
+  - Flanged connections (150# and 300# ratings)
+  - Media: High purity limestone (>98% CaCO3), graded pebbles
+
+INSTRUMENTATION:
+  - Pressure gauges: Bourdon type, SS316, glycerin filled
+  - Level: Magnetic level gauge + ultrasonic transmitter
+  - pH: Online analyzer with sensors and flow assembly
+  - All instruments: 4-20mA HART, IP67 minimum
+
+================================================================================
+MATERIAL OF CONSTRUCTION (MOC) SUMMARY
+================================================================================
+
+  - Vessels/Tanks: FRP, CS (IS2062 Gr.A), SS304L, SS316L
+  - Piping: CPVC SCH80, SS304L 150#, CS 150#, SS316 150#
+  - Valves: SS316L, CS, CPVC, PP, FRP, EPDM/PTFE lined
+  - Flanges: CS IS2062, SS304L, SS316 (150# and 300# ratings)
+  - Gaskets: PTFE, Rubber, Spiral Wound SS316L
+  - Hardware: SS304, SS316, CS (HDG)
+  - Cable Trays: MS Hot Dip Galvanized (66 micron)
+  - Instruments: SS316/SS316L housings
+  - Structurals: CS IS2062 Gr.A, MS angles/channels/plates
+
+================================================================================
+SUPPLY CHAIN INFORMATION
+================================================================================
+
+Work Order References:
+  - WVO-763204 (Rotary Equipment — Oct 2024)
+  - WVO-763206 (Dosing Pumps — Oct 2024)
+  - WVO-763208 (CO2 System — Oct 2024)
+  - WVO-763209 (Lime Handling — Oct 2024)
+  - WVO-763464 (Spares — Nov 2024)
+  - WVO-763752 (Electrical — Nov 2024)
+  - WVO-767796 (Spare Valves — Feb 2025)
+  - WVO-768767 (Spare Media — Mar 2025)
+  - WVO-772842, WVO-774700, WVO-774704 (Cable Trays — Jul-Aug 2025)
+  - WVO-776276 (Cable Trays additional — Sep 2025)
+
+Lead Time Indicators (days):
+  - Rotary Equipment (agitators, pumps): 180 days
+  - Spares (bought-out items): 90 days
+  - Spare Media: 60 days
+  - LT Motors: 90 days
+  - Cable Trays: 60–120 days
+  - Shop Fabricated Equipment: 90–180 days
+  - Instrumentation: 90–150 days
+  - Valves: 60–120 days
+  - Piping: 30–60 days
+  - Structurals: 30–60 days
+
+Supply Method: Push (all items)
+Effectivity Control: Date-based
+
+================================================================================
+PROJECT CONTEXT
+================================================================================
+
+This BOM is for the RIL Remineralization project (Job No. 630414), which is 
+part of the larger 200 m3/hr DM-RO water treatment chain at Reliance 
+Industries Limited (RIL) Hazira Manufacturing Division (HMD).
+
+The remineralization system treats RO permeate by:
+  1. Passing through limestone contactors (LSF) for calcium/alkalinity addition
+  2. CO2 injection for pH adjustment and limestone dissolution enhancement
+  3. Chemical dosing (Na2CO3 for alkalinity boost, NaHCO3 for bicarbonate balance)
+  4. Hypo dosing for disinfection
+
+This BOM covers the complete mechanical, electrical, instrumentation, piping,
+and structural scope required for the remineralization package.
+
+================================================================================
+RAW BOM DATA (CSV FORMAT)
+================================================================================
+
+The complete 632-row BOM with all 48 columns is available as:
+  File: ril_remin_bom.csv
+  Path: /sample-data/presales/ril_remin_bom.csv
+
+Key columns in the CSV:
+  Level | Item | Description | Revision | Type | Status | UOM | Quantity |
+  Extended Quantity | Supply Type | From Date | Operation Seq | Offset (Lead Time)
+
+================================================================================
+END OF BOM DOCUMENT
+================================================================================

@@ -126,4 +126,11 @@ export const SAMPLE_TENDERS = [
     file: '/sample-data/presales/ril_dmro_project_schedule.txt',
     pages: 210,
   },
+  {
+    id: 'bom-wt-ril-remin-1',
+    name: 'BOM - RIL Remineralization Project 630414 (632 items)',
+    division: 'water-treatment',
+    file: '/sample-data/presales/ril_remin_bom.txt',
+    pages: 150,
+  },
 ];

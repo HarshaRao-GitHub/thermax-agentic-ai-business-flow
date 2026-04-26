@@ -422,6 +422,7 @@ export const DEPARTMENTS: Department[] = [
       { filename: 'spare_parts_inventory.csv', label: 'Spare Parts Inventory', description: 'Critical spare inventory — part number, description, stock qty, reorder level, lead time, last used', path: '/sample-data/doc-intelligence/operations/spare_parts_inventory.csv' },
       { filename: 'esp_cement_rfp.txt', label: 'ESP RFP Document', description: 'Full RFP for Electrostatic Precipitator at cement plant — technical specs, process parameters, performance guarantees, O&M requirements', path: '/sample-data/ai-nexus/tenders/esp_cement_rfp.txt' },
       { filename: 'ril_dmro_project_schedule.txt', label: 'RIL DM-RO Project Schedule', description: '904-task project schedule for 200 m3/hr DM-RO water treatment plant — engineering, procurement, erection, commissioning phases', path: '/sample-data/presales/ril_dmro_project_schedule.txt' },
+      { filename: 'ril_remin_bom.txt', label: 'RIL Remin BOM (632 items)', description: 'Bill of Materials for RIL Remineralization project — 10 categories, 632 items, MOC details, lead times, work orders, for operations planning and maintenance reference', path: '/sample-data/presales/ril_remin_bom.txt' },
     ],
   },
   {
@@ -440,6 +441,8 @@ export const DEPARTMENTS: Department[] = [
       { filename: 'goods_receipt_notes.csv', label: 'Goods Receipt Notes', description: 'GRN register — PO ref, vendor, items received, inspection result, discrepancy, warehouse location', path: '/sample-data/doc-intelligence/procurement/goods_receipt_notes.csv' },
       { filename: 'esp_cement_rfp.txt', label: 'ESP RFP — Procurement View', description: 'ESP tender document — BOM extraction, approved sub-vendors list, material specs, delivery schedule, payment milestones for procurement analysis', path: '/sample-data/ai-nexus/tenders/esp_cement_rfp.txt' },
       { filename: 'ril_dmro_project_schedule.txt', label: 'RIL DM-RO Schedule — Procurement', description: 'Procurement timeline for 40+ vendor packages — enquiry, ordering, manufacturing, inspection, dispatch cycles with lead times', path: '/sample-data/presales/ril_dmro_project_schedule.txt' },
+      { filename: 'ril_remin_bom.txt', label: 'RIL Remin BOM — Procurement', description: 'Full procurement BOM — 632 items with vendor packages, WO references, lead times (30-180 days), material specs, quantities for sourcing and MRP analysis', path: '/sample-data/presales/ril_remin_bom.txt' },
+      { filename: 'ril_remin_bom.csv', label: 'RIL Remin BOM (Raw CSV)', description: 'Complete 632-row hierarchical BOM CSV — item codes, descriptions, UOM, quantities, extended quantities, supply types for tabulation and analysis', path: '/sample-data/presales/ril_remin_bom.csv' },
     ],
   },
   {
@@ -523,6 +526,7 @@ export const DEPARTMENTS: Department[] = [
       { filename: 'warranty_claims.csv', label: 'Warranty Claims', description: 'Warranty claim log — customer, product, issue, claim date, resolution, cost, coverage status', path: '/sample-data/doc-intelligence/sales-service/warranty_claims.csv' },
       { filename: 'customer_visit_schedule.csv', label: 'Customer Visit Schedule', description: 'Planned service visits — customer, location, purpose, engineer assigned, date, status', path: '/sample-data/doc-intelligence/sales-service/customer_visit_schedule.csv' },
       { filename: 'esp_cement_rfp.txt', label: 'ESP RFP — Sales Review', description: 'ESP tender for sales analysis — evaluation criteria, vendor qualification, bid submission details, commercial terms, competitive positioning', path: '/sample-data/ai-nexus/tenders/esp_cement_rfp.txt' },
+      { filename: 'ril_remin_bom.txt', label: 'RIL Remin BOM — Spares Reference', description: 'BOM with spares breakdown — valve seal kits, agitator/pump spares, media spares, instrumentation spares for service planning and warranty management', path: '/sample-data/presales/ril_remin_bom.txt' },
     ],
   },
 ];
