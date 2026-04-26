@@ -550,6 +550,26 @@ Your final report MUST be organized under these headers (in order) so the UI sta
 ## Make vs buy and handoff to Procurement
 Label the overall output: **Draft – for engineering review. Not a substitute for signed drawings or formal MDR.**
 
+ENGINEERING DIAGRAMS (MERMAID — MANDATORY):
+You MUST produce visual Mermaid diagrams in your report. Use \`\`\`mermaid code blocks. Generate these for every full report:
+
+1. **Process Flow Diagram (PFD)** — graph LR or graph TD showing the process stages from your extraction data. Use equipment tags as node IDs. Example pattern:
+   graph LR
+     A["Pre-treatment\\n200 m3/hr"] --> B["Remineralization\\nLSF + Dosing"]
+     B --> C["Product Water\\nCond < 50 uS"]
+   Show stream IDs, key parameters (flow, P, T), and flag any REVIEW stages with dashed borders (use style node stroke-dasharray: 5 5).
+
+2. **Equipment / Tag Connectivity** — graph TD showing equipment items, instruments, and control valves from the P&ID extraction. Connect tags with line references. Example:
+   graph TD
+     V201["V-201\\nLimestone Filter\\n3.5 barg"] --> |L-201a SS| P620["P-620/621\\nNa2CO3 Dosing"]
+     V201 --> IT201["IT-201\\npH Loop"]
+
+3. **Deviation Summary** — pie chart of deviation statuses (Match, OK, REVIEW, Gap, UNCLEAR) from the check_deviations output.
+
+4. **Make vs Buy** — pie chart showing count of Make vs Buy items.
+
+Keep node labels SHORT (under 30 chars), use plain ASCII only inside labels (no special chars), and use simple IDs (V201, P620 etc.). Label each diagram with a title comment. These diagrams are AI-generated drafts — not formal engineering drawings.
+
 Explicitly out of scope for this POC:
 - Full mechanical design calculations and final design calculation sheets
 - Production CAD, DXF, or certified drawing release
@@ -563,8 +583,8 @@ Output format: tables, confidence where relevant, [DATA GAP] for missing items, 
 Mandatory human approval: performance guarantees, safety, and technical commitments. Chief engineer reviews.
 
 Governance: All outputs require review by a named engineer. Low-confidence or conflicting rows escalate to Chief Engineer per AgentGuard.${RICH_OUTPUT_INSTRUCTIONS}`,
-    starterPrompt: 'Run the full engineering workflow: use all five tools in order, then produce a draft report for engineering review with sections for drawing-assisted extraction, data sheets, design parameters, POC deviations, and make-vs-buy handoff. Reference project PRJ-2026-0001 if no other project is specified. Clearly label the output as draft, not for construction.',
-    outputHint: 'Draft report: drawing extraction summary, instrument/equipment data sheets, design parameters, POC deviation table, make-vs-buy handoff to Procurement. All marked for engineering review.',
+    starterPrompt: 'Run the full engineering workflow: use all five tools in order, then produce a draft report for engineering review with sections for drawing-assisted extraction, data sheets, design parameters, POC deviations, and make-vs-buy handoff. Include Mermaid diagrams: a PFD process flow, an equipment/tag connectivity diagram from P&ID data, a deviation status pie chart, and a make-vs-buy pie chart. Reference project PRJ-2026-0001 if no other project is specified. Clearly label the output as draft, not for construction.',
+    outputHint: 'Draft report with Mermaid diagrams (PFD flow, P&ID tag connectivity, deviation/make-buy charts), drawing extraction summary, data sheets, design parameters, deviation table, make-vs-buy handoff. All marked for engineering review.',
     agentAvatar: '/agents/agent-engineering.png',
     acceptedFileHint: 'PDF or images (P&ID, PFD, GA as references), text/CSV extracts of tags and lines, technical specs, RFQ, proposal, or order documents. This POC does not read CAD; pair drawings with text or use sample files for best accuracy.',
     upstreamStages: ['project-planning'],
