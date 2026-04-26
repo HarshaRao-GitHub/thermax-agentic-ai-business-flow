@@ -133,4 +133,11 @@ export const SAMPLE_TENDERS = [
     file: '/sample-data/presales/ril_remin_bom.txt',
     pages: 150,
   },
+  {
+    id: 'tender-boiler-cgpp-1',
+    name: 'Tender Spec - 2×30 MW CGPP Main Plant Package (Hindalco/TCE, 908 pages)',
+    division: 'boilers',
+    file: '/sample-data/ai-nexus/tenders/tce_main_plant_tender_spec.txt',
+    pages: 908,
+  },
 ];
