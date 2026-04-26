@@ -384,7 +384,12 @@ export default function TenderIntelligenceTool() {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-white text-[20px] font-bold">Tender Intelligence Tool</h1>
-              <p className="text-white/70 text-[12px] mt-0.5">AI-powered tender extraction, analysis, and proposal acceleration</p>
+              <p className="text-white/70 text-[12px] mt-0.5">Gen-AI Extraction + Agentic Analysis &mdash; Proposal Acceleration</p>
+              <div className="flex items-center gap-2 mt-1.5">
+                <span className="px-2 py-0.5 rounded-full bg-white/15 text-white/80 text-[8px] font-semibold border border-white/20">Gen-AI (LLM)</span>
+                <span className="px-2 py-0.5 rounded-full bg-white/15 text-white/80 text-[8px] font-semibold border border-white/20">Agentic Tools</span>
+                <span className="px-2 py-0.5 rounded-full bg-white/15 text-white/80 text-[8px] font-semibold border border-white/20">Domain Knowledge Base</span>
+              </div>
             </div>
             {hasDoc && (
               <div className="bg-white/20 rounded-lg px-4 py-2">

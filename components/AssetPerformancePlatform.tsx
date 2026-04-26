@@ -180,7 +180,7 @@ export default function AssetPerformancePlatform() {
             { id: 'fleet' as Tab, label: 'Fleet Dashboard', icon: '🏭' },
             { id: 'detail' as Tab, label: 'Asset Detail', icon: '📊' },
             { id: 'incidents' as Tab, label: `Incidents (${openIncidents})`, icon: '⚠️' },
-            { id: 'assistant' as Tab, label: 'AI Assistant', icon: '🤖' },
+            { id: 'assistant' as Tab, label: 'Gen-AI Assistant', icon: '🤖' },
           ]).map(t => (
             <button key={t.id} onClick={() => setTab(t.id)}
               className={`px-4 py-2 rounded-lg text-[12px] font-semibold transition ${tab === t.id ? 'bg-thermax-navy text-white' : 'text-thermax-slate hover:bg-gray-100'}`}>
@@ -408,8 +408,14 @@ export default function AssetPerformancePlatform() {
                   <div className="flex items-center gap-2">
                     <span className="text-lg">🤖</span>
                     <div>
-                      <h3 className="text-[14px] font-bold text-thermax-navy">Asset Performance AI Assistant</h3>
+                      <h3 className="text-[14px] font-bold text-thermax-navy">Asset Performance Gen-AI Assistant</h3>
                       <p className="text-[10px] text-thermax-slate">Powered by {ASSETS.length} assets, {FAILURE_MODES.length} failure modes, {INCIDENTS.length} active incidents</p>
+                      <div className="flex items-center gap-1.5 mt-1">
+                        <span className="px-1.5 py-px rounded-full bg-blue-50 text-blue-600 text-[7px] font-semibold border border-blue-100">Predictive ML</span>
+                        <span className="px-1.5 py-px rounded-full bg-violet-50 text-violet-600 text-[7px] font-semibold border border-violet-100">Gen-AI / LLM</span>
+                        <span className="px-1.5 py-px rounded-full bg-cyan-50 text-cyan-600 text-[7px] font-semibold border border-cyan-100">IoT Analytics</span>
+                        <span className="px-1.5 py-px rounded-full bg-amber-50 text-amber-600 text-[7px] font-semibold border border-amber-100">2,000+ Failure Modes</span>
+                      </div>
                     </div>
                     <span className="ml-auto flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-100 border border-emerald-300">
                       <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
@@ -464,7 +470,7 @@ export default function AssetPerformancePlatform() {
                         <div className="flex justify-start">
                           <div className="max-w-[90%] rounded-2xl rounded-tl-md px-4 py-3 text-[13px] bg-white border border-gray-200 w-full">
                             <button onClick={() => toggleResult(i)} className="w-full flex items-center justify-between mb-1 group cursor-pointer">
-                              <span className="text-[10px] font-mono text-blue-600 uppercase">AI Assistant</span>
+                              <span className="text-[10px] font-mono text-blue-600 uppercase">Gen-AI Assistant</span>
                               <span className="text-[10px] font-bold text-gray-400 group-hover:text-blue-600 transition">
                                 {expandedResults.has(i) ? 'COLLAPSE' : 'EXPAND'}
                               </span>
@@ -485,7 +491,7 @@ export default function AssetPerformancePlatform() {
                   {chatStreaming && chatStreamBuffer && (
                     <div className="flex justify-start">
                       <div className="max-w-[90%] rounded-2xl rounded-tl-md px-4 py-3 text-[13px] bg-white border border-blue-100 w-full">
-                        <span className="text-[10px] font-mono text-blue-600 uppercase mb-1 block">AI Assistant</span>
+                        <span className="text-[10px] font-mono text-blue-600 uppercase mb-1 block">Gen-AI Assistant</span>
                         <Markdown>{chatStreamBuffer}</Markdown>
                       </div>
                     </div>
@@ -504,7 +510,7 @@ export default function AssetPerformancePlatform() {
                   {chatMessages.length === 0 && !chatStreaming && (
                     <div className="text-center py-12 text-thermax-slate">
                       <div className="text-4xl mb-3">🏭</div>
-                      <p className="text-[14px] font-semibold">Asset Performance AI</p>
+                      <p className="text-[14px] font-semibold">Asset Performance Gen-AI</p>
                       <p className="text-[12px] mt-1">Ask about fleet health, anomalies, root causes, efficiency, maintenance planning...</p>
                     </div>
                   )}
