@@ -9,7 +9,7 @@ export async function GET(req: NextRequest) {
   const folder = searchParams.get('folder');
   const file = searchParams.get('file');
   const action = searchParams.get('action') || 'data';
-  const limit = Number(searchParams.get('limit')) || 50;
+  const limit = Number(searchParams.get('limit')) || 500;
 
   if (action === 'catalog') {
     const allSources = [

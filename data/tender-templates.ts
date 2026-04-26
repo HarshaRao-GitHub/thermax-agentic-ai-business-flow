@@ -68,6 +68,19 @@ export const DIVISION_TEMPLATES: DivisionTemplate[] = [
       { id: 'subsidy', name: 'Subsidy & Incentive', description: 'MNRE scheme, state subsidy, REC eligibility, carbon credit requirements', pack: 'both' },
     ],
   },
+  {
+    id: 'air-pollution-control',
+    name: 'Air Pollution Control (ESP/Bag Filter/FGD)',
+    icon: '🌬️',
+    categories: [
+      ...EXTRACTION_CATEGORIES,
+      { id: 'gas-params', name: 'Flue Gas Parameters', description: 'Gas flow rate, temperature, dust concentration, gas composition (CO2, SO2, moisture), dust resistivity, particle size distribution', pack: 'estimation' },
+      { id: 'esp-design', name: 'ESP/APC Design Requirements', description: 'Number of fields, SCA, collection efficiency, electrode type, rapping system, hopper design, gas distribution requirements', pack: 'estimation' },
+      { id: 'emission-norms', name: 'Emission Norms & Environmental', description: 'CPCB/SPCB emission limits, CEMS requirements, stack parameters, ambient air quality standards, regulatory compliance', pack: 'both' },
+      { id: 'electrical-control', name: 'Electrical & Control System', description: 'TR set specifications, ESP controller features, DCS integration, remote monitoring, power consumption guarantees', pack: 'estimation' },
+      { id: 'performance-guarantee', name: 'Performance Guarantees & Penalties', description: 'Outlet emission guarantee, pressure drop, power consumption, availability, LD clauses, penalty calculations', pack: 'risk' },
+    ],
+  },
 ];
 
 export const SAMPLE_TENDERS = [
@@ -98,5 +111,12 @@ export const SAMPLE_TENDERS = [
     division: 'solar-water',
     file: '/sample-data/ai-nexus/tenders/solar_thermal_tender.txt',
     pages: 150,
+  },
+  {
+    id: 'tender-esp-1',
+    name: 'RFP - ESP for Cement Plant Kiln/Raw Mill (320,000 Am3/hr)',
+    division: 'air-pollution-control',
+    file: '/sample-data/ai-nexus/tenders/esp_cement_rfp.txt',
+    pages: 220,
   },
 ];

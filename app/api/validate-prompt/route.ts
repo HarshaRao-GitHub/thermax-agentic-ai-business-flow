@@ -31,8 +31,8 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ valid: false, reason: 'Prompt is too short. Please provide a meaningful instruction (at least 15 characters).' });
   }
 
-  if (prompt.trim().length > 2000) {
-    return NextResponse.json({ valid: false, reason: 'Prompt is too long. Please keep it under 2000 characters.' });
+  if (prompt.trim().length > 50000) {
+    return NextResponse.json({ valid: false, reason: 'Prompt is too long. Please keep it under 50,000 characters.' });
   }
 
   const junkPatterns = [
@@ -53,7 +53,7 @@ export async function POST(req: NextRequest) {
 
     const response = await callWithRetry(() => client.messages.create({
       model,
-      max_tokens: 300,
+      max_tokens: 4096,
       system: `You are a prompt validator. Your ONLY job is to determine if a user-provided custom prompt is relevant to a specific AI agent's domain and use case.
 
 Agent: ${agentName}

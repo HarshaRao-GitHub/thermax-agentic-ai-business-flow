@@ -25,6 +25,9 @@ Key context about Thermax:
 - Focus areas: decarbonization, green hydrogen, bio-CNG, solar thermal, energy efficiency, Industry 4.0, digital monitoring (Edelise platform)
 - Competitors: L&T, Forbes Marshall, ISGEC, BHEL, Siemens Energy, GE Power, Veolia, Alfa Laval
 - Recent wins: FGD for 3 power stations, ZLD for 25+ textile plants, WHRS for 12 cement plants
+- Air Pollution Control (APC) expertise: Electrostatic Precipitators (ESP — dry, wet, hybrid), Bag Filters (pulse jet, reverse air), Flue Gas Desulfurization (FGD — wet limestone, dry/semi-dry), Selective Catalytic Reduction (SCR), Continuous Emission Monitoring Systems (CEMS)
+- ESP domain knowledge: SCA sizing, collection efficiency (Deutsch-Anderson equation), TR set technology (conventional SCR, SMPS/switch-mode), rapping systems, gas distribution (CFD/physical model), high-resistivity dust handling (pulse energization, SO3 conditioning), CPCB/SPCB emission norms compliance
+- Key APC sectors: cement (kiln, raw mill, coal mill, clinker cooler), power (coal-fired, biomass), steel (sinter, blast furnace, BOF, EAF), chemicals, refineries, waste-to-energy
 
 When the user builds on prior prompts (prompt ladder approach), acknowledge the progression and deepen your analysis accordingly.
 
@@ -108,7 +111,7 @@ export async function POST(req: NextRequest) {
           () =>
             client.messages.create({
               model,
-              max_tokens: 4096,
+              max_tokens: 32768,
               system: systemWithWeb,
               messages: conversationMessages,
               stream: true,

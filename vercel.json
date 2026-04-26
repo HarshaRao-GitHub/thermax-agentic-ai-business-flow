@@ -4,19 +4,39 @@
   "regions": ["bom1"],
   "functions": {
     "app/api/chat-agentic/route.ts": {
-      "maxDuration": 120,
+      "maxDuration": 300,
+      "memory": 1024
+    },
+    "app/api/chat-prompting/route.ts": {
+      "maxDuration": 300,
       "memory": 1024
     },
     "app/api/custom-agents/[id]/chat/route.ts": {
-      "maxDuration": 120,
+      "maxDuration": 300,
       "memory": 1024
     },
     "app/api/doc-intelligence/route.ts": {
-      "maxDuration": 120,
+      "maxDuration": 300,
+      "memory": 1024
+    },
+    "app/api/ai-nexus/tender-extract/route.ts": {
+      "maxDuration": 300,
+      "memory": 1024
+    },
+    "app/api/ai-nexus/tender-chat/route.ts": {
+      "maxDuration": 300,
+      "memory": 1024
+    },
+    "app/api/ai-nexus/asset-chat/route.ts": {
+      "maxDuration": 300,
       "memory": 1024
     },
     "app/api/validate-prompt/route.ts": {
-      "maxDuration": 30
+      "maxDuration": 60
+    },
+    "app/api/upload/route.ts": {
+      "maxDuration": 120,
+      "memory": 1024
     }
   },
   "headers": [

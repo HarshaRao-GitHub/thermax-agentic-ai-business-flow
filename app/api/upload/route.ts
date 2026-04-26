@@ -2,9 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export const runtime = 'nodejs';
 
-const MAX_SIZE_BYTES = 30 * 1024 * 1024; // 30 MB
-const MAX_TEXT_CHARS = 200_000;
-const MAX_FILES = 2;
+const MAX_SIZE_BYTES = 100 * 1024 * 1024; // 100 MB
+const MAX_TEXT_CHARS = 2_000_000;
+const MAX_FILES = 10;
 const ALLOWED_EXTENSIONS = [
   '.txt', '.md', '.markdown', '.csv', '.tsv', '.log',
   '.pdf', '.doc', '.docx', '.xls', '.xlsx', '.json', '.xml'

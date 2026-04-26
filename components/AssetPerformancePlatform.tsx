@@ -473,7 +473,7 @@ export default function AssetPerformancePlatform() {
                               <Markdown>{m.content}</Markdown>
                             ) : (
                               <div className="text-gray-500 text-xs cursor-pointer" onClick={() => toggleResult(i)}>
-                                {m.content.slice(0, 200).replace(/\n/g, ' ')}...
+                                {m.content.slice(0, 500).replace(/\n/g, ' ')}...
                                 <span className="ml-2 text-blue-600 font-semibold">Click to expand</span>
                               </div>
                             )}

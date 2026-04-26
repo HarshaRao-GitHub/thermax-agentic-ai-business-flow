@@ -63,13 +63,13 @@ export async function POST(req: NextRequest) {
   for (const ds of dataSources) {
     try {
       if (isNonCsvDataFile(ds.file)) {
-        const text = loadTextFile(ds.folder, ds.file, 12000);
+        const text = loadTextFile(ds.folder, ds.file, 500000);
         const ft = ('fileType' in ds && ds.fileType) ? String(ds.fileType).toUpperCase() : 'TEXT';
         knowledgeBlocks.push(
           `=== DATA: ${ds.label} (${ds.file}) [${ft}] ===\n\n${text}\n\n=== END ===`
         );
       } else {
-        const table = loadCsvAsMarkdownTable(ds.folder, ds.file, 25);
+        const table = loadCsvAsMarkdownTable(ds.folder, ds.file);
         knowledgeBlocks.push(
           `=== DATA: ${ds.label} (${ds.file}) ===\n\n${table}\n\n=== END ===`
         );
@@ -110,9 +110,7 @@ export async function POST(req: NextRequest) {
     const upstreamParts = body.upstreamResults.map(ur => {
       const agentLabel = stageNameMap[ur.slug] || `Stage ${ur.stageNumber}`;
       const output = ur.agentOutput || '';
-      const trimmedOutput = output.length > 4000
-        ? output.slice(0, 4000) + '\n\n[... output truncated for context window ...]'
-        : output;
+      const trimmedOutput = output;
       return `=== UPSTREAM RESULT FROM: ${agentLabel} ===\n\n${trimmedOutput}\n\n=== END UPSTREAM RESULT ===`;
     });
 
@@ -212,14 +210,14 @@ If SOME files are relevant and others are not, process the relevant ones and dis
         let totalToolCalls = 0;
         let apiTurns = 0;
 
-        const MAX_LOOPS = 12;
+        const MAX_LOOPS = 50;
         for (let loop = 0; loop < MAX_LOOPS; loop++) {
           apiTurns++;
 
           const stream = await callWithRetry(
             () => client.messages.create({
               model,
-              max_tokens: 4096,
+              max_tokens: 32768,
               system: systemPrompt,
               tools: slugTools,
               messages: conversationMessages,

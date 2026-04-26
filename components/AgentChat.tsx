@@ -374,10 +374,10 @@ export default function AgentChat({
       const res = await fetch(sf.path);
       if (!res.ok) throw new Error(`Failed to fetch ${sf.filename}`);
       const text = await res.text();
-      const truncated = text.length > 200_000;
+      const truncated = text.length > 2_000_000;
       setUploadedFiles(prev => [...prev, {
         filename: sf.filename,
-        text: truncated ? text.slice(0, 200_000) : text,
+        text: truncated ? text.slice(0, 2_000_000) : text,
         truncated,
       }]);
     } catch (err) {
@@ -1321,7 +1321,7 @@ function UserPromptEditor({ userPrompt, onChange, onSave, onClear, agentName }: 
             onChange={e => onChange(e.target.value)}
             placeholder={`e.g., "Focus on high-risk items and provide detailed recommendations for each..." or "Prioritize analysis by financial impact and include trend data..."`}
             rows={3}
-            maxLength={2000}
+            maxLength={50000}
             className="w-full border border-violet-200 rounded-lg px-3 py-2 text-[12px] resize-y focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-200 bg-white placeholder:text-violet-300"
           />
           <div className="flex items-center justify-between">
@@ -1339,7 +1339,7 @@ function UserPromptEditor({ userPrompt, onChange, onSave, onClear, agentName }: 
                 </button>
               )}
             </div>
-            <span className="text-[10px] text-violet-400 font-mono">{userPrompt.text.length}/2000</span>
+            <span className="text-[10px] text-violet-400 font-mono">{userPrompt.text.length}/50000</span>
           </div>
           {userPrompt.error && (
             <div className="text-[11px] text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
@@ -1649,7 +1649,7 @@ function CopilotBubble({ message, isStreaming, agentName }: { message: ChatMessa
     );
   }
 
-  const preview = message.content.slice(0, 200).replace(/\n/g, ' ');
+  const preview = message.content.slice(0, 500).replace(/\n/g, ' ');
   const showCollapse = !isStreaming && message.content.length > 0;
 
   return (
@@ -1668,7 +1668,7 @@ function CopilotBubble({ message, isStreaming, agentName }: { message: ChatMessa
           <Markdown>{message.content}</Markdown>
         ) : (
           <div className="text-gray-500 text-xs leading-relaxed cursor-pointer" onClick={() => setExpanded(true)}>
-            {preview}{message.content.length > 200 ? '...' : ''}
+            {preview}{message.content.length > 500 ? '...' : ''}
             <span className="ml-2 text-emerald-600 font-semibold">Click to expand</span>
           </div>
         )}

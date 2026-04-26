@@ -67,7 +67,7 @@ export async function POST(request: NextRequest) {
           const stream = await callWithRetry(() =>
             client.messages.create({
               model: modelId,
-              max_tokens: 4096,
+              max_tokens: 32768,
               system: systemPrompt,
               messages: messages.map((m: { role: string; content: string }) => ({
                 role: m.role as 'user' | 'assistant',

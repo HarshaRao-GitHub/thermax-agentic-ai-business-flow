@@ -4,8 +4,8 @@ export interface SearchResult {
   url: string;
 }
 
-const SEARCH_TIMEOUT_MS = 4000;
-const MAX_RESULTS = 5;
+const SEARCH_TIMEOUT_MS = 10000;
+const MAX_RESULTS = 15;
 
 const NEEDS_SEARCH_PATTERNS = [
   /\b(latest|current|recent|today|now|this\s+year|this\s+month|this\s+week)\b/i,

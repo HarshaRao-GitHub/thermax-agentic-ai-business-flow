@@ -71,7 +71,7 @@ RULES:
           const stream = await callWithRetry(() =>
             client.messages.create({
               model: modelId,
-              max_tokens: 4096,
+              max_tokens: 32768,
               system: systemPrompt,
               messages: [{ role: 'user', content: `TENDER DOCUMENT:\n\n${documentText}` }],
               stream: true,

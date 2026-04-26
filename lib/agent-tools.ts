@@ -584,7 +584,7 @@ function executeMarketSignalsScan(input: Record<string, unknown>): string {
     filtered = filtered.filter((r) => r.industry?.toLowerCase().includes(industryFilter.toLowerCase()));
   }
 
-  const enriched = filtered.slice(0, 20).map((s) => {
+  const enriched = filtered.slice(0, 100).map((s) => {
     const cust = customers.rows.find((c) => c.customer_id === s.customer_id);
     return {
       signal_id: s.signal_id,
@@ -671,7 +671,7 @@ function executeUrgencyAssessment(input: Record<string, unknown>): string {
 
   return JSON.stringify({
     total_assessed: prioritized.length,
-    priority_matrix: prioritized.slice(0, 15),
+    priority_matrix: prioritized.slice(0, 100),
     high_urgency_count: prioritized.filter((p) => p.urgency >= 4).length,
     avg_composite: (prioritized.reduce((a, p) => a + p.composite_score, 0) / prioritized.length).toFixed(2),
     summary: `${prioritized.length} signals re-scored. ${prioritized.filter((p) => p.urgency >= 4).length} high-urgency signals identified.`
@@ -687,7 +687,7 @@ function executeOpportunityQualification(input: Record<string, unknown>): string
   let filtered = opps.rows.filter((o) => Number(o.value_inr_cr) >= minValue);
   const sorted = [...filtered].sort((a, b) => Number(b.value_inr_cr) - Number(a.value_inr_cr));
 
-  const qualified = sorted.slice(0, 15).map((o) => {
+  const qualified = sorted.slice(0, 100).map((o) => {
     const cust = customers.rows.find((c) => c.customer_id === o.customer_id);
     const bant = Number(o.bant_score);
     const meddic = Number(o.meddic_score);
@@ -731,7 +731,7 @@ function executeStakeholderMapping(input: Record<string, unknown>): string {
   const stk = loadCsv('02_sales', 'stakeholder_map.csv');
   const oppId = input.opportunity_id as string;
 
-  const filtered = oppId ? stk.rows.filter((s) => s.opportunity_id === oppId) : stk.rows.slice(0, 20);
+  const filtered = oppId ? stk.rows.filter((s) => s.opportunity_id === oppId) : stk.rows.slice(0, 100);
 
   const byInfluence = filtered.reduce((acc, s) => {
     const level = s.influence_level || 'Unknown';
@@ -751,7 +751,7 @@ function executeStakeholderMapping(input: Record<string, unknown>): string {
     opportunity_id: oppId || 'all',
     by_influence_level: byInfluence,
     by_disposition: byDisposition,
-    stakeholders: filtered.slice(0, 20).map((s) => ({
+    stakeholders: filtered.slice(0, 100).map((s) => ({
       stakeholder_id: s.stakeholder_id,
       person_name: s.person_name,
       designation: s.designation,
@@ -829,7 +829,7 @@ function executeBomGeneration(input: Record<string, unknown>): string {
     line_items: items.length,
     total_bom_value_lakh: totalValue.toFixed(1),
     average_margin_pct: avgMargin.toFixed(1),
-    items: items.slice(0, 20).map((b) => ({
+    items: items.slice(0, 100).map((b) => ({
       bom_id: b.bom_id,
       product_id: b.product_id,
       product_name: b.product_name,
@@ -866,7 +866,7 @@ function executeMarginAnalysis(input: Record<string, unknown>): string {
     below_threshold: belowThreshold.length,
     above_threshold: analyzed.length - belowThreshold.length,
     average_margin_pct: avgMargin.toFixed(1),
-    flagged_proposals: belowThreshold.slice(0, 10),
+    flagged_proposals: belowThreshold.slice(0, 100),
     margin_distribution: {
       below_10: analyzed.filter((a) => a.margin_pct < 10).length,
       '10_to_15': analyzed.filter((a) => a.margin_pct >= 10 && a.margin_pct < 15).length,
@@ -899,7 +899,7 @@ function executeEngineeringValidation(input: Record<string, unknown>): string {
     by_type: byType,
     hazop_required_count: filtered.filter((v) => v.hazop_required === 'Yes').length,
     avg_confidence: (filtered.reduce((a, v) => a + Number(v.ai_confidence || 0), 0) / Math.max(filtered.length, 1)).toFixed(3),
-    validations: filtered.slice(0, 15).map((v) => ({
+    validations: filtered.slice(0, 100).map((v) => ({
       validation_id: v.validation_id,
       proposal_id: v.proposal_id,
       type: v.validation_type,
@@ -989,7 +989,7 @@ function executeCommercialRiskAssessment(input: Record<string, unknown>): string
     total_assessments: filtered.length,
     by_risk_rating: byRating,
     high_risk_count: filtered.filter((a) => a.overall_risk_rating === 'High' || a.overall_risk_rating === 'Critical').length,
-    assessments: filtered.slice(0, 15).map((a) => ({
+    assessments: filtered.slice(0, 100).map((a) => ({
       assessment_id: a.assessment_id,
       proposal_id: a.proposal_id,
       margin_pct: a.margin_pct,
@@ -1076,7 +1076,7 @@ function executeResourceMatching(input: Record<string, unknown>): string {
 
   const projectAssignments = assignments.rows.filter((a) => a.project_id === projId);
 
-  const enriched = projectAssignments.slice(0, 20).map((a) => {
+  const enriched = projectAssignments.slice(0, 100).map((a) => {
     const emp = employees.rows.find((e) => e.employee_id === a.employee_id);
     return {
       assignment_id: a.assignment_id,
@@ -1149,7 +1149,7 @@ function executeProgressAnalysis(input: Record<string, unknown>): string {
     alerts_amber: alerts.length - critical.length,
     alerts_red: critical.length,
     escalation_required: latestWeeks.filter((p) => p.escalation_required === 'Yes').length,
-    progress_data: latestWeeks.slice(0, 15).map((p) => ({
+    progress_data: latestWeeks.slice(0, 100).map((p) => ({
       progress_id: p.progress_id,
       project_id: p.project_id,
       week: p.week_number,
@@ -1185,7 +1185,7 @@ function executeSafetyRiskDetection(input: Record<string, unknown>): string {
     by_severity: bySeverity,
     stop_work_triggered: filtered.filter((i) => i.stop_work_triggered === 'Yes').length,
     agent_detected: filtered.filter((i) => i.agent_detected === 'Yes').length,
-    incidents: filtered.slice(0, 15).map((i) => ({
+    incidents: filtered.slice(0, 100).map((i) => ({
       incident_id: i.incident_id,
       project_id: i.project_id,
       date: i.incident_date,
@@ -1215,7 +1215,7 @@ function executeNcrDisposition(input: Record<string, unknown>): string {
     total_ncrs: filtered.length,
     ai_human_match_rate: filtered.length > 0 ? (aiVsHumanMatch / filtered.length * 100).toFixed(1) + '%' : 'N/A',
     rework_required: filtered.filter((n) => n.rework_required === 'Yes').length,
-    ncrs: filtered.slice(0, 15).map((n) => ({
+    ncrs: filtered.slice(0, 100).map((n) => ({
       ncr_id: n.ncr_id,
       project_id: n.project_id,
       component: n.component,
@@ -1251,7 +1251,7 @@ function executeTestResultsAnalysis(input: Record<string, unknown>): string {
     by_result: byResult,
     by_type: byType,
     avg_deviation_pct: (filtered.reduce((a, t) => a + Math.abs(Number(t.deviation_pct || 0)), 0) / Math.max(filtered.length, 1)).toFixed(2),
-    tests: filtered.slice(0, 15).map((t) => ({
+    tests: filtered.slice(0, 100).map((t) => ({
       test_id: t.test_id,
       project_id: t.project_id,
       type: t.test_type,
@@ -1375,7 +1375,7 @@ function executeServiceCaseDiagnosis(input: Record<string, unknown>): string {
     by_equipment: byEquipment,
     by_status: byStatus,
     avg_csat: avgCsat.toFixed(2),
-    cases: filtered.slice(0, 15).map((c) => ({
+    cases: filtered.slice(0, 100).map((c) => ({
       case_id: c.case_id,
       customer: c.customer_name,
       equipment: c.equipment_type,
@@ -1460,7 +1460,7 @@ function executeApprovalGateAnalysis(input: Record<string, unknown>): string {
     by_stage: byStage,
     by_sla_status: bySlaStatus,
     sla_breach_rate: filtered.length > 0 ? ((bySlaStatus['Breached'] || 0) / filtered.length * 100).toFixed(1) + '%' : 'N/A',
-    gates: filtered.slice(0, 15).map((g) => ({
+    gates: filtered.slice(0, 100).map((g) => ({
       gate_id: g.gate_id,
       stage: g.stage,
       type: g.approval_type,
@@ -1504,7 +1504,7 @@ function executeAuditAnalysis(input: Record<string, unknown>): string {
     avg_confidence: (totalConfidence / Math.max(filtered.length, 1)).toFixed(3),
     avg_latency_ms: (totalLatency / Math.max(filtered.length, 1)).toFixed(0),
     human_intervention_rate: filtered.length > 0 ? (humanRequired / filtered.length * 100).toFixed(1) + '%' : 'N/A',
-    recent_actions: filtered.slice(0, 10).map((a) => ({
+    recent_actions: filtered.slice(0, 100).map((a) => ({
       log_id: a.log_id,
       timestamp: a.timestamp,
       agent: a.agent_name,
@@ -1533,7 +1533,7 @@ function executeOverrideReview(input: Record<string, unknown>): string {
   return JSON.stringify({
     total_overrides: filtered.length,
     by_agent: byAgent,
-    overrides: filtered.slice(0, 15).map((o) => ({
+    overrides: filtered.slice(0, 100).map((o) => ({
       override_id: o.override_id,
       agent: o.agent_name,
       entity_id: o.entity_id,
@@ -1753,7 +1753,7 @@ function executeProposalFeasibility(input: Record<string, unknown>): string {
     feasible: filtered.filter((v) => v.ai_verdict === 'Feasible').length,
     conditional: filtered.filter((v) => v.ai_verdict?.includes('modifications')).length,
     not_feasible: filtered.filter((v) => v.ai_verdict?.includes('Not feasible')).length,
-    validations: filtered.slice(0, 15).map((v) => ({
+    validations: filtered.slice(0, 100).map((v) => ({
       validation_id: v.validation_id, proposal_id: v.proposal_id, type: v.validation_type,
       verdict: v.ai_verdict, confidence: v.ai_confidence, risk_flags: v.risk_flags,
       hazop_required: v.hazop_required, modifications: v.modifications_required, status: v.status
@@ -1809,7 +1809,7 @@ function executeEscalationManagement(input: Record<string, unknown>): string {
     by_agent: byAgent,
     by_outcome: byOutcome,
     avg_resolution_minutes: (totalResTime / Math.max(filtered.length, 1)).toFixed(0),
-    escalations: filtered.slice(0, 15).map((e) => ({
+    escalations: filtered.slice(0, 100).map((e) => ({
       escalation_id: e.escalation_id,
       agent: e.agent_name,
       entity_id: e.entity_id,

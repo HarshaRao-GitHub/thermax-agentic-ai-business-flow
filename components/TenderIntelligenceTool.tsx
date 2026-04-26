@@ -384,7 +384,7 @@ export default function TenderIntelligenceTool() {
               </div>
               <div className="p-4 max-h-[500px] overflow-y-auto">
                 {hasDoc ? (
-                  <pre className="text-[11px] text-thermax-slate whitespace-pre-wrap font-mono leading-relaxed">{documentText.slice(0, 5000)}{documentText.length > 5000 ? '\n\n... (truncated preview)' : ''}</pre>
+                  <pre className="text-[11px] text-thermax-slate whitespace-pre-wrap font-mono leading-relaxed">{documentText}</pre>
                 ) : (
                   <div className="py-12 text-center text-thermax-slate">
                     <div className="text-4xl mb-3">📋</div>
@@ -550,7 +550,7 @@ export default function TenderIntelligenceTool() {
                         <Markdown>{m.content}</Markdown>
                       ) : (
                         <div className="text-gray-500 text-xs cursor-pointer" onClick={() => toggleChat(i)}>
-                          {m.content.slice(0, 200).replace(/\n/g, ' ')}...
+                          {m.content.slice(0, 500).replace(/\n/g, ' ')}...
                           <span className="ml-2 text-violet-600 font-semibold">Click to expand</span>
                         </div>
                       )}

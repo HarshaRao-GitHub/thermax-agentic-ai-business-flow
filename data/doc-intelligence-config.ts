@@ -420,6 +420,7 @@ export const DEPARTMENTS: Department[] = [
       { filename: 'shift_handover_log.csv', label: 'Shift Handover Log', description: 'Daily shift handover notes — shift, operator, equipment status, pending jobs, safety alerts', path: '/sample-data/doc-intelligence/operations/shift_handover_log.csv' },
       { filename: 'energy_consumption_report.csv', label: 'Energy Consumption Report', description: 'Monthly energy usage — boiler efficiency, fuel consumption, steam output, specific coal consumption', path: '/sample-data/doc-intelligence/operations/energy_consumption_report.csv' },
       { filename: 'spare_parts_inventory.csv', label: 'Spare Parts Inventory', description: 'Critical spare inventory — part number, description, stock qty, reorder level, lead time, last used', path: '/sample-data/doc-intelligence/operations/spare_parts_inventory.csv' },
+      { filename: 'esp_cement_rfp.txt', label: 'ESP RFP Document', description: 'Full RFP for Electrostatic Precipitator at cement plant — technical specs, process parameters, performance guarantees, O&M requirements', path: '/sample-data/ai-nexus/tenders/esp_cement_rfp.txt' },
     ],
   },
   {
@@ -436,6 +437,7 @@ export const DEPARTMENTS: Department[] = [
       { filename: 'vendor_rating_scorecard.csv', label: 'Vendor Rating Scorecard', description: 'Quarterly vendor performance — quality, delivery, pricing, responsiveness, overall rating', path: '/sample-data/doc-intelligence/procurement/vendor_rating_scorecard.csv' },
       { filename: 'material_requisition.csv', label: 'Material Requisition', description: 'Internal material requests — dept, item, qty, urgency, project code, approval status', path: '/sample-data/doc-intelligence/procurement/material_requisition.csv' },
       { filename: 'goods_receipt_notes.csv', label: 'Goods Receipt Notes', description: 'GRN register — PO ref, vendor, items received, inspection result, discrepancy, warehouse location', path: '/sample-data/doc-intelligence/procurement/goods_receipt_notes.csv' },
+      { filename: 'esp_cement_rfp.txt', label: 'ESP RFP — Procurement View', description: 'ESP tender document — BOM extraction, approved sub-vendors list, material specs, delivery schedule, payment milestones for procurement analysis', path: '/sample-data/ai-nexus/tenders/esp_cement_rfp.txt' },
     ],
   },
   {
@@ -484,6 +486,7 @@ export const DEPARTMENTS: Department[] = [
       { filename: 'ip_patent_register.csv', label: 'IP & Patent Register', description: 'Thermax IP portfolio — patent title, filing date, jurisdiction, status, renewal due, assignee', path: '/sample-data/doc-intelligence/legal/ip_patent_register.csv' },
       { filename: 'regulatory_license_tracker.csv', label: 'Regulatory Licenses', description: 'Statutory licenses & permits — type, authority, validity, renewal date, responsible officer', path: '/sample-data/doc-intelligence/legal/regulatory_license_tracker.csv' },
       { filename: 'vendor_agreement_summary.csv', label: 'Vendor Agreement Summary', description: 'Active vendor agreements — vendor, scope, term, value, key clauses, risk assessment', path: '/sample-data/doc-intelligence/legal/vendor_agreement_summary.csv' },
+      { filename: 'esp_cement_rfp.txt', label: 'ESP RFP — Legal Review', description: 'ESP tender for legal analysis — LD clauses, penalty provisions, BG requirements, warranty terms, IP/NDA, arbitration clause, force majeure', path: '/sample-data/ai-nexus/tenders/esp_cement_rfp.txt' },
     ],
   },
   {
@@ -500,6 +503,7 @@ export const DEPARTMENTS: Department[] = [
       { filename: 'hazard_identification.csv', label: 'Hazard Identification (HIRA)', description: 'Hazard register — activity, hazard, risk rating, existing controls, residual risk, action plan', path: '/sample-data/doc-intelligence/ehs/hazard_identification.csv' },
       { filename: 'fire_safety_inspection.csv', label: 'Fire Safety Inspection', description: 'Fire safety audit — location, equipment type, condition, last tested, next due, non-conformances', path: '/sample-data/doc-intelligence/ehs/fire_safety_inspection.csv' },
       { filename: 'waste_management_log.csv', label: 'Waste Management Log', description: 'Waste disposal records — type, quantity, disposal method, vendor, manifest, compliance status', path: '/sample-data/doc-intelligence/ehs/waste_management_log.csv' },
+      { filename: 'esp_cement_rfp.txt', label: 'ESP RFP — EHS Review', description: 'ESP tender for EHS analysis — CPCB/GPCB emission norms, environmental compliance, CEMS requirements, NAAQS, safety standards', path: '/sample-data/ai-nexus/tenders/esp_cement_rfp.txt' },
     ],
   },
   {
@@ -516,6 +520,7 @@ export const DEPARTMENTS: Department[] = [
       { filename: 'commissioning_checklist.csv', label: 'Commissioning Checklist', description: 'Equipment commissioning records — project, equipment, test parameters, result, sign-off status', path: '/sample-data/doc-intelligence/sales-service/commissioning_checklist.csv' },
       { filename: 'warranty_claims.csv', label: 'Warranty Claims', description: 'Warranty claim log — customer, product, issue, claim date, resolution, cost, coverage status', path: '/sample-data/doc-intelligence/sales-service/warranty_claims.csv' },
       { filename: 'customer_visit_schedule.csv', label: 'Customer Visit Schedule', description: 'Planned service visits — customer, location, purpose, engineer assigned, date, status', path: '/sample-data/doc-intelligence/sales-service/customer_visit_schedule.csv' },
+      { filename: 'esp_cement_rfp.txt', label: 'ESP RFP — Sales Review', description: 'ESP tender for sales analysis — evaluation criteria, vendor qualification, bid submission details, commercial terms, competitive positioning', path: '/sample-data/ai-nexus/tenders/esp_cement_rfp.txt' },
     ],
   },
 ];

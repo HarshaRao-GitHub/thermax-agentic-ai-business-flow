@@ -438,7 +438,7 @@ function CustomChatBubble({ message, isStreaming }: { message: ChatMessage; isSt
     );
   }
 
-  const preview = message.content.slice(0, 180).replace(/\n/g, ' ');
+  const preview = message.content.slice(0, 500).replace(/\n/g, ' ');
   const showCollapse = !isStreaming && message.content.length > 0;
 
   return (
@@ -460,7 +460,7 @@ function CustomChatBubble({ message, isStreaming }: { message: ChatMessage; isSt
           <Markdown>{message.content}</Markdown>
         ) : (
           <div className="text-thermax-slate text-xs leading-relaxed cursor-pointer" onClick={() => setExpanded(true)}>
-            {preview}{message.content.length > 180 ? '...' : ''}
+            {preview}{message.content.length > 500 ? '...' : ''}
             <span className="ml-2 text-thermax-saffronDeep font-semibold">Click to expand</span>
           </div>
         )}

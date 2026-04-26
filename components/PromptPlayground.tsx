@@ -514,7 +514,7 @@ function ChatBubble({ message, isStreaming }: { message: ChatMessage; isStreamin
     );
   }
 
-  const preview = message.content.slice(0, 200).replace(/\n/g, ' ');
+  const preview = message.content.slice(0, 500).replace(/\n/g, ' ');
   const showCollapse = !isStreaming && message.content.length > 0;
 
   const handleCopy = async () => {
@@ -580,7 +580,7 @@ function ChatBubble({ message, isStreaming }: { message: ChatMessage; isStreamin
           </>
         ) : (
           <div className="text-gray-500 text-xs leading-relaxed cursor-pointer" onClick={() => setExpanded(true)}>
-            {preview}{message.content.length > 200 ? '...' : ''}
+            {preview}{message.content.length > 500 ? '...' : ''}
             <span className="ml-2 text-blue-600 font-semibold">Click to expand</span>
           </div>
         )}

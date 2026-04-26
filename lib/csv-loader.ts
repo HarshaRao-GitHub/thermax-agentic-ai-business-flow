@@ -132,7 +132,7 @@ export function loadMultipleCsv(
   return result;
 }
 
-export function loadTextFile(folder: string, file: string, maxChars = 12000): string {
+export function loadTextFile(folder: string, file: string, maxChars = 500000): string {
   const filePath = resolveDataFile(folder, file);
   const raw = readFileSync(filePath, 'utf-8');
   if (raw.length <= maxChars) return raw;

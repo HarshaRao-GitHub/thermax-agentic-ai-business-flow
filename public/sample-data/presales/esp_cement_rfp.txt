@@ -1,0 +1,359 @@
+REQUEST FOR PROPOSAL (RFP)
+SUPPLY, INSTALLATION, AND COMMISSIONING OF ELECTROSTATIC PRECIPITATOR (ESP)
+FOR CEMENT MANUFACTURING FACILITY
+
+ISSUED BY: M/s Saurashtra Cement Ltd.
+LOCATION: Ranavav Cement Works, Porbandar District, Gujarat - 360560
+RFP REF: SCL/PROJ/ESP-APC/2026/RFP-087
+DATE: 10 April 2026
+CLOSING DATE: 25 May 2026, 1600 hrs IST
+
+SECTION 1: INTRODUCTION
+M/s Saurashtra Cement Ltd. (SCL) invites proposals from qualified vendors for the design, engineering, manufacturing, supply, erection, testing, and commissioning of an Electrostatic Precipitator (ESP) for our cement manufacturing facility located at Ranavav Cement Works, Porbandar District, Gujarat.
+
+The ESP will be installed to control particulate emissions from the Kiln/Raw Mill circuit in compliance with applicable environmental regulations including CPCB emission norms (notified under Environment Protection Act, 1986) and Gujarat Pollution Control Board (GPCB) consent conditions.
+
+This is a turnkey supply contract. The vendor shall be responsible for end-to-end execution including design, manufacturing, logistics, erection, refractory/insulation (if any), testing, and commissioning of the ESP system, and shall guarantee performance as specified herein.
+
+SECTION 2: SCOPE OF WORK
+The scope includes (but is not limited to):
+2.1 Process design, sizing, and engineering of the complete ESP system
+2.2 Mechanical design, fabrication, surface treatment, and supply of all structural and internals components
+2.3 Collecting electrode plates (CE) and discharge electrode frames (DE) — complete sets with alignment provisions
+2.4 Rapping systems — electromagnetic rappers for collecting electrodes; tumbling hammer/pneumatic rappers for discharge electrodes
+2.5 Hopper system — pyramidal hoppers with heating arrangement, level detectors, and evacuation system (chain conveyor or rotary airlock valves)
+2.6 Casing and roof — gas-tight, insulated, with proper expansion joints and access doors for each field
+2.7 Gas distribution system — perforated plates and vane-type flow distribution devices at inlet and outlet
+2.8 Electrical systems including Transformer-Rectifier (TR) sets with automatic voltage control
+2.9 Microprocessor-based ESP controller with spark rate optimization and back-corona detection
+2.10 Rapper control system — programmable rapper sequencing with individual rapper diagnostics
+2.11 Integration with existing plant DCS/PLC system
+2.12 Power distribution panel, MCC, cable trays, junction boxes, and all cabling (power + control)
+2.13 Ductwork from existing duct termination point to ESP inlet and from ESP outlet to existing ID fan/chimney
+2.14 Support structure and foundations — design of ESP support structure (fabrication of structure by vendor; civil foundations by SCL based on vendor's loading data)
+2.15 Erection and commissioning at site including all temporary works, scaffolding, and construction equipment
+2.16 Performance testing and guarantee demonstration as per IS 5765 / relevant standards
+2.17 Training of plant O&M personnel — minimum 2 batches, 3 days each
+2.18 Complete documentation package — engineering drawings (GA, assembly, fabrication), installation manual, O&M manual, spare parts manual, test certificates, material certificates
+
+SECTION 3: TECHNICAL REQUIREMENTS
+
+3.1 Process Parameters
+Parameter,Design Value,Unit
+Gas Flow Rate (actual),320000,Am3/hr
+Gas Flow Rate (normal),245000,Nm3/hr
+Gas Temperature (operating),145,deg C
+Gas Temperature (max continuous),160,deg C
+Gas Temperature (upset/emergency),200,deg C (for 30 min max)
+Dust Concentration (inlet),45,g/Nm3
+Desired Outlet Emission,30 (guaranteed) / 25 (target),mg/Nm3
+Gas Composition — CO2,22-28,%
+Gas Composition — SO2,200-500,ppm
+Gas Composition — Moisture,8-12,%
+Gas Composition — O2,6-10,%
+Gas Composition — N2,balance,%
+Dust Resistivity (expected),1E10 to 5E11,ohm-cm
+Particle Size Distribution — d50,12-18,microns
+Particle Size Distribution — <5 micron,15-25,%
+Dust Composition — CaO,42-48,%
+Dust Composition — SiO2,12-18,%
+Dust Composition — Al2O3,3-6,%
+Dust Composition — Fe2O3,2-4,%
+Dust Composition — MgO,1-3,%
+Dust Composition — SO3,1-3,%
+
+3.2 ESP Design Requirements
+Type: Dry, horizontal flow, weighted wire (rigid frame) or rigid discharge electrode ESP
+Number of Fields: Minimum 4 fields (vendor may propose 5 fields if required for guaranteed performance)
+Specific Collection Area (SCA): Vendor to specify; minimum expected 90-120 m2/(m3/s) for cement application
+Collection Efficiency: >= 99.93% (based on inlet 45 g/Nm3 and outlet 30 mg/Nm3)
+Effective Plate Height: 12-15 m (vendor to optimize)
+Gas Velocity: 0.8-1.2 m/s between plates (vendor to optimize based on SCA and field count)
+Plate Spacing: 300-400 mm (vendor standard)
+Aspect Ratio (length/height): >= 1.2
+
+3.2.1 Collecting Electrodes
+Material: Cold-rolled carbon steel, minimum 1.2 mm thick
+Profile: Roll-formed stiffened profile (C-profile, U-profile, or equivalent)
+Surface Treatment: Shot-blasted, zinc metallized spray (minimum 100 microns) on external surfaces exposed to gas
+
+3.2.2 Discharge Electrodes
+Type: Rigid frame with spiral or star-type emitting elements
+Material: Stainless steel SS 304 emitting elements on mild steel frame (EXOTIC MOC: SS 304 emitting elements for corrosion resistance in SO2 environment)
+Tensioning: Spring-loaded self-aligning system
+
+3.2.3 Rapping System
+Collecting Electrode Rapping: Electromagnetic impulse rappers — individually controllable
+Discharge Electrode Rapping: Tumbling hammer or pneumatic type
+Rapper Control: Microprocessor-based, fully programmable intensity and frequency per field; integrated diagnostics for rapper health monitoring
+Anti-re-entrainment: Proper baffle arrangement between fields; optimized rapping sequence
+
+3.2.4 Gas Distribution
+Inlet gas distribution: Multi-stage perforated plates + turning vanes
+Distribution quality: RMS deviation <= 15% (as per ICAC EP-7 guidelines)
+Model study: Vendor shall conduct CFD or physical model study and provide gas distribution report
+
+3.2.5 Hopper Design
+Shape: Pyramidal with minimum 60-degree valley angle
+Heating: Electric or steam trace heating to prevent moisture condensation and bridging
+Level Detectors: Capacitance or vibrating fork type — 2 levels per hopper (high and high-high)
+Evacuation: Chain conveyor or rotary airlock valves (vendor to propose)
+Poke holes and inspection doors on each hopper
+
+3.2.6 Casing, Insulation & Structural
+Casing: Gas-tight welded construction, minimum 6 mm thick
+Insulation: 100 mm mineral wool with aluminum cladding (0.5 mm thick)
+Expansion Joints: Fabric expansion joints at inlet and outlet duct connections
+Access: Man-doors and inspection doors for every field, accessible walkways and platforms at electrode level, hopper level, and roof level
+Structural: Self-supporting steel structure designed for seismic zone III per IS 1893
+
+3.3 Electrical & Control System
+3.3.1 Transformer-Rectifier (TR) Sets
+Type: Single-phase, oil-immersed, silicon-controlled rectifier type
+Rating: One TR set per field (minimum 4 TR sets)
+Input: 415V AC, 3-phase, 50 Hz (fed from MCC provided by vendor)
+Output DC Voltage: 50-80 kV (vendor to size based on plate spacing and application)
+Output DC Current: Vendor to specify per field; minimum 800 mA per field
+Features: Automatic voltage control (AVC) with spark rate optimization, back-corona detection, intermittent energization mode, power-saving mode during low-load operation
+
+3.3.2 ESP Controller
+Type: Microprocessor-based, dedicated ESP controller
+Features Required:
+- Automatic spark rate control (target: 20-60 sparks per minute per field)
+- Back-corona detection and automatic response
+- Rapping optimization based on opacity feedback
+- Trend monitoring and data logging (minimum 30 days on-board)
+- Remote access via Ethernet/Modbus TCP for integration with plant DCS
+- Multi-language HMI with 10-inch color touchscreen
+- Event and alarm logging with timestamp
+- Opacity (CEMS) feedback integration for closed-loop control
+
+3.3.3 Integration with Plant DCS
+Communication Protocol: Modbus TCP/IP or Profibus DP (as per existing plant standard)
+Signals to DCS: ESP operating status, field-wise voltage and current, opacity reading, TR set status, rapper status, hopper level alarms, all trip and fault alarms
+Control from DCS: ESP start/stop, energization mode selection, rapper enable/disable
+Minimum I/O Points: 200 hardwired + 300 soft signals via communication
+
+3.3.4 Remote Monitoring Capability
+Web-based or cloud-based dashboard for real-time ESP performance monitoring
+Historical data access and trend analysis
+Alarm notification via email/SMS
+Vendor to provide remote diagnostics support for minimum 2 years post-commissioning
+
+SECTION 4: PERFORMANCE GUARANTEES
+
+Vendor must guarantee the following performance parameters during the performance guarantee test conducted as per IS 5765 or equivalent standard:
+
+4.1 Outlet Emission: <= 30 mg/Nm3 at reference conditions (10% O2, dry basis, NTP) — GUARANTEED
+4.2 Target Emission: <= 25 mg/Nm3 — preferred; vendor to state if achievable
+4.3 Pressure Drop across ESP: <= 20 mmWC (at design gas flow, clean to 6-month operating condition)
+4.4 Power Consumption: <= 0.3 kWh per 1000 Am3 of gas treated (including TR sets and auxiliary power)
+4.5 Availability: >= 98% over any rolling 12-month period (excluding planned shutdowns)
+4.6 Gas Distribution: RMS deviation <= 15% at model study stage and <= 25% at site measurement
+4.7 Collection Efficiency: >= 99.93%
+
+4.8 Penalty Clauses
+Outlet emission exceeding 30 mg/Nm3 but <= 40 mg/Nm3: LD of 0.5% of contract value per mg/Nm3 per month until rectified
+Outlet emission exceeding 40 mg/Nm3: Vendor to rectify at own cost within 90 days or face contract termination with full refund
+Power consumption exceeding guarantee by > 10%: LD calculated on additional energy cost over 10-year NPV basis
+Availability below 98%: LD of 0.5% of contract value per percentage point below guarantee, capped at 5% of contract value
+
+SECTION 5: ENVIRONMENTAL & REGULATORY COMPLIANCE
+
+The system must fully comply with:
+5.1 Central Pollution Control Board (CPCB) emission norms for cement industry — 30 mg/Nm3 for PM (as per Environment Protection Amendment Rules, 2022)
+5.2 Gujarat Pollution Control Board (GPCB) consent conditions and any additional state-specific requirements
+5.3 Environment Protection Act, 1986 and rules thereunder
+5.4 Continuous Emission Monitoring System (CEMS) requirements — vendor to provide CEMS integration points (opacity meter probe flange on ESP outlet duct)
+5.5 National Ambient Air Quality Standards (NAAQS) — vendor to ensure stack emission contributes within ambient limits using dispersion modeling if requested
+5.6 Applicable international standards: IEC for electrical, ICAC for ESP design/performance testing
+
+SECTION 6: DELIVERABLES
+
+6.1 Engineering Phase
+- General arrangement (GA) drawings with overall dimensions, weights, and foundation loads
+- Detailed fabrication and assembly drawings for all components
+- Electrical single-line diagram, control schematics, and cable schedule
+- Gas distribution model study report (CFD or physical model)
+- Design calculation report (SCA sizing, collection efficiency, power sizing)
+- Bill of Materials (BOM)
+
+6.2 Manufacturing Phase
+- Manufacturing quality plan (MQP)
+- Material test certificates (MTC) for all critical components
+- Stage inspection and test reports (dimensional, welding NDT, pressure tests where applicable)
+- Factory acceptance test (FAT) report (if applicable for TR sets/controller)
+
+6.3 Installation Phase
+- Installation and erection manual
+- Foundation/anchor bolt layout drawings
+- Field quality plan
+
+6.4 Commissioning Phase
+- Commissioning and test procedure
+- Performance guarantee test procedure (agreed prior to test)
+- Commissioning report with test data
+- Performance test certificates (signed by vendor, SCL, and independent witness if required)
+
+6.5 Post-Commissioning
+- Operation & Maintenance (O&M) manual
+- Spare parts manual with recommended 2-year and 5-year spare parts list
+- As-built drawings (within 30 days of PAC)
+- Training material and attendance records
+
+SECTION 7: PROJECT TIMELINE
+
+Milestone,Duration
+Kick-off Meeting and Basic Engineering Approval,2 weeks from contract award
+Detailed Engineering (including model study),10 weeks
+Manufacturing and Shop Assembly,16 weeks
+Dispatch and Logistics,3 weeks
+Erection at Site,12 weeks
+Pre-Commissioning and Cold Commissioning,3 weeks
+Hot Commissioning and Performance Test,4 weeks
+Total Project Duration,18 months from contract award
+
+Note: The above timeline is indicative. Vendor must submit a detailed project schedule (Level 3 CPM/PERT chart) with the proposal. SCL reserves the right to negotiate compressed timelines with appropriate incentives.
+
+SECTION 8: VENDOR QUALIFICATION CRITERIA
+
+8.1 Minimum 10 ESP installations in cement/mineral processing industry in the last 10 years
+8.2 At least 3 references of ESP with gas volume >= 250,000 Nm3/hr
+8.3 Proven track record of meeting CPCB emission norms of 30 mg/Nm3 at cement kiln/raw mill applications
+8.4 Financial stability: Annual turnover >= INR 200 Crore (average of last 3 years)
+8.5 Net worth positive for the last 3 financial years
+8.6 In-house design and engineering capability (not purely trading/broker firms)
+8.7 Established manufacturing facility for ESP internals (CE, DE, TR sets) — vendor to provide manufacturing location details
+8.8 Service and maintenance support capability in India with spare parts depot
+8.9 ISO 9001, ISO 14001, and ISO 45001 certifications
+8.10 Experience with remote monitoring/digital solutions for ESP is preferred
+
+SECTION 9: COMMERCIAL TERMS
+
+9.1 Price Breakdown (vendor to provide separately for each):
+- Engineering and design
+- Equipment supply (ex-works) — material-wise breakup
+- Packing, transportation, and insurance to site
+- Erection, alignment, and commissioning
+- Performance guarantee test
+- Training
+- Spare parts (recommended 2-year operational spares)
+
+9.2 Payment Milestones (indicative; subject to negotiation):
+- 10% — Advance against bank guarantee
+- 20% — On completion and approval of detailed engineering
+- 30% — On receipt of equipment at site (pro-rata against dispatches)
+- 20% — On mechanical completion
+- 10% — On successful commissioning
+- 10% — On successful performance guarantee test and PAC
+
+9.3 Warranty: Minimum 24 months from date of commissioning or 30 months from last dispatch, whichever is earlier
+9.4 Defect Liability Period: Co-terminus with warranty period
+9.5 Liquidated Damages for Delay: 0.5% of contract value per week of delay, capped at 10% of contract value
+9.6 Retention Money: 5% of contract value retained until successful PG test; released against bank guarantee upon PAC
+9.7 Bank Guarantees Required:
+- Advance BG: 10% of advance payment, valid until advance is recovered
+- Performance BG: 10% of contract value, valid until end of warranty + 6 months
+9.8 Price Variation: Fixed price contract for domestic supply; import content subject to forex variation with ceiling/floor of +/- 5%
+9.9 Taxes: Prices to be quoted exclusive of GST; GST to be charged as applicable at actuals
+
+SECTION 10: EVALUATION CRITERIA
+
+Evaluation Parameter,Weightage
+Technical Compliance and Design Quality,30%
+ESP Collection Efficiency and SCA,15%
+Energy Efficiency (power consumption),10%
+Vendor Experience and Track Record,15%
+Lifecycle Cost (10-year TCO),10%
+After-Sales Support and Service Network,10%
+Digital Monitoring and Predictive Features,5%
+Project Timeline,5%
+
+Scoring: Each parameter scored on a scale of 1-10. Minimum qualifying score: 60% on technical parameters. Commercial evaluation: L1 among technically qualified bidders (Quality-cum-Cost Based Selection).
+
+SECTION 11: SUBMISSION DETAILS
+
+11.1 Proposal submission deadline: 25 May 2026, 1600 hrs IST
+11.2 Submission: Two-cover system (Cover 1: Technical + Qualification; Cover 2: Commercial)
+11.3 Format: Hard copy (2 sets) + soft copy (USB drive) in sealed envelopes
+11.4 Address: Chief General Manager — Projects, M/s Saurashtra Cement Ltd., Ranavav Cement Works, NH-8B, Porbandar District, Gujarat - 360560
+11.5 Contact Person: Mr. Rajesh Patel, AGM — Projects, Email: rajesh.patel@sauashtracement.co.in, Phone: +91-286-2XXXXXX
+11.6 Pre-bid meeting: 5 May 2026, 1100 hrs IST at SCL Ranavav Works (attendance recommended but not mandatory)
+11.7 Bid validity: 120 days from submission deadline
+11.8 EMD: INR 10,00,000 (Rupees Ten Lakhs) by demand draft or bank guarantee in favor of Saurashtra Cement Ltd.
+
+SECTION 12: OPTIONAL ENHANCEMENTS (PREFERRED)
+
+12.1 Digital monitoring and predictive maintenance features:
+- IoT sensors for real-time monitoring of ESP parameters (rapper current, TR voltage/current, opacity, temperature)
+- Cloud-based analytics dashboard with historical trending
+- Predictive maintenance alerts using ML models for TR set degradation, rapper failure, and electrode erosion
+- Mobile app for field engineers
+
+12.2 Integration with plant analytics platform:
+- Open API for data export to plant-wide analytics
+- CEMS data integration for regulatory reporting
+- Energy management system integration
+
+12.3 AI/ML-based performance optimization:
+- Automatic energization mode selection based on process conditions
+- Self-optimizing rapping schedules based on dust layer buildup patterns
+- Anomaly detection for early warning of performance degradation
+- Digital twin of ESP for process simulation and operator training
+
+12.4 Enhanced emission control:
+- Pulse energization or intermittent energization capability for high-resistivity dust conditions
+- Flue gas conditioning (SO3/moisture injection) system — vendor to quote as optional
+- Sonic horn installation for hopper de-bridging
+
+SECTION 13: CONFIDENTIALITY
+
+All information shared in this RFP including process parameters, plant layout, and commercial data must be treated as strictly confidential. Vendor shall not disclose any information to third parties without prior written consent from SCL. Vendor shall execute a Non-Disclosure Agreement (NDA) upon receipt of this RFP.
+
+SECTION 14: GENERAL CONDITIONS
+
+14.1 SCL reserves the right to accept or reject any or all proposals without assigning reasons.
+14.2 SCL may award the contract to a vendor other than the lowest bidder based on overall techno-commercial evaluation.
+14.3 Vendor must visit the site before submission to familiarize with site conditions, access, utilities, and constraints.
+14.4 All disputes shall be subject to arbitration under the Arbitration and Conciliation Act, 1996 with the seat of arbitration in Ahmedabad, Gujarat.
+14.5 Governing law: Laws of India.
+14.6 Force Majeure: As per ICC standard clause.
+
+--- END OF RFP ---
+
+ANNEXURE A: EXISTING EQUIPMENT DATA (for interface engineering)
+Equipment,Parameter,Value,Unit
+Kiln,Capacity,5500,TPD clinker
+Kiln,Type,Rotary with 5-stage preheater + pre-calciner,
+Raw Mill,Type,Vertical Roller Mill (VRM),
+Raw Mill,Capacity,400,TPH
+Existing ID Fan,Capacity,380000,Am3/hr
+Existing ID Fan,Motor,3500,kW
+Existing Stack,Height,80,meters
+Existing Stack,Diameter (top),5,meters
+Plant DCS,Make,Honeywell Experion PKS,
+Plant DCS,Protocol,Modbus TCP/IP + OPC UA,
+Available Power Supply,Voltage,6.6 kV (for TR sets) / 415V (for auxiliaries),
+Available Instrument Air,Pressure,6,kg/cm2 (g)
+Available Cooling Water,Temperature,32,deg C
+
+ANNEXURE B: SITE CONDITIONS
+Parameter,Value,Unit
+Altitude,10,meters above MSL
+Ambient Temperature (max),45,deg C
+Ambient Temperature (min),10,deg C
+Ambient Temperature (design),43,deg C
+Relative Humidity (max),95,%
+Annual Rainfall,500-600,mm
+Wind Speed (design),180,km/hr (as per IS 875)
+Seismic Zone,III (as per IS 1893),
+Soil Bearing Capacity,15,T/m2 (SBC at 2m depth)
+Corrosion Environment,Moderate (coastal 50 km inland),
+
+ANNEXURE C: LIST OF APPROVED SUB-VENDORS (for key components)
+Component,Approved Vendors
+TR Sets,"Helbio, NWL, FLSmidth Airtech"
+Electromagnetic Rappers,"Redkoh, FLSmidth, Thermax"
+ESP Controller,"ABB, NWL, Helbio"
+Insulation Material,"Rockwool, Lloyd Insulation, Supreme"
+Expansion Joints,"Belman, EagleBurgmann, Senior Flexonics"

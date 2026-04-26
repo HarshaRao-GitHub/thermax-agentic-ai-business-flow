@@ -151,7 +151,7 @@ export async function POST(req: NextRequest) {
         const stream = await callWithRetry(
           () => client.messages.create({
             model,
-            max_tokens: 4096,
+            max_tokens: 32768,
             system: systemPrompt,
             messages: conversationMessages,
             stream: true,
