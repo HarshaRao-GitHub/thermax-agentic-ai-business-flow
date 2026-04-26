@@ -1,0 +1,23 @@
+===============================================================================
+SYNTHETIC EQUIPMENT GA / ARRANGEMENT — TEXT EXTRACT  |  POC / DEMO ONLY
+Drawing ref: DRG-GA-LSF-001 | Vessel: V-201 Lime stone filter
+===============================================================================
+
+General
+- Vessel: vertical pressure vessel, SS304L wetted, design P 3.5 bar_g, T 50 C
+- Support: 2x saddle, anchor bolts M24 (synthetic; verify foundation drawing)
+
+Nozzles (simplified from GA table)
+- N1: Inlet  DN150  RF  orient 0 deg  —  from L-201a
+- N2: Outlet DN150  RF  180 deg
+- N3: Vent   DN80   RF
+- N4: Drain  DN50   flanged
+- M1: Manway  450mm (internal) —  refer MGA detail
+
+Handwritten note (simulated; low confidence in OCR/POC):
+- "OD shell ~1500" —  verify with fab drawing
+
+Weighing / Lifting: lifting lugs 2 off —  refer ME note 2
+
+This extract is for demo routing only. Not for construction.
+===============================================================================

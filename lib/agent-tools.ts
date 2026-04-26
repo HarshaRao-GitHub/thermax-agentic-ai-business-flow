@@ -8,7 +8,7 @@ export type ToolName =
   | 'validate_engineering' | 'simulate_performance' | 'assess_hazop'
   | 'assess_commercial_risk' | 'review_contract' | 'evaluate_payment_terms' | 'review_proposal_feasibility'
   | 'charter_project' | 'match_resources' | 'plan_mobilisation' | 'build_wbs'
-  | 'extract_datasheets' | 'classify_make_buy'
+  | 'extract_datasheets' | 'classify_make_buy' | 'extract_drawing_data' | 'check_deviations'
   | 'evaluate_vendors' | 'plan_manufacturing' | 'track_material_readiness'
   | 'analyze_progress' | 'detect_safety_risks' | 'disposition_ncr'
   | 'analyze_test_results' | 'verify_performance' | 'generate_punchlist'
@@ -408,6 +408,18 @@ const governanceTools: Anthropic.Messages.Tool[] = [
 
 const engineeringDesignTools: Anthropic.Messages.Tool[] = [
   {
+    name: 'extract_drawing_data',
+    description: 'Assisted engineering extraction from P&ID, PFD, and equipment reference data in the data backbone. Returns equipment tags, instrument tags, line references, and confidence flags. POC only — not CAD interpretation.',
+    input_schema: {
+      type: 'object' as const,
+      properties: {
+        project_id: { type: 'string', description: 'Project ID to filter (e.g. PRJ-2026-0001), or empty for all' },
+        drawing_type: { type: 'string', description: 'Optional filter: P_and_ID, PFD, Equipment_Drawing, Hand_Sketch, or all' }
+      },
+      required: []
+    }
+  },
+  {
     name: 'extract_datasheets',
     description: 'Extracts technical specifications from proposal/order documents and generates structured instrument and equipment data sheets with tag numbers, ranges, materials, and design conditions.',
     input_schema: {
@@ -437,6 +449,17 @@ const engineeringDesignTools: Anthropic.Messages.Tool[] = [
       type: 'object' as const,
       properties: {
         proposal_id: { type: 'string', description: 'Proposal to validate (or "all" for pending validations)' }
+      },
+      required: []
+    }
+  },
+  {
+    name: 'check_deviations',
+    description: 'POC-style deviation and completeness check: compares requirements vs values from drawing extractions and design parameters. Not formal compliance validation. Returns a reviewable deviation table for engineering.',
+    input_schema: {
+      type: 'object' as const,
+      properties: {
+        project_id: { type: 'string', description: 'Project ID to filter (e.g. PRJ-2026-0001), or empty for all' }
       },
       required: []
     }
@@ -546,6 +569,8 @@ export function executeToolLocally(
       case 'generate_punchlist': return executePunchlistGeneration(input);
       case 'extract_datasheets': return executeDatasheetExtraction(input);
       case 'classify_make_buy': return executeMakeBuyClassification(input);
+      case 'extract_drawing_data': return executeDrawingDataExtraction(input);
+      case 'check_deviations': return executeDeviationsCheck(input);
       case 'evaluate_vendors': return executeVendorEvaluation(input);
       case 'plan_manufacturing': return executeManufacturingPlan(input);
       case 'track_material_readiness': return executeMaterialReadiness(input);
@@ -1598,6 +1623,75 @@ function executeMakeBuyClassification(input: Record<string, unknown>): string {
       lead_time_weeks: m.lead_time_weeks, spec_ref: m.engineering_spec_ref
     })),
     summary: `${filtered.length} components classified: ${makeCount} Make (in-house), ${buyCount} Buy (vendor procurement).`
+  });
+}
+
+function executeDrawingDataExtraction(input: Record<string, unknown>): string {
+  const ext = loadCsv('06_engineering_design', 'drawing_extractions.csv');
+  const params = loadCsv('06_engineering_design', 'design_parameters.csv');
+  const projId = (input.project_id as string) || '';
+  const drawType = (input.drawing_type as string) || '';
+
+  let rows = ext.rows;
+  if (projId) rows = rows.filter((r) => r.project_id === projId);
+  if (drawType && drawType.toLowerCase() !== 'all') {
+    rows = rows.filter((r) => (r.drawing_type as string) === drawType);
+  }
+
+  const pRows = projId ? params.rows.filter((p) => p.project_id === projId) : params.rows;
+
+  return JSON.stringify({
+    label: 'Draft AI-assisted drawing / diagram extraction (POC — for engineering review only)',
+    project_id: projId || 'all',
+    drawing_type_filter: drawType || 'all',
+    extractions: rows.map((r) => ({
+      extraction_id: r.extraction_id,
+      project_id: r.project_id,
+      drawing_id: r.drawing_id,
+      drawing_type: r.drawing_type,
+      element_type: r.element_type,
+      tag_or_id: r.tag_or_id,
+      description: r.description,
+      value_text: r.value_text,
+      line_ref: r.line_ref,
+      confidence: r.confidence_0_1,
+      review_flag: r.review_flag,
+      remarks: r.remarks,
+    })),
+    design_parameters: pRows.map((p) => ({
+      param_id: p.param_id,
+      parameter: p.parameter,
+      unit: p.unit,
+      design_value: p.design_value,
+      operating_value: p.operating_value,
+      source_ref: p.source_ref,
+      status: p.status,
+      remarks: p.remarks,
+    })),
+    summary: `Extracted ${rows.length} drawing/diagram element(s); ${pRows.length} design parameter row(s).`,
+  });
+}
+
+function executeDeviationsCheck(input: Record<string, unknown>): string {
+  const dev = loadCsv('06_engineering_design', 'deviation_checks.csv');
+  const projId = (input.project_id as string) || '';
+  let rows = dev.rows;
+  if (projId) rows = rows.filter((r) => r.project_id === projId);
+
+  return JSON.stringify({
+    label: 'POC deviation / completeness check (not formal engineering compliance validation)',
+    project_id: projId || 'all',
+    deviation_table: rows.map((r) => ({
+      deviation_id: r.deviation_id,
+      requirement: r.requirement,
+      expected_value: r.expected_value,
+      extracted_value: r.extracted_value,
+      status: r.status,
+      detail: r.deviation_detail,
+      recommended_action: r.recommended_action,
+      source: r.source,
+    })),
+    summary: `${rows.length} deviation or comparison row(s) for review.`,
   });
 }
 

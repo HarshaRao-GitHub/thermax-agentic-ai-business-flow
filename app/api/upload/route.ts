@@ -5,9 +5,11 @@ export const runtime = 'nodejs';
 const MAX_SIZE_BYTES = 100 * 1024 * 1024; // 100 MB
 const MAX_TEXT_CHARS = 2_000_000;
 const MAX_FILES = 10;
+const RASTER_IMAGE_EXTENSIONS = ['.png', '.jpg', '.jpeg', '.bmp', '.tiff', '.tif', '.webp', '.gif'];
 const ALLOWED_EXTENSIONS = [
   '.txt', '.md', '.markdown', '.csv', '.tsv', '.log',
-  '.pdf', '.doc', '.docx', '.xls', '.xlsx', '.json', '.xml'
+  '.pdf', '.doc', '.docx', '.xls', '.xlsx', '.json', '.xml',
+  ...RASTER_IMAGE_EXTENSIONS
 ];
 
 interface FileResult {
@@ -45,12 +47,15 @@ export async function POST(req: NextRequest) {
       }
 
       if (file.size > MAX_SIZE_BYTES) {
-        errors.push(`${file.name}: exceeds 30 MB limit (${(file.size / 1024 / 1024).toFixed(1)} MB)`);
+        errors.push(`${file.name}: exceeds 100 MB limit (${(file.size / 1024 / 1024).toFixed(1)} MB)`);
         continue;
       }
 
       let text: string;
-      if (ext === '.pdf') {
+      if (RASTER_IMAGE_EXTENSIONS.includes(ext)) {
+        const sizeKb = (file.size / 1024).toFixed(1);
+        text = `[Image file: ${file.name} — ${sizeKb} KB received]\n\nThis upload path does not run OCR on images. The agent should treat the attached filename and size as context only, use synthetic/CSV-backed drawing extraction in this POC, and recommend formal digitization and drawing management for real projects. For extractable text, use PDF, TXT, or CSV.`;
+      } else if (ext === '.pdf') {
         const buffer = await file.arrayBuffer();
         text = extractTextFromPDF(new Uint8Array(buffer), file.name);
       } else if (ext === '.doc' || ext === '.docx') {

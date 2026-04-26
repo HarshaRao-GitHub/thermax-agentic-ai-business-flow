@@ -1,0 +1,7 @@
+deviation_id,project_id,requirement,expected_value,extracted_value,status,deviation_detail,recommended_action,source
+DV-001,PRJ-2026-0001,Product water conductivity at 25C,Less than 50 uS,Less than 50 uS from PFD,Match,,None,PFD S-OUT-FINAL vs customer spec
+DV-002,PRJ-2026-0001,LSF design pressure,3.0 barg min,3.5 barg on P and ID,OK,,Clarify if margin per note 4,PID V-201
+DV-003,PRJ-2026-0001,All instruments on SLD in I O list,100 percent tagged,IT-201 needs DCS check,REVIEW,Tag visible on P and ID,Verify with instrument index,REVIEW flag DE-003
+DV-004,PRJ-2026-0001,Interlock for LSF high level,Required per T and S,IL-10 on sketch,Gap,Sketch not signed as approved,Get signed interlock cause-effect matrix,REVIEW flag DE-010
+DV-005,PRJ-2026-0001,Handwritten GA dimension,Same as 3D model,OD 1500mm approx,UNCLEAR,Confidence 0.7,Cross check workshop drawing DRG-FAB-LSF,DE-009
+DV-006,PRJ-2026-0002,Buffer tank MOC,CS rubber lined,CS lined on P and ID,Match,,,PID TK-01

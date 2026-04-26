@@ -45,6 +45,7 @@ export default function AgentChat({
   const [expandedTool, setExpandedTool] = useState<string | null>(null);
 
   const isServiceCopilot = stage.slug === 'service-troubleshooting';
+  const isEngineeringDesign = stage.slug === 'engineering-design';
   const [copilotMessages, setCopilotMessages] = useState<ChatMessage[]>([]);
   const [copilotInput, setCopilotInput] = useState('');
   const [copilotStreaming, setCopilotStreaming] = useState(false);
@@ -317,7 +318,10 @@ export default function AgentChat({
   }
 
   const MAX_UPLOAD_FILES = 2;
-  const MAX_UPLOAD_SIZE_MB = 30;
+  const MAX_UPLOAD_SIZE_MB = isEngineeringDesign ? 100 : 30;
+  const fileInputAccept = isEngineeringDesign
+    ? '.txt,.md,.csv,.tsv,.log,.pdf,.doc,.docx,.xls,.xlsx,.json,.xml,.png,.jpg,.jpeg,.bmp,.tiff,.tif,.webp,.gif'
+    : '.txt,.md,.csv,.tsv,.log,.pdf,.doc,.docx,.xls,.xlsx,.json,.xml';
 
   async function handleUpload(e: React.ChangeEvent<HTMLInputElement>) {
     const files = e.target.files;
@@ -767,7 +771,13 @@ export default function AgentChat({
             <div className="text-[10px] font-bold uppercase tracking-wider text-thermax-navy mb-1.5">
               Or Upload Your Own Files
             </div>
-            <input ref={fileInputRef} type="file" multiple accept=".txt,.md,.csv,.tsv,.log,.pdf,.doc,.docx,.xls,.xlsx,.json,.xml" onChange={handleUpload}
+            {isEngineeringDesign && (
+              <p className="text-[9px] text-thermax-slate leading-snug mb-1.5">
+                <span className="font-semibold text-thermax-navy">Engineering drawings and technical references: </span>
+                upload PDFs, text or CSV companion extracts, and optional raster images (filename and size are passed through; this POC does not run OCR on images — the agent uses backbone extraction tools and your text).
+              </p>
+            )}
+            <input ref={fileInputRef} type="file" multiple accept={fileInputAccept} onChange={handleUpload}
               disabled={uploadedFiles.length >= MAX_UPLOAD_FILES}
               className="text-[11px] file:mr-2 file:py-1.5 file:px-3 file:rounded file:border-0 file:bg-thermax-navy file:text-white file:font-semibold hover:file:bg-thermax-navyDeep file:cursor-pointer w-full disabled:opacity-40" />
             <div className="mt-1.5 p-2 bg-amber-50 border border-amber-200 rounded-lg">
@@ -775,7 +785,7 @@ export default function AgentChat({
                 <div className="font-semibold">Upload Limits:</div>
                 <div>• Max <strong>{MAX_UPLOAD_FILES} files</strong> per session ({uploadedFiles.length}/{MAX_UPLOAD_FILES} used)</div>
                 <div>• Max <strong>{MAX_UPLOAD_SIZE_MB} MB</strong> per file</div>
-                <div>• Formats: PDF, DOC/DOCX, CSV, TXT, MD, TSV, XLS/XLSX, JSON, XML</div>
+                <div>• Formats: PDF, DOC/DOCX, CSV, TXT, MD, TSV, XLS/XLSX, JSON, XML{isEngineeringDesign && ', PNG, JPG, JPEG, BMP, TIFF, WebP, GIF'}</div>
               </div>
             </div>
           </div>
@@ -1521,7 +1531,11 @@ function ToolDetailView({ tool, agentName }: { tool: StageTool; agentName: strin
     draft_proposal: { what: 'Creates a technical-commercial proposal for a customer, including scope, specifications, pricing structure, and delivery terms.', when: 'When the team needs to respond to a customer inquiry or RFP. The agent drafts the proposal framework.', output: 'A structured proposal document with technical scope, commercial terms, and delivery schedule.' },
     generate_bom: { what: 'Generates a Bill of Materials (BOM) by mapping proposal requirements to Thermax\'s product catalog. Identifies the exact equipment and quantities needed.', when: 'After the proposal scope is defined, the agent creates a detailed equipment list for costing.', output: 'Line-by-line BOM with product codes, descriptions, quantities, and catalog references.' },
     analyze_margins: { what: 'Calculates profit margins for each proposal and flags any that fall below the company threshold (usually 15%).', when: 'Before submitting a proposal, management needs to know if the deal is commercially viable.', output: 'Margin analysis showing gross margin %, flagged low-margin deals, and improvement recommendations.' },
+    extract_drawing_data: { what: 'Reads structured drawing-extraction rows from the backbone (P&ID, PFD, equipment-style tags, line references, confidence scores, and review flags). It does not interpret CAD or raster pixels — it is POC data aligned to the project.', when: 'First tool in the engineering workflow: the agent needs a consistent summary of what was “extracted” for tags, lines, and equipment references before data sheets and validation.', output: 'Filtered rows for the project (and optional drawing type) with confidence and flags for the report’s drawing-assisted section.' },
+    extract_datasheets: { what: 'Pulls instrument and equipment datasheet fields from the backbone so the agent can present structured make/model, ranges, materials, and connections in tabular form.', when: 'After drawing-oriented context, the agent builds draft instrument and equipment data sheets for review.', output: 'Structured datasheet summaries keyed by project and tag, ready to merge with user uploads.' },
+    classify_make_buy: { what: 'Classifies components and major items as make (in-house) or buy (vendor) using the make/buy table — rationale, preferred vendors, and lead time hints for Procurement.', when: 'Before handoff to Stage 7, the agent needs a clear make-vs-buy position for each major line item.', output: 'Classification list with make/buy, rationale, and handoff notes for procurement review.' },
     validate_engineering: { what: 'Validates the technical feasibility of a proposal — checks if the solution is engineering-sound, meets codes, and can actually be built.', when: 'Engineering review before finalizing a proposal. Catches technical issues before they become costly problems.', output: 'Engineering verdict (Approved/Conditional/Rejected) with technical notes and compliance checks.' },
+    check_deviations: { what: 'Loads POC deviation and completeness rows — comparing spec or requirement hints to extraction outputs, missing tags, and open points. It is a review aid, not a formal compliance or drawing sign-off.', when: 'Near the end of the five-tool chain: the agent produces a draft deviation and open-issues table for the Chief Engineer to review.', output: 'A deviation-oriented summary table: severity, category, and recommended follow-up, explicitly labeled as draft POC output.' },
     simulate_performance: { what: 'Simulates the expected performance of the proposed equipment against guaranteed parameters — efficiency, output, emissions.', when: 'To verify that performance guarantees can be met before committing them to the customer.', output: 'Simulation results showing expected vs guaranteed values, with confidence intervals.' },
     assess_hazop: { what: 'Conducts a Hazard and Operability (HAZOP) assessment to identify safety risks in the proposed design — what could go wrong and how to prevent it.', when: 'For safety-critical projects. HAZOP is mandatory before detailed engineering can proceed.', output: 'HAZOP findings with risk levels, recommended safeguards, and required design changes.' },
     assess_commercial_risk: { what: 'Evaluates the commercial risks of a deal — customer creditworthiness, payment terms, currency exposure, and contract penalties.', when: 'Before signing a contract, the finance team needs to understand what could go wrong financially.', output: 'Risk assessment with ratings (Low/Medium/High/Critical) and mitigation recommendations.' },

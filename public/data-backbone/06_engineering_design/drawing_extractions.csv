@@ -1,0 +1,12 @@
+extraction_id,project_id,drawing_id,drawing_type,element_type,tag_or_id,description,value_text,line_ref,confidence_0_1,review_flag,remarks
+DE-001,PRJ-2026-0001,DRG-PID-WT-001,P_and_ID,Equipment,V-201,Lime stone filter,Design P 3.5barg / T 50C,L-201a-SS-03,0.88,,
+DE-002,PRJ-2026-0001,DRG-PID-WT-001,P_and_ID,Equipment,P-620-621,Na2CO3 dosing pump,2x100% A-A,MP-E255-P-620-621,0.9,,
+DE-003,PRJ-2026-0001,DRG-PID-WT-001,P_and_ID,Instrument,IT-201,pH loop after LSF,4-20mA to PLC,IT-201-LSF-OUT,0.85,REVIEW,Verify against DCS I/O list
+DE-004,PRJ-2026-0001,DRG-PID-WT-001,P_and_ID,Valve,CV-201,Control valve on CO2 line,PN16 RF flanged,CV-201-CO2,0.87,,
+DE-005,PRJ-2026-0001,DRG-PFD-WT-001,PFD,ProcessStage,STG-1,Pre-treatment,200 m3/hr DM permeate in,m3_hr,0.92,,
+DE-006,PRJ-2026-0001,DRG-PFD-WT-001,PFD,ProcessStage,STG-2,Remineralization,LSF plus chemical dosing,LSF,0.9,,
+DE-007,PRJ-2026-0001,DRG-PFD-WT-001,PFD,Stream,S-OUT-FINAL,Product water spec,Cond less than 50 uS at 25C,OUT-FINAL,0.79,REVIEW,Confirm with on-line analyzer range
+DE-008,PRJ-2026-0001,DRG-GA-LSF-001,Equipment_Drawing,Nozzle,N1,Inlet from DM plant,DN150 RF SS304L,GA-LSF,0.91,,
+DE-009,PRJ-2026-0001,DRG-GA-LSF-001,Equipment_Drawing,Dimension,OD shell,Filter shell,1500mm OD approx,Note 3 GA,0.7,REVIEW,Handwritten note; verify in workshop fab dwg
+DE-010,PRJ-2026-0001,DRG-SK-001,Hand_Sketch,Interlock,IL-10,LSF high level trip to P-620,Hardwired,Sketch zone B,0.65,REVIEW,Sketch legibility; confirm in cause and effect
+DE-011,PRJ-2026-0002,DRG-PID-002,P_and_ID,Equipment,TK-01,Buffer tank,Atmospheric CS lined,LINE-A1,0.88,,

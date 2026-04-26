@@ -1,0 +1,6 @@
+ref_id,project_id,doc_type,requirement,unit,target_value,notes
+SPEC-01,PRJ-2026-0001,Customer spec,Remin product conductivity,uS_cm at 25C,50 max,Alkalinity per IS 10500
+SPEC-02,PRJ-2026-0001,Customer spec,Remin system capacity,m3_hr,200,DM permeate
+SPEC-03,PRJ-2026-0001,Order,LSF MOC,na,SS304L wetted,FRP for dosing tanks
+SPEC-04,PRJ-2026-0001,Order,Control philosophy,na,DCS S7-1500,Modbus to plant DCS
+SPEC-05,PRJ-2026-0002,RFQ,Buffer design pressure,bar_g,40,MAWP on nameplate TBD

@@ -1,0 +1,38 @@
+===============================================================================
+SYNTHETIC P&ID TEXT EXTRACT — WT Remineralization (POC / DEMO DATA ONLY)
+Drawing ref: DRG-PID-WT-001 Rev A | Project: PRJ-2026-0001
+===============================================================================
+This file simulates a text extract from a P&ID for a water treatment
+remineralization package. It is NOT a confidential Thermax customer drawing.
+
+EQUIPMENT (visible tags on drawing)
+- V-201  Lime stone contactor (LSF)  —  note: 3.5 bar_g design, SS304L
+- T-301  Na2CO3 dosing day tank (FRP)
+- T-302  NaHCO3 dosing day tank (FRP)
+- P-620-621 A/B  Na2CO3 dosing pumps (2x 100%)
+- P-620-622 A/B  NaHCO3 dosing pumps (2x 100%)
+- P-620-623 A/B  Hypo dosing pumps (2x 100%)
+- CO2 SKID  (tag block: "CO2 SYSTEM" on legend)
+
+INSTRUMENTS
+- pH-201  after LSF outlet — loop to DCS
+- C-201A/B  cond at final outlet — 4-20mA
+- FIC-201  on CO2 trim (conceptual; verify against detail PID)
+
+LINES (selected)
+- L-201a-SS-03  From DM plant to LSF
+- L-201b-SS-01  LSF to mixed bed / outlet header (per scope)
+- L-CO2-10  CO2 to dissolution / sparger
+
+VALVES / CONTROL
+- CV-201  modulating (CO2)
+- SOV-205  (hypo) — NC, fail as per SOP
+- BDV-201  (if shown) — interlock to high level in LSF
+
+SAFETY / INTERLOCKS (as noted on border)
+- LSHH-201 trips dosing train (see interlock list — not to scale)
+
+LEGEND: SS304L, CPVC, FRP, PG class per piping BOM
+
+End of synthetic extract
+===============================================================================

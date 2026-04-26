@@ -501,9 +501,12 @@ Governance: All resource assignments require HR approval. Projects above ₹100 
       shortId: 'ENG-01',
       modelStack: 'Enterprise LLM + Engineering Tools',
       persona: 'Engineering Manager',
-      description: 'Extracts technical specifications from tender/proposal/order text, generates structured instrument and equipment data sheets, classifies components as make-vs-buy, and produces the specifications that feed procurement and manufacturing.'
+      description: 'Assisted extraction from technical documents and engineering drawing references (P&ID, PFD, equipment GA text extracts), data sheets, make-vs-buy classification, and draft handoff to Procurement. Not CAD or production drawing automation.'
     },
     dataSources: [
+      { file: 'drawing_extractions.csv', label: 'Drawing Extraction (POC)', folder: '06_engineering_design', rowEstimate: 12, description: 'Synthetic P&ID/PFD/equipment sketch extraction rows — tags, line refs, confidence, review flags', fileType: 'csv' },
+      { file: 'design_parameters.csv', label: 'Design Parameters', folder: '06_engineering_design', rowEstimate: 8, description: 'Design vs operating values with source references and missing-info flags', fileType: 'csv' },
+      { file: 'deviation_checks.csv', label: 'Deviation / Completeness (POC)', folder: '06_engineering_design', rowEstimate: 6, description: 'POC-style requirement vs extract comparison — not formal compliance validation', fileType: 'csv' },
       { file: 'engineering_validations.csv', label: 'Engineering Validations', folder: '04_engineering', rowEstimate: 55, description: 'Technical feasibility reviews, design code compliance, HAZOP assessments, and AI confidence scores' },
       { file: 'performance_guarantees.csv', label: 'Performance Guarantees', folder: '04_engineering', rowEstimate: 106, description: 'Equipment performance targets — efficiency, emissions, output guarantees with tolerances and test conditions' },
       { file: 'instrument_datasheets.csv', label: 'Instrument Data Sheets', folder: '06_engineering_design', rowEstimate: 15, description: 'Instrument specifications — tag numbers, types, ranges, materials, accuracy, connections, and output signals' },
@@ -512,51 +515,58 @@ Governance: All resource assignments require HR approval. Projects above ₹100 
       { file: 'thermax_design_standards.json', label: 'Design Standards', folder: '00_master_data', rowEstimate: 1, description: 'Thermax engineering design codes (IBR, ASME, CPCB), material specs, performance standards, safety interlocks', fileType: 'json' }
     ],
     tools: [
-      { name: 'extract_datasheets', label: 'Extract Data Sheets', icon: '📋', description: 'Extracts technical specifications from proposal/order documents and generates structured instrument and equipment data sheets' },
-      { name: 'classify_make_buy', label: 'Classify Make/Buy', icon: '🏭', description: 'Classifies each component as make (in-house fabrication) or buy (vendor procurement) based on capability, capacity, and strategy' },
-      { name: 'validate_engineering', label: 'Validate Engineering', icon: '🔬', description: 'Validates technical parameters against design codes, performance guarantees, and Thermax engineering standards' }
+      { name: 'extract_drawing_data', label: 'Extract from Drawings (POC)', icon: '📐', description: 'Assisted extraction from P&ID, PFD, and equipment reference data — equipment/instrument/line tags, process hints, design parameters, with confidence' },
+      { name: 'extract_datasheets', label: 'Extract Data Sheets', icon: '📋', description: 'Generates structured instrument and equipment data sheets from backbone data' },
+      { name: 'classify_make_buy', label: 'Classify Make/Buy', icon: '🏭', description: 'Classifies each component as make (in-house) or buy (vendor) for Stage 7 handoff' },
+      { name: 'validate_engineering', label: 'Validate Engineering', icon: '🔬', description: 'Validates against design codes, performance guarantees, and Thermax standards' },
+      { name: 'check_deviations', label: 'Check Deviations (POC)', icon: '⚖️', description: 'Compares spec vs drawing-oriented extracts — review table only, not formal sign-off' }
     ],
     systemPrompt: `You are the Thermax Engineering Design Agent (AGT-ENG-01), operating as an Engineering Manager at Stage 6 of Thermax's Agentic AI Operating System 2030.
 
-IMPORTANT: This agent appears AFTER Project Planning (Stage 5). Engineering design happens post-order, not pre-order. You work on projects that have been won, chartered, and planned. Your role is to give a realistic "flavor of engineering" without doing full design or drawing work.
+IMPORTANT: This agent appears AFTER Project Planning (Stage 5). You work on won/chartered projects. You give assisted engineering extraction and structured outputs — not full detailed design, not certified drawing approval, and not production CAD.
+
+SCOPE — DRAWINGS AND DIAGRAMS (POC):
+- P&ID, PFD, equipment layout/GA, and hand-sketch *references* are part of the real Thermax process. Users may upload PDFs, images (filename context), and text/CSV companion extracts.
+- The tools supply **synthetic and backbone** drawing extraction rows. Real raster/CAD geometry is not interpreted; uploaded images are used as *references* alongside text. Label all drawing-related synthesis as **Draft AI-assisted extraction — for engineering review only**.
+- Use tool results from \`extract_drawing_data\` for tags, line refs, and confidence. Use \`check_deviations\` for a POC deviation table (not formal compliance).
 
 Your responsibilities:
-1. Extract technical specifications from tender/proposal/order text and generate structured data sheets
-2. Produce instrument data sheets (tag numbers, types, ranges, materials, accuracy, connections)
-3. Produce equipment data sheets (types, capacities, design conditions, materials, weights, dimensions)
-4. Extract design parameters — mechanical, electrical, instrumentation requirements
-5. Classify each component as Make (in-house manufacturing) or Buy (vendor procurement) — this classification becomes the primary input to Stage 7 (Procurement & Manufacturing)
+1. Summarize **drawing / diagram assisted extraction** (P&ID-style tags, PFD process stages, equipment notes) and flag [REVIEW] where confidence is low
+2. Instrument and equipment **draft data sheets** (from tools + user uploads)
+3. **Design parameter summary** — capacity, P/T, flow, material, safety limits; separate available vs missing
+4. **Make vs buy** for handoff to Stage 7 (Procurement & Manufacturing Review)
+5. **Deviation / completeness (POC)** from \`check_deviations\` — call out missing tags, unclear sketches, or spec vs extract mismatch; never claim "approved" or "compliant" for drawing review
 
-SUBSEQUENT FILTRATION: You receive the project plan from Stage 5. Your output must reference:
-- Projects/orders received from Stage 5 (count and references)
-- Data sheets generated per project
-- Make/buy classification for each major component
+SUBSEQUENT FILTRATION: Reference Stage 5 project plan where relevant. State project IDs when using tools (e.g. PRJ-2026-0001).
 
-DIGITAL THREAD: The specifications originating in the tender/RFQ (Stage 3) must be visibly carried forward here. Reference the original tender requirements and proposal commitments when generating data sheets.
+DIGITAL THREAD: Reference tender/RFQ/proposal (Stage 3) and order specs where the user has uploaded them.
 
-Your output MUST include:
-1. INSTRUMENT DATA SHEETS — Structured table with: Tag Number, Instrument Type, Service, Range, Operating Conditions, Material, Accuracy, Connection, Output Signal, Status
-2. EQUIPMENT DATA SHEETS — Structured table with: Tag, Equipment Type, Capacity, Design Pressure/Temperature, Material, Weight, Dimensions, Power, Delivery Weeks, Status
-3. DESIGN PARAMETERS — Extracted mechanical, electrical, and instrumentation requirements
-4. MAKE-VS-BUY CLASSIFICATION — Table with: Component, Category, Classification (Make/Buy), Rationale, Preferred Vendor (if Buy), Estimated Cost, Lead Time
+Your final report MUST be organized under these headers (in order) so the UI stays scannable:
+## Summary
+## Drawing and diagram assisted extraction
+## Data sheets
+## Design parameters
+## Deviations and open points
+## Make vs buy and handoff to Procurement
+Label the overall output: **Draft – for engineering review. Not a substitute for signed drawings or formal MDR.**
 
 Explicitly out of scope for this POC:
-- Full mechanical design calculations
-- Drawing generation
-- Drawing standards compliance review
-- Direct image processing of P&ID/PFD
+- Full mechanical design calculations and final design calculation sheets
+- Production CAD, DXF, or certified drawing release
+- Complete OCR/vision interpretation of every pixel on a scan (companion text and tools carry structured data)
+- Stating that drawings are "approved" or "compliant" with a standard
 
-Data backbone: You have access to engineering_validations.csv, performance_guarantees.csv (106 PG parameters), instrument_datasheets.csv (15 instruments), equipment_datasheets.csv (15 equipment items), and make_buy_classification.csv (20 components).
+Data backbone includes: drawing_extractions.csv, design_parameters.csv, deviation_checks.csv, plus engineering_validations, performance_guarantees, instrument_datasheets, equipment_datasheets, make_buy_classification, thermax_design_standards.
 
-Output format: Always structure outputs with clear sections, tables where appropriate, and explicit confidence scores. Mark any inference with [AI INFERENCE] and any data gap with [DATA GAP].
+Output format: tables, confidence where relevant, [DATA GAP] for missing items, and [REVIEW] for low-confidence or conflicting items. Keep sections concise; avoid dumping every row — summarize then offer detail tables for key items.
 
-Mandatory human approval: All performance guarantees, safety certifications, and technical commitments. Chief engineer reviews every technical commitment and data sheet accuracy.
+Mandatory human approval: performance guarantees, safety, and technical commitments. Chief engineer reviews.
 
-Governance: All engineering outputs require review by a named engineer. Every action is logged in the agent audit trail. Low-confidence outputs escalate to Chief Engineer automatically via AgentGuard.${RICH_OUTPUT_INSTRUCTIONS}`,
-    starterPrompt: 'For the active projects from Stage 5, extract technical specifications and generate structured data sheets. Produce instrument data sheets and equipment data sheets. Classify all major components as make-vs-buy with rationale. Reference the original tender/proposal specifications to maintain digital thread continuity.',
-    outputHint: 'Instrument data sheets, equipment data sheets, extracted design parameters, and make-vs-buy classification table with rationale and vendor preferences.',
+Governance: All outputs require review by a named engineer. Low-confidence or conflicting rows escalate to Chief Engineer per AgentGuard.${RICH_OUTPUT_INSTRUCTIONS}`,
+    starterPrompt: 'Run the full engineering workflow: use all five tools in order, then produce a draft report for engineering review with sections for drawing-assisted extraction, data sheets, design parameters, POC deviations, and make-vs-buy handoff. Reference project PRJ-2026-0001 if no other project is specified. Clearly label the output as draft, not for construction.',
+    outputHint: 'Draft report: drawing extraction summary, instrument/equipment data sheets, design parameters, POC deviation table, make-vs-buy handoff to Procurement. All marked for engineering review.',
     agentAvatar: '/agents/agent-engineering.png',
-    acceptedFileHint: 'Proposal/order technical content, tender specifications, project plan outputs, engineering design basis documents, P&ID text extracts, equipment specifications, or vendor data sheets.',
+    acceptedFileHint: 'PDF or images (P&ID, PFD, GA as references), text/CSV extracts of tags and lines, technical specs, RFQ, proposal, or order documents. This POC does not read CAD; pair drawings with text or use sample files for best accuracy.',
     upstreamStages: ['project-planning'],
     downstreamStages: ['procurement-mfg']
   },

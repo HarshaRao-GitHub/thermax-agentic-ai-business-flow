@@ -37,3 +37,6 @@ data/custom-agents/
 .vscode/
 *.swp
 *.swo
+
+# TypeScript incremental
+tsconfig.tsbuildinfo

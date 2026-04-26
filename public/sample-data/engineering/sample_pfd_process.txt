@@ -1,0 +1,29 @@
+===============================================================================
+SYNTHETIC PFD (PROCESS FLOW) — TEXT EXTRACT  |  POC / DEMO DATA ONLY
+Drawing ref: DRG-PFD-WT-001 | Project: PRJ-2026-0001
+===============================================================================
+
+STAGE 1 — FEED
+- Inlet: DM permeate 200 m3/hr (from upstream DM-RO chain, synthetic label)
+- Conditions (nominal): low TDS, pH 6.5-7.0 (from upstream — verify)
+
+STAGE 2 — REMINERALIZATION
+- LSF (lime stone contactor) — effluent to chemical polish / outlet
+- CO2 for pH and dissolution control (dosing concept on PFD)
+- Na2CO3 / NaHCO3 dosing to meeting alkalinity spec (dosing blocks)
+
+STAGE 3 — OUTLET
+- Product: target conductivity less than 50 uS/cm at 25C (per customer data sheet)
+- To export header / break tank (scope dependent)
+
+KEY PROCESS PARAMETERS (visible on PFD)
+- Flow: 200 m3/hr (design on block)
+- Temperature: 25 to 40 C (operating range note — synthetic)
+- Pressure: atmospheric to 3.5 bar_g on LSF (refer detail)
+
+NOTES ON DRAWING
+- "TBD" on CO2 mass balance — to be finalised in detailed design
+- Arrows: flow direction to north on sheet (layout not to scale)
+
+End of synthetic PFD text extract
+===============================================================================

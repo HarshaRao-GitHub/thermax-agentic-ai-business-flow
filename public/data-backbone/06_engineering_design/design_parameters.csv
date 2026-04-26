@@ -1,0 +1,8 @@
+param_id,project_id,parameter,unit,design_value,operating_value,source_ref,status,remarks
+DP-001,PRJ-2026-0001,Capacity,m3_hr,200,198 max continuous,Data sheet 630414,OK,
+DP-002,PRJ-2026-0001,LSF design pressure,bar_g,3.5,3.2,P_and_ID L-201a,OK,
+DP-003,PRJ-2026-0001,LSF design temperature,deg_C,50,40 to 45,GA LSF,OK,
+DP-004,PRJ-2026-0001,Product conductivity,uS_cm,50 at 25C,Target less than 50,Customer spec,REVIEW,Analyzer span to be confirmed
+DP-005,PRJ-2026-0001,CO2 dosing,kg_hr,45 nominal,TBD on load,PFD,MISSING,Finalize with process
+DP-006,PRJ-2026-0001,Na2CO3 storage,tank,2x 25 m3,1 duty 1 stand by,P and ID,OK,
+DP-007,PRJ-2026-0002,Steam design pressure,bar_g,40,35 operating,Order tech spec,OK,
