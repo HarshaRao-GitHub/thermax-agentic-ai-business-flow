@@ -20,6 +20,8 @@ interface UsageStats {
   response_time_s?: number; estimated_cost_usd?: number;
 }
 
+interface DataViewerState { open: boolean; title: string; content: string; loading: boolean; pdfUrl?: string; }
+
 export default function DocIntelligenceHub() {
   const [selectedDept, setSelectedDept] = useState(DEPARTMENTS[0].id);
   const [selectedOp, setSelectedOp] = useState<string>(OPERATIONS[0].id);
@@ -33,6 +35,7 @@ export default function DocIntelligenceHub() {
   const [elapsedTimer, setElapsedTimer] = useState(0);
   const [mode, setMode] = useState<'live' | null>(null);
   const [uploadError, setUploadError] = useState<string | null>(null);
+  const [dataViewer, setDataViewer] = useState<DataViewerState>({ open: false, title: '', content: '', loading: false });
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const streamRef = useRef<HTMLDivElement>(null);
@@ -69,6 +72,38 @@ export default function DocIntelligenceHub() {
       setLoadingSampleFiles(prev => { const n = new Set(prev); n.delete(sf.filename); return n; });
     }
   }, [uploadedFiles]);
+
+  async function viewSampleFile(sf: SampleFile) {
+    setDataViewer({ open: true, title: sf.label, content: '', loading: true });
+    try {
+      const res = await fetch(sf.path);
+      if (!res.ok) throw new Error('Failed to fetch');
+      const text = await res.text();
+      const lines = text.split(/\r?\n/).filter(l => l.trim());
+      if (lines.length > 0 && sf.filename.endsWith('.csv')) {
+        const parseLine = (line: string) => {
+          const fields: string[] = []; let cur = ''; let inQ = false;
+          for (let i = 0; i < line.length; i++) {
+            const ch = line[i];
+            if (ch === '"') { if (inQ && line[i+1] === '"') { cur += '"'; i++; } else inQ = !inQ; }
+            else if (ch === ',' && !inQ) { fields.push(cur.trim()); cur = ''; }
+            else cur += ch;
+          }
+          fields.push(cur.trim()); return fields;
+        };
+        const headers = parseLine(lines[0]);
+        const dataRows = lines.slice(1).map(l => parseLine(l));
+        const header = headers.join(' | ');
+        const sep = headers.map(() => '---').join(' | ');
+        const rowLines = dataRows.map(r => headers.map((_, i) => (r[i] ?? '').replace(/\n/g, ' ')).join(' | '));
+        setDataViewer({ open: true, title: `${sf.label} (${sf.filename}) — ${dataRows.length} rows`, content: `| ${header} |\n| ${sep} |\n${rowLines.map(r => `| ${r} |`).join('\n')}`, loading: false });
+      } else {
+        setDataViewer({ open: true, title: `${sf.label} (${sf.filename})`, content: text, loading: false });
+      }
+    } catch {
+      setDataViewer(prev => ({ ...prev, content: 'Error: Could not load this file.', loading: false }));
+    }
+  }
 
   const MAX_UPLOAD_FILES = 5;
   const MAX_UPLOAD_SIZE_MB = 30;
@@ -221,6 +256,78 @@ export default function DocIntelligenceHub() {
   return (
     <div className="min-h-screen bg-white text-gray-900">
 
+      {/* ── Data Viewer Modal ── */}
+      {dataViewer.open && (
+        <div className="fixed inset-0 z-50 flex items-stretch bg-black/50 backdrop-blur-sm p-3 sm:p-5" onClick={() => setDataViewer({ open: false, title: '', content: '', loading: false })}>
+          <div className="bg-white rounded-xl shadow-2xl w-full h-full flex flex-col" onClick={e => e.stopPropagation()}>
+            <div className="flex items-center justify-between px-5 py-3 border-b border-gray-200 bg-slate-50 rounded-t-xl shrink-0">
+              <div className="flex items-center gap-2 min-w-0">
+                <span className="text-lg shrink-0">{dataViewer.pdfUrl ? '📄' : '📊'}</span>
+                <h3 className="font-bold text-gray-900 text-[14px] truncate">{dataViewer.title}</h3>
+                <span className="text-[10px] font-mono text-gray-500 bg-white px-2 py-0.5 rounded border border-gray-200 shrink-0">VIEW ONLY</span>
+              </div>
+              <button onClick={() => setDataViewer({ open: false, title: '', content: '', loading: false })}
+                className="text-gray-500 hover:text-gray-900 text-xl font-bold px-2 shrink-0">✕</button>
+            </div>
+            <div className="flex-1 min-h-0 overflow-hidden" style={{ minHeight: 0 }}>
+              {dataViewer.loading ? (
+                <div className="flex items-center justify-center h-40 text-gray-500">
+                  <span className="animate-spin mr-2">⏳</span> Loading data...
+                </div>
+              ) : dataViewer.pdfUrl ? (
+                <iframe
+                  src={dataViewer.pdfUrl}
+                  className="w-full border-0"
+                  style={{ height: '100%' }}
+                  title={dataViewer.title}
+                />
+              ) : dataViewer.content.startsWith('|') ? (
+                <div className="h-full overflow-x-auto overflow-y-auto">
+                  <table className="border-collapse text-[12px]">
+                    {(() => {
+                      const rows = dataViewer.content.split('\n').filter(r => r.trim() && !r.match(/^\|\s*-+/));
+                      const cells = rows.map(r => r.split('|').filter(c => c !== '').map(c => c.trim()));
+                      return (
+                        <>
+                          {cells.length > 0 && (
+                            <thead className="bg-[#0f1b3d] text-white sticky top-0 z-10">
+                              <tr>{cells[0].map((h, i) => <th key={i} className="px-3 py-2 text-left font-semibold whitespace-nowrap border-r border-white/20">{h}</th>)}</tr>
+                            </thead>
+                          )}
+                          <tbody>
+                            {cells.slice(1).map((row, ri) => (
+                              <tr key={ri} className={ri % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
+                                {row.map((cell, ci) => <td key={ci} className="px-3 py-1.5 border-r border-b border-gray-200 whitespace-nowrap" title={cell}>{cell}</td>)}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </>
+                      );
+                    })()}
+                  </table>
+                </div>
+              ) : (
+                <div className="h-full overflow-y-auto overflow-x-auto p-5">
+                  <pre className="text-[13px] font-mono text-gray-800 bg-slate-50 rounded-lg p-5 whitespace-pre-wrap leading-relaxed min-h-full">{dataViewer.content}</pre>
+                </div>
+              )}
+            </div>
+            <div className="px-5 py-3 border-t border-gray-200 bg-slate-50 rounded-b-xl flex justify-end shrink-0">
+              {!dataViewer.pdfUrl && (
+                <button onClick={() => { try { navigator.clipboard.writeText(dataViewer.content); } catch { /* */ } }}
+                  className="text-[11px] font-semibold text-gray-700 hover:text-blue-700 px-3 py-1.5 border border-gray-300 rounded-md hover:bg-white mr-2">
+                  📋 Copy
+                </button>
+              )}
+              <button onClick={() => setDataViewer({ open: false, title: '', content: '', loading: false })}
+                className="text-[11px] font-semibold bg-[#0f1b3d] text-white px-4 py-1.5 rounded-md hover:bg-[#1a2d5e]">
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* ── Hero Header ── */}
       <section className="bg-gradient-to-r from-[#0f1b3d] to-[#162450] border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6 py-5">
@@ -285,22 +392,36 @@ export default function DocIntelligenceHub() {
                     const loaded = uploadedFiles.some(f => f.filename === sf.filename);
                     const loading = loadingSampleFiles.has(sf.filename);
                     return (
-                      <button
-                        key={sf.filename}
-                        onClick={() => !loaded && !loading && loadSampleFile(sf)}
-                        disabled={loaded || loading}
-                        title={sf.description}
-                        className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold border transition-all ${
-                          loaded
-                            ? 'bg-emerald-50 border-emerald-300 text-emerald-800'
-                            : loading
-                              ? 'bg-amber-50 border-amber-300 text-amber-800 animate-pulse'
-                              : 'bg-gray-50 border-gray-250 text-gray-700 hover:bg-blue-50 hover:border-blue-300 hover:text-blue-800 cursor-pointer shadow-sm hover:shadow'
-                        }`}
-                      >
-                        <span>{loaded ? '✅' : loading ? '⏳' : '📄'}</span>
-                        {sf.label}
-                      </button>
+                      <div key={sf.filename} className={`inline-flex items-center gap-0 rounded-lg border transition-all ${
+                        loaded
+                          ? 'bg-emerald-50 border-emerald-300'
+                          : loading
+                            ? 'bg-amber-50 border-amber-300 animate-pulse'
+                            : 'bg-gray-50 border-gray-250 shadow-sm hover:shadow'
+                      }`}>
+                        <button
+                          onClick={() => !loaded && !loading && loadSampleFile(sf)}
+                          disabled={loaded || loading}
+                          title={sf.description}
+                          className={`inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold transition-all rounded-l-lg ${
+                            loaded
+                              ? 'text-emerald-800 cursor-default'
+                              : loading
+                                ? 'text-amber-800'
+                                : 'text-gray-700 hover:bg-blue-50 hover:text-blue-800 cursor-pointer'
+                          }`}
+                        >
+                          <span>{loaded ? '✅' : loading ? '⏳' : '📄'}</span>
+                          {sf.label}
+                        </button>
+                        <button
+                          onClick={() => viewSampleFile(sf)}
+                          title={`View ${sf.label}`}
+                          className="px-2 py-2 text-[10px] font-bold text-blue-600 hover:text-blue-800 hover:bg-blue-50 border-l border-gray-200 rounded-r-lg transition"
+                        >
+                          👁
+                        </button>
+                      </div>
                     );
                   })}
                 </div>

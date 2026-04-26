@@ -47,6 +47,10 @@ export default function TenderIntelligenceTool() {
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
   const [expandedChat, setExpandedChat] = useState<Set<number>>(new Set());
   const [loadingSample, setLoadingSample] = useState<string | null>(null);
+  const [viewerOpen, setViewerOpen] = useState(false);
+  const [viewerTitle, setViewerTitle] = useState('');
+  const [viewerContent, setViewerContent] = useState('');
+  const [viewerLoading, setViewerLoading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const chatRef = useRef<HTMLDivElement>(null);
   const extractProgressRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -73,6 +77,45 @@ export default function TenderIntelligenceTool() {
       setChatMessages([]);
     } catch { /* ignore */ }
     setLoadingSample(null);
+  }
+
+  async function viewSampleTender(tenderId: string) {
+    const tender = SAMPLE_TENDERS.find(t => t.id === tenderId);
+    if (!tender) return;
+    setViewerOpen(true);
+    setViewerTitle(tender.name);
+    setViewerContent('');
+    setViewerLoading(true);
+    try {
+      const res = await fetch(tender.file);
+      if (!res.ok) throw new Error('Failed to fetch');
+      const text = await res.text();
+      const lines = text.split(/\r?\n/).filter(l => l.trim());
+      if (lines.length > 0 && tender.file.endsWith('.csv')) {
+        const parseLine = (line: string) => {
+          const fields: string[] = []; let cur = ''; let inQ = false;
+          for (let i = 0; i < line.length; i++) {
+            const ch = line[i];
+            if (ch === '"') { if (inQ && line[i+1] === '"') { cur += '"'; i++; } else inQ = !inQ; }
+            else if (ch === ',' && !inQ) { fields.push(cur.trim()); cur = ''; }
+            else cur += ch;
+          }
+          fields.push(cur.trim()); return fields;
+        };
+        const headers = parseLine(lines[0]);
+        const dataRows = lines.slice(1).map(l => parseLine(l));
+        const header = headers.join(' | ');
+        const sep = headers.map(() => '---').join(' | ');
+        const rowLines = dataRows.map(r => headers.map((_, i) => (r[i] ?? '').replace(/\n/g, ' ')).join(' | '));
+        setViewerTitle(`${tender.name} — ${dataRows.length} rows`);
+        setViewerContent(`| ${header} |\n| ${sep} |\n${rowLines.map(r => `| ${r} |`).join('\n')}`);
+      } else {
+        setViewerContent(text);
+      }
+    } catch {
+      setViewerContent('Error: Could not load this file.');
+    }
+    setViewerLoading(false);
   }
 
   async function handleFileUpload(e: React.ChangeEvent<HTMLInputElement>) {
@@ -273,6 +316,68 @@ export default function TenderIntelligenceTool() {
 
   return (
     <div className="max-w-[1600px] mx-auto">
+      {/* ── Document Viewer Modal ── */}
+      {viewerOpen && (
+        <div className="fixed inset-0 z-50 flex items-stretch bg-black/50 backdrop-blur-sm p-3 sm:p-5" onClick={() => setViewerOpen(false)}>
+          <div className="bg-white rounded-xl shadow-2xl w-full h-full flex flex-col" onClick={e => e.stopPropagation()}>
+            <div className="flex items-center justify-between px-5 py-3 border-b border-gray-200 bg-violet-50 rounded-t-xl shrink-0">
+              <div className="flex items-center gap-2 min-w-0">
+                <span className="text-lg shrink-0">📋</span>
+                <h3 className="font-bold text-gray-900 text-[14px] truncate">{viewerTitle}</h3>
+                <span className="text-[10px] font-mono text-violet-600 bg-white px-2 py-0.5 rounded border border-violet-200 shrink-0">VIEW ONLY</span>
+              </div>
+              <button onClick={() => setViewerOpen(false)} className="text-gray-500 hover:text-gray-900 text-xl font-bold px-2 shrink-0">✕</button>
+            </div>
+            <div className="flex-1 min-h-0 overflow-hidden" style={{ minHeight: 0 }}>
+              {viewerLoading ? (
+                <div className="flex items-center justify-center h-40 text-gray-500">
+                  <span className="animate-spin mr-2">⏳</span> Loading document...
+                </div>
+              ) : viewerContent.startsWith('|') ? (
+                <div className="h-full overflow-x-auto overflow-y-auto">
+                  <table className="border-collapse text-[12px]">
+                    {(() => {
+                      const rows = viewerContent.split('\n').filter(r => r.trim() && !r.match(/^\|\s*-+/));
+                      const cells = rows.map(r => r.split('|').filter(c => c !== '').map(c => c.trim()));
+                      return (
+                        <>
+                          {cells.length > 0 && (
+                            <thead className="bg-violet-600 text-white sticky top-0 z-10">
+                              <tr>{cells[0].map((h, i) => <th key={i} className="px-3 py-2 text-left font-semibold whitespace-nowrap border-r border-violet-400">{h}</th>)}</tr>
+                            </thead>
+                          )}
+                          <tbody>
+                            {cells.slice(1).map((row, ri) => (
+                              <tr key={ri} className={ri % 2 === 0 ? 'bg-white' : 'bg-violet-50/30'}>
+                                {row.map((cell, ci) => <td key={ci} className="px-3 py-1.5 border-r border-b border-gray-200 whitespace-nowrap" title={cell}>{cell}</td>)}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </>
+                      );
+                    })()}
+                  </table>
+                </div>
+              ) : (
+                <div className="h-full overflow-y-auto overflow-x-auto p-5">
+                  <pre className="text-[13px] font-mono text-gray-800 bg-slate-50 rounded-lg p-5 whitespace-pre-wrap leading-relaxed min-h-full">{viewerContent}</pre>
+                </div>
+              )}
+            </div>
+            <div className="px-5 py-3 border-t border-gray-200 bg-violet-50 rounded-b-xl flex justify-end shrink-0">
+              <button onClick={() => { try { navigator.clipboard.writeText(viewerContent); } catch { /* */ } }}
+                className="text-[11px] font-semibold text-gray-700 hover:text-violet-700 px-3 py-1.5 border border-gray-300 rounded-md hover:bg-white mr-2">
+                📋 Copy
+              </button>
+              <button onClick={() => setViewerOpen(false)}
+                className="text-[11px] font-semibold bg-violet-600 text-white px-4 py-1.5 rounded-md hover:bg-violet-700">
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Header */}
       <div className="bg-white border border-thermax-line rounded-xl shadow-card mb-4 overflow-hidden">
         <div className="bg-gradient-to-r from-violet-600 to-purple-500 px-6 py-4">
@@ -326,15 +431,24 @@ export default function TenderIntelligenceTool() {
                 <div className="text-[11px] font-bold text-thermax-navy mb-2">Or Load Sample Tender:</div>
                 <div className="space-y-1.5">
                   {SAMPLE_TENDERS.map(st => (
-                    <button key={st.id} onClick={() => loadSampleTender(st.id)} disabled={loadingSample === st.id}
-                      className="w-full text-left px-3 py-2.5 border border-thermax-line rounded-lg hover:bg-violet-50 hover:border-violet-200 transition flex items-center gap-2 disabled:opacity-50">
-                      <span className="text-lg">{DIVISION_TEMPLATES.find(d => d.id === st.division)?.icon}</span>
-                      <div className="flex-1 min-w-0">
-                        <div className="text-[11px] font-semibold text-thermax-navy truncate">{st.name}</div>
-                        <div className="text-[10px] text-thermax-slate">{st.pages} pages | {st.division.replace('-', ' ')}</div>
-                      </div>
-                      {loadingSample === st.id && <span className="text-[10px] text-violet-600 animate-pulse">Loading...</span>}
-                    </button>
+                    <div key={st.id} className="flex items-center gap-0 border border-thermax-line rounded-lg hover:border-violet-200 transition overflow-hidden">
+                      <button onClick={() => loadSampleTender(st.id)} disabled={loadingSample === st.id}
+                        className="flex-1 text-left px-3 py-2.5 hover:bg-violet-50 transition flex items-center gap-2 disabled:opacity-50 min-w-0">
+                        <span className="text-lg shrink-0">{DIVISION_TEMPLATES.find(d => d.id === st.division)?.icon}</span>
+                        <div className="flex-1 min-w-0">
+                          <div className="text-[11px] font-semibold text-thermax-navy truncate">{st.name}</div>
+                          <div className="text-[10px] text-thermax-slate">{st.pages} pages | {st.division.replace('-', ' ')}</div>
+                        </div>
+                        {loadingSample === st.id && <span className="text-[10px] text-violet-600 animate-pulse shrink-0">Loading...</span>}
+                      </button>
+                      <button
+                        onClick={() => viewSampleTender(st.id)}
+                        title={`View ${st.name}`}
+                        className="px-3 py-2.5 text-[10px] font-bold text-blue-600 hover:text-blue-800 hover:bg-blue-50 border-l border-thermax-line transition shrink-0 self-stretch flex items-center"
+                      >
+                        👁 View
+                      </button>
+                    </div>
                   ))}
                 </div>
               </div>
