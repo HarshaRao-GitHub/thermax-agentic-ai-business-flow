@@ -92,6 +92,26 @@ const apps = [
     badge: 'AGENTIC DOCUMENT AI',
     techPills: ['Gen-AI / LLM', 'Document AI', 'Agentic Extraction'],
   },
+  {
+    id: 'engineering-design',
+    title: 'Agentic Engineering Design Assistants',
+    subtitle: '6-Agent Pipeline + Thermax Calculation Engines',
+    description: 'Autonomously generate, evaluate, and iterate equipment configurations for boilers, WHR, water treatment, and APC — reducing proposal engineering from weeks to hours with a 6-agent design pipeline.',
+    icon: '⚙️',
+    href: '/ai-nexus/engineering-design',
+    features: [
+      '6-agent pipeline: Parse, Size, Configure, Comply, Cost, Propose',
+      'Thermodynamic sizing with heat/mass balance calculations',
+      'IBR, ASME, NFPA, CPCB compliance validation',
+      'Auto BOM generation with market pricing',
+      'Make-vs-buy analysis with vendor matching',
+      'Full proposal document assembly in minutes',
+    ],
+    stats: { agents: '6', equipment: '7', reduction: '~90%', standards: '10' },
+    gradient: 'from-indigo-600 to-blue-500',
+    badge: 'AGENTIC DESIGN AI',
+    techPills: ['Gen-AI / LLM', 'Agentic Pipeline', 'Thermax Calc Engine'],
+  },
 ];
 
 const comingSoon = [
@@ -248,7 +268,7 @@ export default function AINexusPage() {
           <h2 className="text-[14px] font-bold text-thermax-navy uppercase tracking-wider">Live Applications</h2>
           <p className="text-[11px] text-thermax-slate mt-1">Production-ready AI applications &mdash; click to launch</p>
         </div>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-3 gap-5">
           {apps.map((app) => (
             <Link key={app.id} href={app.href} className="group block">
               <div className="bg-white border border-thermax-line rounded-2xl shadow-card overflow-hidden hover:shadow-lg transition-all duration-300 group-hover:-translate-y-1 h-full flex flex-col">
