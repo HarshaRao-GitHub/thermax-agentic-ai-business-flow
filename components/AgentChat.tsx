@@ -317,8 +317,8 @@ export default function AgentChat({
     if (timerRef.current) { clearInterval(timerRef.current); timerRef.current = null; }
   }
 
-  const MAX_UPLOAD_FILES = 2;
-  const MAX_UPLOAD_SIZE_MB = isEngineeringDesign ? 100 : 30;
+  const MAX_UPLOAD_FILES = 10;
+  const MAX_UPLOAD_SIZE_MB = 100;
   const fileInputAccept = isEngineeringDesign
     ? '.txt,.md,.csv,.tsv,.log,.pdf,.doc,.docx,.xls,.xlsx,.json,.xml,.png,.jpg,.jpeg,.bmp,.tiff,.tif,.webp,.gif'
     : '.txt,.md,.csv,.tsv,.log,.pdf,.doc,.docx,.xls,.xlsx,.json,.xml';

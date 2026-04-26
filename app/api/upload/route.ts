@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 export const runtime = 'nodejs';
 
 const MAX_SIZE_BYTES = 100 * 1024 * 1024; // 100 MB
-const MAX_TEXT_CHARS = 2_000_000;
+const MAX_TEXT_CHARS = 10_000_000;
 const MAX_FILES = 10;
 const RASTER_IMAGE_EXTENSIONS = ['.png', '.jpg', '.jpeg', '.bmp', '.tiff', '.tif', '.webp', '.gif'];
 const ALLOWED_EXTENSIONS = [

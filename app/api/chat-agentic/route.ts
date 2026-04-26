@@ -217,7 +217,7 @@ If SOME files are relevant and others are not, process the relevant ones and dis
           const stream = await callWithRetry(
             () => client.messages.create({
               model,
-              max_tokens: 32768,
+              max_tokens: 128000,
               system: systemPrompt,
               tools: slugTools,
               messages: conversationMessages,

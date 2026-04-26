@@ -105,8 +105,8 @@ export default function DocIntelligenceHub() {
     }
   }
 
-  const MAX_UPLOAD_FILES = 5;
-  const MAX_UPLOAD_SIZE_MB = 30;
+  const MAX_UPLOAD_FILES = 10;
+  const MAX_UPLOAD_SIZE_MB = 100;
 
   async function handleUpload(e: React.ChangeEvent<HTMLInputElement>) {
     const files = e.target.files;

@@ -53,7 +53,7 @@ export async function POST(req: NextRequest) {
 
     const response = await callWithRetry(() => client.messages.create({
       model,
-      max_tokens: 4096,
+      max_tokens: 128000,
       system: `You are a prompt validator. Your ONLY job is to determine if a user-provided custom prompt is relevant to a specific AI agent's domain and use case.
 
 Agent: ${agentName}

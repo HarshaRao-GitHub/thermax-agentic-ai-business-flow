@@ -111,7 +111,7 @@ export async function POST(req: NextRequest) {
           () =>
             client.messages.create({
               model,
-              max_tokens: 32768,
+              max_tokens: 128000,
               system: systemWithWeb,
               messages: conversationMessages,
               stream: true,
