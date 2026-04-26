@@ -251,29 +251,43 @@ export default function EngineeringDesignAssistant() {
               <h2 className="text-[14px] font-bold text-thermax-navy uppercase tracking-wider mb-3">
                 6-Agent Design Pipeline
               </h2>
-              <div className="grid md:grid-cols-6 gap-3">
-                {AGENT_ROLES.map((agent, i) => (
-                  <div key={agent.id} className="flex items-center">
-                    <AgentCard
-                      agent={agent}
-                      isActive={activeAgent === i}
-                      isComplete={simStage === 'complete' || (simStage === 'running' && i < activeAgent)}
-                    />
-                    {i < AGENT_ROLES.length - 1 && (
-                      <div className="hidden md:flex items-center px-1">
-                        <span className="text-gray-300 text-[14px]">&#8594;</span>
-                      </div>
-                    )}
-                  </div>
+              {/* Row 1: Agents 1-3 */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                {AGENT_ROLES.slice(0, 3).map((agent, i) => (
+                  <AgentCard
+                    key={agent.id}
+                    agent={agent}
+                    isActive={activeAgent === i}
+                    isComplete={simStage === 'complete' || (simStage === 'running' && i < activeAgent)}
+                  />
                 ))}
               </div>
-              <div className="flex items-center gap-3 mt-3">
-                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-dashed border-emerald-300 bg-emerald-50">
+              {/* Flow arrow between rows */}
+              <div className="flex justify-center mb-4">
+                <span className="text-gray-300 text-xl">&#8595;</span>
+              </div>
+              {/* Row 2: Agents 4-6 */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                {AGENT_ROLES.slice(3, 6).map((agent, i) => (
+                  <AgentCard
+                    key={agent.id}
+                    agent={agent}
+                    isActive={activeAgent === i + 3}
+                    isComplete={simStage === 'complete' || (simStage === 'running' && i + 3 < activeAgent)}
+                  />
+                ))}
+              </div>
+              {/* Flow arrow to human review */}
+              <div className="flex justify-center mb-4">
+                <span className="text-gray-300 text-xl">&#8595;</span>
+              </div>
+              <div className="flex items-center justify-center gap-4">
+                <div className="flex items-center gap-1.5 px-4 py-2 rounded-lg border border-dashed border-emerald-300 bg-emerald-50">
                   <span className="text-sm">👤</span>
                   <span className="text-[11px] font-semibold text-emerald-700">Human Expert Review</span>
                 </div>
-                <span className="text-gray-300">&#8594;</span>
-                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-emerald-400 bg-emerald-100">
+                <span className="text-gray-300 text-lg">&#8594;</span>
+                <div className="flex items-center gap-1.5 px-4 py-2 rounded-lg border border-emerald-400 bg-emerald-100">
                   <span className="text-sm">✅</span>
                   <span className="text-[11px] font-semibold text-emerald-800">Final Proposal</span>
                 </div>
@@ -485,29 +499,22 @@ export default function EngineeringDesignAssistant() {
               </div>
 
               {/* Pipeline visual */}
-              <div className="flex items-center gap-2 mb-4 overflow-x-auto pb-2">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-4">
                 {AGENT_ROLES.map((agent, i) => (
-                  <div key={agent.id} className="flex items-center">
-                    <div
-                      className={`px-3 py-2 rounded-lg text-[10px] font-semibold whitespace-nowrap transition-all duration-500 ${
-                        activeAgent === i
-                          ? 'bg-thermax-saffron text-white scale-105 shadow-md'
-                          : simStage === 'complete' || (simStage === 'running' && i < activeAgent)
-                          ? 'bg-emerald-100 text-emerald-700'
-                          : 'bg-gray-100 text-gray-500'
-                      }`}
-                    >
-                      {agent.icon} {agent.name.split(' ')[0]}
-                    </div>
-                    {i < AGENT_ROLES.length - 1 && (
-                      <span className={`mx-1 text-[12px] ${
-                        simStage === 'running' && i < activeAgent ? 'text-emerald-500' : 'text-gray-300'
-                      }`}>&#8594;</span>
-                    )}
+                  <div
+                    key={agent.id}
+                    className={`px-3 py-2 rounded-lg text-[10px] font-semibold text-center transition-all duration-500 ${
+                      activeAgent === i
+                        ? 'bg-thermax-saffron text-white scale-105 shadow-md'
+                        : simStage === 'complete' || (simStage === 'running' && i < activeAgent)
+                        ? 'bg-emerald-100 text-emerald-700'
+                        : 'bg-gray-100 text-gray-500'
+                    }`}
+                  >
+                    {agent.icon} {agent.name.replace(' Agent', '')}
                   </div>
                 ))}
-                <span className="mx-1 text-gray-300">&#8594;</span>
-                <div className={`px-3 py-2 rounded-lg text-[10px] font-semibold whitespace-nowrap ${
+                <div className={`px-3 py-2 rounded-lg text-[10px] font-semibold text-center ${
                   simStage === 'complete' ? 'bg-emerald-500 text-white' : 'bg-gray-100 text-gray-400'
                 }`}>
                   👤 Expert Review
