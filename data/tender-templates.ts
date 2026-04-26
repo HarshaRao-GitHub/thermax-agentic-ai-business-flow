@@ -119,4 +119,11 @@ export const SAMPLE_TENDERS = [
     file: '/sample-data/ai-nexus/tenders/esp_cement_rfp.txt',
     pages: 220,
   },
+  {
+    id: 'schedule-wt-ril-1',
+    name: 'Project Schedule - 200 m3/hr DM-RO Chain at RIL HMD (904 tasks)',
+    division: 'water-treatment',
+    file: '/sample-data/presales/ril_dmro_project_schedule.txt',
+    pages: 210,
+  },
 ];

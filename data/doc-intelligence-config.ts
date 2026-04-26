@@ -421,6 +421,7 @@ export const DEPARTMENTS: Department[] = [
       { filename: 'energy_consumption_report.csv', label: 'Energy Consumption Report', description: 'Monthly energy usage — boiler efficiency, fuel consumption, steam output, specific coal consumption', path: '/sample-data/doc-intelligence/operations/energy_consumption_report.csv' },
       { filename: 'spare_parts_inventory.csv', label: 'Spare Parts Inventory', description: 'Critical spare inventory — part number, description, stock qty, reorder level, lead time, last used', path: '/sample-data/doc-intelligence/operations/spare_parts_inventory.csv' },
       { filename: 'esp_cement_rfp.txt', label: 'ESP RFP Document', description: 'Full RFP for Electrostatic Precipitator at cement plant — technical specs, process parameters, performance guarantees, O&M requirements', path: '/sample-data/ai-nexus/tenders/esp_cement_rfp.txt' },
+      { filename: 'ril_dmro_project_schedule.txt', label: 'RIL DM-RO Project Schedule', description: '904-task project schedule for 200 m3/hr DM-RO water treatment plant — engineering, procurement, erection, commissioning phases', path: '/sample-data/presales/ril_dmro_project_schedule.txt' },
     ],
   },
   {
@@ -438,6 +439,7 @@ export const DEPARTMENTS: Department[] = [
       { filename: 'material_requisition.csv', label: 'Material Requisition', description: 'Internal material requests — dept, item, qty, urgency, project code, approval status', path: '/sample-data/doc-intelligence/procurement/material_requisition.csv' },
       { filename: 'goods_receipt_notes.csv', label: 'Goods Receipt Notes', description: 'GRN register — PO ref, vendor, items received, inspection result, discrepancy, warehouse location', path: '/sample-data/doc-intelligence/procurement/goods_receipt_notes.csv' },
       { filename: 'esp_cement_rfp.txt', label: 'ESP RFP — Procurement View', description: 'ESP tender document — BOM extraction, approved sub-vendors list, material specs, delivery schedule, payment milestones for procurement analysis', path: '/sample-data/ai-nexus/tenders/esp_cement_rfp.txt' },
+      { filename: 'ril_dmro_project_schedule.txt', label: 'RIL DM-RO Schedule — Procurement', description: 'Procurement timeline for 40+ vendor packages — enquiry, ordering, manufacturing, inspection, dispatch cycles with lead times', path: '/sample-data/presales/ril_dmro_project_schedule.txt' },
     ],
   },
   {

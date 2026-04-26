@@ -1,0 +1,242 @@
+PROJECT SCHEDULE — 200 M3/HR DM-RO CHAIN AT RIL HMD
+=====================================================
+PROJECT: Installation of 200 M3/hr Demineralized Water - Reverse Osmosis (DM-RO) Chain
+CLIENT: Reliance Industries Limited (RIL)
+LOCATION: Hazira Manufacturing Division (HMD), Gujarat
+THERMAX DIVISION: Water Treatment
+TOTAL DURATION: 299 days (approximately 14 months)
+START DATE: 26 Dec 2023 (LOI Receipt)
+END DATE: 14 Feb 2025 (Commissioning Complete)
+SCHEDULE SOURCE: Microsoft Project (MPP) — 904 tasks across 21 pages
+
+=====================================================
+SECTION 1: PROJECT MILESTONES
+=====================================================
+
+ID,Task Name,Duration,Start,Finish,Predecessors
+1,Installation of 200 M3/hr DMRO Chain at HMD,299 days,26 Dec 23,14 Feb 25,
+2,Receipt of LOI/Notice to Proceed,1 day,26 Dec 23,26 Dec 23,
+3,Order Transfer Meeting (Thermax Internal),1 day,27 Dec 23,27 Dec 23,2
+4,Receipt of PO,7 days,27 Dec 23,04 Jan 24,2
+5,Kick-Off Meeting (At Site),2 days,24 Jan 24,25 Jan 24,2FS+20d
+
+=====================================================
+SECTION 2: ENGINEERING & PROCUREMENT (253 days)
+=====================================================
+
+--- 2.1 Process Engineering (59 days) ---
+ID,Task Name,Duration,Start,Finish
+8,PFD & Mass Balance — Submission,10 days,11 Jan 24,24 Jan 24
+9,PFD & Mass Balance — 1st Comments,12 days,25 Jan 24,09 Feb 24
+10,PFD & Mass Balance — Re-submission,5 days,12 Feb 24,16 Feb 24
+11,PFD & Mass Balance — Final Approval,5 days,19 Feb 24,23 Feb 24
+13,P&ID — Submission,10 days,11 Jan 24,24 Jan 24
+14,P&ID — 1st Comments,12 days,25 Jan 24,09 Feb 24
+15,P&ID — Re-submission,5 days,12 Feb 24,16 Feb 24
+16,P&ID — Final Approval,5 days,19 Feb 24,23 Feb 24
+18,Process Design Basis & Sizing Calculations — Submission,10 days,11 Jan 24,24 Jan 24
+19,Process Design Basis — 1st Comments,12 days,25 Jan 24,09 Feb 24
+20,Process Design Basis — Re-submission,5 days,12 Feb 24,16 Feb 24
+21,Process Design Basis — Final Approval,5 days,19 Feb 24,23 Feb 24
+23,Other Process Documents — Submission,10 days,19 Feb 24,01 Mar 24
+24,Other Process Documents — 1st Comments,12 days,04 Mar 24,19 Mar 24
+25,Other Process Documents — Re-submission,5 days,20 Mar 24,26 Mar 24
+26,Other Process Documents — Final Approval,5 days,27 Mar 24,02 Apr 24
+
+--- 2.2 HAZOP (16 days) ---
+28,HAZOP Conductance,1 day,26 Feb 24,26 Feb 24
+29,Release of HAZOP Report,5 days,27 Feb 24,04 Mar 24
+30,Closure of HAZOP Report,10 days,05 Mar 24,18 Mar 24
+
+--- 2.3 Projects Documentation (69 days) ---
+33,Vendor List — Submission,5 days,26 Jan 24,01 Feb 24
+37,Vendor List — Final Approval,5 days,20 Feb 24,26 Feb 24
+38,Billing Break-up For Supply — Submission,7 days,26 Feb 24,05 Mar 24
+42,Billing Break-up For Supply — Final Approval,5 days,22 Mar 24,28 Mar 24
+43,Billing Break-up For E&C — Submission,7 days,29 Mar 24,08 Apr 24
+47,Billing Break-up For E&C — Final Approval,5 days,25 Apr 24,01 May 24
+
+--- 2.4 Detail Engineering — Mechanical (138 days) ---
+49,Equipment Layout (32 days),11 Jan 24 to 23 Feb 24
+54,UF Permeate Tank Foundations (59 days),28 Feb 24 to 20 May 24
+63,Degassed Water Storage Tank Foundations (59 days),28 Feb 24 to 20 May 24
+72,Neutralization Pit (59 days),15 Mar 24 to 05 Jun 24
+81,PEB Shed (32 days),03 Apr 24 to 16 May 24
+86,Degasser Tower Platform (59 days),12 Apr 24 to 03 Jul 24
+95,Static Equipment Foundation Details (59 days),17 Apr 24 to 08 Jul 24
+104,Rotary Equipment Foundation Details (59 days),01 May 24 to 22 Jul 24
+
+--- 2.5 Mechanical Engineering & Procurement (199 days) ---
+
+EQUIPMENT,Duration,Manufacturing,Receipt at Site
+Pre-Engineered Building (PEB),141 days,110 days,02 Sep 24
+UF Permeate Storage Tank,124 days,30 days (raw material),08 Aug 24
+Degassed Water Storage Tank,124 days,30 days (raw material),08 Aug 24
+MB Vessels,91 days,60 days fabrication,04 Jul 24
+Degasser Tower,75 days,45 days fabrication,16 Jul 24
+RO Skid,72 days,40 days fabrication,18 Jul 24
+Priming Vessel,72 days,40 days fabrication,18 Jul 24
+Auto Backwash Filters,133 days,90 days manufacturing,28 Aug 24
+Basket Filters (UF & UF CIP),111 days,60 days manufacturing,30 Jul 24
+UF Modules,82 days,40 days manufacturing,18 Jun 24
+Micron Cartridge Filters (RO),100 days,45 days manufacturing,12 Jul 24
+RO Membranes,103 days,50 days manufacturing,18 Jul 24
+RO High Pressure Pumps (HPP),170 days,140 days manufacturing,21 Oct 24
+Centrifugal Pumps (Metallic),148 days,110 days manufacturing,18 Sep 24
+Centrifugal Pumps (Non-Metallic),106 days,60 days manufacturing,23 Jul 24
+Centrifugal Blowers,141 days,100 days manufacturing,09 Sep 24
+Twin-Lobe Blowers,141 days,100 days manufacturing,09 Sep 24
+Dosing Pumps,141 days,100 days manufacturing,09 Sep 24
+Agitators,141 days,100 days manufacturing,09 Sep 24
+Non-Metallic Tanks,133 days,90 days manufacturing,28 Aug 24
+Motorized Barrel Pumps,141 days,100 days manufacturing,09 Sep 24
+
+--- 2.6 Valves Procurement ---
+
+VALVE TYPE,Duration,Manufacturing,Receipt at Site
+BF Valves,156 days,120 days,23 Oct 24
+Diaphragm Valves,156 days,120 days,23 Oct 24
+Ball Valves,156 days,120 days,23 Oct 24
+Gate Valves,156 days,120 days,23 Oct 24
+Globe Valves,156 days,120 days,23 Oct 24
+Check Valves,156 days,120 days,23 Oct 24
+Non-Metallic Valves,141 days,100 days,02 Oct 24
+
+--- 2.7 Piping (199 days) ---
+506,Piping Specifications — Submission,7 days,19 Feb 24,27 Feb 24
+510,3D Piping Model — Start,20 days,26 Feb 24 to 22 Mar 24
+511,30% Model Review,2 days,25 Mar 24
+513,60% Model Review,2 days,22 May 24
+515,90% Model Review,2 days,05 Jul 24
+517,Final Model Submission,7 days,23 Jul 24 to 31 Jul 24
+518,Release of SS Piping Isometrics,7 days,07 Jun 24
+519,Release of CS/CSRL Piping Isometrics,7 days,18 Jun 24
+520,Release of Non-Metallic Piping Isometrics,7 days,27 Jun 24
+526,Piping Spool Fabrication,65 days,22 Aug 24 to 29 Oct 24
+528,Piping Receipt at Site,7 days,12 Nov 24 to 21 Nov 24
+529,Pipe Supports (75 days),08 Jul 24 to 18 Oct 24
+538,Hardware & Gaskets (51 days),25 Jun 24 to 03 Sep 24
+544,Air Grid (89 days),30 Apr 24 to 30 Aug 24
+
+--- 2.8 Electrical Engineering & Procurement (209 days) ---
+
+ITEM,Duration,Manufacturing,Receipt at Site
+LT Motors,156 days,120 days,08 Oct 24
+Earthing Material,72 days,45 days,04 Jun 24
+VFD Panel,163 days,120 days,27 Nov 24
+LCS (Local Control Station),134 days,90 days,13 Sep 24
+Power & Control Cables,148 days,100 days,26 Sep 24
+Cable Trays & Accessories,164 days,90 days,19 Nov 24
+Cable Tray Support Material,96 days,45 days,27 Nov 24
+Cable Glands (Electrical),76 days,60 days,12 Sep 24
+Lighting Material,171 days,100 days,12 Dec 24
+
+--- 2.9 Instrumentation Engineering & Procurement (246 days) ---
+
+ITEM,Duration,Manufacturing,Receipt at Site
+Pressure & DP Gauges,149 days,110 days,21 Oct 24
+Level Gauges & Float Indicators,149 days,110 days,21 Oct 24
+Transmitters,164 days,130 days,11 Nov 24
+Analyzers,164 days,130 days,11 Nov 24
+Control Valves,192 days,140 days,20 Nov 24
+PLC System,246 days,145 days,03 Dec 24
+Instrument Cables,148 days,100 days,26 Sep 24
+Junction Boxes,141 days,100 days,21 Nov 24
+SM Boxes,141 days,100 days,21 Nov 24
+Cable Glands (Instrumentation),76 days,60 days,12 Sep 24
+Instrument Hook-up Material,115 days,75 days,18 Nov 24
+
+=====================================================
+SECTION 3: CIVIL CONSTRUCTION (BY CLIENT) — 180 days
+=====================================================
+851,Completion of Civil Works,180 days,20 May 24,22 Nov 24
+
+=====================================================
+SECTION 4: ERECTION & COMMISSIONING (171 days)
+=====================================================
+
+--- 4.1 Mechanical Erection (149 days) ---
+854,Mobilization of Thermax Team to Site,7 days,21 Aug 24,29 Aug 24
+855,Mobilization of Mechanical Contractor,10 days,29 Aug 24,07 Sep 24
+856,Fabrication & Erection of UF Permeate Tank,45 days,09 Sep 24,24 Oct 24
+857,Fabrication & Erection of Degassed Water Tank,45 days,25 Oct 24,10 Dec 24
+858,Erection of PEB Shed,128 days,31 Aug 24,11 Jan 25
+866,Erection of Auto Backwash Filters,5 days,09 Sep 24,13 Sep 24
+867,Erection of Basket Filters,2 days,09 Sep 24,10 Sep 24
+868,Erection of UF Modules,20 days,09 Sep 24,28 Sep 24
+869,Erection of Micron Cartridge Filters,4 days,09 Sep 24,12 Sep 24
+870,Erection of Degasser Tower,5 days,09 Sep 24,13 Sep 24
+871,Erection of RO Skids,7 days,09 Sep 24,16 Sep 24
+872,Erection of MB Vessels,3 days,09 Sep 24,11 Sep 24
+873,Erection of Non-Metallic Tanks,5 days,28 Aug 24,03 Sep 24
+874,Erection of Pumps,25 days,21 Oct 24,15 Nov 24
+875,Erection of Blowers,10 days,09 Sep 24,19 Sep 24
+876,Erection of Agitators,10 days,09 Sep 24,19 Sep 24
+877,Erection of Dosing Pumps,10 days,09 Sep 24,19 Sep 24
+878,Erection of Pipe Supports,30 days,18 Oct 24,19 Nov 24
+879,Erection of Piping with Valves,60 days,21 Nov 24,22 Jan 25
+880,Erection of Air Grid,8 days,09 Sep 24,17 Sep 24
+
+--- 4.2 E&I Erection (67 days) ---
+882,E&I Contractor Mobilization,10 days,14 Nov 24,25 Nov 24
+883,Fabrication & Erection of Cable Tray Supports/LPBS/JB,30 days,27 Nov 24,28 Dec 24
+884,Erection of PLC Panel,4 days,03 Dec 24,07 Dec 24
+885,Erection of VFD Panel,4 days,27 Nov 24,02 Dec 24
+886,Earthing Work,30 days,25 Nov 24,26 Dec 24
+887,Installation of Cable Tray,20 days,03 Dec 24,24 Dec 24
+888,Electrical Cable Laying,10 days,24 Dec 24,02 Jan 25
+889,Instrumentation Cable Laying,7 days,24 Dec 24,31 Dec 24
+890,Glanding & Termination (Electrical),15 days,24 Dec 24,08 Jan 25
+891,Glanding & Termination (Instrument),7 days,24 Dec 24,31 Dec 24
+892,Erection of Field Instruments,10 days,07 Jan 25,17 Jan 25
+893,Erection of Plant Lighting,25 days,12 Dec 24,07 Jan 25
+894,Impulse Tubing,20 days,02 Jan 25,22 Jan 25
+895,RFSU (Ready for Start-Up),Milestone,22 Jan 25
+
+--- 4.3 Pre-Commissioning & Commissioning (22 days) ---
+897,MCC Charging (by Client),4 days,23 Jan 25,27 Jan 25
+898,No Load Trial of Equipment,7 days,23 Jan 25,30 Jan 25
+899,Flushing,7 days,30 Jan 25,06 Feb 25
+900,Load Trial of Equipment,8 days,01 Feb 25,10 Feb 25
+901,PLC Loop Checking,4 days,23 Jan 25,27 Jan 25
+902,Membrane Loading,7 days,03 Feb 25,10 Feb 25
+903,Resin Charging,4 days,06 Feb 25,10 Feb 25
+904,Commissioning,7 days,07 Feb 25,14 Feb 25
+
+=====================================================
+SECTION 5: CRITICAL PATH & KEY DEPENDENCIES
+=====================================================
+
+The critical path runs through:
+LOI → Process Engineering → Mechanical Engineering → Piping Procurement → 
+Piping Fabrication → Piping Erection → RFSU → Commissioning
+
+Longest lead items:
+1. PLC System: 246 days (longest single procurement chain)
+2. Control Valves: 192 days
+3. Piping: 199 days (including 3D model, fabrication, dispatch)
+4. BF/Diaphragm/Ball/Gate/Globe/Check Valves: 156 days each
+5. VFD Panel: 163 days
+6. RO High Pressure Pumps: 170 days
+7. Lighting Material: 171 days
+
+Document submission cycle (standard pattern):
+Submission → 1st Comments (10-12 days) → Re-submission (5 days) → Final Approval (5 days)
+Total per document: 22-27 days
+
+=====================================================
+SECTION 6: PROJECT SUMMARY METRICS
+=====================================================
+
+Total Tasks: 904
+Major Work Packages: 4 (Engineering, Procurement, Erection, Commissioning)
+Equipment Types: 21+ categories
+Valve Types: 7 categories
+Instrument Categories: 11 types
+Engineering Disciplines: Process, Mechanical, Electrical, Instrumentation, Piping
+Procurement Packages: 40+ vendor packages
+3D Model Reviews: 3 stages (30%, 60%, 90%)
+Civil Works: By client (180 days parallel track)
+Mechanical Erection: 149 days
+E&I Erection: 67 days
+Pre-commissioning & Commissioning: 22 days

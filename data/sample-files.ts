@@ -30,6 +30,7 @@ export const sampleFilesByStage: Record<string, SampleFile[]> = {
     { filename: 'technical_specifications.csv', label: 'Technical Specifications', description: 'Product specs — boilers, chillers, ESPs — performance parameters, tolerances, and test standards', path: '/sample-data/presales/technical_specifications.csv', fileType: 'csv' },
     { filename: 'thermax_design_standards.json', label: 'Thermax Design Standards', description: 'Engineering design codes (IBR, ASME, CPCB), material specifications, performance standards, safety interlocks', path: '/data-backbone/00_master_data/thermax_design_standards.json', fileType: 'json' },
     { filename: 'esp_cement_rfp.txt', label: 'ESP RFP — Cement Plant (320K Am3/hr)', description: 'Full RFP for Electrostatic Precipitator — scope, technical specs, gas parameters, performance guarantees, commercial terms, LD clauses, vendor qualification', path: '/sample-data/presales/esp_cement_rfp.txt', fileType: 'txt' },
+    { filename: 'ril_dmro_project_schedule.txt', label: 'RIL DM-RO Project Schedule (200 m3/hr)', description: 'Reference project schedule — 904-task WBS for DM-RO water treatment at RIL, 14-month duration, for proposal timeline benchmarking', path: '/sample-data/presales/ril_dmro_project_schedule.txt', fileType: 'txt' },
   ],
   'engineering-design': [
     { filename: 'technical_datasheets.csv', label: 'Technical Datasheets', description: 'Equipment datasheets — design pressures, temperatures, materials of construction, heating surfaces', path: '/sample-data/engineering/technical_datasheets.csv' },
@@ -38,6 +39,7 @@ export const sampleFilesByStage: Record<string, SampleFile[]> = {
     { filename: 'equipment_test_reports.csv', label: 'Equipment Test Reports', description: 'Factory acceptance test results — hydro tests, leak tests, performance tests with witness sign-offs', path: '/sample-data/engineering/equipment_test_reports.csv', fileType: 'csv' },
     { filename: 'thermax_design_standards.json', label: 'Design Standards (JSON)', description: 'IBR, ASME, CPCB design codes with material specs, safety interlocks, quality hold points', path: '/data-backbone/00_master_data/thermax_design_standards.json', fileType: 'json' },
     { filename: 'esp_cement_rfp.txt', label: 'ESP RFP — Engineering Review', description: 'ESP tender for engineering analysis — SCA sizing, gas distribution, electrode design, TR set specs, CEMS integration, exotic MOC (SS 304)', path: '/sample-data/ai-nexus/tenders/esp_cement_rfp.txt', fileType: 'txt' },
+    { filename: 'ril_dmro_project_schedule.txt', label: 'RIL DM-RO Schedule — Engineering View', description: 'Engineering phases of 200 m3/hr DM-RO project — PFD, P&ID, design basis, HAZOP, equipment layout, 3D piping model (30%/60%/90% reviews)', path: '/sample-data/presales/ril_dmro_project_schedule.txt', fileType: 'txt' },
   ],
   'commercial-legal': [
     { filename: 'sample_contract_terms.csv', label: 'Contract Terms & Clauses', description: 'Clause-by-clause contract review — indemnity, LD, IP, warranty risks with Thermax redline positions', path: '/sample-data/finance-legal/sample_contract_terms.csv' },
@@ -52,6 +54,8 @@ export const sampleFilesByStage: Record<string, SampleFile[]> = {
     { filename: 'certification_tracker.csv', label: 'Certification Tracker', description: 'Certification status — PMP, NEBOSH, IBR, ASME, CSWIP — issue dates, expiry, renewal actions', path: '/sample-data/hr-pmo/certification_tracker.csv' },
     { filename: 'mobilisation_schedule.csv', label: 'Mobilisation Schedule', description: 'Staff deployment plan — roles, locations, travel, accommodation, daily allowance, and deployment dates', path: '/sample-data/hr-pmo/mobilisation_schedule.csv' },
     { filename: 'resource_allocation_plan.csv', label: 'Resource Allocation Plan', description: 'Resource matching — required vs assigned, AI match scores, certification gaps, and gap resolution plans', path: '/sample-data/hr-pmo/resource_allocation_plan.csv' },
+    { filename: 'ril_dmro_project_schedule.txt', label: 'RIL DM-RO Project Schedule (200 m3/hr)', description: 'Full project schedule — 904 tasks, 14-month duration, 200 m3/hr DM-RO water treatment plant at RIL HMD — engineering, procurement, erection, commissioning', path: '/sample-data/presales/ril_dmro_project_schedule.txt', fileType: 'txt' },
+    { filename: 'ril_dmro_project_schedule.pdf', label: 'RIL DM-RO Schedule (PDF/Gantt)', description: 'Original MS Project Gantt chart export — 21-page project schedule with task dependencies, milestones, and critical path for 200 m3/hr DM-RO chain', path: '/sample-data/presales/ril_dmro_project_schedule.pdf', fileType: 'pdf' },
   ],
   'procurement-mfg': [
     { filename: 'daily_work_log.csv', label: 'Daily Work Log', description: 'Site work records — planned vs actual quantities, manpower, equipment, weather, and safety observations', path: '/sample-data/site-operations/daily_work_log.csv' },
@@ -59,6 +63,7 @@ export const sampleFilesByStage: Record<string, SampleFile[]> = {
     { filename: 'project_milestone_tracker.csv', label: 'Project Milestone Tracker', description: 'Milestone status — planned vs actual dates, variance, critical path dependencies, and risk flags', path: '/sample-data/site-operations/project_milestone_tracker.csv' },
     { filename: 'safety_observation_reports.csv', label: 'Safety Observation Reports', description: 'Site safety observations — unsafe conditions, near misses, good practices, corrective actions', path: '/sample-data/site-operations/safety_observation_reports.csv' },
     { filename: 'esp_cement_rfp.txt', label: 'ESP RFP — Procurement Review', description: 'ESP tender for procurement planning — BOM, approved sub-vendors (TR sets, rappers), manufacturing timeline 16 weeks, material specs', path: '/sample-data/ai-nexus/tenders/esp_cement_rfp.txt', fileType: 'txt' },
+    { filename: 'ril_dmro_project_schedule.txt', label: 'RIL DM-RO Schedule — Procurement View', description: 'Procurement sequences for 40+ vendor packages — RO HPP (170d), valves (156d), PLC (246d), manufacturing timelines, inspection & dispatch cycles', path: '/sample-data/presales/ril_dmro_project_schedule.txt', fileType: 'txt' },
   ],
   commissioning: [
     { filename: 'startup_checklist.csv', label: 'Startup Checklist', description: 'Pre-commissioning checks — safety systems, mechanical completion, I&C, utilities readiness', path: '/sample-data/commissioning/startup_checklist.csv' },
@@ -67,6 +72,7 @@ export const sampleFilesByStage: Record<string, SampleFile[]> = {
     { filename: 'scada_parameter_export.csv', label: 'SCADA Parameter Export', description: 'Real-time DCS/SCADA readings — temperatures, pressures, flows, alarms, and data quality tags', path: '/sample-data/commissioning/scada_parameter_export.csv', fileType: 'csv' },
     { filename: 'commissioning_procedures.txt', label: 'Commissioning Procedures', description: 'Standard AFBC boiler commissioning procedures — pre-comm, cold/hot startup, PG test protocols', path: '/data-backbone/08_commissioning/commissioning_procedures.txt', fileType: 'txt' },
     { filename: 'esp_cement_rfp.txt', label: 'ESP RFP — Commissioning Specs', description: 'ESP tender commissioning requirements — PG test per IS 5765, cold/hot commissioning, CEMS integration, performance certificates, training', path: '/sample-data/ai-nexus/tenders/esp_cement_rfp.txt', fileType: 'txt' },
+    { filename: 'ril_dmro_project_schedule.txt', label: 'RIL DM-RO Schedule — Commissioning View', description: 'Commissioning sequence — RFSU milestone, MCC charging, no-load/load trials, flushing, membrane loading, resin charging, PLC loop checking, 22-day commissioning window', path: '/sample-data/presales/ril_dmro_project_schedule.txt', fileType: 'txt' },
   ],
   'service-troubleshooting': [
     { filename: 'field_engineer_observations.csv', label: 'Field Engineer Observations', description: 'On-site engineer reports — equipment symptoms, initial assessments, photos, urgency, and follow-up actions', path: '/sample-data/digital-service/field_engineer_observations.csv' },
