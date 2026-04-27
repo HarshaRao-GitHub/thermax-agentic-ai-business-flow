@@ -367,12 +367,6 @@ export default function PromptPlayground() {
               </p>
             </div>
             <div className="hidden md:flex items-center gap-3">
-              <button
-                onClick={() => setSidebarOpen(!sidebarOpen)}
-                className="text-sm text-white/90 hover:text-white border border-white/30 hover:border-white/60 px-4 py-2 rounded-lg font-medium transition"
-              >
-                {sidebarOpen ? 'Hide' : 'Show'} Prompt Library
-              </button>
               {messages.length > 0 && (
                 <button
                   onClick={clearChat}
@@ -387,97 +381,10 @@ export default function PromptPlayground() {
         </div>
       </section>
 
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-6 py-5">
-        <div className={`grid gap-5 ${sidebarOpen ? 'lg:grid-cols-[340px_1fr]' : 'grid-cols-1'}`}>
+      {/* Main Content — Single Column */}
+      <div className="max-w-7xl mx-auto px-6 py-5 space-y-4">
 
-          {/* Sidebar — Use-case Driven Prompt Templates */}
-          {sidebarOpen && (
-            <aside className="lg:max-h-[calc(100vh-200px)] lg:overflow-y-auto lg:sticky lg:top-4">
-              <div className="bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden">
-                <button
-                  onClick={() => setThemesExpanded(!themesExpanded)}
-                  className="w-full flex items-center justify-between px-4 py-3 bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 transition text-left"
-                >
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold bg-blue-600 text-white w-6 h-6 flex items-center justify-center rounded-md">📚</span>
-                    <div>
-                      <h3 className="text-sm font-bold text-gray-900">Use-case Driven Prompt Templates</h3>
-                      <p className="text-[10px] text-gray-500 mt-0.5 leading-snug">
-                        {PROMPT_LADDERS.length} industry themes · L1 → L2 → L3
-                      </p>
-                    </div>
-                  </div>
-                  <svg className={`w-5 h-5 text-blue-400 transition-transform duration-200 shrink-0 ${themesExpanded ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                  </svg>
-                </button>
-
-                {themesExpanded && (
-                  <>
-                    <div className="divide-y divide-gray-100">
-                      {PROMPT_LADDERS.map((ladder, li) => {
-                        const isOpen = expandedLadders.has(li);
-                        return (
-                          <div key={li}>
-                            <button
-                              onClick={() => toggleLadder(li)}
-                              className="w-full flex items-center justify-between px-4 py-2.5 hover:bg-gray-50 transition text-left"
-                            >
-                              <div className="flex items-center gap-2.5">
-                                <span className="text-lg">{ladder.icon}</span>
-                                <span className="text-[12px] font-bold text-gray-800">{ladder.theme}</span>
-                              </div>
-                              <svg className={`w-4 h-4 text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                              </svg>
-                            </button>
-
-                            {isOpen && (
-                              <div className="px-3 pb-3 space-y-1.5">
-                                {ladder.levels.map((level, lvi) => (
-                                  <button
-                                    key={lvi}
-                                    onClick={() => handlePromptClick(level.prompt)}
-                                    className="w-full text-left group"
-                                  >
-                                    <div className="rounded-lg border border-gray-200 bg-white hover:bg-blue-50 hover:border-blue-300 transition p-2.5 shadow-sm">
-                                      <div className="flex items-center gap-2 mb-1">
-                                        <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded border ${level.color}`}>
-                                          {level.tag}
-                                        </span>
-                                        <span className="text-[10px] font-semibold text-gray-600 group-hover:text-blue-700 transition">
-                                          {level.label}
-                                        </span>
-                                      </div>
-                                      <p className="text-[10px] text-gray-500 group-hover:text-gray-700 leading-snug transition line-clamp-2">
-                                        {level.prompt}
-                                      </p>
-                                    </div>
-                                  </button>
-                                ))}
-                              </div>
-                            )}
-                          </div>
-                        );
-                      })}
-                    </div>
-
-                    <div className="px-4 py-3 bg-amber-50 border-t border-gray-200">
-                      <div className="flex items-start gap-2">
-                        <span className="text-amber-600 text-xs mt-0.5 shrink-0">💡</span>
-                        <p className="text-[10px] text-amber-800 leading-snug">
-                          <strong>Tip:</strong> Start with L1 to explore, refine with L2 for depth, then use L3 for board-ready strategic output.
-                        </p>
-                      </div>
-                    </div>
-                  </>
-                )}
-              </div>
-            </aside>
-          )}
-
-          {/* Right Side — Lab + Chat */}
+          {/* Lab + Chat + Templates stacked vertically */}
           <section className="flex flex-col min-h-[calc(100vh-200px)] gap-4">
 
             {/* ═══ PROMPT EXPERIMENTATION LAB — Prominent Card ═══ */}
@@ -693,7 +600,89 @@ export default function PromptPlayground() {
               </div>
             </div>
           </section>
-        </div>
+
+          {/* Use-case Driven Prompt Templates — Below Chat */}
+          <div className="bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden">
+            <button
+              onClick={() => setThemesExpanded(!themesExpanded)}
+              className="w-full flex items-center justify-between px-5 py-3.5 bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 transition text-left"
+            >
+              <div className="flex items-center gap-3">
+                <span className="text-base font-bold bg-blue-600 text-white w-7 h-7 flex items-center justify-center rounded-lg">📚</span>
+                <div>
+                  <h3 className="text-sm font-bold text-gray-900">Use-case Driven Prompt Templates</h3>
+                  <p className="text-xs text-gray-500 mt-0.5">
+                    {PROMPT_LADDERS.length} industry themes · L1 (Simple) → L2 (Detailed) → L3 (Analytical)
+                  </p>
+                </div>
+              </div>
+              <svg className={`w-5 h-5 text-blue-400 transition-transform duration-200 shrink-0 ${themesExpanded ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+
+            {themesExpanded && (
+              <>
+                <div className="divide-y divide-gray-100">
+                  {PROMPT_LADDERS.map((ladder, li) => {
+                    const isOpen = expandedLadders.has(li);
+                    return (
+                      <div key={li}>
+                        <button
+                          onClick={() => toggleLadder(li)}
+                          className="w-full flex items-center justify-between px-5 py-3 hover:bg-gray-50 transition text-left"
+                        >
+                          <div className="flex items-center gap-2.5">
+                            <span className="text-xl">{ladder.icon}</span>
+                            <span className="text-sm font-bold text-gray-800">{ladder.theme}</span>
+                          </div>
+                          <svg className={`w-4 h-4 text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                          </svg>
+                        </button>
+
+                        {isOpen && (
+                          <div className="px-4 pb-3 space-y-2">
+                            {ladder.levels.map((level, lvi) => (
+                              <button
+                                key={lvi}
+                                onClick={() => handlePromptClick(level.prompt)}
+                                className="w-full text-left group"
+                              >
+                                <div className="rounded-lg border border-gray-200 bg-white hover:bg-blue-50 hover:border-blue-300 transition p-3 shadow-sm">
+                                  <div className="flex items-center gap-2 mb-1">
+                                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded border ${level.color}`}>
+                                      {level.tag}
+                                    </span>
+                                    <span className="text-xs font-semibold text-gray-700 group-hover:text-blue-700 transition">
+                                      {level.label}
+                                    </span>
+                                  </div>
+                                  <p className="text-xs text-gray-600 group-hover:text-gray-800 leading-snug transition line-clamp-2">
+                                    {level.prompt}
+                                  </p>
+                                </div>
+                              </button>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <div className="px-5 py-3 bg-amber-50 border-t border-gray-200">
+                  <div className="flex items-start gap-2">
+                    <span className="text-amber-600 text-xs mt-0.5 shrink-0">💡</span>
+                    <p className="text-xs text-amber-800 leading-snug">
+                      <strong>Tip:</strong> Start with L1 to explore, refine with L2 for depth, then use L3 for board-ready strategic output.
+                    </p>
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+
       </div>
     </div>
   );
