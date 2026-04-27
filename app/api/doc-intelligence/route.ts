@@ -43,10 +43,38 @@ interface DocIntelRequest {
 function buildSystemPrompt(req: DocIntelRequest): string {
   const operation = getOperationById(req.operation);
   if (!operation) {
-    return 'You are a Thermax Document Intelligence Agent. Analyze the uploaded documents and provide structured, actionable insights.';
+    return 'You are a Thermax Document Intelligence Agent. Analyze the uploaded documents and provide structured, actionable insights. Always ground your answers in the document content.';
   }
 
   const parts: string[] = [operation.systemPromptTemplate];
+
+  parts.push(
+    '',
+    '## CRITICAL: Document Grounding & Retrieval Protocol',
+    'You are operating as a document-grounded retrieval agent. Follow these rules STRICTLY:',
+    '',
+    '### Reading Protocol',
+    '1. Before answering ANY question, read the ENTIRE uploaded document content thoroughly — every section, table, row, paragraph, heading, footnote, and annotation.',
+    '2. For tabular data (CSV, Excel), scan EVERY row and column — do not skip or sample. The answer may be in any row.',
+    '3. For PDFs and long documents, pay equal attention to the beginning, middle, and end. Important details are often buried deep.',
+    '4. For images/visual content provided, extract ALL visible text, numbers, labels, annotations, and structural elements.',
+    '',
+    '### Answering Protocol',
+    '1. ALWAYS answer based on what is ACTUALLY in the documents. Never fabricate, hallucinate, or assume information not present.',
+    '2. For every claim or data point, cite the source: document name, section/heading, row number, or page reference.',
+    '3. Use DIRECT QUOTES from the document when they support your answer — format as blockquotes (> quote).',
+    '4. If the exact answer is not in the documents, say "This information is not found in the uploaded documents" — do NOT make up an answer.',
+    '5. If you find PARTIAL information, share what you found and clearly state what is missing.',
+    '6. When the user asks about specific values, numbers, dates, or names — extract them EXACTLY as written in the document, preserving original formatting, units, and precision.',
+    '',
+    '### Extraction Protocol',
+    '1. When extracting information, be EXHAUSTIVE — extract ALL instances, not just the first one found.',
+    '2. For structured data requests, scan the ENTIRE document and compile a complete list.',
+    '3. Preserve the original terminology, abbreviations, and conventions used in the document.',
+    '4. If data exists in both text AND tables/images, cross-reference and include both sources.',
+    '5. For numerical data, preserve original units, decimal precision, and formatting.',
+    '6. When the user asks "how many" or "list all", count and list EVERY matching item — do not approximate.',
+  );
 
   if (req.department) {
     const dept = getDepartmentById(req.department);
@@ -88,94 +116,153 @@ function buildSystemPrompt(req: DocIntelRequest): string {
     '',
     '## Visual Content Analysis',
     'If images, diagrams, charts, or screenshots are provided:',
-    '1. Analyze ALL visual content thoroughly — describe what you see, extract any text/numbers/labels from images.',
-    '2. For diagrams/flowcharts: identify the process flow, nodes, connections, and logic.',
-    '3. For charts/graphs: extract the data points, trends, axes labels, legends, and key insights.',
-    '4. For tables in images: reconstruct them as proper markdown tables with all data preserved.',
-    '5. For technical drawings: identify components, dimensions, specifications, and annotations.',
-    '6. For screenshots: extract all visible text, UI elements, and relevant information.',
-    '7. Integrate visual analysis with text analysis for a comprehensive document understanding.',
+    '1. Analyze ALL visual content thoroughly — extract every piece of text, number, label, and annotation visible in images.',
+    '2. For engineering drawings/technical diagrams: identify ALL components, dimensions, specifications, tolerances, materials, and annotations. Reconstruct specifications as structured data.',
+    '3. For flowcharts/process diagrams: map the complete process flow with all nodes, connections, decision points, and logic.',
+    '4. For charts/graphs: extract ALL data points, axis values, legends, trends, and annotations — reconstruct as a data table.',
+    '5. For tables in images: reconstruct them COMPLETELY as markdown tables — capture every row, column, header, and cell value.',
+    '6. For screenshots: extract all visible text, form values, UI state, and contextual information.',
+    '7. IMPORTANT: Integrate visual content findings with text content. Cross-reference data found in images with data found in text.',
   );
 
-  parts.push(
-    '',
-    '## Visualization & Rich Output Requirements (MANDATORY)',
-    'Your output must be enterprise-grade, visually rich, and production-quality — as if produced by a top-tier consulting firm.',
-    '1. Include Mermaid diagrams using ```mermaid code blocks: pie charts (pie title "Title" then "Label" : value) for distributions, flowcharts (graph TD/LR) for processes, Gantt for timelines. Do NOT use xychart-beta or quadrantChart. Do NOT use emojis or special Unicode characters inside Mermaid diagrams — use ONLY plain ASCII text.',
-    '2. Present ALL quantitative data in well-formatted markdown tables with proper headers, units, and summary rows.',
-    '3. Use ## and ### headers for professional document structure.',
-    '4. Start with an Executive Summary (3-5 key findings).',
-    '5. Use status indicators: 🟢 Good/Low, 🟡 Warning/Medium, 🔴 Critical/High.',
-    '6. End with numbered, specific, actionable recommendations.',
-    '7. Include KPI dashboard tables with status indicators where appropriate.',
-    '8. For data-heavy documents, always produce at least 2 Mermaid visualizations.',
-  );
+  const isVisualizationOp = req.operation === 'visualize';
+  if (isVisualizationOp) {
+    parts.push(
+      '',
+      '## Visualization & Chart Output Requirements',
+      'This is a VISUALIZATION operation — produce rich visual charts alongside data analysis.',
+      '1. Include Mermaid diagrams using ```mermaid code blocks: pie charts (pie title "Title" then "Label" : value) for distributions, flowcharts (graph TD/LR) for processes, Gantt for timelines. Do NOT use xychart-beta or quadrantChart. Do NOT use emojis or special Unicode characters inside Mermaid diagrams — use ONLY plain ASCII text.',
+      '2. Present ALL quantitative data in well-formatted markdown tables with proper headers, units, and summary rows.',
+      '3. Use ## and ### headers for professional document structure.',
+      '4. Start with an Executive Summary (3-5 key findings).',
+      '5. Use status indicators where appropriate.',
+      '6. End with numbered, specific, actionable recommendations.',
+      '7. For data-heavy documents, produce at least 2 Mermaid visualizations.',
+    );
+  } else {
+    parts.push(
+      '',
+      '## Output Formatting',
+      '1. Use ## and ### headers for clear document structure.',
+      '2. Present data in well-formatted markdown tables when it improves clarity.',
+      '3. Use bullet points for lists and key findings.',
+      '4. Use blockquotes (>) for direct citations from documents.',
+      '5. PRIORITIZE ACCURACY AND COMPLETENESS over visual formatting — the user needs correct information, not decoration.',
+      '6. Only include Mermaid charts if the user explicitly asks for visualization or if the data strongly benefits from a chart.',
+    );
+  }
 
   return parts.join('\n');
 }
 
 const SUPPORTED_IMAGE_TYPES = new Set(['image/jpeg', 'image/png', 'image/gif', 'image/webp']);
 
-function buildConversationMessages(body: DocIntelRequest): MessageParam[] {
-  const incomingMsgs = Array.isArray(body.messages) ? body.messages : [];
-  if (incomingMsgs.length === 0) return [];
-
+function buildDocumentContext(docs: UploadedDoc[]): { documentText: string; allImages: ImageAttachment[]; docCount: number; docNames: string[] } {
   const allImages: ImageAttachment[] = [];
   const docBlocks: string[] = [];
+  const docNames: string[] = [];
 
-  if (body.uploadedTexts?.length) {
-    for (const doc of body.uploadedTexts) {
-      if (doc.text?.trim()) {
-        docBlocks.push(`=== DOCUMENT: ${doc.filename} ===\n\n${doc.text.trim()}\n\n=== END ===`);
-      }
-      if (doc.images?.length) {
-        for (const img of doc.images) {
-          if (img.base64 && img.media_type) {
-            allImages.push(img);
-          }
+  for (const doc of docs) {
+    docNames.push(doc.filename);
+
+    if (doc.text?.trim()) {
+      const lines = doc.text.trim().split('\n');
+      const lineCount = lines.length;
+      const charCount = doc.text.trim().length;
+
+      docBlocks.push(
+        `╔══════════════════════════════════════════════════════════════╗`,
+        `║ DOCUMENT: ${doc.filename}`,
+        `║ Size: ${charCount.toLocaleString()} characters | ${lineCount.toLocaleString()} lines`,
+        `╚══════════════════════════════════════════════════════════════╝`,
+        '',
+        doc.text.trim(),
+        '',
+        `═══ END OF "${doc.filename}" ═══`,
+      );
+    }
+
+    if (doc.images?.length) {
+      for (const img of doc.images) {
+        if (img.base64 && img.media_type) {
+          allImages.push(img);
         }
       }
     }
   }
 
-  const documentContext = docBlocks.length > 0
-    ? `--- BEGIN UPLOADED DOCUMENTS ---\n\n${docBlocks.join('\n\n')}\n\n--- END UPLOADED DOCUMENTS ---`
+  const documentText = docBlocks.length > 0
+    ? [
+        '┌─────────────────────────────────────────────────────────────────┐',
+        '│                    UPLOADED DOCUMENT CONTENT                    │',
+        `│  ${docs.length} document(s): ${docNames.join(', ')}`,
+        '│  IMPORTANT: Read ALL content below carefully before answering.  │',
+        '└─────────────────────────────────────────────────────────────────┘',
+        '',
+        docBlocks.join('\n\n'),
+      ].join('\n')
     : '';
+
+  return { documentText, allImages, docCount: docs.length, docNames };
+}
+
+function buildConversationMessages(body: DocIntelRequest): MessageParam[] {
+  const incomingMsgs = Array.isArray(body.messages) ? body.messages : [];
+  if (incomingMsgs.length === 0) return [];
+
+  const docs = body.uploadedTexts?.length ? body.uploadedTexts : [];
+  const { documentText, allImages, docCount, docNames } = buildDocumentContext(docs);
+  const hasDocContext = documentText.length > 0 || allImages.length > 0;
 
   const result: MessageParam[] = [];
 
   for (let i = 0; i < incomingMsgs.length; i++) {
     const msg = incomingMsgs[i];
 
-    if (i === 0 && msg.role === 'user' && (documentContext || allImages.length > 0)) {
+    if (i === 0 && msg.role === 'user' && hasDocContext) {
       const contentBlocks: (TextBlockParam | ImageBlockParam)[] = [];
 
-      if (documentContext) {
-        contentBlocks.push({ type: 'text', text: documentContext });
+      if (documentText) {
+        contentBlocks.push({ type: 'text', text: documentText });
       }
 
-      for (const img of allImages) {
-        const mt = SUPPORTED_IMAGE_TYPES.has(img.media_type)
-          ? img.media_type as 'image/jpeg' | 'image/png' | 'image/gif' | 'image/webp'
-          : 'image/png';
-
-        contentBlocks.push({
-          type: 'image',
-          source: {
-            type: 'base64',
-            media_type: mt,
-            data: img.base64,
-          },
-        });
+      if (allImages.length > 0) {
         contentBlocks.push({
           type: 'text',
-          text: `[Attached image: ${img.label}]`,
+          text: `\n── VISUAL CONTENT: ${allImages.length} image(s) attached ──\nAnalyze each image below carefully. Extract ALL visible text, numbers, labels, dimensions, annotations, and structural elements.`,
         });
+
+        for (const img of allImages) {
+          const mt = SUPPORTED_IMAGE_TYPES.has(img.media_type)
+            ? img.media_type as 'image/jpeg' | 'image/png' | 'image/gif' | 'image/webp'
+            : 'image/png';
+
+          contentBlocks.push({
+            type: 'image',
+            source: {
+              type: 'base64',
+              media_type: mt,
+              data: img.base64,
+            },
+          });
+          contentBlocks.push({
+            type: 'text',
+            text: `[Image: ${img.label}] — Extract all information from this image.`,
+          });
+        }
       }
 
-      contentBlocks.push({ type: 'text', text: msg.content });
+      contentBlocks.push({
+        type: 'text',
+        text: `\n── USER QUERY ──\n${msg.content}\n\nIMPORTANT: Answer this query by carefully reading ALL ${docCount} uploaded document(s) (${docNames.join(', ')})${allImages.length > 0 ? ` and analyzing all ${allImages.length} attached image(s)` : ''}. Ground every answer in the actual document content. Cite specific sections, rows, or passages. If information is not found, say so clearly.`,
+      });
 
       result.push({ role: 'user', content: contentBlocks });
+    } else if (msg.role === 'user' && hasDocContext && i > 0) {
+      result.push({
+        role: 'user',
+        content: `${msg.content}\n\n[Refer to the ${docCount} uploaded document(s) — ${docNames.join(', ')} — provided at the start of this conversation. Search the FULL document content to answer accurately. Cite sources.]`,
+      });
     } else {
       result.push({ role: msg.role, content: msg.content });
     }
