@@ -413,17 +413,6 @@ export default function DocIntelligenceHub() {
 
           {/* STEP 1: Documents — Upload OR Browse (mutually exclusive) */}
           <section className="bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden">
-            <div className="flex items-center justify-between px-5 py-3 border-b border-gray-200 bg-slate-50">
-              <div className="flex items-center gap-3">
-                <span className="text-xs font-bold bg-blue-600 text-white w-6 h-6 flex items-center justify-center rounded-md">1</span>
-                <h3 className="text-sm font-bold text-gray-900">
-                  Select Your Process & Document(s)
-                  {hasFiles && <span className="ml-2 text-emerald-600 font-semibold">({uploadedFiles.length} loaded)</span>}
-                </h3>
-                {!hasFiles && <span className="text-xs text-red-600 font-semibold bg-red-50 px-2 py-0.5 rounded">Required</span>}
-              </div>
-            </div>
-
             {/* Tab toggle */}
             <div className="flex border-b border-gray-200">
               <button
@@ -482,6 +471,14 @@ export default function DocIntelligenceHub() {
               {/* === SAMPLE MODE === */}
               {docSource === 'sample' && (
                 <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs font-bold bg-blue-600 text-white w-6 h-6 flex items-center justify-center rounded-md">1</span>
+                    <h3 className="text-sm font-bold text-gray-900">
+                      Select Your Process & Document(s)
+                      {hasFiles && <span className="ml-2 text-emerald-600 font-semibold">({uploadedFiles.length} loaded)</span>}
+                    </h3>
+                    {!hasFiles && <span className="text-xs text-red-600 font-semibold bg-red-50 px-2 py-0.5 rounded">Required</span>}
+                  </div>
                   <div className="flex items-center gap-3">
                     <label className="text-xs font-semibold text-gray-600 shrink-0">Select Process</label>
                     <select
