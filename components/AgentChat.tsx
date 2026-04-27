@@ -1437,7 +1437,7 @@ function MessageBubble({ role, content, streaming: isStreaming, agentName }: { r
         )}
         {!isStreaming && content && (
           <div className="mt-3 pt-2 border-t border-thermax-line/60 flex items-center gap-2">
-            <DownloadMenu content={content} filenamePrefix={slug} size="sm" />
+            <DownloadMenu content={content} filenamePrefix={slug} />
             <button
               onClick={handleCopy}
               className="flex items-center gap-1 text-[10px] text-thermax-slate/70 hover:text-thermax-navy font-medium px-2 py-1 rounded hover:bg-white/60 transition"
