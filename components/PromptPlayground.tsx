@@ -333,7 +333,7 @@ export default function PromptPlayground() {
                   >
                     <div className="flex items-center gap-2">
                       <span className="text-xs">📚</span>
-                      <span className="text-[11px] font-bold text-blue-800">Use-Case Prompt Library</span>
+                      <span className="text-[11px] font-bold text-blue-800">Use-case driven Prompt Templates</span>
                       <span className="text-[9px] font-semibold text-blue-500 bg-blue-100 px-1.5 py-0.5 rounded-full">{PROMPT_LADDERS.length} themes</span>
                     </div>
                     <svg className={`w-4 h-4 text-blue-400 transition-transform duration-200 ${themesExpanded ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
