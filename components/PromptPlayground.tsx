@@ -508,55 +508,70 @@ export default function PromptPlayground() {
                     </span>
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-5">
-                    {LAB_EXPERIMENTS.map((exp, ei) => (
-                      <div key={ei} className="rounded-xl border border-gray-200 bg-gradient-to-b from-slate-50 to-white shadow-sm hover:shadow-md transition-shadow overflow-hidden">
-                        <div className="px-5 py-4 border-b border-gray-100 bg-white">
-                          <div className="flex items-center gap-3">
-                            <span className="text-3xl">{exp.icon}</span>
-                            <div className="flex-1 min-w-0">
-                              <h3 className="text-[15px] font-bold text-gray-900 leading-tight">{exp.theme}</h3>
-                              <p className="text-xs text-gray-600 mt-1 leading-snug">{exp.description}</p>
+                  <div className="space-y-4">
+                    {LAB_EXPERIMENTS.map((exp, ei) => {
+                      const isOpen = expandedLabLadders.has(ei);
+                      return (
+                        <div key={ei} className="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+                          <button
+                            onClick={() => toggleLabLadder(ei)}
+                            className="w-full flex items-center justify-between px-5 py-4 hover:bg-slate-50 transition text-left"
+                          >
+                            <div className="flex items-center gap-3">
+                              <span className="text-3xl">{exp.icon}</span>
+                              <div>
+                                <h3 className="text-[15px] font-bold text-gray-900 leading-tight">{exp.theme}</h3>
+                                <p className="text-xs text-gray-600 mt-1 leading-snug">{exp.description}</p>
+                              </div>
                             </div>
-                          </div>
+                            <div className="flex items-center gap-2 shrink-0 ml-3">
+                              <span className="text-[10px] font-semibold text-indigo-500 bg-indigo-50 border border-indigo-200 px-2 py-0.5 rounded-full">4 levels</span>
+                              <svg className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                              </svg>
+                            </div>
+                          </button>
+
+                          {isOpen && (
+                            <div className="px-5 pb-4 pt-1 border-t border-gray-100 space-y-2.5">
+                              {exp.levels.map((level, lvi) => {
+                                const stepColors = [
+                                  'border-l-emerald-400 hover:bg-emerald-50/50',
+                                  'border-l-blue-400 hover:bg-blue-50/50',
+                                  'border-l-purple-400 hover:bg-purple-50/50',
+                                  'border-l-amber-400 hover:bg-amber-50/50',
+                                ];
+                                return (
+                                  <button
+                                    key={lvi}
+                                    onClick={() => handlePromptClick(level.prompt)}
+                                    className={`w-full text-left group rounded-lg border border-gray-100 border-l-[3px] ${stepColors[lvi]} bg-white p-3.5 transition-all hover:shadow-sm`}
+                                  >
+                                    <div className="flex items-center gap-2.5 mb-2">
+                                      <span className={`text-xs font-bold px-2.5 py-1 rounded-md border ${level.color}`}>
+                                        {level.tag}
+                                      </span>
+                                      <span className="text-sm font-semibold text-gray-800 group-hover:text-indigo-700 transition">
+                                        {level.label}
+                                      </span>
+                                      {lvi === 3 && (
+                                        <span className="text-[10px] font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">C · R · A · F · T</span>
+                                      )}
+                                      <svg className="w-4 h-4 text-gray-300 group-hover:text-indigo-500 ml-auto transition shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                      </svg>
+                                    </div>
+                                    <p className="text-[13px] text-gray-700 leading-relaxed transition whitespace-pre-line">
+                                      {level.prompt}
+                                    </p>
+                                  </button>
+                                );
+                              })}
+                            </div>
+                          )}
                         </div>
-                        <div className="p-3.5 space-y-2.5">
-                          {exp.levels.map((level, lvi) => {
-                            const stepColors = [
-                              'border-l-emerald-400 hover:bg-emerald-50/50',
-                              'border-l-blue-400 hover:bg-blue-50/50',
-                              'border-l-purple-400 hover:bg-purple-50/50',
-                              'border-l-amber-400 hover:bg-amber-50/50',
-                            ];
-                            return (
-                              <button
-                                key={lvi}
-                                onClick={() => handlePromptClick(level.prompt)}
-                                className={`w-full text-left group rounded-lg border border-gray-100 border-l-[3px] ${stepColors[lvi]} bg-white p-3.5 transition-all hover:shadow-sm`}
-                              >
-                                <div className="flex items-center gap-2.5 mb-2">
-                                  <span className={`text-xs font-bold px-2.5 py-1 rounded-md border ${level.color}`}>
-                                    {level.tag}
-                                  </span>
-                                  <span className="text-sm font-semibold text-gray-800 group-hover:text-indigo-700 transition">
-                                    {level.label}
-                                  </span>
-                                  {lvi === 3 && (
-                                    <span className="text-[10px] font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200 ml-auto">C · R · A · F · T</span>
-                                  )}
-                                  <svg className="w-4 h-4 text-gray-300 group-hover:text-indigo-500 ml-auto transition shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                                  </svg>
-                                </div>
-                                <p className="text-[13px] text-gray-700 leading-relaxed transition whitespace-pre-line">
-                                  {level.prompt}
-                                </p>
-                              </button>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               )}
