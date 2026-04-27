@@ -10,6 +10,7 @@ import {
   type Operation,
   type SampleFile,
 } from '@/data/doc-intelligence-config';
+import { saveChatHistory, loadChatHistory, clearChatHistory, CHAT_KEYS } from '@/lib/chat-history';
 
 type Role = 'user' | 'assistant';
 interface ChatMessage { role: Role; content: string; }
@@ -54,6 +55,17 @@ export default function DocIntelligenceHub() {
     streaming && streamBuffer
       ? [...messages, { role: 'assistant', content: streamBuffer }]
       : messages;
+
+  useEffect(() => {
+    const saved = loadChatHistory(CHAT_KEYS.DOC_INTELLIGENCE);
+    if (saved.length > 0) setMessages(saved);
+  }, []);
+
+  useEffect(() => {
+    if (messages.length > 0 && !streaming) {
+      saveChatHistory(CHAT_KEYS.DOC_INTELLIGENCE, messages);
+    }
+  }, [messages, streaming]);
 
   useEffect(() => {
     if (streamRef.current) {
@@ -275,6 +287,7 @@ export default function DocIntelligenceHub() {
     setUploadedFiles([]);
     setUploadError(null);
     setDocSource('upload');
+    clearChatHistory(CHAT_KEYS.DOC_INTELLIGENCE);
     if (timerRef.current) { clearInterval(timerRef.current); timerRef.current = null; }
   }
 
@@ -286,6 +299,7 @@ export default function DocIntelligenceHub() {
     setStreamBuffer('');
     setUsageStats(null);
     setDocSource(source);
+    clearChatHistory(CHAT_KEYS.DOC_INTELLIGENCE);
   }
 
   const hasFiles = uploadedFiles.length > 0;

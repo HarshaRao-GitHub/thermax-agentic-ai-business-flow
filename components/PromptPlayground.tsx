@@ -1,7 +1,8 @@
 'use client';
 
-import { useRef, useState, useCallback } from 'react';
+import { useRef, useState, useCallback, useEffect } from 'react';
 import Markdown from './Markdown';
+import { saveChatHistory, loadChatHistory, clearChatHistory, CHAT_KEYS } from '@/lib/chat-history';
 
 type Role = 'user' | 'assistant';
 interface ChatMessage { role: Role; content: string; }
@@ -123,6 +124,17 @@ export default function PromptPlayground() {
       ? [...messages, { role: 'assistant', content: streamBuffer }]
       : messages;
 
+  useEffect(() => {
+    const saved = loadChatHistory(CHAT_KEYS.PROMPT_PLAYGROUND);
+    if (saved.length > 0) setMessages(saved);
+  }, []);
+
+  useEffect(() => {
+    if (messages.length > 0 && !streaming) {
+      saveChatHistory(CHAT_KEYS.PROMPT_PLAYGROUND, messages);
+    }
+  }, [messages, streaming]);
+
   const scrollToBottom = useCallback(() => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, []);
@@ -237,6 +249,7 @@ export default function PromptPlayground() {
     setMessages([]);
     setStreamBuffer('');
     setInput('');
+    clearChatHistory(CHAT_KEYS.PROMPT_PLAYGROUND);
   }
 
   function handlePromptClick(prompt: string) {

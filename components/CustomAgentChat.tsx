@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Markdown from './Markdown';
 import { recordCustomAgentRun, type CustomAgent as Agent } from '@/lib/client-store';
+import { saveChatHistory, loadChatHistory, clearChatHistory, CHAT_KEYS } from '@/lib/chat-history';
 
 type Role = 'user' | 'assistant';
 interface ChatMessage { role: Role; content: string; }
@@ -40,6 +41,19 @@ export default function CustomAgentChat({ agent }: { agent: Agent }) {
   const progressLabel = streaming
     ? textStreamStarted ? 'Generating response...' : `Processing tasks (${completedTools}/${totalTasks})...`
     : '';
+
+  const chatKey = CHAT_KEYS.customAgent(agent.id);
+
+  useEffect(() => {
+    const saved = loadChatHistory(chatKey);
+    if (saved.length > 0) setMessages(saved);
+  }, [chatKey]);
+
+  useEffect(() => {
+    if (messages.length > 0 && !streaming) {
+      saveChatHistory(chatKey, messages);
+    }
+  }, [messages, streaming, chatKey]);
 
   useEffect(() => {
     if (streamRef.current) streamRef.current.scrollTop = streamRef.current.scrollHeight;

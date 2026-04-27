@@ -11,6 +11,7 @@ import {
   type AgentRole,
 } from '@/data/engineering-design-data';
 import Markdown from './Markdown';
+import { saveChatHistory, loadChatHistory, clearChatHistory, CHAT_KEYS } from '@/lib/chat-history';
 
 type Tab = 'pipeline' | 'configurator' | 'assistant';
 type SimStage = 'idle' | 'running' | 'complete';
@@ -110,6 +111,17 @@ export default function EngineeringDesignAssistant() {
       return next;
     });
   };
+
+  useEffect(() => {
+    const saved = loadChatHistory(CHAT_KEYS.ENGINEERING_DESIGN);
+    if (saved.length > 0) setChatMessages(saved);
+  }, []);
+
+  useEffect(() => {
+    if (chatMessages.length > 0 && !chatLoading) {
+      saveChatHistory(CHAT_KEYS.ENGINEERING_DESIGN, chatMessages);
+    }
+  }, [chatMessages, chatLoading]);
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });

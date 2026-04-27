@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { DIVISION_TEMPLATES, SAMPLE_TENDERS, type DivisionTemplate } from '@/data/tender-templates';
 import Markdown from './Markdown';
+import { saveChatHistory, loadChatHistory, clearChatHistory, CHAT_KEYS } from '@/lib/chat-history';
 
 type Tab = 'upload' | 'extraction' | 'estimation' | 'risk' | 'chat';
 type ChatMsg = { role: 'user' | 'assistant'; content: string };
@@ -57,6 +58,17 @@ export default function TenderIntelligenceTool() {
   const chatProgressRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
+    const saved = loadChatHistory(CHAT_KEYS.TENDER_INTELLIGENCE);
+    if (saved.length > 0) setChatMessages(saved);
+  }, []);
+
+  useEffect(() => {
+    if (chatMessages.length > 0 && !chatStreaming) {
+      saveChatHistory(CHAT_KEYS.TENDER_INTELLIGENCE, chatMessages);
+    }
+  }, [chatMessages, chatStreaming]);
+
+  useEffect(() => {
     if (chatRef.current) chatRef.current.scrollTop = chatRef.current.scrollHeight;
   }, [chatMessages.length, chatStreamBuffer]);
 
@@ -75,6 +87,7 @@ export default function TenderIntelligenceTool() {
       setExtractionMarkdown('');
       setExtractionDone(false);
       setChatMessages([]);
+      clearChatHistory(CHAT_KEYS.TENDER_INTELLIGENCE);
     } catch { /* ignore */ }
     setLoadingSample(null);
   }
@@ -128,6 +141,7 @@ export default function TenderIntelligenceTool() {
     setExtractionMarkdown('');
     setExtractionDone(false);
     setChatMessages([]);
+    clearChatHistory(CHAT_KEYS.TENDER_INTELLIGENCE);
   }
 
   function startTimerProgress(setter: (v: number | ((p: number) => number)) => void, ref: React.MutableRefObject<ReturnType<typeof setInterval> | null>, speed = 25) {

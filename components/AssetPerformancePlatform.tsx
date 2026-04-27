@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { ASSETS, SITES, INCIDENTS, FAILURE_MODES, type Asset, type Incident } from '@/data/asset-performance-data';
 import Markdown from './Markdown';
+import { saveChatHistory, loadChatHistory, clearChatHistory, CHAT_KEYS } from '@/lib/chat-history';
 
 type Tab = 'fleet' | 'detail' | 'incidents' | 'assistant';
 type ChatMsg = { role: 'user' | 'assistant'; content: string };
@@ -28,6 +29,17 @@ export default function AssetPerformancePlatform() {
   const filteredIncidents = INCIDENTS.filter(inc =>
     incidentFilter === 'all' ? true : inc.status === incidentFilter
   );
+
+  useEffect(() => {
+    const saved = loadChatHistory(CHAT_KEYS.ASSET_PERFORMANCE);
+    if (saved.length > 0) setChatMessages(saved);
+  }, []);
+
+  useEffect(() => {
+    if (chatMessages.length > 0 && !chatStreaming) {
+      saveChatHistory(CHAT_KEYS.ASSET_PERFORMANCE, chatMessages);
+    }
+  }, [chatMessages, chatStreaming]);
 
   useEffect(() => {
     if (chatRef.current) chatRef.current.scrollTop = chatRef.current.scrollHeight;
