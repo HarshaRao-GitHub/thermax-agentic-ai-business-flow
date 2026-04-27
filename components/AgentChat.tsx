@@ -9,7 +9,7 @@ import type { HitlEvent } from './ApprovalPanel';
 import { useWorkflow } from './WorkflowContext';
 import { getStageResult, saveStageResult, getUpstreamResults } from '@/lib/client-store';
 import { sampleFilesByStage, type SampleFile } from '@/data/sample-files';
-import { downloadAsMarkdown, downloadAsPdf } from '@/lib/download-utils';
+import DownloadMenu from './DownloadMenu';
 
 type Role = 'user' | 'assistant';
 interface ChatMessage { role: Role; content: string; }
@@ -1423,16 +1423,7 @@ function MessageBubble({ role, content, streaming: isStreaming, agentName }: { r
     } catch { /* clipboard not available */ }
   };
 
-  const [pdfLoading, setPdfLoading] = useState(false);
   const slug = (agentName ?? 'agent').toLowerCase().replace(/[^a-z0-9]+/g, '-');
-
-  const handleDownload = () => downloadAsMarkdown(content, slug);
-
-  const handlePdfDownload = async () => {
-    setPdfLoading(true);
-    try { await downloadAsPdf(content, slug); } catch { /* ignore */ }
-    finally { setPdfLoading(false); }
-  };
 
   return (
     <div className="flex justify-start">
@@ -1446,21 +1437,7 @@ function MessageBubble({ role, content, streaming: isStreaming, agentName }: { r
         )}
         {!isStreaming && content && (
           <div className="mt-3 pt-2 border-t border-thermax-line/60 flex items-center gap-2">
-            <button
-              onClick={handleDownload}
-              className="flex items-center gap-1 text-[10px] text-thermax-slate/70 hover:text-thermax-navy font-medium px-2 py-1 rounded hover:bg-white/60 transition"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              .md
-            </button>
-            <button
-              onClick={handlePdfDownload}
-              disabled={pdfLoading}
-              className="flex items-center gap-1 text-[10px] text-thermax-slate/70 hover:text-red-700 font-medium px-2 py-1 rounded hover:bg-white/60 transition disabled:opacity-50"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-              {pdfLoading ? 'Generating...' : '.pdf'}
-            </button>
+            <DownloadMenu content={content} filenamePrefix={slug} size="sm" />
             <button
               onClick={handleCopy}
               className="flex items-center gap-1 text-[10px] text-thermax-slate/70 hover:text-thermax-navy font-medium px-2 py-1 rounded hover:bg-white/60 transition"

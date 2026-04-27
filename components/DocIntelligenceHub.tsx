@@ -11,7 +11,7 @@ import {
   type SampleFile,
 } from '@/data/doc-intelligence-config';
 import { saveChatHistory, loadChatHistory, clearChatHistory, CHAT_KEYS } from '@/lib/chat-history';
-import { downloadAsMarkdown, downloadAsPdf } from '@/lib/download-utils';
+import DownloadMenu from './DownloadMenu';
 
 type Role = 'user' | 'assistant';
 interface ChatMessage { role: Role; content: string; }
@@ -700,8 +700,6 @@ export default function DocIntelligenceHub() {
 function ResultBubble({ message, isStreaming }: { message: ChatMessage; isStreaming: boolean }) {
   const [copied, setCopied] = useState(false);
   const [expanded, setExpanded] = useState(false);
-  const [pdfLoading, setPdfLoading] = useState(false);
-
   if (message.role === 'user') {
     return (
       <div className="flex justify-end">
@@ -714,14 +712,6 @@ function ResultBubble({ message, isStreaming }: { message: ChatMessage; isStream
 
   const handleCopy = async () => {
     try { await navigator.clipboard.writeText(message.content); setCopied(true); setTimeout(() => setCopied(false), 2000); } catch {}
-  };
-
-  const handleDownload = () => downloadAsMarkdown(message.content, 'doc-intelligence');
-
-  const handlePdfDownload = async () => {
-    setPdfLoading(true);
-    try { await downloadAsPdf(message.content, 'doc-intelligence'); } catch { /* ignore */ }
-    finally { setPdfLoading(false); }
   };
 
   const preview = message.content.slice(0, 500).replace(/\n/g, ' ');
@@ -760,14 +750,7 @@ function ResultBubble({ message, isStreaming }: { message: ChatMessage; isStream
             )}
             {!isStreaming && message.content && (
               <div className="mt-3 pt-2.5 border-t border-gray-200 flex items-center gap-3">
-                <button onClick={handleDownload} className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-gray-800 font-semibold px-2.5 py-1.5 rounded-lg hover:bg-gray-100 transition">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                  .md
-                </button>
-                <button onClick={handlePdfDownload} disabled={pdfLoading} className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-red-700 font-semibold px-2.5 py-1.5 rounded-lg hover:bg-gray-100 transition disabled:opacity-50">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                  {pdfLoading ? 'Generating...' : '.pdf'}
-                </button>
+                <DownloadMenu content={message.content} filenamePrefix="doc-intelligence" />
                 <button onClick={handleCopy} className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-gray-800 font-semibold px-2.5 py-1.5 rounded-lg hover:bg-gray-100 transition">
                   {copied ? (
                     <><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-600"><polyline points="20 6 9 17 4 12"/></svg><span className="text-emerald-700 font-bold">Copied!</span></>
