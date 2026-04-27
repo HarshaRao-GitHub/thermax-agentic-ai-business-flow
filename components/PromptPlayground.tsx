@@ -358,9 +358,9 @@ export default function PromptPlayground() {
             <div>
               <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur px-3 py-1 rounded-full text-xs font-semibold text-white mb-2 tracking-wide">
                 <span className="w-2 h-2 bg-teal-400 rounded-full animate-pulse" />
-                Prompt Engineering Playground
+                AI-Powered Prompt Engine
               </div>
-              <h1 className="text-2xl font-bold tracking-tight text-white">Prompting Mode</h1>
+              <h1 className="text-2xl font-bold tracking-tight text-white">Prompt Engineering Playground</h1>
               <p className="mt-1.5 text-white/80 text-sm max-w-xl leading-relaxed">
                 Explore ideas, research markets, and build structured thinking through progressively detailed prompts.
                 Web search is auto-enabled for queries needing live data.
