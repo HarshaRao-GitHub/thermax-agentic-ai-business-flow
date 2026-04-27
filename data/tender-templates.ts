@@ -140,4 +140,11 @@ export const SAMPLE_TENDERS = [
     file: '/sample-data/ai-nexus/tenders/tce_main_plant_tender_spec.txt',
     pages: 908,
   },
+  {
+    id: 'wbs-civil-rcf-p024',
+    name: 'Final WBS - 2×25 MW RCF Trombay Civil E&C (P024, 5,012 items)',
+    division: 'boilers',
+    file: '/sample-data/project-planning/p024_final_wbs.txt',
+    pages: 5012,
+  },
 ];

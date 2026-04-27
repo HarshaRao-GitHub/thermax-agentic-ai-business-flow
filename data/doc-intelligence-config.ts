@@ -423,6 +423,7 @@ export const DEPARTMENTS: Department[] = [
       { filename: 'esp_cement_rfp.txt', label: 'ESP RFP Document', description: 'Full RFP for Electrostatic Precipitator at cement plant — technical specs, process parameters, performance guarantees, O&M requirements', path: '/sample-data/ai-nexus/tenders/esp_cement_rfp.txt' },
       { filename: 'ril_dmro_project_schedule.txt', label: 'RIL DM-RO Project Schedule', description: '904-task project schedule for 200 m3/hr DM-RO water treatment plant — engineering, procurement, erection, commissioning phases', path: '/sample-data/presales/ril_dmro_project_schedule.txt' },
       { filename: 'ril_remin_bom.txt', label: 'RIL Remin BOM (632 items)', description: 'Bill of Materials for RIL Remineralization project — 10 categories, 632 items, MOC details, lead times, work orders, for operations planning and maintenance reference', path: '/sample-data/presales/ril_remin_bom.txt' },
+      { filename: 'p024_final_wbs.txt', label: 'P024 WBS — 2×25 MW RCF Trombay', description: '5,012-item civil WBS for 2×25 MW power plant — earthwork, foundations, boiler MCC room, pipe racks, control room, chimney raft; operations scope reference', path: '/sample-data/project-planning/p024_final_wbs.txt' },
     ],
   },
   {
@@ -443,6 +444,7 @@ export const DEPARTMENTS: Department[] = [
       { filename: 'ril_dmro_project_schedule.txt', label: 'RIL DM-RO Schedule — Procurement', description: 'Procurement timeline for 40+ vendor packages — enquiry, ordering, manufacturing, inspection, dispatch cycles with lead times', path: '/sample-data/presales/ril_dmro_project_schedule.txt' },
       { filename: 'ril_remin_bom.txt', label: 'RIL Remin BOM — Procurement', description: 'Full procurement BOM — 632 items with vendor packages, WO references, lead times (30-180 days), material specs, quantities for sourcing and MRP analysis', path: '/sample-data/presales/ril_remin_bom.txt' },
       { filename: 'ril_remin_bom.csv', label: 'RIL Remin BOM (Raw CSV)', description: 'Complete 632-row hierarchical BOM CSV — item codes, descriptions, UOM, quantities, extended quantities, supply types for tabulation and analysis', path: '/sample-data/presales/ril_remin_bom.csv' },
+      { filename: 'p024_final_wbs.csv', label: 'P024 Final WBS (5,012 rows)', description: '5,012-row civil WBS for 2×25 MW RCF Trombay — CBS codes, item descriptions, quantities, UOM, rates, amounts for procurement planning, vendor packaging, and MRP', path: '/sample-data/project-planning/p024_final_wbs.csv' },
     ],
   },
   {
@@ -459,6 +461,7 @@ export const DEPARTMENTS: Department[] = [
       { filename: 'bank_guarantee_tracker.csv', label: 'Bank Guarantee Tracker', description: 'Active BGs — customer, type, amount, validity period, bank name, claim status', path: '/sample-data/doc-intelligence/finance/bank_guarantee_tracker.csv' },
       { filename: 'project_cost_sheet.csv', label: 'Project Cost Sheet', description: 'Project-wise cost tracking — material, labour, overheads, margin, billed vs collected', path: '/sample-data/doc-intelligence/finance/project_cost_sheet.csv' },
       { filename: 'gst_reconciliation.csv', label: 'GST Reconciliation', description: 'Monthly GST reconciliation — GSTR-1 vs GSTR-3B, ITC claimed, mismatches, action items', path: '/sample-data/doc-intelligence/finance/gst_reconciliation.csv' },
+      { filename: 'p024_final_wbs.csv', label: 'P024 WBS — Project Cost Analysis', description: '5,012-item civil WBS with proposal quantities, rates, amounts — CBS cost codes, work items for budget vs actual tracking and cost variance analysis', path: '/sample-data/project-planning/p024_final_wbs.csv' },
     ],
   },
   {
