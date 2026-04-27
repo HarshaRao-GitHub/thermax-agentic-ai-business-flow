@@ -79,7 +79,9 @@ export async function POST(req: NextRequest) {
           text = result.text;
           images = result.images;
         } else if (ext === '.pdf') {
-          text = await extractPDF(file);
+          const result = await extractPDF(file);
+          text = result.text;
+          images = result.images;
         } else if (ext === '.docx') {
           const result = await extractDocx(file);
           text = result.text;
@@ -139,24 +141,60 @@ async function extractImage(file: File, ext: string): Promise<{ text: string; im
   };
 }
 
-async function extractPDF(file: File): Promise<string> {
+const MAX_PDF_PAGES_AS_IMAGES = 20;
+
+async function extractPDF(file: File): Promise<{ text: string; images: ImageAttachment[] }> {
   const buffer = Buffer.from(await file.arrayBuffer());
+  const images: ImageAttachment[] = [];
+
+  let extractedText = '';
+  let pageCount = 0;
 
   try {
     // eslint-disable-next-line @typescript-eslint/no-require-imports
     const pdfParse = require('pdf-parse') as (buf: Buffer) => Promise<{ text: string; numpages?: number }>;
     const data = await pdfParse(buffer);
+    pageCount = data.numpages ?? 0;
 
     if (data.text && data.text.trim().length > 0) {
       const meta: string[] = [`[PDF: ${file.name}]`];
-      if (data.numpages) meta.push(`Pages: ${data.numpages}`);
-      return `${meta.join(' | ')}\n\n${data.text.trim()}`;
+      if (pageCount) meta.push(`Pages: ${pageCount}`);
+      extractedText = `${meta.join(' | ')}\n\n${data.text.trim()}`;
     }
   } catch {
-    // pdf-parse failed, fall through to raw extraction
+    extractedText = extractTextFromPDFRaw(buffer, file.name);
   }
 
-  return extractTextFromPDFRaw(buffer, file.name);
+  try {
+    const { pdf } = await import('pdf-to-img');
+    const dataUrl = `data:application/pdf;base64,${buffer.toString('base64')}`;
+    const doc = await pdf(dataUrl, { scale: 2 });
+    const pagesToRender = Math.min(doc.length, MAX_PDF_PAGES_AS_IMAGES);
+
+    let pageNum = 0;
+    for await (const pageImage of doc) {
+      pageNum++;
+      if (pageNum > pagesToRender) break;
+      if (pageImage.length > MAX_IMAGE_SIZE_BYTES) continue;
+
+      images.push({
+        base64: Buffer.from(pageImage).toString('base64'),
+        media_type: 'image/png',
+        label: `${file.name} — page ${pageNum}`,
+      });
+    }
+  } catch (err) {
+    const errMsg = err instanceof Error ? err.message : 'unknown';
+    console.warn(`PDF image rendering failed for ${file.name}: ${errMsg}`);
+  }
+
+  if (!extractedText) {
+    extractedText = `[PDF: ${file.name}]\n\nText extraction was limited. ${images.length > 0 ? `${images.length} page(s) rendered as images for visual analysis.` : `File size: ${(buffer.length / 1024).toFixed(1)} KB.`}`;
+  } else if (images.length > 0) {
+    extractedText += `\n\n[${images.length} page(s) also rendered as images for visual analysis of drawings, diagrams, charts, and tables]`;
+  }
+
+  return { text: extractedText, images };
 }
 
 function extractTextFromPDFRaw(bytes: Buffer, filename: string): string {
