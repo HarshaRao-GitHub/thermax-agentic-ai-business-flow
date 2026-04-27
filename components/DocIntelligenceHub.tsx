@@ -417,7 +417,7 @@ export default function DocIntelligenceHub() {
               <div className="flex items-center gap-3">
                 <span className="text-xs font-bold bg-blue-600 text-white w-6 h-6 flex items-center justify-center rounded-md">1</span>
                 <h3 className="text-sm font-bold text-gray-900">
-                  Documents
+                  Select Process & Document(s)
                   {hasFiles && <span className="ml-2 text-emerald-600 font-semibold">({uploadedFiles.length} loaded)</span>}
                 </h3>
                 {!hasFiles && <span className="text-xs text-red-600 font-semibold bg-red-50 px-2 py-0.5 rounded">Required</span>}
@@ -482,6 +482,7 @@ export default function DocIntelligenceHub() {
               {/* === SAMPLE MODE === */}
               {docSource === 'sample' && (
                 <div className="space-y-3">
+                  <label className="block text-xs font-semibold text-gray-600 mb-1">Select Process</label>
                   <select
                     value={selectedDept}
                     onChange={e => { setSelectedDept(e.target.value); setUploadedFiles([]); }}
@@ -570,7 +571,7 @@ export default function DocIntelligenceHub() {
           <section className="bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden">
             <div className="flex items-center gap-3 px-5 py-3 border-b border-gray-200 bg-slate-50">
               <span className="text-xs font-bold bg-violet-600 text-white w-6 h-6 flex items-center justify-center rounded-md">2</span>
-              <h3 className="text-sm font-bold text-gray-900">Choose Operation</h3>
+              <h3 className="text-sm font-bold text-gray-900">Choose Document Operation</h3>
             </div>
             <div className="px-4 py-3 flex flex-wrap gap-2 max-h-[260px] overflow-y-auto">
               {OPERATIONS.map(op => (
