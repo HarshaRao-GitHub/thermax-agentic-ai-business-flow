@@ -1,4 +1,5 @@
 import { NextRequest } from 'next/server';
+import Anthropic from '@anthropic-ai/sdk';
 import { getAnthropicClient, getModelId, callWithRetry } from '@/lib/anthropic';
 import { getOperationById, getDepartmentById } from '@/data/doc-intelligence-config';
 
@@ -6,14 +7,25 @@ export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 export const maxDuration = 300;
 
+type MessageParam = Anthropic.MessageParam;
+type TextBlockParam = Anthropic.TextBlockParam;
+type ImageBlockParam = Anthropic.ImageBlockParam;
+
 interface ChatMessage {
   role: 'user' | 'assistant';
   content: string;
 }
 
+interface ImageAttachment {
+  base64: string;
+  media_type: string;
+  label: string;
+}
+
 interface UploadedDoc {
   filename: string;
   text: string;
+  images?: ImageAttachment[];
 }
 
 interface DocIntelRequest {
@@ -74,6 +86,19 @@ function buildSystemPrompt(req: DocIntelRequest): string {
 
   parts.push(
     '',
+    '## Visual Content Analysis',
+    'If images, diagrams, charts, or screenshots are provided:',
+    '1. Analyze ALL visual content thoroughly — describe what you see, extract any text/numbers/labels from images.',
+    '2. For diagrams/flowcharts: identify the process flow, nodes, connections, and logic.',
+    '3. For charts/graphs: extract the data points, trends, axes labels, legends, and key insights.',
+    '4. For tables in images: reconstruct them as proper markdown tables with all data preserved.',
+    '5. For technical drawings: identify components, dimensions, specifications, and annotations.',
+    '6. For screenshots: extract all visible text, UI elements, and relevant information.',
+    '7. Integrate visual analysis with text analysis for a comprehensive document understanding.',
+  );
+
+  parts.push(
+    '',
     '## Visualization & Rich Output Requirements (MANDATORY)',
     'Your output must be enterprise-grade, visually rich, and production-quality — as if produced by a top-tier consulting firm.',
     '1. Include Mermaid diagrams using ```mermaid code blocks: pie charts (pie title "Title" then "Label" : value) for distributions, flowcharts (graph TD/LR) for processes, Gantt for timelines. Do NOT use xychart-beta or quadrantChart. Do NOT use emojis or special Unicode characters inside Mermaid diagrams — use ONLY plain ASCII text.',
@@ -86,23 +111,77 @@ function buildSystemPrompt(req: DocIntelRequest): string {
     '8. For data-heavy documents, always produce at least 2 Mermaid visualizations.',
   );
 
-  if (req.uploadedTexts?.length) {
-    const docBlocks = req.uploadedTexts
-      .filter(d => d.text?.trim())
-      .map(d => `=== DOCUMENT: ${d.filename} ===\n\n${d.text.trim()}\n\n=== END ===`);
-    if (docBlocks.length) {
-      parts.push(
-        '',
-        '--- BEGIN UPLOADED DOCUMENTS ---',
-        '',
-        docBlocks.join('\n\n'),
-        '',
-        '--- END UPLOADED DOCUMENTS ---'
-      );
+  return parts.join('\n');
+}
+
+const SUPPORTED_IMAGE_TYPES = new Set(['image/jpeg', 'image/png', 'image/gif', 'image/webp']);
+
+function buildConversationMessages(body: DocIntelRequest): MessageParam[] {
+  const incomingMsgs = Array.isArray(body.messages) ? body.messages : [];
+  if (incomingMsgs.length === 0) return [];
+
+  const allImages: ImageAttachment[] = [];
+  const docBlocks: string[] = [];
+
+  if (body.uploadedTexts?.length) {
+    for (const doc of body.uploadedTexts) {
+      if (doc.text?.trim()) {
+        docBlocks.push(`=== DOCUMENT: ${doc.filename} ===\n\n${doc.text.trim()}\n\n=== END ===`);
+      }
+      if (doc.images?.length) {
+        for (const img of doc.images) {
+          if (img.base64 && img.media_type) {
+            allImages.push(img);
+          }
+        }
+      }
     }
   }
 
-  return parts.join('\n');
+  const documentContext = docBlocks.length > 0
+    ? `--- BEGIN UPLOADED DOCUMENTS ---\n\n${docBlocks.join('\n\n')}\n\n--- END UPLOADED DOCUMENTS ---`
+    : '';
+
+  const result: MessageParam[] = [];
+
+  for (let i = 0; i < incomingMsgs.length; i++) {
+    const msg = incomingMsgs[i];
+
+    if (i === 0 && msg.role === 'user' && (documentContext || allImages.length > 0)) {
+      const contentBlocks: (TextBlockParam | ImageBlockParam)[] = [];
+
+      if (documentContext) {
+        contentBlocks.push({ type: 'text', text: documentContext });
+      }
+
+      for (const img of allImages) {
+        const mt = SUPPORTED_IMAGE_TYPES.has(img.media_type)
+          ? img.media_type as 'image/jpeg' | 'image/png' | 'image/gif' | 'image/webp'
+          : 'image/png';
+
+        contentBlocks.push({
+          type: 'image',
+          source: {
+            type: 'base64',
+            media_type: mt,
+            data: img.base64,
+          },
+        });
+        contentBlocks.push({
+          type: 'text',
+          text: `[Attached image: ${img.label}]`,
+        });
+      }
+
+      contentBlocks.push({ type: 'text', text: msg.content });
+
+      result.push({ role: 'user', content: contentBlocks });
+    } else {
+      result.push({ role: msg.role, content: msg.content });
+    }
+  }
+
+  return result;
 }
 
 export async function POST(req: NextRequest) {
@@ -118,6 +197,20 @@ export async function POST(req: NextRequest) {
   }
 
   const systemPrompt = buildSystemPrompt(body);
+  const conversationMessages = buildConversationMessages(body);
+
+  if (conversationMessages.length === 0) {
+    const encoder = new TextEncoder();
+    const errStream = new ReadableStream({
+      start(controller) {
+        controller.enqueue(encoder.encode(`event: error\ndata: ${JSON.stringify({ message: 'No messages provided' })}\n\n`));
+        controller.close();
+      },
+    });
+    return new Response(errStream, {
+      headers: { 'Content-Type': 'text/event-stream; charset=utf-8' },
+    });
+  }
 
   const encoder = new TextEncoder();
   function sse(event: string, data: unknown): Uint8Array {
@@ -131,23 +224,10 @@ export async function POST(req: NextRequest) {
         const model = getModelId();
         const liveStart = Date.now();
 
-        type MsgParam = { role: 'user' | 'assistant'; content: string };
-        const incomingMsgs = Array.isArray(body.messages) ? body.messages : [];
-        if (incomingMsgs.length === 0) {
-          controller.enqueue(sse('error', { message: 'No messages provided' }));
-          controller.close();
-          return;
-        }
-        const conversationMessages: MsgParam[] = incomingMsgs.map(m => ({
-          role: m.role,
-          content: m.content,
-        }));
-
         let totalInputTokens = 0;
         let totalOutputTokens = 0;
-        let apiTurns = 0;
+        const apiTurns = 1;
 
-        apiTurns = 1;
         const stream = await callWithRetry(
           () => client.messages.create({
             model,
