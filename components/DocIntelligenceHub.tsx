@@ -482,16 +482,18 @@ export default function DocIntelligenceHub() {
               {/* === SAMPLE MODE === */}
               {docSource === 'sample' && (
                 <div className="space-y-3">
-                  <label className="block text-xs font-semibold text-gray-600 mb-1">Select Process</label>
-                  <select
-                    value={selectedDept}
-                    onChange={e => { setSelectedDept(e.target.value); setUploadedFiles([]); }}
-                    className="bg-white border border-gray-300 rounded-lg px-3 py-1.5 text-sm text-gray-800 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400 w-full sm:w-auto"
-                  >
-                    {DEPARTMENTS.map(d => (
-                      <option key={d.id} value={d.id}>{d.icon} {d.label}</option>
-                    ))}
-                  </select>
+                  <div className="flex items-center gap-3">
+                    <label className="text-xs font-semibold text-gray-600 shrink-0">Select Process</label>
+                    <select
+                      value={selectedDept}
+                      onChange={e => { setSelectedDept(e.target.value); setUploadedFiles([]); }}
+                      className="bg-white border border-gray-300 rounded-lg px-3 py-1.5 text-sm text-gray-800 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400 flex-1"
+                    >
+                      {DEPARTMENTS.map(d => (
+                        <option key={d.id} value={d.id}>{d.icon} {d.label}</option>
+                      ))}
+                    </select>
+                  </div>
                   <p className="text-xs text-gray-500 italic">{dept?.description}</p>
 
                   {sampleFiles.length > 0 && (
