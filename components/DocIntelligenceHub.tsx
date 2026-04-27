@@ -39,7 +39,7 @@ export default function DocIntelligenceHub() {
   const [mode, setMode] = useState<'live' | null>(null);
   const [uploadError, setUploadError] = useState<string | null>(null);
   const [uploading, setUploading] = useState(false);
-  const [docSource, setDocSource] = useState<'upload' | 'sample'>('upload');
+  const [docSource, setDocSource] = useState<'upload' | 'sample'>('sample');
   const [dataViewer, setDataViewer] = useState<DataViewerState>({ open: false, title: '', content: '', loading: false });
 
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -427,16 +427,6 @@ export default function DocIntelligenceHub() {
             {/* Tab toggle */}
             <div className="flex border-b border-gray-200">
               <button
-                onClick={() => switchDocSource('upload')}
-                className={`flex-1 px-4 py-2.5 text-xs font-bold transition-all ${
-                  docSource === 'upload'
-                    ? 'text-blue-700 border-b-2 border-blue-600 bg-blue-50/50'
-                    : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
-                }`}
-              >
-                📁 Upload Your Documents
-              </button>
-              <button
                 onClick={() => switchDocSource('sample')}
                 className={`flex-1 px-4 py-2.5 text-xs font-bold transition-all ${
                   docSource === 'sample'
@@ -445,6 +435,16 @@ export default function DocIntelligenceHub() {
                 }`}
               >
                 📊 Browse Sample Documents
+              </button>
+              <button
+                onClick={() => switchDocSource('upload')}
+                className={`flex-1 px-4 py-2.5 text-xs font-bold transition-all ${
+                  docSource === 'upload'
+                    ? 'text-blue-700 border-b-2 border-blue-600 bg-blue-50/50'
+                    : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
+                }`}
+              >
+                📁 Upload Your Documents
               </button>
             </div>
 
