@@ -3,6 +3,7 @@
 import { useRef, useState, useCallback, useEffect } from 'react';
 import Markdown from './Markdown';
 import { saveChatHistory, loadChatHistory, clearChatHistory, CHAT_KEYS } from '@/lib/chat-history';
+import { downloadAsMarkdown, downloadAsPdf } from '@/lib/download-utils';
 
 type Role = 'user' | 'assistant';
 interface ChatMessage { role: Role; content: string; }
@@ -516,6 +517,7 @@ export default function PromptPlayground() {
 function ChatBubble({ message, isStreaming }: { message: ChatMessage; isStreaming: boolean }) {
   const [expanded, setExpanded] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [pdfLoading, setPdfLoading] = useState(false);
 
   if (message.role === 'user') {
     return (
@@ -534,14 +536,12 @@ function ChatBubble({ message, isStreaming }: { message: ChatMessage; isStreamin
     try { await navigator.clipboard.writeText(message.content); setCopied(true); setTimeout(() => setCopied(false), 2000); } catch {}
   };
 
-  const handleDownload = () => {
-    const blob = new Blob([message.content], { type: 'text/markdown' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `thermax-analysis-${Date.now()}.md`;
-    a.click();
-    URL.revokeObjectURL(url);
+  const handleDownload = () => downloadAsMarkdown(message.content, 'thermax-analysis');
+
+  const handlePdfDownload = async () => {
+    setPdfLoading(true);
+    try { await downloadAsPdf(message.content, 'thermax-analysis'); } catch { /* ignore */ }
+    finally { setPdfLoading(false); }
   };
 
   return (
@@ -579,7 +579,11 @@ function ChatBubble({ message, isStreaming }: { message: ChatMessage; isStreamin
               <div className="mt-3 pt-2.5 border-t border-gray-200 flex items-center gap-3">
                 <button onClick={handleDownload} className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-gray-800 font-semibold px-2.5 py-1.5 rounded-lg hover:bg-gray-100 transition">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                  Download
+                  .md
+                </button>
+                <button onClick={handlePdfDownload} disabled={pdfLoading} className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-red-700 font-semibold px-2.5 py-1.5 rounded-lg hover:bg-gray-100 transition disabled:opacity-50">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                  {pdfLoading ? 'Generating...' : '.pdf'}
                 </button>
                 <button onClick={handleCopy} className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-gray-800 font-semibold px-2.5 py-1.5 rounded-lg hover:bg-gray-100 transition">
                   {copied ? (
