@@ -475,21 +475,21 @@ export default function PromptPlayground() {
                 className="w-full flex items-center justify-between px-5 py-3.5 bg-gradient-to-r from-indigo-600 via-purple-600 to-amber-500 text-left group"
               >
                 <div className="flex items-center gap-3">
-                  <span className="text-2xl">🧪</span>
+                  <span className="text-3xl">🧪</span>
                   <div>
-                    <h2 className="text-[15px] font-extrabold text-white tracking-tight">Prompt Experimentation Lab</h2>
-                    <p className="text-[11px] text-white/80 mt-0.5">Run the same problem through 4 progressively stronger prompts — see how the answer gets sharper at each level</p>
+                    <h2 className="text-lg font-extrabold text-white tracking-tight">Prompt Experimentation Lab</h2>
+                    <p className="text-sm text-white/85 mt-0.5">Run the same problem through 4 progressively stronger prompts — see how the answer gets sharper at each level</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 shrink-0">
-                  <div className="hidden md:flex items-center gap-1.5 bg-white/15 backdrop-blur rounded-full px-3 py-1">
-                    <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-emerald-400/30 text-white">L1</span>
-                    <span className="text-white/60 text-[10px]">→</span>
-                    <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-blue-400/30 text-white">L2</span>
-                    <span className="text-white/60 text-[10px]">→</span>
-                    <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-purple-400/30 text-white">L3</span>
-                    <span className="text-white/60 text-[10px]">→</span>
-                    <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-amber-400/30 text-white">L4</span>
+                  <div className="hidden md:flex items-center gap-2 bg-white/15 backdrop-blur rounded-full px-4 py-1.5">
+                    <span className="text-xs font-bold px-2 py-0.5 rounded bg-emerald-400/30 text-white">L1</span>
+                    <span className="text-white/60 text-sm">→</span>
+                    <span className="text-xs font-bold px-2 py-0.5 rounded bg-blue-400/30 text-white">L2</span>
+                    <span className="text-white/60 text-sm">→</span>
+                    <span className="text-xs font-bold px-2 py-0.5 rounded bg-purple-400/30 text-white">L3</span>
+                    <span className="text-white/60 text-sm">→</span>
+                    <span className="text-xs font-bold px-2 py-0.5 rounded bg-amber-400/30 text-white">L4</span>
                   </div>
                   <svg className={`w-5 h-5 text-white/80 transition-transform duration-300 ${labExpanded ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
@@ -498,29 +498,29 @@ export default function PromptPlayground() {
               </button>
 
               {labExpanded && (
-                <div className="p-4">
+                <div className="p-5">
                   <div className="flex items-center justify-between mb-4">
-                    <p className="text-[11px] text-gray-500 italic">
-                      <strong className="text-gray-700 not-italic">Principle:</strong> The complexity belongs in the prompt, not in the expected outcome — better prompts yield sharper answers for the same goal.
+                    <p className="text-sm text-gray-600 italic">
+                      <strong className="text-gray-800 not-italic">Principle:</strong> The complexity belongs in the prompt, not in the expected outcome — better prompts yield sharper answers for the same goal.
                     </p>
-                    <span className="text-[9px] font-semibold text-indigo-500 bg-indigo-50 border border-indigo-200 px-2 py-0.5 rounded-full shrink-0 ml-3">
+                    <span className="text-xs font-semibold text-indigo-600 bg-indigo-50 border border-indigo-200 px-2.5 py-1 rounded-full shrink-0 ml-3">
                       CRAFT = Context · Role · Action · Format · Target
                     </span>
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-4">
+                  <div className="grid md:grid-cols-2 gap-5">
                     {LAB_EXPERIMENTS.map((exp, ei) => (
                       <div key={ei} className="rounded-xl border border-gray-200 bg-gradient-to-b from-slate-50 to-white shadow-sm hover:shadow-md transition-shadow overflow-hidden">
-                        <div className="px-4 py-3 border-b border-gray-100 bg-white">
-                          <div className="flex items-center gap-2.5">
-                            <span className="text-2xl">{exp.icon}</span>
+                        <div className="px-5 py-4 border-b border-gray-100 bg-white">
+                          <div className="flex items-center gap-3">
+                            <span className="text-3xl">{exp.icon}</span>
                             <div className="flex-1 min-w-0">
-                              <h3 className="text-[13px] font-bold text-gray-900 leading-tight">{exp.theme}</h3>
-                              <p className="text-[10px] text-gray-500 mt-0.5 leading-snug">{exp.description}</p>
+                              <h3 className="text-[15px] font-bold text-gray-900 leading-tight">{exp.theme}</h3>
+                              <p className="text-xs text-gray-600 mt-1 leading-snug">{exp.description}</p>
                             </div>
                           </div>
                         </div>
-                        <div className="p-3 space-y-2">
+                        <div className="p-3.5 space-y-2.5">
                           {exp.levels.map((level, lvi) => {
                             const stepColors = [
                               'border-l-emerald-400 hover:bg-emerald-50/50',
@@ -532,23 +532,23 @@ export default function PromptPlayground() {
                               <button
                                 key={lvi}
                                 onClick={() => handlePromptClick(level.prompt)}
-                                className={`w-full text-left group rounded-lg border border-gray-100 border-l-[3px] ${stepColors[lvi]} bg-white p-3 transition-all hover:shadow-sm`}
+                                className={`w-full text-left group rounded-lg border border-gray-100 border-l-[3px] ${stepColors[lvi]} bg-white p-3.5 transition-all hover:shadow-sm`}
                               >
-                                <div className="flex items-center gap-2 mb-1.5">
-                                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md border ${level.color}`}>
+                                <div className="flex items-center gap-2.5 mb-2">
+                                  <span className={`text-xs font-bold px-2.5 py-1 rounded-md border ${level.color}`}>
                                     {level.tag}
                                   </span>
-                                  <span className="text-[11px] font-semibold text-gray-700 group-hover:text-indigo-700 transition">
+                                  <span className="text-sm font-semibold text-gray-800 group-hover:text-indigo-700 transition">
                                     {level.label}
                                   </span>
                                   {lvi === 3 && (
-                                    <span className="text-[8px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200 ml-auto">C · R · A · F · T</span>
+                                    <span className="text-[10px] font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200 ml-auto">C · R · A · F · T</span>
                                   )}
-                                  <svg className="w-3.5 h-3.5 text-gray-300 group-hover:text-indigo-500 ml-auto transition shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                                  <svg className="w-4 h-4 text-gray-300 group-hover:text-indigo-500 ml-auto transition shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                                   </svg>
                                 </div>
-                                <p className="text-[10px] text-gray-500 group-hover:text-gray-700 leading-snug transition line-clamp-2">
+                                <p className="text-[13px] text-gray-700 leading-relaxed transition whitespace-pre-line">
                                   {level.prompt}
                                 </p>
                               </button>
@@ -569,12 +569,12 @@ export default function PromptPlayground() {
               <div className="flex-1 overflow-y-auto p-4 space-y-4">
                 {transcript.length === 0 && !streaming && (
                   <div className="flex flex-col items-center justify-center h-full text-center py-12">
-                    <div className="text-4xl mb-3">💬</div>
-                    <h3 className="text-base font-bold text-gray-700">Start Your Prompt Experiment</h3>
-                    <p className="text-sm text-gray-400 max-w-md mt-1.5 leading-relaxed">
+                    <div className="text-5xl mb-3">💬</div>
+                    <h3 className="text-lg font-bold text-gray-800">Start Your Prompt Experiment</h3>
+                    <p className="text-sm text-gray-500 max-w-md mt-2 leading-relaxed">
                       Pick a prompt level from the Lab above, or type your own prompt below. Watch the answer quality evolve as the prompt complexity increases.
                     </p>
-                    <div className="mt-4 text-[10px] text-gray-400">
+                    <div className="mt-4 text-xs text-gray-500">
                       {LAB_EXPERIMENTS.length} experimentation themes · {PROMPT_LADDERS.length} use-case templates · {LAB_EXPERIMENTS.length * 4 + PROMPT_LADDERS.length * 3} total prompts
                     </div>
                   </div>
