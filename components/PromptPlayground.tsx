@@ -391,190 +391,73 @@ export default function PromptPlayground() {
       <div className="max-w-7xl mx-auto px-6 py-5">
         <div className={`grid gap-5 ${sidebarOpen ? 'lg:grid-cols-[340px_1fr]' : 'grid-cols-1'}`}>
 
-          {/* Sidebar - Prompt Ladder Library */}
+          {/* Sidebar — Use-case Driven Prompt Templates */}
           {sidebarOpen && (
             <aside className="lg:max-h-[calc(100vh-200px)] lg:overflow-y-auto lg:sticky lg:top-4">
               <div className="bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden">
+                <div className="px-4 py-3 border-b border-gray-200 bg-gradient-to-r from-blue-50 to-indigo-50">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-bold bg-blue-600 text-white w-6 h-6 flex items-center justify-center rounded-md">📚</span>
+                    <h3 className="text-sm font-bold text-gray-900">Use-case Driven Prompt Templates</h3>
+                  </div>
+                  <p className="text-[10px] text-gray-500 mt-1 leading-snug">
+                    {PROMPT_LADDERS.length} industry themes with 3 depth levels each: L1 (Simple) → L2 (Detailed) → L3 (Analytical).
+                  </p>
+                </div>
 
-                {/* === PROMPT EXPERIMENTATION LAB (top section) === */}
-                <div className="border-b border-gray-200">
-                  <button
-                    onClick={() => setLabExpanded(!labExpanded)}
-                    className="w-full flex items-center justify-between px-4 py-3 bg-gradient-to-r from-indigo-50 via-purple-50 to-amber-50 hover:from-indigo-100 hover:via-purple-100 hover:to-amber-100 transition text-left"
-                  >
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <span className="text-xs font-bold bg-indigo-600 text-white w-5 h-5 flex items-center justify-center rounded">🧪</span>
-                        <span className="text-[12px] font-extrabold text-indigo-900">Prompt Experimentation Lab</span>
-                      </div>
-                      <p className="text-[9px] text-indigo-600/80 mt-0.5 ml-7 leading-snug">
-                        Run the same problem through 4 progressively stronger prompts — see how the answer gets sharper at each level.
-                      </p>
-                    </div>
-                    <svg className={`w-4 h-4 text-indigo-400 transition-transform duration-200 shrink-0 ${labExpanded ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </button>
+                <div className="divide-y divide-gray-100">
+                  {PROMPT_LADDERS.map((ladder, li) => {
+                    const isOpen = expandedLadders.has(li);
+                    return (
+                      <div key={li}>
+                        <button
+                          onClick={() => toggleLadder(li)}
+                          className="w-full flex items-center justify-between px-4 py-2.5 hover:bg-gray-50 transition text-left"
+                        >
+                          <div className="flex items-center gap-2.5">
+                            <span className="text-lg">{ladder.icon}</span>
+                            <span className="text-[12px] font-bold text-gray-800">{ladder.theme}</span>
+                          </div>
+                          <svg className={`w-4 h-4 text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                          </svg>
+                        </button>
 
-                  {labExpanded && (
-                    <div>
-                      <div className="px-4 py-2 bg-indigo-50/50 border-b border-indigo-100">
-                        <div className="flex items-center gap-4">
-                          <div className="flex items-center gap-1">
-                            <span className="text-[8px] font-bold px-1 py-0.5 rounded bg-emerald-100 text-emerald-700 border border-emerald-200">L1</span>
-                            <span className="text-[8px] text-gray-500">Simple</span>
-                          </div>
-                          <span className="text-gray-300">→</span>
-                          <div className="flex items-center gap-1">
-                            <span className="text-[8px] font-bold px-1 py-0.5 rounded bg-blue-100 text-blue-700 border border-blue-200">L2</span>
-                            <span className="text-[8px] text-gray-500">Detailed</span>
-                          </div>
-                          <span className="text-gray-300">→</span>
-                          <div className="flex items-center gap-1">
-                            <span className="text-[8px] font-bold px-1 py-0.5 rounded bg-purple-100 text-purple-700 border border-purple-200">L3</span>
-                            <span className="text-[8px] text-gray-500">Analytical</span>
-                          </div>
-                          <span className="text-gray-300">→</span>
-                          <div className="flex items-center gap-1">
-                            <span className="text-[8px] font-bold px-1 py-0.5 rounded bg-amber-100 text-amber-700 border border-amber-200">L4</span>
-                            <span className="text-[8px] text-gray-500">CRAFT</span>
-                          </div>
-                        </div>
-                        <p className="text-[9px] text-gray-500 mt-1 leading-snug">
-                          <strong>Principle:</strong> The complexity belongs in the prompt, not in the expected outcome — better prompts yield sharper answers for the same goal.
-                        </p>
-                      </div>
-
-                      <div className="divide-y divide-gray-100">
-                        {LAB_EXPERIMENTS.map((exp, ei) => {
-                          const isOpen = expandedLabLadders.has(ei);
-                          return (
-                            <div key={ei}>
+                        {isOpen && (
+                          <div className="px-3 pb-3 space-y-1.5">
+                            {ladder.levels.map((level, lvi) => (
                               <button
-                                onClick={() => toggleLabLadder(ei)}
-                                className="w-full flex items-center justify-between px-4 py-2.5 hover:bg-indigo-50/40 transition text-left"
+                                key={lvi}
+                                onClick={() => handlePromptClick(level.prompt)}
+                                className="w-full text-left group"
                               >
-                                <div className="flex-1 min-w-0">
-                                  <div className="flex items-center gap-2.5">
-                                    <span className="text-lg">{exp.icon}</span>
-                                    <span className="text-[12px] font-bold text-gray-800">{exp.theme}</span>
-                                    <span className="text-[8px] font-semibold text-indigo-500 bg-indigo-50 border border-indigo-200 px-1.5 py-0.5 rounded-full shrink-0">4 levels</span>
+                                <div className="rounded-lg border border-gray-200 bg-white hover:bg-blue-50 hover:border-blue-300 transition p-2.5 shadow-sm">
+                                  <div className="flex items-center gap-2 mb-1">
+                                    <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded border ${level.color}`}>
+                                      {level.tag}
+                                    </span>
+                                    <span className="text-[10px] font-semibold text-gray-600 group-hover:text-blue-700 transition">
+                                      {level.label}
+                                    </span>
                                   </div>
-                                  <p className="text-[9px] text-gray-500 mt-0.5 ml-8 leading-snug">{exp.description}</p>
+                                  <p className="text-[10px] text-gray-500 group-hover:text-gray-700 leading-snug transition line-clamp-2">
+                                    {level.prompt}
+                                  </p>
                                 </div>
-                                <svg className={`w-4 h-4 text-gray-400 transition-transform shrink-0 ml-2 ${isOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                                </svg>
                               </button>
-
-                              {isOpen && (
-                                <div className="px-3 pb-3 space-y-1.5">
-                                  {exp.levels.map((level, lvi) => (
-                                    <button
-                                      key={lvi}
-                                      onClick={() => handlePromptClick(level.prompt)}
-                                      className="w-full text-left group"
-                                    >
-                                      <div className={`rounded-lg border bg-white hover:border-indigo-300 hover:bg-indigo-50/30 transition p-2.5 shadow-sm ${lvi === 3 ? 'border-amber-200 ring-1 ring-amber-100' : 'border-gray-200'}`}>
-                                        <div className="flex items-center gap-2 mb-1">
-                                          <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded border ${level.color}`}>
-                                            {level.tag}
-                                          </span>
-                                          <span className="text-[10px] font-semibold text-gray-600 group-hover:text-indigo-700 transition">
-                                            {level.label}
-                                          </span>
-                                          {lvi === 3 && (
-                                            <span className="text-[8px] font-bold text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded-full border border-amber-200">C·R·A·F·T</span>
-                                          )}
-                                        </div>
-                                        <p className="text-[10px] text-gray-500 group-hover:text-gray-700 leading-snug transition line-clamp-2">
-                                          {level.prompt}
-                                        </p>
-                                      </div>
-                                    </button>
-                                  ))}
-                                </div>
-                              )}
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                {/* === USE-CASE DRIVEN PROMPT TEMPLATES (existing, collapsed) === */}
-                <div className="border-b border-gray-200">
-                  <button
-                    onClick={() => setThemesExpanded(!themesExpanded)}
-                    className="w-full flex items-center justify-between px-4 py-2.5 bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 transition text-left"
-                  >
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs">📚</span>
-                      <span className="text-[11px] font-bold text-blue-800">Use-case Driven Prompt Templates</span>
-                      <span className="text-[9px] font-semibold text-blue-500 bg-blue-100 px-1.5 py-0.5 rounded-full">{PROMPT_LADDERS.length} themes</span>
-                    </div>
-                    <svg className={`w-4 h-4 text-blue-400 transition-transform duration-200 ${themesExpanded ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </button>
-
-                  {themesExpanded && (
-                    <div className="divide-y divide-gray-100">
-                      {PROMPT_LADDERS.map((ladder, li) => {
-                        const isOpen = expandedLadders.has(li);
-                        return (
-                          <div key={li}>
-                            <button
-                              onClick={() => toggleLadder(li)}
-                              className="w-full flex items-center justify-between px-4 py-2.5 hover:bg-gray-50 transition text-left"
-                            >
-                              <div className="flex items-center gap-2.5">
-                                <span className="text-lg">{ladder.icon}</span>
-                                <span className="text-[12px] font-bold text-gray-800">{ladder.theme}</span>
-                              </div>
-                              <svg className={`w-4 h-4 text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                              </svg>
-                            </button>
-
-                            {isOpen && (
-                              <div className="px-3 pb-3 space-y-1.5">
-                                {ladder.levels.map((level, lvi) => (
-                                  <button
-                                    key={lvi}
-                                    onClick={() => handlePromptClick(level.prompt)}
-                                    className="w-full text-left group"
-                                  >
-                                    <div className="rounded-lg border border-gray-200 bg-white hover:bg-blue-50 hover:border-blue-300 transition p-2.5 shadow-sm">
-                                      <div className="flex items-center gap-2 mb-1">
-                                        <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded border ${level.color}`}>
-                                          {level.tag}
-                                        </span>
-                                        <span className="text-[10px] font-semibold text-gray-600 group-hover:text-blue-700 transition">
-                                          {level.label}
-                                        </span>
-                                      </div>
-                                      <p className="text-[10px] text-gray-500 group-hover:text-gray-700 leading-snug transition line-clamp-2">
-                                        {level.prompt}
-                                      </p>
-                                    </div>
-                                  </button>
-                                ))}
-                              </div>
-                            )}
+                            ))}
                           </div>
-                        );
-                      })}
-                    </div>
-                  )}
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
 
-                <div className="px-4 py-3 bg-amber-50">
+                <div className="px-4 py-3 bg-amber-50 border-t border-gray-200">
                   <div className="flex items-start gap-2">
                     <span className="text-amber-600 text-xs mt-0.5 shrink-0">💡</span>
                     <p className="text-[10px] text-amber-800 leading-snug">
-                      <strong>How it works:</strong> Start with L1 (Simple) to explore a topic, add context with L2, sharpen with L3 analysis, then use L4 (CRAFT) for board-ready output. The same desired outcome — dramatically different quality.
+                      <strong>Tip:</strong> Start with L1 to explore, refine with L2 for depth, then use L3 for board-ready strategic output.
                     </p>
                   </div>
                 </div>
@@ -582,47 +465,116 @@ export default function PromptPlayground() {
             </aside>
           )}
 
-          {/* Chat Area */}
-          <section className="flex flex-col min-h-[calc(100vh-200px)]">
+          {/* Right Side — Lab + Chat */}
+          <section className="flex flex-col min-h-[calc(100vh-200px)] gap-4">
+
+            {/* ═══ PROMPT EXPERIMENTATION LAB — Prominent Card ═══ */}
+            <div className="rounded-xl border border-indigo-200 shadow-lg overflow-hidden bg-white">
+              <button
+                onClick={() => setLabExpanded(!labExpanded)}
+                className="w-full flex items-center justify-between px-5 py-3.5 bg-gradient-to-r from-indigo-600 via-purple-600 to-amber-500 text-left group"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="text-2xl">🧪</span>
+                  <div>
+                    <h2 className="text-[15px] font-extrabold text-white tracking-tight">Prompt Experimentation Lab</h2>
+                    <p className="text-[11px] text-white/80 mt-0.5">Run the same problem through 4 progressively stronger prompts — see how the answer gets sharper at each level</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 shrink-0">
+                  <div className="hidden md:flex items-center gap-1.5 bg-white/15 backdrop-blur rounded-full px-3 py-1">
+                    <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-emerald-400/30 text-white">L1</span>
+                    <span className="text-white/60 text-[10px]">→</span>
+                    <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-blue-400/30 text-white">L2</span>
+                    <span className="text-white/60 text-[10px]">→</span>
+                    <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-purple-400/30 text-white">L3</span>
+                    <span className="text-white/60 text-[10px]">→</span>
+                    <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-amber-400/30 text-white">L4</span>
+                  </div>
+                  <svg className={`w-5 h-5 text-white/80 transition-transform duration-300 ${labExpanded ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                  </svg>
+                </div>
+              </button>
+
+              {labExpanded && (
+                <div className="p-4">
+                  <div className="flex items-center justify-between mb-4">
+                    <p className="text-[11px] text-gray-500 italic">
+                      <strong className="text-gray-700 not-italic">Principle:</strong> The complexity belongs in the prompt, not in the expected outcome — better prompts yield sharper answers for the same goal.
+                    </p>
+                    <span className="text-[9px] font-semibold text-indigo-500 bg-indigo-50 border border-indigo-200 px-2 py-0.5 rounded-full shrink-0 ml-3">
+                      CRAFT = Context · Role · Action · Format · Target
+                    </span>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {LAB_EXPERIMENTS.map((exp, ei) => (
+                      <div key={ei} className="rounded-xl border border-gray-200 bg-gradient-to-b from-slate-50 to-white shadow-sm hover:shadow-md transition-shadow overflow-hidden">
+                        <div className="px-4 py-3 border-b border-gray-100 bg-white">
+                          <div className="flex items-center gap-2.5">
+                            <span className="text-2xl">{exp.icon}</span>
+                            <div className="flex-1 min-w-0">
+                              <h3 className="text-[13px] font-bold text-gray-900 leading-tight">{exp.theme}</h3>
+                              <p className="text-[10px] text-gray-500 mt-0.5 leading-snug">{exp.description}</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="p-3 space-y-2">
+                          {exp.levels.map((level, lvi) => {
+                            const stepColors = [
+                              'border-l-emerald-400 hover:bg-emerald-50/50',
+                              'border-l-blue-400 hover:bg-blue-50/50',
+                              'border-l-purple-400 hover:bg-purple-50/50',
+                              'border-l-amber-400 hover:bg-amber-50/50',
+                            ];
+                            return (
+                              <button
+                                key={lvi}
+                                onClick={() => handlePromptClick(level.prompt)}
+                                className={`w-full text-left group rounded-lg border border-gray-100 border-l-[3px] ${stepColors[lvi]} bg-white p-3 transition-all hover:shadow-sm`}
+                              >
+                                <div className="flex items-center gap-2 mb-1.5">
+                                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md border ${level.color}`}>
+                                    {level.tag}
+                                  </span>
+                                  <span className="text-[11px] font-semibold text-gray-700 group-hover:text-indigo-700 transition">
+                                    {level.label}
+                                  </span>
+                                  {lvi === 3 && (
+                                    <span className="text-[8px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200 ml-auto">C · R · A · F · T</span>
+                                  )}
+                                  <svg className="w-3.5 h-3.5 text-gray-300 group-hover:text-indigo-500 ml-auto transition shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                  </svg>
+                                </div>
+                                <p className="text-[10px] text-gray-500 group-hover:text-gray-700 leading-snug transition line-clamp-2">
+                                  {level.prompt}
+                                </p>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* ═══ CHAT AREA ═══ */}
             <div className="flex-1 bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden flex flex-col">
 
               {/* Messages */}
               <div className="flex-1 overflow-y-auto p-4 space-y-4">
                 {transcript.length === 0 && !streaming && (
-                  <div className="flex flex-col items-center justify-center h-full text-center py-16">
-                    <div className="text-5xl mb-4">🧪</div>
-                    <h3 className="text-lg font-bold text-gray-800">Prompt Experimentation Lab</h3>
-                    <p className="text-sm text-gray-500 max-w-lg mt-2 leading-relaxed">
-                      Run the same problem through progressively stronger prompts and see how the answer becomes more enriched, pointed, and sharp at every level.
+                  <div className="flex flex-col items-center justify-center h-full text-center py-12">
+                    <div className="text-4xl mb-3">💬</div>
+                    <h3 className="text-base font-bold text-gray-700">Start Your Prompt Experiment</h3>
+                    <p className="text-sm text-gray-400 max-w-md mt-1.5 leading-relaxed">
+                      Pick a prompt level from the Lab above, or type your own prompt below. Watch the answer quality evolve as the prompt complexity increases.
                     </p>
-                    <div className="mt-6 grid grid-cols-4 gap-2.5 max-w-xl">
-                      <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-3 text-center">
-                        <div className="text-emerald-700 font-bold text-lg mb-1">L1</div>
-                        <div className="text-[11px] font-semibold text-emerald-600">Simple</div>
-                        <div className="text-[9px] text-emerald-500 mt-1">Bare ask, no context</div>
-                      </div>
-                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-center">
-                        <div className="text-blue-700 font-bold text-lg mb-1">L2</div>
-                        <div className="text-[11px] font-semibold text-blue-600">Detailed</div>
-                        <div className="text-[9px] text-blue-500 mt-1">Add depth & specifics</div>
-                      </div>
-                      <div className="bg-purple-50 border border-purple-200 rounded-lg p-3 text-center">
-                        <div className="text-purple-700 font-bold text-lg mb-1">L3</div>
-                        <div className="text-[11px] font-semibold text-purple-600">Analytical</div>
-                        <div className="text-[9px] text-purple-500 mt-1">Reasoned trade-offs</div>
-                      </div>
-                      <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 text-center">
-                        <div className="text-amber-700 font-bold text-lg mb-1">L4</div>
-                        <div className="text-[11px] font-semibold text-amber-600">CRAFT</div>
-                        <div className="text-[9px] text-amber-500 mt-1">Board-ready output</div>
-                      </div>
-                    </div>
-                    <div className="mt-3 max-w-md">
-                      <p className="text-[9px] text-gray-400 leading-snug">
-                        <strong className="text-gray-500">CRAFT</strong> = Context · Role · Action · Format · Target Audience
-                      </p>
-                    </div>
-                    <div className="mt-3 text-[10px] text-gray-400">
+                    <div className="mt-4 text-[10px] text-gray-400">
                       {LAB_EXPERIMENTS.length} experimentation themes · {PROMPT_LADDERS.length} use-case templates · {LAB_EXPERIMENTS.length * 4 + PROMPT_LADDERS.length * 3} total prompts
                     </div>
                   </div>
