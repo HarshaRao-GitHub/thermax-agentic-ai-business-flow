@@ -37,7 +37,7 @@ export default function DocIntelligenceHub() {
   const [mode, setMode] = useState<'live' | null>(null);
   const [uploadError, setUploadError] = useState<string | null>(null);
   const [uploading, setUploading] = useState(false);
-  const [showSampleFiles, setShowSampleFiles] = useState(false);
+  const [docSource, setDocSource] = useState<'upload' | 'sample'>('upload');
   const [dataViewer, setDataViewer] = useState<DataViewerState>({ open: false, title: '', content: '', loading: false });
 
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -274,8 +274,18 @@ export default function DocIntelligenceHub() {
     setElapsedTimer(0);
     setUploadedFiles([]);
     setUploadError(null);
-    setShowSampleFiles(false);
+    setDocSource('upload');
     if (timerRef.current) { clearInterval(timerRef.current); timerRef.current = null; }
+  }
+
+  function switchDocSource(source: 'upload' | 'sample') {
+    if (source === docSource) return;
+    setUploadedFiles([]);
+    setUploadError(null);
+    setMessages([]);
+    setStreamBuffer('');
+    setUsageStats(null);
+    setDocSource(source);
   }
 
   const hasFiles = uploadedFiles.length > 0;
@@ -386,49 +396,134 @@ export default function DocIntelligenceHub() {
         {/* STEPS 1 & 2: Side-by-side — Documents | Operations */}
         <div className="grid lg:grid-cols-[1fr_360px] gap-5">
 
-          {/* STEP 1: Documents — Upload your own files */}
+          {/* STEP 1: Documents — Upload OR Browse (mutually exclusive) */}
           <section className="bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden">
             <div className="flex items-center justify-between px-5 py-3 border-b border-gray-200 bg-slate-50">
               <div className="flex items-center gap-3">
                 <span className="text-xs font-bold bg-blue-600 text-white w-6 h-6 flex items-center justify-center rounded-md">1</span>
                 <h3 className="text-sm font-bold text-gray-900">
-                  Upload Documents
+                  Documents
                   {hasFiles && <span className="ml-2 text-emerald-600 font-semibold">({uploadedFiles.length} loaded)</span>}
                 </h3>
                 {!hasFiles && <span className="text-xs text-red-600 font-semibold bg-red-50 px-2 py-0.5 rounded">Required</span>}
               </div>
             </div>
 
-            <div className="px-5 py-4 space-y-3">
-              {/* Upload area — primary action */}
-              <div className={`border-2 border-dashed rounded-xl px-5 py-5 text-center transition-all ${
-                uploading ? 'border-blue-400 bg-blue-50' : hasFiles ? 'border-emerald-300 bg-emerald-50/30' : 'border-gray-300 bg-gray-50 hover:border-blue-400 hover:bg-blue-50/30'
-              }`}>
-                {uploading ? (
-                  <div className="flex flex-col items-center gap-2">
-                    <div className="flex gap-1.5">
-                      <span className="w-2.5 h-2.5 bg-blue-600 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                      <span className="w-2.5 h-2.5 bg-blue-600 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                      <span className="w-2.5 h-2.5 bg-blue-600 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
-                    </div>
-                    <p className="text-sm text-blue-700 font-semibold">Processing your document(s)...</p>
-                  </div>
-                ) : (
-                  <>
-                    <label className="inline-flex items-center gap-2 px-6 py-2.5 bg-blue-600 hover:bg-blue-700 border border-blue-700 rounded-lg cursor-pointer transition text-sm font-bold text-white shadow-sm">
-                      <span>📁</span> Upload Your Files
-                      <input ref={fileInputRef} type="file" multiple accept=".csv,.txt,.md,.tsv,.log,.json,.pdf,.doc,.docx,.xls,.xlsx,.xml,.png,.jpg,.jpeg,.gif,.webp,.bmp,.tiff" onChange={handleUpload} className="hidden" />
-                    </label>
-                    <p className="text-xs text-gray-500 mt-2">
-                      Upload any document or image — CSV, PDF, DOCX, XLSX, JSON, TXT, PNG, JPG — up to {MAX_UPLOAD_FILES} files, {MAX_UPLOAD_SIZE_MB}MB each
-                    </p>
-                  </>
-                )}
-              </div>
+            {/* Tab toggle */}
+            <div className="flex border-b border-gray-200">
+              <button
+                onClick={() => switchDocSource('upload')}
+                className={`flex-1 px-4 py-2.5 text-xs font-bold transition-all ${
+                  docSource === 'upload'
+                    ? 'text-blue-700 border-b-2 border-blue-600 bg-blue-50/50'
+                    : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
+                }`}
+              >
+                📁 Upload Your Documents
+              </button>
+              <button
+                onClick={() => switchDocSource('sample')}
+                className={`flex-1 px-4 py-2.5 text-xs font-bold transition-all ${
+                  docSource === 'sample'
+                    ? 'text-violet-700 border-b-2 border-violet-600 bg-violet-50/50'
+                    : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
+                }`}
+              >
+                📊 Browse Sample Documents
+              </button>
+            </div>
 
-              {/* Loaded files list */}
+            <div className="px-5 py-4 space-y-3">
+              {/* === UPLOAD MODE === */}
+              {docSource === 'upload' && (
+                <>
+                  <div className={`border-2 border-dashed rounded-xl px-5 py-5 text-center transition-all ${
+                    uploading ? 'border-blue-400 bg-blue-50' : hasFiles ? 'border-emerald-300 bg-emerald-50/30' : 'border-gray-300 bg-gray-50 hover:border-blue-400 hover:bg-blue-50/30'
+                  }`}>
+                    {uploading ? (
+                      <div className="flex flex-col items-center gap-2">
+                        <div className="flex gap-1.5">
+                          <span className="w-2.5 h-2.5 bg-blue-600 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                          <span className="w-2.5 h-2.5 bg-blue-600 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                          <span className="w-2.5 h-2.5 bg-blue-600 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                        </div>
+                        <p className="text-sm text-blue-700 font-semibold">Processing your document(s)...</p>
+                      </div>
+                    ) : (
+                      <>
+                        <label className="inline-flex items-center gap-2 px-6 py-2.5 bg-blue-600 hover:bg-blue-700 border border-blue-700 rounded-lg cursor-pointer transition text-sm font-bold text-white shadow-sm">
+                          <span>📁</span> Upload Your Files
+                          <input ref={fileInputRef} type="file" multiple accept=".csv,.txt,.md,.tsv,.log,.json,.pdf,.doc,.docx,.xls,.xlsx,.xml,.png,.jpg,.jpeg,.gif,.webp,.bmp,.tiff" onChange={handleUpload} className="hidden" />
+                        </label>
+                        <p className="text-xs text-gray-500 mt-2">
+                          Upload any document or image — CSV, PDF, DOCX, XLSX, JSON, TXT, PNG, JPG — up to {MAX_UPLOAD_FILES} files, {MAX_UPLOAD_SIZE_MB}MB each
+                        </p>
+                      </>
+                    )}
+                  </div>
+                </>
+              )}
+
+              {/* === SAMPLE MODE === */}
+              {docSource === 'sample' && (
+                <div className="space-y-3">
+                  <select
+                    value={selectedDept}
+                    onChange={e => { setSelectedDept(e.target.value); setUploadedFiles([]); }}
+                    className="bg-white border border-gray-300 rounded-lg px-3 py-1.5 text-sm text-gray-800 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400 w-full sm:w-auto"
+                  >
+                    {DEPARTMENTS.map(d => (
+                      <option key={d.id} value={d.id}>{d.icon} {d.label}</option>
+                    ))}
+                  </select>
+                  <p className="text-xs text-gray-500 italic">{dept?.description}</p>
+
+                  {sampleFiles.length > 0 && (
+                    <div className="flex flex-wrap gap-2">
+                      {sampleFiles.map(sf => {
+                        const loaded = uploadedFiles.some(f => f.filename === sf.filename);
+                        const loading = loadingSampleFiles.has(sf.filename);
+                        return (
+                          <div key={sf.filename} className={`inline-flex items-center gap-0 rounded-lg border transition-all ${
+                            loaded
+                              ? 'bg-emerald-50 border-emerald-300'
+                              : loading
+                                ? 'bg-amber-50 border-amber-300 animate-pulse'
+                                : 'bg-gray-50 border-gray-250 shadow-sm hover:shadow'
+                          }`}>
+                            <button
+                              onClick={() => !loaded && !loading && loadSampleFile(sf)}
+                              disabled={loaded || loading}
+                              title={sf.description}
+                              className={`inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold transition-all rounded-l-lg ${
+                                loaded
+                                  ? 'text-emerald-800 cursor-default'
+                                  : loading
+                                    ? 'text-amber-800'
+                                    : 'text-gray-700 hover:bg-blue-50 hover:text-blue-800 cursor-pointer'
+                              }`}
+                            >
+                              <span>{loaded ? '✅' : loading ? '⏳' : '📄'}</span>
+                              {sf.label}
+                            </button>
+                            <button
+                              onClick={() => viewSampleFile(sf)}
+                              title={`View ${sf.label}`}
+                              className="px-2 py-2 text-[10px] font-bold text-blue-600 hover:text-blue-800 hover:bg-blue-50 border-l border-gray-200 rounded-r-lg transition"
+                            >
+                              👁
+                            </button>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Loaded files list (shown in both modes) */}
               {hasFiles && (
-                <div className="space-y-2">
+                <div className="space-y-2 border-t border-gray-100 pt-3">
                   <div className="flex items-center justify-between">
                     <p className="text-xs font-semibold text-gray-700">Loaded Documents:</p>
                     {uploadedFiles.length > 1 && (
@@ -453,73 +548,6 @@ export default function DocIntelligenceHub() {
               )}
 
               {uploadError && <p className="text-xs text-red-600 font-medium mt-1">{uploadError}</p>}
-
-              {/* Optional: Sample files from department templates */}
-              <div className="border-t border-gray-100 pt-3">
-                <button
-                  onClick={() => setShowSampleFiles(!showSampleFiles)}
-                  className="text-xs text-gray-500 hover:text-blue-700 font-semibold transition flex items-center gap-1.5"
-                >
-                  <span className="text-[10px]">{showSampleFiles ? '▼' : '▶'}</span>
-                  Or browse sample documents by department
-                </button>
-
-                {showSampleFiles && (
-                  <div className="mt-3 space-y-2">
-                    <select
-                      value={selectedDept}
-                      onChange={e => setSelectedDept(e.target.value)}
-                      className="bg-white border border-gray-300 rounded-lg px-3 py-1.5 text-sm text-gray-800 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400 w-full sm:w-auto"
-                    >
-                      {DEPARTMENTS.map(d => (
-                        <option key={d.id} value={d.id}>{d.icon} {d.label}</option>
-                      ))}
-                    </select>
-                    <p className="text-xs text-gray-500 italic">{dept?.description}</p>
-
-                    {sampleFiles.length > 0 && (
-                      <div className="flex flex-wrap gap-2">
-                        {sampleFiles.map(sf => {
-                          const loaded = uploadedFiles.some(f => f.filename === sf.filename);
-                          const loading = loadingSampleFiles.has(sf.filename);
-                          return (
-                            <div key={sf.filename} className={`inline-flex items-center gap-0 rounded-lg border transition-all ${
-                              loaded
-                                ? 'bg-emerald-50 border-emerald-300'
-                                : loading
-                                  ? 'bg-amber-50 border-amber-300 animate-pulse'
-                                  : 'bg-gray-50 border-gray-250 shadow-sm hover:shadow'
-                            }`}>
-                              <button
-                                onClick={() => !loaded && !loading && loadSampleFile(sf)}
-                                disabled={loaded || loading}
-                                title={sf.description}
-                                className={`inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold transition-all rounded-l-lg ${
-                                  loaded
-                                    ? 'text-emerald-800 cursor-default'
-                                    : loading
-                                      ? 'text-amber-800'
-                                      : 'text-gray-700 hover:bg-blue-50 hover:text-blue-800 cursor-pointer'
-                                }`}
-                              >
-                                <span>{loaded ? '✅' : loading ? '⏳' : '📄'}</span>
-                                {sf.label}
-                              </button>
-                              <button
-                                onClick={() => viewSampleFile(sf)}
-                                title={`View ${sf.label}`}
-                                className="px-2 py-2 text-[10px] font-bold text-blue-600 hover:text-blue-800 hover:bg-blue-50 border-l border-gray-200 rounded-r-lg transition"
-                              >
-                                👁
-                              </button>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
             </div>
           </section>
 
