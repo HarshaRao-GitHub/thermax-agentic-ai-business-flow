@@ -14,6 +14,78 @@ interface PromptLadder {
   levels: { label: string; tag: string; prompt: string; color: string }[];
 }
 
+interface LabExperiment {
+  theme: string;
+  icon: string;
+  description: string;
+  levels: { label: string; tag: string; prompt: string; color: string }[];
+}
+
+const LAB_EXPERIMENTS: LabExperiment[] = [
+  {
+    theme: 'GTM Strategy — Edge Live in Middle East',
+    icon: '🚀',
+    description: 'See how the same GTM ask transforms from a generic list into a board-ready strategy as the prompt gets richer.',
+    levels: [
+      {
+        label: 'Simple',
+        tag: 'L1',
+        color: 'bg-emerald-100 text-emerald-700 border-emerald-200',
+        prompt: 'Create a Go-To-Market strategy to launch Edge Live in the Middle East.'
+      },
+      {
+        label: 'Detailed',
+        tag: 'L2',
+        color: 'bg-blue-100 text-blue-700 border-blue-200',
+        prompt: 'Create a Go-To-Market strategy to launch Edge Live — an industrial AI and IoT platform — in the Middle East. The platform delivers real-time equipment monitoring, predictive maintenance, and energy optimisation for heavy industry. Target customer segments include oil & gas, petrochemicals, power generation, and large-scale manufacturing. The region\'s Vision 2030 industrial diversification programs are creating strong pull for digital transformation. Plan for a 12-month launch horizon with initial focus on UAE and Saudi Arabia.'
+      },
+      {
+        label: 'Analytical',
+        tag: 'L3',
+        color: 'bg-purple-100 text-purple-700 border-purple-200',
+        prompt: 'Create a Go-To-Market strategy to launch Edge Live in the Middle East. Analyse: (1) the competitive landscape — incumbent industrial IoT platforms from Siemens MindSphere, Honeywell Forge, ABB Ability, and regional players, (2) regulatory requirements around data localisation, cybersecurity frameworks (NCA in Saudi, DESC in UAE), and technology transfer mandates, (3) channel economics — direct enterprise sales vs. system integrator partnerships vs. strategic distributor model, (4) build-vs-partner trade-offs for local deployment infrastructure and support operations, (5) success metrics and leading indicators for the first 12 months. The output should be a reasoned strategic recommendation with clear trade-off analysis, not a generic feature list.'
+      },
+      {
+        label: 'CRAFT Framework',
+        tag: 'L4',
+        color: 'bg-amber-100 text-amber-700 border-amber-200',
+        prompt: 'Context: We are launching Edge Live — an industrial AI and IoT platform for real-time equipment monitoring, predictive maintenance, and energy optimisation — into the Middle East market. The region\'s Vision 2030 programs are driving rapid industrial digitisation. Incumbent platforms (Siemens MindSphere, Honeywell Forge, ABB Ability) have an established presence but are perceived as expensive and slow to localise. Data sovereignty regulations are tightening across the GCC.\n\nRole: You are a senior Go-To-Market strategist with deep expertise in industrial technology markets in MENA. You have launched multiple B2B SaaS and platform products in the region.\n\nAction: Develop a comprehensive GTM strategy covering market entry sequencing, customer segmentation and prioritisation, competitive positioning, channel architecture, pricing framework, partnership strategy, regulatory compliance plan, and a 90-day launch playbook with clear milestones.\n\nFormat: Deliver as (1) a 2-page executive memo summarising the strategic recommendation, (2) a market entry decision matrix comparing UAE-first vs. Saudi-first vs. parallel entry, (3) a 90-day launch plan with weekly milestones, and (4) a one-page competitive differentiation table.\n\nTarget Audience: The MD and Business Unit heads reviewing this for investment approval. The document will also be shared with the regional partnership team for execution planning.'
+      }
+    ]
+  },
+  {
+    theme: 'Industrial Decarbonisation — Customer Pitch',
+    icon: '🌍',
+    description: 'Watch a generic pitch evolve into a deal-advancing document as context, analysis, and structure are layered in.',
+    levels: [
+      {
+        label: 'Simple',
+        tag: 'L1',
+        color: 'bg-emerald-100 text-emerald-700 border-emerald-200',
+        prompt: 'Draft a customer pitch for our industrial decarbonisation offering.'
+      },
+      {
+        label: 'Detailed',
+        tag: 'L2',
+        color: 'bg-blue-100 text-blue-700 border-blue-200',
+        prompt: 'Draft a customer pitch for our industrial decarbonisation offering targeting a large refinery in the Gulf. The scope covers green hydrogen integration and waste-heat recovery systems for a 25-MW capacity. The customer has publicly declared net-zero targets and is actively evaluating technology partners for their first decarbonisation phase.'
+      },
+      {
+        label: 'Analytical',
+        tag: 'L3',
+        color: 'bg-purple-100 text-purple-700 border-purple-200',
+        prompt: 'Draft a customer pitch for our industrial decarbonisation offering targeting a large Gulf refinery with a 25-MW green hydrogen and waste-heat recovery scope. Analyse: (1) why this customer should choose Thermax over the two incumbent vendors currently serving them, (2) how their declared net-zero-by-2040 targets create urgency and budget allocation pressure, (3) the regulatory environment they operate under (national carbon pricing, CBAM exposure for exports to the EU), (4) typical procurement pushbacks their team raises (lifecycle cost justification, technology risk, local support capability), and (5) what Thermax won at a comparable account last quarter and how that reference strengthens our position. The output should be a persuasive, evidence-backed pitch — not a generic capability overview.'
+      },
+      {
+        label: 'CRAFT Framework',
+        tag: 'L4',
+        color: 'bg-amber-100 text-amber-700 border-amber-200',
+        prompt: 'Context: A large Gulf refinery has declared net-zero by 2040. Their current energy vendors are two global incumbents. They face regulatory pressure from emerging national carbon pricing and EU CBAM on exports. Recent procurement decisions have shifted towards lifecycle-cost-led evaluations rather than lowest capex. Thermax won a comparable 20-MW waste-heat recovery project at a similar account last quarter.\n\nRole: You are a senior GTM strategist for Thermax\'s industrial decarbonisation portfolio in the MENA region, with deep knowledge of refinery energy systems, green hydrogen economics, and competitive positioning against global EPC firms.\n\nAction: Draft a compelling customer pitch that persuades the refinery\'s leadership to shortlist Thermax for their first decarbonisation phase.\n\nFormat: Deliver as (1) a 1-page executive narrative connecting their net-zero ambition to Thermax\'s solution, (2) a 5-row differentiation table comparing Thermax against the two incumbents on the dimensions that matter most to this buyer, and (3) a recommended next-meeting agenda with three discussion items designed to advance the deal.\n\nTarget Audience: The customer\'s CEO, COO, and Head of Sustainability will read this alongside Thermax\'s own MD during the joint review.'
+      }
+    ]
+  }
+];
+
 const PROMPT_LADDERS: PromptLadder[] = [
   {
     theme: 'Boiler Efficiency Optimization',
@@ -113,6 +185,8 @@ export default function PromptPlayground() {
   const [streaming, setStreaming] = useState(false);
   const [streamBuffer, setStreamBuffer] = useState('');
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [labExpanded, setLabExpanded] = useState(true);
+  const [expandedLabLadders, setExpandedLabLadders] = useState<Set<number>>(new Set([0]));
   const [themesExpanded, setThemesExpanded] = useState(false);
   const [webSearchStatus, setWebSearchStatus] = useState<null | 'searching' | 'done'>(null);
   const [webSearchMeta, setWebSearchMeta] = useState<{ resultCount?: number; ms?: number } | null>(null);
@@ -140,6 +214,14 @@ export default function PromptPlayground() {
   const scrollToBottom = useCallback(() => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, []);
+
+  function toggleLabLadder(idx: number) {
+    setExpandedLabLadders(prev => {
+      const next = new Set(prev);
+      if (next.has(idx)) next.delete(idx); else next.add(idx);
+      return next;
+    });
+  }
 
   function toggleLadder(idx: number) {
     setExpandedLadders(prev => {
@@ -313,19 +395,115 @@ export default function PromptPlayground() {
           {sidebarOpen && (
             <aside className="lg:max-h-[calc(100vh-200px)] lg:overflow-y-auto lg:sticky lg:top-4">
               <div className="bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden">
-                <div className="px-4 py-3 border-b border-gray-200 bg-slate-50">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs font-bold bg-blue-600 text-white w-6 h-6 flex items-center justify-center rounded-md">🧪</span>
-                      <h3 className="text-sm font-bold text-gray-900">Prompt Experimentation Lab</h3>
+
+                {/* === PROMPT EXPERIMENTATION LAB (top section) === */}
+                <div className="border-b border-gray-200">
+                  <button
+                    onClick={() => setLabExpanded(!labExpanded)}
+                    className="w-full flex items-center justify-between px-4 py-3 bg-gradient-to-r from-indigo-50 via-purple-50 to-amber-50 hover:from-indigo-100 hover:via-purple-100 hover:to-amber-100 transition text-left"
+                  >
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-bold bg-indigo-600 text-white w-5 h-5 flex items-center justify-center rounded">🧪</span>
+                        <span className="text-[12px] font-extrabold text-indigo-900">Prompt Experimentation Lab</span>
+                      </div>
+                      <p className="text-[9px] text-indigo-600/80 mt-0.5 ml-7 leading-snug">
+                        Run the same problem through 4 progressively stronger prompts — see how the answer gets sharper at each level.
+                      </p>
                     </div>
-                  </div>
-                  <p className="text-[10px] text-gray-500 mt-1 leading-snug">
-                    Use-case driven prompt experimentation. Each ladder progresses through three levels of depth: L1 (Simple) → L2 (Detailed) → L3 (Analytical).
-                  </p>
+                    <svg className={`w-4 h-4 text-indigo-400 transition-transform duration-200 shrink-0 ${labExpanded ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </svg>
+                  </button>
+
+                  {labExpanded && (
+                    <div>
+                      <div className="px-4 py-2 bg-indigo-50/50 border-b border-indigo-100">
+                        <div className="flex items-center gap-4">
+                          <div className="flex items-center gap-1">
+                            <span className="text-[8px] font-bold px-1 py-0.5 rounded bg-emerald-100 text-emerald-700 border border-emerald-200">L1</span>
+                            <span className="text-[8px] text-gray-500">Simple</span>
+                          </div>
+                          <span className="text-gray-300">→</span>
+                          <div className="flex items-center gap-1">
+                            <span className="text-[8px] font-bold px-1 py-0.5 rounded bg-blue-100 text-blue-700 border border-blue-200">L2</span>
+                            <span className="text-[8px] text-gray-500">Detailed</span>
+                          </div>
+                          <span className="text-gray-300">→</span>
+                          <div className="flex items-center gap-1">
+                            <span className="text-[8px] font-bold px-1 py-0.5 rounded bg-purple-100 text-purple-700 border border-purple-200">L3</span>
+                            <span className="text-[8px] text-gray-500">Analytical</span>
+                          </div>
+                          <span className="text-gray-300">→</span>
+                          <div className="flex items-center gap-1">
+                            <span className="text-[8px] font-bold px-1 py-0.5 rounded bg-amber-100 text-amber-700 border border-amber-200">L4</span>
+                            <span className="text-[8px] text-gray-500">CRAFT</span>
+                          </div>
+                        </div>
+                        <p className="text-[9px] text-gray-500 mt-1 leading-snug">
+                          <strong>Principle:</strong> The complexity belongs in the prompt, not in the expected outcome — better prompts yield sharper answers for the same goal.
+                        </p>
+                      </div>
+
+                      <div className="divide-y divide-gray-100">
+                        {LAB_EXPERIMENTS.map((exp, ei) => {
+                          const isOpen = expandedLabLadders.has(ei);
+                          return (
+                            <div key={ei}>
+                              <button
+                                onClick={() => toggleLabLadder(ei)}
+                                className="w-full flex items-center justify-between px-4 py-2.5 hover:bg-indigo-50/40 transition text-left"
+                              >
+                                <div className="flex-1 min-w-0">
+                                  <div className="flex items-center gap-2.5">
+                                    <span className="text-lg">{exp.icon}</span>
+                                    <span className="text-[12px] font-bold text-gray-800">{exp.theme}</span>
+                                    <span className="text-[8px] font-semibold text-indigo-500 bg-indigo-50 border border-indigo-200 px-1.5 py-0.5 rounded-full shrink-0">4 levels</span>
+                                  </div>
+                                  <p className="text-[9px] text-gray-500 mt-0.5 ml-8 leading-snug">{exp.description}</p>
+                                </div>
+                                <svg className={`w-4 h-4 text-gray-400 transition-transform shrink-0 ml-2 ${isOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                </svg>
+                              </button>
+
+                              {isOpen && (
+                                <div className="px-3 pb-3 space-y-1.5">
+                                  {exp.levels.map((level, lvi) => (
+                                    <button
+                                      key={lvi}
+                                      onClick={() => handlePromptClick(level.prompt)}
+                                      className="w-full text-left group"
+                                    >
+                                      <div className={`rounded-lg border bg-white hover:border-indigo-300 hover:bg-indigo-50/30 transition p-2.5 shadow-sm ${lvi === 3 ? 'border-amber-200 ring-1 ring-amber-100' : 'border-gray-200'}`}>
+                                        <div className="flex items-center gap-2 mb-1">
+                                          <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded border ${level.color}`}>
+                                            {level.tag}
+                                          </span>
+                                          <span className="text-[10px] font-semibold text-gray-600 group-hover:text-indigo-700 transition">
+                                            {level.label}
+                                          </span>
+                                          {lvi === 3 && (
+                                            <span className="text-[8px] font-bold text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded-full border border-amber-200">C·R·A·F·T</span>
+                                          )}
+                                        </div>
+                                        <p className="text-[10px] text-gray-500 group-hover:text-gray-700 leading-snug transition line-clamp-2">
+                                          {level.prompt}
+                                        </p>
+                                      </div>
+                                    </button>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
                 </div>
 
-                {/* Collapsible Themes Section */}
+                {/* === USE-CASE DRIVEN PROMPT TEMPLATES (existing, collapsed) === */}
                 <div className="border-b border-gray-200">
                   <button
                     onClick={() => setThemesExpanded(!themesExpanded)}
@@ -333,7 +511,7 @@ export default function PromptPlayground() {
                   >
                     <div className="flex items-center gap-2">
                       <span className="text-xs">📚</span>
-                      <span className="text-[11px] font-bold text-blue-800">Use-case driven Prompt Templates</span>
+                      <span className="text-[11px] font-bold text-blue-800">Use-case Driven Prompt Templates</span>
                       <span className="text-[9px] font-semibold text-blue-500 bg-blue-100 px-1.5 py-0.5 rounded-full">{PROMPT_LADDERS.length} themes</span>
                     </div>
                     <svg className={`w-4 h-4 text-blue-400 transition-transform duration-200 ${themesExpanded ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
@@ -396,7 +574,7 @@ export default function PromptPlayground() {
                   <div className="flex items-start gap-2">
                     <span className="text-amber-600 text-xs mt-0.5 shrink-0">💡</span>
                     <p className="text-[10px] text-amber-800 leading-snug">
-                      <strong>How it works:</strong> Start with L1 to explore a use case, refine with L2 for operational depth, then use L3 for board-ready strategic output. Each level builds on prior response context.
+                      <strong>How it works:</strong> Start with L1 (Simple) to explore a topic, add context with L2, sharpen with L3 analysis, then use L4 (CRAFT) for board-ready output. The same desired outcome — dramatically different quality.
                     </p>
                   </div>
                 </div>
@@ -413,30 +591,39 @@ export default function PromptPlayground() {
                 {transcript.length === 0 && !streaming && (
                   <div className="flex flex-col items-center justify-center h-full text-center py-16">
                     <div className="text-5xl mb-4">🧪</div>
-                    <h3 className="text-lg font-bold text-gray-800">Use-Case Prompt Experimentation</h3>
-                    <p className="text-sm text-gray-500 max-w-md mt-2 leading-relaxed">
-                      Type your own prompt or select a use-case from the Prompt Library.
-                      Build layered analysis through progressively detailed prompts.
+                    <h3 className="text-lg font-bold text-gray-800">Prompt Experimentation Lab</h3>
+                    <p className="text-sm text-gray-500 max-w-lg mt-2 leading-relaxed">
+                      Run the same problem through progressively stronger prompts and see how the answer becomes more enriched, pointed, and sharp at every level.
                     </p>
-                    <div className="mt-6 grid grid-cols-3 gap-3 max-w-lg">
+                    <div className="mt-6 grid grid-cols-4 gap-2.5 max-w-xl">
                       <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-3 text-center">
                         <div className="text-emerald-700 font-bold text-lg mb-1">L1</div>
                         <div className="text-[11px] font-semibold text-emerald-600">Simple</div>
-                        <div className="text-[9px] text-emerald-500 mt-1">Explore the topic</div>
+                        <div className="text-[9px] text-emerald-500 mt-1">Bare ask, no context</div>
                       </div>
                       <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-center">
                         <div className="text-blue-700 font-bold text-lg mb-1">L2</div>
                         <div className="text-[11px] font-semibold text-blue-600">Detailed</div>
-                        <div className="text-[9px] text-blue-500 mt-1">Add depth & data</div>
+                        <div className="text-[9px] text-blue-500 mt-1">Add depth & specifics</div>
                       </div>
                       <div className="bg-purple-50 border border-purple-200 rounded-lg p-3 text-center">
                         <div className="text-purple-700 font-bold text-lg mb-1">L3</div>
                         <div className="text-[11px] font-semibold text-purple-600">Analytical</div>
-                        <div className="text-[9px] text-purple-500 mt-1">Strategic output</div>
+                        <div className="text-[9px] text-purple-500 mt-1">Reasoned trade-offs</div>
+                      </div>
+                      <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 text-center">
+                        <div className="text-amber-700 font-bold text-lg mb-1">L4</div>
+                        <div className="text-[11px] font-semibold text-amber-600">CRAFT</div>
+                        <div className="text-[9px] text-amber-500 mt-1">Board-ready output</div>
                       </div>
                     </div>
-                    <div className="mt-4 text-[10px] text-gray-400">
-                      {PROMPT_LADDERS.length} prompt ladders available · {PROMPT_LADDERS.length * 3} prompts across all levels
+                    <div className="mt-3 max-w-md">
+                      <p className="text-[9px] text-gray-400 leading-snug">
+                        <strong className="text-gray-500">CRAFT</strong> = Context · Role · Action · Format · Target Audience
+                      </p>
+                    </div>
+                    <div className="mt-3 text-[10px] text-gray-400">
+                      {LAB_EXPERIMENTS.length} experimentation themes · {PROMPT_LADDERS.length} use-case templates · {LAB_EXPERIMENTS.length * 4 + PROMPT_LADDERS.length * 3} total prompts
                     </div>
                   </div>
                 )}
