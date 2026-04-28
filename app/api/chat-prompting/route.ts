@@ -13,6 +13,7 @@ interface IncomingMessage {
 
 interface ChatRequest {
   messages: IncomingMessage[];
+  promptLevel?: 'L1' | 'L2' | 'L3' | 'L4';
 }
 
 const SYSTEM_PROMPT = `You are an AI research and strategy assistant for Thermax, a leading energy and environment solutions company. Help the user explore ideas, research topics, analyze markets, and build structured thinking through progressively detailed prompts. Be thorough, structured, and cite sources where relevant.
@@ -46,6 +47,57 @@ Your output must be enterprise-grade, visually rich, and production-quality — 
 6. End with numbered, specific, actionable recommendations
 7. Include comparative analysis with side-by-side tables where relevant
 8. Present KPIs in structured metric tables with status indicators`;
+
+const LEVEL_INSTRUCTIONS: Record<string, string> = {
+  L1: `
+CRITICAL OUTPUT CONSTRAINTS (L1 — Simple Prompt):
+The user has provided a very basic, unstructured prompt with no context, no constraints, and no audience specification. Your response MUST reflect the limitations of the prompt:
+- Keep your response VERY SHORT — a maximum of 150-200 words. Do NOT elaborate or go into depth.
+- Provide only a generic, surface-level overview. Do NOT add specifics the user did not ask for.
+- Do NOT include tables, Mermaid diagrams, KPIs, or structured analysis.
+- Do NOT add executive summaries, numbered recommendations, or risk assessments.
+- Use simple bullet points at most. Respond conversationally in 3-5 short paragraphs or a brief list.
+- Your accuracy and precision should reflect roughly 60% — give broadly correct but generic answers without depth, nuance, or data backing.
+- This is intentional: you are demonstrating that a simple prompt yields a simple answer. Do NOT overdeliver.`,
+
+  L2: `
+CRITICAL OUTPUT CONSTRAINTS (L2 — Detailed Prompt):
+The user has provided a moderately detailed prompt with some context, geography, customer segments, or product specifications. Your response should be noticeably better than L1 but still bounded:
+- Provide a MEDIUM-length response — approximately 400-600 words.
+- Include some structure: use 2-3 section headers and basic bullet points.
+- You may include ONE simple table if the data calls for it, but keep it under 5 rows.
+- Do NOT include Mermaid diagrams, Gantt charts, or complex visualizations.
+- Provide reasonably accurate information (~80% accuracy and precision) — include relevant details where the prompt provides context, but do not fabricate specifics not implied by the prompt.
+- Show moderate depth — address the main dimensions the user mentioned but do not exhaustively analyze trade-offs or alternatives.
+- This demonstrates that adding detail to the prompt yields a meaningfully better answer, but not yet a strategic one.`,
+
+  L3: `
+CRITICAL OUTPUT CONSTRAINTS (L3 — Analytical Prompt):
+The user has provided an analytical prompt that asks for reasoning, trade-off analysis, competitive assessment, or multi-dimensional evaluation. Your response should demonstrate significant quality improvement:
+- Provide a SUBSTANTIAL response — approximately 600-900 words.
+- Use clear section structure with ## and ### headers.
+- Include 2-3 well-formatted tables with data comparisons, scoring, or assessments.
+- You may include ONE Mermaid diagram if appropriate (pie chart or simple flowchart).
+- Provide strong accuracy and precision (~80%) — include specific analysis, evidence-based reasoning, and data where available.
+- Address all analytical dimensions the user specified — competitive landscape, regulatory factors, trade-offs, success metrics, etc.
+- Include brief numbered recommendations at the end.
+- This demonstrates that an analytical prompt produces a reasoned, structured response — but not yet board-ready.`,
+
+  L4: `
+CRITICAL OUTPUT CONSTRAINTS (L4 — CRAFT Framework Prompt):
+The user has provided a fully structured CRAFT prompt with explicit Context, Role, Action, Format, and Target Audience. Your response MUST be the absolute best quality you can produce:
+- Provide a COMPREHENSIVE, DETAILED response — as lengthy and thorough as needed. No word limit. Go deep.
+- Follow the exact format specifications the user requested (executive memo, decision matrix, differentiation table, launch plan, meeting agenda, etc.).
+- Include MULTIPLE Mermaid diagrams (2-4): pie charts, flowcharts, Gantt charts, sequence diagrams as contextually appropriate.
+- Include MULTIPLE well-formatted tables with proper headers, units, and status indicators (🟢🟡🔴).
+- Start with a crisp Executive Summary.
+- Achieve the HIGHEST possible accuracy and precision (>=95%) — use specific data points, realistic numbers, detailed analysis, competitive intelligence, regulatory details, and actionable specifics.
+- Adopt the exact ROLE specified — write from that persona's expertise and perspective.
+- Address the TARGET AUDIENCE explicitly — tailor language, depth, and recommendations for the stated readers.
+- End with specific, actionable, time-bound recommendations with assigned owners where applicable.
+- Include KPI dashboards, risk assessments, and comparative analyses where relevant.
+- This is the gold standard: a CRAFT prompt should produce consulting-firm-quality, board-ready output that could be directly presented to leadership.`
+};
 
 export async function POST(req: NextRequest) {
   let body: ChatRequest;
@@ -81,6 +133,9 @@ export async function POST(req: NextRequest) {
         const latestUserMsg =
           conversationMessages.filter((m) => m.role === 'user').pop()?.content ?? '';
 
+        const level = body.promptLevel ?? 'L4';
+        const levelInstructions = LEVEL_INSTRUCTIONS[level] ?? LEVEL_INSTRUCTIONS.L4;
+
         let webContext = '';
 
         if (needsWebSearch(latestUserMsg)) {
@@ -103,15 +158,23 @@ export async function POST(req: NextRequest) {
           webContext = formatSearchContext(results);
         }
 
+        const baseSystem = `${SYSTEM_PROMPT}\n${levelInstructions}`;
         const systemWithWeb = webContext
-          ? `${SYSTEM_PROMPT}\n\n${webContext}`
-          : SYSTEM_PROMPT;
+          ? `${baseSystem}\n\n${webContext}`
+          : baseSystem;
+
+        const maxTokensByLevel: Record<string, number> = {
+          L1: 1024,
+          L2: 4096,
+          L3: 8192,
+          L4: 128000,
+        };
 
         const stream = await callWithRetry(
           () =>
             client.messages.create({
               model,
-              max_tokens: 128000,
+              max_tokens: maxTokensByLevel[level] ?? 128000,
               system: systemWithWeb,
               messages: conversationMessages,
               stream: true,

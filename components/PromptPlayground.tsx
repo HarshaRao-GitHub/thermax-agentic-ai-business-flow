@@ -184,6 +184,7 @@ export default function PromptPlayground() {
   const [input, setInput] = useState('');
   const [streaming, setStreaming] = useState(false);
   const [streamBuffer, setStreamBuffer] = useState('');
+  const [promptLevel, setPromptLevel] = useState<string | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [labExpanded, setLabExpanded] = useState(true);
   const [expandedLabLadders, setExpandedLabLadders] = useState<Set<number>>(new Set([0]));
@@ -231,12 +232,22 @@ export default function PromptPlayground() {
     });
   }
 
+  function detectPromptLevel(text: string): string {
+    const words = text.split(/\s+/).length;
+    if (words <= 20) return 'L1';
+    if (words <= 80) return 'L2';
+    if (words <= 150) return 'L3';
+    return 'L4';
+  }
+
   async function send(textOverride?: string) {
     const text = (textOverride ?? input).trim();
     if (!text || streaming) return;
+    const level = promptLevel ?? detectPromptLevel(text);
     const next: ChatMessage[] = [...messages, { role: 'user', content: text }];
     setMessages(next);
     setInput('');
+    setPromptLevel(null);
     setStreaming(true);
     setStreamBuffer('');
     setWebSearchStatus(null);
@@ -248,7 +259,8 @@ export default function PromptPlayground() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          messages: next.map(m => ({ role: m.role, content: m.content }))
+          messages: next.map(m => ({ role: m.role, content: m.content })),
+          promptLevel: level
         })
       });
 
@@ -336,8 +348,9 @@ export default function PromptPlayground() {
     clearChatHistory(CHAT_KEYS.PROMPT_PLAYGROUND);
   }
 
-  function handlePromptClick(prompt: string) {
+  function handlePromptClick(prompt: string, level?: string) {
     setInput(prompt);
+    setPromptLevel(level ?? null);
     inputRef.current?.focus();
   }
 
@@ -463,7 +476,7 @@ export default function PromptPlayground() {
                                 return (
                                   <button
                                     key={lvi}
-                                    onClick={() => handlePromptClick(level.prompt)}
+                                    onClick={() => handlePromptClick(level.prompt, level.tag)}
                                     className={`w-full text-left group rounded-lg border border-gray-100 border-l-[3px] ${stepColors[lvi]} bg-white p-3.5 transition-all hover:shadow-sm`}
                                   >
                                     <div className="flex items-center gap-2.5 mb-2">
@@ -646,7 +659,7 @@ export default function PromptPlayground() {
                             {ladder.levels.map((level, lvi) => (
                               <button
                                 key={lvi}
-                                onClick={() => handlePromptClick(level.prompt)}
+                                onClick={() => handlePromptClick(level.prompt, level.tag)}
                                 className="w-full text-left group"
                               >
                                 <div className="rounded-lg border border-gray-200 bg-white hover:bg-blue-50 hover:border-blue-300 transition p-3 shadow-sm">
