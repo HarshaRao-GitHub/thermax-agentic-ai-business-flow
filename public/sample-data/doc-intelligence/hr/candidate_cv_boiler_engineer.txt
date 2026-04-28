@@ -1,0 +1,325 @@
+================================================================================
+                       CURRICULUM VITAE
+================================================================================
+
+RAGHAV SHANKAR KULKARNI
+Senior Mechanical Engineer — Boiler Design
+
+--------------------------------------------------------------------------------
+CONTACT INFORMATION
+--------------------------------------------------------------------------------
+
+Address      : Flat 402, Surya Residency, Baner Road, Pune — 411045, Maharashtra
+Mobile       : +91-98765-43210
+Email        : raghav.s.kulkarni@gmail.com
+LinkedIn     : linkedin.com/in/raghavkulkarni-boiler-engineer
+Date of Birth: 14th August 1994
+Nationality  : Indian
+Languages    : English (Fluent), Hindi (Fluent), Marathi (Native), Kannada (Basic)
+
+--------------------------------------------------------------------------------
+PROFESSIONAL SUMMARY
+--------------------------------------------------------------------------------
+
+Result-oriented Mechanical Engineer with 6+ years of progressive experience in
+the design, engineering, and commissioning support of industrial boilers and
+heat recovery systems. Strong expertise in thermal design, pressure part
+calculations (IBR/ASME), and cross-functional project coordination within OEM
+environments. Proven track record of delivering boiler design packages for
+capacities up to 120 TPH across diverse fuel types. Seeking a senior engineering
+role to leverage deep domain knowledge in boiler technology and contribute to
+next-generation thermal energy solutions.
+
+--------------------------------------------------------------------------------
+EDUCATIONAL QUALIFICATIONS
+--------------------------------------------------------------------------------
+
+Degree             | Institution                          | Year  | Score
+-------------------|--------------------------------------|-------|----------
+M.Tech             | IIT Roorkee                          | 2020  | CGPA 8.4
+(Thermal Engg.)    | Department of Mechanical &           |       |    /10
+                   | Industrial Engineering               |       |
+                   |                                      |       |
+B.Tech             | College of Engineering, Pune (COEP)  | 2016  | CGPA 8.1
+(Mechanical Engg.) | Savitribai Phule Pune University     |       |    /10
+                   |                                      |       |
+HSC (12th)         | Fergusson College, Pune              | 2012  | 89.5%
+                   | Maharashtra State Board              |       |
+                   |                                      |       |
+SSC (10th)         | Jnana Prabodhini Prashala, Pune      | 2010  | 94.2%
+                   | Maharashtra State Board              |       |
+
+M.Tech Thesis: "Numerical Investigation of Heat Transfer Enhancement in
+Water-Wall Tubes of a 60 TPH AFBC Boiler Using Twisted Tape Inserts"
+(Published in International Journal of Thermal Sciences, 2020)
+
+--------------------------------------------------------------------------------
+PROFESSIONAL EXPERIENCE
+--------------------------------------------------------------------------------
+
+CURRENT ROLE
+============
+
+Organization   : Forbes Marshall Pvt. Ltd., Pune
+Designation    : Senior Design Engineer — Boiler Division
+Duration       : March 2023 – Present (3+ years)
+Reporting To   : Deputy General Manager — Boiler Engineering
+
+Key Responsibilities:
+- Lead thermal and mechanical design of packaged fire-tube and water-tube
+  boilers (5 TPH to 25 TPH capacity) for industrial clients in pharma, food
+  processing, textile, and chemical sectors.
+- Perform pressure part sizing calculations for drums, headers, tubes, and
+  nozzles as per IBR-1950 and ASME Section I.
+- Develop and review GA drawings, tube layout drawings, and P&ID packages for
+  boiler island systems using AutoCAD 2D.
+- Coordinate with vendor partners for burner selection, safety valve sizing,
+  and instrumentation specification.
+- Support IBR inspection submissions and interface with regional boiler
+  inspectorates for design approval.
+
+Key Achievements:
+- Redesigned the superheater coil arrangement for a 20 TPH biomass boiler,
+  reducing steam temperature deviation by 12°C and improving overall thermal
+  efficiency by 1.8%.
+- Led the design of a compact waste heat boiler for a glass furnace exhaust
+  application (flue gas at 1,100°C), successfully delivered within a
+  compressed timeline of 14 weeks.
+- Standardized calculation templates for pressure part sizing, reducing
+  engineering man-hours by 20% for repeat-order projects.
+- Mentored a team of 2 junior engineers on IBR code interpretation and thermal
+  design fundamentals.
+
+PREVIOUS ROLE
+=============
+
+Organization   : Larsen & Toubro (L&T) Heavy Engineering, Hazira
+Designation    : Design Engineer — Boiler & Heater Division
+Duration       : July 2020 – February 2023 (2 years 8 months)
+Reporting To   : Lead Engineer — Process Equipment Design
+
+Key Responsibilities:
+- Performed detailed mechanical design of HRSG modules, duct burners, and
+  economizers for combined cycle power plant projects (capacity up to 120 TPH).
+- Executed pressure part thickness calculations and nozzle reinforcement checks
+  as per ASME Section I and ASME Section VIII Div.1.
+- Developed vendor technical specifications and conducted technical bid
+  evaluations (TBE) for refractory, insulation, soot blowers, and expansion
+  joints.
+- Created 3D models of boiler assemblies using PTC Creo 7.0 for clash
+  detection and manufacturing support.
+- Participated in HAZOP studies and design safety reviews for boiler auxiliary
+  systems (fuel handling, ash handling, flue gas desulfurization).
+
+Key Achievements:
+- Contributed to the successful design and delivery of a 3-pressure HRSG for
+  a 150 MW combined cycle project for NTPC (Vindhyachal Phase V), meeting all
+  ASME and performance guarantee parameters.
+- Optimized tube bundle arrangement in an economizer module, achieving 3.5%
+  reduction in flue gas pressure drop and saving approximately INR 8 lakhs in
+  annual fan power consumption for the client.
+- Received the "L&T Engineering Excellence Award — Silver" (2022) for
+  innovation in boiler duct support structure design.
+- Developed an in-house Excel-based tool for rapid HRSG performance
+  estimation, adopted by the engineering team for proposal-stage calculations.
+
+INTERNSHIP
+==========
+
+Organization   : Bharat Heavy Electricals Ltd. (BHEL), Trichy
+Division       : Boiler Auxiliaries Division
+Duration       : May 2019 – July 2019 (M.Tech Internship, 3 months)
+
+- Studied the design and manufacturing process of BHEL's 500 MW supercritical
+  boiler water-wall panels.
+- Assisted in thermal analysis of platen superheater using in-house boiler
+  performance software.
+- Prepared a technical report on tube failure analysis in high-temperature
+  zones of utility boilers.
+
+--------------------------------------------------------------------------------
+TECHNICAL SKILLS
+--------------------------------------------------------------------------------
+
+CATEGORY                    | SKILL                          | PROFICIENCY
+----------------------------|--------------------------------|-----------
+Boiler Design               | Fire-tube boiler design        | Expert
+                            | Water-tube boiler design       | Expert
+                            | WHRB / HRSG design             | Advanced
+                            | Package boiler design          | Advanced
+                            | CFBC / AFBC boiler design      | Intermediate
+                            |                                |
+Codes & Standards           | IBR-1950                       | Advanced
+                            | ASME Section I                 | Advanced
+                            | ASME Section VIII Div.1        | Intermediate
+                            | IS 2825                        | Basic
+                            |                                |
+Design Calculations         | Pressure part sizing           | Expert
+                            | Heat transfer (LMTD, NTU)     | Expert
+                            | Steam-water circulation        | Advanced
+                            | Combustion calculations        | Advanced
+                            | Nozzle reinforcement (ASME)    | Advanced
+                            |                                |
+Simulation & Analysis       | ANSYS Mechanical (FEA)         | Intermediate
+                            | ANSYS Fluent (CFD)             | Basic
+                            | HTRI (heat exchanger design)   | Basic
+                            |                                |
+CAD & Modeling              | AutoCAD 2D                     | Expert
+                            | PTC Creo 7.0                   | Intermediate
+                            | SolidWorks                     | Basic
+                            |                                |
+Software & Tools            | MS Excel (VBA macros)          | Advanced
+                            | MATLAB                         | Intermediate
+                            | MS Office Suite                | Advanced
+                            | SAP (basic navigation)         | Basic
+                            |                                |
+Domain Knowledge            | Fuel types (coal, biomass,     | Advanced
+                            |   oil, gas, waste fuels)       |
+                            | Water treatment & boiler       | Intermediate
+                            |   chemistry                    |
+                            | Emission norms (CPCB)          | Intermediate
+                            | Refractory & insulation        | Basic
+                            | PLC/DCS boiler controls        | Basic
+
+--------------------------------------------------------------------------------
+CERTIFICATIONS
+--------------------------------------------------------------------------------
+
+- ASME Section I — Fundamentals of Power Boiler Design (online course,
+  ASME Learning & Development, 2023)
+  [Note: Not an ASME Authorized Inspector certification]
+
+- Six Sigma Yellow Belt (L&T Internal Certification, 2022)
+  [Note: Green Belt not yet completed]
+
+- Certified SolidWorks Associate — Mechanical Design (CSWA, Dassault
+  Systèmes, 2021)
+
+- NPTEL Online Certification — "Heat Transfer" (IIT Madras, 2019, Elite Grade)
+
+- NPTEL Online Certification — "Power Plant Engineering" (IIT Kharagpur, 2018,
+  Silver Medal)
+
+  >>> CERTIFICATIONS NOT HELD (as of April 2026):
+      - IBR Competency Certificate — Not yet obtained
+      - PMP (Project Management Professional) — Not pursued
+      - Certified Energy Auditor (BEE) — Not pursued
+      - ASME Authorized Inspector (AI) — Not held
+
+--------------------------------------------------------------------------------
+KEY PROJECTS
+--------------------------------------------------------------------------------
+
+1. 20 TPH Biomass-Fired Water-Tube Boiler (Forbes Marshall, 2024)
+   - Client: Leading pharmaceutical company, Hyderabad
+   - Role: Lead Design Engineer
+   - Scope: Complete thermal and mechanical design, P&ID development, IBR
+     documentation, vendor coordination for burner and safety fittings
+   - Outcome: Successfully commissioned; achieved 86.2% boiler efficiency on
+     rice husk fuel against guaranteed 85%
+
+2. Waste Heat Recovery Boiler for Glass Furnace (Forbes Marshall, 2023)
+   - Client: Glass manufacturing unit, Gujarat
+   - Role: Lead Design Engineer
+   - Scope: Thermal design for heat recovery from glass furnace exhaust at
+     1,100°C, pressure part design, refractory specification
+   - Outcome: Delivered within 14-week compressed schedule; generated 4 TPH
+     saturated steam, estimated annual fuel savings of INR 1.2 crores for client
+
+3. 3-Pressure HRSG for 150 MW Combined Cycle (L&T, 2021-2022)
+   - Client: NTPC Vindhyachal Phase V
+   - Role: Design Engineer (Economizer & LP Evaporator modules)
+   - Scope: Mechanical design, tube bundle optimization, vendor spec
+     preparation, HAZOP participation, site support during hydro-test
+   - Outcome: Performance guarantee test cleared; LP economizer pressure drop
+     was 3.5% below design limit
+
+4. 40 TPH FO-Fired Package Boiler (L&T, 2021)
+   - Client: Petrochemical plant, Dahej SEZ
+   - Role: Design Engineer
+   - Scope: Thermal design, GA and tube layout drawings, ASME documentation
+   - Outcome: Design completed ahead of schedule; zero NCRs during TPI audit
+
+5. M.Tech Research — Heat Transfer Enhancement in AFBC Boiler Tubes (2019-2020)
+   - Institution: IIT Roorkee
+   - Scope: CFD simulation (ANSYS Fluent) of twisted tape inserts in water-wall
+     tubes, experimental validation using a lab-scale boiler setup
+   - Outcome: Published in International Journal of Thermal Sciences;
+     demonstrated 18-24% improvement in Nusselt number with optimal tape
+     geometry
+
+--------------------------------------------------------------------------------
+PROFESSIONAL DEVELOPMENT & TRAINING
+--------------------------------------------------------------------------------
+
+- "Advanced Boiler Design & IBR Code Workshop" — National Boiler Board of
+  India, Pune (2024, 3-day workshop)
+- "HAZOP Fundamentals & Facilitation" — L&T Internal Training (2022, 2 days)
+- "Technical Writing for Engineers" — Forbes Marshall L&D Program (2023)
+- "Fundamentals of Refractory Engineering" — Thermax Academy Webinar (2023)
+  [attended as external participant]
+
+--------------------------------------------------------------------------------
+PROFESSIONAL MEMBERSHIPS
+--------------------------------------------------------------------------------
+
+- Associate Member, Institution of Engineers (India) — AM/IE/Mech/2020
+- Member, Indian Boiler Manufacturers Association (student affiliate)
+- Member, ASME (International, since 2021)
+
+--------------------------------------------------------------------------------
+PUBLICATIONS
+--------------------------------------------------------------------------------
+
+1. Kulkarni, R.S. and Prof. A.K. Sharma, "Numerical Investigation of Heat
+   Transfer Enhancement in Water-Wall Tubes of AFBC Boilers Using Twisted Tape
+   Inserts," International Journal of Thermal Sciences, Vol. 158, 2020.
+
+2. Kulkarni, R.S., "Tube Bundle Optimization in HRSG Economizers: A Parametric
+   Study," Proceedings of the National Conference on Thermal Power Engineering
+   (NCTPE), IIT Bombay, 2022. (Conference Paper)
+
+--------------------------------------------------------------------------------
+STRENGTHS
+--------------------------------------------------------------------------------
+
+- Strong fundamentals in boiler thermal design and IBR/ASME code application
+- Hands-on experience across fire-tube, water-tube, and HRSG boiler types
+- Proven ability to deliver design packages within compressed project timelines
+- Good cross-functional coordination skills (manufacturing, quality, vendors)
+- Effective mentoring of junior team members
+
+--------------------------------------------------------------------------------
+AREAS FOR DEVELOPMENT
+--------------------------------------------------------------------------------
+
+- CFD analysis capabilities — currently at basic level; working to build
+  proficiency in ANSYS Fluent for furnace modeling and flow distribution
+- AVEVA E3D / advanced 3D plant design software — no exposure yet
+- EPC project lifecycle management — limited to design phase involvement
+- International project experience — primarily domestic projects to date
+- Formal project management certification (PMP) — planned for 2026-2027
+
+--------------------------------------------------------------------------------
+PERSONAL DETAILS
+--------------------------------------------------------------------------------
+
+Father's Name     : Shankar Dattatray Kulkarni
+Marital Status    : Single
+Passport          : Valid (No. T1234567, expiry 2032)
+Hobbies           : Trekking, technical blogging (authored 12 articles on
+                    boiler design fundamentals on LinkedIn), badminton
+
+--------------------------------------------------------------------------------
+DECLARATION
+--------------------------------------------------------------------------------
+
+I hereby declare that the information provided above is true and correct to the
+best of my knowledge and belief.
+
+Date  : April 2026
+Place : Pune
+
+                                              (Raghav Shankar Kulkarni)
+
+================================================================================

@@ -1,0 +1,235 @@
+================================================================================
+                          THERMAX LIMITED
+              Engineering - Energy Division
+                    JOB DESCRIPTION
+================================================================================
+
+Position Title       : Senior Engineer — Boiler Design & Engineering
+Department           : Engineering - Energy Division
+Business Unit        : Thermax Energy & Environment (TEE)
+Location             : Thermax House, Pune (Maharashtra)
+Grade                : E3 / Deputy Manager Level
+Reports To           : Lead Engineer — Boiler Design / Head of Engineering
+Direct Reports       : 2-3 Design Engineers, 1 CAD Draftsman
+Date of Issue        : April 2026
+Requisition ID       : TEE-ENG-2026-0147
+
+--------------------------------------------------------------------------------
+1. JOB PURPOSE
+--------------------------------------------------------------------------------
+
+To lead the design and engineering of industrial boilers and heat recovery
+systems for Thermax's Energy Division, ensuring compliance with Indian Boiler
+Regulations (IBR), ASME standards, and customer specifications. The role
+involves end-to-end ownership of boiler design packages — from conceptual design
+through detailed engineering, procurement support, and commissioning assistance
+— delivering safe, efficient, and cost-optimized thermal solutions for domestic
+and international projects.
+
+--------------------------------------------------------------------------------
+2. KEY RESPONSIBILITIES
+--------------------------------------------------------------------------------
+
+2.1  BOILER DESIGN & ENGINEERING
+     - Lead the detailed design of water-tube and fire-tube boilers, waste heat
+       recovery boilers (WHRB), and heat recovery steam generators (HRSG) for
+       capacities ranging from 5 TPH to 150 TPH.
+     - Perform thermal design calculations including heat transfer analysis,
+       steam-water circulation studies, combustion analysis, and flue gas path
+       sizing for various fuel types (coal, biomass, oil, gas, and waste fuels).
+     - Develop and review General Arrangement (GA) drawings, tube layout
+       drawings, pressure part details, and structural steel design in
+       coordination with the CAD/3D modeling team.
+
+2.2  CODES & STANDARDS COMPLIANCE
+     - Ensure all designs comply with IBR-1950 (Indian Boiler Regulations),
+       ASME Section I (Power Boilers), ASME Section VIII Div.1 (Pressure
+       Vessels), and other applicable standards (IS 2825, BS EN 12952/12953).
+     - Prepare and review IBR submission documents, stress analysis reports, and
+       material selection data sheets for regulatory approval.
+     - Interface with IBR inspectors and third-party inspection agencies (TPI)
+       during design review and manufacturing stages.
+
+2.3  P&ID AND PROCESS ENGINEERING REVIEW
+     - Develop and review Piping & Instrumentation Diagrams (P&IDs), process
+       flow diagrams (PFDs), and equipment datasheets for boiler island systems
+       including deaerator, blowdown, dosing, and steam distribution.
+     - Participate in P&ID review meetings with cross-functional teams
+       (instrumentation, piping, electrical, and controls).
+
+2.4  DESIGN CALCULATIONS & ANALYSIS
+     - Perform pressure part thickness calculations as per IBR/ASME codes for
+       drums, headers, tubes, nozzles, and tube plates.
+     - Conduct Finite Element Analysis (FEA) for critical components such as
+       tube-to-header joints, manhole openings, and saddle supports.
+     - Use Computational Fluid Dynamics (CFD) tools for furnace modeling, flow
+       distribution analysis, and combustion optimization.
+
+2.5  VENDOR COORDINATION & PROCUREMENT SUPPORT
+     - Prepare technical specifications, datasheets, and bid evaluation criteria
+       for bought-out items (valves, safety fittings, refractory, insulation,
+       burners, soot blowers, and fans).
+     - Conduct technical bid evaluation (TBE) for vendor offers and provide
+       recommendations for procurement decisions.
+     - Review and approve vendor drawings and documents for compliance with
+       project specifications.
+
+2.6  CAD / 3D MODELING & DOCUMENTATION
+     - Guide the CAD team in developing 2D drawings (AutoCAD) and 3D models
+       (SolidWorks / PTC Creo / AVEVA E3D) for boiler assemblies.
+     - Ensure drawing packages are complete, accurate, and released per the
+       document control procedures and project schedules.
+     - Maintain and update standard design templates, calculation sheets, and
+       the engineering knowledge database.
+
+2.7  HAZOP & SAFETY PARTICIPATION
+     - Participate in HAZOP (Hazard and Operability Study), HAZID, and design
+       safety reviews for boiler systems and auxiliary equipment.
+     - Contribute to risk assessment, safety instrumented systems (SIS) review,
+       and functional safety analysis as applicable.
+     - Ensure designs incorporate fail-safe mechanisms, emergency shutdown
+       provisions, and code-mandated safety devices.
+
+2.8  COMMISSIONING & SITE SUPPORT
+     - Provide engineering support during erection, hydro-testing, steam
+       blowing, and commissioning of boiler systems at customer sites.
+     - Attend site visits for pre-commissioning inspections, performance
+       guarantee (PG) test witnessing, and troubleshooting support.
+     - Document lessons learned from site feedback and incorporate design
+       improvements into future projects.
+
+2.9  PROJECT COORDINATION & REPORTING
+     - Coordinate with project management, manufacturing, and quality teams to
+       ensure design deliverables are aligned with project milestones.
+     - Prepare and present engineering review presentations, design basis
+       documents, and progress reports to management and clients.
+     - Mentor junior engineers and contribute to building the team's technical
+       competence.
+
+2.10 CONTINUOUS IMPROVEMENT & INNOVATION
+     - Identify opportunities for design optimization, cost reduction, value
+       engineering, and standardization of boiler components.
+     - Stay updated with industry trends, new technologies (oxy-fuel combustion,
+       carbon capture readiness, hydrogen co-firing), and evolving standards.
+     - Contribute to R&D initiatives and patent filings as applicable.
+
+--------------------------------------------------------------------------------
+3. TECHNICAL REQUIREMENTS
+--------------------------------------------------------------------------------
+
+3.1  EDUCATIONAL QUALIFICATIONS
+     - Essential  : B.E. / B.Tech in Mechanical Engineering from a recognized
+                     university (AICTE/UGC approved).
+     - Preferred  : M.E. / M.Tech in Thermal Engineering, Heat Power, or
+                     Energy Systems.
+
+3.2  EXPERIENCE
+     - Total Experience  : 5 to 8 years in boiler design & engineering.
+     - Relevant Experience: Minimum 4 years in detailed design of industrial /
+       utility boilers, WHRB, or HRSG systems.
+     - Prior experience with an OEM (Original Equipment Manufacturer) such as
+       Thermax, BHEL, L&T, Babcock & Wilcox, or similar organizations is
+       strongly preferred.
+
+3.3  TECHNICAL SKILLS (Must Have)
+     - Pressure part design and thickness calculations (IBR / ASME Sec I & VIII)
+     - Heat transfer calculations (radiation, convection, LMTD, NTU methods)
+     - Steam-water circulation analysis and boiler performance estimation
+     - Knowledge of combustion systems, fuel handling, and emission control
+     - P&ID development and review
+     - Proficiency in AutoCAD (2D drafting)
+     - Working knowledge of MS Office, especially Excel for engineering
+       calculations
+
+3.4  TECHNICAL SKILLS (Good to Have)
+     - CFD analysis (ANSYS Fluent / CFX / OpenFOAM)
+     - FEA analysis (ANSYS Mechanical / Abaqus)
+     - 3D modeling (SolidWorks / PTC Creo / AVEVA E3D)
+     - Boiler design software (HTRI, Aspen Plus, proprietary thermal design
+       tools)
+     - Knowledge of refractory engineering, insulation design, and structural
+       steel design for boiler support structures
+     - Familiarity with PLC/DCS-based boiler control systems
+
+3.5  DOMAIN KNOWLEDGE
+     - In-depth understanding of boiler types: AFBC, CFBC, stoker-fired,
+       co-generation, waste heat recovery, and package boilers
+     - Knowledge of water treatment, steam purity, and boiler chemistry
+     - Understanding of emission norms (CPCB / MoEFCC / World Bank IFC)
+     - Familiarity with EPC project execution methodology
+
+--------------------------------------------------------------------------------
+4. CERTIFICATIONS (Preferred)
+--------------------------------------------------------------------------------
+
+     - IBR Competency Certificate (Chief Inspector of Boilers)
+     - ASME Authorized Inspector (AI) or ASME-related certifications
+     - PMP (Project Management Professional) or equivalent
+     - Certified Energy Auditor (BEE) — desirable
+     - Six Sigma Green Belt — desirable
+
+--------------------------------------------------------------------------------
+5. COMPETENCIES
+--------------------------------------------------------------------------------
+
+5.1  TECHNICAL COMPETENCIES
+     - Boiler thermal & mechanical design           : Expert
+     - IBR / ASME code interpretation               : Expert
+     - Heat transfer & fluid dynamics               : Advanced
+     - FEA / CFD simulation                          : Intermediate to Advanced
+     - Engineering drawing & 3D modeling             : Advanced
+     - Technical specification & report writing      : Advanced
+
+5.2  BEHAVIORAL COMPETENCIES
+     - Analytical thinking and problem solving       : High
+     - Attention to detail and accuracy              : High
+     - Cross-functional collaboration                : High
+     - Communication (written & verbal)              : High
+     - Initiative and ownership                      : High
+     - Mentoring and knowledge sharing               : Medium to High
+     - Adaptability and learning agility             : High
+     - Customer orientation                          : Medium to High
+
+--------------------------------------------------------------------------------
+6. TRAVEL REQUIREMENTS
+--------------------------------------------------------------------------------
+
+     - Domestic travel: 15-20% (manufacturing sites in Pune/Savli, customer
+       sites across India for design reviews, inspections, and commissioning)
+     - International travel: 5-10% (overseas project sites in Southeast Asia,
+       Africa, and Middle East; client meetings; vendor visits in Europe/China)
+     - Must hold a valid passport and be willing to travel on short notice
+
+--------------------------------------------------------------------------------
+7. WORKING CONDITIONS
+--------------------------------------------------------------------------------
+
+     - Primary workplace: Thermax Engineering Center, Pune (air-conditioned
+       office with access to design labs, prototype workshop)
+     - Site visits may involve exposure to high-temperature zones, industrial
+       environments, confined spaces, and elevated work areas
+     - Standard working hours: 9:00 AM to 6:00 PM, Monday to Friday
+     - Extended hours and weekend work may be required during critical project
+       phases, commissioning, and IBR inspections
+     - PPE compliance mandatory during site visits (hard hat, safety shoes,
+       ear protection, fire-retardant clothing as applicable)
+
+--------------------------------------------------------------------------------
+8. COMPENSATION & BENEFITS
+--------------------------------------------------------------------------------
+
+     - CTC Range: INR 12,00,000 to INR 18,00,000 per annum (based on
+       experience and qualifications)
+     - Performance-linked variable pay (up to 15% of CTC)
+     - Medical insurance (self + family), accident insurance
+     - Provident Fund, Gratuity, and NPS (National Pension Scheme)
+     - Learning & development budget for certifications and training
+     - Relocation support (if applicable)
+
+================================================================================
+This is a confidential document of Thermax Limited. Reproduction or
+distribution without authorization is prohibited.
+
+Approved By: Vice President — Engineering, Energy Division
+Date: April 2026
+================================================================================

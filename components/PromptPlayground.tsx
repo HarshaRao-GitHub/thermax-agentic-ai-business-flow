@@ -54,6 +54,37 @@ const LAB_EXPERIMENTS: LabExperiment[] = [
     ]
   },
   {
+    theme: 'Spares & Services Growth Strategy',
+    icon: '🔧',
+    description: 'See how a vague services question transforms into a data-driven growth plan as prompt precision increases.',
+    levels: [
+      {
+        label: 'Simple',
+        tag: 'L1',
+        color: 'bg-emerald-100 text-emerald-700 border-emerald-200',
+        prompt: 'How can Thermax grow its spares and services business?'
+      },
+      {
+        label: 'Detailed',
+        tag: 'L2',
+        color: 'bg-blue-100 text-blue-700 border-blue-200',
+        prompt: 'Develop a growth strategy for Thermax\'s Spares & Services division targeting 25% revenue CAGR over 3 years. The installed base includes 15,000+ boilers, chillers, water treatment plants, and air pollution control equipment across 75+ countries. Current services revenue is approximately INR 1,200 Cr with a 35% margin. Focus areas should include AMC contract expansion, spare parts e-commerce, predictive maintenance using Edge Live IoT platform, and field service engineer productivity improvement. Consider the shift from break-fix to outcome-based service models.'
+      },
+      {
+        label: 'Analytical',
+        tag: 'L3',
+        color: 'bg-purple-100 text-purple-700 border-purple-200',
+        prompt: 'Develop a spares and services growth strategy for Thermax. Analyse: (1) the installed base of 15,000+ equipment across 75 countries — segment by equipment age, contract status (AMC/non-AMC), and service revenue per unit, (2) competitive service offerings from Forbes Marshall, L&T, Veolia, and Siemens — what service models are they winning with, (3) the transition from transactional spare parts sales to recurring service contracts — pricing models (per-hour, per-outcome, risk-sharing), (4) digital enablers — how Edge Live IoT data can drive predictive spares demand, remote diagnostics, and condition-based maintenance, (5) channel strategy — direct field service vs authorised service partners vs customer self-service portals, (6) the spare parts supply chain — inventory optimisation, regional warehousing, 3D printing for obsolete parts, (7) success metrics — attach rate, renewal rate, NPS, MTTR, first-time-fix rate. The output should be a strategic recommendation with clear trade-offs, not a generic capability list.'
+      },
+      {
+        label: 'CRAFT Framework',
+        tag: 'L4',
+        color: 'bg-amber-100 text-amber-700 border-amber-200',
+        prompt: 'Context: Thermax has an installed base of 15,000+ equipment (boilers, chillers, WHRBs, water treatment, APC) across 75+ countries. Current spares & services revenue is INR 1,200 Cr at 35% margin, but attach rate to installed base is only 22%. Competitors like Forbes Marshall achieve 40%+ attach rates. The Edge Live IoT platform is deployed on 800+ assets providing real-time performance data. Customer feedback indicates demand for outcome-based contracts, faster spare parts delivery (currently 4-6 weeks for non-stock items), and remote troubleshooting support.\n\nRole: You are a senior Vice President of Services for an industrial equipment OEM with experience scaling aftermarket businesses from INR 1,000 Cr to INR 3,000 Cr. You have deep expertise in service transformation, installed base monetisation, and digital service delivery models.\n\nAction: Develop a comprehensive 3-year spares and services growth plan that doubles the attach rate from 22% to 45% and grows revenue from INR 1,200 Cr to INR 2,500 Cr while improving margins from 35% to 42%.\n\nFormat: Deliver as (1) a 2-page executive strategy memo with clear revenue bridge (current → target), (2) a service portfolio matrix mapping service offerings to customer segments (Tier 1 key accounts, Tier 2 mid-market, Tier 3 tail), (3) a 90-day quick-wins playbook with 10 specific initiatives and expected revenue impact, (4) a digital services roadmap showing Edge Live integration milestones, and (5) a competitive positioning table comparing Thermax vs top 3 competitors on 8 service dimensions.\n\nTarget Audience: The MD and Spares & Services BU head reviewing this for investment approval and board presentation. The plan will also be shared with regional service heads for execution planning.'
+      }
+    ]
+  },
+  {
     theme: 'Industrial Decarbonisation — Customer Pitch',
     icon: '🌍',
     description: 'Watch a generic pitch evolve into a deal-advancing document as context, analysis, and structure are layered in.',

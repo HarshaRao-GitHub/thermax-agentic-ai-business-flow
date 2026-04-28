@@ -1,0 +1,560 @@
+================================================================================
+          CONFIDENTIALITY AND NON-DISCLOSURE AGREEMENT
+================================================================================
+
+This Confidentiality and Non-Disclosure Agreement ("Agreement") is entered
+into as of __________________ ("Effective Date")
+
+BETWEEN:
+
+(1) MERIDIAN TECHNOLOGIES PTE. LTD., a company incorporated under the laws
+    of Singapore, having its registered office at 1 Raffles Place, #44-02,
+    One Raffles Place Tower 1, Singapore 048616
+    (hereinafter referred to as "Meridian" or the "Disclosing Party")
+
+AND
+
+(2) THERMAX LIMITED, a company incorporated under the laws of India, having
+    its registered office at D-13, MIDC Industrial Area, R.D. Aga Road,
+    Chinchwad, Pune - 411019, Maharashtra, India
+    (hereinafter referred to as "Thermax" or the "Receiving Party")
+
+    (Meridian and Thermax are hereinafter individually referred to as a
+    "Party" and collectively as the "Parties")
+
+--------------------------------------------------------------------------------
+                              RECITALS
+--------------------------------------------------------------------------------
+
+WHEREAS, Meridian intends to engage Thermax for the potential supply of
+industrial heating and cooling solutions for Meridian's Southeast Asian
+manufacturing operations (the "Purpose");
+
+WHEREAS, Meridian will disclose to Thermax certain proprietary, confidential,
+and sensitive business information in connection with the Purpose;
+
+WHEREAS, Meridian requires Thermax to maintain the confidentiality of such
+information under the terms and conditions set forth herein;
+
+NOW, THEREFORE, in consideration of the mutual covenants and agreements
+contained herein, and for other good and valuable consideration, the receipt
+and sufficiency of which are hereby acknowledged, the Parties agree as
+follows:
+
+================================================================================
+              ARTICLE 1: DEFINITIONS AND INTERPRETATION
+================================================================================
+
+1.1 "Confidential Information" means any and all information, data, materials,
+    documents, know-how, or other knowledge of any nature whatsoever,
+    disclosed by or on behalf of the Disclosing Party to the Receiving
+    Party, whether disclosed orally, in writing, electronically, visually,
+    or by any other means, and regardless of whether such information is
+    marked or identified as "confidential" or "proprietary." For the
+    avoidance of doubt, any information shared verbally during meetings,
+    telephone calls, video conferences, or any other oral communication
+    shall be deemed Confidential Information without the requirement of
+    subsequent written confirmation or identification.
+
+1.2 "Disclosing Party" means Meridian Technologies Pte. Ltd. and its
+    affiliates, subsidiaries, successors, and assigns.
+
+1.3 "Receiving Party" means Thermax Limited.
+
+1.4 "Representatives" means, with respect to the Receiving Party, all of
+    its directors, officers, employees, agents, advisors (including
+    attorneys, accountants, consultants, and financial advisors),
+    subcontractors, sub-suppliers, service providers, joint venture partners,
+    temporary staff, interns, and any other person or entity engaged by or
+    acting on behalf of the Receiving Party in any capacity whatsoever,
+    whether directly or indirectly.
+
+1.5 "Competitors" means any person, firm, company, or entity that is
+    engaged in, or planning to engage in, the design, manufacture, supply,
+    or distribution of industrial process equipment, semiconductor
+    fabrication facility systems, or cleanroom environmental solutions in
+    the Asia-Pacific region.
+
+1.6 "Purpose" means the evaluation, negotiation, and potential consummation
+    of the business relationship described in the Recitals, and all related
+    activities as determined by the Disclosing Party.
+
+================================================================================
+            ARTICLE 2: SCOPE OF CONFIDENTIAL INFORMATION
+================================================================================
+
+2.1 Confidential Information includes, without limitation, the following:
+
+    (a) Technical Information: all engineering designs, drawings, blueprints,
+        specifications, formulas, algorithms, software (including source
+        code, object code, APIs, and documentation), technical data,
+        research and development activities, prototypes, samples, inventions,
+        patent applications (filed and unfiled), manufacturing processes,
+        testing methodologies, quality control procedures, equipment
+        configurations, and any technical information of any kind;
+
+    (b) Commercial Information: business plans, marketing strategies, sales
+        data, customer lists, customer identities, supplier information,
+        pricing structures, distribution channels, market analyses,
+        competitive intelligence, procurement strategies, vendor assessments,
+        and all commercial data;
+
+    (c) Financial Information: financial statements, projections, budgets,
+        cost structures, investment plans, revenue data, profit margins,
+        credit terms, payment histories, banking information, and any
+        financial data whether published or unpublished;
+
+    (d) Intellectual Property: all patents, patent applications, trademarks,
+        trade names, copyrights, design rights, database rights, trade
+        secrets, know-how, proprietary methodologies, and any other
+        intellectual property rights, whether registered or unregistered;
+
+    (e) Trade Secrets: any information that derives independent economic
+        value from not being generally known, including but not limited to
+        process configurations, system architectures, optimization
+        techniques, and operational methodologies;
+
+    (f) Personnel Information: employee data, organizational structures,
+        compensation information, key personnel details, recruitment
+        strategies, and succession plans;
+
+    (g) Strategic Information: merger and acquisition plans, partnership
+        discussions, expansion strategies, facility plans, capital
+        expenditure programs, and long-term strategic objectives;
+
+    (h) The existence and terms of this Agreement and the discussions
+        between the Parties.
+
+2.2 Confidential Information shall also include any analyses, compilations,
+    studies, summaries, notes, or other materials prepared by the Receiving
+    Party that contain, reflect, are generated from, or are derived in any
+    way from the Confidential Information of the Disclosing Party.
+
+2.3 Any information disclosed in connection with the Purpose shall be
+    presumed to be Confidential Information unless the Receiving Party can
+    demonstrate otherwise in accordance with Article 4.
+
+================================================================================
+            ARTICLE 3: OBLIGATIONS OF THE RECEIVING PARTY
+================================================================================
+
+3.1 Standard of Care. The Receiving Party shall:
+
+    (a) Hold and maintain all Confidential Information in the strictest
+        confidence and exercise the highest degree of care to protect
+        such information, which shall in all cases exceed the degree of
+        care that the Receiving Party uses to protect its own confidential
+        information;
+
+    (b) Not disclose, publish, or disseminate any Confidential Information
+        to any third party without the prior written consent of the
+        Disclosing Party;
+
+    (c) Use the Confidential Information solely for the Purpose and not
+        for any other purpose whatsoever, whether directly or indirectly;
+
+    (d) Restrict disclosure of the Confidential Information to only those
+        Representatives who have an absolute need to know such information
+        for the Purpose and who have been pre-approved in writing by the
+        Disclosing Party;
+
+    (e) Ensure that all Representatives who receive Confidential Information
+        execute individual confidentiality undertakings in a form approved
+        by the Disclosing Party prior to receiving any Confidential
+        Information;
+
+    (f) Not reverse engineer, disassemble, decompile, analyze, or otherwise
+        attempt to derive the composition, structure, design, underlying
+        information, or ideas of any Confidential Information;
+
+    (g) Immediately notify the Disclosing Party in writing (within 24 hours)
+        upon becoming aware of any unauthorized use, disclosure, or loss
+        of Confidential Information, or any suspected breach of this
+        Agreement;
+
+    (h) Implement and maintain appropriate technical and organizational
+        security measures, including encryption, access controls, and
+        physical security measures, to protect Confidential Information
+        from unauthorized access, use, or disclosure;
+
+    (i) Not make copies of the Confidential Information except as strictly
+        necessary for the Purpose and with the prior written consent of
+        the Disclosing Party.
+
+3.2 The Receiving Party shall be strictly liable for any breach of this
+    Agreement by any of its Representatives, regardless of whether such
+    breach was authorized by the Receiving Party.
+
+3.3 The Receiving Party shall provide the Disclosing Party with a written
+    list of all individuals who have had access to the Confidential
+    Information on a quarterly basis.
+
+================================================================================
+                    ARTICLE 4: EXCLUSIONS
+================================================================================
+
+4.1 The obligations of confidentiality set forth in this Agreement shall not
+    apply to any information that the Receiving Party can demonstrate by
+    clear and convincing documentary evidence:
+
+    (a) Was in the public domain at the time of disclosure, or subsequently
+        entered the public domain through no act, omission, or fault of
+        the Receiving Party or its Representatives;
+
+    (b) Was lawfully in the possession of the Receiving Party prior to
+        disclosure by the Disclosing Party, as conclusively evidenced by
+        contemporaneous written records predating this Agreement;
+
+    (c) Was received by the Receiving Party from a bona fide third party
+        who was not under any obligation of confidentiality to the
+        Disclosing Party and who had the legal right to disclose such
+        information, as evidenced by written documentation;
+
+    (d) Is approved for release or disclosure by the Disclosing Party in
+        writing, signed by a duly authorized officer of the Disclosing
+        Party.
+
+    [NOTE: No "independently developed" exclusion is included in this
+    Agreement.]
+
+4.2 Legally Compelled Disclosure. If the Receiving Party is required by
+    applicable law, regulation, legal process, or governmental order to
+    disclose any Confidential Information, the Receiving Party shall:
+
+    (a) Provide the Disclosing Party with immediate written notice of such
+        requirement (within 24 hours, to the extent legally permitted);
+
+    (b) Cooperate fully with the Disclosing Party, at the Receiving Party's
+        cost, in seeking a protective order or other appropriate remedy;
+
+    (c) Disclose only the minimum portion of the Confidential Information
+        that is strictly required to be disclosed;
+
+    (d) Use best efforts to obtain reliable assurance that confidential
+        treatment will be accorded to the Confidential Information; and
+
+    (e) Permit the Disclosing Party to participate in any proceedings
+        related to such compelled disclosure.
+
+================================================================================
+                ARTICLE 5: TERM AND DURATION
+================================================================================
+
+5.1 Term. This Agreement shall become effective on the Effective Date and
+    shall remain in force for a period of three (3) years from the Effective
+    Date. This Agreement may only be terminated by mutual written consent of
+    both Parties.
+
+5.2 Survival of Obligations. The obligations of confidentiality and non-use
+    set forth in this Agreement shall survive the expiration or termination
+    of this Agreement for a period of seven (7) years from the date of such
+    expiration or termination.
+
+5.3 Trade Secrets. With respect to any Confidential Information that
+    constitutes a trade secret under any applicable law in any jurisdiction,
+    the obligations of confidentiality shall continue in perpetuity.
+
+================================================================================
+        ARTICLE 6: RETURN AND DESTRUCTION OF INFORMATION
+================================================================================
+
+6.1 Upon the expiration or termination of this Agreement, or upon the
+    written request of the Disclosing Party at any time, the Receiving
+    Party shall promptly (within ten (10) business days) return to the
+    Disclosing Party all originals and copies of Confidential Information
+    in any form whatsoever.
+
+6.2 The Receiving Party may only destroy Confidential Information in lieu
+    of returning it with the prior written consent of the Disclosing Party.
+    Any approved destruction must be carried out using methods specified or
+    approved by the Disclosing Party, and the Receiving Party shall provide
+    a detailed certificate of destruction signed by a senior officer of
+    the Receiving Party, listing all materials destroyed, the method of
+    destruction, and the date of destruction.
+
+6.3 The Receiving Party shall not retain any copies, summaries, extracts,
+    or reproductions of the Confidential Information in any form, including
+    electronic backups, archival copies, or cloud storage, without the
+    express prior written consent of the Disclosing Party.
+
+6.4 The Disclosing Party reserves the right to audit the Receiving Party's
+    systems and records to verify complete return or destruction of
+    Confidential Information in accordance with Article 10 of this
+    Agreement.
+
+================================================================================
+                ARTICLE 7: NO LICENSE OR IP TRANSFER
+================================================================================
+
+7.1 Nothing in this Agreement shall be construed as granting any license,
+    right, title, or interest in or to any Confidential Information,
+    intellectual property, patent, trademark, copyright, trade secret, or
+    any other proprietary right of the Disclosing Party.
+
+7.2 All Confidential Information shall remain the sole and exclusive
+    property of the Disclosing Party. The Receiving Party hereby assigns
+    and agrees to assign to the Disclosing Party all right, title, and
+    interest in any intellectual property, inventions, or works of
+    authorship created by the Receiving Party using or derived from the
+    Confidential Information.
+
+7.3 The Disclosing Party makes no representation or warranty, express or
+    implied, as to the accuracy, completeness, or fitness for any purpose
+    of the Confidential Information.
+
+================================================================================
+                        ARTICLE 8: REMEDIES
+================================================================================
+
+8.1 The Receiving Party acknowledges and agrees that any breach or
+    threatened breach of this Agreement will cause irreparable harm to
+    the Disclosing Party for which monetary damages alone would be an
+    inadequate remedy.
+
+8.2 The Disclosing Party shall be entitled to seek immediate injunctive
+    relief, specific performance, or other equitable remedies in any court
+    of competent jurisdiction without the necessity of proving actual
+    damages, posting any bond or other security, or establishing the
+    inadequacy of monetary damages.
+
+8.3 The rights and remedies provided herein are cumulative and in addition
+    to any other rights or remedies available at law or in equity.
+
+================================================================================
+                    ARTICLE 9: INDEMNIFICATION
+================================================================================
+
+9.1 Indemnification by the Receiving Party. The Receiving Party shall
+    indemnify, defend, and hold harmless the Disclosing Party, its
+    affiliates, subsidiaries, and their respective directors, officers,
+    employees, agents, successors, and assigns (collectively, the
+    "Indemnified Parties") from and against any and all losses, damages,
+    liabilities, costs, expenses, claims, actions, and proceedings
+    (including reasonable attorneys' fees, expert witness fees, and court
+    costs) arising out of or resulting from:
+
+    (a) Any breach of this Agreement by the Receiving Party or its
+        Representatives;
+
+    (b) Any unauthorized use or disclosure of Confidential Information by
+        the Receiving Party or its Representatives;
+
+    (c) Any negligent or wrongful act or omission of the Receiving Party
+        or its Representatives in connection with the Confidential
+        Information.
+
+9.2 Unlimited Liability. The Receiving Party's liability under this
+    Agreement shall be unlimited and shall not be subject to any cap or
+    limitation whatsoever. The Receiving Party expressly waives any right
+    to limit its liability under this Agreement.
+
+9.3 The Receiving Party shall not be entitled to any indemnification from
+    the Disclosing Party under this Agreement.
+
+================================================================================
+            ARTICLE 10: AUDIT AND COMPLIANCE VERIFICATION
+================================================================================
+
+10.1 Audit Rights. The Disclosing Party shall have the right, upon
+     reasonable notice (not less than five (5) business days), to audit,
+     inspect, and examine the Receiving Party's premises, systems, records,
+     files, and practices to verify compliance with this Agreement.
+
+10.2 The Receiving Party shall provide full cooperation and access to the
+     Disclosing Party's designated auditors, including access to:
+
+     (a) Physical premises where Confidential Information is stored or
+         processed;
+     (b) Electronic systems, servers, databases, and cloud environments;
+     (c) Personnel involved in handling Confidential Information;
+     (d) Policies, procedures, and security protocols related to
+         information protection;
+     (e) Records of access, transmission, and storage of Confidential
+         Information.
+
+10.3 The cost of all audits shall be borne by the Receiving Party unless
+     the audit reveals no non-compliance, in which case each Party shall
+     bear its own costs.
+
+10.4 The Disclosing Party may conduct audits no more than twice per calendar
+     year during the Term and for a period of two (2) years following the
+     expiration or termination of this Agreement.
+
+================================================================================
+                ARTICLE 11: NON-COMPETE RESTRICTION
+================================================================================
+
+11.1 Non-Compete. During the Term of this Agreement and for a period of
+     twelve (12) months following the expiration or termination of this
+     Agreement (the "Restricted Period"), the Receiving Party shall not,
+     directly or indirectly:
+
+     (a) Engage in, participate in, or provide any services to any
+         Competitor of the Disclosing Party in the Asia-Pacific region in
+         connection with projects, products, or services that are similar
+         to or competitive with those contemplated under the Purpose;
+
+     (b) Solicit, approach, or enter into any business relationship with
+         any customer, supplier, or business partner of the Disclosing
+         Party whose identity or business relationship was disclosed to
+         the Receiving Party as Confidential Information;
+
+     (c) Solicit, recruit, or hire any employee, consultant, or contractor
+         of the Disclosing Party.
+
+11.2 The Receiving Party acknowledges that the restrictions set forth in
+     this Article are reasonable and necessary to protect the legitimate
+     business interests of the Disclosing Party and that any breach of
+     these restrictions would cause irreparable harm.
+
+================================================================================
+                    ARTICLE 12: PENALTY CLAUSE
+================================================================================
+
+12.1 Liquidated Damages. Without prejudice to any other rights or remedies
+     available to the Disclosing Party, the Receiving Party agrees to pay
+     to the Disclosing Party liquidated damages in the amount of
+     USD 500,000 (United States Dollars Five Hundred Thousand) per breach
+     or per incident of unauthorized disclosure of Confidential Information.
+
+12.2 The Parties acknowledge and agree that the above amount represents a
+     genuine pre-estimate of the loss that the Disclosing Party would
+     suffer in the event of a breach and does not constitute a penalty.
+
+12.3 The payment of liquidated damages shall not relieve the Receiving
+     Party of its obligations under this Agreement or limit the Disclosing
+     Party's right to seek additional damages, injunctive relief, or any
+     other remedy.
+
+================================================================================
+                    ARTICLE 13: GOVERNING LAW
+================================================================================
+
+13.1 This Agreement shall be governed by and construed in accordance with
+     the laws of the Republic of Singapore, without regard to its conflict
+     of laws principles.
+
+13.2 The United Nations Convention on Contracts for the International Sale
+     of Goods (CISG) shall not apply to this Agreement.
+
+================================================================================
+                ARTICLE 14: DISPUTE RESOLUTION
+================================================================================
+
+14.1 Negotiation. In the event of any dispute arising out of or in
+     connection with this Agreement, the Parties shall first attempt to
+     resolve such dispute through good faith negotiations for a period of
+     fourteen (14) days from the date of written notice.
+
+14.2 Arbitration. If the dispute is not resolved through negotiation, the
+     dispute shall be referred to and finally resolved by arbitration
+     administered by the Singapore International Arbitration Centre ("SIAC")
+     in accordance with the Arbitration Rules of the Singapore International
+     Arbitration Centre for the time being in force. The arbitration shall
+     be conducted as follows:
+
+     (a) Seat of Arbitration: Singapore;
+     (b) Language: English;
+     (c) Number of Arbitrators: Three (3). Each Party shall appoint one
+         arbitrator, and the two appointed arbitrators shall appoint the
+         third arbitrator who shall serve as the presiding arbitrator;
+     (d) The arbitral award shall be final and binding on both Parties;
+     (e) The costs of the arbitration, including the arbitrators' fees,
+         shall be borne entirely by the losing Party.
+
+14.3 The Disclosing Party reserves the right to bring proceedings in any
+     court of competent jurisdiction in any country for injunctive or
+     other interim relief, notwithstanding the arbitration provisions
+     herein.
+
+================================================================================
+                ARTICLE 15: GENERAL PROVISIONS
+================================================================================
+
+15.1 Entire Agreement. This Agreement constitutes the entire agreement
+     between the Parties with respect to the subject matter hereof.
+
+15.2 Amendment. No amendment to this Agreement shall be valid unless made
+     in writing and signed by a duly authorized officer of the Disclosing
+     Party.
+
+15.3 Waiver. No waiver by the Disclosing Party of any breach shall
+     constitute a waiver of any subsequent breach. The Disclosing Party's
+     failure to enforce any provision shall not be deemed a waiver of its
+     right to enforce such provision or any other provision.
+
+15.4 Assignment. The Disclosing Party may freely assign or transfer this
+     Agreement and its rights and obligations hereunder to any third party,
+     affiliate, successor, or assign without the consent of the Receiving
+     Party. The Receiving Party may not assign or transfer this Agreement
+     or any of its rights or obligations hereunder without the prior
+     written consent of the Disclosing Party. Any attempted assignment by
+     the Receiving Party without such consent shall be null and void.
+
+15.5 Severability. If any provision of this Agreement is held to be invalid
+     or unenforceable, the remaining provisions shall continue in full
+     force and effect, and the invalid provision shall be replaced by a
+     valid provision that most closely achieves the original intent.
+
+15.6 Notices. All notices under this Agreement shall be in writing and
+     shall be delivered by hand, registered post, reputed courier service,
+     or email with read receipt confirmation to:
+
+     If to Meridian:
+     Meridian Technologies Pte. Ltd.
+     1 Raffles Place, #44-02
+     One Raffles Place Tower 1
+     Singapore 048616
+     Attention: Chief Legal Officer
+     Email: legal@meridiantech.sg
+
+     If to Thermax:
+     Thermax Limited
+     D-13, MIDC Industrial Area, R.D. Aga Road
+     Chinchwad, Pune - 411019
+     Maharashtra, India
+     Attention: General Counsel / Legal Department
+     Email: legal@thermaxglobal.com
+
+15.7 Counterparts. This Agreement may be executed in counterparts, each
+     of which shall be deemed an original.
+
+15.8 No Partnership. Nothing in this Agreement shall create any partnership,
+     joint venture, agency, or employment relationship between the Parties.
+
+15.9 Further Assurances. The Receiving Party shall execute and deliver all
+     such further documents and take all such further actions as may be
+     reasonably requested by the Disclosing Party to give effect to the
+     provisions of this Agreement.
+
+15.10 Survival. The provisions of Articles 1, 2, 3, 4, 5.2, 5.3, 6, 7, 8,
+      9, 10, 11, 12, 13, 14, and 15 shall survive the expiration or
+      termination of this Agreement.
+
+================================================================================
+                        SIGNATURE BLOCKS
+================================================================================
+
+IN WITNESS WHEREOF, the Parties have caused this Agreement to be executed
+by their duly authorized representatives as of the Effective Date.
+
+
+For and on behalf of                    For and on behalf of
+MERIDIAN TECHNOLOGIES PTE. LTD.         THERMAX LIMITED
+
+
+____________________________            ____________________________
+Name:                                   Name:
+Title:                                  Title:
+Date:                                   Date:
+
+
+WITNESS 1:                              WITNESS 2:
+
+____________________________            ____________________________
+Name:                                   Name:
+Address:                                Address:
+
+================================================================================
+                        END OF AGREEMENT
+================================================================================
