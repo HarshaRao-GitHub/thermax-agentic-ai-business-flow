@@ -471,7 +471,7 @@ function CustomChatBubble({ message, isStreaming }: { message: ChatMessage; isSt
         </button>
 
         {isStreaming || expanded ? (
-          <Markdown>{message.content}</Markdown>
+          <Markdown isStreaming={isStreaming}>{message.content}</Markdown>
         ) : (
           <div className="text-thermax-slate text-xs leading-relaxed cursor-pointer" onClick={() => setExpanded(true)}>
             {preview}{message.content.length > 500 ? '...' : ''}

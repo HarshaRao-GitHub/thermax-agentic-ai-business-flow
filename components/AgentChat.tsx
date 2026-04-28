@@ -1429,7 +1429,7 @@ function MessageBubble({ role, content, streaming: isStreaming, agentName }: { r
     <div className="flex justify-start">
       <div className="max-w-[95%] bg-thermax-mist border border-thermax-line rounded-lg rounded-tl-sm px-4 py-3 text-[13px] w-full">
         <div className="text-[10px] font-mono text-thermax-saffronDeep mb-1">◆ AI Agent · Agentic</div>
-        <Markdown>{content}</Markdown>
+        <Markdown isStreaming={isStreaming}>{content}</Markdown>
         {isStreaming && (
           <div className="mt-2 h-1 w-24 bg-thermax-line rounded-full overflow-hidden">
             <div className="h-full bg-thermax-saffron rounded-full animate-shimmer" style={{ width: '60%' }} />
@@ -1661,7 +1661,7 @@ function CopilotBubble({ message, isStreaming, agentName }: { message: ChatMessa
           )}
         </button>
         {isStreaming || expanded ? (
-          <Markdown>{message.content}</Markdown>
+          <Markdown isStreaming={isStreaming}>{message.content}</Markdown>
         ) : (
           <div className="text-gray-500 text-xs leading-relaxed cursor-pointer" onClick={() => setExpanded(true)}>
             {preview}{message.content.length > 500 ? '...' : ''}

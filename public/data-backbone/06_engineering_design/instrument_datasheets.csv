@@ -14,3 +14,43 @@ IDS-012,PRJ-2026-0004,TT-401,Temperature Element,CHW Supply,0-25°C,Operating 7�
 IDS-013,PRJ-2026-0008,FT-801,Flow Transmitter,Feed Water Flow,0-120 TPH,105 kg/cm2 | 150°C,SS316L,±0.5%,DN150 Flange,4-20mA HART,Yokogawa/E+H,Under Review
 IDS-014,PRJ-2026-0008,PT-801,Pressure Transmitter,SH Outlet Pressure,0-120 kg/cm2,Operating 105 kg/cm2,SS316,±0.1%,1/2" NPT,4-20mA HART,Yokogawa,Under Review
 IDS-015,PRJ-2026-0008,AT-801,Analyzer — NOx,Stack NOx,0-500 mg/Nm3,Stack | 200°C,SS316 probe,±2%,Flange mounted,4-20mA HART,ABB,Under Review
+IDS-016,PRJ-2026-0001,CV-101,Control Valve,Feed Water Control,DN80 | Cv 120,65 kg/cm2 | 150°C,WCB body + SS316 trim,±1%,DN80 Flange,4-20mA HART,Fisher/Metso,Issued for Procurement
+IDS-017,PRJ-2026-0001,SV-101,Safety Valve,Drum Safety,Set 74 kg/cm2,67 kg/cm2 | 285°C,Forged alloy steel,N/A,DN100 Flange,N/A,Consolidated/Crosby,Approved
+IDS-018,PRJ-2026-0001,TC-101,Thermocouple,Furnace Temperature,0-1200°C,Operating 850°C,K-type | Inconel 600 sheath,±2.2°C,1/2" NPT,mV to transmitter,Yokogawa/Pyrosales,Approved
+IDS-019,PRJ-2026-0002,LT-201,Level Transmitter,Drum Level,0-600mm WC,52 kg/cm2 | 265°C,SS316L,±0.1%,1/2" NPT,4-20mA HART,Yokogawa/E+H,Issued for Procurement
+IDS-020,PRJ-2026-0002,TT-201,Temperature Transmitter,SH Outlet Temperature,0-500°C,Operating 435°C,Inconel 600 thermowell,±0.5°C,1/2" NPT,4-20mA HART,Yokogawa,Issued for Procurement
+IDS-021,PRJ-2026-0002,AT-201,Analyzer — O2,Flue Gas O2,0-25% O2,Stack | 180°C,SS316 probe,±0.5%,Flange mounted,4-20mA HART,ABB/Siemens,Approved
+IDS-022,PRJ-2026-0002,CV-201,Control Valve,Spray Water Attemperator,DN40 | Cv 25,55 kg/cm2 | 150°C,Forged SS316,±0.5%,DN40 Flange,4-20mA HART,Fisher/Metso,Approved
+IDS-023,PRJ-2026-0003,PT-301,Pressure Transmitter,WHRB Drum Pressure,0-40 kg/cm2,Operating 28 kg/cm2,SS316,±0.1%,1/2" NPT,4-20mA HART,Yokogawa,Under Review
+IDS-024,PRJ-2026-0003,LT-301,Level Transmitter,WHRB Drum Level,0-500mm WC,32 kg/cm2 | 238°C,SS316L,±0.1%,1/2" NPT,4-20mA HART,Yokogawa/E+H,Under Review
+IDS-025,PRJ-2026-0003,AT-301,Analyzer — CO,WHRB Stack CO,0-500 ppm,Stack | 200°C,SS316 probe,±2%,Flange mounted,4-20mA HART,ABB,Under Review
+IDS-026,PRJ-2026-0004,PT-401,Pressure Transmitter,CHW Header Pressure,0-10 kg/cm2,Operating 3 kg/cm2,SS316,±0.1%,1/2" NPT,4-20mA HART,Honeywell,Approved
+IDS-027,PRJ-2026-0004,TT-402,Temperature Element,CW Return,0-50°C,Operating 37°C,SS316 thermowell,±0.1°C,1/2" NPT,4-20mA HART,Yokogawa,Approved
+IDS-028,PRJ-2026-0004,LT-401,Level Transmitter,Chiller Refrigerant Level,0-300mm,8 kg/cm2 | 80°C,SS316L,±0.5%,1/2" NPT,4-20mA HART,E+H,Issued for Procurement
+IDS-029,PRJ-2026-0005,TT-501,Temperature Transmitter,TF Outlet Temperature,0-350°C,Operating 290°C,K-type TC + SS316 thermowell,±1°C,1/2" NPT,4-20mA HART,Yokogawa/E+H,Approved
+IDS-030,PRJ-2026-0005,TT-502,Temperature Transmitter,TF Return Temperature,0-300°C,Operating 245°C,K-type TC + SS316 thermowell,±1°C,1/2" NPT,4-20mA HART,Yokogawa,Approved
+IDS-031,PRJ-2026-0005,PT-501,Pressure Transmitter,TF Circuit Pressure,0-10 kg/cm2,Operating 4 kg/cm2,SS316,±0.1%,1/2" NPT,4-20mA HART,Honeywell,Approved
+IDS-032,PRJ-2026-0005,FT-501,Flow Transmitter,TF Circulation Flow,0-150 m3/hr,300°C | 4 kg/cm2,SS316L,±0.5%,DN100 Flange,4-20mA HART,E+H,Approved
+IDS-033,PRJ-2026-0006,AT-601,Analyzer — SO2,FGD Outlet SO2,0-200 mg/Nm3,Stack | 180°C,SS316 probe,±2%,Flange mounted,4-20mA HART,ABB/Siemens,Under Review
+IDS-034,PRJ-2026-0006,AT-602,Analyzer — pH,Slurry pH,0-14 pH,Slurry tank | 65°C,Glass electrode + PTFE body,±0.05 pH,Immersion mount,4-20mA HART,E+H/Yokogawa,Under Review
+IDS-035,PRJ-2026-0006,FT-601,Flow Transmitter,Slurry Recirculation Flow,0-1000 m3/hr,65°C | Atmospheric,SS316L,±1%,DN300 Flange,4-20mA HART,E+H,Under Review
+IDS-036,PRJ-2026-0006,PT-601,Pressure Transmitter,FGD Differential Pressure,0-300 mmWC,180°C gas,SS316,±0.5%,1/2" NPT,4-20mA HART,Yokogawa,Under Review
+IDS-037,PRJ-2026-0007,AT-701,Analyzer — Conductivity,Post MB Conductivity,0-10 uS/cm,40°C | 4 kg/cm2,SS316 cell + Pt electrodes,±1%,1" NPT,4-20mA HART,E+H/Yokogawa,Approved
+IDS-038,PRJ-2026-0007,FT-701,Flow Transmitter,RO Permeate Flow,0-60 m3/hr,40°C | 16 kg/cm2,SS316L,±0.5%,DN80 Flange,4-20mA HART,E+H,Approved
+IDS-039,PRJ-2026-0007,PT-701,Pressure Transmitter,RO Feed Pressure,0-20 kg/cm2,Operating 16 kg/cm2,SS316,±0.1%,1/2" NPT,4-20mA HART,Yokogawa,Approved
+IDS-040,PRJ-2026-0007,AT-702,Analyzer — pH,Raw Water pH,0-14 pH,Ambient | Atmospheric,Glass electrode + PP body,±0.1 pH,Immersion mount,4-20mA HART,E+H,Approved
+IDS-041,PRJ-2026-0008,TT-801,Temperature Transmitter,Main Steam Temperature,0-600°C,Operating 535°C,Inconel 600 thermowell,±0.5°C,1/2" NPT,4-20mA HART,Yokogawa,Under Review
+IDS-042,PRJ-2026-0008,LT-801,Level Transmitter,Drum Level,0-600mm WC,110 kg/cm2 | 320°C,SS316L,±0.1%,1/2" NPT,4-20mA HART,Yokogawa/E+H,Under Review
+IDS-043,PRJ-2026-0008,AT-802,Analyzer — SO2,Stack SO2,0-200 mg/Nm3,Stack | 200°C,SS316 probe,±2%,Flange mounted,4-20mA HART,ABB,Under Review
+IDS-044,PRJ-2026-0008,CV-801,Control Valve,Attemperator Spray,DN50 | Cv 30,115 kg/cm2 | 150°C,Forged SS316,±0.5%,DN50 Flange,4-20mA HART,Fisher/Metso,Under Review
+IDS-045,PRJ-2026-0008,SV-801,Safety Valve,Drum Safety,Set 110 kg/cm2,105 kg/cm2 | 320°C,Forged alloy steel,N/A,DN150 Flange,N/A,Consolidated/Crosby,Under Review
+IDS-046,PRJ-2026-0009,FT-901,Flow Transmitter,Main Steam Flow,0-180 TPH,82 kg/cm2 | 535°C,SS316L,±0.5%,DN150 Flange,4-20mA HART,Yokogawa/E+H,Under Review
+IDS-047,PRJ-2026-0009,PT-901,Pressure Transmitter,Furnace Draft,Range -100 to +50 mmWC,850°C zone,SS316,±0.5%,1/2" NPT,4-20mA HART,Yokogawa,Under Review
+IDS-048,PRJ-2026-0009,TT-901,Temperature Element,Bed Temperature,0-1000°C,Operating 850°C,K-type TC | Inconel 600,±2.2°C,Flange mounted,mV to transmitter,Pyrosales/Yokogawa,Under Review
+IDS-049,PRJ-2026-0009,LT-901,Level Transmitter,Drum Level,0-600mm WC,87 kg/cm2 | 300°C,SS316L,±0.1%,1/2" NPT,4-20mA HART,Yokogawa/E+H,Under Review
+IDS-050,PRJ-2026-0010,TT-1001,Temperature Element,CW Supply Temperature,0-50°C,Operating 32°C,SS316 thermowell,±0.1°C,1/2" NPT,4-20mA HART,Yokogawa,Approved
+IDS-051,PRJ-2026-0010,FT-1001,Flow Transmitter,CW Circulation Flow,0-2000 m3/hr,35°C | Atmospheric,SS316L,±0.5%,DN300 Flange,4-20mA HART,E+H,Approved
+IDS-052,PRJ-2026-0011,PT-1101,Pressure Transmitter,Turbine Inlet Pressure,0-100 kg/cm2,Operating 85 kg/cm2,SS316,±0.1%,1/2" NPT,4-20mA HART,Yokogawa,Under Review
+IDS-053,PRJ-2026-0011,TT-1101,Temperature Transmitter,Turbine Inlet Temperature,0-600°C,Operating 535°C,Inconel 600 thermowell,±0.5°C,1/2" NPT,4-20mA HART,Yokogawa,Under Review
+IDS-054,PRJ-2026-0011,SW-1101,Switch — Vibration,Turbine Bearing Vibration,0-100 um,Operating 25 um,SS316 accelerometer,±5%,Stud mount,4-20mA + relay,Bently Nevada/SKF,Under Review
+IDS-055,PRJ-2026-0012,DP-1201,Pressure Transmitter,Bag Filter DP,0-300 mmWC,180°C gas,SS316,±0.5%,1/2" NPT,4-20mA HART,Yokogawa,Approved

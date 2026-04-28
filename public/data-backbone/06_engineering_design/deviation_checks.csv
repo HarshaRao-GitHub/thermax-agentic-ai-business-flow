@@ -5,3 +5,52 @@ DV-003,PRJ-2026-0001,All instruments on SLD in I O list,100 percent tagged,IT-20
 DV-004,PRJ-2026-0001,Interlock for LSF high level,Required per T and S,IL-10 on sketch,Gap,Sketch not signed as approved,Get signed interlock cause-effect matrix,REVIEW flag DE-010
 DV-005,PRJ-2026-0001,Handwritten GA dimension,Same as 3D model,OD 1500mm approx,UNCLEAR,Confidence 0.7,Cross check workshop drawing DRG-FAB-LSF,DE-009
 DV-006,PRJ-2026-0002,Buffer tank MOC,CS rubber lined,CS lined on P and ID,Match,,,PID TK-01
+DV-007,PRJ-2026-0002,Boiler design pressure per IBR,Min 52 kg/cm2,52 kg/cm2 on datasheet,Match,,None,EDS-006 vs IBR requirement
+DV-008,PRJ-2026-0002,Superheater outlet temperature,440C per spec,440C on GA drawing,Match,,None,GA-BLR-002 vs design basis
+DV-009,PRJ-2026-0002,Steam drum MOC,SA516 Gr70 per IBR,SA516 Gr70 on datasheet,Match,,None,EDS-006 vs material spec
+DV-010,PRJ-2026-0002,Economizer tube material,CS finned tubes,CS finned tubes on datasheet,Match,,None,EDS-007 vs design basis
+DV-011,PRJ-2026-0002,Safety valve set pressure,52 kg/cm2 per IBR,52 kg/cm2 on PID,Match,,None,PID SV-201 vs IBR
+DV-012,PRJ-2026-0002,Boiler efficiency guarantee,Min 86%,TBD on datasheet,Gap,Efficiency test not conducted,Schedule performance guarantee test,Performance guarantee doc
+DV-013,PRJ-2026-0003,WHRB design pressure,32 kg/cm2 per spec,32 kg/cm2 on datasheet,Match,,None,EDS-008 vs order spec
+DV-014,PRJ-2026-0003,GT exhaust inlet temperature,540C from GT OEM,540C on PFD,Match,,None,PFD-HRSG vs GT data
+DV-015,PRJ-2026-0003,WHRB trip interlock on GT shutdown,Required per ESD logic,IL-30 on sketch,Gap,Sketch not legible,Obtain formal ESD cause-effect from GT OEM,REVIEW flag DE-024
+DV-016,PRJ-2026-0003,Duct burner material,SS310 per spec,SS310 + Ceramic fiber,OK,Additional ceramic fiber noted,Confirm with thermal design,EDS-009 vs material spec
+DV-017,PRJ-2026-0003,Exhaust gas flow measurement,Hastelloy C276 per service,Hastelloy C276 on IDS,Match,,None,IDS-009 vs material requirement
+DV-018,PRJ-2026-0003,Stack NOx emission,100 mg/Nm3 CPCB,TBD,UNCLEAR,Not measured yet,Plan emission monitoring post commissioning,CPCB norm vs DP-019
+DV-019,PRJ-2026-0004,Chiller capacity,500 TR per spec,500 TR on datasheet,Match,,None,EDS-010 vs order spec
+DV-020,PRJ-2026-0004,CHW supply temperature,7C per design,7C on datasheet,Match,,None,EDS-010 vs process requirement
+DV-021,PRJ-2026-0004,Cooling water inlet max,35C per design,32C on datasheet,REVIEW,Summer peak may exceed 35C,Verify cooling tower summer performance,DP-023 vs CT design
+DV-022,PRJ-2026-0004,Chiller shell MOC,CS shell per spec,CS shell + CuNi tubes,Match,,CuNi tubes for corrosion resistance,EDS-010 vs material spec
+DV-023,PRJ-2026-0004,COP performance,Min 1.4,TBD on test,Gap,PAT not conducted,Schedule performance acceptance test,DP-025 vs guarantee
+DV-024,PRJ-2026-0005,TF heater outlet temperature,300C per design,300C on datasheet,Match,,None,THF-501 datasheet vs process
+DV-025,PRJ-2026-0005,Thermic fluid medium,Therminol 66 per spec,Therminol 66 on PFD,Match,,None,PFD-HTG vs TF spec
+DV-026,PRJ-2026-0005,Expansion tank relief valve setting,2.5 kg/cm2,2.5 kg/cm2 on PID,Match,,None,PID SV-501 vs design
+DV-027,PRJ-2026-0005,TF circulation pump flow,120 m3/hr per design,120 m3/hr on PID,Match,,None,PID P-501 vs pump datasheet
+DV-028,PRJ-2026-0006,FGD scrubber capacity,250000 Nm3/hr,250000 Nm3/hr on PID,Match,,None,PID FGD-601 vs design basis
+DV-029,PRJ-2026-0006,SO2 removal efficiency,95% per guarantee,TBD,Gap,PG test not done,Schedule FGD performance test,DP-034 vs PG document
+DV-030,PRJ-2026-0006,SO2 analyzer range,0-200 mg/Nm3 per CPCB,0-200 mg/Nm3 on IDS,Match,,None,AT-601 vs measurement requirement
+DV-031,PRJ-2026-0006,Slurry valve type,Pinch valve per process,DN250 pinch valve on PID,REVIEW,Confirm suitability for abrasive slurry,Get valve vendor confirmation on slurry duty,REVIEW flag DE-039
+DV-032,PRJ-2026-0006,FGD pH interlock,Required per process,IL-60 on sketch,REVIEW,Trip setpoint not confirmed,Confirm pH trip setpoint with process,REVIEW flag DE-040
+DV-033,PRJ-2026-0006,Limestone consumption rate,3.5 TPH per stoichiometry,TBD on actual SO2,UNCLEAR,Depends on coal sulfur content,Monitor during operation and adjust,DP-035
+DV-034,PRJ-2026-0007,DM plant permeate quality,Conductivity less than 0.1 uS/cm,0.1 uS/cm on spec,Match,,None,DP-040 vs BFW spec
+DV-035,PRJ-2026-0007,RO membrane recovery,Min 75%,75% on vendor data,Match,,None,DP-039 vs membrane spec
+DV-036,PRJ-2026-0007,Silica in product water,Max 20 ppb,TBD,UNCLEAR,Analyzer not yet procured,Procure online silica analyzer,DP-041
+DV-037,PRJ-2026-0007,Post MB conductivity analyzer,Required for BFW monitoring,AT-701 on PID,Match,,None,PID AT-701 vs instrument index
+DV-038,PRJ-2026-0008,Boiler design pressure per IBR,Min 110 kg/cm2,110 kg/cm2 on datasheet,Match,,None,EDS-012 vs IBR calculation
+DV-039,PRJ-2026-0008,Main steam temperature,540C per design basis,540C on design basis,Match,,None,DP-045 vs performance guarantee
+DV-040,PRJ-2026-0008,Superheater material ASME code,SA213 T91 per ASME Sec II,SA213 T91 + TP347H on EDS,Match,,TP347H for final stage,EDS-013 vs ASME material spec
+DV-041,PRJ-2026-0008,Stack NOx per CPCB 2024,100 mg/Nm3 max,TBD,Gap,Not tested post commissioning,Install CEMS and conduct emission test,DP-047 vs CPCB norm
+DV-042,PRJ-2026-0008,Stack PM per CPCB 2024,30 mg/Nm3 max,TBD,Gap,ESP + bag filter performance unknown,Conduct isokinetic PM test,DP-048 vs CPCB norm
+DV-043,PRJ-2026-0008,Deaerator design pressure,3.5 kg/cm2 per spec,3.5 kg/cm2 on datasheet,Match,,None,EDS-014 vs design basis
+DV-044,PRJ-2026-0008,FGD material SS316L,SS316L per corrosion study,SS316L + Rubber lined CS,OK,Additional rubber lining for protection,Confirm dual protection with corrosion engineer,EDS-015 vs material spec
+DV-045,PRJ-2026-0008,Attemperator spray valve,DN50 forged SS316,DN50 forged SS316 on PID,Match,,None,PID CV-801 vs spec
+DV-046,PRJ-2026-0009,CFBC bed temperature,850C per combustion design,840-860C range extracted,OK,Within acceptable band,Monitor during operation,DP-050 vs design
+DV-047,PRJ-2026-0009,CFBC design pressure,87 kg/cm2 per spec,87 kg/cm2 on PID,Match,,None,PID BLR-901 vs design basis
+DV-048,PRJ-2026-0009,Cyclone separator MOC,Refractory lined CS per spec,Refractory lined CS on PID,Match,,None,PID CYC-901 vs material spec
+DV-049,PRJ-2026-0009,Limestone to coal ratio,3:1 per sorbent analysis,TBD,UNCLEAR,Sulfur content varies by coal source,Conduct sorbent optimization trial,DP-051
+DV-050,PRJ-2026-0009,Furnace draft measurement range,-100 to +50 mmWC,Same on IDS,Match,,None,IDS PT-901 vs instrument spec
+DV-051,PRJ-2026-0010,Cooling tower capacity,2000 TR per spec,2000 TR on PID,Match,,None,PID CT-1001 vs design basis
+DV-052,PRJ-2026-0010,CT approach temperature,5C per design,4.8C extracted,OK,Slightly better than design,None,DP-053 vs CT vendor data
+DV-053,PRJ-2026-0011,Turbine inlet conditions,87 kg/cm2 540C per TG spec,Same on PFD,Match,,None,PFD-TG vs turbine datasheet
+DV-054,PRJ-2026-0011,Instrument tagging per ISA standard,100% compliance,85% tags verified,REVIEW,15% tags need cross-check,Complete instrument index verification,Instrument index audit
+DV-055,PRJ-2026-0012,Bag filter air to cloth ratio,1.0 m/min per design,0.95 on design basis,OK,Conservative design margin,None,DP-055 vs BF vendor data

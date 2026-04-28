@@ -214,10 +214,13 @@ If SOME files are relevant and others are not, process the relevant ones and dis
         for (let loop = 0; loop < MAX_LOOPS; loop++) {
           apiTurns++;
 
+          const PAGE_LIMITED_SLUGS = ['marketing', 'engineering-design', 'service-troubleshooting'];
+          const effectiveMaxTokens = PAGE_LIMITED_SLUGS.includes(body.slug) ? 16000 : 128000;
+
           const stream = await callWithRetry(
             () => client.messages.create({
               model,
-              max_tokens: 128000,
+              max_tokens: effectiveMaxTokens,
               system: systemPrompt,
               tools: slugTools,
               messages: conversationMessages,

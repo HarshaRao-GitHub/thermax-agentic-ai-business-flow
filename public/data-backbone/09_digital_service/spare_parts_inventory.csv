@@ -19,3 +19,38 @@ SP-017,ESP Collecting Plates,AFBC Boiler,Emission Control,TEP-CP-2400,30,10,1200
 SP-018,Soot Blower Lance Tubes,All Boilers,Cleaning,TSB-LT-3600,6,3,28000,35,2025-01-18,8,Medium,Pune Central
 SP-019,Safety Valve — Boiler Drum,All Boilers,Safety,TSV-BD-1050,2,1,85000,45,2024-10-20,2,Critical,Pune Central
 SP-020,Flue Gas Analyzer Sensor Kit,All Equipment,Instrumentation,TFA-SK-0100,4,2,35000,21,2025-03-05,6,Medium,Pune Central
+SP-021,PA Fan Bearings SKF 23228,All Boilers,Rotating Equipment,SKF-23228-CC,4,2,35000,21,2025-03-10,6,High,Pune Central
+SP-022,Coal Feeder Screw Assembly,AFBC Boiler,Fuel Handling,TCF-SA-1800,4,2,65000,40,2025-02-28,5,High,Savli Works
+SP-023,Bed Material — Silica Sand,AFBC Boiler,Consumable,TBM-SS-1000,8000,3000,12,7,2025-03-15,15000,Medium,Pune Central
+SP-024,Air Nozzles — Distributor Plate,AFBC Boiler,Combustion,TAN-DP-0085,120,40,2800,21,2025-01-28,95,High,Savli Works
+SP-025,Boiler Drum Level Transmitter,All Boilers,Instrumentation,TDL-TR-0320,3,1,48000,28,2025-02-12,3,Critical,Pune Central
+SP-026,FD Fan Coupling Spider,All Boilers,Rotating Equipment,TFC-CS-0450,4,2,8500,14,2025-04-01,6,Medium,Pune Central
+SP-027,Flame Scanner — UV Type,Thermic Fluid Heater,Instrumentation,TFS-UV-0180,3,2,32000,21,2025-03-20,4,High,Pune Central
+SP-028,TF Expansion Tank Gaskets,Thermic Fluid Heater,Sealing,TEG-ET-0120,12,6,1200,7,2025-04-05,18,Low,Pune Central
+SP-029,Burner Air Register Assembly,Thermic Fluid Heater,Combustion,TBA-RA-0680,2,1,55000,45,2024-12-20,2,High,Savli Works
+SP-030,TF Heater Coil Support Studs,Thermic Fluid Heater,Structural,TCS-SS-0060,50,20,850,14,2025-03-25,40,Low,Pune Central
+SP-031,WHRB Drum Safety Valve,WHRB,Safety,TWS-SV-1200,2,1,92000,50,2024-11-15,1,Critical,Pune Central
+SP-032,WHRB Feedwater Control Valve,WHRB,Control,TWF-CV-0850,1,1,145000,60,2025-01-22,2,Critical,Savli Works
+SP-033,WHRB Desuperheater Spray Valve,WHRB,Control,TWD-SV-0640,2,1,78000,45,2025-04-10,2,High,Pune Central
+SP-034,FGD Agitator Shaft Bearing,FGD System,Rotating Equipment,TFA-SB-0480,4,2,22000,28,2025-03-08,5,High,Pune Central
+SP-035,FGD Rubber Lining Sheets,FGD System,Lining,TFR-LS-0030,100,40,3200,30,2025-02-18,80,Medium,Savli Works
+SP-036,Limestone — Powder Grade,FGD System,Consumable,TLS-PG-5000,10000,4000,8,5,2025-04-15,22000,Medium,Pune Central
+SP-037,FGD pH Sensor Assembly,FGD System,Instrumentation,TFP-SA-0220,6,3,15000,14,2025-03-30,8,High,Pune Central
+SP-038,Absorption Chiller Solution Pump,Absorption Chiller,Pumping,TAC-SP-0950,1,1,185000,60,2024-10-10,1,Critical,Savli Works
+SP-039,Chiller Purge Unit Assembly,Absorption Chiller,Vacuum,TCP-UA-0380,2,1,45000,35,2025-02-22,2,High,Pune Central
+SP-040,Chiller Heat Exchanger Gaskets,Absorption Chiller,Sealing,TCH-EG-0150,8,4,5500,14,2025-04-20,10,Medium,Pune Central
+SP-041,ESP Rapping Motor Assembly,ESP,Emission Control,TER-MA-0550,4,2,42000,35,2025-03-12,5,High,Savli Works
+SP-042,ESP Discharge Electrode Wire,ESP,Emission Control,TED-EW-0080,200,80,1500,21,2025-01-30,160,Medium,Pune Central
+SP-043,ESP T-R Set Rectifier Diodes,ESP,Electrical,TET-RD-0250,8,4,18000,28,2025-04-08,6,High,Pune Central
+SP-044,ESP Insulator — Support Type,ESP,Electrical,TEI-ST-0450,6,3,25000,30,2025-02-14,4,Medium,Savli Works
+SP-045,Cooling Tower Fan Blades — FRP,Cooling Tower,Rotating Equipment,TCT-FB-4200,4,2,75000,45,2025-03-18,3,High,Hyderabad
+SP-046,CT Gear Reducer — Complete,Cooling Tower,Rotating Equipment,TCT-GR-1800,1,1,225000,75,2024-09-25,1,Critical,Hyderabad
+SP-047,CT Fill Media — PVC Honeycomb,Cooling Tower,Heat Transfer,TCT-FM-1200,500,200,450,21,2025-04-25,800,Medium,Hyderabad
+SP-048,CT Drift Eliminator Modules,Cooling Tower,Emission Control,TCT-DE-0600,20,8,6500,14,2025-03-05,15,Low,Hyderabad
+SP-049,Evaporator Tube Bundle,Evaporator,Heat Transfer,TEV-TB-2800,2,1,165000,60,2024-12-10,2,Critical,Chennai
+SP-050,Evaporator Circulation Pump Impeller,Evaporator,Pumping,TEV-PI-0680,3,1,38000,30,2025-02-08,4,High,Chennai
+SP-051,Bag Filter Cages — Wire Type,Bag Filter,Filtration,TBF-CG-1500,100,40,1800,14,2025-04-12,120,Medium,Pune Central
+SP-052,Filter Bags — PPS Needle Felt,Bag Filter,Filtration,TBF-BG-2200,200,80,2200,21,2025-03-22,280,High,Pune Central
+SP-053,Pulse Valve Diaphragm Kit,Bag Filter,Cleaning,TBF-PV-0100,24,12,1500,10,2025-04-18,36,Medium,Pune Central
+SP-054,Bag Filter Solenoid Valve,Bag Filter,Cleaning,TBF-SV-0080,12,6,3500,14,2025-03-28,16,Medium,Pune Central
+SP-055,DM Plant Cation Resin — Strong Acid,DM Plant,Treatment,TDM-CR-0050,2000,800,180,21,2025-02-25,3500,Medium,Chennai

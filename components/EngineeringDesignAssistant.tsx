@@ -634,7 +634,7 @@ export default function EngineeringDesignAssistant() {
                 <div className="flex justify-start">
                   <div className="max-w-[90%] rounded-2xl rounded-tl-md px-4 py-3 text-[13px] bg-white border border-blue-100 w-full">
                     <span className="text-[10px] font-mono text-blue-600 uppercase mb-1 block">Gen-AI Assistant</span>
-                    <Markdown>{chatStreamBuffer}</Markdown>
+                    <Markdown isStreaming={true}>{chatStreamBuffer}</Markdown>
                   </div>
                 </div>
               )}

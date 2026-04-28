@@ -2,7 +2,7 @@
 
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { useEffect, useRef, useState, useCallback } from 'react';
+import React, { useEffect, useRef, useState, useCallback, useMemo } from 'react';
 
 let mermaidPromise: Promise<void> | null = null;
 let mermaidReady = false;
@@ -40,7 +40,6 @@ function loadMermaid(): Promise<void> {
 function sanitizeMermaidCode(code: string): string {
   let cleaned = code.trim();
 
-  // Remove wrapping ```mermaid ... ``` if LLM accidentally double-wraps
   if (cleaned.startsWith('```mermaid')) {
     cleaned = cleaned.replace(/^```mermaid\s*\n?/, '').replace(/\n?```\s*$/, '');
   }
@@ -48,7 +47,6 @@ function sanitizeMermaidCode(code: string): string {
     cleaned = cleaned.replace(/^```\s*\n?/, '').replace(/\n?```\s*$/, '');
   }
 
-  // Replace problematic Unicode characters that break Mermaid parser
   cleaned = cleaned
     .replace(/×/g, 'x')
     .replace(/÷/g, '/')
@@ -69,17 +67,14 @@ function sanitizeMermaidCode(code: string): string {
     .replace(/"/g, '"')
     .replace(/…/g, '...');
 
-  // Strip emojis from inside node labels (they break Mermaid parsing)
   // eslint-disable-next-line no-control-regex
   cleaned = cleaned.replace(/[\uD83C-\uDBFF][\uDC00-\uDFFF]|\u200D|[\u2600-\u27BF]|[\uFE00-\uFE0F]/g, '');
 
-  // Fix xychart-beta title quoting issues — must have quotes
   cleaned = cleaned.replace(
     /^(\s*title\s+)([^"\n][^\n]*)/gm,
     (_, prefix: string, rest: string) => `${prefix}"${rest.replace(/"/g, '')}"`
   );
 
-  // Remove empty lines at start that can trip up the parser
   cleaned = cleaned.replace(/^\s*\n/, '');
 
   return cleaned;
@@ -107,7 +102,6 @@ function MermaidBlock({ code }: { code: string }) {
       const { svg: renderedSvg } = await mermaid.render(id, sanitized);
       setSvg(renderedSvg);
     } catch {
-      // On failure, try a simplified version (remove problematic parts)
       try {
         // @ts-expect-error mermaid loaded via CDN
         const mermaid = window.mermaid;
@@ -157,35 +151,68 @@ function MermaidBlock({ code }: { code: string }) {
   );
 }
 
-export default function Markdown({ children }: { children: string }) {
+function MermaidPlaceholder() {
   return (
-    <div className="markdown-body text-[13px] leading-relaxed">
+    <div className="my-3 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg flex items-center gap-3 text-[12px] text-blue-700">
+      <div className="flex gap-1">
+        <span className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+        <span className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+        <span className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+      </div>
+      <span className="font-medium">Chart / diagram will render after response completes...</span>
+    </div>
+  );
+}
+
+interface MarkdownProps {
+  children: string;
+  isStreaming?: boolean;
+}
+
+function MarkdownInner({ children, isStreaming = false }: MarkdownProps) {
+  const components = useMemo(() => ({
+    code({ className, children: codeChildren, ...props }: React.ComponentPropsWithoutRef<'code'> & { className?: string }) {
+      const match = /language-(\w+)/.exec(className || '');
+      const lang = match?.[1];
+
+      if (lang === 'mermaid') {
+        if (isStreaming) {
+          return <MermaidPlaceholder />;
+        }
+        const codeStr = String(codeChildren).replace(/\n$/, '');
+        return <MermaidBlock code={codeStr} />;
+      }
+
+      if (lang) {
+        return (
+          <code className={className} {...props}>
+            {codeChildren}
+          </code>
+        );
+      }
+
+      return <code className={className} {...props}>{codeChildren}</code>;
+    },
+  }), [isStreaming]);
+
+  return (
+    <div className="markdown-body text-[13px] leading-relaxed" style={{ contain: 'layout style', contentVisibility: 'auto' }}>
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
-        components={{
-          code({ className, children: codeChildren, ...props }) {
-            const match = /language-(\w+)/.exec(className || '');
-            const lang = match?.[1];
-
-            if (lang === 'mermaid') {
-              const codeStr = String(codeChildren).replace(/\n$/, '');
-              return <MermaidBlock code={codeStr} />;
-            }
-
-            if (lang) {
-              return (
-                <code className={className} {...props}>
-                  {codeChildren}
-                </code>
-              );
-            }
-
-            return <code className={className} {...props}>{codeChildren}</code>;
-          },
-        }}
+        components={components}
       >
         {children}
       </ReactMarkdown>
     </div>
   );
 }
+
+const Markdown = React.memo(MarkdownInner, (prev, next) => {
+  if (prev.isStreaming !== next.isStreaming) return false;
+  if (prev.children === next.children) return true;
+  return false;
+});
+
+Markdown.displayName = 'Markdown';
+
+export default Markdown;

@@ -742,7 +742,7 @@ function ChatBubble({ message, isStreaming }: { message: ChatMessage; isStreamin
         {isStreaming || expanded ? (
           <>
             <div className="text-gray-900 leading-relaxed prompt-markdown">
-              <Markdown>{message.content}</Markdown>
+              <Markdown isStreaming={isStreaming}>{message.content}</Markdown>
             </div>
             {isStreaming && (
               <div className="mt-3 flex items-center gap-2">

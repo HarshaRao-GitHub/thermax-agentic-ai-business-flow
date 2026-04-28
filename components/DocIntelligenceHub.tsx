@@ -738,7 +738,7 @@ function ResultBubble({ message, isStreaming }: { message: ChatMessage; isStream
         {isStreaming || expanded ? (
           <>
             <div className="text-gray-900 leading-relaxed doc-intel-markdown">
-              <Markdown>{message.content}</Markdown>
+              <Markdown isStreaming={isStreaming}>{message.content}</Markdown>
             </div>
             {isStreaming && (
               <div className="mt-3 flex items-center gap-2">

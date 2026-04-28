@@ -6,3 +6,51 @@ DP-004,PRJ-2026-0001,Product conductivity,uS_cm,50 at 25C,Target less than 50,Cu
 DP-005,PRJ-2026-0001,CO2 dosing,kg_hr,45 nominal,TBD on load,PFD,MISSING,Finalize with process
 DP-006,PRJ-2026-0001,Na2CO3 storage,tank,2x 25 m3,1 duty 1 stand by,P and ID,OK,
 DP-007,PRJ-2026-0002,Steam design pressure,bar_g,40,35 operating,Order tech spec,OK,
+DP-008,PRJ-2026-0002,Boiler capacity,TPH,85,80 continuous,Data sheet BLR-201,OK,
+DP-009,PRJ-2026-0002,Superheater outlet temperature,deg_C,440,435,Design basis document,OK,
+DP-010,PRJ-2026-0002,Feed water temperature,deg_C,150,145,Heat balance,OK,
+DP-011,PRJ-2026-0002,Economizer outlet flue gas temp,deg_C,180,175,Performance guarantee,OK,
+DP-012,PRJ-2026-0002,Coal consumption rate,TPH,12,11.5 average,Fuel analysis report,OK,
+DP-013,PRJ-2026-0002,Boiler efficiency,percent,86,TBD during commissioning,Performance guarantee,REVIEW,Efficiency test pending
+DP-014,PRJ-2026-0003,WHRB capacity,TPH,35,32 continuous,Data sheet WHRB-301,OK,
+DP-015,PRJ-2026-0003,GT exhaust temperature,deg_C,540,530,GT OEM data,OK,
+DP-016,PRJ-2026-0003,GT exhaust flow,Nm3_hr,200000,195000,GT OEM data,OK,
+DP-017,PRJ-2026-0003,Supplementary firing capacity,percent,30,As needed,Design basis,OK,
+DP-018,PRJ-2026-0003,WHRB design pressure,kg_cm2,32,28 operating,Data sheet WHRB-301,OK,
+DP-019,PRJ-2026-0003,Stack emission NOx,mg_Nm3,100 max,TBD,CPCB norm,MISSING,Emission test to be conducted post commissioning
+DP-020,PRJ-2026-0004,Chiller capacity,TR,500,480 rated,Data sheet ABS-401,OK,
+DP-021,PRJ-2026-0004,CHW supply temperature,deg_C,7,7.2,Chiller performance curve,OK,
+DP-022,PRJ-2026-0004,CHW return temperature,deg_C,12,12.5,System design,OK,
+DP-023,PRJ-2026-0004,Cooling water inlet temperature,deg_C,32,30 to 35,Cooling tower design,REVIEW,Summer peak may exceed 35C
+DP-024,PRJ-2026-0004,Generator steam pressure,kg_cm2,8,7.5,ABS design basis,OK,
+DP-025,PRJ-2026-0004,COP design,ratio,1.4,TBD on test,Chiller datasheet,REVIEW,To be verified during PAT
+DP-026,PRJ-2026-0005,Thermic fluid heater capacity,MW,5,4.8,Data sheet THF-501,OK,
+DP-027,PRJ-2026-0005,TF outlet temperature,deg_C,300,290,Process requirement,OK,
+DP-028,PRJ-2026-0005,TF return temperature,deg_C,250,245,Heat balance,OK,
+DP-029,PRJ-2026-0005,TF flow rate,m3_hr,120,115,Pump datasheet,OK,
+DP-030,PRJ-2026-0005,TF expansion tank pressure,kg_cm2,2.5,1.8 operating,Design basis,OK,
+DP-031,PRJ-2026-0005,Stack temperature,deg_C,200,185,Flue gas analysis,OK,
+DP-032,PRJ-2026-0006,FGD gas flow capacity,Nm3_hr,250000,240000,Design basis FGD-601,OK,
+DP-033,PRJ-2026-0006,SO2 inlet concentration,mg_Nm3,1200,1000 to 1400,Fuel analysis,REVIEW,Varies with coal quality
+DP-034,PRJ-2026-0006,SO2 removal efficiency,percent,95,TBD,Performance guarantee,MISSING,To be verified during PG test
+DP-035,PRJ-2026-0006,Limestone consumption,TPH,3.5,TBD on load,Stoichiometric calculation,MISSING,Depends on actual SO2 load
+DP-036,PRJ-2026-0006,Slurry pH,pH,5.5 to 6.0,5.8 target,Process design,OK,
+DP-037,PRJ-2026-0006,FGD pressure drop,mmWC,150 max,130,Fan sizing basis,OK,
+DP-038,PRJ-2026-0007,DM plant capacity,m3_hr,50,48 permeate,Data sheet DMP-701,OK,
+DP-039,PRJ-2026-0007,RO recovery rate,percent,75,72,Membrane vendor data,OK,
+DP-040,PRJ-2026-0007,Product conductivity post MB,uS_cm,0.1 max,0.08,Water treatment spec,OK,
+DP-041,PRJ-2026-0007,Silica in product,ppb,20 max,TBD,Boiler feed water spec,REVIEW,Analyzer procurement pending
+DP-042,PRJ-2026-0007,Feed water TDS,ppm,500,450,Raw water analysis,OK,
+DP-043,PRJ-2026-0008,Boiler capacity,TPH,120,115 MCR,Data sheet BLR-801,OK,
+DP-044,PRJ-2026-0008,Main steam pressure,kg_cm2,110,105 operating,Design basis,OK,
+DP-045,PRJ-2026-0008,Main steam temperature,deg_C,540,535,Performance guarantee,OK,
+DP-046,PRJ-2026-0008,Reheat steam temperature,deg_C,540,535,Design basis,REVIEW,Reheat provision to be confirmed
+DP-047,PRJ-2026-0008,FGD outlet SO2,mg_Nm3,100 max,TBD,CPCB norm 2024,MISSING,Post FGD commissioning
+DP-048,PRJ-2026-0008,Stack PM emission,mg_Nm3,30 max,TBD,CPCB norm 2024,MISSING,ESP + BF performance
+DP-049,PRJ-2026-0009,CFBC capacity,TPH,150,145 MCR,Data sheet BLR-901,OK,
+DP-050,PRJ-2026-0009,Bed temperature,deg_C,850,840 to 860,Combustion design,OK,
+DP-051,PRJ-2026-0009,Limestone to coal ratio,ratio,3:1,TBD,Fuel + sorbent analysis,REVIEW,Depends on sulfur content
+DP-052,PRJ-2026-0010,Cooling tower capacity,TR,2000,1950,Data sheet CT-1001,OK,
+DP-053,PRJ-2026-0010,Approach temperature,deg_C,5,4.8,Cooling tower design,OK,
+DP-054,PRJ-2026-0011,Turbine inlet pressure,kg_cm2,87,85 operating,TG datasheet,OK,
+DP-055,PRJ-2026-0012,Bag filter air to cloth ratio,m_min,1.0,0.95,Design basis BF-1201,OK,

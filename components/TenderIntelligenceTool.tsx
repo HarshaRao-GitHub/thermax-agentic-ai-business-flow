@@ -696,7 +696,7 @@ export default function TenderIntelligenceTool() {
               <div className="flex justify-start">
                 <div className="max-w-[90%] rounded-2xl rounded-tl-md px-4 py-3 text-[13px] bg-white border border-violet-100 w-full">
                   <span className="text-[10px] font-mono text-violet-600 uppercase mb-1 block">Tender AI</span>
-                  <Markdown>{chatStreamBuffer}</Markdown>
+                  <Markdown isStreaming={true}>{chatStreamBuffer}</Markdown>
                 </div>
               </div>
             )}

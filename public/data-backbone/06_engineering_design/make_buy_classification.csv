@@ -19,3 +19,38 @@ MB-017,PRJ-2026-0008,Boiler Pressure Parts,Pressure Vessel,Make,Core competency 
 MB-018,PRJ-2026-0008,Superheater Coils,Pressure Vessel,Make,Alloy fabrication — in-house capability,,55,14,EDS-013
 MB-019,PRJ-2026-0008,FGD System,Emission Control,Make,Proprietary design — Thermax technology,,120,18,EDS-015
 MB-020,PRJ-2026-0008,Deaerator,Pressure Vessel,Buy,Standard equipment — competitive sourcing,Thermax/Forbes Marshall,12,10,EDS-014
+MB-021,PRJ-2026-0001,Deaerator,Pressure Vessel,Make,Standard fabrication — in-house IBR capability,,15,10,EDS-051
+MB-022,PRJ-2026-0001,Boiler Feed Pump,Rotating Equipment,Buy,High-pressure multi-stage — specialist OEM,KSB/Sulzer,28,16,EDS-052
+MB-023,PRJ-2026-0001,Instruments & Transmitters,Instrumentation,Buy,OEM proprietary — calibration certified,Yokogawa/E+H/ABB,42,8,IDS-001 to IDS-006
+MB-024,PRJ-2026-0001,Piping & Fittings,Piping,Buy,IBR certified — seamless alloy pipes,ISMT/Ratnamani,55,10,
+MB-025,PRJ-2026-0002,Air Preheater,Heat Exchanger,Make,Standard Thermax design — workshop fabrication,,42,14,EDS-016
+MB-026,PRJ-2026-0002,ESP Internals,Emission Control,Make,Proprietary design — Thermax IP,,78,16,EDS-017
+MB-027,PRJ-2026-0002,FD Fan,Rotating Equipment,Buy,Certified fan manufacturer,TLT-Babcock,26,12,EDS-018
+MB-028,PRJ-2026-0002,ID Fan,Rotating Equipment,Buy,High-temperature rated — specialist vendor,TLT-Babcock,38,12,EDS-019
+MB-029,PRJ-2026-0002,DCS System,Control System,Buy,Proprietary platform — project specific config,Yokogawa/ABB,92,14,
+MB-030,PRJ-2026-0002,Refractory & Insulation,Thermal,Buy,Specialized castables and ceramic fiber,Harbison Walker/Vesuvius,22,6,
+MB-031,PRJ-2026-0002,Valves & Actuators,Piping,Buy,IBR stamped — certified manufacturers,L&T Valves/KSB,52,8,
+MB-032,PRJ-2026-0003,WHRB Economizer,Heat Exchanger,Make,Standard design — finned tube fabrication,,18,12,EDS-020
+MB-033,PRJ-2026-0003,Deaerator,Pressure Vessel,Buy,Standard equipment — competitive sourcing,Forbes Marshall,8,10,EDS-021
+MB-034,PRJ-2026-0003,Instruments & Transmitters,Instrumentation,Buy,High-temperature rated — OEM only,Yokogawa/E+H,38,10,IDS-009 to IDS-010
+MB-035,PRJ-2026-0003,Evaporator — ZLD,Heat Exchanger,Make,Thermax water treatment technology,,45,16,EDS-053
+MB-036,PRJ-2026-0004,Absorption Chiller 350 TR,Heat Exchanger,Make,Core competency — VAM technology,,72,14,EDS-022
+MB-037,PRJ-2026-0004,CW Pumps,Rotating Equipment,Buy,Standard pumps — competitive sourcing,KSB/Kirloskar,8,8,EDS-023
+MB-038,PRJ-2026-0004,Instruments & Transmitters,Instrumentation,Buy,Standard instruments — OEM procurement,Yokogawa/E+H,18,6,IDS-011 to IDS-012
+MB-039,PRJ-2026-0005,Thermic Fluid Heater,Heat Exchanger,Make,Core competency — Thermax coil design,,62,14,EDS-024
+MB-040,PRJ-2026-0005,TF Circulation Pump,Rotating Equipment,Buy,High-temperature mechanical seal — specialist,KSB,12,10,EDS-025
+MB-041,PRJ-2026-0005,TF Expansion Tank,Pressure Vessel,Make,Simple fabrication — in-house,,3,6,EDS-026
+MB-042,PRJ-2026-0005,Instruments & Transmitters,Instrumentation,Buy,High-temperature TF service,Yokogawa/E+H,15,8,IDS-029 to IDS-032
+MB-043,PRJ-2026-0006,FGD Scrubber Internals,Emission Control,Make,Proprietary spray and tray design,,85,16,EDS-027
+MB-044,PRJ-2026-0006,Slurry Recirculation Pump,Rotating Equipment,Buy,Abrasion resistant — specialist pump,Warman/KSB,15,12,EDS-028
+MB-045,PRJ-2026-0006,Agitator,Mixing Equipment,Make,Standard design — in-house fabrication,,4,8,EDS-029
+MB-046,PRJ-2026-0006,CEMS Analyzers,Instrumentation,Buy,SO2 + O2 continuous emission — OEM certified,ABB/Siemens,32,10,IDS-033
+MB-047,PRJ-2026-0007,RO Membranes & Vessels,Water Treatment,Buy,Membrane OEM — performance guaranteed,DOW/Hydranautics,25,8,EDS-030
+MB-048,PRJ-2026-0007,Mixed Bed Vessels,Water Treatment,Make,Standard rubber lined vessels — in-house,,12,10,EDS-031
+MB-049,PRJ-2026-0007,Clarifier,Water Treatment,Make,Standard Thermax design — in-house fabrication,,18,12,EDS-032
+MB-050,PRJ-2026-0008,PA Fan,Rotating Equipment,Buy,High-pressure — specialist vendor,TLT-Babcock/Howden,35,14,EDS-033
+MB-051,PRJ-2026-0008,ESP Internals,Emission Control,Make,Proprietary design — large capacity unit,,110,18,EDS-034
+MB-052,PRJ-2026-0008,Bag Filter,Emission Control,Make,Standard pulse jet design — in-house,,22,12,EDS-035
+MB-053,PRJ-2026-0008,Boiler Feed Pump,Rotating Equipment,Buy,High-pressure multi-stage — specialist OEM,KSB/Sulzer,42,14,EDS-036
+MB-054,PRJ-2026-0009,CFBC Boiler Pressure Parts,Pressure Vessel,Make,Core competency — high-capacity CFBC design,,520,24,EDS-038
+MB-055,PRJ-2026-0009,Hot Cyclone,Emission Control,Make,Refractory lined — in-house fabrication + lining,,48,16,EDS-039

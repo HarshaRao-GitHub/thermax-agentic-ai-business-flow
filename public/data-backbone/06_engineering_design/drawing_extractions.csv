@@ -10,3 +10,47 @@ DE-008,PRJ-2026-0001,DRG-GA-LSF-001,Equipment_Drawing,Nozzle,N1,Inlet from DM pl
 DE-009,PRJ-2026-0001,DRG-GA-LSF-001,Equipment_Drawing,Dimension,OD shell,Filter shell,1500mm OD approx,Note 3 GA,0.7,REVIEW,Handwritten note; verify in workshop fab dwg
 DE-010,PRJ-2026-0001,DRG-SK-001,Hand_Sketch,Interlock,IL-10,LSF high level trip to P-620,Hardwired,Sketch zone B,0.65,REVIEW,Sketch legibility; confirm in cause and effect
 DE-011,PRJ-2026-0002,DRG-PID-002,P_and_ID,Equipment,TK-01,Buffer tank,Atmospheric CS lined,LINE-A1,0.88,,
+DE-012,PRJ-2026-0002,DRG-PID-002,P_and_ID,Instrument,PT-201,Header pressure transmitter,0-60 kg/cm2 4-20mA HART,PT-201-HDR,0.91,,
+DE-013,PRJ-2026-0002,DRG-PID-002,P_and_ID,Valve,SV-201,Safety valve on steam header,Set 52 kg/cm2,SV-201-HDR,0.89,,
+DE-014,PRJ-2026-0002,DRG-PID-002,P_and_ID,Equipment,BLR-201,AFBC Boiler 85 TPH,Design P 52 kg/cm2 T 440C,BLR-201-MAIN,0.93,,
+DE-015,PRJ-2026-0002,DRG-PFD-002,PFD,ProcessStage,STG-COMB,Combustion stage,Coal feed 12 TPH lignite,PFD-COMB,0.87,,
+DE-016,PRJ-2026-0002,DRG-PFD-002,PFD,Stream,S-FLG-OUT,Flue gas outlet,180000 Nm3/hr at 180C,FLG-ECO-OUT,0.84,,
+DE-017,PRJ-2026-0002,DRG-GA-BLR-002,Equipment_Drawing,Nozzle,N3,Superheater outlet nozzle,DN200 RF SA335 P11,GA-SH-OUT,0.92,,
+DE-018,PRJ-2026-0002,DRG-GA-BLR-002,Equipment_Drawing,Dimension,DRUM-ID,Steam drum internal diameter,1600mm ID,GA-DRUM-DIM,0.88,,
+DE-019,PRJ-2026-0003,DRG-PID-WHRB-001,P_and_ID,Equipment,WHRB-301,Waste heat recovery boiler,35 TPH from GT exhaust,WHRB-301-MAIN,0.9,,
+DE-020,PRJ-2026-0003,DRG-PID-WHRB-001,P_and_ID,Equipment,DB-301,Duct burner assembly,30% supplementary firing,DB-301-ASSY,0.86,,
+DE-021,PRJ-2026-0003,DRG-PID-WHRB-001,P_and_ID,Instrument,FT-301,Exhaust gas flow transmitter,0-200000 Nm3/hr,FT-301-EXH,0.78,REVIEW,High temperature service - verify material
+DE-022,PRJ-2026-0003,DRG-PID-WHRB-001,P_and_ID,Valve,CV-301,Hot gas bypass damper,Modulating 0-100%,CV-301-BYP,0.83,,
+DE-023,PRJ-2026-0003,DRG-PFD-WHRB-001,PFD,ProcessStage,STG-HRSG,HRSG heat recovery,GT exhaust 540C inlet,PFD-HRSG,0.91,,
+DE-024,PRJ-2026-0003,DRG-SK-003,Hand_Sketch,Interlock,IL-30,WHRB trip on GT shutdown,Hardwired ESD,Sketch zone A,0.68,REVIEW,Sketch unclear; confirm interlock logic with OEM
+DE-025,PRJ-2026-0004,DRG-PID-ABS-001,P_and_ID,Equipment,ABS-401,Absorption chiller 500 TR,Design P 8 kg/cm2,ABS-401-MAIN,0.94,,
+DE-026,PRJ-2026-0004,DRG-PID-ABS-001,P_and_ID,Equipment,CT-401,Cooling tower 750 TR,FRP casing PVC fills,CT-401-MAIN,0.89,,
+DE-027,PRJ-2026-0004,DRG-PID-ABS-001,P_and_ID,Instrument,TT-401,CHW supply temperature,0-25C 4-20mA,TT-401-CHW,0.92,,
+DE-028,PRJ-2026-0004,DRG-PID-ABS-001,P_and_ID,Valve,CV-401,Chilled water modulating valve,DN200 butterfly,CV-401-CHW,0.87,,
+DE-029,PRJ-2026-0004,DRG-GA-ABS-001,Equipment_Drawing,Nozzle,N5,Generator steam inlet,DN150 RF CS,GA-ABS-GEN,0.9,,
+DE-030,PRJ-2026-0004,DRG-GA-ABS-001,Equipment_Drawing,Dimension,SHELL-L,Chiller shell length,6200mm overall,GA-ABS-DIM,0.76,REVIEW,Dimension partially obscured on drawing
+DE-031,PRJ-2026-0005,DRG-PID-THF-001,P_and_ID,Equipment,THF-501,Thermic fluid heater 5 MW,Design T 300C,THF-501-MAIN,0.91,,
+DE-032,PRJ-2026-0005,DRG-PID-THF-001,P_and_ID,Equipment,P-501,TF circulation pump,Flow 120 m3/hr,P-501-CIRC,0.88,,
+DE-033,PRJ-2026-0005,DRG-PID-THF-001,P_and_ID,Instrument,TT-501,TF outlet temperature,0-350C K-type TC,TT-501-OUT,0.85,,
+DE-034,PRJ-2026-0005,DRG-PID-THF-001,P_and_ID,Valve,SV-501,TF expansion tank relief,Set 2.5 kg/cm2,SV-501-EXP,0.82,,
+DE-035,PRJ-2026-0005,DRG-PFD-THF-001,PFD,ProcessStage,STG-HTG,Heating circuit,Therminol 66 medium,PFD-HTG,0.93,,
+DE-036,PRJ-2026-0006,DRG-PID-FGD-001,P_and_ID,Equipment,FGD-601,FGD scrubber tower,250000 Nm3/hr capacity,FGD-601-TWR,0.89,,
+DE-037,PRJ-2026-0006,DRG-PID-FGD-001,P_and_ID,Equipment,P-601,Recirculation slurry pump,Flow 800 m3/hr,P-601-SLRY,0.86,,
+DE-038,PRJ-2026-0006,DRG-PID-FGD-001,P_and_ID,Instrument,AT-601,SO2 analyzer at FGD outlet,0-200 mg/Nm3,AT-601-SO2,0.84,,
+DE-039,PRJ-2026-0006,DRG-PID-FGD-001,P_and_ID,Valve,CV-601,Limestone slurry control valve,DN250 pinch valve,CV-601-LS,0.77,REVIEW,Verify valve type suitability for slurry service
+DE-040,PRJ-2026-0006,DRG-SK-006,Hand_Sketch,Interlock,IL-60,FGD trip on low pH slurry,DCS interlock,Sketch zone C,0.72,REVIEW,Handwritten sketch; confirm pH trip setpoint
+DE-041,PRJ-2026-0007,DRG-PID-DM-001,P_and_ID,Equipment,DMP-701,DM plant RO system,50 m3/hr permeate,DMP-701-RO,0.9,,
+DE-042,PRJ-2026-0007,DRG-PID-DM-001,P_and_ID,Equipment,MB-701,Mixed bed polisher,Cation + Anion resin,MB-701-POL,0.88,,
+DE-043,PRJ-2026-0007,DRG-PID-DM-001,P_and_ID,Instrument,AT-701,Conductivity analyzer post MB,0-10 uS/cm,AT-701-COND,0.92,,
+DE-044,PRJ-2026-0007,DRG-PID-DM-001,P_and_ID,Instrument,FT-701,RO permeate flow,0-60 m3/hr,FT-701-PERM,0.86,,
+DE-045,PRJ-2026-0008,DRG-PID-BLR-008,P_and_ID,Equipment,BLR-801,AFBC Boiler 120 TPH,Design P 110 kg/cm2 T 540C,BLR-801-MAIN,0.94,,
+DE-046,PRJ-2026-0008,DRG-PID-BLR-008,P_and_ID,Equipment,SH-801,Superheater assembly,SA213 T91 + TP347H,SH-801-ASSY,0.91,,
+DE-047,PRJ-2026-0008,DRG-PID-BLR-008,P_and_ID,Instrument,AT-801,Stack NOx analyzer,0-500 mg/Nm3,AT-801-NOX,0.83,,
+DE-048,PRJ-2026-0008,DRG-PID-BLR-008,P_and_ID,Valve,CV-801,Attemperator spray valve,DN50 forged SS316,CV-801-ATT,0.85,,
+DE-049,PRJ-2026-0008,DRG-GA-SH-008,Equipment_Drawing,Nozzle,N8,SH outlet nozzle,DN250 RF SA335 P91,GA-SH-NOZL,0.88,,
+DE-050,PRJ-2026-0009,DRG-PID-CFBC-001,P_and_ID,Equipment,BLR-901,CFBC Boiler 150 TPH,Design P 87 kg/cm2 T 540C,BLR-901-MAIN,0.92,,
+DE-051,PRJ-2026-0009,DRG-PID-CFBC-001,P_and_ID,Equipment,CYC-901,Hot cyclone separator,Refractory lined CS,CYC-901-SEP,0.87,,
+DE-052,PRJ-2026-0009,DRG-PID-CFBC-001,P_and_ID,Instrument,PT-901,Furnace draft pressure,Range -100 to +50 mmWC,PT-901-FURN,0.81,,
+DE-053,PRJ-2026-0010,DRG-PID-CT-001,P_and_ID,Equipment,CT-1001,Cooling tower natural draft,Capacity 2000 TR,CT-1001-ND,0.79,REVIEW,Verify cooling tower type against spec
+DE-054,PRJ-2026-0011,DRG-PFD-PP-001,PFD,ProcessStage,STG-PP,Power plant steam cycle,Turbine inlet 87 kg/cm2 540C,PFD-TG,0.93,,
+DE-055,PRJ-2026-0012,DRG-PID-BF-001,P_and_ID,Equipment,BF-1201,Bag filter pulse jet,Gas flow 150000 Nm3/hr,BF-1201-PJ,0.86,,

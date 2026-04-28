@@ -1,7 +1,7 @@
 datasheet_id,project_id,equipment_tag,equipment_type,capacity,design_pressure,design_temperature,material_construction,weight_tonnes,dimensions_lxwxh_m,power_kw,manufacturer,delivery_weeks,status
 EDS-001,PRJ-2026-0001,BLR-101,AFBC Boiler,60 TPH,74 kg/cm2,510°C,SA516 Gr70 + SA213 T11,285,12x8x18,450 (auxiliaries),Thermax,40,Approved
 EDS-002,PRJ-2026-0001,APH-101,Air Preheater,Tubular — 60 TPH boiler,0.5 kg/cm2,350°C,CS tubes + SS baffles,18,4x3x4,15 (ID fan),Thermax,28,Approved
-EDS-003,PRJ-2026-0001,ESP-101,Electrostatic Precipitator,180000 Nm3/hr,0.3 kg/cm2,180°C,CS casing + alloy internals,45,8x4x12,120,Thermax/BHEL,32,Under Review
+EDS-003,PRJ-2026-0001,ESP-101,Electrostatic Precipitator,180000 Nm3/hr,0.3 kg/cm2,180°C,CS casing + alloy internals,45,8x4x12,120,Thermax/BHEL,32,Approved
 EDS-004,PRJ-2026-0001,FD-101,FD Fan,2500 Nm3/min @ 350 mmWC,N/A,Ambient,CS + SS impeller,3.5,2x1.5x1.8,185,Thermax/TLT,20,Approved
 EDS-005,PRJ-2026-0001,ID-101,ID Fan,4500 Nm3/min @ 250 mmWC,N/A,180°C,Alloy steel impeller,5.2,2.5x2x2.2,280,Thermax/TLT,20,Approved
 EDS-006,PRJ-2026-0002,BLR-201,AFBC Boiler,85 TPH,52 kg/cm2,440°C,SA516 Gr70 + SA213 T22,380,14x9x20,620 (auxiliaries),Thermax,44,Approved
@@ -14,3 +14,43 @@ EDS-012,PRJ-2026-0008,BLR-801,AFBC Boiler,120 TPH,110 kg/cm2,540°C,SA516 Gr70 +
 EDS-013,PRJ-2026-0008,SH-801,Superheater,120 TPH boiler,115 kg/cm2,560°C,SA213 T91 + TP347H,22,4x3x6,N/A,Thermax,32,Under Review
 EDS-014,PRJ-2026-0008,DEA-801,Deaerator,150 TPH capacity,3.5 kg/cm2,145°C,SA516 Gr70,8,5x2.5x3,15 (pumps),Thermax,20,Under Review
 EDS-015,PRJ-2026-0008,FGD-801,FGD System,300000 Nm3/hr,0.5 kg/cm2,180°C,SS316L + Rubber lined CS,65,10x8x18,320,Thermax,36,Under Review
+EDS-016,PRJ-2026-0002,APH-201,Air Preheater,Tubular — 85 TPH boiler,0.5 kg/cm2,360°C,CS tubes + SS baffles,22,4.5x3.2x4.5,18 (ID fan),Thermax,28,Approved
+EDS-017,PRJ-2026-0002,ESP-201,Electrostatic Precipitator,220000 Nm3/hr,0.3 kg/cm2,180°C,CS casing + alloy internals,55,9x5x14,150,Thermax/BHEL,34,Approved
+EDS-018,PRJ-2026-0002,FD-201,FD Fan,3200 Nm3/min @ 380 mmWC,N/A,Ambient,CS + SS impeller,4.2,2.2x1.6x2,220,TLT-Babcock,22,Approved
+EDS-019,PRJ-2026-0002,ID-201,ID Fan,5500 Nm3/min @ 280 mmWC,N/A,180°C,Alloy steel impeller,6.5,2.8x2.2x2.5,350,TLT-Babcock,22,Approved
+EDS-020,PRJ-2026-0003,ECO-301,Economizer,35 TPH WHRB,35 kg/cm2,280°C,CS finned tubes,8,2.5x1.8x3,N/A,Thermax,20,Under Review
+EDS-021,PRJ-2026-0003,DEA-301,Deaerator,50 TPH capacity,3.5 kg/cm2,145°C,SA516 Gr70,5,3.5x2x2.5,10 (pumps),Thermax,18,Approved
+EDS-022,PRJ-2026-0004,ABS-402,Absorption Chiller,350 TR,8 kg/cm2,160°C generator,CS shell + CuNi tubes,22,5.5x2.8x3.2,20 (pumps),Thermax,28,Approved
+EDS-023,PRJ-2026-0004,CWP-401,Condenser Water Pump,800 m3/hr @ 25m head,N/A,45°C,CI casing + SS impeller,1.8,1.5x1x1.2,75,KSB/Kirloskar,14,Approved
+EDS-024,PRJ-2026-0005,THF-501,Thermic Fluid Heater,5 MW thermal,4 kg/cm2,300°C,CS coils + refractory lining,32,6x4x5,15 (burner fan),Thermax,26,Approved
+EDS-025,PRJ-2026-0005,P-501,TF Circulation Pump,120 m3/hr @ 45m head,6 kg/cm2,300°C,CS + mechanical seal,1.2,1.2x0.8x1,45,Thermax/KSB,12,Approved
+EDS-026,PRJ-2026-0005,EXP-501,TF Expansion Tank,5 m3,Atmospheric,300°C,CS with N2 blanketing,0.8,2x1.5x2.5,N/A,Thermax,10,Approved
+EDS-027,PRJ-2026-0006,FGD-601,FGD Scrubber Tower,250000 Nm3/hr,0.5 kg/cm2,180°C,SS316L + FRP lining,58,9x7x16,280 (pumps + fans),Thermax,34,Under Review
+EDS-028,PRJ-2026-0006,P-601,Recirculation Slurry Pump,800 m3/hr @ 30m head,N/A,65°C,High chrome CI + rubber lined,2.5,1.8x1.2x1.5,110,Warman/KSB,16,Under Review
+EDS-029,PRJ-2026-0006,AGT-601,Agitator for Slurry Tank,Tank 100 m3,N/A,65°C,SS316L shaft + rubber lined impeller,0.6,1x1x3,15,Thermax,10,Under Review
+EDS-030,PRJ-2026-0007,DMP-701,DM Plant RO System,50 m3/hr permeate,16 kg/cm2,40°C,SS316L piping + FRP vessels,6,8x3x3,120 (HP pumps),Thermax/Ion Exchange,20,Approved
+EDS-031,PRJ-2026-0007,MB-701,Mixed Bed Polisher,50 m3/hr,4 kg/cm2,40°C,CS rubber lined vessels,3.5,2x2x3,5 (backwash pump),Ion Exchange/Thermax,16,Approved
+EDS-032,PRJ-2026-0007,CLR-701,Clarifier,80 m3/hr raw water,Atmospheric,Ambient,CS + epoxy coated,12,6x6x4,3 (rake drive),Thermax,18,Approved
+EDS-033,PRJ-2026-0008,PA-801,PA Fan,1800 Nm3/min @ 800 mmWC,N/A,Ambient,CS + wear resistant impeller,4.8,2.5x1.8x2,320,TLT-Babcock/Howden,24,Under Review
+EDS-034,PRJ-2026-0008,ESP-801,Electrostatic Precipitator,350000 Nm3/hr,0.3 kg/cm2,180°C,CS casing + alloy collecting plates,85,12x6x16,220,Thermax/BHEL,38,Under Review
+EDS-035,PRJ-2026-0008,BF-801,Bag Filter,50000 Nm3/hr (bypass),N/A,180°C,CS casing + PPS bags,15,6x4x8,25 (compressed air),Thermax,22,Under Review
+EDS-036,PRJ-2026-0008,BFP-801,Boiler Feed Pump,150 m3/hr @ 1200m head,120 kg/cm2,150°C,SS316 + tungsten carbide rings,3.2,2.5x1.2x1.5,450,KSB/Sulzer,18,Under Review
+EDS-037,PRJ-2026-0008,COND-801,Condenser,Surface type — 15 MW TG,0.1 kg/cm2 abs,60°C,CS shell + Admiralty brass tubes,18,5x3x3,N/A,Thermax/BHEL,24,Under Review
+EDS-038,PRJ-2026-0009,BLR-901,CFBC Boiler,150 TPH,87 kg/cm2,540°C,SA516 Gr70 + SA213 T91,580,18x12x28,950 (auxiliaries),Thermax,52,Under Review
+EDS-039,PRJ-2026-0009,CYC-901,Hot Cyclone,150 TPH CFBC,N/A,870°C,CS + refractory lined 200mm,35,4x4x10,N/A,Thermax,30,Under Review
+EDS-040,PRJ-2026-0009,FD-901,FD Fan,4000 Nm3/min @ 400 mmWC,N/A,Ambient,CS + SS impeller,5.5,2.8x2x2.2,280,TLT-Babcock,22,Under Review
+EDS-041,PRJ-2026-0009,ID-901,ID Fan,7500 Nm3/min @ 300 mmWC,N/A,180°C,Alloy steel impeller,8.5,3.2x2.5x2.8,450,TLT-Babcock/Howden,24,Under Review
+EDS-042,PRJ-2026-0009,PA-901,PA Fan,2500 Nm3/min @ 900 mmWC,N/A,Ambient,CS + wear resistant impeller,6,2.8x2x2.2,400,TLT-Babcock,24,Under Review
+EDS-043,PRJ-2026-0009,ASH-901,Ash Handling System,Bottom ash + fly ash,N/A,200°C,CS + wear plates,25,15x5x6,180 (conveyors),Macawber Beekay/Thermax,28,Under Review
+EDS-044,PRJ-2026-0010,CT-1001,Cooling Tower,2000 TR capacity,N/A,42°C HW,RCC basin + FRP casing,45,8x8x12,90 (fans),Paharpur/Brentwood,24,Under Review
+EDS-045,PRJ-2026-0010,CWP-1001,CW Circulation Pump,1500 m3/hr @ 20m head,N/A,35°C,CI casing + SS impeller,2.5,1.8x1.2x1.5,110,KSB/Kirloskar,14,Approved
+EDS-046,PRJ-2026-0011,TG-1101,Steam Turbine Generator,15 MW extraction cum condensing,87 kg/cm2,540°C inlet,Alloy steel rotor + SS blades,85,8x3x4,N/A (generator 15 MW),Triveni/Siemens,40,Under Review
+EDS-047,PRJ-2026-0011,COND-1101,Surface Condenser,15 MW TG,0.1 kg/cm2 abs,55°C,CS shell + Titanium tubes,16,4.5x2.8x2.5,N/A,Thermax/BHEL,22,Under Review
+EDS-048,PRJ-2026-0011,CEP-1101,Condensate Extraction Pump,80 m3/hr @ 150m head,N/A,55°C,SS316,1.2,1.2x0.8x1,45,KSB/Grundfos,14,Approved
+EDS-049,PRJ-2026-0012,BF-1201,Bag Filter,150000 Nm3/hr,N/A,180°C,CS casing + PPS filter bags,28,8x6x12,45 (compressed air),Thermax,26,Approved
+EDS-050,PRJ-2026-0012,CA-1201,Compressed Air System,500 Nm3/hr @ 7 kg/cm2,7 kg/cm2,Ambient,CS receiver + SS piping,2.8,3x2x2.5,120,Atlas Copco/Kaeser,12,Approved
+EDS-051,PRJ-2026-0001,DEA-101,Deaerator,80 TPH capacity,3.5 kg/cm2,145°C,SA516 Gr70,6,4x2x2.5,10 (pumps),Thermax,18,Approved
+EDS-052,PRJ-2026-0001,BFP-101,Boiler Feed Pump,80 m3/hr @ 850m head,80 kg/cm2,150°C,SS316 + tungsten carbide,2.2,2x1x1.2,250,KSB/Sulzer,16,Approved
+EDS-053,PRJ-2026-0003,EVAP-301,Evaporator,ZLD evaporator 20 m3/hr,2 kg/cm2,105°C,SS316L + Titanium tubes,12,5x3x4,85,Thermax,28,Under Review
+EDS-054,PRJ-2026-0006,WTS-601,Water Treatment System,Effluent 30 m3/hr,Atmospheric,Ambient,CS + PP/FRP,8,6x3x3,35,Thermax/Ion Exchange,18,Under Review
+EDS-055,PRJ-2026-0002,DEA-201,Deaerator,100 TPH capacity,3.5 kg/cm2,145°C,SA516 Gr70,7,4.5x2.2x2.8,12 (pumps),Thermax,18,Approved
