@@ -11,6 +11,7 @@ export interface Operation {
   supportedLevels: ('single' | 'multi')[];
   systemPromptTemplate: string;
   starterPrompts: string[];
+  deptStarterPrompts?: Record<string, string[]>;
 }
 
 export interface SampleFile {
@@ -141,8 +142,12 @@ Your task: Extract structured information from the uploaded document(s) into cle
       'Pull out all PO numbers, vendor names, and payment terms',
       'Extract equipment IDs, serial numbers, and maintenance intervals',
       'List all contract clauses with their renewal and expiry dates',
-      'Perform a legal risk analysis of this ESP RFP document. Extract and identify all key risk areas from a legal standpoint including: (1) Liquidated Damages (LD) clauses — percentages, caps, trigger conditions, and cumulative exposure, (2) Performance Guarantee terms — guaranteed parameters, test conditions, penalty for non-achievement, (3) Bank Guarantee (BG) and EMD requirements — amounts, validity, encashment conditions, (4) Warranty obligations — duration, scope, exclusions, spare parts commitment, (5) Indemnification and liability caps, (6) Force Majeure — definition, notice period, termination rights, (7) Intellectual Property and confidentiality restrictions, (8) Arbitration and dispute resolution — jurisdiction, governing law, arbitration rules, (9) Payment terms — milestone structure, retention, release conditions, (10) Termination clauses — for convenience vs cause, notice periods, exit costs. Present as a structured Risk Register table with columns: Risk Area | Clause Reference | Risk Description | Severity (High/Medium/Low) | Recommended Thermax Position | Action Required.',
     ],
+    deptStarterPrompts: {
+      legal: [
+        'Perform a legal risk analysis of this ESP RFP document. Extract and identify all key risk areas from a legal standpoint including: (1) Liquidated Damages (LD) clauses — percentages, caps, trigger conditions, and cumulative exposure, (2) Performance Guarantee terms — guaranteed parameters, test conditions, penalty for non-achievement, (3) Bank Guarantee (BG) and EMD requirements — amounts, validity, encashment conditions, (4) Warranty obligations — duration, scope, exclusions, spare parts commitment, (5) Indemnification and liability caps, (6) Force Majeure — definition, notice period, termination rights, (7) Intellectual Property and confidentiality restrictions, (8) Arbitration and dispute resolution — jurisdiction, governing law, arbitration rules, (9) Payment terms — milestone structure, retention, release conditions, (10) Termination clauses — for convenience vs cause, notice periods, exit costs. Present as a structured Risk Register table with columns: Risk Area | Clause Reference | Risk Description | Severity (High/Medium/Low) | Recommended Thermax Position | Action Required.',
+      ],
+    },
   },
   {
     id: 'tabulate',
@@ -173,8 +178,12 @@ Rules:
       'Create an obligation matrix from this contract',
       'Tabulate all invoice line items into a spreadsheet-ready format',
       'Build a CAPA log from these incident reports',
-      'Create an engineer-wise calendar view from the Customer Visit Schedule. For each service engineer, produce: (1) a structured weekly calendar table showing Date | Customer | Location | Visit Purpose | Status (Confirmed/Tentative/Completed), (2) group visits by engineer name so each engineer\'s full schedule is visible at a glance, (3) highlight any scheduling CONFLICTS where an engineer has overlapping visits, (4) identify GAPS — engineers with no visits scheduled in the coming week, (5) a Mermaid Gantt chart showing each engineer\'s visit timeline across the month, (6) a summary table showing: Engineer | Total Visits | Completed | Pending | Coverage Area, (7) flag any HIGH-PRIORITY visits (critical equipment, SLA-bound, or repeat complaint customers) that need immediate attention.',
     ],
+    deptStarterPrompts: {
+      'sales-service': [
+        'Create an engineer-wise calendar view from the Customer Visit Schedule. For each service engineer, produce: (1) a structured weekly calendar table showing Date | Customer | Location | Visit Purpose | Status (Confirmed/Tentative/Completed), (2) group visits by engineer name so each engineer\'s full schedule is visible at a glance, (3) highlight any scheduling CONFLICTS where an engineer has overlapping visits, (4) identify GAPS — engineers with no visits scheduled in the coming week, (5) a Mermaid Gantt chart showing each engineer\'s visit timeline across the month, (6) a summary table showing: Engineer | Total Visits | Completed | Pending | Coverage Area, (7) flag any HIGH-PRIORITY visits (critical equipment, SLA-bound, or repeat complaint customers) that need immediate attention.',
+      ],
+    },
   },
 
   // C. Analyze
@@ -271,9 +280,15 @@ IMPORTANT: This operation requires at least 2 documents. If only 1 is provided, 
       'What clauses are missing in the newer version?',
       'Create a side-by-side comparison of these vendor proposals',
       'Assess the risk impact of changes between these policy versions',
-      'Compare the Job Description (JD) against the Candidate CV and produce a comprehensive fitment analysis: (1) a Skill Match Matrix table with columns: JD Requirement | Candidate Evidence | Match Status (Met/Partial/Gap) | Remarks, (2) a percentage fitment score across Technical Skills, Experience, Certifications, Education, and Behavioral Competencies, (3) highlight the candidate\'s key STRENGTHS that exceed JD requirements, (4) identify critical GAPS where the candidate falls short — missing certifications, experience areas, or technical skills, (5) a Mermaid pie chart showing the overall fitment distribution (Met vs Partial vs Gap), (6) a final HIRING RECOMMENDATION (Strong Fit / Conditional Fit / Not Recommended) with specific reasons and suggested interview focus areas.',
-      'Compare the Thermax Standard NDA against the Customer Proposed NDA and produce a legal risk assessment: (1) a clause-by-clause comparison table with columns: Clause | Thermax Standard | Customer Version | Change Type (Added/Removed/Modified) | Risk Level (High/Medium/Low) | Recommended Action, (2) identify all clauses where the customer NDA is MORE RESTRICTIVE than Thermax standard — flag these as risk items, (3) highlight any NON-COMPETE or EXCLUSIVITY clauses that could restrict Thermax business operations, (4) compare JURISDICTION and GOVERNING LAW differences and their implications, (5) assess INDEMNIFICATION and LIABILITY exposure differences, (6) flag any UNUSUAL or NON-STANDARD clauses not present in the Thermax template, (7) provide a NEGOTIATION STRATEGY with specific redline recommendations for each high-risk clause, (8) include an overall risk score and a Mermaid pie chart showing the distribution of clause risk levels.',
     ],
+    deptStarterPrompts: {
+      hr: [
+        'Compare the Job Description (JD) against the Candidate CV and produce a comprehensive fitment analysis: (1) a Skill Match Matrix table with columns: JD Requirement | Candidate Evidence | Match Status (Met/Partial/Gap) | Remarks, (2) a percentage fitment score across Technical Skills, Experience, Certifications, Education, and Behavioral Competencies, (3) highlight the candidate\'s key STRENGTHS that exceed JD requirements, (4) identify critical GAPS where the candidate falls short — missing certifications, experience areas, or technical skills, (5) a Mermaid pie chart showing the overall fitment distribution (Met vs Partial vs Gap), (6) a final HIRING RECOMMENDATION (Strong Fit / Conditional Fit / Not Recommended) with specific reasons and suggested interview focus areas.',
+      ],
+      legal: [
+        'Compare the Thermax Standard NDA against the Customer Proposed NDA and produce a legal risk assessment: (1) a clause-by-clause comparison table with columns: Clause | Thermax Standard | Customer Version | Change Type (Added/Removed/Modified) | Risk Level (High/Medium/Low) | Recommended Action, (2) identify all clauses where the customer NDA is MORE RESTRICTIVE than Thermax standard — flag these as risk items, (3) highlight any NON-COMPETE or EXCLUSIVITY clauses that could restrict Thermax business operations, (4) compare JURISDICTION and GOVERNING LAW differences and their implications, (5) assess INDEMNIFICATION and LIABILITY exposure differences, (6) flag any UNUSUAL or NON-STANDARD clauses not present in the Thermax template, (7) provide a NEGOTIATION STRATEGY with specific redline recommendations for each high-risk clause, (8) include an overall risk score and a Mermaid pie chart showing the distribution of clause risk levels.',
+      ],
+    },
   },
   {
     id: 'search',
@@ -426,8 +441,12 @@ graph LR
       'Show a pie chart breakdown of the key categories in this data',
       'Generate a bar chart comparing the main metrics',
       'Visualize trends and patterns as line/bar charts',
-      'Analyze the Project Cost Sheet and generate a comprehensive visual summary: (1) a pie chart showing cost distribution across major categories — material, labour, overheads, subcontracting, and margin, (2) a bar-chart-style comparison table of budgeted vs actual costs per project with variance highlighting (green for under-budget, red for over-budget), (3) a project margin waterfall showing how each cost element erodes the initial quoted margin, (4) a billing vs collection status chart showing outstanding receivables. Summarize the top 3 cost overrun projects with root cause insights and corrective recommendations.',
     ],
+    deptStarterPrompts: {
+      finance: [
+        'Analyze the Project Cost Sheet and generate a comprehensive visual summary: (1) a pie chart showing cost distribution across major categories — material, labour, overheads, subcontracting, and margin, (2) a bar-chart-style comparison table of budgeted vs actual costs per project with variance highlighting (green for under-budget, red for over-budget), (3) a project margin waterfall showing how each cost element erodes the initial quoted margin, (4) a billing vs collection status chart showing outstanding receivables. Summarize the top 3 cost overrun projects with root cause insights and corrective recommendations.',
+      ],
+    },
   },
 ];
 

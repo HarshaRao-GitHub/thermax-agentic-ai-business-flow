@@ -619,11 +619,16 @@ export default function DocIntelligenceHub() {
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{operation?.label}</h3>
                 <p className="text-sm text-gray-600 max-w-lg mb-8 leading-relaxed">{operation?.description}</p>
 
-                {operation?.starterPrompts && operation.starterPrompts.length > 0 && (
+                {operation && (() => {
+                  const generic = operation.starterPrompts ?? [];
+                  const deptSpecific = operation.deptStarterPrompts?.[selectedDept] ?? [];
+                  const allPrompts = [...generic, ...deptSpecific];
+                  return allPrompts.length > 0;
+                })() && (
                   <div className="w-full max-w-2xl">
                     <p className="text-sm text-gray-500 mb-3 font-semibold">Quick Start — click a prompt to begin:</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {operation.starterPrompts.map((prompt, i) => (
+                      {[...(operation.starterPrompts ?? []), ...(operation.deptStarterPrompts?.[selectedDept] ?? [])].map((prompt, i) => (
                         <button
                           key={i}
                           onClick={() => send(prompt)}
