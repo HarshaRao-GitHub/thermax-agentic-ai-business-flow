@@ -18,10 +18,44 @@ interface LabExperiment {
   theme: string;
   icon: string;
   description: string;
+  hidden?: boolean;
   levels: { label: string; tag: string; prompt: string; color: string }[];
 }
 
+const HIDDEN_CODE = '427890';
+
 const LAB_EXPERIMENTS: LabExperiment[] = [
+  {
+    theme: 'Industrial Decarbonisation — Customer Pitch',
+    icon: '🌍',
+    description: 'Watch a generic pitch evolve into a deal-advancing document as context, analysis, and structure are layered in.',
+    levels: [
+      {
+        label: 'Simple',
+        tag: 'L1',
+        color: 'bg-emerald-100 text-emerald-700 border-emerald-200',
+        prompt: 'Draft a customer pitch for our industrial decarbonisation offering.'
+      },
+      {
+        label: 'Detailed',
+        tag: 'L2',
+        color: 'bg-blue-100 text-blue-700 border-blue-200',
+        prompt: 'Draft a customer pitch for our industrial decarbonisation offering targeting a large refinery in the Gulf. The scope covers green hydrogen integration and waste-heat recovery systems for a 25-MW capacity. The customer has publicly declared net-zero targets and is actively evaluating technology partners for their first decarbonisation phase.'
+      },
+      {
+        label: 'Analytical',
+        tag: 'L3',
+        color: 'bg-purple-100 text-purple-700 border-purple-200',
+        prompt: 'Draft a customer pitch for our industrial decarbonisation offering targeting a large Gulf refinery with a 25-MW green hydrogen and waste-heat recovery scope. Analyse: (1) why this customer should choose Thermax over the two incumbent vendors currently serving them, (2) how their declared net-zero-by-2040 targets create urgency and budget allocation pressure, (3) the regulatory environment they operate under (national carbon pricing, CBAM exposure for exports to the EU), (4) typical procurement pushbacks their team raises (lifecycle cost justification, technology risk, local support capability), and (5) what Thermax won at a comparable account last quarter and how that reference strengthens our position. The output should be a persuasive, evidence-backed pitch — not a generic capability overview.'
+      },
+      {
+        label: 'CRAFT Framework',
+        tag: 'L4',
+        color: 'bg-amber-100 text-amber-700 border-amber-200',
+        prompt: 'Context: A large Gulf refinery has declared net-zero by 2040. Their current energy vendors are two global incumbents. They face regulatory pressure from emerging national carbon pricing and EU CBAM on exports. Recent procurement decisions have shifted towards lifecycle-cost-led evaluations rather than lowest capex. Thermax won a comparable 20-MW waste-heat recovery project at a similar account last quarter.\n\nRole: You are a senior GTM strategist for Thermax\'s industrial decarbonisation portfolio in the MENA region, with deep knowledge of refinery energy systems, green hydrogen economics, and competitive positioning against global EPC firms.\n\nAction: Draft a compelling customer pitch that persuades the refinery\'s leadership to shortlist Thermax for their first decarbonisation phase.\n\nFormat: Deliver as (1) a 1-page executive narrative connecting their net-zero ambition to Thermax\'s solution, (2) a 5-row differentiation table comparing Thermax against the two incumbents on the dimensions that matter most to this buyer, and (3) a recommended next-meeting agenda with three discussion items designed to advance the deal.\n\nTarget Audience: The customer\'s CEO, COO, and Head of Sustainability will read this alongside Thermax\'s own MD during the joint review.'
+      }
+    ]
+  },
   {
     theme: 'GTM Strategy — Edge Live in Middle East',
     icon: '🚀',
@@ -56,6 +90,7 @@ const LAB_EXPERIMENTS: LabExperiment[] = [
   {
     theme: 'Spares & Services Growth Strategy',
     icon: '🔧',
+    hidden: true,
     description: 'See how a vague services question transforms into a data-driven growth plan as prompt precision increases.',
     levels: [
       {
@@ -81,37 +116,6 @@ const LAB_EXPERIMENTS: LabExperiment[] = [
         tag: 'L4',
         color: 'bg-amber-100 text-amber-700 border-amber-200',
         prompt: 'Context: Thermax has an installed base of 15,000+ equipment (boilers, chillers, WHRBs, water treatment, APC) across 75+ countries. Current spares & services revenue is INR 1,200 Cr at 35% margin, but attach rate to installed base is only 22%. Competitors like Forbes Marshall achieve 40%+ attach rates. The Edge Live IoT platform is deployed on 800+ assets providing real-time performance data. Customer feedback indicates demand for outcome-based contracts, faster spare parts delivery (currently 4-6 weeks for non-stock items), and remote troubleshooting support.\n\nRole: You are a senior Vice President of Services for an industrial equipment OEM with experience scaling aftermarket businesses from INR 1,000 Cr to INR 3,000 Cr. You have deep expertise in service transformation, installed base monetisation, and digital service delivery models.\n\nAction: Develop a comprehensive 3-year spares and services growth plan that doubles the attach rate from 22% to 45% and grows revenue from INR 1,200 Cr to INR 2,500 Cr while improving margins from 35% to 42%.\n\nFormat: Deliver as (1) a 2-page executive strategy memo with clear revenue bridge (current → target), (2) a service portfolio matrix mapping service offerings to customer segments (Tier 1 key accounts, Tier 2 mid-market, Tier 3 tail), (3) a 90-day quick-wins playbook with 10 specific initiatives and expected revenue impact, (4) a digital services roadmap showing Edge Live integration milestones, and (5) a competitive positioning table comparing Thermax vs top 3 competitors on 8 service dimensions.\n\nTarget Audience: The MD and Spares & Services BU head reviewing this for investment approval and board presentation. The plan will also be shared with regional service heads for execution planning.'
-      }
-    ]
-  },
-  {
-    theme: 'Industrial Decarbonisation — Customer Pitch',
-    icon: '🌍',
-    description: 'Watch a generic pitch evolve into a deal-advancing document as context, analysis, and structure are layered in.',
-    levels: [
-      {
-        label: 'Simple',
-        tag: 'L1',
-        color: 'bg-emerald-100 text-emerald-700 border-emerald-200',
-        prompt: 'Draft a customer pitch for our industrial decarbonisation offering.'
-      },
-      {
-        label: 'Detailed',
-        tag: 'L2',
-        color: 'bg-blue-100 text-blue-700 border-blue-200',
-        prompt: 'Draft a customer pitch for our industrial decarbonisation offering targeting a large refinery in the Gulf. The scope covers green hydrogen integration and waste-heat recovery systems for a 25-MW capacity. The customer has publicly declared net-zero targets and is actively evaluating technology partners for their first decarbonisation phase.'
-      },
-      {
-        label: 'Analytical',
-        tag: 'L3',
-        color: 'bg-purple-100 text-purple-700 border-purple-200',
-        prompt: 'Draft a customer pitch for our industrial decarbonisation offering targeting a large Gulf refinery with a 25-MW green hydrogen and waste-heat recovery scope. Analyse: (1) why this customer should choose Thermax over the two incumbent vendors currently serving them, (2) how their declared net-zero-by-2040 targets create urgency and budget allocation pressure, (3) the regulatory environment they operate under (national carbon pricing, CBAM exposure for exports to the EU), (4) typical procurement pushbacks their team raises (lifecycle cost justification, technology risk, local support capability), and (5) what Thermax won at a comparable account last quarter and how that reference strengthens our position. The output should be a persuasive, evidence-backed pitch — not a generic capability overview.'
-      },
-      {
-        label: 'CRAFT Framework',
-        tag: 'L4',
-        color: 'bg-amber-100 text-amber-700 border-amber-200',
-        prompt: 'Context: A large Gulf refinery has declared net-zero by 2040. Their current energy vendors are two global incumbents. They face regulatory pressure from emerging national carbon pricing and EU CBAM on exports. Recent procurement decisions have shifted towards lifecycle-cost-led evaluations rather than lowest capex. Thermax won a comparable 20-MW waste-heat recovery project at a similar account last quarter.\n\nRole: You are a senior GTM strategist for Thermax\'s industrial decarbonisation portfolio in the MENA region, with deep knowledge of refinery energy systems, green hydrogen economics, and competitive positioning against global EPC firms.\n\nAction: Draft a compelling customer pitch that persuades the refinery\'s leadership to shortlist Thermax for their first decarbonisation phase.\n\nFormat: Deliver as (1) a 1-page executive narrative connecting their net-zero ambition to Thermax\'s solution, (2) a 5-row differentiation table comparing Thermax against the two incumbents on the dimensions that matter most to this buyer, and (3) a recommended next-meeting agenda with three discussion items designed to advance the deal.\n\nTarget Audience: The customer\'s CEO, COO, and Head of Sustainability will read this alongside Thermax\'s own MD during the joint review.'
       }
     ]
   }
@@ -223,6 +227,10 @@ export default function PromptPlayground() {
   const [webSearchStatus, setWebSearchStatus] = useState<null | 'searching' | 'done'>(null);
   const [webSearchMeta, setWebSearchMeta] = useState<{ resultCount?: number; ms?: number } | null>(null);
   const [expandedLadders, setExpandedLadders] = useState<Set<number>>(new Set([0]));
+  const [hiddenUnlocked, setHiddenUnlocked] = useState<Set<number>>(new Set());
+  const [codePromptIndex, setCodePromptIndex] = useState<number | null>(null);
+  const [codeInput, setCodeInput] = useState('');
+  const [codeError, setCodeError] = useState(false);
   const chatEndRef = useRef<HTMLDivElement>(null);
   const streamThrottleRef = useRef<number>(0);
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -253,6 +261,31 @@ export default function PromptPlayground() {
       if (next.has(idx)) next.delete(idx); else next.add(idx);
       return next;
     });
+  }
+
+  function handleLockClick(idx: number) {
+    if (hiddenUnlocked.has(idx)) {
+      setHiddenUnlocked(prev => { const n = new Set(prev); n.delete(idx); return n; });
+      setExpandedLabLadders(prev => { const n = new Set(prev); n.delete(idx); return n; });
+      setCodePromptIndex(null);
+      setCodeInput('');
+      setCodeError(false);
+    } else {
+      setCodePromptIndex(idx);
+      setCodeInput('');
+      setCodeError(false);
+    }
+  }
+
+  function handleCodeSubmit(idx: number) {
+    if (codeInput === HIDDEN_CODE) {
+      setHiddenUnlocked(prev => { const n = new Set(prev); n.add(idx); return n; });
+      setCodePromptIndex(null);
+      setCodeInput('');
+      setCodeError(false);
+    } else {
+      setCodeError(true);
+    }
   }
 
   function toggleLadder(idx: number) {
@@ -473,7 +506,61 @@ export default function PromptPlayground() {
 
                   <div className="space-y-4">
                     {LAB_EXPERIMENTS.map((exp, ei) => {
+                      const isHidden = exp.hidden === true;
+                      const isUnlocked = hiddenUnlocked.has(ei);
+                      const showCodePrompt = codePromptIndex === ei;
                       const isOpen = expandedLabLadders.has(ei);
+
+                      if (isHidden && !isUnlocked) {
+                        return (
+                          <div key={ei} className="rounded-xl border border-dashed border-gray-300 bg-gray-50/50 shadow-sm overflow-hidden">
+                            <div className="flex items-center justify-between px-5 py-4">
+                              <div className="flex items-center gap-3 opacity-50">
+                                <span className="text-3xl">🔒</span>
+                                <div>
+                                  <h3 className="text-[15px] font-bold text-gray-500 leading-tight">Restricted Content</h3>
+                                  <p className="text-xs text-gray-400 mt-1 leading-snug">Access code required to view this experimentation theme</p>
+                                </div>
+                              </div>
+                              <div className="flex items-center gap-2 shrink-0 ml-3">
+                                {showCodePrompt ? (
+                                  <form
+                                    onSubmit={(e) => { e.preventDefault(); handleCodeSubmit(ei); }}
+                                    className="flex items-center gap-2"
+                                  >
+                                    <input
+                                      type="password"
+                                      value={codeInput}
+                                      onChange={(e) => { setCodeInput(e.target.value); setCodeError(false); }}
+                                      placeholder="Enter code"
+                                      maxLength={6}
+                                      autoFocus
+                                      className={`w-24 px-2.5 py-1.5 text-xs border rounded-lg focus:outline-none focus:ring-2 ${codeError ? 'border-red-400 focus:ring-red-300 bg-red-50' : 'border-gray-300 focus:ring-indigo-300'}`}
+                                    />
+                                    <button type="submit" className="px-2.5 py-1.5 text-xs font-semibold bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+                                      Go
+                                    </button>
+                                    <button type="button" onClick={() => { setCodePromptIndex(null); setCodeInput(''); setCodeError(false); }} className="px-2 py-1.5 text-xs text-gray-400 hover:text-gray-600 transition">
+                                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                                    </button>
+                                  </form>
+                                ) : (
+                                  <button
+                                    onClick={() => handleLockClick(ei)}
+                                    className="p-2 rounded-lg hover:bg-gray-200 transition"
+                                    title="Enter access code"
+                                  >
+                                    <svg className="w-5 h-5 text-gray-400 hover:text-indigo-600 transition" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                                      <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                                    </svg>
+                                  </button>
+                                )}
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      }
+
                       return (
                         <div key={ei} className="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
                           <button
@@ -488,6 +575,17 @@ export default function PromptPlayground() {
                               </div>
                             </div>
                             <div className="flex items-center gap-2 shrink-0 ml-3">
+                              {isHidden && isUnlocked && (
+                                <button
+                                  onClick={(e) => { e.stopPropagation(); handleLockClick(ei); }}
+                                  className="p-1.5 rounded-lg hover:bg-gray-200 transition"
+                                  title="Lock this section"
+                                >
+                                  <svg className="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 10.5V6.75a4.5 4.5 0 119 0v3.75M3.75 21.75h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H3.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                                  </svg>
+                                </button>
+                              )}
                               <span className="text-[10px] font-semibold text-indigo-500 bg-indigo-50 border border-indigo-200 px-2 py-0.5 rounded-full">4 levels</span>
                               <svg className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
@@ -553,7 +651,7 @@ export default function PromptPlayground() {
                       Pick a prompt level from the Lab above, or type your own prompt below. Watch the answer quality evolve as the prompt complexity increases.
                     </p>
                     <div className="mt-4 text-xs text-gray-500">
-                      {LAB_EXPERIMENTS.length} experimentation themes · {PROMPT_LADDERS.length} use-case templates · {LAB_EXPERIMENTS.length * 4 + PROMPT_LADDERS.length * 3} total prompts
+                      {LAB_EXPERIMENTS.filter(e => !e.hidden).length} experimentation themes · {PROMPT_LADDERS.length} use-case templates · {LAB_EXPERIMENTS.filter(e => !e.hidden).length * 4 + PROMPT_LADDERS.length * 3} total prompts
                     </div>
                   </div>
                 )}
