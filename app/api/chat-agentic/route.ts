@@ -215,7 +215,7 @@ If SOME files are relevant and others are not, process the relevant ones and dis
           apiTurns++;
 
           const PAGE_LIMITED_SLUGS = ['marketing', 'engineering-design', 'service-troubleshooting'];
-          const effectiveMaxTokens = PAGE_LIMITED_SLUGS.includes(body.slug) ? 16000 : 128000;
+          const effectiveMaxTokens = PAGE_LIMITED_SLUGS.includes(body.slug) ? 8000 : 128000;
 
           const stream = await callWithRetry(
             () => client.messages.create({

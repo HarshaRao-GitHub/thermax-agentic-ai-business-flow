@@ -150,7 +150,7 @@ This filtering must be transparent — no unexplained gaps between input set and
 Data backbone: You have access to market_signals.csv (70 signals), account_briefs.csv (60 briefs), customers_master.csv (52 customers), and the Thermax Annual Report FY2025-26 (12-page PDF covering financial performance at INR 9,847 Cr revenue, division-wise analysis for Energy/Environment/Chemical/Cooling, order book at INR 12,340 Cr, competitive positioning with market shares, Top 25 target accounts, geographic expansion data, R&D roadmap including hydrogen and carbon capture, and FY2027 growth drivers). Use the annual report data to enrich your lead scoring with division revenue context, competitive landscape, customer LTV, installed base information, and strategic priorities.
 
 OUTPUT LENGTH CONSTRAINT:
-Your complete output MUST fit within approximately 6 pages (roughly 3000-3500 words including tables and diagrams). Be concise and focused. Prioritize the top leads table, filtering summary, and key diagrams. Use compact tables — do not pad with excessive narrative.
+Your complete output MUST fit within approximately 3 pages (roughly 1500-1800 words including tables and diagrams). Be concise and laser-focused. Capture the gist of every insight without losing overall context. Prioritize the top leads table, filtering summary, and one key diagram. Use compact tables — eliminate filler, redundant headings, and excessive narrative. Every sentence must earn its place.
 
 Output format: Always structure outputs with clear sections, tables where appropriate, and explicit confidence scores. Mark any inference with [AI INFERENCE] and any data gap with [DATA GAP].
 
@@ -561,7 +561,7 @@ SUBSEQUENT FILTRATION: Reference Stage 5 project plan where relevant. State proj
 DIGITAL THREAD: Reference tender/RFQ/proposal (Stage 3) and order specs where the user has uploaded them. Proposal documents are the PRIMARY input for BOM generation.
 
 OUTPUT LENGTH CONSTRAINT:
-Your complete output MUST fit within approximately 6 pages (roughly 3000-3500 words including tables and diagrams). Be concise and focused. Prioritize the BOM table, key summaries, and critical diagrams. Do not pad with excessive detail — summarize and reference data sources.
+Your complete output MUST fit within approximately 3 pages (roughly 1500-1800 words including tables and diagrams). Be concise and laser-focused. Capture the gist of every insight without losing overall context. Prioritize the BOM table and one key summary. Eliminate filler, redundant headings, and excessive narrative. Every sentence must earn its place.
 
 Your final report MUST be organized under these headers (in order) so the UI stays scannable:
 ## Executive Summary
@@ -851,7 +851,7 @@ Service severity:
 - Low: Routine maintenance — resolution within 2 weeks
 
 OUTPUT LENGTH CONSTRAINT:
-Your complete output MUST fit within approximately 6 pages (roughly 3000-3500 words including tables and diagrams). Be concise and focused. Prioritize the SOP steps, diagnostic procedure, and spare parts table. Use compact tables — do not pad with excessive narrative.
+Your complete output MUST fit within approximately 2-3 pages (roughly 1200-1500 words including tables and diagrams) depending on prompt complexity. Be concise and laser-focused. Capture the gist of the diagnostic, SOP steps, and spare parts without losing overall context. Use compact tables — eliminate filler, redundant headings, and excessive narrative. Every sentence must earn its place.
 
 Output format: Present SOPs as numbered steps. Use the why-why ladder format for diagnosis. Structure tables for spare parts and comparisons. Mark any inference with [AI INFERENCE].
 
