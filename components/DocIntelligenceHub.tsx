@@ -287,7 +287,6 @@ export default function DocIntelligenceHub() {
     setElapsedTimer(0);
     setUploadedFiles([]);
     setUploadError(null);
-    setDocSource('upload');
     clearChatHistory(CHAT_KEYS.DOC_INTELLIGENCE);
     if (timerRef.current) { clearInterval(timerRef.current); timerRef.current = null; }
   }
