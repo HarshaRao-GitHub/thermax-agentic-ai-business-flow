@@ -12,6 +12,8 @@ import {
 } from '@/data/doc-intelligence-config';
 import { saveChatHistory, loadChatHistory, clearChatHistory, CHAT_KEYS } from '@/lib/chat-history';
 import DownloadMenu from './DownloadMenu';
+import EnhanceToCraft from './EnhanceToCraft';
+import HallucinationDetector from './HallucinationDetector';
 
 type Role = 'user' | 'assistant';
 interface ChatMessage { role: Role; content: string; }
@@ -185,7 +187,7 @@ export default function DocIntelligenceHub() {
 
   async function send(textOverride?: string) {
     const text = (textOverride ?? input).trim();
-    if (!text || streaming) return;
+    if (!text || streaming || !hasFiles) return;
     const next: ChatMessage[] = [...messages, { role: 'user', content: text }];
     setMessages(next);
     setInput('');
@@ -637,6 +639,13 @@ export default function DocIntelligenceHub() {
                           <span className="text-blue-600 font-bold mr-1.5">→</span> {prompt}
                         </button>
                       ))}
+                      <button
+                        onClick={() => { const el = document.querySelector<HTMLInputElement>('input[placeholder*="Ask anything"]'); if (el) { el.focus(); el.scrollIntoView({ behavior: 'smooth', block: 'center' }); } }}
+                        disabled={!hasFiles}
+                        className="text-left px-4 py-3 bg-white hover:bg-teal-50 border-2 border-teal-300 hover:border-teal-500 rounded-xl text-sm text-teal-700 hover:text-teal-800 transition-all disabled:opacity-30 disabled:cursor-not-allowed shadow-sm hover:shadow font-bold"
+                      >
+                        <span className="mr-1.5">✏️</span> Custom Prompt — type your own query
+                      </button>
                     </div>
                     {!hasFiles && (
                       <p className="text-sm text-amber-700 mt-4 font-semibold bg-amber-50 px-4 py-2 rounded-lg border border-amber-200">
@@ -648,7 +657,14 @@ export default function DocIntelligenceHub() {
               </div>
             ) : (
               transcript.map((msg, i) => (
-                <ResultBubble key={i} message={msg} isStreaming={streaming && msg.role === 'assistant' && i === transcript.length - 1} />
+                <ResultBubble
+                  key={i}
+                  message={msg}
+                  isStreaming={streaming && msg.role === 'assistant' && i === transcript.length - 1}
+                  originalPrompt={msg.role === 'assistant' ? (transcript[i - 1]?.content ?? '') : undefined}
+                  docContext={uploadedFiles.length > 0 ? `Documents loaded: ${uploadedFiles.map(f => f.filename).join(', ')}` : undefined}
+                  onRegenerate={(instructions) => { setInput(`[Regenerate with less hallucination]: ${instructions}\n\nOriginal request: ${transcript[i - 1]?.content ?? ''}`); }}
+                />
               ))
             )}
 
@@ -666,34 +682,47 @@ export default function DocIntelligenceHub() {
 
           {/* Input bar */}
           <div className="border-t border-gray-200 bg-slate-50 px-5 py-3.5 shrink-0">
-            <div className="flex gap-3">
-              <input
-                type="text"
-                value={input}
-                onChange={e => setInput(e.target.value)}
-                onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } }}
-                placeholder={
-                  !hasFiles
-                    ? 'Upload your document(s) first, then ask any question...'
-                    : 'Ask anything about your uploaded documents — summarize, extract, compare, visualize...'
-                }
-                disabled={streaming}
-                className="flex-1 bg-white border border-gray-300 rounded-lg px-4 py-2.5 text-sm text-gray-900 placeholder:text-gray-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 disabled:opacity-40 transition shadow-sm"
-              />
-              <button
-                onClick={() => send()}
-                disabled={streaming || !input.trim() || !hasFiles}
-                className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-bold transition disabled:opacity-30 disabled:cursor-not-allowed shrink-0 shadow-sm"
-              >
-                {streaming ? '...' : 'Send'}
-              </button>
-            </div>
-            <div className="flex items-center justify-between mt-2">
-              <p className="text-xs text-gray-500 font-medium">
-                {hasFiles ? `${uploadedFiles.length} document(s) loaded · ${operation?.label} mode` : 'No documents loaded'}
-              </p>
-              <p className="text-xs text-gray-400 font-medium">Press Enter to send</p>
-            </div>
+            {!hasFiles ? (
+              <div className="flex items-center gap-3 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+                <span className="text-xl">📂</span>
+                <div className="flex-1">
+                  <p className="text-[12px] font-semibold text-amber-800">No documents loaded</p>
+                  <p className="text-[11px] text-amber-600">Upload a document or load a sample above to enable AI analysis.</p>
+                </div>
+              </div>
+            ) : (
+              <>
+                <div className="flex gap-3">
+                  <input
+                    type="text"
+                    value={input}
+                    onChange={e => setInput(e.target.value)}
+                    onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } }}
+                    placeholder="Ask anything about your uploaded documents — summarize, extract, compare, visualize..."
+                    disabled={streaming}
+                    className="flex-1 bg-white border border-gray-300 rounded-lg px-4 py-2.5 text-sm text-gray-900 placeholder:text-gray-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 disabled:opacity-40 transition shadow-sm"
+                  />
+                  <button
+                    onClick={() => send()}
+                    disabled={streaming || !input.trim()}
+                    className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-bold transition disabled:opacity-30 disabled:cursor-not-allowed shrink-0 shadow-sm"
+                  >
+                    {streaming ? '...' : 'Send'}
+                  </button>
+                </div>
+                <div className="flex items-center justify-between mt-2">
+                  <EnhanceToCraft
+                    prompt={input}
+                    onEnhanced={setInput}
+                    disabled={streaming}
+                    pageContext={`Thermax Document Intelligence — ${operation?.label} operation on ${selectedDept} department documents`}
+                  />
+                  <p className="text-xs text-gray-400 font-medium">
+                    {uploadedFiles.length} doc(s) loaded · {operation?.label} · Enter to send
+                  </p>
+                </div>
+              </>
+            )}
           </div>
         </section>
       </div>
@@ -701,7 +730,7 @@ export default function DocIntelligenceHub() {
   );
 }
 
-function ResultBubble({ message, isStreaming }: { message: ChatMessage; isStreaming: boolean }) {
+function ResultBubble({ message, isStreaming, originalPrompt, docContext, onRegenerate }: { message: ChatMessage; isStreaming: boolean; originalPrompt?: string; docContext?: string; onRegenerate?: (instructions: string) => void }) {
   const [copied, setCopied] = useState(false);
   const [expanded, setExpanded] = useState(false);
   if (message.role === 'user') {
@@ -753,15 +782,23 @@ function ResultBubble({ message, isStreaming }: { message: ChatMessage; isStream
               </div>
             )}
             {!isStreaming && message.content && (
-              <div className="mt-3 pt-2.5 border-t border-gray-200 flex items-center gap-3">
-                <DownloadMenu content={message.content} filenamePrefix="doc-intelligence" />
-                <button onClick={handleCopy} className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-gray-800 font-semibold px-2.5 py-1.5 rounded-lg hover:bg-gray-100 transition">
-                  {copied ? (
-                    <><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-600"><polyline points="20 6 9 17 4 12"/></svg><span className="text-emerald-700 font-bold">Copied!</span></>
-                  ) : (
-                    <><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy</>
-                  )}
-                </button>
+              <div className="mt-3 pt-2.5 border-t border-gray-200">
+                <div className="flex items-center gap-3">
+                  <DownloadMenu content={message.content} filenamePrefix="doc-intelligence" />
+                  <button onClick={handleCopy} className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-gray-800 font-semibold px-2.5 py-1.5 rounded-lg hover:bg-gray-100 transition">
+                    {copied ? (
+                      <><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-600"><polyline points="20 6 9 17 4 12"/></svg><span className="text-emerald-700 font-bold">Copied!</span></>
+                    ) : (
+                      <><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy</>
+                    )}
+                  </button>
+                </div>
+                <HallucinationDetector
+                  content={message.content}
+                  originalPrompt={originalPrompt ?? ''}
+                  context={docContext}
+                  onRegenerate={onRegenerate}
+                />
               </div>
             )}
           </>

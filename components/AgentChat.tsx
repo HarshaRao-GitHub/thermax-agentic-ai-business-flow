@@ -10,6 +10,8 @@ import { useWorkflow } from './WorkflowContext';
 import { getStageResult, saveStageResult, getUpstreamResults } from '@/lib/client-store';
 import { sampleFilesByStage, type SampleFile } from '@/data/sample-files';
 import DownloadMenu from './DownloadMenu';
+import EnhanceToCraft from './EnhanceToCraft';
+import HallucinationDetector from './HallucinationDetector';
 
 type Role = 'user' | 'assistant';
 interface ChatMessage { role: Role; content: string; }
@@ -994,9 +996,15 @@ export default function AgentChat({
                   Send
                 </button>
               </div>
-              <p className="mt-1.5 text-[10px] text-violet-500">
-                Examples: &quot;What are the top risks?&quot; · &quot;Summarize the key findings&quot; · &quot;Explain the recommendations&quot; · &quot;Show me the data breakdown&quot;
-              </p>
+              <div className="mt-1.5 flex items-center justify-between">
+                <EnhanceToCraft
+                  prompt={input}
+                  onEnhanced={setInput}
+                  disabled={streaming}
+                  pageContext={`Thermax Agentic Workflow — ${stage.title} stage, ${stage.agent.name} agent`}
+                />
+                <p className="text-[10px] text-violet-500">Ctrl/Cmd + Enter to send</p>
+              </div>
             </div>
           </div>
         )}
@@ -1436,24 +1444,30 @@ function MessageBubble({ role, content, streaming: isStreaming, agentName }: { r
           </div>
         )}
         {!isStreaming && content && (
-          <div className="mt-3 pt-2 border-t border-thermax-line/60 flex items-center gap-2">
-            <DownloadMenu content={content} filenamePrefix={slug} />
-            <button
-              onClick={handleCopy}
-              className="flex items-center gap-1 text-[10px] text-thermax-slate/70 hover:text-thermax-navy font-medium px-2 py-1 rounded hover:bg-white/60 transition"
-            >
-              {copied ? (
-                <>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-600"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span className="text-emerald-600 font-semibold">Copied!</span>
-                </>
-              ) : (
-                <>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-                  Copy
-                </>
-              )}
-            </button>
+          <div className="mt-3 pt-2 border-t border-thermax-line/60">
+            <div className="flex items-center gap-2">
+              <DownloadMenu content={content} filenamePrefix={slug} />
+              <button
+                onClick={handleCopy}
+                className="flex items-center gap-1 text-[10px] text-thermax-slate/70 hover:text-thermax-navy font-medium px-2 py-1 rounded hover:bg-white/60 transition"
+              >
+                {copied ? (
+                  <>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-600"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span className="text-emerald-600 font-semibold">Copied!</span>
+                  </>
+                ) : (
+                  <>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                    Copy
+                  </>
+                )}
+              </button>
+            </div>
+            <HallucinationDetector
+              content={content}
+              originalPrompt=""
+            />
           </div>
         )}
       </div>

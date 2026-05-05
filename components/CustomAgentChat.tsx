@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from 'react';
 import Markdown from './Markdown';
 import { recordCustomAgentRun, type CustomAgent as Agent } from '@/lib/client-store';
 import { saveChatHistory, loadChatHistory, clearChatHistory, CHAT_KEYS } from '@/lib/chat-history';
+import EnhanceToCraft from './EnhanceToCraft';
+import HallucinationDetector from './HallucinationDetector';
 
 type Role = 'user' | 'assistant';
 interface ChatMessage { role: Role; content: string; }
@@ -404,6 +406,14 @@ export default function CustomAgentChat({ agent }: { agent: Agent }) {
               {streaming ? '...' : 'Send'}
             </button>
           </div>
+          <div className="mt-2">
+            <EnhanceToCraft
+              prompt={input}
+              onEnhanced={setInput}
+              disabled={streaming}
+              pageContext={`Thermax Custom Agent — ${agent.name}: ${agent.description}`}
+            />
+          </div>
         </div>
       </section>
     </div>
@@ -471,7 +481,17 @@ function CustomChatBubble({ message, isStreaming }: { message: ChatMessage; isSt
         </button>
 
         {isStreaming || expanded ? (
-          <Markdown isStreaming={isStreaming}>{message.content}</Markdown>
+          <>
+            <Markdown isStreaming={isStreaming}>{message.content}</Markdown>
+            {!isStreaming && message.content && (
+              <div className="mt-3 pt-2 border-t border-thermax-line/60">
+                <HallucinationDetector
+                  content={message.content}
+                  originalPrompt=""
+                />
+              </div>
+            )}
+          </>
         ) : (
           <div className="text-thermax-slate text-xs leading-relaxed cursor-pointer" onClick={() => setExpanded(true)}>
             {preview}{message.content.length > 500 ? '...' : ''}
