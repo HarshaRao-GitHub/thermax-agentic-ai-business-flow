@@ -28,6 +28,7 @@ export interface Department {
   description: string;
   typicalDocs: string;
   sampleFiles: SampleFile[];
+  personaImage?: string;
 }
 
 export const BUCKETS: { id: Bucket; label: string; icon: string; color: string }[] = [
@@ -457,6 +458,7 @@ export const DEPARTMENTS: Department[] = [
     id: 'operations',
     label: 'Operations / Plant',
     icon: '🏭',
+    personaImage: '/personas/persona-thermax-operations.png',
     description: 'SOPs, maintenance manuals, shift logs, breakdown reports, inspection reports, technical datasheets',
     typicalDocs: 'Standard operating procedures, maintenance manuals, shift handover logs, breakdown analysis reports, equipment inspection records, technical datasheets',
     sampleFiles: [
@@ -477,6 +479,7 @@ export const DEPARTMENTS: Department[] = [
     id: 'procurement',
     label: 'Procurement / Supply Chain',
     icon: '📦',
+    personaImage: '/personas/persona-thermax-procurement.png',
     description: 'RFQs, quotations, purchase orders, vendor contracts, delivery reports',
     typicalDocs: 'Request for quotations, vendor proposals, purchase orders, supply agreements, goods receipt notes, delivery performance reports',
     sampleFiles: [
@@ -498,6 +501,7 @@ export const DEPARTMENTS: Department[] = [
     id: 'finance',
     label: 'Finance',
     icon: '💰',
+    personaImage: '/personas/persona-thermax-finance.png',
     description: 'Invoices, expense statements, audit reports, budget files, tax/compliance docs',
     typicalDocs: 'Supplier invoices, expense reports, internal/external audit observations, annual budgets, tax compliance documents, bank guarantee records',
     sampleFiles: [
@@ -515,6 +519,7 @@ export const DEPARTMENTS: Department[] = [
     id: 'hr',
     label: 'HR',
     icon: '👥',
+    personaImage: '/personas/persona-thermax-hr.png',
     description: 'Policies, offer letters, training manuals, appraisal docs, grievance records, JD vs CV comparison',
     typicalDocs: 'HR policies, employment offer letters, training materials and records, performance appraisals, employee grievance logs, leave and attendance records, job descriptions, candidate CVs',
     sampleFiles: [
@@ -533,6 +538,7 @@ export const DEPARTMENTS: Department[] = [
     id: 'legal',
     label: 'Legal',
     icon: '⚖️',
+    personaImage: '/personas/persona-thermax-legal.png',
     description: 'Contracts, NDAs, service agreements, litigation-related documents, NDA comparison',
     typicalDocs: 'Customer/vendor contracts, non-disclosure agreements, service level agreements, litigation case files, intellectual property documents',
     sampleFiles: [
@@ -552,6 +558,7 @@ export const DEPARTMENTS: Department[] = [
     id: 'ehs',
     label: 'EHS / Quality',
     icon: '🛡️',
+    personaImage: '/personas/persona-thermax-ehs.png',
     description: 'Incident reports, audit reports, CAPA records, compliance manuals, safety procedures',
     typicalDocs: 'Safety incident reports, EHS audit findings, corrective/preventive action records, ISO/regulatory compliance documents, hazard assessments',
     sampleFiles: [
@@ -569,6 +576,7 @@ export const DEPARTMENTS: Department[] = [
     id: 'sales-service',
     label: 'Sales / Service',
     icon: '🤝',
+    personaImage: '/personas/persona-thermax-sales.png',
     description: 'Customer complaints, service reports, proposals, AMC contracts, installation records',
     typicalDocs: 'Customer complaint logs, field service reports, commercial proposals, annual maintenance contracts, installation and commissioning records',
     sampleFiles: [

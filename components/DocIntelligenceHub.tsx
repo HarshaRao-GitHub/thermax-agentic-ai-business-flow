@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useCallback, useEffect } from 'react';
+import Image from 'next/image';
 import Markdown from './Markdown';
 import {
   OPERATIONS,
@@ -481,6 +482,11 @@ export default function DocIntelligenceHub() {
                     {!hasFiles && <span className="text-xs text-red-600 font-semibold bg-red-50 px-2 py-0.5 rounded">Required</span>}
                   </div>
                   <div className="flex items-center gap-3">
+                    {dept?.personaImage && (
+                      <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-thermax-saffron/30 shadow-sm shrink-0">
+                        <Image src={dept.personaImage} alt={dept.label} width={40} height={40} className="w-full h-full object-cover object-top" />
+                      </div>
+                    )}
                     <label className="text-xs font-semibold text-gray-600 shrink-0">Select Process</label>
                     <select
                       value={selectedDept}

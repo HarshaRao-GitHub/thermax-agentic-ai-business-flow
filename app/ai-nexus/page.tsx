@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 const techLayers = [
@@ -217,6 +218,11 @@ export default function AINexusPage() {
 
       {/* Hero */}
       <div className="text-center mb-8">
+        <div className="flex justify-center mb-4">
+          <div className="w-16 h-16 rounded-full overflow-hidden border-3 border-amber-300 shadow-lg">
+            <Image src="/personas/persona-thermax-ai-nexus.png" alt="AI Nexus" width={64} height={64} className="w-full h-full object-cover object-top" />
+          </div>
+        </div>
         <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-amber-100 via-orange-100 to-rose-100 border border-amber-200 mb-5 shadow-sm">
           <span className="text-lg">⚡</span>
           <span className="text-[11px] font-bold text-amber-800 uppercase tracking-widest">AI Nexus &mdash; Convergence Platform</span>
