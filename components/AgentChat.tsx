@@ -1676,7 +1676,16 @@ function CopilotBubble({ message, isStreaming, agentName }: { message: ChatMessa
           )}
         </button>
         {isStreaming || expanded ? (
-          <Markdown isStreaming={isStreaming}>{message.content}</Markdown>
+          <>
+            <Markdown isStreaming={isStreaming}>{message.content}</Markdown>
+            {!isStreaming && message.content && (
+              <AIOutputReviewPanel
+                content={message.content}
+                originalPrompt=""
+                context="Thermax Service Co-pilot"
+              />
+            )}
+          </>
         ) : (
           <div className="text-gray-500 text-xs leading-relaxed cursor-pointer" onClick={() => setExpanded(true)}>
             {preview}{message.content.length > 500 ? '...' : ''}

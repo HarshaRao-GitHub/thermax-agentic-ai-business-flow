@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { addApproval } from '@/lib/client-store';
 import Markdown from './Markdown';
+import AIOutputReviewPanel from './AIOutputReviewPanel';
 
 export interface HitlEvent {
   approvalId: string;
@@ -238,6 +239,11 @@ export default function ApprovalPanel({
           </div>
           <div className="p-5 max-h-[300px] overflow-y-auto pointer-events-auto">
             <Markdown>{modifiedOutput}</Markdown>
+            <AIOutputReviewPanel
+              content={modifiedOutput}
+              originalPrompt=""
+              context="Thermax HITL Approval - Modified Agent Output"
+            />
           </div>
         </div>
       )}
@@ -432,6 +438,11 @@ export default function ApprovalPanel({
             </div>
             <div className="p-5 max-h-[500px] overflow-y-auto">
               <Markdown>{modifiedOutput}</Markdown>
+              <AIOutputReviewPanel
+                content={modifiedOutput}
+                originalPrompt=""
+                context="Thermax HITL Approval - Modified Agent Output"
+              />
             </div>
           </div>
         )}

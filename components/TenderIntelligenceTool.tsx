@@ -571,6 +571,13 @@ export default function TenderIntelligenceTool() {
             <CollapsibleResult id="extraction-report" title="AI Extraction Report" expanded={expandedSections.has('extraction-report')} onToggle={() => toggleSection('extraction-report')} streaming={extracting}>
               <div className="p-5 max-h-[600px] overflow-y-auto">
                 <Markdown>{getReadableMarkdown()}</Markdown>
+                {extractionDone && (
+                  <AIOutputReviewPanel
+                    content={getReadableMarkdown()}
+                    originalPrompt=""
+                    context="Thermax Tender Intelligence - Extraction Report"
+                  />
+                )}
               </div>
             </CollapsibleResult>
           ) : (
@@ -592,6 +599,13 @@ export default function TenderIntelligenceTool() {
           <CollapsibleResult id="estimation-report" title="Estimation Parameters" expanded={expandedSections.has('estimation-report')} onToggle={() => toggleSection('estimation-report')}>
             <div className="p-5 max-h-[600px] overflow-y-auto">
               <Markdown>{getReadableMarkdown('estimation')}</Markdown>
+              {extractionDone && (
+                <AIOutputReviewPanel
+                  content={getReadableMarkdown('estimation')}
+                  originalPrompt=""
+                  context="Thermax Tender Intelligence - Estimation Parameters"
+                />
+              )}
             </div>
           </CollapsibleResult>
         </div>
@@ -607,6 +621,13 @@ export default function TenderIntelligenceTool() {
           <CollapsibleResult id="risk-report" title="Risk Analysis" expanded={expandedSections.has('risk-report')} onToggle={() => toggleSection('risk-report')}>
             <div className="p-5 max-h-[600px] overflow-y-auto">
               <Markdown>{getReadableMarkdown('risk')}</Markdown>
+              {extractionDone && (
+                <AIOutputReviewPanel
+                  content={getReadableMarkdown('risk')}
+                  originalPrompt=""
+                  context="Thermax Tender Intelligence - Risk Analysis"
+                />
+              )}
             </div>
           </CollapsibleResult>
         </div>
