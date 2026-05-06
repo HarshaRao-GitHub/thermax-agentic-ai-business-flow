@@ -11,7 +11,7 @@ import { getStageResult, saveStageResult, getUpstreamResults } from '@/lib/clien
 import { sampleFilesByStage, type SampleFile } from '@/data/sample-files';
 import DownloadMenu from './DownloadMenu';
 import EnhanceToCraft from './EnhanceToCraft';
-import AIOutputReviewPanel from './AIOutputReviewPanel';
+
 
 type Role = 'user' | 'assistant';
 interface ChatMessage { role: Role; content: string; }
@@ -1464,11 +1464,6 @@ function MessageBubble({ role, content, streaming: isStreaming, agentName }: { r
                 )}
               </button>
             </div>
-            <AIOutputReviewPanel
-              content={content}
-              originalPrompt=""
-              context="Thermax Leadership AI Agent Chat"
-            />
           </div>
         )}
       </div>
@@ -1676,16 +1671,7 @@ function CopilotBubble({ message, isStreaming, agentName }: { message: ChatMessa
           )}
         </button>
         {isStreaming || expanded ? (
-          <>
-            <Markdown isStreaming={isStreaming}>{message.content}</Markdown>
-            {!isStreaming && message.content && (
-              <AIOutputReviewPanel
-                content={message.content}
-                originalPrompt=""
-                context="Thermax Service Co-pilot"
-              />
-            )}
-          </>
+          <Markdown isStreaming={isStreaming}>{message.content}</Markdown>
         ) : (
           <div className="text-gray-500 text-xs leading-relaxed cursor-pointer" onClick={() => setExpanded(true)}>
             {preview}{message.content.length > 500 ? '...' : ''}
