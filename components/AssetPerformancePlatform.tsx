@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { ASSETS, SITES, INCIDENTS, FAILURE_MODES, type Asset, type Incident } from '@/data/asset-performance-data';
 import Markdown from './Markdown';
+import AIOutputReviewPanel from './AIOutputReviewPanel';
 import { saveChatHistory, loadChatHistory, clearChatHistory, CHAT_KEYS } from '@/lib/chat-history';
 
 type Tab = 'fleet' | 'detail' | 'incidents' | 'assistant';
@@ -488,7 +489,14 @@ export default function AssetPerformancePlatform() {
                               </span>
                             </button>
                             {expandedResults.has(i) ? (
-                              <Markdown>{m.content}</Markdown>
+                              <>
+                                <Markdown>{m.content}</Markdown>
+                                <AIOutputReviewPanel
+                                  content={m.content}
+                                  originalPrompt=""
+                                  context="Thermax Asset Performance Platform"
+                                />
+                              </>
                             ) : (
                               <div className="text-gray-500 text-xs cursor-pointer" onClick={() => toggleResult(i)}>
                                 {m.content.slice(0, 500).replace(/\n/g, ' ')}...

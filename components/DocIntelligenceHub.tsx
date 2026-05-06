@@ -14,7 +14,7 @@ import {
 import { saveChatHistory, loadChatHistory, clearChatHistory, CHAT_KEYS } from '@/lib/chat-history';
 import DownloadMenu from './DownloadMenu';
 import EnhanceToCraft from './EnhanceToCraft';
-import HallucinationDetector from './HallucinationDetector';
+import AIOutputReviewPanel from './AIOutputReviewPanel';
 
 type Role = 'user' | 'assistant';
 interface ChatMessage { role: Role; content: string; }
@@ -799,10 +799,10 @@ function ResultBubble({ message, isStreaming, originalPrompt, docContext, onRege
                     )}
                   </button>
                 </div>
-                <HallucinationDetector
+                <AIOutputReviewPanel
                   content={message.content}
                   originalPrompt={originalPrompt ?? ''}
-                  context={docContext}
+                  context={docContext || 'Thermax Document Intelligence'}
                   onRegenerate={onRegenerate}
                 />
               </div>

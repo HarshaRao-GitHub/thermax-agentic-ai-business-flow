@@ -5,7 +5,7 @@ import Markdown from './Markdown';
 import { saveChatHistory, loadChatHistory, clearChatHistory, CHAT_KEYS } from '@/lib/chat-history';
 import DownloadMenu from './DownloadMenu';
 import EnhanceToCraft from './EnhanceToCraft';
-import HallucinationDetector from './HallucinationDetector';
+import AIOutputReviewPanel from './AIOutputReviewPanel';
 
 type Role = 'user' | 'assistant';
 interface ChatMessage { role: Role; content: string; }
@@ -896,9 +896,10 @@ function ChatBubble({ message, isStreaming }: { message: ChatMessage; isStreamin
                     )}
                   </button>
                 </div>
-                <HallucinationDetector
+                <AIOutputReviewPanel
                   content={message.content}
                   originalPrompt=""
+                  context="Thermax Prompt Playground"
                 />
               </div>
             )}

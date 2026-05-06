@@ -11,6 +11,7 @@ import {
   type AgentRole,
 } from '@/data/engineering-design-data';
 import Markdown from './Markdown';
+import AIOutputReviewPanel from './AIOutputReviewPanel';
 import { saveChatHistory, loadChatHistory, clearChatHistory, CHAT_KEYS } from '@/lib/chat-history';
 
 type Tab = 'pipeline' | 'configurator' | 'assistant';
@@ -625,6 +626,13 @@ export default function EngineeringDesignAssistant() {
                           <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white to-transparent" />
                         )}
                       </div>
+                      {expandedResults.has(i) && (
+                        <AIOutputReviewPanel
+                          content={msg.content}
+                          originalPrompt=""
+                          context="Thermax Engineering Design Assistant"
+                        />
+                      )}
                     </div>
                   )}
                 </div>

@@ -11,7 +11,7 @@ import { getStageResult, saveStageResult, getUpstreamResults } from '@/lib/clien
 import { sampleFilesByStage, type SampleFile } from '@/data/sample-files';
 import DownloadMenu from './DownloadMenu';
 import EnhanceToCraft from './EnhanceToCraft';
-import HallucinationDetector from './HallucinationDetector';
+import AIOutputReviewPanel from './AIOutputReviewPanel';
 
 type Role = 'user' | 'assistant';
 interface ChatMessage { role: Role; content: string; }
@@ -1464,9 +1464,10 @@ function MessageBubble({ role, content, streaming: isStreaming, agentName }: { r
                 )}
               </button>
             </div>
-            <HallucinationDetector
+            <AIOutputReviewPanel
               content={content}
               originalPrompt=""
+              context="Thermax Leadership AI Agent Chat"
             />
           </div>
         )}

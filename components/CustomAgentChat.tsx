@@ -5,7 +5,7 @@ import Markdown from './Markdown';
 import { recordCustomAgentRun, type CustomAgent as Agent } from '@/lib/client-store';
 import { saveChatHistory, loadChatHistory, clearChatHistory, CHAT_KEYS } from '@/lib/chat-history';
 import EnhanceToCraft from './EnhanceToCraft';
-import HallucinationDetector from './HallucinationDetector';
+import AIOutputReviewPanel from './AIOutputReviewPanel';
 
 type Role = 'user' | 'assistant';
 interface ChatMessage { role: Role; content: string; }
@@ -485,9 +485,10 @@ function CustomChatBubble({ message, isStreaming }: { message: ChatMessage; isSt
             <Markdown isStreaming={isStreaming}>{message.content}</Markdown>
             {!isStreaming && message.content && (
               <div className="mt-3 pt-2 border-t border-thermax-line/60">
-                <HallucinationDetector
+                <AIOutputReviewPanel
                   content={message.content}
                   originalPrompt=""
+                  context="Thermax Custom Agent Chat"
                 />
               </div>
             )}
