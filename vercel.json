@@ -34,6 +34,25 @@
     "app/api/validate-prompt/route.ts": {
       "maxDuration": 60
     },
+    "app/api/hallucination-check/route.ts": {
+      "maxDuration": 120,
+      "memory": 1024
+    },
+    "app/api/bias-check/route.ts": {
+      "maxDuration": 120,
+      "memory": 1024
+    },
+    "app/api/critical-factors-check/route.ts": {
+      "maxDuration": 120,
+      "memory": 1024
+    },
+    "app/api/enhance-prompt/route.ts": {
+      "maxDuration": 120
+    },
+    "app/api/ai-nexus/engineering-design/route.ts": {
+      "maxDuration": 300,
+      "memory": 1024
+    },
     "app/api/upload/route.ts": {
       "maxDuration": 120,
       "memory": 1024
